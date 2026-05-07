@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-06T18:18:17Z
-**Days tracked:** 24 | **Download snapshots:** 132 (hourly)
+**Last updated:** 2026-05-07T06:37:30Z
+**Days tracked:** 25 | **Download snapshots:** 133 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 192 | 62 |
-| Git Clones | 1021 | 317 |
+| Page Views | 189 | 59 |
+| Git Clones | 991 | 314 |
 
-> **Engagement:** 3.0 pages per visitor (14-day avg)
+> **Engagement:** 3.2 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 535 of 62 visitors cloned or downloaded (**862.9%**)
+> **14-day conversion:** 532 of 59 visitors cloned or downloaded (**901.6%**)
 >
-> Unique cloners: 317 | Release downloads: 218
+> Unique cloners: 314 | Release downloads: 218
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 218 |
-| Git Clones (14-day) | 1021 |
-| **Total Acquisitions** | **1239** |
+| Git Clones (14-day) | 991 |
+| **Total Acquisitions** | **1209** |
 
 ---
 
@@ -54,11 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 83 | 34 |
+| github.com | 80 | 33 |
 | Google | 7 | 7 |
 | Bing | 5 | 4 |
 | DuckDuckGo | 1 | 1 |
-| kingmods.net | 1 | 1 |
 | ntp.msn.com | 1 | 1 |
 | search.brave.com | 1 | 1 |
 
@@ -80,7 +79,7 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_FarmTablet` | 147 | 57 |
+| `/TheCodingDad-TisonK/FS25_FarmTablet` | 145 | 54 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.2.1.0` | 10 | 10 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/releases` | 6 | 6 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/blob/main/docs/general/apps-reference.md` | 4 | 2 |
