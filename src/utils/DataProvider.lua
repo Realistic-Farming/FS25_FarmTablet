@@ -98,6 +98,13 @@ end
 
 -- Hook Farm.changeBalance to accumulate session income/expenses.
 -- Safe to call multiple times — installs the hook only once.
+--
+-- Multiplayer note: this hook is LOCAL to the calling client.
+-- Dedicated servers never reach this code (main.lua bails out on g_dedicatedServer).
+-- On a listen server (host) all balance changes flow through here — full accuracy.
+-- On a pure client, FS25 updates farm.balance via network events that may bypass
+-- this Lua function, so session totals on clients will be incomplete.
+-- This is an accepted limitation: session income/expenses are best-effort in MP.
 function FT_DataProvider:initSessionTracking()
     if self._origChangeBalance then return end  -- already hooked
     if not Farm or not Farm.changeBalance then return end

@@ -6,6 +6,13 @@
 
 -- ── Helpers ───────────────────────────────────────────────
 
+-- Time/money/vehicle mutations are server-only operations in FS25 multiplayer.
+-- On a listen server the hosting client IS the server (getIsServer() == true).
+-- Pure clients must not call these directly — the changes would not sync.
+local function fa_isServer()
+    return g_currentMission ~= nil and g_currentMission:getIsServer()
+end
+
 local function fa_getFarmId()
     if g_localPlayer and g_localPlayer.farmId then
         return g_localPlayer.farmId
@@ -26,6 +33,7 @@ local function fa_getBalance()
 end
 
 local function fa_addMoney(amount)
+    if not fa_isServer() then return end
     local farmId = fa_getFarmId()
     pcall(function()
         local farm = g_farmManager:getFarmById(farmId)
@@ -44,12 +52,14 @@ local function fa_getScale()
 end
 
 local function fa_setScale(scale)
+    if not fa_isServer() then return end
     if g_currentMission then
         pcall(function() g_currentMission:setTimeScale(scale) end)
     end
 end
 
 local function fa_skipToHour(hour)
+    if not fa_isServer() then return end
     local env = g_currentMission and g_currentMission.environment
     if not env then return end
     local dayTimeMs    = math.floor(hour * 1000 * 60 * 60)
@@ -81,6 +91,7 @@ local function fa_getVehicles()
 end
 
 local function fa_repairAll()
+    if not fa_isServer() then return end
     for _, v in ipairs(fa_getVehicles()) do
         if v.spec_wearable then
             pcall(function() v:setDamageAmount(0, true) end)
@@ -89,6 +100,7 @@ local function fa_repairAll()
 end
 
 local function fa_fillAllFuel()
+    if not fa_isServer() then return end
     local farmId = fa_getFarmId()
     for _, v in ipairs(fa_getVehicles()) do
         local spec = v.spec_motorized
@@ -155,16 +167,34 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
                   "             on all your motorized vehicles." },
     }) then return end
 
+    -- In multiplayer, only the host/listen-server can use these controls.
+    -- Show a clear notice to clients so the silent no-ops aren't confusing.
+    local isServer = fa_isServer()
+
     local balance  = fa_getBalance()
     local curScale = fa_getScale()
     local vehicles = fa_getVehicles()
     local startY   = self:drawAppHeader("Farm Admin",
-        fa_formatMoney(balance))
+        isServer and fa_formatMoney(balance) or "Host Only")
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
     local BTN_H   = FT.py(22)
     local GAP     = FT.py(6)
+
+    -- Show notice and bail out for multiplayer clients
+    if not isServer then
+        self.r:appText(x + cw / 2, y - FT.py(14), FT.FONT.NORMAL,
+            "Host / listen-server only", RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self.r:appText(x + cw / 2, y - FT.py(30), FT.FONT.SMALL,
+            "These controls affect all players and",
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self.r:appText(x + cw / 2, y - FT.py(43), FT.FONT.SMALL,
+            "must be run by the session host.",
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self:setContentHeight(FT.py(60))
+        return
+    end
 
     -- ── MONEY ─────────────────────────────────────────────
     y = self:drawSection(y, "MONEY")
