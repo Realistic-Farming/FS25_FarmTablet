@@ -703,6 +703,176 @@ function FT_DataProvider:getSellPrices()
     end)
 end
 
+-- ── Fleet Vehicles ────────────────────────────────────────
+
+-- Returns all motorized vehicles owned by farmId with status details.
+-- out = { { name, fuelPct, fuelLitres, fuelCap, wearPct, opHours, aiActive } }
+-- Sorted by fuel % ascending (most urgent first).
+function FT_DataProvider:getFleetVehicles(farmId)
+    return self:_cached("fleet_"..farmId, 4000, function()
+        local out = {}
+        if not (g_currentMission and g_currentMission.vehicles) then return out end
+
+        for _, v in pairs(g_currentMission.vehicles) do
+            if v.spec_motorized and v.getOwnerFarmId and v:getOwnerFarmId() == farmId then
+                local name = (v.getFullName and v:getFullName())
+                          or v.configFileName or "Vehicle"
+
+                local fuel, fuelCap = 0, 1
+                local ms = v.spec_motorized
+                if ms then
+                    fuel    = ms.fuelFillLevel  or 0
+                    fuelCap = math.max(ms.fuelCapacity or 1, 1)
+                end
+
+                local wearPct = 0
+                if v.spec_wearable then
+                    local ws = v.spec_wearable
+                    if ws.totalAmount then
+                        wearPct = math.floor(ws.totalAmount * 100)
+                    elseif ws.getVehicleWearAmount then
+                        wearPct = math.floor(ws:getVehicleWearAmount() * 100)
+                    end
+                end
+
+                local opHours = 0
+                if v.operatingTime then
+                    opHours = math.floor(v.operatingTime / 3600000)
+                end
+
+                local aiActive = false
+                if v.getAIIsActive then
+                    local ok, val = pcall(function() return v:getAIIsActive() end)
+                    aiActive = ok and val == true
+                end
+
+                table.insert(out, {
+                    name       = name,
+                    fuelPct    = math.floor(fuel / fuelCap * 100),
+                    fuelLitres = math.floor(fuel),
+                    fuelCap    = math.floor(fuelCap),
+                    wearPct    = wearPct,
+                    opHours    = opHours,
+                    aiActive   = aiActive,
+                })
+            end
+        end
+
+        table.sort(out, function(a, b) return a.fuelPct < b.fuelPct end)
+        return out
+    end)
+end
+
+-- ── Production Buildings ──────────────────────────────────
+
+-- Helper: derive a readable name from a placeable object.
+local function _placeableName(p)
+    if not p then return "Building" end
+    if p.getName then
+        local ok, n = pcall(function() return p:getName() end)
+        if ok and n and n ~= "" then return n end
+    end
+    if p.getFullName then
+        local ok, n = pcall(function() return p:getFullName() end)
+        if ok and n and n ~= "" then return n end
+    end
+    local tn = p.typeName or p.className or ""
+    if tn ~= "" then
+        -- camelCase → words: "cheeseFactory" → "Cheese Factory"
+        tn = tn:gsub("(%u)", " %1"):gsub("^%s+", "")
+        if tn ~= "" then return tn end
+    end
+    local cf = (p.configFileName or ""):match("([^/\\]+)%.xml$") or ""
+    if cf ~= "" then
+        cf = cf:gsub("[_%-]+", " ")
+        cf = cf:gsub("(%a)([%w']*)", function(a, b) return a:upper()..b:lower() end)
+        return cf
+    end
+    return "Building"
+end
+
+-- Helper: get a fill type display name by index.
+local function _fillTypeName(idx)
+    if not g_fillTypeManager then return "?" end
+    local ft = g_fillTypeManager:getFillTypeByIndex(idx)
+    return ft and (ft.title or ft.name or ("Type "..idx)) or ("Type "..idx)
+end
+
+-- Returns all production points owned by farmId.
+-- out = { { name, activeCount, totalCount, inputs = {name,...}, outputs = {name,...} } }
+function FT_DataProvider:getProductionBuildings(farmId)
+    return self:_cached("prod_"..farmId, 5000, function()
+        local out = {}
+        local mgr = g_currentMission and g_currentMission.productionChainManager
+        if not mgr then return out end
+
+        local points = mgr:getProductionPointsForFarmId(farmId)
+        if not points then return out end
+
+        for _, pp in ipairs(points) do
+            local buildingName = _placeableName(pp.owningPlaceable)
+
+            -- Count enabled vs total productions
+            local active, total = 0, 0
+            if pp.productions then
+                for _, prod in pairs(pp.productions) do
+                    total = total + 1
+                    if prod.enabled then active = active + 1 end
+                end
+            end
+
+            -- Collect input fill type names
+            local inputs = {}
+            if pp.inputFillTypeIds then
+                for idx, _ in pairs(pp.inputFillTypeIds) do
+                    if type(idx) == "number" then
+                        table.insert(inputs, _fillTypeName(idx))
+                    end
+                end
+            end
+            table.sort(inputs)
+
+            -- Collect output fill type names
+            local outputs = {}
+            if pp.outputFillTypeIds then
+                for idx, _ in pairs(pp.outputFillTypeIds) do
+                    if type(idx) == "number" then
+                        table.insert(outputs, _fillTypeName(idx))
+                    end
+                end
+            end
+            table.sort(outputs)
+
+            table.insert(out, {
+                name        = buildingName,
+                activeCount = active,
+                totalCount  = total,
+                inputs      = inputs,
+                outputs     = outputs,
+            })
+        end
+
+        table.sort(out, function(a, b) return a.name < b.name end)
+        return out
+    end)
+end
+
+-- ── Farm Area ─────────────────────────────────────────────
+
+-- Returns total owned farmland area in hectares.
+function FT_DataProvider:getTotalFarmArea(farmId)
+    return self:_cached("farmarea_"..farmId, 10000, function()
+        local total = 0
+        if not g_farmlandManager then return total end
+        for _, fl in pairs(g_farmlandManager.farmlands) do
+            if fl.farmId == farmId then
+                total = total + (fl.areaInHa or 0)
+            end
+        end
+        return math.floor(total * 10) / 10  -- 1 decimal
+    end)
+end
+
 -- ── Helpers ───────────────────────────────────────────────
 
 --- Formats an integer money amount using the game's locale-aware formatter.
