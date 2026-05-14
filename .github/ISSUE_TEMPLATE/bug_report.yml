@@ -8,7 +8,7 @@ body:
         **Before opening this issue:**
         - Check that you are on the latest version of this mod.
         - Check that the bug has not already been reported.
-        - Read the log. The game log is at `%USERPROFILE%\Documents\My Games\FarmingSimulator2025\log.txt`. Filter for `[Farm Tablet]` lines.
+        - Read the log. The game log is at `%USERPROFILE%\Documents\My Games\FarmingSimulator2025\log.txt`. Filter for `[FarmTablet]` lines.
 
         Issues opened without a log snippet will be closed without response.
 
@@ -38,6 +38,7 @@ body:
         - Singleplayer
         - Multiplayer (host)
         - Multiplayer (client)
+        - Dedicated Server
     validations:
       required: true
 
@@ -46,7 +47,7 @@ body:
     attributes:
       label: What happened?
       description: Describe the bug clearly. What did you see? What did you expect to see?
-      placeholder: "The Farm Tablet does not open when pressing the assigned key."
+      placeholder: "The Soil app shows '--' for all nitrogen values even though SoilFertilizer is loaded and working. Switching to another app and back does not fix it."
     validations:
       required: true
 
@@ -56,9 +57,10 @@ body:
       label: Steps to Reproduce
       description: Exact steps that trigger the bug. If you cannot reproduce it reliably, say so.
       placeholder: |
-        1. Start a new game on Elmcreek
-        2. Press the Farm Tablet hotkey
-        3. Nothing happens
+        1. Start a new game with FarmTablet and SoilFertilizer active
+        2. Open the tablet (F key by default)
+        3. Navigate to the Soil app
+        4. All nutrient values show '--' instead of numbers
     validations:
       required: true
 
@@ -67,12 +69,14 @@ body:
     attributes:
       label: Log Snippet
       description: |
-        Paste all `[Farm Tablet]` lines from your log.txt covering the session where the bug occurred.
+        Paste all `[FarmTablet]` lines from your log.txt covering the session where the bug occurred.
         If there are errors (lines containing "Error" or "attempt to"), include the full stack trace.
       render: text
       placeholder: |
-        [Farm Tablet] FarmTablet initialized.
-        [Farm Tablet] ...
+        [FarmTablet] Initialized. Apps loaded: 6
+        [FarmTablet] SoilApp: attempting to read SoilFertilizer data...
+        [FarmTablet] SoilApp: g_SoilFertilityManager not found
+        ...
     validations:
       required: true
 
@@ -81,7 +85,7 @@ body:
     attributes:
       label: Other Mods Loaded
       description: List any other mods active in this save. You can paste the mod list from the game's mod manager.
-      placeholder: "FS25_NPCFavor, FS25_SoilFertilizer, Courseplay, AutoDrive, ..."
+      placeholder: "FS25_SoilFertilizer, FS25_IncomeMod, Courseplay, AutoDrive, ..."
     validations:
       required: true
 

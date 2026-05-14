@@ -28,22 +28,22 @@ jobs:
           script: |
             const author = context.payload.issue.user.login;
             const repoName = context.repo.repo;
-            const modName = repoName.replace('FS25_', '').replace(/([A-Z])/g, ' $1').trim();
 
             const body = [
-              `Hey @${author}, thanks for opening this issue! 👋`,
+              `Hey @${author}, your support ticket has been logged. 📱`,
               ``,
-              `@TheCodingDad-TisonK has been notified and will take a look as soon as possible.`,
+              `@TheCodingDad-TisonK has been notified and will boot up the debugging tools as soon as possible.`,
               ``,
-              `**While you wait, please double-check the following:**`,
+              `**Before the dev team digs in, please confirm:**`,
               ``,
-              `- [ ] You are running the latest version of ${modName} (visible in the mod manager)`,
-              `- [ ] Your issue includes relevant lines from \`log.txt\``,
+              `- [ ] You are running the latest version of Farm Tablet (visible in the mod manager)`,
+              `- [ ] Your issue includes the relevant \`[FarmTablet]\` lines from \`log.txt\``,
               `  - Log location: \`Documents/My Games/FarmingSimulator2025/log.txt\``,
-              `  - Search for \`[${modName}]\` — paste the relevant section in your issue`,
+              `  - Search for \`[FarmTablet]\` and paste the relevant section here`,
+              `- [ ] If this involves a specific app (Dashboard, Weather, Soil, Finance, etc.) — note which app and what it showed vs. what you expected`,
               `- [ ] You have searched [existing issues](https://github.com/${context.repo.owner}/${repoName}/issues) for a similar report`,
               ``,
-              `> **Important:** If this issue is missing a log snippet, it may be closed without investigation. A log is almost always required to reproduce bugs.`,
+              `> **Note:** Issues without a log snippet are difficult to diagnose and may be closed. UI and app bugs especially need log data to identify the root cause.`,
             ].join('\n');
 
             await github.rest.issues.createComment({
