@@ -322,7 +322,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     y = self:drawRow(y, "Version",     "v" .. FT.VERSION)
     y = self:drawRow(y, "Author",      "TisonK")
     y = self:drawRow(y, "Apps Loaded", tostring(#self.system.registry:getAll()))
-    y = self:drawRow(y, "Open Key",    tostring(s.tabletKeybind or "T"))
+    y = self:drawRow(y, "Open Key",    g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString() or "T")
 
     -- Console hint card
     y = y - FT.py(6)

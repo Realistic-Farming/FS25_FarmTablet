@@ -5,6 +5,13 @@
 
 -- ── Helpers ───────────────────────────────────────────────
 
+-- Time manipulation is a server-only operation in FS25 multiplayer.
+-- On a listen server the host IS the server (getIsServer() == true).
+-- Pure clients calling setTimeScale/setEnvironmentTime have no effect on other players.
+local function tc_isServer()
+    return g_currentMission ~= nil and g_currentMission:getIsServer()
+end
+
 local TC_SCALES = {
     {val = 0,   label = "⏸ PAUSE"},
     {val = 1,   label = "1×"},
@@ -22,12 +29,14 @@ local function tc_getScale()
 end
 
 local function tc_setScale(scale)
+    if not tc_isServer() then return end
     if g_currentMission then
         pcall(function() g_currentMission:setTimeScale(scale) end)
     end
 end
 
 local function tc_skipToHour(hour)
+    if not tc_isServer() then return end
     local env = g_currentMission and g_currentMission.environment
     if not env then return end
     local dayTimeMs = math.floor(hour * 1000 * 60 * 60)
@@ -69,12 +78,28 @@ FarmTabletUI:registerDrawer(FT.APP.TIME_CONTROLS, function(self)
                   "it advances to tomorrow at that time." },
     }) then return end
 
+    local isServer = tc_isServer()
     local cur    = tc_getScale()
-    local startY = self:drawAppHeader("Time Controls", tc_getTimeStr())
+    local startY = self:drawAppHeader("Time Controls",
+        isServer and tc_getTimeStr() or "Host Only")
     local x, _, cw, _ = self:contentInner()
     local y     = startY
     local BTN_H = FT.py(22)
     local GAP   = FT.py(6)
+
+    -- Show notice and bail out for multiplayer clients
+    if not isServer then
+        self.r:appText(x + cw / 2, y - FT.py(14), FT.FONT.NORMAL,
+            "Host / listen-server only", RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self.r:appText(x + cw / 2, y - FT.py(30), FT.FONT.SMALL,
+            "Time controls affect all players and",
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self.r:appText(x + cw / 2, y - FT.py(43), FT.FONT.SMALL,
+            "must be run by the session host.",
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        self:setContentHeight(FT.py(60))
+        return
+    end
 
     -- ── Time Scale ────────────────────────────────────────
     y = self:drawSection(y, "TIME SCALE")

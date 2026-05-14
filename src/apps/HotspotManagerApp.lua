@@ -39,6 +39,9 @@ local function hs_getIngameMap()
         and g_currentMission.hud.ingameMap
 end
 
+-- Hotspot removal is a LOCAL client-side operation — it only affects this player's
+-- map view. Other players' maps and the server are not affected. System hotspots
+-- (shops, missions) will reappear on server re-sync; this is intentional.
 local function hs_removeHotspot(hotspot)
     local im = hs_getIngameMap()
     if not im then return end

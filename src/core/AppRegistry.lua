@@ -128,6 +128,27 @@ AppRegistry.BUILTIN_APPS = {
         developer = "FarmTablet",   version = "Built-in",
         description = "Active contracts — completion, reward, time remaining",
     },
+    {
+        id = FT.APP.FLEET,      group = "farm",
+        name = "ft_ui_app_fleet_manager", navLabel = "FLEET",
+        icon = "fleet",             order = 23,
+        developer = "FarmTablet",   version = "Built-in",
+        description = "All owned vehicles — fuel, wear, operating hours",
+    },
+    {
+        id = FT.APP.PRODUCTION, group = "farm",
+        name = "ft_ui_app_production_buildings", navLabel = "PROD",
+        icon = "production",        order = 24,
+        developer = "FarmTablet",   version = "Built-in",
+        description = "Production building chains — inputs, outputs, active status",
+    },
+    {
+        id = FT.APP.FARM_STATS, group = "farm",
+        name = "ft_ui_app_farm_stats", navLabel = "STAT",
+        icon = "stats",             order = 25,
+        developer = "FarmTablet",   version = "Built-in",
+        description = "Comprehensive farm statistics snapshot",
+    },
     -- NOTE: Companion-mod apps (Income, Tax, NPC Favor, Crop Stress, Soil Fertilizer)
     -- are NOT pre-registered here. They are added dynamically by autoDetect() once the
     -- mission is loaded and the companion mod's global manager is confirmed present.

@@ -888,7 +888,7 @@ function FarmTabletUI:_drawWelcome()
         RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
     y = y - FT.py(22)
     self.r:appText(x, y, FT.FONT.SMALL,
-        "Press  " .. self.settings.tabletKeybind .. "  to close.",
+        "Press the tablet key to close.",
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
 end
 

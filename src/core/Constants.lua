@@ -4,7 +4,7 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.2.0.0"
+FT.VERSION = "2.3.0.0"
 
 -- ── Design Tokens ─────────────────────────────────────────
 -- Reference dimensions (at 1080p; scaled at runtime)
@@ -141,6 +141,9 @@ FT.APP_COLOR = {
     field_jobs          = {0.30, 0.75, 1.00, 1.00}, -- sky blue
     farm_admin          = {0.95, 0.30, 0.30, 1.00}, -- red
     contracts           = {0.95, 0.72, 0.15, 1.00}, -- amber-gold
+    fleet_manager       = {0.20, 0.85, 0.78, 1.00}, -- teal
+    production_buildings= {0.90, 0.62, 0.15, 1.00}, -- amber-orange
+    farm_stats          = {0.40, 0.88, 0.55, 1.00}, -- green-mint
 }
 
 -- Helper: get the accent color for a given app id
@@ -177,6 +180,9 @@ FT.APP = {
     FARM_ADMIN       = "farm_admin",
     FIELD_JOBS       = "field_jobs",
     CONTRACTS        = "contracts",
+    FLEET            = "fleet_manager",
+    PRODUCTION       = "production_buildings",
+    FARM_STATS       = "farm_stats",
 }
 
 -- Helper: scale a reference pixel value to normalized coords.

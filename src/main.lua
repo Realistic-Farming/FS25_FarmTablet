@@ -60,6 +60,9 @@ source(modDirectory .. "src/apps/NotesApp.lua")
 source(modDirectory .. "src/apps/FarmAdminApp.lua")
 source(modDirectory .. "src/apps/FieldJobsApp.lua")
 source(modDirectory .. "src/apps/ContractsApp.lua")
+source(modDirectory .. "src/apps/FleetManagerApp.lua")
+source(modDirectory .. "src/apps/ProductionBuildingsApp.lua")
+source(modDirectory .. "src/apps/FarmStatsApp.lua")
 
 local farmTabletManager
 
@@ -86,12 +89,14 @@ local function load(mission)
         Logging.info("[FarmTablet v2] Initializing...")
         farmTabletManager = FarmTabletManager.new(mission, modDirectory, modName)
         getfenv(0)["g_FarmTablet"] = farmTabletManager
+        addModEventListener(farmTabletManager)
         Logging.info("[FarmTablet v2] Ready.")
     end
 end
 
 local function unload()
     if farmTabletManager ~= nil then
+        removeModEventListener(farmTabletManager)
         farmTabletManager:delete()
         farmTabletManager = nil
         getfenv(0)["g_FarmTablet"] = nil

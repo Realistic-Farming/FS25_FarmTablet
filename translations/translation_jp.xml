@@ -52,6 +52,9 @@
         <text name="ft_ui_app_notes" text="Notes"/>
         <text name="ft_ui_app_farm_admin" text="Farm Admin"/>
         <text name="ft_ui_app_contracts" text="Keiyaku"/>
+        <text name="ft_ui_app_fleet_manager" text="Fleet Manager"/>
+        <text name="ft_ui_app_production_buildings" text="Production"/>
+        <text name="ft_ui_app_farm_stats" text="Farm Stats"/>
         <text name="ft_ui_app_field_jobs" text="Nochi Sagyo"/>
 
         <!-- ═══════════════════════════════════════════════ -->
