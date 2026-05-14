@@ -8,14 +8,14 @@ body:
         **Before opening this request:**
         - Check the roadmap in the README — your idea may already be planned.
         - Check open issues to avoid duplicates.
-        - Keep requests scoped and specific. "Improve the tablet" will be closed. "Add a dedicated crop calendar page showing planting and harvest windows" is actionable.
+        - Keep requests scoped and specific. "Improve the tablet" will be closed. "Add a crop calendar app that shows planting and harvest windows per crop type with the current season highlighted" is actionable.
 
   - type: textarea
     id: problem
     attributes:
       label: What problem does this solve?
       description: Describe the situation or frustration this would address. Focus on the problem, not the solution.
-      placeholder: "I have to switch between multiple UI panels to plan my week — it would be faster to have everything on one screen."
+      placeholder: "I have to open three different menus to see my field status, current finances, and the weather forecast. The tablet should let me do this on one screen."
     validations:
       required: true
 
@@ -24,7 +24,7 @@ body:
     attributes:
       label: Proposed Solution
       description: Describe what you want to happen. Be specific about the behavior, not just the concept.
-      placeholder: "Add a summary dashboard page that shows today's weather, pending field tasks, and current finances at a glance."
+      placeholder: "Add a Dashboard app as the default home screen that shows a summary widget for each installed app — today's weather, a mini field list with status icons, and the current balance — all without switching tabs."
     validations:
       required: true
 
@@ -37,17 +37,16 @@ body:
       required: false
 
   - type: dropdown
-    id: phase
+    id: area
     attributes:
       label: Which part of the mod does this relate to?
       options:
-        - Tablet UI / Layout
-        - Farm Overview Page
-        - Field Management Page
-        - Finance / Economy Page
-        - Settings / Configuration
-        - Multiplayer
-        - Mod Compatibility
+        - Dashboard
+        - App (specify which in description)
+        - New App Idea
+        - Settings / Keybind
+        - Performance
+        - Mod Integration
         - Other
     validations:
       required: true
