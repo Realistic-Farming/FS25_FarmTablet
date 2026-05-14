@@ -29,12 +29,6 @@
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
 
-    <actions>
-        <action name="FT_TOGGLE_TABLET" category="ONFOOT VEHICLE" axisType="HALF" ignoreComboMask="false">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_t"/>
-        </action>
-    </actions>
-
     <l10n filenamePrefix="translations/translation" defaultLanguage="en">
         <text name="input_FT_TOGGLE_TABLET">
             <en>Toggle Farm Tablet</en>
