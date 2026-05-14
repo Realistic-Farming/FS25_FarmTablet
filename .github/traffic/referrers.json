@@ -1045,8 +1045,8 @@
   "2026-05-14": [
     {
       "referrer": "github.com",
-      "count": 152,
-      "uniques": 53
+      "count": 159,
+      "uniques": 55
     },
     {
       "referrer": "kingmods.net",
@@ -1055,18 +1055,18 @@
     },
     {
       "referrer": "Google",
-      "count": 18,
+      "count": 19,
       "uniques": 11
     },
     {
       "referrer": "Bing",
-      "count": 4,
-      "uniques": 4
+      "count": 3,
+      "uniques": 3
     },
     {
       "referrer": "DuckDuckGo",
-      "count": 1,
-      "uniques": 1
+      "count": 2,
+      "uniques": 2
     },
     {
       "referrer": "search.brave.com",
