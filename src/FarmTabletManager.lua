@@ -95,10 +95,7 @@ function FarmTabletManager:onMissionLoaded()
 
     self.system:initialize()
 
-    -- inputHandler and UI only exist on clients (see constructor)
-    if self.inputHandler then
-        self.inputHandler:registerKeyBinding()
-    end
+    -- action events are registered via addModEventListener / registerActionEvents
 
     -- Welcome notification: client-only (HUD does not exist on server peers)
     if self.mission:getIsClient() and self.settings.enabled and self.settings.showTabletNotifications then
@@ -146,10 +143,30 @@ function FarmTabletManager:showNotification(title, message)
     end
 end
 
+function FarmTabletManager:registerActionEvents()
+    if not self.settings or not self.settings.enabled then return end
+    local _, eventId = g_inputBinding:registerActionEvent(
+        'FT_TOGGLE_TABLET', self, self.onToggleTabletAction,
+        false, true, false, true
+    )
+    if eventId then
+        self.toggleTabletEventId = eventId
+        g_inputBinding:setActionEventTextPriority(eventId, GS_PRIO_NORMAL)
+    end
+end
+
+function FarmTabletManager:removeActionEvents()
+    g_inputBinding:removeActionEventsByTarget(self)
+    self.toggleTabletEventId = nil
+end
+
+function FarmTabletManager:onToggleTabletAction(actionName, inputValue)
+    self:toggleTablet()
+end
+
 function FarmTabletManager:delete()
     if self.invoiceManager then self.invoiceManager:save() end
     if self.settings then self.settings:save() end
-    if self.inputHandler then self.inputHandler:unregisterKeyBinding() end
     if self.system then self.system:delete() end
     if self.ui then self.ui:delete() end
     if self.settingsGUI then self.settingsGUI:unregisterConsoleCommands() end
