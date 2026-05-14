@@ -119,26 +119,6 @@ function SettingsGUI:consoleCommandTabletToggle()
     return "Error: Farm Tablet not initialized"
 end
 
-function SettingsGUI:consoleCommandTabletKeybind(key)
-    if not key then
-        return "Usage: TabletKeybind [key]"
-    end
-    
-    if g_FarmTablet and g_FarmTablet.settings then
-        g_FarmTablet.settings:setKeybind(key)
-        g_FarmTablet.settings:save()
-        
-        -- Re-register input binding
-        if g_FarmTablet.inputHandler then
-            g_FarmTablet.inputHandler:registerKeyBinding()
-        end
-        
-        return string.format("Tablet keybind set to: %s", key)
-    end
-    
-    return "Error: Farm Tablet not initialized"
-end
-
 function SettingsGUI:consoleCommandTabletSetNotifications(enabled)
     if enabled == nil then
         return "Usage: TabletSetNotifications true|false"

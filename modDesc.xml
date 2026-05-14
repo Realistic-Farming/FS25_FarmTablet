@@ -29,6 +29,27 @@
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
 
+    <actions>
+        <action name="FT_TOGGLE_TABLET" category="ONFOOT VEHICLE" axisType="HALF" ignoreComboMask="false">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_t"/>
+        </action>
+    </actions>
+
+    <l10n filenamePrefix="translations/translation" defaultLanguage="en">
+        <text name="input_FT_TOGGLE_TABLET">
+            <en>Toggle Farm Tablet</en>
+            <de>Farm-Tablet ein-/ausblenden</de>
+            <fr>Afficher/Masquer la Tablette</fr>
+            <es>Alternar Tablet Agrícola</es>
+            <it>Mostra/Nascondi Tablet</it>
+            <cz>Zobrazit/Skrýt Tablet</cz>
+            <pl>Pokaż/Ukryj Tablet</pl>
+            <br>Alternar Tablet</br>
+            <uk>Показати/сховати планшет</uk>
+            <ru>Показать/скрыть планшет</ru>
+        </text>
+    </l10n>
+
     <helpLines>
 
         <!-- ── Category 1: Getting Started ──────────────────────── -->
@@ -154,5 +175,4 @@
         </category>
 
     </helpLines>
-    <l10n filenamePrefix="translations/translation" defaultLanguage="en"/>
 </modDesc>
