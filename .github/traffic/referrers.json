@@ -1275,5 +1275,37 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-05-21": [
+    {
+      "referrer": "github.com",
+      "count": 232,
+      "uniques": 66
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 51,
+      "uniques": 32
+    },
+    {
+      "referrer": "Google",
+      "count": 27,
+      "uniques": 14
+    },
+    {
+      "referrer": "forbidden-mods.de",
+      "count": 8,
+      "uniques": 2
+    },
+    {
+      "referrer": "Bing",
+      "count": 4,
+      "uniques": 4
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
