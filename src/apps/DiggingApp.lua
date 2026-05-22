@@ -93,7 +93,7 @@ FarmTabletUI:registerDrawer(FT.APP.DIGGING, function(self)
 
     local groundY = nil
     if getTerrainHeightAtWorldPos and g_terrainNode then
-        local ok, val = pcall(getTerrainHeightAtWorldPos, g_terrainNode, px, pz)
+        local ok, val = pcall(getTerrainHeightAtWorldPos, g_terrainNode, px, 0, pz)
         if ok then groundY = val end
     end
 

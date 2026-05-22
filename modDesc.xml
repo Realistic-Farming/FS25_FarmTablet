@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="106">
     <author>TisonK</author>
-    <version>2.3.1.0</version>
+    <version>2.3.1.1</version>
     <modName>FS25_FarmTablet</modName>
     <title>
         <en>Farm Tablet</en>
@@ -15,11 +15,13 @@
         <uk>Фермерський планшет</uk>
         <ru>Фермерский планшет</ru>
         <cn>农场平板</cn>
+        <da>Farm Tablet</da>
     </title>
     <description>
         <en>Farm Tablet v2 — Complete overhaul. Central tablet interface for farm management with sidebar navigation, rich data visualisation and modular app system.</en>
         <de>Farm Tablet v2 – Komplette Überarbeitung. Zentrale Tablet-Oberfläche mit Sidebar-Navigation, reichhaltiger Datenvisualisierung und modularem App-System.</de>
         <fr>Farm Tablet v2 — Refonte complète. Interface tablette centrale avec navigation latérale, visualisation de données avancée et système d'applications modulaire.</fr>
+        <da>Farm Tablet v2 — Komplet redesign. Central tabletgrænseflade til styring af gården med navigation i sidebjælken, detaljeret datavisualisering og et modulært app-system.</da>
     </description>
     <iconFilename>icon.dds</iconFilename>
 
@@ -28,12 +30,6 @@
     <extraSourceFiles>
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
-
-    <actions>
-        <action name="FT_TOGGLE_TABLET" category="ONFOOT VEHICLE" axisType="HALF" ignoreComboMask="false">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_t"/>
-        </action>
-    </actions>
 
     <l10n filenamePrefix="translations/translation" defaultLanguage="en">
         <text name="input_FT_TOGGLE_TABLET">
@@ -47,6 +43,7 @@
             <br>Alternar Tablet</br>
             <uk>Показати/сховати планшет</uk>
             <ru>Показать/скрыть планшет</ru>
+            <da>Skift Farm Tablet</da>
         </text>
     </l10n>
 
