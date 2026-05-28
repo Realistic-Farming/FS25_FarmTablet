@@ -831,7 +831,9 @@ end
 function FarmTabletUI:drawRule(y, alpha)
     local x, _, w, _ = self:contentInner()
     self.r:rule(x, y, w, alpha)
-    return y - FT.py(4)
+    -- FONT.SMALL ≈ FT.py(13.5) — gap must exceed text height or the next
+    -- section header's characters extend upward into the rule line.
+    return y - FT.py(16)
 end
 
 --- Draws a horizontal progress bar spanning the full content width.
@@ -1081,8 +1083,8 @@ function FarmTabletUI:_pollSidebarScroll()
     local downNow = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
 
     local dir = nil
-    if upNow   and not self._wheelUpWas   then dir =  1 end  -- scroll up → later apps
-    if downNow and not self._wheelDownWas then dir = -1 end  -- scroll down → earlier apps
+    if upNow   and not self._wheelUpWas   then dir = -1 end  -- scroll up → earlier apps (lower offset)
+    if downNow and not self._wheelDownWas then dir =  1 end  -- scroll down → later apps (higher offset)
 
     self._wheelUpWas   = upNow
     self._wheelDownWas = downNow

@@ -242,7 +242,11 @@ function FT_Renderer:flush(clipY, clipH)
     -- 5. App text (mixed in _buttons, clipped)
     for _, t in ipairs(self._buttons) do
         if t._isText then
-            if not doClip or inView(t.y or 0, t.size or 0) then
+            if t.x == nil or t.y == nil or t.size == nil then
+                -- Guard: skip corrupt entries; they would crash renderText with nil arg
+                Logging.devWarning("FarmTablet Renderer: skipped nil text entry — text=%s x=%s y=%s",
+                    tostring(t.text), tostring(t.x), tostring(t.y))
+            elseif not doClip or inView(t.y, t.size) then
                 setTextAlignment(t.align)
                 setTextColor(unpack(t.color))
                 renderText(t.x, t.y, t.size, t.text)
