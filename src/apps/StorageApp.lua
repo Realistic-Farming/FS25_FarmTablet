@@ -206,6 +206,15 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
     end
 
     self:setContentHeight(startY - y + scrollY)
+
+    -- Cover any content that scrolled into the header zone, then redraw header on top
+    local hx, hy, hw, hh = self:contentInner()
+    local shieldH = (hy + hh) - startY
+    if shieldH > 0 then
+        self.r:appRect(hx, startY, hw, shieldH, FT.C.BG_PANEL)
+    end
+    self:drawAppHeader("Storage", subtitle)
+
     self:drawScrollBar()
     self:drawInfoIcon("_storageHelp", AC)
 end)

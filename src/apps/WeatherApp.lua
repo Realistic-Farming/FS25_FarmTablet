@@ -61,8 +61,8 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     self.r:appRect(x, y - heroH, FT.px(4), heroH, condColor)
 
     local condLabel = {
-        storm="[!!]", rain="[~~]", fog="[..]",
-        overcast="[##]", cloudy="[~#]", clear="[**]",
+        storm="STORM", rain="RAIN", fog="FOG",
+        overcast="OVC", cloudy="CLOUD", clear="CLEAR",
     }
     self.r:appText(x + FT.px(14), y - heroH/2 + FT.py(4),
         0.028, condLabel[w.condKey] or "[?]", RenderText.ALIGN_LEFT, condColor)

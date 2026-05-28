@@ -1081,8 +1081,8 @@ function FarmTabletUI:_pollSidebarScroll()
     local downNow = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
 
     local dir = nil
-    if upNow   and not self._wheelUpWas   then dir = -1 end  -- scroll up → earlier apps
-    if downNow and not self._wheelDownWas then dir =  1 end  -- scroll down → later apps
+    if upNow   and not self._wheelUpWas   then dir =  1 end  -- scroll up → later apps
+    if downNow and not self._wheelDownWas then dir = -1 end  -- scroll down → earlier apps
 
     self._wheelUpWas   = upNow
     self._wheelDownWas = downNow
@@ -1135,8 +1135,8 @@ function FarmTabletUI:_pollContentScroll()
     local downNow = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
 
     local dir = nil
-    if upNow   and not self._cWheelUpWas   then dir =  1 end  -- wheel up   → scroll content up (reveal top)
-    if downNow and not self._cWheelDownWas then dir = -1 end  -- wheel down → scroll content down (reveal bottom)
+    if upNow   and not self._cWheelUpWas   then dir = -1 end  -- wheel up   → reveal top
+    if downNow and not self._cWheelDownWas then dir =  1 end  -- wheel down → reveal bottom
 
     self._cWheelUpWas   = upNow
     self._cWheelDownWas = downNow
@@ -1167,6 +1167,11 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- Always track cursor position (needed for scroll hover detection)
     self._mouseX = px
     self._mouseY = py
+
+    -- Consume scroll-wheel events to prevent camera zoom-in/out passing through
+    if isDown and (btn == Input.MOUSE_BUTTON_WHEEL_UP or btn == Input.MOUSE_BUTTON_WHEEL_DOWN) then
+        return true
+    end
 
     if not isDown then return false end
 

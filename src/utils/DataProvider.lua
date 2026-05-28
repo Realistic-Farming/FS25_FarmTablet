@@ -394,14 +394,23 @@ function FT_DataProvider:getOwnedFields(farmId)
                                 local ft2 = g_fruitTypeManager:getFruitTypeByIndex(fruitIdx)
                                 if ft2 then
                                     cropName = ft2.nameI18N or ft2.name or "Unknown"
-                                    local gs  = fieldState.growthState or 0
-                                    local gsd = GROWTH_STATES[gs] or { name="Growing", color=FT.C.WARNING }
-                                    stateName  = gsd.name
-                                    stateColor = gsd.color
-                                    if gs == 7 then
-                                        phase = "ready"
-                                    elseif gs > 0 then
-                                        phase = "growing"
+                                    local gs = fieldState.growthState or 0
+                                    if gs == 0 then
+                                        stateName  = "Empty"
+                                        stateColor = FT.C.MUTED
+                                        phase      = "empty"
+                                    else
+                                        local minH = ft2.minHarvestingGrowthState or 0
+                                        if minH > 0 and gs >= minH then
+                                            stateName  = "Ready"
+                                            stateColor = FT.C.POSITIVE
+                                            phase      = "ready"
+                                        else
+                                            local gsd  = GROWTH_STATES[gs] or { name="Growing", color=FT.C.WARNING }
+                                            stateName  = gsd.name
+                                            stateColor = gsd.color
+                                            phase      = "growing"
+                                        end
                                     end
                                 end
                             end
@@ -534,7 +543,7 @@ function FT_DataProvider:getNearbyVehicles(radiusM)
 
     local out = {}
     for _, v in pairs(g_currentMission.vehicles or {}) do
-        if v.rootNode and v.spec_motorized then
+        if v.rootNode and v.rootNode ~= 0 and v.spec_motorized then
             local vx, vy, vz = getWorldTranslation(v.rootNode)
             local dist = math.sqrt((px-vx)^2 + (py-vy)^2 + (pz-vz)^2)
             if dist <= radiusM then

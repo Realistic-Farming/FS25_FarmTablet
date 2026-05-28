@@ -378,7 +378,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     y = y - FT.py(6)
 
     -- ── Tell the system total content height so it can enable scrolling ──
-    local totalH = contentStartY - y
+    local totalH = contentStartY - y + scrollY
     self:setContentHeight(totalH)
 
     -- Info icon (drawn outside scroll so it's always visible)
