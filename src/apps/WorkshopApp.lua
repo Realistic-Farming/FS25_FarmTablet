@@ -55,7 +55,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     end
 
     local sel    = self.system.workshopSelectedVehicle
-    local startY = self:drawAppHeader("Workshop", #workshops .. " shop / " .. #nearby .. " near")
+    local startY = self:drawAppHeader("Workshop", #workshops .. " shops  |  " .. #nearby .. " vehicles nearby")
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y    = startY + scrollY

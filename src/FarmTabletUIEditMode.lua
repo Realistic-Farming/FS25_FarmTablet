@@ -54,10 +54,6 @@ function FarmTabletUI:_exitEditMode()
     self._emCamRotY      = nil
     self._emCamRotZ      = nil
 
-    if g_inputBinding and g_inputBinding.setShowMouseCursor then
-        g_inputBinding:setShowMouseCursor(false)
-    end
-
     self:_saveEditPosition()
     self:_unregisterEditMouseHandler()
 
@@ -143,6 +139,14 @@ function FarmTabletUI:_onEditMouse(px, py, isDown, isUp, btn)
     if not (hudX and hudW) then return false end
 
     if isDown and btn == 1 then
+        -- 0) Content buttons (e.g. EXIT EDIT MODE) take priority over drag
+        for _, cb in ipairs(self._contentBtns or {}) do
+            if not cb._isText and px >= cb.x and px <= cb.x+cb.w and py >= cb.y and py <= cb.y+cb.h then
+                if cb.meta and cb.meta.onClick then cb.meta.onClick() end
+                return true
+            end
+        end
+
         -- 1) Corner resize handles
         local corner = self:_emHitTestCorner(px, py)
         if corner then
