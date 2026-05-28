@@ -175,8 +175,11 @@ end
 
 local function _getFarmVehicles(farmId)
     local out = {}
-    if not (g_currentMission and g_currentMission.vehicles) then return out end
-    for _, v in pairs(g_currentMission.vehicles) do
+    local vehicles = g_currentMission
+        and g_currentMission.vehicleSystem
+        and g_currentMission.vehicleSystem.vehicles
+    if not vehicles then return out end
+    for _, v in pairs(vehicles) do
         if v.spec_motorized and v.getOwnerFarmId and v:getOwnerFarmId() == farmId then
             local name = (v.getFullName and v:getFullName())
                       or v.configFileName or "Unknown"

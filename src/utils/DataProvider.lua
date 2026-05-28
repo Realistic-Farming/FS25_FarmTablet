@@ -158,9 +158,11 @@ end
 function FT_DataProvider:getVehicleCount(farmId)
     return self:_cached("vehcount_"..farmId, 5000, function()
         local count = 0
-        if g_currentMission and g_currentMission.vehicles then
-            for _, v in pairs(g_currentMission.vehicles) do
-                -- use getOwnerFarmId() only – it is the authoritative method
+        local vehicles = g_currentMission
+            and g_currentMission.vehicleSystem
+            and g_currentMission.vehicleSystem.vehicles
+        if vehicles then
+            for _, v in pairs(vehicles) do
                 if v.spec_motorized and v.getOwnerFarmId then
                     if v:getOwnerFarmId() == farmId then count = count + 1 end
                 end
@@ -347,17 +349,40 @@ end
 
 -- ── Fields ────────────────────────────────────────────────
 
-local GROWTH_STATES = {
-    [0]  = { name = "Withered",   color = FT.C.NEGATIVE  },
-    [1]  = { name = "Seeded",     color = FT.C.MUTED     },
-    [2]  = { name = "Germinated", color = FT.C.INFO      },
-    [3]  = { name = "Growing",    color = FT.C.WARNING   },
-    [4]  = { name = "Growing",    color = FT.C.WARNING   },
-    [5]  = { name = "Growing",    color = FT.C.WARNING   },
-    [6]  = { name = "Ripening",   color = FT.C.BRAND     },
-    [7]  = { name = "Ready",      color = FT.C.POSITIVE  },
-    [8]  = { name = "Harvested",  color = FT.C.MUTED     },
-}
+-- Determines the display name and color for a fruit growth state using
+-- the same logic as FS25's MapOverlayGenerator (minHarvestingGrowthState,
+-- harvestTransitions, witheredState). Avoids the static 0-8 table which
+-- gives wrong results for crops with more than 8 growth stages (e.g. Canola).
+local function _resolveGrowthState(gs, ft2)
+    if gs == 0 or ft2 == nil then
+        return "Empty", FT.C.MUTED, "empty"
+    end
+    local minH = ft2.minHarvestingGrowthState or 0
+    local maxH = ft2.maxHarvestingGrowthState or minH
+    -- Ready to harvest
+    if minH > 0 and gs >= minH and gs <= maxH then
+        return "Ready", FT.C.POSITIVE, "ready"
+    end
+    -- Post-harvest stubble state (harvestTransitions set is crop-specific)
+    if ft2.harvestTransitions then
+        for _, hState in pairs(ft2.harvestTransitions) do
+            if gs == hState then
+                return "Harvested", FT.C.MUTED, "empty"
+            end
+        end
+    end
+    -- Withered
+    if ft2.witheredState and gs == ft2.witheredState then
+        return "Withered", FT.C.NEGATIVE, "withered"
+    end
+    -- Growing stages (1 .. minH-1)
+    if gs == 1 then return "Seeded",     FT.C.MUTED,    "growing" end
+    if gs == 2 then return "Germinated", FT.C.INFO,     "growing" end
+    if minH > 0 and gs == minH - 1 then
+        return "Ripening", FT.C.BRAND, "growing"
+    end
+    return "Growing", FT.C.WARNING, "growing"
+end
 
 -- Each Farmland links to ONE Field via farmland.field (set by FieldManager).
 -- Crop/growth state must be queried via FieldState:update(cx, cz), not from field directly.
@@ -395,23 +420,7 @@ function FT_DataProvider:getOwnedFields(farmId)
                                 if ft2 then
                                     cropName = ft2.nameI18N or ft2.name or "Unknown"
                                     local gs = fieldState.growthState or 0
-                                    if gs == 0 then
-                                        stateName  = "Empty"
-                                        stateColor = FT.C.MUTED
-                                        phase      = "empty"
-                                    else
-                                        local minH = ft2.minHarvestingGrowthState or 0
-                                        if minH > 0 and gs >= minH then
-                                            stateName  = "Ready"
-                                            stateColor = FT.C.POSITIVE
-                                            phase      = "ready"
-                                        else
-                                            local gsd  = GROWTH_STATES[gs] or { name="Growing", color=FT.C.WARNING }
-                                            stateName  = gsd.name
-                                            stateColor = gsd.color
-                                            phase      = "growing"
-                                        end
-                                    end
+                                    stateName, stateColor, phase = _resolveGrowthState(gs, ft2)
                                 end
                             end
                         end
@@ -527,24 +536,35 @@ end
 
 function FT_DataProvider:getNearbyVehicles(radiusM)
     radiusM = radiusM or 20
-    if not g_localPlayer then return {} end
 
     local px, py, pz
-    local player = g_localPlayer
-    local seatedVehicle = player.getCurrentVehicle and player:getCurrentVehicle()
-
-    if seatedVehicle and seatedVehicle.rootNode then
-        px, py, pz = getWorldTranslation(seatedVehicle.rootNode)
-    elseif player.rootNode then
-        px, py, pz = getWorldTranslation(player.rootNode)
-    else
-        return {}
+    if g_localPlayer then
+        -- Check getIsInVehicle before calling getCurrentVehicle to avoid
+        -- stale/invalid returns when the player is on foot.
+        if g_localPlayer.getIsInVehicle and g_localPlayer:getIsInVehicle() then
+            local sv = g_localPlayer.getCurrentVehicle and g_localPlayer:getCurrentVehicle()
+            if sv and sv.rootNode and sv.rootNode ~= 0 then
+                local ok, x, y, z = pcall(getWorldTranslation, sv.rootNode)
+                if ok then px, py, pz = x, y, z end
+            end
+        end
+        if not px and g_localPlayer.rootNode then
+            local ok, x, y, z = pcall(getWorldTranslation, g_localPlayer.rootNode)
+            if ok then px, py, pz = x, y, z end
+        end
     end
+    if not px then return {} end
+
+    local vehicles = g_currentMission
+        and g_currentMission.vehicleSystem
+        and g_currentMission.vehicleSystem.vehicles
+    if not vehicles then return {} end
 
     local out = {}
-    for _, v in pairs(g_currentMission.vehicles or {}) do
+    for _, v in pairs(vehicles) do
         if v.rootNode and v.rootNode ~= 0 and v.spec_motorized then
-            local vx, vy, vz = getWorldTranslation(v.rootNode)
+            local ok, vx, vy, vz = pcall(getWorldTranslation, v.rootNode)
+            if ok and vx then
             local dist = math.sqrt((px-vx)^2 + (py-vy)^2 + (pz-vz)^2)
             if dist <= radiusM then
                 local name = (v.getFullName and v:getFullName()) or
@@ -585,9 +605,10 @@ function FT_DataProvider:getNearbyVehicles(radiusM)
                     wearPct  = wearPct,
                     opHours  = opHours,
                 })
-            end
-        end
-    end
+            end  -- dist <= radiusM
+            end  -- ok and vx
+        end  -- spec_motorized
+    end  -- for vehicles
     table.sort(out, function(a,b) return a.distance < b.distance end)
     return out
 end
@@ -720,9 +741,12 @@ end
 function FT_DataProvider:getFleetVehicles(farmId)
     return self:_cached("fleet_"..farmId, 4000, function()
         local out = {}
-        if not (g_currentMission and g_currentMission.vehicles) then return out end
+        local vehicles = g_currentMission
+            and g_currentMission.vehicleSystem
+            and g_currentMission.vehicleSystem.vehicles
+        if not vehicles then return out end
 
-        for _, v in pairs(g_currentMission.vehicles) do
+        for _, v in pairs(vehicles) do
             if v.spec_motorized and v.getOwnerFarmId and v:getOwnerFarmId() == farmId then
                 local name = (v.getFullName and v:getFullName())
                           or v.configFileName or "Vehicle"
