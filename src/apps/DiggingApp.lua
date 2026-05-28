@@ -42,13 +42,40 @@ FarmTabletUI:registerDrawer(FT.APP.DIGGING, function(self)
 
     local px, py, pz = 0, 0, 0
     local hasPlayer = false
-    if g_localPlayer and g_localPlayer.rootNode then
-        hasPlayer = true
-        local cv = g_currentMission and g_currentMission.controlledVehicle
-        if cv and cv.rootNode and cv.rootNode ~= 0 then
-            px, py, pz = getWorldTranslation(cv.rootNode)
-        else
-            px, py, pz = getWorldTranslation(g_localPlayer.rootNode)
+
+    if g_localPlayer then
+        if g_localPlayer.getIsInVehicle and g_localPlayer:getIsInVehicle() then
+            -- In a vehicle: use the active cabin camera node for the operator's
+            -- true world position (correct X/Y/Z for terrain-relative readings).
+            local veh = g_localPlayer.getCurrentVehicle and g_localPlayer:getCurrentVehicle()
+            if veh then
+                local se     = veh.spec_enterable
+                local camNode = se and se.activeCamera and se.activeCamera.cameraNode
+                if camNode and camNode ~= 0 then
+                    local ok, cx, cy, cz = pcall(getWorldTranslation, camNode)
+                    if ok and cx then
+                        hasPlayer = true
+                        px, py, pz = cx, cy, cz
+                    end
+                end
+                -- Fallback: vehicle rootNode gives correct X/Z; Y may be off but
+                -- is still far better than g_currentMission.controlledVehicle.
+                if not hasPlayer and veh.rootNode and veh.rootNode ~= 0 then
+                    local ok, vx, vy, vz = pcall(getWorldTranslation, veh.rootNode)
+                    if ok and vx then
+                        hasPlayer = true
+                        px, py, pz = vx, vy, vz
+                    end
+                end
+            end
+        end
+        -- On foot (or vehicle detection fell through): player's own rootNode.
+        if not hasPlayer and g_localPlayer.rootNode then
+            local ok, rx, ry, rz = pcall(getWorldTranslation, g_localPlayer.rootNode)
+            if ok and rx then
+                hasPlayer = true
+                px, py, pz = rx, ry, rz
+            end
         end
     end
 
