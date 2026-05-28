@@ -419,8 +419,8 @@ function FarmTabletUI:_drawTopbar()
 
     -- Current app name
     local app = self.system.registry:get(self.system.currentApp)
-    local appName = (app and g_i18n and g_i18n:getText(app.name)) or
-                    (app and app.navLabel) or ""
+    local appName = (app and g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
+                    or (app and app.navLabel) or ""
     r:text(L.topbarX + L.topbarW/2,
            L.topbarY + L.topbarH/2 - FT.py(3),
            FT.FONT.SMALL, appName,
@@ -1083,8 +1083,10 @@ function FarmTabletUI:_pollSidebarScroll()
     local downNow = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
 
     local dir = nil
-    if upNow   and not self._wheelUpWas   then dir = -1 end  -- scroll up → earlier apps (lower offset)
-    if downNow and not self._wheelDownWas then dir =  1 end  -- scroll down → later apps (higher offset)
+    -- Sidebar renders bottom-to-top: slot 0 = bottom, higher slots = top.
+    -- Wheel UP should reveal later apps at the top → increase offset.
+    if upNow   and not self._wheelUpWas   then dir =  1 end
+    if downNow and not self._wheelDownWas then dir = -1 end
 
     self._wheelUpWas   = upNow
     self._wheelDownWas = downNow
