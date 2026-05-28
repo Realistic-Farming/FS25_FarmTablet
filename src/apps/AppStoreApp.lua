@@ -69,7 +69,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
         if list and #list > 0 then
             y = self:drawSection(y, groupLabels[gid] or gid:upper())
             for _, app in ipairs(list) do
-                local dispName = (g_i18n and g_i18n:getText(app.name)) or app.navLabel or app.id
+                local dispName = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name)) or app.navLabel or app.id
                 y = self:_drawAppRow(y, app, dispName, x, cw, false)
             end
             y = y - FT.py(4)
@@ -82,7 +82,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
     for _, known in ipairs(KNOWN_INTEGRATIONS) do
         local app       = self.system.registry:get(known.appId)
         local installed = app ~= nil
-        local dispName  = (installed and g_i18n and g_i18n:getText(app.name))
+        local dispName  = (installed and g_i18n and app and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
                        or known.label
         y = self:_drawAppRow(y, app, dispName, x, cw, not installed, known)
     end
