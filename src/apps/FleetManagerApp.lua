@@ -65,11 +65,6 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
                 "[AI]", RenderText.ALIGN_RIGHT, FT.C.INFO)
         end
 
-        -- Hours (top-right)
-        self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
-            v.opHours .. "h", RenderText.ALIGN_RIGHT,
-            v.aiActive and FT.C.TEXT_DIM or FT.C.TEXT_DIM)
-
         -- ── Fuel bar ──────────────────────────────────────
         local fuelColor = v.fuelPct >= 50 and FT.C.POSITIVE
                        or v.fuelPct >= 20 and FT.C.WARNING

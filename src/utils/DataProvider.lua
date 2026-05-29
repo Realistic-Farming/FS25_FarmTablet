@@ -570,23 +570,19 @@ function FT_DataProvider:getNearbyVehicles(radiusM)
                 local name = (v.getFullName and v:getFullName()) or
                              v.configFileName or "Unknown"
 
-                -- Fuel is on spec_motorized
+                -- Fuel: read via FillUnit API (propellantFillUnitIndices[1])
                 local fuel, fuelCap = 0, 1
                 local ms = v.spec_motorized
-                if ms then
-                    fuel    = ms.fuelFillLevel or 0
-                    fuelCap = math.max(ms.fuelCapacity or 1, 1)
+                if ms and ms.propellantFillUnitIndices and #ms.propellantFillUnitIndices > 0 then
+                    local idx = ms.propellantFillUnitIndices[1]
+                    fuel    = v:getFillUnitFillLevel(idx) or 0
+                    fuelCap = math.max(v:getFillUnitCapacity(idx) or 1, 1)
                 end
 
-                -- Wear
+                -- Wear: spec_wearable.damage is mechanical damage (0-1)
                 local wearPct = 0
                 if v.spec_wearable then
-                    local ws = v.spec_wearable
-                    if ws.totalAmount then
-                        wearPct = math.floor(ws.totalAmount * 100)
-                    elseif ws.getVehicleWearAmount then
-                        wearPct = math.floor(ws:getVehicleWearAmount() * 100)
-                    end
+                    wearPct = math.floor((v.spec_wearable.damage or 0) * 100)
                 end
 
                 -- operatingTime is on the vehicle root table in milliseconds
@@ -753,19 +749,15 @@ function FT_DataProvider:getFleetVehicles(farmId)
 
                 local fuel, fuelCap = 0, 1
                 local ms = v.spec_motorized
-                if ms then
-                    fuel    = ms.fuelFillLevel  or 0
-                    fuelCap = math.max(ms.fuelCapacity or 1, 1)
+                if ms and ms.propellantFillUnitIndices and #ms.propellantFillUnitIndices > 0 then
+                    local idx = ms.propellantFillUnitIndices[1]
+                    fuel    = v:getFillUnitFillLevel(idx) or 0
+                    fuelCap = math.max(v:getFillUnitCapacity(idx) or 1, 1)
                 end
 
                 local wearPct = 0
                 if v.spec_wearable then
-                    local ws = v.spec_wearable
-                    if ws.totalAmount then
-                        wearPct = math.floor(ws.totalAmount * 100)
-                    elseif ws.getVehicleWearAmount then
-                        wearPct = math.floor(ws:getVehicleWearAmount() * 100)
-                    end
+                    wearPct = math.floor((v.spec_wearable.damage or 0) * 100)
                 end
 
                 local opHours = 0
