@@ -426,13 +426,16 @@ function FT_DataProvider:getOwnedFields(farmId)
                         end
                     end
 
+                    -- Use field:getAreaHa() for the cultivatable field area;
+                    -- fl.areaInHa is land area (includes borders) which reads ~0.3 Ha too high
+                    local areaHa = (field.getAreaHa and field:getAreaHa()) or fl.areaInHa or 0
                     table.insert(out, {
                         id         = fl.id,
                         cropName   = cropName,
                         stateName  = stateName,
                         stateColor = stateColor,
                         phase      = phase,
-                        area       = fl.areaInHa or 0,
+                        area       = areaHa,
                     })
                 end
             end
