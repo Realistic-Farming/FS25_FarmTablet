@@ -7,6 +7,7 @@
 
 local _todos        = {}   -- {text=string, done=bool}
 local _templateIdx  = 1
+local _fieldIdx     = 0    -- 0 = "Any field"; >0 = index into _ownedFieldNums
 
 local TEMPLATES = {
     "Harvest crops",
@@ -30,6 +31,29 @@ local TEMPLATES = {
     "Check weather",
     "Field maintenance",
 }
+
+-- ── Owned field helper ───────────────────────────────────
+
+local function notes_getOwnedFieldNums()
+    local result = {}
+    if not g_localPlayer or not g_farmlandManager or not g_fieldManager then
+        return result
+    end
+    local farmId = g_localPlayer.farmId
+    if not farmId then return result end
+    local farmlandIds = g_farmlandManager:getOwnedFarmlandIdsByFarmId(farmId)
+    for _, farmlandId in ipairs(farmlandIds) do
+        local field = g_fieldManager.farmlandIdFieldMapping[farmlandId]
+        if field then
+            local fid = field:getId()
+            if fid then
+                table.insert(result, fid)
+            end
+        end
+    end
+    table.sort(result)
+    return result
+end
 
 -- ── Save / Load ───────────────────────────────────────────
 
@@ -98,7 +122,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     if self:drawHelpPage("_notesHelp", FT.APP.NOTES, "Notes", AC, {
         { title = "TODO LIST",
           body  = "Keep track of farm tasks.\n\n" ..
-                  "Use ◀ / ▶ to select a task template,\n" ..
+                  "Use < / > to select a task template and field,\n" ..
                   "then + ADD to add it to the list.\n" ..
                   "Todos are saved automatically per savegame." },
         { title = "ACTIONS",
@@ -125,7 +149,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     local template  = TEMPLATES[_templateIdx] or "---"
 
     -- Prev arrow
-    local btnPrev = self.r:button(x, y - BTN_H, arrowW, BTN_H, "◀",
+    local btnPrev = self.r:button(x, y - BTN_H, arrowW, BTN_H, "<",
         FT.C.BTN_NEUTRAL, {
         onClick = function()
             _templateIdx = ((_templateIdx - 2) % #TEMPLATES) + 1
@@ -142,7 +166,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
     -- Next arrow
     local btnNext = self.r:button(x + arrowW + FT.px(3) + labelW + FT.px(3),
-        y - BTN_H, arrowW, BTN_H, "▶", FT.C.BTN_NEUTRAL, {
+        y - BTN_H, arrowW, BTN_H, ">", FT.C.BTN_NEUTRAL, {
         onClick = function()
             _templateIdx = (_templateIdx % #TEMPLATES) + 1
         end
@@ -150,11 +174,55 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     table.insert(self._contentBtns, btnNext)
     y = y - BTN_H - GAP
 
+    -- ── Field picker ──────────────────────────────────────
+    local ownedFields = notes_getOwnedFieldNums()
+    local total = #ownedFields + 1  -- slot 0 = "Any field"
+    if _fieldIdx >= total then _fieldIdx = 0 end
+
+    if #ownedFields == 0 then
+        self.r:appRect(x, y - BTN_H, cw, BTN_H, FT.C.BG_CARD)
+        self.r:appText(x + cw * 0.5, y - BTN_H * 0.5 - FT.py(5),
+            FT.FONT.SMALL, "No fields owned",
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    else
+        local fieldLabel = _fieldIdx == 0
+            and "Any field"
+            or ("Field " .. tostring(ownedFields[_fieldIdx]))
+
+        local btnFPrev = self.r:button(x, y - BTN_H, arrowW, BTN_H, "<",
+            FT.C.BTN_NEUTRAL, {
+            onClick = function()
+                _fieldIdx = (_fieldIdx - 1 + total) % total
+            end
+        })
+        table.insert(self._contentBtns, btnFPrev)
+
+        self.r:appRect(x + arrowW + FT.px(3), y - BTN_H,
+            labelW, BTN_H, FT.C.BG_CARD)
+        self.r:appText(x + arrowW + FT.px(3) + labelW * 0.5,
+            y - BTN_H * 0.5 - FT.py(5),
+            FT.FONT.SMALL, fieldLabel, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+
+        local btnFNext = self.r:button(x + arrowW + FT.px(3) + labelW + FT.px(3),
+            y - BTN_H, arrowW, BTN_H, ">", FT.C.BTN_NEUTRAL, {
+            onClick = function()
+                _fieldIdx = (_fieldIdx + 1) % total
+            end
+        })
+        table.insert(self._contentBtns, btnFNext)
+    end
+    y = y - BTN_H - GAP
+
     -- Add button
     local btnAdd = self.r:button(x, y - BTN_H, cw, BTN_H,
         "+ ADD TODO", FT.C.BTN_PRIMARY, {
         onClick = function()
-            table.insert(_todos, {text = TEMPLATES[_templateIdx], done = false})
+            local todoText = TEMPLATES[_templateIdx]
+            local fields = notes_getOwnedFieldNums()
+            if _fieldIdx > 0 and fields[_fieldIdx] then
+                todoText = todoText .. " - Field " .. tostring(fields[_fieldIdx])
+            end
+            table.insert(_todos, {text = todoText, done = false})
             notes_save()
         end
     })
@@ -190,8 +258,8 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
             -- Task label
             local label = todo.text or ""
-            if string.len(label) > 21 then
-                label = string.sub(label, 1, 20) .. "…"
+            if string.len(label) > 28 then
+                label = string.sub(label, 1, 27) .. "…"
             end
             self.r:appText(x + statusW + FT.px(3), y - FT.py(6),
                 FT.FONT.SMALL, label, RenderText.ALIGN_LEFT,

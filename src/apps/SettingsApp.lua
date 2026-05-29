@@ -183,7 +183,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     -- Master toggle
     local sfxLabel = s.soundEffects and "SOUND EFFECTS: ON" or "SOUND EFFECTS: OFF"
     y = y - BTN_H
-    self:drawButton(y, sfxLabel, s.soundEffects and FT.C.POSITIVE or FT.C.MUTED, {
+    self:drawButton(y, sfxLabel, s.soundEffects and FT.C.BTN_PRIMARY or FT.C.MUTED, {
         onClick = function()
             s.soundEffects = not s.soundEffects
             s:save()
@@ -196,7 +196,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local asLabel = s.soundOnAppSelect and "APP SELECT SOUND: ON" or "APP SELECT SOUND: OFF"
     local asActive = s.soundEffects and s.soundOnAppSelect
     y = y - BTN_H
-    self:drawButton(y, asLabel, asActive and FT.C.POSITIVE or FT.C.MUTED, {
+    self:drawButton(y, asLabel, asActive and FT.C.BTN_PRIMARY or FT.C.MUTED, {
         onClick = function()
             playClickSound(s)
             s.soundOnAppSelect = not s.soundOnAppSelect
@@ -213,7 +213,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local hpLabel  = s.soundOnHelpOpen and "HELP PANEL SOUND: ON" or "HELP PANEL SOUND: OFF"
     local hpActive = s.soundEffects and s.soundOnHelpOpen
     y = y - BTN_H
-    self:drawButton(y, hpLabel, hpActive and FT.C.POSITIVE or FT.C.MUTED, {
+    self:drawButton(y, hpLabel, hpActive and FT.C.BTN_PRIMARY or FT.C.MUTED, {
         onClick = function()
             playClickSound(s)
             s.soundOnHelpOpen = not s.soundOnHelpOpen
@@ -230,7 +230,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local tcLabel  = s.soundOnTabletToggle and "TABLET OPEN/CLOSE SOUND: ON" or "TABLET OPEN/CLOSE SOUND: OFF"
     local tcActive = s.soundEffects and (s.soundOnTabletToggle ~= false)
     y = y - BTN_H
-    self:drawButton(y, tcLabel, tcActive and FT.C.POSITIVE or FT.C.MUTED, {
+    self:drawButton(y, tcLabel, tcActive and FT.C.BTN_PRIMARY or FT.C.MUTED, {
         onClick = function()
             playClickSound(s)
             s.soundOnTabletToggle = not (s.soundOnTabletToggle ~= false)
@@ -323,18 +323,27 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     y = self:drawRow(y, "Author",      "TisonK")
     y = self:drawRow(y, "Apps Loaded", tostring(#self.system.registry:getAll()))
     y = self:drawRow(y, "Open Key",    g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString() or "T")
+    y = y - FT.py(4)
+    self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Docs / Releases:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - FT.py(14)
+    self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
+        "github.com/TheCodingDad-TisonK/FS25_FarmTablet",
+        RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+    y = y - FT.py(16)
+    self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Bug Reports:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - FT.py(14)
+    self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
+        "github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues",
+        RenderText.ALIGN_LEFT, FT.C.BRAND)
 
     -- Console hint card
     y = y - FT.py(6)
-    local cardH = FT.py(38)
+    local cardH = FT.py(26)
     self.r:appRect(cx - FT.px(4), y - cardH, cw + FT.px(8), cardH, FT.C.BG_CARD)
     self.r:appText(cx + FT.px(8), y - FT.py(8),
         FT.FONT.TINY, "Type  tablet  in console for all commands.",
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    self.r:appText(cx + FT.px(8), y - FT.py(22),
-        FT.FONT.TINY, "Right-click tablet while open to enter resize / move mode.",
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    self.r:appText(cx + FT.px(8), y - FT.py(34),
+    self.r:appText(cx + FT.px(8), y - FT.py(20),
         FT.FONT.TINY, "Scroll wheel over this panel to scroll settings.",
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - cardH - FT.py(8)
@@ -355,27 +364,6 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
         end
     })
     y = y - BTN_GAP
-
-    -- ── ABOUT ─────────────────────────────────────────────
-    y = y - FT.py(10)
-    y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "ABOUT")
-
-    y = self:drawRow(y, "Version", "v" .. FT.VERSION)
-    y = self:drawRow(y, "Author",  "TisonK")
-    y = y - FT.py(4)
-    self.r:appText(x, y, FT.FONT.SMALL, "Docs / Releases:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    y = y - FT.py(14)
-    self.r:appText(x, y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet",
-        RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-    y = y - FT.py(18)
-    self.r:appText(x, y, FT.FONT.SMALL, "Bug Reports / Issues:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    y = y - FT.py(14)
-    self.r:appText(x, y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues",
-        RenderText.ALIGN_LEFT, FT.C.BRAND)
-    y = y - FT.py(6)
 
     -- ── Tell the system total content height so it can enable scrolling ──
     local totalH = contentStartY - y + scrollY

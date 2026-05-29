@@ -205,12 +205,17 @@ end
 
 --- Renders all queued drawables for the current frame.
 --- Draw order: chrome overlays → app overlays (clipped) → cover strips → text.
---- clipY / clipH: content-area bounds used for vertical culling of app-layer items.
---- Items whose Y range does not intersect [clipY, clipY+clipH] are skipped.
+--- clipY / clipH: content-area bounds used for culling and GPU clip rect.
 function FT_Renderer:flush(clipY, clipH)
     local doClip = (clipY ~= nil and clipH ~= nil)
     local clipTop    = doClip and (clipY + clipH) or nil
     local clipBottom = doClip and clipY or nil
+
+    -- Native FS25 clip rect for app overlays — prevents any bleed past content edges
+    local cx1 = doClip and FT.LAYOUT.contentX or nil
+    local cy1 = doClip and clipY or nil
+    local cx2 = doClip and (FT.LAYOUT.contentX + FT.LAYOUT.contentW) or nil
+    local cy2 = doClip and (clipY + clipH) or nil
 
     local function inView(oy, oh)
         if not doClip then return true end
@@ -221,11 +226,11 @@ function FT_Renderer:flush(clipY, clipH)
     for _, ov in ipairs(self._overlays) do
         if ov and ov.render then ov:render() end
     end
-    -- 2. App overlays (scrolled content, clipped)
+    -- 2. App overlays (scrolled content, clipped via native clip rect)
     for _, ov in ipairs(self._appLayer) do
         if ov and ov.render and not ov._isText then
             if not doClip or inView(ov.y or 0, ov.h or 0) then
-                ov:render()
+                ov:render(cx1, cy1, cx2, cy2)
             end
         end
     end
