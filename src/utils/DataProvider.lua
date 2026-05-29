@@ -838,11 +838,12 @@ function FT_DataProvider:getProductionBuildings(farmId)
             local buildingName = _placeableName(pp.owningPlaceable)
 
             -- Count enabled vs total productions
+            -- Field may be prod.enabled or prod.isEnabled depending on FS25 version
             local active, total = 0, 0
             if pp.productions then
                 for _, prod in pairs(pp.productions) do
                     total = total + 1
-                    if prod.enabled then active = active + 1 end
+                    if prod.enabled or prod.isEnabled then active = active + 1 end
                 end
             end
 
