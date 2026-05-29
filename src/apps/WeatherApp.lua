@@ -66,10 +66,8 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     }
     self.r:appText(x + FT.px(10), y - heroH/2 + FT.py(2),
         FT.FONT.HEADER, condLabel[w.condKey] or "?", RenderText.ALIGN_LEFT, condColor)
-    self.r:appText(x + FT.px(62), y - heroH/2 + FT.py(12),
-        FT.FONT.TITLE, w.condition, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
     local tempStr = w.temperature ~= nil and string.format("%.1f C", w.temperature) or "-- C"
-    self.r:appText(x + FT.px(62), y - heroH/2 - FT.py(4),
+    self.r:appText(x + FT.px(62), y - heroH/2 + FT.py(2),
         FT.FONT.BODY, tempStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     if w.windSpeed and w.windSpeed > 0 then
         self.r:appText(x + cw - FT.px(10), y - heroH/2 + FT.py(10),
