@@ -13473,7 +13473,7 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-05-31T12:16:47Z",
+    "timestamp": "2026-05-31T18:03:46Z",
     "date": "2026-05-31",
     "views": {
       "count": 616,
@@ -13581,7 +13581,7 @@
       {
         "assets": [
           {
-            "downloads": 26,
+            "downloads": 30,
             "name": "FS25_FarmTablet.zip"
           }
         ],
@@ -13805,7 +13805,7 @@
         "tag": "v1.1.0.0"
       }
     ],
-    "stars": 10,
+    "stars": 9,
     "forks": 0,
     "watchers": 1
   }
