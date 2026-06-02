@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-02T00:15:06Z
-**Days tracked:** 49 | **Download snapshots:** 260 (hourly)
+**Last updated:** 2026-06-02T18:40:57Z
+**Days tracked:** 49 | **Download snapshots:** 262 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 667 | 91 |
-| Git Clones | 812 | 317 |
+| Page Views | 654 | 91 |
+| Git Clones | 804 | 307 |
 
-> **Engagement:** 7.3 pages per visitor (14-day avg)
+> **Engagement:** 7.1 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 718 of 91 visitors cloned or downloaded (**789.0%**)
+> **14-day conversion:** 709 of 91 visitors cloned or downloaded (**779.1%**)
 >
-> Unique cloners: 317 | Release downloads: 401
+> Unique cloners: 307 | Release downloads: 402
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 401 |
-| Git Clones (14-day) | 812 |
-| **Total Acquisitions** | **1213** |
+| Zip Downloads | 402 |
+| Git Clones (14-day) | 804 |
+| **Total Acquisitions** | **1206** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 407 | 57 |
-| Google | 28 | 9 |
+| github.com | 406 | 59 |
+| Google | 28 | 8 |
 | kingmods.net | 21 | 14 |
 | Yahoo | 5 | 1 |
 | Bing | 1 | 1 |
@@ -79,10 +79,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_FarmTablet` | 284 | 89 |
-| `/TheCodingDad-TisonK/FS25_FarmTablet/issues` | 45 | 7 |
+| `/TheCodingDad-TisonK/FS25_FarmTablet` | 280 | 89 |
+| `/TheCodingDad-TisonK/FS25_FarmTablet/issues` | 44 | 6 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/releases` | 29 | 21 |
-| `/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2` | 23 | 18 |
+| `/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2` | 25 | 19 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.1.1` | 20 | 15 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/issues/59` | 19 | 2 |
 | `/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.1` | 16 | 9 |

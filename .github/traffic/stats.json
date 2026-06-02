@@ -14147,26 +14147,26 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-06-02T00:14:51Z",
+    "timestamp": "2026-06-02T18:40:39Z",
     "date": "2026-06-02",
     "views": {
-      "count": 667,
+      "count": 654,
       "uniques": 91
     },
     "clones": {
-      "count": 812,
-      "uniques": 317
+      "count": 804,
+      "uniques": 307
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 407,
-        "uniques": 57
+        "count": 406,
+        "uniques": 59
       },
       {
         "referrer": "Google",
         "count": 28,
-        "uniques": 9
+        "uniques": 8
       },
       {
         "referrer": "kingmods.net",
@@ -14193,14 +14193,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
-        "count": 284,
+        "count": 280,
         "uniques": 89
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
         "title": "/issues",
-        "count": 45,
-        "uniques": 7
+        "count": 44,
+        "uniques": 6
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
@@ -14211,8 +14211,8 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2",
         "title": "/releases/tag/v2.3.2.2",
-        "count": 23,
-        "uniques": 18
+        "count": 25,
+        "uniques": 19
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.1.1",
@@ -14255,7 +14255,7 @@
       {
         "assets": [
           {
-            "downloads": 37,
+            "downloads": 38,
             "name": "FS25_FarmTablet.zip"
           }
         ],
