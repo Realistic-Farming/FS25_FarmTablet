@@ -1769,8 +1769,8 @@
   "2026-06-05": [
     {
       "referrer": "github.com",
-      "count": 392,
-      "uniques": 57
+      "count": 387,
+      "uniques": 58
     },
     {
       "referrer": "Google",
@@ -1789,8 +1789,8 @@
     },
     {
       "referrer": "Bing",
-      "count": 2,
-      "uniques": 2
+      "count": 3,
+      "uniques": 3
     },
     {
       "referrer": "search.brave.com",

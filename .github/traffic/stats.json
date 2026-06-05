@@ -15158,21 +15158,21 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-06-05T00:09:52Z",
+    "timestamp": "2026-06-05T12:39:26Z",
     "date": "2026-06-05",
     "views": {
-      "count": 644,
-      "uniques": 90
+      "count": 635,
+      "uniques": 93
     },
     "clones": {
-      "count": 784,
-      "uniques": 293
+      "count": 771,
+      "uniques": 292
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 392,
-        "uniques": 57
+        "count": 387,
+        "uniques": 58
       },
       {
         "referrer": "Google",
@@ -15191,8 +15191,8 @@
       },
       {
         "referrer": "Bing",
-        "count": 2,
-        "uniques": 2
+        "count": 3,
+        "uniques": 3
       },
       {
         "referrer": "search.brave.com",
@@ -15204,8 +15204,8 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
-        "count": 276,
-        "uniques": 88
+        "count": 270,
+        "uniques": 91
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
@@ -15244,16 +15244,16 @@
         "uniques": 9
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/tree/main/translations",
-        "title": "/tree/main/translations",
-        "count": 15,
-        "uniques": 2
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues/new",
         "title": "/issues/new",
         "count": 15,
         "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/tree/main/translations",
+        "title": "/tree/main/translations",
+        "count": 14,
+        "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues/58",
