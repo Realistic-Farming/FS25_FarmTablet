@@ -1801,18 +1801,18 @@
   "2026-06-06": [
     {
       "referrer": "github.com",
-      "count": 387,
-      "uniques": 58
+      "count": 370,
+      "uniques": 52
     },
     {
       "referrer": "Google",
-      "count": 29,
-      "uniques": 7
+      "count": 28,
+      "uniques": 6
     },
     {
       "referrer": "kingmods.net",
-      "count": 20,
-      "uniques": 14
+      "count": 13,
+      "uniques": 9
     },
     {
       "referrer": "Yahoo",
@@ -1821,8 +1821,8 @@
     },
     {
       "referrer": "Bing",
-      "count": 3,
-      "uniques": 3
+      "count": 2,
+      "uniques": 2
     },
     {
       "referrer": "search.brave.com",

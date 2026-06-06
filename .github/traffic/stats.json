@@ -15495,31 +15495,31 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-06-06T00:07:34Z",
+    "timestamp": "2026-06-06T12:05:21Z",
     "date": "2026-06-06",
     "views": {
-      "count": 635,
-      "uniques": 93
+      "count": 602,
+      "uniques": 81
     },
     "clones": {
-      "count": 771,
-      "uniques": 292
+      "count": 749,
+      "uniques": 279
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 387,
-        "uniques": 58
+        "count": 370,
+        "uniques": 52
       },
       {
         "referrer": "Google",
-        "count": 29,
-        "uniques": 7
+        "count": 28,
+        "uniques": 6
       },
       {
         "referrer": "kingmods.net",
-        "count": 20,
-        "uniques": 14
+        "count": 13,
+        "uniques": 9
       },
       {
         "referrer": "Yahoo",
@@ -15528,8 +15528,8 @@
       },
       {
         "referrer": "Bing",
-        "count": 3,
-        "uniques": 3
+        "count": 2,
+        "uniques": 2
       },
       {
         "referrer": "search.brave.com",
@@ -15541,20 +15541,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
-        "count": 270,
-        "uniques": 91
+        "count": 249,
+        "uniques": 79
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
         "title": "/issues",
-        "count": 44,
-        "uniques": 6
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
-        "title": "/releases",
-        "count": 29,
-        "uniques": 21
+        "count": 43,
+        "uniques": 5
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2",
@@ -15563,16 +15557,22 @@
         "uniques": 19
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.1.1",
-        "title": "/releases/tag/v2.3.1.1",
-        "count": 20,
-        "uniques": 15
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
+        "title": "/releases",
+        "count": 26,
+        "uniques": 18
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues/59",
         "title": "/issues/59",
         "count": 19,
         "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.1.1",
+        "title": "/releases/tag/v2.3.1.1",
+        "count": 16,
+        "uniques": 11
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.1",
@@ -15603,7 +15603,7 @@
       {
         "assets": [
           {
-            "downloads": 40,
+            "downloads": 45,
             "name": "FS25_FarmTablet.zip"
           }
         ],
