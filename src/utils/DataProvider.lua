@@ -840,15 +840,16 @@ function FT_DataProvider:getProductionBuildings(farmId)
         for _, pp in ipairs(points) do
             local buildingName = _placeableName(pp.owningPlaceable)
 
-            -- Count enabled vs total productions
-            -- Field may be prod.enabled or prod.isEnabled depending on FS25 version
-            local active, total = 0, 0
-            if pp.productions then
-                for _, prod in pairs(pp.productions) do
-                    total = total + 1
-                    if prod.enabled or prod.isEnabled then active = active + 1 end
-                end
-            end
+            -- Count enabled vs total productions.
+            -- A production's enabled state is reflected by membership in
+            -- pp.activeProductions (the array of productions the player has
+            -- switched on) — NOT by a field on the pp.productions definitions.
+            -- Reading prod.enabled off the definitions always saw nil and
+            -- reported "stalled" while a production was actually running (#72).
+            -- Verified against SDK objects/ProductionPoint.lua: writeStream
+            -- iterates #self.activeProductions; self.productions is all defs.
+            local total  = (pp.productions and #pp.productions) or 0
+            local active = (pp.activeProductions and #pp.activeProductions) or 0
 
             -- Collect input fill type names
             local inputs = {}

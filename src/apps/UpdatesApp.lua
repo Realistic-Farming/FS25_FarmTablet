@@ -4,6 +4,17 @@
 
 local CHANGELOG = {
     {
+        version = "2.3.2.3",
+        date    = "2026",
+        changes = {
+            "Fix: paging arrows and toggles now update instantly (removed an up-to-4s delay)",
+            "Fix: Production app no longer reads 'stalled' while a production is running",
+            "Fix: Soil app shows N/P/K in ppm so the numbers match the Soil Fertilizer HUD",
+            "Change: renamed the confusing 'DESEL' button to 'UNPIN' (Workshop and Income)",
+            "Fix: vehicle camera no longer zooms when scrolling inside the tablet",
+        },
+    },
+    {
         version = "2.2.0.0",
         date    = "2026",
         changes = {

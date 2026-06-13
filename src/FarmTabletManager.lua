@@ -95,6 +95,19 @@ function FarmTabletManager:onMissionLoaded()
 
     self.system:initialize()
 
+    -- Suppress vehicle camera zoom (scroll wheel) while the tablet is open.
+    -- The mouseEvent handler already returns eventUsed=true for wheel buttons,
+    -- but InputAction.CAMERA_ZOOM_IN_OUT is a separate system that ignores that.
+    if self.mission:getIsClient() and Enterable and Enterable.actionEventCameraZoomInOut then
+        self._origCameraZoom = Enterable.actionEventCameraZoomInOut
+        Enterable.actionEventCameraZoomInOut = function(vehicle, actionName, inputValue, ...)
+            if g_FarmTablet and g_FarmTablet.ui and g_FarmTablet.ui.isOpen then
+                return
+            end
+            return self._origCameraZoom(vehicle, actionName, inputValue, ...)
+        end
+    end
+
     -- Welcome notification: client-only (HUD does not exist on server peers)
     if self.mission:getIsClient() and self.settings.enabled and self.settings.showTabletNotifications then
         local title = string.format("Farm Tablet %s", FT.VERSION or "v2")
@@ -143,6 +156,10 @@ end
 
 
 function FarmTabletManager:delete()
+    if self._origCameraZoom then
+        Enterable.actionEventCameraZoomInOut = self._origCameraZoom
+        self._origCameraZoom = nil
+    end
     if self.invoiceManager then self.invoiceManager:save() end
     if self.settings then self.settings:save() end
     if self.system then self.system:delete() end

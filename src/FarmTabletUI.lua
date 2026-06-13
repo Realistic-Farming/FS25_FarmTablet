@@ -1203,6 +1203,16 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
            py >= cb.y and py <= cb.y+cb.h then
             if cb.meta and cb.meta.onClick then
                 cb.meta.onClick()
+                -- Content is retained-mode: the click only mutated app state.
+                -- Redraw immediately so the change is visible now instead of
+                -- waiting up to 4s for the live-refresh timer in update() — that
+                -- delay is what made paging arrows/toggles feel laggy (#75).
+                -- Skip if the click closed the tablet or switched app (which
+                -- already rebuilt content).
+                if self.isOpen then
+                    self:_drawContent()
+                    self._contentTimer = 0
+                end
             end
             return true
         end

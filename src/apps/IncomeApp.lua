@@ -455,7 +455,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         { title = "SELECT A FIELD",
           body  = "Click SELECT on any field row to open its detailed\n" ..
                   "soil profile in the panel below the list.\n" ..
-                  "Click DESEL to close the detail view." },
+                  "Click UNPIN to close the detail view." },
         { title = "NUTRIENT COLOURS",
           body  = "Green = Good  |  Yellow = Fair  |  Red = Poor.\n" ..
                   "All four nutrients should be green for optimal yield.\n" ..
@@ -558,7 +558,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
         local fid = f.id
         local btn = self.r:button(x + cw - btnW, y - FT.py(2), btnW, btnH,
-            isSel and "DESEL" or "SELECT", isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
+            isSel and "UNPIN" or "SELECT", isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 self.system.soilSelectedField = isSel and nil or fid
                 self:switchApp(FT.APP.SOIL_FERT)
@@ -592,9 +592,18 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         else return FT.C.NEGATIVE end
     end
 
-    if info.nitrogen   then y = self:drawRow(y, "Nitrogen",   info.nitrogen.value   .. "  (" .. info.nitrogen.status   .. ")", nil, nutrientColor(info.nitrogen.status))   end
-    if info.phosphorus then y = self:drawRow(y, "Phosphorus", info.phosphorus.value .. "  (" .. info.phosphorus.status .. ")", nil, nutrientColor(info.phosphorus.status)) end
-    if info.potassium  then y = self:drawRow(y, "Potassium",  info.potassium.value  .. "  (" .. info.potassium.status  .. ")", nil, nutrientColor(info.potassium.status))  end
+    -- Show N/P/K in ppm to match the Soil Fertilizer HUD/PDA, which scale the
+    -- internal 0-100 value by SoilConstants.PPM_DISPLAY. Reading the raw value
+    -- here made the tablet numbers disagree with the mod's own display (#73).
+    -- SoilConstants is a global owned by FS25_SoilFertilizer; resolve it the
+    -- same defensive way as the manager above, and fall back to 1:1 just in case.
+    local SC  = SoilConstants or getfenv(0)["SoilConstants"]
+    local ppm = (SC and SC.PPM_DISPLAY) or { N = 1, P = 1, K = 1 }
+    local function ppmVal(v, factor) return math.floor(v * (factor or 1) + 0.5) end
+
+    if info.nitrogen   then y = self:drawRow(y, "Nitrogen",   ppmVal(info.nitrogen.value,   ppm.N) .. " ppm  (" .. info.nitrogen.status   .. ")", nil, nutrientColor(info.nitrogen.status))   end
+    if info.phosphorus then y = self:drawRow(y, "Phosphorus", ppmVal(info.phosphorus.value, ppm.P) .. " ppm  (" .. info.phosphorus.status .. ")", nil, nutrientColor(info.phosphorus.status)) end
+    if info.potassium  then y = self:drawRow(y, "Potassium",  ppmVal(info.potassium.value,  ppm.K) .. " ppm  (" .. info.potassium.status  .. ")", nil, nutrientColor(info.potassium.status))  end
     if info.pH then
         local phColor = (info.pH >= 6.0 and info.pH <= 7.5) and FT.C.POSITIVE or FT.C.WARNING
         y = self:drawRow(y, "pH", string.format("%.1f", info.pH), nil, phColor)
