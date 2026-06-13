@@ -14,10 +14,10 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
           body  = "Any vehicle within 35 metres appears automatically.\n" ..
                   "Walk closer to a machine to see it in the list.\n" ..
                   "Up to 6 vehicles are shown at a time." },
-        { title = "SELECT / DESELECT",
+        { title = "SELECT / UNPIN",
           body  = "Click SELECT on a vehicle to pin its diagnostics in\n" ..
                   "the panel below. Pinned vehicles stay visible even\n" ..
-                  "when you walk away. Click DESEL to unpin." },
+                  "when you walk away. Click UNPIN to release it." },
         { title = "FUEL BAR",
           body  = "Shows current fuel level, litres remaining, and tank\n" ..
                   "capacity (e.g. 78%  (390L / 500L)).\n" ..
@@ -116,7 +116,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
             v.wearPct > 65 and wearColor or FT.C.TEXT_DIM)
         local vehicle = v.vehicle
         local btn = self.r:button(x + cw - btnW, y - FT.py(2), btnW, btnH,
-            isSel and "DESEL" or "SELECT", isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
+            isSel and "UNPIN" or "SELECT", isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 self.system.workshopSelectedVehicle = isSel and nil or vehicle
                 self:switchApp(FT.APP.WORKSHOP)
