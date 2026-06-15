@@ -4,6 +4,14 @@
 
 local CHANGELOG = {
     {
+        version = "2.3.2.4",
+        date    = "2026",
+        changes = {
+            "New: Worker Costs app now shows the Pro-Staff roster — level, hours, jobs, and fatigue per worker",
+            "New: roster section scrolls; multiplayer clients see a host-managed note until sync lands",
+        },
+    },
+    {
         version = "2.3.2.3",
         date    = "2026",
         changes = {
