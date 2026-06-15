@@ -4,6 +4,17 @@
 
 local CHANGELOG = {
     {
+        version = "2.4.0.0",
+        date    = "2026",
+        changes = {
+            "New: Personnel (Pro-Staff) app — a dedicated HR command center for Worker Costs",
+            "New: Roster tab — sort/filter workers, pin to your vehicle, fire (two-tap, severance applies)",
+            "New: Hire tab — recruitment pool with per-candidate level and signing cost; reroll candidates",
+            "New: Payroll tab — wage structure, running estimate, and the Pro-Staff cost impact per worker",
+            "New: fully multiplayer — actions route to the host and sync back to everyone",
+        },
+    },
+    {
         version = "2.3.2.4",
         date    = "2026",
         changes = {

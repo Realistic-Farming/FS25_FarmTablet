@@ -464,6 +464,7 @@ local APP_ICONS = {
     [FT.APP.NPC_FAVOR]  = "NP",
     [FT.APP.CROP_STRESS]= "CS",
     [FT.APP.SOIL_FERT]  = "SF",
+    [FT.APP.PERSONNEL]  = "PS",
 }
 
 function FarmTabletUI:_drawSidebar()
