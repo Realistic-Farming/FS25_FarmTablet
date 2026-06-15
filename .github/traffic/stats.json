@@ -18219,7 +18219,7 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-06-15T06:26:34Z",
+    "timestamp": "2026-06-15T18:27:34Z",
     "date": "2026-06-15",
     "views": {
       "count": 257,
@@ -18319,6 +18319,24 @@
       }
     ],
     "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.4.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.4"
+      },
       {
         "assets": [
           {
@@ -18545,14 +18563,6 @@
           }
         ],
         "tag": "v1.1.0.5"
-      },
-      {
-        "assets": [],
-        "tag": "v1.1.0.1"
-      },
-      {
-        "assets": [],
-        "tag": "v1.1.0.0"
       }
     ],
     "stars": 12,
