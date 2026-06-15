@@ -2067,18 +2067,18 @@
   "2026-06-15": [
     {
       "referrer": "github.com",
-      "count": 137,
-      "uniques": 54
+      "count": 98,
+      "uniques": 50
     },
     {
       "referrer": "kingmods.net",
-      "count": 26,
-      "uniques": 20
+      "count": 42,
+      "uniques": 28
     },
     {
       "referrer": "Google",
       "count": 20,
-      "uniques": 6
+      "uniques": 7
     },
     {
       "referrer": "Bing",
@@ -2087,11 +2087,6 @@
     },
     {
       "referrer": "ecosia.org",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "referrer": "search.brave.com",
       "count": 1,
       "uniques": 1
     }

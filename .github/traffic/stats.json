@@ -18219,31 +18219,31 @@
     "watchers": 1
   },
   {
-    "timestamp": "2026-06-15T00:12:00Z",
+    "timestamp": "2026-06-15T06:26:34Z",
     "date": "2026-06-15",
     "views": {
-      "count": 267,
-      "uniques": 104
+      "count": 257,
+      "uniques": 109
     },
     "clones": {
-      "count": 614,
-      "uniques": 218
+      "count": 611,
+      "uniques": 214
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 137,
-        "uniques": 54
+        "count": 98,
+        "uniques": 50
       },
       {
         "referrer": "kingmods.net",
-        "count": 26,
-        "uniques": 20
+        "count": 42,
+        "uniques": 28
       },
       {
         "referrer": "Google",
         "count": 20,
-        "uniques": 6
+        "uniques": 7
       },
       {
         "referrer": "Bing",
@@ -18254,11 +18254,6 @@
         "referrer": "ecosia.org",
         "count": 1,
         "uniques": 1
-      },
-      {
-        "referrer": "search.brave.com",
-        "count": 1,
-        "uniques": 1
       }
     ],
     "popular_paths": [
@@ -18266,31 +18261,43 @@
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
         "count": 167,
-        "uniques": 97
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2",
-        "title": "/releases/tag/v2.3.2.2",
-        "count": 22,
-        "uniques": 12
+        "uniques": 102
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
         "title": "/releases",
-        "count": 12,
-        "uniques": 11
+        "count": 15,
+        "uniques": 14
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.3",
         "title": "/releases/tag/v2.3.2.3",
-        "count": 11,
-        "uniques": 10
+        "count": 14,
+        "uniques": 13
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases/tag/v2.3.2.2",
+        "title": "/releases/tag/v2.3.2.2",
+        "count": 12,
+        "uniques": 7
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
+        "title": "/issues",
+        "count": 9,
+        "uniques": 5
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/tree/main/translations",
         "title": "/tree/main/translations",
-        "count": 8,
-        "uniques": 2
+        "count": 7,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues/78",
+        "title": "/issues/78",
+        "count": 5,
+        "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/blob/main/docs/general/apps-reference.md",
@@ -18299,35 +18306,23 @@
         "uniques": 2
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
-        "title": "/issues",
-        "count": 4,
-        "uniques": 4
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues/77",
+        "title": "/issues/77",
+        "count": 3,
+        "uniques": 2
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/blob/main/docs/developer/writing-an-app.md",
-        "title": "/blob/main/docs/developer/writing-an-app.md",
-        "count": 3,
-        "uniques": 3
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/blob/main/docs/general/getting-started.md",
-        "title": "/blob/main/docs/general/getting-started.md",
-        "count": 3,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/tree/main",
-        "title": "/tree/main",
-        "count": 3,
-        "uniques": 1
+        "path": "/TheCodingDad-TisonK/FS25_FarmTablet/blob/main/FS25_FarmTablet.zip",
+        "title": "/blob/main/FS25_FarmTablet.zip",
+        "count": 2,
+        "uniques": 2
       }
     ],
     "releases": [
       {
         "assets": [
           {
-            "downloads": 26,
+            "downloads": 27,
             "name": "FS25_FarmTablet.zip"
           }
         ],
