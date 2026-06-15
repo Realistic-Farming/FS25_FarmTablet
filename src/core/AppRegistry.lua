@@ -320,6 +320,17 @@ function AppRegistry:autoDetect()
                 description = "Worker wages and cost breakdown",
             })
         end
+        -- Personnel (Pro-Staff) — dedicated HR management app, same dependency.
+        if not self:has(FT.APP.PERSONNEL) then
+            Logging.info("[FarmTablet] autoDetect: Personnel (Pro-Staff) app enabled")
+            self:register({
+                id = FT.APP.PERSONNEL, group = "mods",
+                name = "ft_ui_app_personnel", navLabel = "STAFF",
+                icon = "personnel", order = 27,
+                developer = "TisonK", version = "Integrated",
+                description = "Pro-Staff personnel management — hire, fire, assign, payroll",
+            })
+        end
     end
 
     -- Random World Events

@@ -43,6 +43,7 @@
         <text name="ft_ui_app_soil_fertilizer" text="Engrais du sol"/>
         <text name="ft_ui_app_market_dynamics" text="Dynamique du marché"/>
         <text name="ft_ui_app_worker_costs" text="Coûts des ouvriers"/>
+        <text name="ft_ui_app_personnel" text="Personnel"/>
         <text name="ft_ui_app_random_world_events" text="Événements aléatoires"/>
         <text name="ft_ui_app_used_plus" text="UsedPlus"/>
         <text name="ft_ui_app_roleplay_phone" text="Factures"/>
