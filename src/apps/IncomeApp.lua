@@ -701,7 +701,8 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
         { title = "WHAT THIS APP SHOWS",
           body  = "Displays FS25_WorkerCosts status:\n" ..
                   "current wage level, cost mode, active\n" ..
-                  "workers, and month-to-date costs." },
+                  "workers, and month-to-date costs.\n" ..
+                  "Scroll down for the Pro-Staff roster." },
         { title = "WAGE LEVEL",
           body  = "Sets the per-hour wage rate for hired workers.\n" ..
                   "Low / Medium / High tiers are configured in\n" ..
@@ -713,12 +714,21 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
         { title = "MONTH COSTS",
           body  = "Total wages accumulated this month.\n" ..
                   "Resets after the monthly salary is paid." },
+        { title = "PRO-STAFF ROSTER",
+          body  = "Your hired workers with their level\n" ..
+                  "(Novice / Experienced / Master), lifetime hours,\n" ..
+                  "jobs completed, and current fatigue bar.\n" ..
+                  "This view is read-only — hire, fire, and assign\n" ..
+                  "workers from the in-game roster panel (ALT+H)\n" ..
+                  "or the WorkerCosts console commands." },
     }) then return end
 
     local startY = self:drawAppHeader("Worker Costs", "Integration")
     local x, contentY, cw, _ = self:contentInner()
-    local y = startY
-    local mgr = g_currentMission and g_currentMission.workerCostsManager
+    local scrollY = self:getContentScrollY()
+    local y    = startY + scrollY
+    local minY = contentY + FT.py(8)
+    local mgr  = g_currentMission and g_currentMission.workerCostsManager
 
     if not mgr then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
@@ -763,7 +773,64 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
     y = self:drawRow(y, "Wages Accrued", fmtCost, nil,
         monthTotal > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
 
+    -- ── PRO-STAFF ROSTER ──────────────────────────────────
+    -- Read the roster through the WorkerCosts cross-repo contract. Guard the call:
+    -- an older WorkerCosts without getRosterSnapshot() simply omits this section.
+    local snap = (mgr.getRosterSnapshot ~= nil) and mgr:getRosterSnapshot() or nil
+    if snap then
+        y = y - FT.py(6)
+        y = self:drawRule(y, 0.3)
+        y = self:drawSection(y, "PRO-STAFF  (" .. tostring(snap.count) .. ")")
+
+        if not snap.authoritative then
+            -- Multiplayer client: the roster lives on the host and isn't synced yet.
+            self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
+                "Roster is host-managed — syncs to clients soon.",
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            y = y - FT.py(16)
+        elseif snap.count == 0 then
+            self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
+                "No workers yet. Hire from the roster panel (ALT+H).",
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            y = y - FT.py(16)
+        else
+            y = self:drawRow(y, "Working Now", tostring(snap.working), nil,
+                snap.working > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM)
+            y = self:drawRow(y, "Levels", string.format("%dN / %dE / %dM",
+                snap.levels.novice, snap.levels.experienced, snap.levels.master))
+            y = y - FT.py(2)
+
+            for _, w in ipairs(snap.workers) do
+                if y <= minY + FT.py(20) then break end
+                local fatPct   = math.floor((w.fatigue or 0) * 100)
+                local stColor  = w.working and FT.C.POSITIVE or FT.C.TEXT_DIM
+                local nm       = tostring(w.name or "Worker")
+                if #nm > 18 then nm = nm:sub(1, 16) .. ">" end
+
+                self.r:appText(x, y, FT.FONT.SMALL,
+                    nm .. "  [" .. (w.levelName or "Novice") .. "]",
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                self.r:appText(x + cw, y, FT.FONT.SMALL, w.status or "idle",
+                    RenderText.ALIGN_RIGHT, stColor)
+                y = y - FT.py(13)
+
+                self.r:appText(x, y, FT.FONT.TINY,
+                    string.format("%.1fh  -  %d jobs  -  fatigue %d%%",
+                        w.totalHours or 0, w.totalJobs or 0, fatPct),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                y = y - FT.py(11)
+
+                local fatColor = fatPct >= 70 and FT.C.NEGATIVE
+                              or fatPct >= 40 and FT.C.WARNING or FT.C.POSITIVE
+                y = self:drawBar(y, fatPct, 100, fatColor)
+                y = y - FT.py(6)
+            end
+        end
+    end
+
+    self:setContentHeight(startY - y + scrollY)
     self:drawInfoIcon("_wrkHelp", AC)
+    self:drawScrollBar()
 end)
 
 
