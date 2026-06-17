@@ -2090,5 +2090,32 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-06-17": [
+    {
+      "referrer": "github.com",
+      "count": 109,
+      "uniques": 48
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 47,
+      "uniques": 30
+    },
+    {
+      "referrer": "Google",
+      "count": 18,
+      "uniques": 6
+    },
+    {
+      "referrer": "Bing",
+      "count": 6,
+      "uniques": 5
+    },
+    {
+      "referrer": "ecosia.org",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
