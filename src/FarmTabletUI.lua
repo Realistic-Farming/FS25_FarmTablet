@@ -133,6 +133,8 @@ function FarmTabletUI:openTablet()
     end
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
+    -- #84 Publish focus so cross-mod consumers know the tablet is showing + which app.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
 end
 
 function FarmTabletUI:closeTablet()
@@ -168,6 +170,8 @@ function FarmTabletUI:closeTablet()
     self._tabletCamRotZ = nil
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_CLOSED)
+    -- #84 Closing (incl. ESC / pause) fires an immediate isVisible=false focus event.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(false, nil) end
 end
 
 function FarmTabletUI:toggleTablet()
@@ -933,6 +937,9 @@ function FarmTabletUI:switchApp(appId)
     end
 
     FT_EventBus:emit(FT_EventBus.EVENTS.APP_SWITCHED, appId)
+    -- #84 Switching apps while open updates focus (debounced); while closed it only
+    -- records the pending app without claiming visibility.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(self.isOpen, appId) end
     return true
 end
 

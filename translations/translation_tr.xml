@@ -32,6 +32,7 @@
         <text name="ft_ui_app_settings" text="Ayarlar"/>
         <text name="ft_ui_app_workshop" text="Atölye"/>
         <text name="ft_ui_app_field_status" text="Saha Müdürü"/>
+        <text name="ft_ui_app_field_sentry" text="Field Sentry"/>
         <text name="ft_ui_app_animals" text="Hayvanlar"/>
         <text name="ft_ui_app_weather" text="Hava durumu"/>
         <text name="ft_ui_app_digging" text="Kazma"/>

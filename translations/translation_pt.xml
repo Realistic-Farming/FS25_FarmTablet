@@ -32,6 +32,7 @@
         <text name="ft_ui_app_settings" text="Configurações"/>
         <text name="ft_ui_app_workshop" text="Oficina"/>
         <text name="ft_ui_app_field_status" text="Gerente de Campo"/>
+        <text name="ft_ui_app_field_sentry" text="Field Sentry"/>
         <text name="ft_ui_app_animals" text="Animais"/>
         <text name="ft_ui_app_weather" text="Clima"/>
         <text name="ft_ui_app_digging" text="Escavação"/>

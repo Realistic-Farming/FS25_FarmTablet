@@ -23,6 +23,16 @@ function FarmTabletManager.new(mission, modDirectory, modName)
     self.invoiceManager = FT_InvoiceManager.new()
     mission.ftInvoiceManager = self.invoiceManager
 
+    -- #84 Tablet focus state — the cross-mod accessor other mods read to know when
+    -- the tablet is showing and which app is active. getfenv(0)/g_FarmTablet is
+    -- per-mod scoped, so the shared global g_currentMission.farmTablet is the only
+    -- reliable cross-mod handle. FarmTabletUI drives it; the manager just publishes
+    -- the handle and ticks the debounce.
+    if FarmTabletFocus then
+        FarmTabletFocus:reset()
+        mission.farmTablet = FarmTabletFocus
+    end
+
     -- Core systems — FarmTabletSystem is safe on all contexts (pure data).
     -- FarmTabletUI and InputHandler are client-only (rendering + keyboard input).
     self.system = FarmTabletSystem.new(self.settings)
@@ -120,6 +130,9 @@ function FarmTabletManager:onMissionLoaded()
 end
 
 function FarmTabletManager:update(dt)
+    -- #84 Flush any debounced focus broadcast (ticks regardless of enabled state so a
+    -- pending close/switch emit is never stranded).
+    if FarmTabletFocus then FarmTabletFocus:update() end
     if not self.settings.enabled then return end
     if self.inputHandler then self.inputHandler:update(dt) end
     if self.system       then self.system:update(dt)      end
@@ -156,6 +169,9 @@ end
 
 
 function FarmTabletManager:delete()
+    -- #84 Tear down the cross-mod focus handle so the next session starts clean.
+    if FarmTabletFocus then FarmTabletFocus:reset() end
+    if self.mission then self.mission.farmTablet = nil end
     if self._origCameraZoom then
         Enterable.actionEventCameraZoomInOut = self._origCameraZoom
         self._origCameraZoom = nil

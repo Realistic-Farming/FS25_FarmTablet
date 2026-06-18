@@ -32,6 +32,7 @@
         <text name="ft_ui_app_settings" text="Nastavení"/>
         <text name="ft_ui_app_workshop" text="Dílna"/>
         <text name="ft_ui_app_field_status" text="Správce pole"/>
+        <text name="ft_ui_app_field_sentry" text="Field Sentry"/>
         <text name="ft_ui_app_animals" text="Zvířata"/>
         <text name="ft_ui_app_weather" text="Počasí"/>
         <text name="ft_ui_app_digging" text="Kopání"/>
