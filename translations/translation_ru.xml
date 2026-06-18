@@ -32,6 +32,7 @@
         <text name="ft_ui_app_settings" text="Настройки"/>
         <text name="ft_ui_app_workshop" text="Мастерская"/>
         <text name="ft_ui_app_field_status" text="Полевой менеджер"/>
+        <text name="ft_ui_app_field_sentry" text="Field Sentry"/>
         <text name="ft_ui_app_animals" text="Животные"/>
         <text name="ft_ui_app_weather" text="Погода"/>
         <text name="ft_ui_app_digging" text="Копать"/>

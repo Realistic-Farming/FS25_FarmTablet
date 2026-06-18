@@ -43,4 +43,6 @@ FT_EventBus.EVENTS = {
     APP_REGISTERED    = "app_registered",
     SETTINGS_CHANGED  = "settings_changed",
     DATA_REFRESHED    = "data_refreshed",
+    -- #84 Consolidated focus state ({ isVisible, appId }) for cross-mod consumers.
+    TABLET_FOCUS_CHANGED = "tablet_focus_changed",
 }

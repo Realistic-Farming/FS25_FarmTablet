@@ -8,6 +8,7 @@ local modName      = g_currentModName
 -- Core
 source(modDirectory .. "src/core/Constants.lua")
 source(modDirectory .. "src/core/EventBus.lua")
+source(modDirectory .. "src/core/FarmTabletFocus.lua")
 source(modDirectory .. "src/core/AppRegistry.lua")
 
 -- Settings

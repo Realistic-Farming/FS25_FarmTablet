@@ -292,6 +292,21 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- FieldSentry — per-field soil-sim status + sleep/meadow toggles (#83).
+    -- Detect via the cross-mod bridge S&F publishes on g_currentMission.fieldSentry
+    -- (the plain FieldSentry_API global is per-mod scoped and invisible here). The
+    -- app only appears on an S&F build new enough to ship that bridge.
+    if hasSoil and g_currentMission.fieldSentry ~= nil and not self:has(FT.APP.FIELD_SENTRY) then
+        Logging.info("[FarmTablet] autoDetect: FieldSentry detected")
+        self:register({
+            id = FT.APP.FIELD_SENTRY, group = "mods",
+            name = "ft_ui_app_field_sentry", navLabel = "SENTRY",
+            icon = "soil", order = 24.5,
+            developer = "TisonK", version = "Integrated",
+            description = "FieldSentry — per-field soil-sim status, sleep and meadow toggles",
+        })
+    end
+
     -- Market Dynamics
     -- Bridge: mission.MarketDynamics set by MarketDynamics mod in Mission00.load
     if g_currentMission and g_currentMission.MarketDynamics then
