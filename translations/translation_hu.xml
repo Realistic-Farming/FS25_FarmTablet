@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Megnyitás és navigáció"/>
         <text name="ft_help_p1_open_title" text="A táblagép kinyitása"/>
         <text name="ft_help_p1_open_text" text="Nyomja meg a T (konfigurálható) gombot bármikor a Farm Tablet megnyitásához vagy bezárásához. Módosíthatja a kulcsot a Beállítások alkalmazásban, vagy a TabletKeybind beírásával, majd egy kulcsbetűvel a fejlesztői konzolon."/>
-        <text name="ft_help_p1_nav_title" text="Oldalsáv Navigáció"/>
-        <text name="ft_help_p1_nav_text" text="A bal oldalsávon telepített alkalmazásonként egy ikon látható. Kattintson bármelyik ikonra az alkalmazások közötti azonnali váltáshoz. Ha sok kiegészítő mod van aktív, az oldalsáv gördülni fog – használja az egér görgőjét, miközben rámutat a felfelé és lefelé görgetéshez."/>
+        <text name="ft_help_p1_nav_title" text="Kezdokepernyo &amp; alkalmazasok"/>
+        <text name="ft_help_p1_nav_text" text="A Farm Tablet ugy mukodik, mint egy telefon. Huzd el a feloldashoz, majd erintsd meg egy alkalmazas ikonjat a kezdokepernyon a megnyitashoz. Erintsd meg a HOME gombot a felso savon a racshoz valo visszateteshez. Az also dokk a kedvenceket tartalmazza, az egergorgo pedig lapoz. Az App Store alkalmazas felsorolja az osszes alkalmazasodat."/>
         <text name="ft_help_p2_title" text="Áthelyezés és átméretezés"/>
         <text name="ft_help_p2_move_title" text="Szerkesztés mód"/>
         <text name="ft_help_p2_move_text" text="Nyissa meg a Beállítások alkalmazást, és kattintson a SZERKESZTÉSI MÓD BEJELENTKEZÉSÉRE. Szerkesztési módban húzással áthelyezheti a táblagép testét bárhová a képernyőn, bármely sarokfogantyú húzásával átméretezheti a teljes táblagépet, vagy a bal vagy jobb szélét húzva csak a szélességet módosíthatja. Kattintson a jobb gombbal bárhova a szerkesztési módból való kilépéshez. A pozíció és a lépték automatikusan mentésre kerülnek."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Az Animals alkalmazás három folyamatjelző sávval megjeleníti az összes karámot: táplálékszint, vízszint és tisztaság. A zöld sávok nem igényelnek semmit. A sárga sávokat hamarosan fel kell tölteni. A piros sávok kritikusak, és felügyelet nélkül hagyva befolyásolják a termelékenységet."/>
         <text name="ft_help_a3_title" text="Workshop &amp; Bucket Tracker"/>
         <text name="ft_help_a3_workshop_title" text="Műhely"/>
-        <text name="ft_help_a3_workshop_text" text="Sétáljon 25 méteren belül bármely járműtől, és az automatikusan megjelenik a Workshop alkalmazásban. Minden bejegyzés az üzemanyagszintet, a kopásszázalékot és az összes üzemórát mutatja. Kattints a KIVÁLASZTÁSRA bármelyik járműnél a rögzítéshez – a rögzített járművek akkor is láthatóak maradnak az alkalmazásban, amikor elsétálsz, így könnyen nyomon követheted a terepen dolgozó gépeket."/>
+        <text name="ft_help_a3_workshop_text" text="Sétáljon 35 méteren belül bármely járműtől, és az automatikusan megjelenik a Workshop alkalmazásban. Minden bejegyzés az üzemanyagszintet, a kopásszázalékot és az összes üzemórát mutatja. Kattints a KIVÁLASZTÁSRA bármelyik járműnél a rögzítéshez – a rögzített járművek akkor is láthatóak maradnak az alkalmazásban, amikor elsétálsz, így könnyen nyomon követheted a terepen dolgozó gépeket."/>
         <text name="ft_help_a3_bucket_title" text="Bucket Tracker"/>
         <text name="ft_help_a3_bucket_text" text="A Bucket Tracker automatikusan aktiválódik, amikor kerekes rakodót, kotrógépet vagy anyagmozgatót vezet. Minden lerakási ciklust számol, és naplót vezet az anyagtípusról és a rakományonkénti becsült tömegről. Használja a termelékenység nyomon követésére földmunkák, trágyaszóró vagy ömlesztett anyagmozgatási munkák során."/>
         <text name="ft_help_m1_title" text="Jövedelem- és adómódszerek"/>
         <text name="ft_help_m1_income_title" text="FS25 bevételi mód"/>
-        <text name="ft_help_m1_income_text" text="Amikor az FS25_IncomeMod aktív a mentett játékban, az Income alkalmazás megjelenik az oldalsávon. Megjeleníti az aktuális fizetési módot, az ütemezett összeget, és lehetővé teszi a mod engedélyezését vagy letiltását anélkül, hogy elhagyná a táblagépet. A változtatások azonnal életbe lépnek."/>
+        <text name="ft_help_m1_income_text" text="Ha a FS25_IncomeMod aktiv, a Jovedelem alkalmazas megjelenik a kezdokepernyon. Mutatja a fizetesi modot es osszeget, es a tablet elhagyasa nelkul be- vagy kikapcsolhatod a modot. A valtozasok azonnal ervenyesek."/>
         <text name="ft_help_m1_tax_title" text="FS25 Tax Mod"/>
         <text name="ft_help_m1_tax_text" text="Amikor az FS25_TaxMod aktív, az Adó alkalmazás megjeleníti az aktuális adókulcsot, a visszatérítési százalékot és a munkamenetben fizetett összes adót. A táblagépen be- vagy kikapcsolhatja a modot, és egy pillantással megtekintheti a minimális egyensúlyigényét."/>
         <text name="ft_help_m2_title" text="Terménystressz és talajműtrágya"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="Az App Store alkalmazás felsorolja a táblagépen regisztrált összes alkalmazást, beleértve a kísérő modalkalmazásokat is. Azok az alkalmazások, amelyek jelenleg nem aktív modot igényelnek, halványan jelennek meg, így tudhatja, hogy elérhetők, ha engedélyezi a megfelelő modot. Nincs szükség konfigurációra – a kísérőalkalmazások automatikusan megjelennek a mod betöltésekor."/>
         <text name="ft_help_s1_title" text="A táblagép beállításai"/>
         <text name="ft_help_s1_settings_title" text="Amin változtathatsz"/>
-        <text name="ft_help_s1_settings_text" text="Nyissa meg a Beállítások alkalmazást az oldalsávról a következők kezeléséhez: táblagép pozíciója és méretaránya (vagy használja a Szerkesztés módot a vizuális húzáshoz), a táblagép első megnyitásakor megjelenő indítási alkalmazás, a betöltéskor megjelenő üdvözlő értesítés, valamint a hibakeresési naplózás a hibaelhárításhoz. A játék bezárásakor minden beállítás automatikusan mentésre kerül."/>
+        <text name="ft_help_s1_settings_text" text="Nyisd meg a Beallitasok alkalmazast a tablet kezelesehez: pozicio es meret (vagy Szerkesztes mod), hatterszin, sajat kezdokep, zarolasi kepernyo, indito alkalmazas, hangok es ertesitesek. Minden automatikusan mentodik."/>
         <text name="ft_help_s1_sound_title" text="Hangeffektusok"/>
         <text name="ft_help_s1_sound_text" text="A hangeffektusok alapértelmezés szerint be vannak kapcsolva. Az alkalmazásválasztó kattintás akkor jelenik meg, amikor alkalmazást vált. A lapozóhang akkor szólal meg, amikor a játékon belüli súgópanel megnyílik vagy bezárul. Mindkettő egymástól függetlenül átkapcsolható a Beállítások alkalmazásban."/>
         <text name="ft_help_s2_title" text="Konzolparancsok"/>
         <text name="ft_help_s2_console_title" text="Elérhető parancsok"/>
-        <text name="ft_help_s2_console_text" text="Nyissa meg a fejlesztői konzolt a tilde billentyűvel, és írja be a tablet szót az összes elérhető parancs megtekintéséhez. Példák: A TabletKeybind H a ​​nyitókulcsot H-ra változtatja. A TabletSetStartupApp weather alapértelmezés szerint megnyitja az Időjárás alkalmazást. A TabletResetSettings visszaállítja a táblagép összes beállítását az alapértelmezett értékre. A TabletToggleDebug be- vagy kikapcsolja a részletes bejelentkezést."/>
+        <text name="ft_help_s2_console_text" text="Nyisd meg a fejlesztoi konzolt a tilde billentyuvel, es ird be a tablet szot az osszes parancs listazasahoz. Pelda: TabletKeybind H megvaltoztatja a nyito billentyut, TabletSetStartupApp weather beallitja az elso alkalmazast, a TabletResetSettings pedig visszaallitja az alapertelmezeseket."/>
 
     </texts>
 </l10n>

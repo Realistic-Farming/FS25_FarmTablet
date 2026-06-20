@@ -14,7 +14,7 @@
   <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" height="50">
 </a>
 
-[📚 Docs](docs/README.md) •
+[📚 Wiki](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki) •
 [📥 Installation](#-install-in-10-seconds) •
 [🚀 Quick Start](#-quick-start) •
 [🐛 Report Issues](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) •
@@ -26,10 +26,11 @@
 
 <div align="center">
 
-<img width="234" height="345" alt="ft_dashboard" src="https://github.com/user-attachments/assets/79663aec-49ac-4ced-8bbe-b5e87be138e7" /> <img width="234" height="345" alt="ft_settings" src="https://github.com/user-attachments/assets/db08e9d1-30db-4007-b28c-4e77bdb29b94" /> <img width="234" height="345" alt="ft_npc" src="https://github.com/user-attachments/assets/f227f57a-0601-43dd-b8cf-80730d62b494" /> <img width="234" height="345" alt="ft_bt" src="https://github.com/user-attachments/assets/fc7442b3-2c39-4263-befc-5f6c71b0ab4f" />
+<img width="390" alt="Lock screen" src=".github/images/ft-lockscreen.png" /> <img width="390" alt="Home screen" src=".github/images/ft-home.png" />
+<img width="390" alt="Dashboard" src=".github/images/ft-dashboard.png" /> <img width="390" alt="Settings" src=".github/images/ft-settings.png" />
 
 **🎯 Everything you need. Nothing you don't.**  
-<sub><em>Balance, weather, fields, animals, workshops, and more — one key press away</em></sub>
+<sub><em>Lock screen, home grid, Dashboard and Settings, one key press away</em></sub>
 
 </div>
 
@@ -52,11 +53,13 @@ Checking your balance means pausing the game. Scouting field status means diggin
 - Full 5-day weather forecast whenever you need it
 - Mod integration apps that appear automatically when companion mods are loaded
 
-Every app is one sidebar tap away. The tablet remembers where you left it, how big you like it, and which app to open first. It adapts to your workflow rather than demanding you adapt to it.
+Every app is one tap away on the home screen. The tablet remembers where you left it, how big you like it, and which app to open first. It adapts to your workflow rather than demanding you adapt to it.
 
 ---
 
 ## 🎯 Core Apps
+
+Farm Tablet has **20 built-in apps**, plus **12 more that appear automatically** when a companion mod is loaded. Here are the headliners:
 
 <table>
 <tr>
@@ -103,7 +106,7 @@ Every app is one sidebar tap away. The tablet remembers where you left it, how b
 </tr>
 </table>
 
-**📚 [Complete App Reference →](docs/general/apps-reference.md)**
+**📚 [Complete App Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/The-Apps)**
 
 ---
 
@@ -123,7 +126,7 @@ No pausing. No stacking menus. No interrupting your workflow.
 
 ### Mod Integration Apps — Zero Setup
 
-The tablet's companion apps appear **automatically** when their mods are loaded. You don't configure anything. If the mod is in the save, the app is in the sidebar.
+The tablet's companion apps appear **automatically** when their mods are loaded. You don't configure anything. If the mod is in the save, the app is on the home screen.
 
 > *"Loaded NPCFavor halfway through a playthrough. The app just appeared. Didn't even know it had Farm Tablet support."*
 
@@ -135,7 +138,7 @@ Every integration reads game data passively — the tablet never modifies your f
 
 ## 🔌 Mod Integration Apps — Auto-Detected
 
-These apps appear in the sidebar the moment their companion mod is active. No toggles, no restarts required.
+These apps appear on the home screen the moment their companion mod is active. No toggles, no restarts required.
 
 <table>
 <tr>
@@ -169,15 +172,15 @@ These apps appear in the sidebar the moment their companion mod is active. No to
 <a href="https://github.com/TheCodingDad-TisonK/FS25_SoilFertilizer">FS25_SoilFertilizer →</a>
 </td>
 <td align="center" width="50%">
-<strong>More to come...</strong><br>
-<sub>Building new integrations? See the <a href="docs/developer/writing-an-app.md">developer guide</a>.</sub>
+<strong>➕ And more</strong><br>
+<sub>Field Sentry, Market Dynamics, Worker Costs, Personnel, Random World Events, UsedPlus and Invoices appear automatically too. <a href="https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Mod-Integration-Apps">See all integrations →</a></sub>
 </td>
 </tr>
 </table>
 
 > 💡 **Tip:** Load order doesn't matter. Farm Tablet detects mods at runtime — no restarts, no XML editing.
 
-**📚 [Full Integration Guide →](docs/general/mod-integrations.md)**
+**📚 [Full Integration Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Mod-Integration-Apps)**
 
 ---
 
@@ -194,7 +197,7 @@ These apps appear in the sidebar the moment their companion mod is active. No to
 
 > 💡 **Updating?** Replace the old ZIP with the new one. Your position, scale, and preferences are saved in the savegame — nothing is lost.
 
-**📚 [Detailed Installation Guide →](docs/general/getting-started.md)**
+**📚 [Detailed Installation Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Installation)**
 
 ---
 
@@ -205,28 +208,28 @@ These apps appear in the sidebar the moment their companion mod is active. No to
 | Action | How |
 |--------|-----|
 | **Open / close** | Press `T` (configurable) |
-| **Switch apps** | Click sidebar icons |
-| **Scroll content** | Mouse wheel over the app panel |
-| **Scroll sidebar** | Mouse wheel over the sidebar icons |
+| **Unlock** | Slide to unlock on the lock screen |
+| **Open an app** | Tap its icon on the home screen |
+| **Back to home** | Tap **HOME** in the app's top bar |
+| **Change page** | Mouse wheel over the grid, or click a page dot |
+| **Scroll content** | Mouse wheel over the app |
 | **Repair vehicle** | Workshop app → click REPAIR |
 | **Close** | Press `T` again, or `ESC` |
 
 ### Customising the Tablet
 
-**Right-click** the open tablet (or open Settings → **ENTER EDIT MODE**) to drag, resize, and reposition:
-
-<img width="334" height="445" alt="ft_hud" src="https://github.com/user-attachments/assets/14cc54bc-111e-4c6e-8f2f-5f6773444afa" />
+Open **Settings → ENTER EDIT MODE** to drag, resize, and reposition:
 
 ```
- Drag body      →  move anywhere on screen
- Drag corners   →  scale the whole tablet (50–200%)
- Drag edges     →  adjust width independently
- Right-click    →  save and exit
+ Drag body      ->  move anywhere on screen
+ Drag corners   ->  scale the whole tablet (50-200%)
+ Drag edges     ->  adjust width independently
+ Right-click    ->  save and exit
 ```
 
 Position and scale are saved automatically. Reset anytime from **Settings → RESET POSITION & SCALE**.
 
-**📚 [Edit Mode Guide →](docs/general/edit-mode.md)**
+**📚 [Edit Mode Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Customising-the-Tablet)**
 
 ---
 
@@ -247,9 +250,11 @@ Open the developer console with `` ` `` and type `tablet` for the full list.
 | `TabletShowSettings` | Print all current settings |
 | `TabletResetSettings` | Reset everything to factory defaults |
 
-**App IDs:** `dashboard` · `weather` · `field_status` · `animals` · `workshop` · `digging` · `bucket_tracker` · `income_mod` · `tax_mod` · `npc_favor` · `crop_stress` · `soil_fertilizer` · `app_store` · `settings` · `updates`
+**Built-in app IDs:** `dashboard` · `app_store` · `settings` · `updates` · `weather` · `field_status` · `animals` · `workshop` · `digging` · `bucket_tracker` · `storage` · `time_controls` · `hotspot_manager` · `notes` · `farm_admin` · `field_jobs` · `contracts` · `fleet_manager` · `production_buildings` · `farm_stats`
 
-**📚 [Full Console Command Reference →](docs/general/console-commands.md)**
+**Companion app IDs** (work when the mod is loaded): `income_mod` · `tax_mod` · `npc_favor` · `crop_stress` · `soil_fertilizer` · `field_sentry` · `market_dynamics` · `worker_costs` · `personnel` · `random_world_events` · `used_plus` · `roleplay_phone`
+
+**📚 [Full Console Command Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Console-Commands)**
 
 ---
 
@@ -261,17 +266,20 @@ All settings are saved to `<savegame>/FS25_FarmTablet.xml` and persist between s
 |---------|---------|-------------|
 | **Open Key** | `T` | Key that opens and closes the tablet |
 | **Startup App** | Dashboard | App shown first on every open |
-| **Tablet Position** | Centre | X/Y position — set via Edit Mode |
-| **Tablet Scale** | 100% | Overall size multiplier (50–200%) |
-| **Width Multiplier** | 100% | Independent width stretch (50–200%) |
+| **Lock Screen** | On | Show the slide-to-unlock screen at session start |
+| **Tablet Position** | Centre | X/Y position, set via Edit Mode |
+| **Tablet Scale** | 100% | Overall size multiplier (50-200%) |
+| **Width Multiplier** | 100% | Independent width stretch (50-200%) |
+| **Background Colour** | Deep Space | Screen theme (Ocean Blue, Forest Green, Midnight Purple, Slate Grey) |
+| **Home Background** | Default | Your own PNG behind the home and lock screens |
 | **Sound Effects** | On | Master toggle for all sounds |
-| **App Select Sound** | On | Click when switching sidebar apps |
+| **App Select Sound** | On | Click when opening an app |
 | **Help Panel Sound** | On | Paging sound when in-game help opens |
 | **Open/Close Sound** | On | Sound when tablet opens or closes |
 | **Notifications** | On | Welcome HUD message on save load |
 | **Debug Mode** | Off | Verbose logging to `log.txt` |
 
-**📚 [Full Settings Reference →](docs/general/settings-reference.md)**
+**📚 [Full Settings Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Settings)**
 
 ---
 
@@ -289,7 +297,7 @@ All settings are saved to `<savegame>/FS25_FarmTablet.xml` and persist between s
 **The tablet is off-screen or too large.**
 > Open the tablet → **Settings** → **RESET POSITION & SCALE**, or run `TabletResetSettings` in the console.
 
-**📚 [Full FAQ →](docs/faq/faq.md)**
+**📚 [Full FAQ →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ)**
 
 ---
 
@@ -315,24 +323,32 @@ Farm Tablet ships ready for your region:
 
 ## 📚 Documentation
 
-All documentation lives in the [`docs/`](docs/README.md) folder — no wiki required.
+Player documentation lives in the **[Farm Tablet Wiki](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki)**, kept in step with the current build. Developer and API reference stays in the [`docs/`](docs/README.md) folder.
 
-| Document | Who It's For | What's Inside |
-|----------|-------------|---------------|
-| [Getting Started](docs/general/getting-started.md) | Players | Install, first open, navigation, keybind, uninstall |
-| [Apps Reference](docs/general/apps-reference.md) | Players | Every app — all sections, bars, and colour thresholds explained |
-| [Settings Reference](docs/general/settings-reference.md) | Players | Every setting with type, range, default, and XML structure |
-| [Console Commands](docs/general/console-commands.md) | Players | All 11 commands with syntax and examples |
-| [Edit Mode](docs/general/edit-mode.md) | Players | Drag, resize, width handles, persistence, reset |
-| [Mod Integrations](docs/general/mod-integrations.md) | Players | All 5 companion apps — detection, data shown, troubleshooting |
-| [FAQ](docs/faq/faq.md) | Everyone | 25 Q&As for players and developers |
-| [Architecture](docs/developer/architecture.md) | Developers | Module map, init sequence, rendering pipeline, multiplayer |
-| [Writing an App](docs/developer/writing-an-app.md) | Developers | Step-by-step guide to building a new app from scratch |
-| [Settings System](docs/developer/settings-system.md) | Developers | All 3 settings classes, XML types, adding new settings |
-| [DataProvider](docs/developer/data-provider.md) | Developers | Cache system, all methods, return shapes, TTL table |
-| [Renderer](docs/developer/renderer.md) | Developers | Layer model, scoping rules, all methods, full colour palette |
-| [EventBus](docs/developer/eventbus.md) | Developers | All events, on/off/emit API, companion mod patterns |
-| [API Reference](docs/api/) | Developers | Complete public API for every class and method |
+**For players (wiki):**
+
+| Page | What's Inside |
+|------|---------------|
+| [Installation](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Installation) | Install, update, uninstall, requirements |
+| [Getting Started](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Getting-Started) | Lock screen, home screen, controls, first look |
+| [The Apps](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/The-Apps) | Every app, all sections, bars and colour thresholds |
+| [Customising the Tablet](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Customising-the-Tablet) | Move, resize, recolour, custom background, widgets |
+| [Settings](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Settings) | Every setting with default and where it is stored |
+| [Console Commands](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Console-Commands) | All commands with syntax and the full app-id table |
+| [Multiplayer](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Multiplayer) | How it behaves on servers and who can do what |
+| [Troubleshooting and FAQ](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ) | Common questions and quick fixes |
+
+**For developers (`docs/`):**
+
+| Document | What's Inside |
+|----------|---------------|
+| [Architecture](docs/developer/architecture.md) | Module map, init sequence, rendering pipeline, multiplayer |
+| [Writing an App](docs/developer/writing-an-app.md) | Step by step guide to building a new app |
+| [Settings System](docs/developer/settings-system.md) | The settings classes, XML types, adding new settings |
+| [DataProvider](docs/developer/data-provider.md) | Cache system, methods, return shapes, TTL |
+| [Renderer](docs/developer/renderer.md) | Layer model, scoping rules, methods, colour palette |
+| [EventBus](docs/developer/eventbus.md) | Events, the on/off/emit API, companion patterns |
+| [API Reference](docs/api/) | Public API for every class and method |
 
 ---
 
@@ -358,6 +374,8 @@ Farm Tablet is the command centre for the **TisonK mod suite**. Install any comb
 | [FS25_NPCFavor](https://github.com/TheCodingDad-TisonK/FS25_NPCFavor) | NPC relationships and favour mechanics |
 | [FS25_SeasonalCropStress](https://github.com/TheCodingDad-TisonK/FS25_SeasonalCropStress) | Soil moisture and drought stress simulation |
 | [FS25_SoilFertilizer](https://github.com/TheCodingDad-TisonK/FS25_SoilFertilizer) | Per-field N/P/K nutrient tracking |
+| [FS25_WorkerCosts](https://github.com/TheCodingDad-TisonK/FS25_WorkerCosts) | Worker wages, cost modes, and Pro-Staff personnel |
+| [FS25_RandomWorldEvents](https://github.com/TheCodingDad-TisonK/FS25_RandomWorldEvents) | Random world events like fires, floods and droughts |
 
 ---
 

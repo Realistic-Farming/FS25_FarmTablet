@@ -1,56 +1,37 @@
-# FS25 Farm Tablet — Documentation
+# Farm Tablet documentation
 
-Welcome to the Farm Tablet docs. Everything is split into four sections depending on who you are and what you need.
-
----
-
-## 📂 Structure
-
-```
-docs/
-├── general/            Player-facing guides — install, use, configure
-│   ├── getting-started.md
-│   ├── apps-reference.md
-│   ├── settings-reference.md
-│   ├── console-commands.md
-│   ├── edit-mode.md
-│   └── mod-integrations.md
-│
-├── developer/          How the mod works internally
-│   ├── architecture.md
-│   ├── writing-an-app.md
-│   ├── settings-system.md
-│   ├── data-provider.md
-│   ├── renderer.md
-│   └── eventbus.md
-│
-├── api/                Complete public API reference
-│   ├── FarmTabletManager.md
-│   ├── FarmTabletSystem.md
-│   ├── FarmTabletUI.md
-│   ├── AppRegistry.md
-│   ├── DataProvider.md
-│   ├── Renderer.md
-│   ├── EventBus.md
-│   └── Constants.md
-│
-└── faq/
-    └── faq.md          Common questions from users and developers
-```
+Player documentation now lives in the **[Farm Tablet Wiki](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki)**. That is the single source of truth, kept in step with the current build. This folder keeps only the developer and API reference, which the wiki does not duplicate.
 
 ---
 
-## 🧭 Where to start
+## For players, go to the wiki
 
-| I want to… | Go to |
-|------------|-------|
-| Install the mod and start playing | [general/getting-started.md](general/getting-started.md) |
-| See what every app does | [general/apps-reference.md](general/apps-reference.md) |
-| Change settings / keybind | [general/settings-reference.md](general/settings-reference.md) |
-| Use console commands | [general/console-commands.md](general/console-commands.md) |
-| Drag and resize the tablet | [general/edit-mode.md](general/edit-mode.md) |
-| Use with Income/Tax/NPC mods | [general/mod-integrations.md](general/mod-integrations.md) |
-| Understand how the mod works | [developer/architecture.md](developer/architecture.md) |
-| Build a new app | [developer/writing-an-app.md](developer/writing-an-app.md) |
-| Look up a specific method | [api/](api/) |
-| Get answers fast | [faq/faq.md](faq/faq.md) |
+| I want to | Page |
+|-----------|------|
+| Install or update the mod | [Installation](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Installation) |
+| Learn the controls | [Getting Started](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Getting-Started) |
+| See what every app does | [The Apps](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/The-Apps) |
+| Move, resize, or reskin the tablet | [Customising the Tablet](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Customising-the-Tablet) |
+| Change a setting or the open key | [Settings](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Settings) |
+| Use the developer console | [Console Commands](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Console-Commands) |
+| Companion mod apps | [Mod Integration Apps](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Mod-Integration-Apps) |
+| Play on a server | [Multiplayer](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Multiplayer) |
+| Fix a problem | [Troubleshooting and FAQ](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ) |
+
+---
+
+## For developers, stay here
+
+These live in this folder because they are reference material, not player guides.
+
+| Document | What is inside |
+|----------|----------------|
+| [developer/architecture.md](developer/architecture.md) | Module map, init sequence, rendering pipeline, multiplayer |
+| [developer/writing-an-app.md](developer/writing-an-app.md) | Step by step guide to building a new app |
+| [developer/settings-system.md](developer/settings-system.md) | The settings classes, XML types, adding new settings |
+| [developer/data-provider.md](developer/data-provider.md) | Cache system, methods, return shapes, TTL |
+| [developer/renderer.md](developer/renderer.md) | Layer model, scoping rules, methods, colour palette |
+| [developer/eventbus.md](developer/eventbus.md) | Events, the on/off/emit API, companion patterns |
+| [api/](api/) | Public API for every class and method |
+
+> Note: the developer docs describe internal structure and can lag behind the code between refactors. When in doubt, the source in `src/` is authoritative.

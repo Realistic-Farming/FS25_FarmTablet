@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Abrindo e navegando"/>
         <text name="ft_help_p1_open_title" text="Abrindo o tablet"/>
         <text name="ft_help_p1_open_text" text="Pressione T (configurável) a qualquer momento para abrir ou fechar o Farm Tablet. Você pode alterar a chave no aplicativo Configurações ou digitando TabletKeybind seguido de uma letra-chave no console do desenvolvedor."/>
-        <text name="ft_help_p1_nav_title" text="Navegação na barra lateral"/>
-        <text name="ft_help_p1_nav_text" text="A barra lateral esquerda mostra um ícone por aplicativo instalado. Clique em qualquer ícone para alternar entre aplicativos instantaneamente. Se você tiver muitos mods complementares ativos, a barra lateral irá rolar – use a roda do mouse enquanto passa o mouse sobre ela para rolar para cima e para baixo."/>
+        <text name="ft_help_p1_nav_title" text="Tela inicial &amp; apps"/>
+        <text name="ft_help_p1_nav_text" text="O Tablet Agricola funciona como um celular. Deslize para desbloquear e toque no icone de um app na tela inicial para abri-lo. Toque em HOME na barra superior para voltar a grade. A dock embaixo guarda seus favoritos e a roda do mouse muda de pagina. O app App Store lista todos os seus apps."/>
         <text name="ft_help_p2_title" text="Mover e redimensionar"/>
         <text name="ft_help_p2_move_title" text="Modo de edição"/>
         <text name="ft_help_p2_move_text" text="Abra o aplicativo Configurações e clique em ENTRAR NO MODO DE EDIÇÃO. No modo de edição, você pode arrastar o corpo da mesa gráfica para reposicioná-lo em qualquer lugar da tela, arrastar qualquer alça de canto para dimensionar a mesa gráfica inteira ou arrastar a borda esquerda ou direita para ajustar apenas a largura. Clique com o botão direito em qualquer lugar para sair do modo de edição. Sua posição e escala são salvas automaticamente."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="O aplicativo Animals mostra cada cercado que você possui com três barras de progresso: nível de comida, nível de água e limpeza. As barras verdes não necessitam de ação. As barras amarelas devem ser completadas em breve. As barras vermelhas são críticas e afetarão a produtividade se não forem supervisionadas."/>
         <text name="ft_help_a3_title" text="Oficina e Rastreador de Balde"/>
         <text name="ft_help_a3_workshop_title" text="Oficina"/>
-        <text name="ft_help_a3_workshop_text" text="Ande a menos de 25 metros de qualquer veículo e ele aparecerá automaticamente no aplicativo Workshop. Cada entrada mostra o nível de combustível, a porcentagem de desgaste e o total de horas de operação. Clique em SELECIONAR em qualquer veículo para fixá-lo. Os veículos fixados permanecem visíveis no aplicativo mesmo quando você se afasta, facilitando o monitoramento das máquinas que trabalham no campo."/>
+        <text name="ft_help_a3_workshop_text" text="Ande a menos de 35 metros de qualquer veículo e ele aparecerá automaticamente no aplicativo Workshop. Cada entrada mostra o nível de combustível, a porcentagem de desgaste e o total de horas de operação. Clique em SELECIONAR em qualquer veículo para fixá-lo. Os veículos fixados permanecem visíveis no aplicativo mesmo quando você se afasta, facilitando o monitoramento das máquinas que trabalham no campo."/>
         <text name="ft_help_a3_bucket_title" text="Rastreador de balde"/>
         <text name="ft_help_a3_bucket_text" text="O Bucket Tracker é ativado automaticamente quando você dirige uma carregadeira de rodas, escavadeira ou manipulador de materiais. Ele conta cada ciclo de despejo e mantém um registro contínuo do tipo de material e do peso estimado por carga. Use-o para monitorar a produtividade em trabalhos de terraplenagem, espalhamento de esterco ou manuseio de materiais a granel."/>
         <text name="ft_help_m1_title" text="Modificações de renda e impostos"/>
         <text name="ft_help_m1_income_title" text="Modificação de renda FS25"/>
-        <text name="ft_help_m1_income_text" text="Quando FS25_IncomeMod está ativo em seu savegame, o aplicativo Income aparece na barra lateral. Ele mostra a forma de pagamento atual, o valor programado e permite ativar ou desativar o mod sem sair do tablet. As alterações entram em vigor imediatamente."/>
+        <text name="ft_help_m1_income_text" text="Quando o FS25_IncomeMod esta ativo, o app Renda aparece na tela inicial. Ele mostra o modo e o valor do pagamento e permite ativar ou desativar o mod sem sair do tablet. As alteracoes sao imediatas."/>
         <text name="ft_help_m1_tax_title" text="Modificação fiscal FS25"/>
         <text name="ft_help_m1_tax_text" text="Quando FS25_TaxMod está ativo, o aplicativo Tax mostra sua taxa de imposto atual, a porcentagem de retorno e o total de impostos pagos nesta sessão. Você pode ativar ou desativar o mod no tablet e ver rapidamente o requisito de saldo mínimo."/>
         <text name="ft_help_m2_title" text="Estresse da colheita e fertilizante do solo"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="O aplicativo App Store lista todos os aplicativos registrados no tablet, incluindo aplicativos mod complementares. Os aplicativos que exigem um mod que não está ativo no momento são mostrados em um estado esmaecido para que você saiba que eles estarão disponíveis assim que você ativar o mod correspondente. Nenhuma configuração é necessária – os aplicativos complementares aparecem automaticamente quando seu mod é carregado."/>
         <text name="ft_help_s1_title" text="Configurações do tablet"/>
         <text name="ft_help_s1_settings_title" text="O que você pode mudar"/>
-        <text name="ft_help_s1_settings_text" text="Abra o aplicativo Configurações na barra lateral para gerenciar: posição e escala do tablet (ou use o Modo de edição para arrastar visualmente), o aplicativo de inicialização mostrado quando você abre o tablet pela primeira vez, se deve mostrar uma notificação de boas-vindas ao carregar e registro de depuração para solução de problemas. Todas as configurações são salvas automaticamente quando você fecha o jogo."/>
+        <text name="ft_help_s1_settings_text" text="Abra o app Configuracoes para gerenciar o tablet: posicao e escala (ou Modo de Edicao), cor de fundo, sua propria imagem inicial, a tela de bloqueio, o app inicial, sons e notificacoes. Tudo e salvo automaticamente."/>
         <text name="ft_help_s1_sound_title" text="Efeitos sonoros"/>
         <text name="ft_help_s1_sound_text" text="Os efeitos sonoros estão ativados por padrão. O clique de seleção de aplicativo é reproduzido quando você alterna entre aplicativos. O som de paginação é reproduzido quando o painel de ajuda do jogo abre ou fecha. Ambos podem ser alternados de forma independente no aplicativo Configurações."/>
         <text name="ft_help_s2_title" text="Comandos do console"/>
         <text name="ft_help_s2_console_title" text="Comandos disponíveis"/>
-        <text name="ft_help_s2_console_text" text="Abra o console do desenvolvedor com a tecla til e digite tablet para ver todos os comandos disponíveis. Exemplos: TabletKeybind H altera a chave aberta para H. TabletSetStartupApp weather abre o aplicativo Weather por padrão. TabletResetSettings restaura todas as configurações do tablet para seus padrões. TabletToggleDebug ativa ou desativa o log detalhado."/>
+        <text name="ft_help_s2_console_text" text="Abra o console do desenvolvedor com a tecla til e digite tablet para listar todos os comandos. Por exemplo TabletKeybind H muda a tecla de abertura, TabletSetStartupApp weather define o primeiro app e TabletResetSettings restaura os padroes."/>
 
     </texts>
 </l10n>
