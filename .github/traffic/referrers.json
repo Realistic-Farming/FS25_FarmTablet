@@ -2175,18 +2175,23 @@
   "2026-06-20": [
     {
       "referrer": "github.com",
-      "count": 154,
-      "uniques": 61
+      "count": 181,
+      "uniques": 67
     },
     {
       "referrer": "kingmods.net",
-      "count": 51,
-      "uniques": 32
+      "count": 55,
+      "uniques": 34
     },
     {
       "referrer": "Google",
-      "count": 21,
+      "count": 20,
       "uniques": 8
+    },
+    {
+      "referrer": "Yahoo",
+      "count": 5,
+      "uniques": 1
     },
     {
       "referrer": "Bing",
