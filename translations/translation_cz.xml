@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Otevírání a navigace"/>
         <text name="ft_help_p1_open_title" text="Otevření tabletu"/>
         <text name="ft_help_p1_open_text" text="Stisknutím T (konfigurovatelné) kdykoli otevřete nebo zavřete Farm Tablet. Klíč můžete změnit v aplikaci Nastavení nebo zadáním TabletKeybind následovaného klíčovým písmenem ve vývojářské konzoli."/>
-        <text name="ft_help_p1_nav_title" text="Navigace na bočním panelu"/>
-        <text name="ft_help_p1_nav_text" text="Levý postranní panel zobrazuje jednu ikonu pro každou nainstalovanou aplikaci. Kliknutím na libovolnou ikonu přepnete aplikace okamžitě. Pokud máte aktivních mnoho doprovodných modů, postranní panel se bude posouvat – použijte kolečko myši, když na něj umístíte ukazatel myši, k posouvání nahoru a dolů."/>
+        <text name="ft_help_p1_nav_title" text="Domovska obrazovka &amp; aplikace"/>
+        <text name="ft_help_p1_nav_text" text="Farmarsky Tablet funguje jako telefon. Posunutim odemknete, pak klepnete na ikonu aplikace na domovske obrazovce a otevrete ji. Klepnutim na HOME v hornim panelu se vratite na mrizku. Dok dole obsahuje oblibene a kolecko mysi prepina stranky. Aplikace App Store zobrazuje vsechny vase aplikace."/>
         <text name="ft_help_p2_title" text="Přesouvání a změna velikosti"/>
         <text name="ft_help_p2_move_title" text="Režim úprav"/>
         <text name="ft_help_p2_move_text" text="Otevřete aplikaci Nastavení a klikněte na ZADAT REŽIM ÚPRAV. V režimu úprav můžete přetažením těla tabletu přemístit kdekoli na obrazovce, přetažením libovolného rohového úchytu změníte velikost celého tabletu nebo přetažením levého nebo pravého okraje upravíte pouze šířku. Klepnutím pravým tlačítkem kamkoli ukončíte režim úprav. Vaše poloha a měřítko se automaticky uloží."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Aplikace Zvířata zobrazuje každé pero, které vlastníte, se třemi ukazateli průběhu: hladina jídla, hladina vody a čistota. Zelené pruhy nevyžadují žádnou akci. Žluté pruhy by měly být brzy doplněny. Červené pruhy jsou kritické a ovlivní produktivitu, pokud zůstanou bez dozoru."/>
         <text name="ft_help_a3_title" text="Workshop &amp; Bucket Tracker"/>
         <text name="ft_help_a3_workshop_title" text="Dílna"/>
-        <text name="ft_help_a3_workshop_text" text="Jděte do 25 metrů od jakéhokoli vozidla a automaticky se zobrazí v aplikaci Workshop. Každý záznam zobrazuje hladinu paliva, procento opotřebení a celkové provozní hodiny. Kliknutím na VYBRAT na libovolné vozidlo jej připněte – připnutá vozidla zůstanou v aplikaci viditelná, i když odejdete, což usnadňuje sledování strojů pracujících v terénu."/>
+        <text name="ft_help_a3_workshop_text" text="Jděte do 35 metrů od jakéhokoli vozidla a automaticky se zobrazí v aplikaci Workshop. Každý záznam zobrazuje hladinu paliva, procento opotřebení a celkové provozní hodiny. Kliknutím na VYBRAT na libovolné vozidlo jej připněte – připnutá vozidla zůstanou v aplikaci viditelná, i když odejdete, což usnadňuje sledování strojů pracujících v terénu."/>
         <text name="ft_help_a3_bucket_title" text="Bucket Tracker"/>
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker se aktivuje automaticky, když řídíte kolový nakladač, bagr nebo manipulátor s materiálem. Počítá každý cyklus vysypání a vede záznam o typu materiálu a odhadované hmotnosti na náklad. Použijte jej ke sledování produktivity při zemních pracích, rozmetání hnoje nebo manipulaci se sypkým materiálem."/>
         <text name="ft_help_m1_title" text="Modifikace příjmů a daní"/>
         <text name="ft_help_m1_income_title" text="FS25 Příjem Mod"/>
-        <text name="ft_help_m1_income_text" text="Když je ve vaší hře FS25_IncomeMod aktivní, aplikace Income se objeví na postranním panelu. Zobrazuje aktuální režim platby, plánovanou částku a umožňuje vám aktivovat nebo deaktivovat režim, aniž byste opustili tablet. Změny se projeví okamžitě."/>
+        <text name="ft_help_m1_income_text" text="Kdyz je FS25_IncomeMod aktivni, aplikace Prijem se objevi na domovske obrazovce. Zobrazuje rezim a castku platby a umoznuje mod zapnout nebo vypnout bez opusteni tabletu. Zmeny plati okamzite."/>
         <text name="ft_help_m1_tax_title" text="FS25 Tax Mod"/>
         <text name="ft_help_m1_tax_text" text="Když je FS25_TaxMod aktivní, aplikace Daň zobrazuje vaši aktuální daňovou sazbu, procento návratnosti a celkové daně zaplacené v této relaci. Mod můžete zapnout nebo vypnout z tabletu a na první pohled uvidíte požadavek na minimální zůstatek."/>
         <text name="ft_help_m2_title" text="Půdní stres a půdní hnojivo"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="Aplikace App Store uvádí všechny aplikace registrované v tabletu, včetně doprovodných modových aplikací. Aplikace, které vyžadují mod, který není aktuálně aktivní, se zobrazují v šedě, takže víte, že jsou dostupné, jakmile povolíte odpovídající mod. Není potřeba žádná konfigurace – doprovodné aplikace se automaticky zobrazí po načtení jejich modu."/>
         <text name="ft_help_s1_title" text="Nastavení tabletu"/>
         <text name="ft_help_s1_settings_title" text="Co můžete změnit"/>
-        <text name="ft_help_s1_settings_text" text="Otevřete aplikaci Nastavení z postranního panelu, abyste mohli spravovat: polohu a měřítko tabletu (nebo použijte režim úprav pro vizuální přetažení), spouštěcí aplikaci zobrazenou při prvním otevření tabletu, zda se má zobrazit uvítací oznámení při načítání, a protokolování ladění pro řešení problémů. Všechna nastavení se automaticky uloží při zavření hry."/>
+        <text name="ft_help_s1_settings_text" text="Otevrete aplikaci Nastaveni pro spravu tabletu: poloha a velikost (nebo Rezim upravy), barva pozadi, vlastni domovsky obrazek, zamykaci obrazovka, uvodni aplikace, zvuky a oznameni. Vse se uklada automaticky."/>
         <text name="ft_help_s1_sound_title" text="Zvukové efekty"/>
         <text name="ft_help_s1_sound_text" text="Zvukové efekty jsou ve výchozím nastavení zapnuté. Při přepínání aplikací se přehraje kliknutí na výběr aplikace. Zvuk stránkování se přehraje, když se otevře nebo zavře panel nápovědy ve hře. Oba lze nezávisle přepínat v aplikaci Nastavení."/>
         <text name="ft_help_s2_title" text="Příkazy konzoly"/>
         <text name="ft_help_s2_console_title" text="Dostupné příkazy"/>
-        <text name="ft_help_s2_console_text" text="Otevřete vývojářskou konzoli pomocí klávesy tilda a zadejte tablet, abyste viděli všechny dostupné příkazy. Příklady: TabletKeybind H změní klíč otevření na H. Počasí TabletSetStartupApp ve výchozím nastavení otevře aplikaci Počasí. TabletResetSettings obnoví všechna nastavení tabletu na výchozí hodnoty. TabletToggleDebug zapíná nebo vypíná podrobné protokolování."/>
+        <text name="ft_help_s2_console_text" text="Otevrete vyvojarskou konzoli klavesou tilda a napiste tablet pro vypis vsech prikazu. Napriklad TabletKeybind H meni klavesu otevreni, TabletSetStartupApp weather nastavi prvni aplikaci a TabletResetSettings obnovi vychozi nastaveni."/>
 
     </texts>
 </l10n>

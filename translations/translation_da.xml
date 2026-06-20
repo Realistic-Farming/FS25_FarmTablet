@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Åbning og navigation"/>
         <text name="ft_help_p1_open_title" text="Åbning af tabletten"/>
         <text name="ft_help_p1_open_text" text="Tryk på T (konfigurerbar) til enhver tid for at åbne eller lukke Farm Tablet. Du kan ændre nøglen i appen Indstillinger eller ved at skrive TabletKeybind efterfulgt af et nøglebogstav i udviklerkonsollen."/>
-        <text name="ft_help_p1_nav_title" text="Sidebar Navigation"/>
-        <text name="ft_help_p1_nav_text" text="Den venstre sidebjælke viser et ikon pr. installeret app. Klik på et ikon for at skifte apps med det samme. Hvis du har mange ledsagende mods aktive, vil sidebjælken rulle - brug musehjulet, mens du holder musemarkøren over det for at rulle op og ned."/>
+        <text name="ft_help_p1_nav_title" text="Startskaerm &amp; apps"/>
+        <text name="ft_help_p1_nav_text" text="Farm Tablet fungerer som en telefon. Stryg for at lase op, og tryk derefter pa et app-ikon pa startskaermen for at abne det. Tryk pa HOME i den overste bjaelke for at ga tilbage til gitteret. Dokken nederst indeholder dine favoritter, og musehjulet skifter side. App Store-appen viser alle dine apps."/>
         <text name="ft_help_p2_title" text="Flytning &amp; Ændring af størrelse"/>
         <text name="ft_help_p2_move_title" text="Redigeringstilstand"/>
         <text name="ft_help_p2_move_text" text="Åbn appen Indstillinger, og klik på ANGIV REDIGER TILSTAND. I redigeringstilstand kan du trække tabletkroppen for at flytte den hvor som helst på skærmen, trække et hvilket som helst hjørnehåndtag for at skalere hele tabletten eller trække i venstre eller højre kant for kun at justere bredden. Højreklik hvor som helst for at afslutte redigeringstilstand. Din position og skala gemmes automatisk."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Animals-appen viser hver kuglepen, du ejer, med tre statusbjælker: madniveau, vandniveau og renlighed. Grønne søjler behøver ingen handling. Gule søjler bør snart fyldes op. Røde bjælker er kritiske og vil påvirke produktiviteten, hvis de efterlades uden opsyn."/>
         <text name="ft_help_a3_title" text="Værksted &amp; Bucket Tracker"/>
         <text name="ft_help_a3_workshop_title" text="Værksted"/>
-        <text name="ft_help_a3_workshop_text" text="Walk within 25 metres of any vehicle and it will appear automatically in the Workshop app. Hver indtastning viser brændstofniveau, slidprocent og samlede driftstimer. Klik på VÆLG på et hvilket som helst køretøj for at fastgøre det - fastgjorte køretøjer forbliver synlige i appen, selv når du går væk, hvilket gør det nemt at overvåge maskiner, der arbejder i marken."/>
+        <text name="ft_help_a3_workshop_text" text="Walk within 35 metres of any vehicle and it will appear automatically in the Workshop app. Hver indtastning viser brændstofniveau, slidprocent og samlede driftstimer. Klik på VÆLG på et hvilket som helst køretøj for at fastgøre det - fastgjorte køretøjer forbliver synlige i appen, selv når du går væk, hvilket gør det nemt at overvåge maskiner, der arbejder i marken."/>
         <text name="ft_help_a3_bucket_title" text="Bucket Tracker"/>
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker aktiveres automatisk, når du kører en hjullæsser, gravemaskine eller materialehåndtering. Den tæller hver tømningscyklus og fører en løbende log over materialetype og estimeret vægt pr. last. Brug den til at spore produktiviteten ved jordarbejde, gødningsspredning eller håndtering af bulkmateriale."/>
         <text name="ft_help_m1_title" text="Indkomst &amp; Skat Mods"/>
         <text name="ft_help_m1_income_title" text="FS25 Indkomst Mod"/>
-        <text name="ft_help_m1_income_text" text="Når FS25_IncomeMod er aktiv i dit savegame, vises Income-appen i sidebjælken. Det viser den aktuelle betalingstilstand, det planlagte beløb, og lader dig aktivere eller deaktivere mod'et uden at forlade tabletten. Ændringer træder i kraft med det samme."/>
+        <text name="ft_help_m1_income_text" text="Nar FS25_IncomeMod er aktiv, vises Indkomst-appen pa startskaermen. Den viser betalingstilstand og belob og lader dig sla modden til eller fra uden at forlade tabletten. AEndringer traeder i kraft med det samme."/>
         <text name="ft_help_m1_tax_title" text="FS25 Skat Mod"/>
         <text name="ft_help_m1_tax_text" text="Når FS25_TaxMod er aktiv viser Skat-appen din aktuelle skattesats, afkastprocenten og de samlede skatter, der er betalt denne session. Du kan slå mod'en til eller fra fra tabletten og se dit minimumsaldokrav med et øjeblik."/>
         <text name="ft_help_m2_title" text="Afgrødestress og jordgødning"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="App Store-appen viser hver app, der er registreret med tabletten, inklusive ledsagende mod-apps. Apps, der kræver en mod, som ikke er aktiv i øjeblikket, vises i en nedtonet tilstand, så du ved, at de er tilgængelige, når du aktiverer den matchende mod. Ingen konfiguration er nødvendig - ledsagende apps vises automatisk, når deres mod er indlæst."/>
         <text name="ft_help_s1_title" text="Tablet-indstillinger"/>
         <text name="ft_help_s1_settings_title" text="Hvad du kan ændre"/>
-        <text name="ft_help_s1_settings_text" text="Åbn appen Indstillinger fra sidebjælken for at administrere: tabletposition og skala (eller brug redigeringstilstand til visuel træk), startappen, der vises, når du åbner tabletten første gang, om der skal vises en velkomstmeddelelse ved indlæsning, og fejlfinding af logning til fejlfinding. Alle indstillinger gemmes automatisk, når du lukker spillet."/>
+        <text name="ft_help_s1_settings_text" text="Abn Indstillinger-appen for at administrere tabletten: position og skala (eller Redigeringstilstand), baggrundsfarve, dit eget startbillede, laseskaermen, startappen, lyde og notifikationer. Alt gemmes automatisk."/>
         <text name="ft_help_s1_sound_title" text="Lydeffekter"/>
         <text name="ft_help_s1_sound_text" text="Lydeffekter er aktiveret som standard. App-vælg-klikket afspilles, når du skifter apps. Søgelyden afspilles, når hjælpepanelet i spillet åbner eller lukker. Begge kan skiftes uafhængigt i appen Indstillinger."/>
         <text name="ft_help_s2_title" text="Konsol kommandoer"/>
         <text name="ft_help_s2_console_title" text="Tilgængelige kommandoer"/>
-        <text name="ft_help_s2_console_text" text="Åbn udviklerkonsollen med tilde-tasten, og skriv tablet for at se alle tilgængelige kommandoer. Eksempler: TabletKeybind H ændrer åben-tasten til H. TabletSetStartupApp vejr åbner Weather-appen som standard. TabletResetSettings gendanner alle tabletindstillinger til deres standardindstillinger. TabletToggleDebug slår detaljeret logning til eller fra."/>
+        <text name="ft_help_s2_console_text" text="Abn udviklerkonsollen med tilde-tasten, og skriv tablet for at vise alle kommandoer. For eksempel aendrer TabletKeybind H abningstasten, TabletSetStartupApp weather saetter den forste app, og TabletResetSettings gendanner standardvaerdierne."/>
 
     </texts>
 </l10n>

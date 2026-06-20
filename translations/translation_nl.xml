@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Openen en navigeren"/>
         <text name="ft_help_p1_open_title" text="De tablet openen"/>
         <text name="ft_help_p1_open_text" text="Druk op elk gewenst moment op T (configureerbaar) om de boerderijtablet te openen of te sluiten. U kunt de sleutel wijzigen in de app Instellingen of door TabletKeybind te typen, gevolgd door een sleutelletter in de ontwikkelaarsconsole."/>
-        <text name="ft_help_p1_nav_title" text="Zijbalknavigatie"/>
-        <text name="ft_help_p1_nav_text" text="De linkerzijbalk toont één pictogram per geïnstalleerde app. Klik op een pictogram om direct van app te wisselen. Als je veel begeleidende mods actief hebt, zal de zijbalk scrollen. Gebruik het muiswiel terwijl je erover beweegt om omhoog en omlaag te scrollen."/>
+        <text name="ft_help_p1_nav_title" text="Startscherm &amp; apps"/>
+        <text name="ft_help_p1_nav_text" text="De Farm Tablet werkt als een telefoon. Veeg om te ontgrendelen, tik dan op een app-icoon op het startscherm om het te openen. Tik op HOME in de bovenbalk om terug te keren naar het raster. Het dock onderaan bevat je favorieten, en met het muiswiel wissel je van pagina. De App Store-app toont al je apps."/>
         <text name="ft_help_p2_title" text="Verplaatsen en formaat wijzigen"/>
         <text name="ft_help_p2_move_title" text="Bewerkingsmodus"/>
         <text name="ft_help_p2_move_text" text="Open de app Instellingen en klik op ENTER EDIT MODE. In de bewerkingsmodus kunt u de tabletbehuizing slepen om deze ergens op het scherm te verplaatsen, een hoekgreep slepen om de hele tablet te schalen, of de linker- of rechterrand slepen om alleen de breedte aan te passen. Klik met de rechtermuisknop ergens om de bewerkingsmodus te verlaten. Uw positie en schaal worden automatisch opgeslagen."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="De Dieren-app toont elk hok dat u bezit met drie voortgangsbalken: voedselniveau, waterniveau en reinheid. Groene balken behoeven geen actie. Gele balken moeten binnenkort worden bijgevuld. Rode balken zijn van cruciaal belang en zullen de productiviteit beïnvloeden als ze onbeheerd worden achtergelaten."/>
         <text name="ft_help_a3_title" text="Werkplaats- en baktracker"/>
         <text name="ft_help_a3_workshop_title" text="Werkplaats"/>
-        <text name="ft_help_a3_workshop_text" text="Loop binnen 25 meter van een voertuig en het verschijnt automatisch in de Workshop-app. Elke invoer toont het brandstofniveau, het slijtagepercentage en het totale aantal bedrijfsuren. Klik op SELECTEREN op een voertuig om het vast te zetten. Vastgezette voertuigen blijven zichtbaar in de app, zelfs als u wegloopt, waardoor u eenvoudig machines kunt monitoren die in het veld aan het werk zijn."/>
+        <text name="ft_help_a3_workshop_text" text="Loop binnen 35 meter van een voertuig en het verschijnt automatisch in de Workshop-app. Elke invoer toont het brandstofniveau, het slijtagepercentage en het totale aantal bedrijfsuren. Klik op SELECTEREN op een voertuig om het vast te zetten. Vastgezette voertuigen blijven zichtbaar in de app, zelfs als u wegloopt, waardoor u eenvoudig machines kunt monitoren die in het veld aan het werk zijn."/>
         <text name="ft_help_a3_bucket_title" text="Emmer-tracker"/>
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker wordt automatisch geactiveerd wanneer u met een wiellader, graafmachine of overslagmachine rijdt. Het telt elke stortcyclus en houdt een logboek bij van het materiaaltype en het geschatte gewicht per lading. Gebruik het om de productiviteit bij grondwerken, het verspreiden van mest of het verwerken van bulkmateriaal te volgen."/>
         <text name="ft_help_m1_title" text="Inkomens- en belastingmods"/>
         <text name="ft_help_m1_income_title" text="FS25 Inkomen Mod"/>
-        <text name="ft_help_m1_income_text" text="Wanneer FS25_IncomeMod actief is in je savegame, verschijnt de Income-app in de zijbalk. Het toont de huidige betalingsmodus en het geplande bedrag, en u kunt de mod in- of uitschakelen zonder de tablet te verlaten. Wijzigingen zijn onmiddellijk van kracht."/>
+        <text name="ft_help_m1_income_text" text="Wanneer FS25_IncomeMod actief is, verschijnt de Inkomen-app op het startscherm. Hij toont de betaalmodus en het bedrag, en je kunt de mod aan- of uitzetten zonder de tablet te verlaten. Wijzigingen werken direct."/>
         <text name="ft_help_m1_tax_title" text="FS25 Belastingmod"/>
         <text name="ft_help_m1_tax_text" text="Wanneer FS25_TaxMod actief is, toont de Belasting-app uw huidige belastingtarief, het retourpercentage en de totale belastingen die tijdens deze sessie zijn betaald. U kunt de mod vanaf de tablet in- of uitschakelen en in één oogopslag uw minimale saldovereiste zien."/>
         <text name="ft_help_m2_title" text="Gewasstress en bodemmeststof"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="De App Store-app vermeldt elke app die op de tablet is geregistreerd, inclusief begeleidende mod-apps. Apps waarvoor een mod nodig is die momenteel niet actief is, worden gedimd weergegeven, zodat u weet dat ze beschikbaar zijn zodra u de overeenkomende mod inschakelt. Er is geen configuratie nodig: begeleidende apps verschijnen automatisch wanneer hun mod wordt geladen."/>
         <text name="ft_help_s1_title" text="Tablet-instellingen"/>
         <text name="ft_help_s1_settings_title" text="Wat je kunt veranderen"/>
-        <text name="ft_help_s1_settings_text" text="Open de app Instellingen vanuit de zijbalk om het volgende te beheren: de positie en schaal van de tablet (of gebruik de bewerkingsmodus voor visueel slepen), de opstartapp die wordt weergegeven wanneer u de tablet voor het eerst opent, of er een welkomstmelding moet worden weergegeven bij het laden, en logboekregistratie voor foutopsporing voor het oplossen van problemen. Alle instellingen worden automatisch opgeslagen als je het spel afsluit."/>
+        <text name="ft_help_s1_settings_text" text="Open de Instellingen-app om de tablet te beheren: positie en schaal (of Bewerkmodus), achtergrondkleur, je eigen startafbeelding, het vergrendelscherm, de start-app, geluiden en meldingen. Alles wordt automatisch opgeslagen."/>
         <text name="ft_help_s1_sound_title" text="Geluidseffecten"/>
         <text name="ft_help_s1_sound_text" text="Geluidseffecten zijn standaard ingeschakeld. De app-selecteerklik wordt afgespeeld wanneer u van app wisselt. Het oproepgeluid wordt afgespeeld wanneer het Help-paneel in de game wordt geopend of gesloten. Beide kunnen onafhankelijk worden geschakeld in de app Instellingen."/>
         <text name="ft_help_s2_title" text="Console-opdrachten"/>
         <text name="ft_help_s2_console_title" text="Beschikbare opdrachten"/>
-        <text name="ft_help_s2_console_text" text="Open de ontwikkelaarsconsole met de tilde-toets en typ tablet om alle beschikbare opdrachten te zien. Voorbeelden: TabletKeybind H verandert de open sleutel in H. TabletSetStartupApp weer opent standaard de app Weer. TabletResetSettings herstelt alle tabletinstellingen naar hun standaardwaarden. TabletToggleDebug schakelt uitgebreide logboekregistratie in of uit."/>
+        <text name="ft_help_s2_console_text" text="Open de ontwikkelaarsconsole met de tilde-toets en typ tablet om alle commando's te zien. Bijvoorbeeld TabletKeybind H wijzigt de openingstoets, TabletSetStartupApp weather stelt de eerste app in, en TabletResetSettings herstelt de standaardwaarden."/>
 
     </texts>
 </l10n>

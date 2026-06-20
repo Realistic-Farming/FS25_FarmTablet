@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Mở &amp; Điều hướng"/>
         <text name="ft_help_p1_open_title" text="Mở máy tính bảng"/>
         <text name="ft_help_p1_open_text" text="Nhấn T (có thể định cấu hình) bất kỳ lúc nào để mở hoặc đóng Farm Tablet. Bạn có thể thay đổi khóa trong ứng dụng Cài đặt hoặc bằng cách nhập TabletKeybind, sau đó là một chữ cái chính trong bảng điều khiển dành cho nhà phát triển."/>
-        <text name="ft_help_p1_nav_title" text="Điều hướng thanh bên"/>
-        <text name="ft_help_p1_nav_text" text="Thanh bên trái hiển thị một biểu tượng cho mỗi ứng dụng đã cài đặt. Nhấp vào bất kỳ biểu tượng nào để chuyển đổi ứng dụng ngay lập tức. Nếu bạn có nhiều mod đồng hành đang hoạt động, thanh bên sẽ cuộn - hãy sử dụng con lăn chuột trong khi di chuột qua nó để cuộn lên và xuống."/>
+        <text name="ft_help_p1_nav_title" text="Man hinh chinh &amp; ung dung"/>
+        <text name="ft_help_p1_nav_text" text="Farm Tablet hoat dong nhu mot dien thoai. Vuot de mo khoa, sau do cham vao bieu tuong ung dung tren man hinh chinh de mo. Cham HOME tren thanh tren cung de quay lai luoi. Thanh dock o duoi cung chua cac muc yeu thich va con lan chuot de chuyen trang. Ung dung App Store liet ke tat ca ung dung cua ban."/>
         <text name="ft_help_p2_title" text="Di chuyển &amp; Thay đổi kích thước"/>
         <text name="ft_help_p2_move_title" text="Chế độ chỉnh sửa"/>
         <text name="ft_help_p2_move_text" text="Mở ứng dụng Cài đặt và nhấp vào NHẬP CHẾ ĐỘ CHỈNH SỬA. Trong chế độ chỉnh sửa, bạn có thể kéo thân máy tính bảng để đặt lại vị trí ở bất kỳ đâu trên màn hình, kéo bất kỳ bộ điều khiển ở góc nào để chia tỷ lệ toàn bộ máy tính bảng hoặc kéo cạnh trái hoặc phải để chỉ điều chỉnh độ rộng. Nhấp chuột phải vào bất kỳ đâu để thoát khỏi chế độ chỉnh sửa. Vị trí và tỷ lệ của bạn được lưu tự động."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Ứng dụng Động vật hiển thị mọi chiếc bút bạn sở hữu với ba thanh tiến trình: mức thức ăn, mực nước và mức độ sạch sẽ. Thanh màu xanh lá cây không cần hành động. Thanh màu vàng nên được nạp sớm. Thanh màu đỏ rất quan trọng và sẽ ảnh hưởng đến năng suất nếu không được giám sát."/>
         <text name="ft_help_a3_title" text="Trình theo dõi xưởng &amp; nhóm"/>
         <text name="ft_help_a3_workshop_title" text="Xưởng"/>
-        <text name="ft_help_a3_workshop_text" text="Đi bộ trong phạm vi 25 mét tới bất kỳ phương tiện nào và phương tiện đó sẽ tự động xuất hiện trong ứng dụng Workshop. Mỗi mục hiển thị mức nhiên liệu, tỷ lệ hao mòn và tổng số giờ hoạt động. Nhấp vào CHỌN trên bất kỳ phương tiện nào để ghim phương tiện đó — các phương tiện được ghim vẫn hiển thị trong ứng dụng ngay cả khi bạn bỏ đi, giúp bạn dễ dàng giám sát các máy móc đang hoạt động tại hiện trường."/>
+        <text name="ft_help_a3_workshop_text" text="Đi bộ trong phạm vi 35 mét tới bất kỳ phương tiện nào và phương tiện đó sẽ tự động xuất hiện trong ứng dụng Workshop. Mỗi mục hiển thị mức nhiên liệu, tỷ lệ hao mòn và tổng số giờ hoạt động. Nhấp vào CHỌN trên bất kỳ phương tiện nào để ghim phương tiện đó — các phương tiện được ghim vẫn hiển thị trong ứng dụng ngay cả khi bạn bỏ đi, giúp bạn dễ dàng giám sát các máy móc đang hoạt động tại hiện trường."/>
         <text name="ft_help_a3_bucket_title" text="Trình theo dõi nhóm"/>
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker tự động kích hoạt khi bạn lái máy xúc lật, máy xúc hoặc máy xử lý vật liệu. Nó đếm mọi chu kỳ đổ rác và lưu giữ nhật ký hoạt động của loại vật liệu và trọng lượng ước tính trên mỗi lần tải. Sử dụng nó để theo dõi năng suất của các công việc đào đất, rải phân hoặc xử lý vật liệu khối lượng lớn."/>
         <text name="ft_help_m1_title" text="Chế độ thu nhập và thuế"/>
         <text name="ft_help_m1_income_title" text="Mod thu nhập FS25"/>
-        <text name="ft_help_m1_income_text" text="Khi FS25_IncomeMod hoạt động trong trò chơi lưu trữ của bạn, ứng dụng Thu nhập sẽ xuất hiện trên thanh bên. Nó hiển thị chế độ thanh toán hiện tại, số tiền đã lên lịch và cho phép bạn bật hoặc tắt bản mod mà không cần rời khỏi máy tính bảng. Những thay đổi có hiệu lực ngay lập tức."/>
+        <text name="ft_help_m1_income_text" text="Khi FS25_IncomeMod hoat dong, ung dung Thu Nhap xuat hien tren man hinh chinh. No hien thi che do va so tien thanh toan, va cho phep bat hoac tat mod ma khong roi khoi may tinh bang. Thay doi co hieu luc ngay lap tuc."/>
         <text name="ft_help_m1_tax_title" text="Chế độ thuế FS25"/>
         <text name="ft_help_m1_tax_text" text="Khi FS25_TaxMod hoạt động, ứng dụng Thuế sẽ hiển thị mức thuế hiện tại của bạn, tỷ lệ phần trăm hoàn thuế và tổng số thuế đã nộp trong phiên này. Bạn có thể bật hoặc tắt chế độ này từ máy tính bảng và xem nhanh yêu cầu số dư tối thiểu của mình."/>
         <text name="ft_help_m2_title" text="Căng thẳng cây trồng &amp; Phân bón cho đất"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="Ứng dụng App Store liệt kê mọi ứng dụng đã đăng ký với máy tính bảng, bao gồm cả các ứng dụng mod đồng hành. Các ứng dụng yêu cầu một mod hiện không hoạt động sẽ được hiển thị ở trạng thái mờ để bạn biết chúng có sẵn sau khi bạn bật mod phù hợp. Không cần cấu hình - các ứng dụng đồng hành tự động xuất hiện khi bản mod của chúng được tải."/>
         <text name="ft_help_s1_title" text="Cài đặt máy tính bảng"/>
         <text name="ft_help_s1_settings_title" text="Những gì bạn có thể thay đổi"/>
-        <text name="ft_help_s1_settings_text" text="Mở ứng dụng Cài đặt từ thanh bên để quản lý: vị trí và tỷ lệ của máy tính bảng (hoặc sử dụng Chế độ chỉnh sửa để kéo trực quan), ứng dụng khởi động được hiển thị khi bạn mở máy tính bảng lần đầu tiên, có hiển thị thông báo chào mừng khi tải hay không và ghi nhật ký gỡ lỗi để khắc phục sự cố. Tất cả các cài đặt sẽ được lưu tự động khi bạn đóng trò chơi."/>
+        <text name="ft_help_s1_settings_text" text="Mo ung dung Cai Dat de quan ly may tinh bang: vi tri va ty le (hoac Che do Chinh sua), mau nen, hinh nen man hinh chinh cua rieng ban, man hinh khoa, ung dung khoi dong, am thanh va thong bao. Moi thu duoc luu tu dong."/>
         <text name="ft_help_s1_sound_title" text="Hiệu ứng âm thanh"/>
         <text name="ft_help_s1_sound_text" text="Hiệu ứng âm thanh được bật theo mặc định. Nhấp chuột chọn ứng dụng sẽ phát khi bạn chuyển đổi ứng dụng. Âm thanh phân trang phát ra khi bảng trợ giúp trong trò chơi mở hoặc đóng. Cả hai đều có thể được chuyển đổi độc lập trong ứng dụng Cài đặt."/>
         <text name="ft_help_s2_title" text="Lệnh điều khiển"/>
         <text name="ft_help_s2_console_title" text="Các lệnh có sẵn"/>
-        <text name="ft_help_s2_console_text" text="Mở bảng điều khiển dành cho nhà phát triển bằng phím dấu ngã và nhập máy tính bảng để xem tất cả các lệnh có sẵn. Ví dụ: TabletKeybind H thay đổi phím mở thành H. Thời tiết TabletSetStartupApp sẽ mở ứng dụng Thời tiết theo mặc định. TabletResetSettings khôi phục tất cả cài đặt máy tính bảng về mặc định. TabletToggleDebug bật hoặc tắt tính năng đăng nhập chi tiết."/>
+        <text name="ft_help_s2_console_text" text="Mo bang dieu khien nha phat trien bang phim dau ngã va go tablet de liet ke moi lenh. Vi du TabletKeybind H doi phim mo, TabletSetStartupApp weather dat ung dung dau tien, va TabletResetSettings khoi phuc mac dinh."/>
 
     </texts>
 </l10n>

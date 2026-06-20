@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Açma ve Gezinme"/>
         <text name="ft_help_p1_open_title" text="Tableti Açma"/>
         <text name="ft_help_p1_open_text" text="Farm Tablet'i açmak veya kapatmak için istediğiniz zaman T'ye (yapılandırılabilir) basın. Anahtarı Ayarlar uygulamasından veya geliştirici konsolunda TabletKeybind yazıp ardından bir anahtar harfi yazarak değiştirebilirsiniz."/>
-        <text name="ft_help_p1_nav_title" text="Kenar Çubuğu Gezintisi"/>
-        <text name="ft_help_p1_nav_text" text="Sol kenar çubuğu, yüklü uygulama başına bir simge gösterir. Uygulamaları anında değiştirmek için herhangi bir simgeye tıklayın. Çok sayıda etkin yardımcı modunuz varsa kenar çubuğu kayar; yukarı ve aşağı kaydırmak için fare tekerleğini üzerine getirirken kullanın."/>
+        <text name="ft_help_p1_nav_title" text="Ana ekran &amp; uygulamalar"/>
+        <text name="ft_help_p1_nav_text" text="Farm Tablet bir telefon gibi calisir. Kilidi acmak icin kaydirin, ardindan ana ekranda bir uygulama simgesine dokunarak acin. Izgaraya donmek icin ust cubuktaki HOME dugmesine dokunun. Alttaki dok favorilerinizi tutar, fare tekerleği sayfalar arasinda gecer. App Store uygulamasi tum uygulamalarinizi listeler."/>
         <text name="ft_help_p2_title" text="Taşıma ve Yeniden Boyutlandırma"/>
         <text name="ft_help_p2_move_title" text="Düzenleme Modu"/>
         <text name="ft_help_p2_move_text" text="Ayarlar uygulamasını açın ve DÜZENLEME MODUNA GİRİN seçeneğine tıklayın. Düzenleme modunda, ekranın herhangi bir yerine yeniden konumlandırmak için tablet gövdesini sürükleyebilir, tabletin tamamını ölçeklendirmek için herhangi bir köşe tutamacını sürükleyebilir veya yalnızca genişliği ayarlamak için sol veya sağ kenarı sürükleyebilirsiniz. Düzenleme modundan çıkmak için herhangi bir yere sağ tıklayın. Konumunuz ve ölçeğiniz otomatik olarak kaydedilir."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Hayvanlar uygulaması, sahip olduğunuz her kalemi üç ilerleme çubuğuyla gösterir: yiyecek seviyesi, su seviyesi ve temizlik. Yeşil çubukların herhangi bir eyleme ihtiyacı yoktur. Sarı çubukların kısa sürede doldurulması gerekiyor. Kırmızı çubuklar kritik öneme sahiptir ve gözetimsiz bırakıldığında üretkenliği etkileyecektir."/>
         <text name="ft_help_a3_title" text="Atölye ve Kova Takibi"/>
         <text name="ft_help_a3_workshop_title" text="Atölye"/>
-        <text name="ft_help_a3_workshop_text" text="Herhangi bir araca 25 metre yaklaştığınızda otomatik olarak Atölye uygulamasında görünecektir. Her giriş yakıt seviyesini, aşınma yüzdesini ve toplam çalışma saatlerini gösterir. Sabitlemek için herhangi bir araç üzerinde SEÇ'e tıklayın; sabitlenmiş araçlar, siz uzaklaştığınızda bile uygulamada görünür kalır ve sahada çalışan makinelerin izlenmesini kolaylaştırır."/>
+        <text name="ft_help_a3_workshop_text" text="Herhangi bir araca 35 metre yaklaştığınızda otomatik olarak Atölye uygulamasında görünecektir. Her giriş yakıt seviyesini, aşınma yüzdesini ve toplam çalışma saatlerini gösterir. Sabitlemek için herhangi bir araç üzerinde SEÇ'e tıklayın; sabitlenmiş araçlar, siz uzaklaştığınızda bile uygulamada görünür kalır ve sahada çalışan makinelerin izlenmesini kolaylaştırır."/>
         <text name="ft_help_a3_bucket_title" text="Kova Takibi"/>
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker, bir tekerlekli yükleyiciyi, ekskavatörü veya malzeme taşıyıcıyı kullandığınızda otomatik olarak etkinleşir. Her boşaltma döngüsünü sayar ve malzeme türünün ve yük başına tahmini ağırlığın çalışan bir kaydını tutar. Hafriyat işleri, gübre serpme veya toplu malzeme taşıma işlerinde verimliliği izlemek için kullanın."/>
         <text name="ft_help_m1_title" text="Gelir ve Vergi Modları"/>
         <text name="ft_help_m1_income_title" text="FS25 Gelir Modu"/>
-        <text name="ft_help_m1_income_text" text="Kayıtlı oyununuzda FS25_IncomeMod etkin olduğunda, kenar çubuğunda Gelir uygulaması görünür. Geçerli ödeme modunu, planlanan tutarı gösterir ve tabletten ayrılmadan modu etkinleştirmenize veya devre dışı bırakmanıza olanak tanır. Değişiklikler hemen yürürlüğe girer."/>
+        <text name="ft_help_m1_income_text" text="FS25_IncomeMod etkin oldugunda Gelir uygulamasi ana ekranda gorunur. Odeme modunu ve tutarini gosterir ve tableti birakmadan modu acip kapatmaniza izin verir. Degisiklikler aninda etkili olur."/>
         <text name="ft_help_m1_tax_title" text="FS25 Vergi Modu"/>
         <text name="ft_help_m1_tax_text" text="FS25_TaxMod aktif olduğunda Vergi uygulaması mevcut vergi oranınızı, iade yüzdesini ve bu oturumda ödenen toplam vergiyi gösterir. Modu tabletten açıp kapatabilir ve minimum bakiye ihtiyacınızı bir bakışta görebilirsiniz."/>
         <text name="ft_help_m2_title" text="Mahsul Stresi ve Toprak Gübresi"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="App Store uygulaması, tamamlayıcı mod uygulamaları da dahil olmak üzere tablete kayıtlı her uygulamayı listeler. Şu anda etkin olmayan bir mod gerektiren uygulamalar soluk bir durumda gösterilir, böylece eşleşen modu etkinleştirdiğinizde bunların kullanılabilir olduğunu bilirsiniz. Hiçbir yapılandırmaya gerek yoktur; tamamlayıcı uygulamalar, modları yüklendiğinde otomatik olarak görünür."/>
         <text name="ft_help_s1_title" text="Tablet Ayarları"/>
         <text name="ft_help_s1_settings_title" text="Neleri Değiştirebilirsiniz"/>
-        <text name="ft_help_s1_settings_text" text="Şunları yönetmek için kenar çubuğundan Ayarlar uygulamasını açın: tablet konumu ve ölçeği (veya görsel sürükleme için Düzenleme Modunu kullanın), tableti ilk açtığınızda gösterilen başlangıç ​​uygulaması, yüklendiğinde bir karşılama bildirimi gösterilip gösterilmeyeceği ve sorun giderme için hata ayıklama günlüğü. Oyunu kapattığınızda tüm ayarlar otomatik olarak kaydedilir."/>
+        <text name="ft_help_s1_settings_text" text="Tableti yonetmek icin Ayarlar uygulamasini acin: konum ve olcek (veya Duzenleme Modu), arka plan rengi, kendi ana ekran goseliniz, kilit ekrani, baslangic uygulamasi, sesler ve bildirimler. Her sey otomatik olarak kaydedilir."/>
         <text name="ft_help_s1_sound_title" text="Ses efektleri"/>
         <text name="ft_help_s1_sound_text" text="Ses efektleri varsayılan olarak açıktır. Uygulama seçme tıklaması, uygulamaları değiştirdiğinizde oynatılır. Çağrı sesi, oyun içi yardım paneli açıldığında veya kapatıldığında çalınır. Her ikisi de Ayarlar uygulamasında bağımsız olarak değiştirilebilir."/>
         <text name="ft_help_s2_title" text="Konsol Komutları"/>
         <text name="ft_help_s2_console_title" text="Mevcut Komutlar"/>
-        <text name="ft_help_s2_console_text" text="Geliştirici konsolunu yaklaşık tuşuyla açın ve mevcut tüm komutları görmek için tablet yazın. Örnekler: TabletKeybind H, açma anahtarını H olarak değiştirir. TabletSetStartupApp hava durumu, Hava Durumu uygulamasını varsayılan olarak açar. TabletResetSettings, tüm tablet ayarlarını varsayılan değerlerine geri yükler. TabletToggleDebug ayrıntılı günlüğe kaydetmeyi açar veya kapatır."/>
+        <text name="ft_help_s2_console_text" text="Gelistirici konsolunu tilde tusuyla acin ve tum komutlari listelemek icin tablet yazin. Ornegin TabletKeybind H acma tusunu degistirir, TabletSetStartupApp weather ilk uygulamayi ayarlar ve TabletResetSettings varsayilanlari geri yukler."/>
 
     </texts>
 </l10n>

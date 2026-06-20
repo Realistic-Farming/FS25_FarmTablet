@@ -70,8 +70,8 @@
         <text name="ft_help_p1_title" text="Avaaminen ja navigointi"/>
         <text name="ft_help_p1_open_title" text="Tabletin avaaminen"/>
         <text name="ft_help_p1_open_text" text="Paina T (konfiguroitavissa) milloin tahansa avataksesi tai sulkeaksesi Farm Tabletin. Voit vaihtaa avaimen Asetukset-sovelluksessa tai kirjoittamalla TabletKeybind ja sen jälkeen avaimen kirjaimen kehittäjäkonsoliin."/>
-        <text name="ft_help_p1_nav_title" text="Sivupalkin navigointi"/>
-        <text name="ft_help_p1_nav_text" text="Vasemmassa sivupalkissa näkyy yksi kuvake jokaista asennettua sovellusta kohden. Napsauta mitä tahansa kuvaketta vaihtaaksesi sovelluksia välittömästi. Jos käytössäsi on useita täydentäviä modeja, sivupalkki vierittää – käytä hiiren rullaa vierittäessäsi sen päällä vierittääksesi ylös ja alas."/>
+        <text name="ft_help_p1_nav_title" text="Aloitusnaytto &amp; sovellukset"/>
+        <text name="ft_help_p1_nav_text" text="Farm Tablet toimii kuin puhelin. Avaa lukitus pyyhkaisemalla ja avaa sovellus napauttamalla sen kuvaketta aloitusnaytolla. Palaa ruudukkoon napauttamalla HOME ylapalkista. Alareunan telakka sisaltaa suosikit ja hiiren rulla vaihtaa sivuja. App Store -sovellus luettelee kaikki sovelluksesi."/>
         <text name="ft_help_p2_title" text="Siirtäminen ja koon muuttaminen"/>
         <text name="ft_help_p2_move_title" text="Muokkaustila"/>
         <text name="ft_help_p2_move_text" text="Avaa Asetukset-sovellus ja napsauta ENTER EDIT MODE. Muokkaustilassa voit vetämällä tabletin runkoa siirtääksesi sen mihin tahansa näytölle, vetämällä mitä tahansa kulman kahvaa skaalataksesi koko tabletin tai vetämällä vasenta tai oikeaa reunaa säätääksesi vain leveyttä. Napsauta hiiren kakkospainikkeella mitä tahansa poistuaksesi muokkaustilasta. Sijaintisi ja asteikkosi tallennetaan automaattisesti."/>
@@ -89,12 +89,12 @@
         <text name="ft_help_a2_animals_text" text="Animals-sovellus näyttää jokaisen omistamasi kynän kolmella edistymispalkilla: ruoan taso, veden taso ja puhtaus. Vihreät palkit eivät vaadi toimia. Keltaiset palkit pitäisi lisätä pian. Punaiset palkit ovat kriittisiä ja vaikuttavat tuottavuuteen, jos ne jätetään ilman valvontaa."/>
         <text name="ft_help_a3_title" text="Workshop &amp; Bucket Tracker"/>
         <text name="ft_help_a3_workshop_title" text="Työpaja"/>
-        <text name="ft_help_a3_workshop_text" text="Kävele 25 metrin säteellä mistä tahansa ajoneuvosta, niin se näkyy automaattisesti Workshop-sovelluksessa. Jokainen merkintä näyttää polttoainetason, kulumisprosentin ja kokonaiskäyttötunnit. Kiinnitä se napsauttamalla missä tahansa ajoneuvossa VALITSE – kiinnitetyt ajoneuvot pysyvät näkyvissä sovelluksessa, vaikka kävelet pois, jolloin pellolla työskentelevien koneiden seuranta on helppoa."/>
+        <text name="ft_help_a3_workshop_text" text="Kävele 35 metrin säteellä mistä tahansa ajoneuvosta, niin se näkyy automaattisesti Workshop-sovelluksessa. Jokainen merkintä näyttää polttoainetason, kulumisprosentin ja kokonaiskäyttötunnit. Kiinnitä se napsauttamalla missä tahansa ajoneuvossa VALITSE – kiinnitetyt ajoneuvot pysyvät näkyvissä sovelluksessa, vaikka kävelet pois, jolloin pellolla työskentelevien koneiden seuranta on helppoa."/>
         <text name="ft_help_a3_bucket_title" text="Kauhan seurantalaite"/>
         <text name="ft_help_a3_bucket_text" text="Kauhaseuranta aktivoituu automaattisesti, kun ajat pyöräkuormaajaa, kaivinkonetta tai materiaalinkäsittelylaitetta. Se laskee jokaisen tyhjennysjakson ja pitää kirjaa materiaalityypeistä ja arvioidusta painosta kuormaa kohden. Käytä sitä tuottavuuden seuraamiseen maanrakennustöissä, lannanlevityksessä tai irtotavarankäsittelytöissä."/>
         <text name="ft_help_m1_title" text="Tulot ja verot"/>
         <text name="ft_help_m1_income_title" text="FS25 Income Mod"/>
-        <text name="ft_help_m1_income_text" text="Kun FS25_IncomeMod on aktiivinen tallennuspelissäsi, Tulot-sovellus tulee näkyviin sivupalkkiin. Se näyttää nykyisen maksutavan, ajoitetun summan ja voit ottaa modin käyttöön tai poistaa sen käytöstä poistumatta tabletista. Muutokset astuvat voimaan välittömästi."/>
+        <text name="ft_help_m1_income_text" text="Kun FS25_IncomeMod on kaytossa, Tulot-sovellus ilmestyy aloitusnaytolle. Se nayttaa maksutavan ja summan ja antaa ottaa modin kayttoon tai pois kayttosta poistumatta tabletista. Muutokset tulevat voimaan heti."/>
         <text name="ft_help_m1_tax_title" text="FS25 Tax Mod"/>
         <text name="ft_help_m1_tax_text" text="Kun FS25_TaxMod on aktiivinen, Tax-sovellus näyttää nykyisen veroprosentin, palautusprosentin ja tässä istunnossa maksettujen verojen kokonaismäärän. Voit ottaa modin käyttöön tai poistaa sen käytöstä tabletissa ja nähdä vähimmäistasapainovaatimuksen yhdellä silmäyksellä."/>
         <text name="ft_help_m2_title" text="Viljelystressi ja maaperän lannoite"/>
@@ -107,12 +107,12 @@
         <text name="ft_help_m3_appstore_text" text="App Store -sovellus luettelee kaikki tablettiin rekisteröidyt sovellukset, mukaan lukien täydentävät mod-sovellukset. Sovellukset, jotka vaativat modin, joka ei ole tällä hetkellä aktiivinen, näkyvät himmennettyinä, jotta tiedät, että ne ovat käytettävissä, kun otat vastaavan modin käyttöön. Määrityksiä ei tarvita – kumppanisovellukset ilmestyvät automaattisesti, kun niiden modi ladataan."/>
         <text name="ft_help_s1_title" text="Tabletin asetukset"/>
         <text name="ft_help_s1_settings_title" text="Mitä voit muuttaa"/>
-        <text name="ft_help_s1_settings_text" text="Avaa Asetukset-sovellus sivupalkista hallitaksesi: tabletin sijaintia ja mittakaavaa (tai käytä muokkaustilaa visuaaliseen raahaamiseen), käynnistyssovellusta, joka näytetään, kun avaat tabletin ensimmäisen kerran, näytetäänkö tervetuloilmoitus latauksen yhteydessä ja virheenkorjausloki vianmääritystä varten. Kaikki asetukset tallentuvat automaattisesti, kun suljet pelin."/>
+        <text name="ft_help_s1_settings_text" text="Avaa Asetukset-sovellus hallitaksesi tablettia: sijainti ja koko (tai Muokkaustila), taustavari, oma aloituskuva, lukitusnaytto, aloitussovellus, aanet ja ilmoitukset. Kaikki tallennetaan automaattisesti."/>
         <text name="ft_help_s1_sound_title" text="Äänitehosteet"/>
         <text name="ft_help_s1_sound_text" text="Äänitehosteet ovat oletuksena käytössä. Sovelluksen valintanapsautus toistetaan, kun vaihdat sovellusta. Hakuääni kuuluu, kun pelin sisäinen ohjepaneeli avautuu tai sulkeutuu. Molemmat voidaan vaihtaa erikseen Asetukset-sovelluksessa."/>
         <text name="ft_help_s2_title" text="Konsolin komennot"/>
         <text name="ft_help_s2_console_title" text="Käytettävissä olevat komennot"/>
-        <text name="ft_help_s2_console_text" text="Avaa kehittäjäkonsoli tilde-näppäimellä ja kirjoita tabletti nähdäksesi kaikki käytettävissä olevat komennot. Esimerkkejä: TabletKeybind H muuttaa avausavaimen muotoon H. TabletSetStartupApp sää avaa Sää-sovelluksen oletuksena. TabletResetSettings palauttaa kaikki tabletin asetukset oletusarvoihinsa. TabletToggleDebug ottaa monisanaisen kirjauksen käyttöön tai poistaa sen käytöstä."/>
+        <text name="ft_help_s2_console_text" text="Avaa kehittajakonsoli tilde-nappaimella ja kirjoita tablet nahdaksesi kaikki komennot. Esimerkiksi TabletKeybind H vaihtaa avausnappaimen, TabletSetStartupApp weather asettaa ensimmaisen sovelluksen ja TabletResetSettings palauttaa oletukset."/>
 
     </texts>
 </l10n>
