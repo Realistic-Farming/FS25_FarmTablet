@@ -374,13 +374,13 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Docs / Releases:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - FT.py(14)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet",
+        "github.com/Realistic-Farming/FS25_FarmTablet",
         RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
     y = y - FT.py(16)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Bug Reports:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - FT.py(14)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues",
+        "github.com/Realistic-Farming/FS25_FarmTablet/issues",
         RenderText.ALIGN_LEFT, FT.C.BRAND)
 
     -- Console hint card

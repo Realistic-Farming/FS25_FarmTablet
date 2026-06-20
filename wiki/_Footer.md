@@ -1,1 +1,1 @@
-Farm Tablet by TisonK · [Report an issue](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) · [Releases](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases) · Reads your game data only, never changes your save
+Farm Tablet by TisonK · [Report an issue](https://github.com/Realistic-Farming/FS25_FarmTablet/issues) · [Releases](https://github.com/Realistic-Farming/FS25_FarmTablet/releases) · Reads your game data only, never changes your save

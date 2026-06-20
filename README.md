@@ -7,17 +7,17 @@
 **Your entire farm. One key press. Zero menus.**  
 *Stop alt-tabbing to spreadsheets. Stop squinting at buried sub-menus. Start farming.*
 
-[![Downloads](https://img.shields.io/github/downloads/TheCodingDad-TisonK/FS25_FarmTablet/total?style=for-the-badge&logo=github&color=22c55e&logoColor=white&label=DOWNLOADS)](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases)
-[![Latest Release](https://img.shields.io/github/v/release/TheCodingDad-TisonK/FS25_FarmTablet?style=for-the-badge&logo=tag&color=16a34a&logoColor=white&label=VERSION)](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/Realistic-Farming/FS25_FarmTablet/total?style=for-the-badge&logo=github&color=22c55e&logoColor=white&label=DOWNLOADS)](https://github.com/Realistic-Farming/FS25_FarmTablet/releases)
+[![Latest Release](https://img.shields.io/github/v/release/Realistic-Farming/FS25_FarmTablet?style=for-the-badge&logo=tag&color=16a34a&logoColor=white&label=VERSION)](https://github.com/Realistic-Farming/FS25_FarmTablet/releases/latest)
 [![License](https://img.shields.io/badge/LICENSE-CC%20BY--NC--ND%204.0-64748b?style=for-the-badge&logo=creativecommons&logoColor=white)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 <a href="https://paypal.me/TheCodingDad">
   <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate via PayPal" height="50">
 </a>
 
-[📚 Wiki](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki) •
+[📚 Wiki](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki) •
 [📥 Installation](#-install-in-10-seconds) •
 [🚀 Quick Start](#-quick-start) •
-[🐛 Report Issues](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) •
+[🐛 Report Issues](https://github.com/Realistic-Farming/FS25_FarmTablet/issues) •
 [📱 The Apps](#-core-apps)
 
 </div>
@@ -106,7 +106,7 @@ Farm Tablet has **20 built-in apps**, plus **12 more that appear automatically**
 </tr>
 </table>
 
-**📚 [Complete App Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/The-Apps)**
+**📚 [Complete App Reference →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/The-Apps)**
 
 ---
 
@@ -145,48 +145,48 @@ These apps appear on the home screen the moment their companion mod is active. N
 <td align="center" width="50%">
 <strong>💰 Income Mod</strong><br>
 <sub>Payment mode, amount per cycle, enabled status, ENABLE / DISABLE buttons</sub><br>
-<a href="https://github.com/TheCodingDad-TisonK/FS25_IncomeMod">FS25_IncomeMod →</a>
+<a href="https://github.com/Realistic-Farming/FS25_IncomeMod">FS25_IncomeMod →</a>
 </td>
 <td align="center" width="50%">
 <strong>📉 Tax Mod</strong><br>
 <sub>Tax rate tier, return %, cumulative taxes paid, ENABLE / DISABLE buttons</sub><br>
-<a href="https://github.com/TheCodingDad-TisonK/FS25_TaxMod">FS25_TaxMod →</a>
+<a href="https://github.com/Realistic-Farming/FS25_TaxMod">FS25_TaxMod →</a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
 <strong>🤝 NPC Favor</strong><br>
 <sub>Town reputation bar, active favours, per-NPC relationship bars sorted by score</sub><br>
-<a href="https://github.com/TheCodingDad-TisonK/FS25_NPCFavor">FS25_NPCFavor →</a>
+<a href="https://github.com/Realistic-Farming/FS25_NPCFavor">FS25_NPCFavor →</a>
 </td>
 <td align="center" width="50%">
 <strong>🌱 Crop Stress</strong><br>
 <sub>Per-field soil moisture %, drought stress indicator, colour-coded moisture bars</sub><br>
-<a href="https://github.com/TheCodingDad-TisonK/FS25_SeasonalCropStress">FS25_SeasonalCropStress →</a>
+<a href="https://github.com/Realistic-Farming/FS25_SeasonalCropStress">FS25_SeasonalCropStress →</a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
 <strong>🧪 Soil Fertilizer</strong><br>
 <sub>N · P · K levels, pH, organic matter, "needs fertilizer" flag, per-field detail view</sub><br>
-<a href="https://github.com/TheCodingDad-TisonK/FS25_SoilFertilizer">FS25_SoilFertilizer →</a>
+<a href="https://github.com/Realistic-Farming/FS25_SoilFertilizer">FS25_SoilFertilizer →</a>
 </td>
 <td align="center" width="50%">
 <strong>➕ And more</strong><br>
-<sub>Field Sentry, Market Dynamics, Worker Costs, Personnel, Random World Events, UsedPlus and Invoices appear automatically too. <a href="https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Mod-Integration-Apps">See all integrations →</a></sub>
+<sub>Field Sentry, Market Dynamics, Worker Costs, Personnel, Random World Events, UsedPlus and Invoices appear automatically too. <a href="https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Mod-Integration-Apps">See all integrations →</a></sub>
 </td>
 </tr>
 </table>
 
 > 💡 **Tip:** Load order doesn't matter. Farm Tablet detects mods at runtime — no restarts, no XML editing.
 
-**📚 [Full Integration Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Mod-Integration-Apps)**
+**📚 [Full Integration Guide →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Mod-Integration-Apps)**
 
 ---
 
 ## 📥 Install in 10 Seconds
 
-1. **Download** `FS25_FarmTablet.zip` from [**GitHub Releases**](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases)
+1. **Download** `FS25_FarmTablet.zip` from [**GitHub Releases**](https://github.com/Realistic-Farming/FS25_FarmTablet/releases)
 2. **Drop** the ZIP (do not extract!) into your mods folder:
    - Windows: `Documents\My Games\FarmingSimulator2025\mods\`
    - Mac: `~/Library/Application Support/FarmingSimulator2025/mods/`
@@ -197,7 +197,7 @@ These apps appear on the home screen the moment their companion mod is active. N
 
 > 💡 **Updating?** Replace the old ZIP with the new one. Your position, scale, and preferences are saved in the savegame — nothing is lost.
 
-**📚 [Detailed Installation Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Installation)**
+**📚 [Detailed Installation Guide →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Installation)**
 
 ---
 
@@ -229,7 +229,7 @@ Open **Settings → ENTER EDIT MODE** to drag, resize, and reposition:
 
 Position and scale are saved automatically. Reset anytime from **Settings → RESET POSITION & SCALE**.
 
-**📚 [Edit Mode Guide →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Customising-the-Tablet)**
+**📚 [Edit Mode Guide →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Customising-the-Tablet)**
 
 ---
 
@@ -254,7 +254,7 @@ Open the developer console with `` ` `` and type `tablet` for the full list.
 
 **Companion app IDs** (work when the mod is loaded): `income_mod` · `tax_mod` · `npc_favor` · `crop_stress` · `soil_fertilizer` · `field_sentry` · `market_dynamics` · `worker_costs` · `personnel` · `random_world_events` · `used_plus` · `roleplay_phone`
 
-**📚 [Full Console Command Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Console-Commands)**
+**📚 [Full Console Command Reference →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Console-Commands)**
 
 ---
 
@@ -279,7 +279,7 @@ All settings are saved to `<savegame>/FS25_FarmTablet.xml` and persist between s
 | **Notifications** | On | Welcome HUD message on save load |
 | **Debug Mode** | Off | Verbose logging to `log.txt` |
 
-**📚 [Full Settings Reference →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Settings)**
+**📚 [Full Settings Reference →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Settings)**
 
 ---
 
@@ -297,7 +297,7 @@ All settings are saved to `<savegame>/FS25_FarmTablet.xml` and persist between s
 **The tablet is off-screen or too large.**
 > Open the tablet → **Settings** → **RESET POSITION & SCALE**, or run `TabletResetSettings` in the console.
 
-**📚 [Full FAQ →](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ)**
+**📚 [Full FAQ →](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ)**
 
 ---
 
@@ -323,20 +323,20 @@ Farm Tablet ships ready for your region:
 
 ## 📚 Documentation
 
-Player documentation lives in the **[Farm Tablet Wiki](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki)**, kept in step with the current build. Developer and API reference stays in the [`docs/`](docs/README.md) folder.
+Player documentation lives in the **[Farm Tablet Wiki](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki)**, kept in step with the current build. Developer and API reference stays in the [`docs/`](docs/README.md) folder.
 
 **For players (wiki):**
 
 | Page | What's Inside |
 |------|---------------|
-| [Installation](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Installation) | Install, update, uninstall, requirements |
-| [Getting Started](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Getting-Started) | Lock screen, home screen, controls, first look |
-| [The Apps](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/The-Apps) | Every app, all sections, bars and colour thresholds |
-| [Customising the Tablet](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Customising-the-Tablet) | Move, resize, recolour, custom background, widgets |
-| [Settings](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Settings) | Every setting with default and where it is stored |
-| [Console Commands](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Console-Commands) | All commands with syntax and the full app-id table |
-| [Multiplayer](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Multiplayer) | How it behaves on servers and who can do what |
-| [Troubleshooting and FAQ](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ) | Common questions and quick fixes |
+| [Installation](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Installation) | Install, update, uninstall, requirements |
+| [Getting Started](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Getting-Started) | Lock screen, home screen, controls, first look |
+| [The Apps](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/The-Apps) | Every app, all sections, bars and colour thresholds |
+| [Customising the Tablet](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Customising-the-Tablet) | Move, resize, recolour, custom background, widgets |
+| [Settings](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Settings) | Every setting with default and where it is stored |
+| [Console Commands](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Console-Commands) | All commands with syntax and the full app-id table |
+| [Multiplayer](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Multiplayer) | How it behaves on servers and who can do what |
+| [Troubleshooting and FAQ](https://github.com/Realistic-Farming/FS25_FarmTablet/wiki/Troubleshooting-and-FAQ) | Common questions and quick fixes |
 
 **For developers (`docs/`):**
 
@@ -357,9 +357,9 @@ Player documentation lives in the **[Farm Tablet Wiki](https://github.com/TheCod
 Bug reports, translation fixes, and feature ideas are all welcome.  
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines before opening a PR.
 
-- 🐛 [Bug Report](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues/new?template=bug_report.yml)
-- 💡 [Feature Request](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues/new?template=feature_request.yml)
-- 🔗 [Compatibility Report](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues/new?template=compatibility_report.yml)
+- 🐛 [Bug Report](https://github.com/Realistic-Farming/FS25_FarmTablet/issues/new?template=bug_report.yml)
+- 💡 [Feature Request](https://github.com/Realistic-Farming/FS25_FarmTablet/issues/new?template=feature_request.yml)
+- 🔗 [Compatibility Report](https://github.com/Realistic-Farming/FS25_FarmTablet/issues/new?template=compatibility_report.yml)
 
 ---
 
@@ -369,13 +369,13 @@ Farm Tablet is the command centre for the **TisonK mod suite**. Install any comb
 
 | Mod | What It Adds |
 |-----|-------------|
-| [FS25_IncomeMod](https://github.com/TheCodingDad-TisonK/FS25_IncomeMod) | Configurable periodic income payments |
-| [FS25_TaxMod](https://github.com/TheCodingDad-TisonK/FS25_TaxMod) | Realistic tax deductions with rebate system |
-| [FS25_NPCFavor](https://github.com/TheCodingDad-TisonK/FS25_NPCFavor) | NPC relationships and favour mechanics |
-| [FS25_SeasonalCropStress](https://github.com/TheCodingDad-TisonK/FS25_SeasonalCropStress) | Soil moisture and drought stress simulation |
-| [FS25_SoilFertilizer](https://github.com/TheCodingDad-TisonK/FS25_SoilFertilizer) | Per-field N/P/K nutrient tracking |
-| [FS25_WorkerCosts](https://github.com/TheCodingDad-TisonK/FS25_WorkerCosts) | Worker wages, cost modes, and Pro-Staff personnel |
-| [FS25_RandomWorldEvents](https://github.com/TheCodingDad-TisonK/FS25_RandomWorldEvents) | Random world events like fires, floods and droughts |
+| [FS25_IncomeMod](https://github.com/Realistic-Farming/FS25_IncomeMod) | Configurable periodic income payments |
+| [FS25_TaxMod](https://github.com/Realistic-Farming/FS25_TaxMod) | Realistic tax deductions with rebate system |
+| [FS25_NPCFavor](https://github.com/Realistic-Farming/FS25_NPCFavor) | NPC relationships and favour mechanics |
+| [FS25_SeasonalCropStress](https://github.com/Realistic-Farming/FS25_SeasonalCropStress) | Soil moisture and drought stress simulation |
+| [FS25_SoilFertilizer](https://github.com/Realistic-Farming/FS25_SoilFertilizer) | Per-field N/P/K nutrient tracking |
+| [FS25_WorkerCosts](https://github.com/Realistic-Farming/FS25_WorkerCosts) | Worker wages, cost modes, and Pro-Staff personnel |
+| [FS25_RandomWorldEvents](https://github.com/Realistic-Farming/FS25_RandomWorldEvents) | Random world events like fires, floods and droughts |
 
 ---
 
