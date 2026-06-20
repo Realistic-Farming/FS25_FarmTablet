@@ -4,6 +4,18 @@
 
 local CHANGELOG = {
     {
+        version = "2.5.0.0",
+        date    = "2026",
+        changes = {
+            "New: real tablet experience — a lock screen with slide-to-unlock, then a home springboard",
+            "New: glossy app icons for every app (built-in + integrated mods), on a paged grid with a dock",
+            "New: tap an app to launch it with a zoom-open animation; every icon presses in when touched",
+            "New: status bar with live clock, draining battery and signal; tap the power icon to lock",
+            "New: apps open full-screen with a Home/Back bar; redesigned 3D frame, screen gloss + wallpaper",
+            "New: custom home background — drop a PNG in your savegame's FTBackground folder and pick it in Settings",
+        },
+    },
+    {
         version = "2.4.0.0",
         date    = "2026",
         changes = {

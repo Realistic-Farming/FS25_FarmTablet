@@ -203,10 +203,26 @@ function FT_Renderer:destroyAll()
     self._buttons    = {}
 end
 
+--- Renders only the persistent base overlays (tablet body, bezel, screen backing).
+--- Split out so FarmTabletUI can slot a full-screen wallpaper image between the
+--- tablet body and the screen content (home / lock states).
+function FT_Renderer:flushBase()
+    for _, ov in ipairs(self._overlays) do
+        if ov and ov.render then ov:render() end
+    end
+end
+
 --- Renders all queued drawables for the current frame.
 --- Draw order: chrome overlays → app overlays (clipped) → cover strips → text.
 --- clipY / clipH: content-area bounds used for culling and GPU clip rect.
 function FT_Renderer:flush(clipY, clipH)
+    self:flushBase()
+    self:flushContent(clipY, clipH)
+end
+
+--- Renders the app/content layers (everything except the persistent base):
+--- app overlays (clipped) → cover strips → persistent text → app text.
+function FT_Renderer:flushContent(clipY, clipH)
     local doClip = (clipY ~= nil and clipH ~= nil)
     local clipTop    = doClip and (clipY + clipH) or nil
     local clipBottom = doClip and clipY or nil
@@ -222,10 +238,6 @@ function FT_Renderer:flush(clipY, clipH)
         return (oy + oh) >= clipBottom and oy <= clipTop
     end
 
-    -- 1. Persistent base overlays (chrome body, background)
-    for _, ov in ipairs(self._overlays) do
-        if ov and ov.render then ov:render() end
-    end
     -- 2. App overlays (scrolled content, clipped via native clip rect)
     for _, ov in ipairs(self._appLayer) do
         if ov and ov.render and not ov._isText then

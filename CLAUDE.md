@@ -114,7 +114,7 @@ At these stages, Claude and Samantha MUST have explicit dialog:
 
 ## Project Overview
 
-**FS25_FarmTablet** is a Farming Simulator 25 mod that provides a central in-game tablet UI for farm management. It uses a modular app system — built-in apps include Dashboard, App Store, Weather, Digging, Bucket Tracker, Income, Tax, Settings, and Updates. Third-party mod apps (IncomeMod, TaxMod) are auto-detected and registered at runtime. The tablet opens/closes with a configurable key (default **T**) and renders as a custom HUD overlay using FS25's `Overlay` class and `renderText`. Current version: **1.1.0.1**. Localization is inline in `modDesc.xml` (10 languages).
+**FS25_FarmTablet** is a Farming Simulator 25 mod that provides a central in-game tablet UI for farm management. It behaves like a real tablet: a **lock screen** (slide-to-unlock) opens to a **home springboard** — a paged grid of glossy app icons plus a dock — and tapping an icon launches that app **full-screen** with a zoom animation (a Home/Back bar returns you). 30+ built-in apps; companion-mod apps (Income, Tax, NPC Favor, Crop Stress, Soil Fertilizer, Worker Costs / Personnel, Market Dynamics, Random World Events, UsedPlus, RoleplayPhone, FieldSentry) are auto-detected at runtime. The tablet opens/closes with a configurable key (default **T**) and renders as a custom HUD via FS25's `Overlay`/`renderText` plus baked PNG art (icons, wallpaper, rounded frame). Current version: **2.5.0.0**. App names are localised via `translations/translation_*.xml` (26 languages); UI chrome strings are inline English in the Lua.
 
 ---
 
@@ -152,19 +152,20 @@ All mods live under each developer's personal **Mods Base Directory**:
 
 ### Entry Point & Module Loading
 
-`modDesc.xml` declares `<sourceFile filename="src/main.lua" />`. `main.lua` uses `source()` to load all modules in strict dependency order:
+`modDesc.xml` declares `<sourceFile filename="src/main.lua" />`. `main.lua` uses `source()` to load all modules in dependency order:
 
-1. **Settings** — `settings/SettingsManager.lua`, `settings/Settings.lua`, `settings/SettingsGUI.lua`, `settings/SettingsUI.lua`
-2. **Utils** — `utils/UIHelper.lua`, `utils/InputHandler.lua`, `utils/FunctionHooks.lua`
-3. **Core** — `FarmTabletSystem.lua`, `FarmTabletUI.lua`, `FarmTabletManager.lua`
-4. **Apps** — all files in `src/apps/` (each adds methods to `FarmTabletUI`)
+1. **Core** — `core/Constants.lua` (the `FT` design system), `core/EventBus.lua`, `core/FarmTabletFocus.lua`, `core/AppRegistry.lua`
+2. **Settings** — `settings/SettingsManager.lua`, `Settings.lua`, `SettingsGUI.lua`, `SettingsUI.lua`
+3. **Utils** — `utils/UIHelper.lua`, `InputHandler.lua`, `FunctionHooks.lua`, `Renderer.lua`, `DataProvider.lua`, `ui/Icons.lua`
+4. **System & UI** — `FarmTabletSystem.lua`, `FarmTabletUI.lua`, `ui/HomeScreen.lua`, `ui/LockScreen.lua`, `FarmTabletUIEditMode.lua`, `FarmTabletManager.lua`
+5. **Apps** — every `src/apps/*App.lua` (each calls `FarmTabletUI:registerDrawer(appId, fn)`)
 
 **Adding a new app:**
-1. Create `src/apps/MyApp.lua` with a `function FarmTabletUI:loadMyApp()` method
-2. Add `source()` call in `main.lua` after the other apps
-3. Register an app descriptor in `FarmTabletSystem.registeredApps` (or auto-register in `autoRegisterModApps`)
-4. Add the `elseif appId == "my_app" then self:loadMyApp()` branch in `FarmTabletUI:loadCurrentApp()`
-5. Add `ft_app_myapp` to the `modDesc.xml` `<l10n>` block in all 10 languages
+1. Create `src/apps/MyApp.lua` and register a drawer: `FarmTabletUI:registerDrawer(FT.APP.MY_APP, function(self) ... end)`
+2. `source()` it in `main.lua` in the Apps block
+3. Add the id to `FT.APP` + an accent in `FT.APP_COLOR` (`core/Constants.lua`), and register the app in `AppRegistry.BUILTIN_APPS` (or `AppRegistry:autoDetect()` for companion mods)
+4. Add a baked icon: an emblem in `tools/gen_icons.py`, then run `py tools/gen_icons.py` → writes `gui/icons/<id>.png`
+5. Add the app name key `ft_ui_app_<id>` to the `translations/translation_*.xml` files
 
 ### Central Coordinator: FarmTabletManager
 
@@ -187,32 +188,22 @@ Global reference: set via `getfenv(0)["g_FarmTablet"] = farmTabletManager` in `m
 
 ### App System
 
-Apps are **not separate class instances** — each app file adds methods directly to `FarmTabletUI`:
+Apps are **not separate classes** — each app file registers a *drawer* on `FarmTabletUI`:
 
 ```lua
 -- src/apps/MyApp.lua
-function FarmTabletUI:loadMyApp()
-    self.ui.appTexts = {}          -- always clear first
-    local content = self.ui.appContentArea
-    if not content then return end
-    -- add entries to self.ui.appTexts
-    table.insert(self.ui.appTexts, {
-        text = "Hello",
-        x = content.x + self:px(15),
-        y = content.y + content.height - self:py(15) - 0.03,
-        size = 0.020,
-        align = RenderText.ALIGN_LEFT,
-        color = {1, 1, 1, 1}
-    })
-end
+FarmTabletUI:registerDrawer(FT.APP.MY_APP, function(self)
+    local y = self:drawAppHeader("My App", "subtitle")
+    y = self:drawRow(y, "Label", "Value")
+    y = self:drawSection(y, "SECTION")
+    self:drawButton(y, "DO IT", FT.C.BTN_PRIMARY, { onClick = function() ... end })
+    self:setContentHeight(totalHeight)   -- enables wheel scroll if content overflows
+end)
 ```
 
-`FarmTabletSystem.registeredApps` is a table of app descriptor objects:
-```lua
-{ id = "my_app", name = "ft_app_myapp", icon = "myapp_icon", developer = "...", version = "...", enabled = true }
-```
+Drawers render into the **content area** (`FT.LAYOUT.content*`), which is the full screen below the app bar in APP state. Use the helper API rather than touching layout directly: `contentInner()`, `drawAppHeader / drawRow / drawSection / drawRule / drawBar / drawButton / drawButtonPair`, `drawInfoIcon / drawHelpPage`, `setContentHeight / getContentScrollY / drawScrollBar`. Buttons push click descriptors into `self._contentBtns`. `FarmTabletUI:_drawContent()` dispatches to the drawer registered for `system.currentApp`.
 
-`FarmTabletUI:loadCurrentApp()` dispatches to the right `load*App()` method based on `tabletSystem.currentApp` (a string app ID). Add your `elseif` branch there.
+App descriptors live in `AppRegistry` (`{ id, group, name, navLabel, icon, order, ... }`). `app.id` (an `FT.APP.*` string) is the routing key — it also selects the accent colour (`FT.APP_COLOR`) and the baked icon file (`gui/icons/<id>.png`).
 
 ### Auto Mod Registration
 
@@ -225,45 +216,33 @@ end
 
 To add detection for another mod, extend `autoRegisterModApps()` with a similar check.
 
-### Rendering System (FS25 Overlay Class)
+### Rendering System
 
-FarmTablet does **NOT** use FS25's dialog/GUI XML system. Everything is drawn via FS25's `Overlay` class and `renderText`:
+FarmTablet does **NOT** use FS25's dialog/GUI XML. Two layers:
 
-**Overlays (colored rects and images):**
-```lua
--- Create once in createTabletUI / createBlankOverlay:
-local overlay = Overlay.new(texturePath, x, y, width, height)  -- texturePath can be nil for solid color
-overlay:setColor(r, g, b, a)
-overlay:setVisible(true)
--- Each frame in draw():
-overlay:render()
--- Cleanup in destroyTabletUI():
-overlay:delete()
-```
+**1. `FT_Renderer` (`utils/Renderer.lua`)** — retained-mode coloured rects + text via `g_overlayManager:createOverlay(g_plainColorSliceId, …)` and `renderText`. App drawers queue with `appRect`/`appText` (cleared per app switch); chrome with `rect`/`text`. `flush()` is split into `flushBase()` (persistent body overlays) and `flushContent(clipY, clipH)` (app overlays under a native clip rect → cover strips → text) so a wallpaper image can be slotted between the body and the screen content.
 
-**Text:**
-```lua
--- Each frame in draw(), for every entry in ui.texts / ui.appTexts:
-setTextAlignment(t.align)   -- e.g. RenderText.ALIGN_LEFT
-setTextColor(unpack(t.color))
-renderText(t.x, t.y, t.size, t.text)
--- Always reset after the loop:
-setTextAlignment(RenderText.ALIGN_LEFT)
-```
+**2. `FT_Icons` (`ui/Icons.lua`)** — baked PNG art (app icons, wallpaper, the rounded tablet frame). Overlays are created from files via `Overlay.new(path, …)`, **cached for the session**, then repositioned / resized / tinted each frame — cheap enough to animate press feedback and the launch zoom. `renderIcon(appId, x, y, size, scale, alpha)` falls back to `_fallback.png` + a text monogram for unknown ids; `renderImage(key, relPath, …)` stretches an arbitrary gui image.
 
-**Coordinates:** All positions in **normalized screen space (0.0–1.0)**. FS25 mouse event coordinates are also already normalized — no conversion needed.
+`FarmTabletUI:draw()` order: rounded **frame texture** (`gui/tablet_frame.png`, transparent corners) → `flushBase()` (screen surface) → wallpaper (home/lock only) → `flushContent()` → icon queue → transient animation overlay → edit-mode chrome.
 
-**Scale helpers:** `self:px(n)` and `self:py(n)` are **scale multipliers relative to the tablet's proportional size**, not pixel-to-screen converters:
-```lua
-self.ui.scaleX = tabletWidth / 500    -- tabletWidth is normalized
-self.ui.scaleY = tabletHeight / 375
+**Coordinates:** normalised screen space (0–1), **y up**; mouse coords already normalised. **Scale helpers:** `FT.px(n)` / `FT.py(n)` multiply by `FT.LAYOUT.scaleX/scaleY` (the tablet is proportional to `FT.REF_W` × `FT.REF_H`). They return 0 until `_computeLayout()` runs — never call them at module-load time.
 
-function FarmTabletUI:px(x)  return x * self.ui.scaleX  end
-function FarmTabletUI:py(y)  return y * self.ui.scaleY  end
-```
-Use them for sizing and spacing elements consistently across screen resolutions.
+**Registration:** `g_currentMission:addDrawable(self)` makes FS25 call `FarmTabletUI:draw()` each frame while open; removed on close. Mouse comes via `addModEventListener` → `_onMouse`, dispatched by `uiState`.
 
-**Registration:** `g_currentMission:addDrawable(self)` causes FS25 to call `FarmTabletUI:draw()` each frame while open. Removed via `g_currentMission:removeDrawable(self)` on close.
+### Tablet OS State Machine
+
+`FarmTabletUI.uiState` ∈ `"lock" | "home" | "app"`. `openTablet()` lands on `lock` (unless `settings.lockScreenEnabled == false`). `_rebuildScreen()` clears the renderer and redraws frame + status bar + the current screen — it is the single rebuild entry (called on state change, page change, in-place app refresh, content scroll, and lock-knob drag).
+
+- **lock** (`ui/LockScreen.lua`) — wallpaper, big clock/date/farm, slide-to-unlock knob. `unlock()` → home.
+- **home** (`ui/HomeScreen.lua`) — paged springboard grid (excludes dock apps) + dock + page dots + home indicator. Tapping an icon → `launchApp(appId, rect)`.
+- **app** — a registered app drawer rendered full-screen under a Home/Back app bar. `goHome()` → home; the status-bar power glyph → `lockNow()`. `switchApp(id)` is the in-place refresh apps call (no zoom).
+
+Transitions play a **transient overlay** on top of the already-built target screen (no per-frame rebuild): `_startAnim(kind, dur, data)` sets `self._anim`; `update()` ticks it; `_drawAnim()` interpolates. Kinds: `wake`, `unlock`, `lock`, `launch` (icon zoom out to fill), `home` (icon zoom back to its cell). Press feedback is instant — the pressed icon scales to 0.9 + dims in the icon queue.
+
+### Icon Pipeline
+
+App icons are **baked PNGs**, not rect art. `tools/gen_icons.py` (Pillow) renders one glossy tile per app id (its `ICONS` map = accent colour + an emblem fn), plus `_fallback.png`, `wallpaper.png`, and the rounded `tablet_frame.png`. Run `py tools/gen_icons.py`; it writes `gui/icons/*.png` + `gui/*.png` and a QA contact sheet to `tools/_contact_sheet.png` (dev-only — gitignore it; `tools/` is excluded from the build zip). An icon filename **must equal the `app.id`** (`FT.APP.*`) or the fallback monogram shows. `tablet_frame.png` uses a margin (`mf = 0.055`, kept in sync between `gen_icons.py` and `FarmTabletUI:draw()`) so the rounded body maps to the tablet rect while the margin carries the drop shadow.
 
 ### Game Hook Pattern
 
@@ -290,17 +269,23 @@ Settings persist to `{savegameDirectory}/FS25_FarmTablet.xml`, XML root tag `<Fa
 |---------|------|---------|-------------|
 | `enabled` | bool | true | Enable/disable the mod entirely |
 | `tabletKeybind` | string | "T" | Key to open/close tablet |
-| `startupApp` | int (1–4) | 1 | App shown on open (1=Dashboard, 2=App Store, 3=Weather, 4=Digging) |
+| `startupApp` | string id | "dashboard" | Legacy default app (the springboard now lands on Home) |
+| `lockScreenEnabled` | bool | true | Show the slide-to-unlock lock screen on open |
 | `showTabletNotifications` | bool | true | HUD welcome/status notifications |
-| `vibrationFeedback` | bool | true | Controller vibration on tablet interaction |
-| `soundEffects` | bool | true | Sound on app switch |
+| `soundEffects` | bool | true | Master UI sound toggle |
+| `soundOnAppSelect` / `soundOnHelpOpen` / `soundOnTabletToggle` | bool | true | Per-event sound sub-toggles |
+| `vibrationFeedback` | bool | true | Controller vibration |
+| `tabletPosX` / `tabletPosY` | float | 0.5 | Tablet centre (edit mode) |
+| `tabletScale` / `tabletWidthMult` | float | 1.0 | Size / width stretch (edit mode, 0.5–2.0) |
+| `tabletBgColorIndex` | int | 1 | Index into `FT.BG_PALETTE` (app-screen background) |
+| `dashWidgets` | string | (csv) | Enabled Dashboard widgets |
 | `debugMode` | bool | false | Verbose console logging |
 
-Settings are injected into the FS25 pause menu via `SettingsUI:inject()` hooked on `InGameMenuSettingsFrame.onFrameOpen`. `UIHelper` clones existing FS25 settings elements (binary options, multi options, section headers) to build the settings rows without custom XML.
+**Adding a setting touches four spots:** `Settings.lua` (`resetToDefaults` + `validateSettings`) and `SettingsManager.lua` (`loadSettings` + `saveSettings`). Settings are injected into the FS25 pause menu via `SettingsUI:inject()` (hooked on `InGameMenuSettingsFrame.onFrameOpen`); `UIHelper` clones existing FS25 settings elements without custom XML.
 
 ### Localization
 
-All strings are inline in `modDesc.xml` under `<l10n>`. 10 languages: en, de, fr, pl, es, it, cz, br, uk, ru. Access in Lua via `g_i18n:getText("ft_key_name")`. For fallback safety, use `g_i18n:getText(key) or key`. To add a new string, add a `<text name="ft_...">` block with all 10 language entries.
+App names and help text live in external `translations/translation_<lang>.xml` files (26 languages, referenced from `modDesc.xml` via `filenamePrefix`). UI **chrome** strings (e.g. "slide to unlock", grid labels falling back to `navLabel`) are inline English in the Lua, matching the existing codebase. Access l10n via `g_i18n:getText(key)`; guard optional keys with `g_i18n:hasText(key)`.
 
 ---
 
@@ -420,9 +405,9 @@ Type `tablet` in the developer console (`~` key) for the full list:
 
 ## Known Limitations / Issues
 
-- **`startupApp` int/string mismatch:** `settings.startupApp` is an integer (1–4) but `FarmTabletSystem.currentApp` is a string app ID. If `currentApp` is initialized directly from the int it silently falls to `loadDefaultApp()`. This is an existing bug.
-- **WorkshopApp disabled:** `src/apps/WorkshopApp.lua` and the workshop app entry are commented out in both `main.lua` and `FarmTabletSystem`. Do not reference `"workshop"` as a working app ID.
-- **Bucket Tracker not in built-in app list:** `bucket_tracker` is registered in `FarmTabletSystem.registeredApps` but its app list entry stops at the 4th built-in. It appears via auto-appending. Verify registration order when adding new apps.
+- **Edit-mode width stretch warps the frame corners:** `gui/tablet_frame.png` is a single stretched texture, so a large `tabletWidthMult` makes the rounded corners slightly elliptical. Acceptable; a 9-slice frame would fix it if it ever matters.
+- **`startupApp` is now a string id** with legacy int migration in `Settings:validateSettings`; the springboard lands on Home regardless, so it is mostly vestigial.
+- **Companion-mod apps vary per save:** they only register when their mod is loaded (`AppRegistry:autoDetect()`), so the springboard's app/page count changes between saves.
 
 ---
 
@@ -452,13 +437,14 @@ Type `tablet` in the developer console (`~` key) for the full list:
 ## Session Reminders
 
 1. Read this file before writing code
-2. Check `log.txt` after changes — look for `[Farm Tablet]` or `[Farm Tablet UI]` lines (debug mode only)
-3. Overlays use `Overlay.new()` + `overlay:render()` — NOT `createImageOverlay` / `renderOverlay`
-4. All coordinates are normalized (0.0–1.0) — `px()`/`py()` are scale helpers, not pixel converters
-5. Apps add methods to `FarmTabletUI`, not new classes
-6. Always clear `self.ui.appTexts = {}` at the top of every `load*App()` function
-7. No `os.time()` — use `g_currentMission.time`
+2. Check `log.txt` after changes — `[FarmTablet]` / `[FarmTablet UI]` lines (debug mode only)
+3. Two render layers: `FT_Renderer` (rects/text) and `FT_Icons` (baked PNG overlays, cached for the session)
+4. Coordinates are normalized (0–1), y up; `FT.px()` / `FT.py()` are scale helpers, not pixel converters
+5. Apps register a drawer via `FarmTabletUI:registerDrawer(id, fn)` — they are not classes
+6. App drawers render into `FT.LAYOUT.content*` via the `draw*` helper API; buttons push to `self._contentBtns`
+7. No `os.time()` — use `g_currentMission.time` / `.environment.currentDay`
 8. FS25 = Lua 5.1 (no `goto`, no `continue`)
 9. Mouse buttons: 1=left, 2=middle, 3=right; coordinates already normalized
-10. Localization strings are inline in `modDesc.xml` — add all 10 languages for every new key
-11. Build with `bash build.sh --deploy` (always deploy to mods folder)
+10. App names live in `translations/translation_*.xml` (26 langs); UI chrome strings are inline English
+11. Build with `py build.py --deploy`; re-run `py tools/gen_icons.py` after any icon/frame change
+12. No native `luac` — syntax-check Lua via the SoilFertilizer luaparse harness in `tools/test/`

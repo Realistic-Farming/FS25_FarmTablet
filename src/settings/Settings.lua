@@ -39,6 +39,8 @@ function Settings:resetToDefaults(saveImmediately)
     self.soundOnAppSelect        = true   -- sound when clicking a sidebar app
     self.soundOnHelpOpen         = true   -- sound when help panel opens/closes
     self.soundOnTabletToggle     = true   -- sound when tablet opens or closes
+    self.lockScreenEnabled       = true   -- show lock screen (slide to unlock) on open
+    self.customBackground        = ""     -- PNG filename in savegame/FTBackground (empty = default wallpaper)
     self.debugMode               = false
 
     -- HUD / tablet window position and scale (saved across sessions)
@@ -94,6 +96,8 @@ function Settings:validateSettings()
     self.soundOnHelpOpen         = self.soundOnHelpOpen     == nil and true or not not self.soundOnHelpOpen
     self.soundOnTabletToggle     = self.soundOnTabletToggle == nil and true or not not self.soundOnTabletToggle
     self.vibrationFeedback       = not not self.vibrationFeedback
+    self.lockScreenEnabled       = self.lockScreenEnabled == nil and true or not not self.lockScreenEnabled
+    if type(self.customBackground) ~= "string" then self.customBackground = "" end
 
     -- Numeric range clamping
     self.tabletScale         = math.max(0.5, math.min(2.0, self.tabletScale         or 1.0))
