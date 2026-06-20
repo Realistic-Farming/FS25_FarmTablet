@@ -15,3 +15,6 @@ desktop.ini
 
 # Lua IDE files
 .luarc.json
+
+# Dev-only QA artifacts (icon generator contact sheet)
+tools/_contact_sheet.png

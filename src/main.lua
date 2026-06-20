@@ -23,6 +23,7 @@ source(modDirectory .. "src/utils/InputHandler.lua")
 source(modDirectory .. "src/utils/FunctionHooks.lua")
 source(modDirectory .. "src/utils/Renderer.lua")
 source(modDirectory .. "src/utils/DataProvider.lua")
+source(modDirectory .. "src/ui/Icons.lua")
 
 -- Data managers
 source(modDirectory .. "src/InvoiceManager.lua")
@@ -30,6 +31,8 @@ source(modDirectory .. "src/InvoiceManager.lua")
 -- System & UI
 source(modDirectory .. "src/FarmTabletSystem.lua")
 source(modDirectory .. "src/FarmTabletUI.lua")
+source(modDirectory .. "src/ui/HomeScreen.lua")
+source(modDirectory .. "src/ui/LockScreen.lua")
 source(modDirectory .. "src/FarmTabletUIEditMode.lua")
 source(modDirectory .. "src/FarmTabletManager.lua")
 

@@ -48,6 +48,11 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
                   "Click to cycle through 6 preset dark themes:\n" ..
                   "Deep Space, Ocean Blue, Forest Green,\n" ..
                   "Midnight Purple, Warm Dark, Slate Grey." },
+        { title = "HOME BACKGROUND",
+          body  = "Use your own image behind the home and lock screens.\n" ..
+                  "Drop PNG files into the FTBackground folder inside your\n" ..
+                  "savegame, named background.png, background1.png, etc.,\n" ..
+                  "then click HOME BACKGROUND to cycle through them." },
         { title = "SOUND EFFECTS",
           body  = "Master toggle for all tablet sounds.\n" ..
                   "When off all sub-toggles are also silenced.\n" ..
@@ -171,6 +176,48 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     self.r:appText(cx + FT.px(2), y - FT.py(2),
         FT.FONT.TINY, "Click to cycle  |  Screen background color",
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - HINT_H - BTN_GAP
+
+    -- Home background image (custom PNG from savegame/FTBackground)
+    local bgDir = (g_currentMission and g_currentMission.missionInfo
+                   and g_currentMission.missionInfo.savegameDirectory)
+                  and (g_currentMission.missionInfo.savegameDirectory .. "/FTBackground/") or nil
+    local BG_CANDIDATES = {
+        "background.png", "background1.png", "background2.png", "background3.png",
+        "background4.png", "background5.png", "background6.png", "background7.png",
+        "background8.png", "background9.png",
+    }
+    local bgOptions = { { label = "DEFAULT", file = "" } }
+    if bgDir then
+        for _, name in ipairs(BG_CANDIDATES) do
+            if fileExists(bgDir .. name) then
+                table.insert(bgOptions, { label = string.upper(name), file = name })
+            end
+        end
+    end
+    local curBg = s.customBackground or ""
+    local bgOptIdx = 1
+    for i, o in ipairs(bgOptions) do if o.file == curBg then bgOptIdx = i; break end end
+    local curBgOpt = bgOptions[bgOptIdx] or bgOptions[1]
+    y = y - BTN_H
+    self:drawButton(y, "HOME BACKGROUND: " .. curBgOpt.label, FT.C.BTN_NEUTRAL, {
+        onClick = function()
+            playClickSound(s)
+            local nextIdx = (bgOptIdx % #bgOptions) + 1
+            local chosen = bgOptions[nextIdx]
+            s.customBackground = chosen.file
+            if FT_Icons and FT_Icons.invalidate and bgDir and chosen.file ~= "" then
+                FT_Icons.invalidate(bgDir .. chosen.file)
+            end
+            s:save()
+            refresh(self)
+        end
+    })
+    local nFound = #bgOptions - 1
+    local bgHint = (nFound > 0)
+        and (nFound .. " image(s) in FTBackground  |  click to cycle")
+        or  "Drop background.png in your savegame's FTBackground folder"
+    self.r:appText(cx + FT.px(2), y - FT.py(2), FT.FONT.TINY, bgHint, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - HINT_H - BTN_GAP
 
     y = self:drawRule(y - FT.py(4), 0.3)

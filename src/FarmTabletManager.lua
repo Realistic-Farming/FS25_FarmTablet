@@ -105,6 +105,13 @@ function FarmTabletManager:onMissionLoaded()
 
     self.system:initialize()
 
+    -- Ensure the custom home-screen background folder exists in the savegame so
+    -- players have a place to drop their own PNG wallpapers.
+    if self.mission:getIsClient() and createFolder
+       and g_currentMission.missionInfo and g_currentMission.missionInfo.savegameDirectory then
+        createFolder(g_currentMission.missionInfo.savegameDirectory .. "/FTBackground")
+    end
+
     -- Suppress vehicle camera zoom (scroll wheel) while the tablet is open.
     -- The mouseEvent handler already returns eventUsed=true for wheel buttons,
     -- but InputAction.CAMERA_ZOOM_IN_OUT is a separate system that ignores that.
