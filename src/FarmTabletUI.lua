@@ -22,6 +22,50 @@ local HOMEIND_REF  = 10    -- home-indicator strip height
 -- ── Dock favourites (always-present built-ins) ───────────
 local DOCK_APPS = { "dashboard", "weather", "app_store", "settings" }
 
+-- ── Nav-glyph helpers (#90) ──────────────────────────────
+-- The renderer only draws axis-aligned rects, so the Back arrow and Home
+-- house are approximated with a short stack of rects. Sizes are passed in
+-- already-normalised (the caller converts via FT.px / FT.py).
+--
+-- NOTE: coordinates are normalised (0..1), so the stacking dimension uses a
+-- fractional half-step overlap (step * 1.5) to avoid hairline gaps — never a
+-- literal "+1", which would add a full screen width/height.
+local GLYPH_STEPS = 6
+
+-- Left-pointing filled triangle: short tip at (tipX, cy), widening to the
+-- right over width w and total height h. Used as the Back arrowhead.
+local function drawTriLeft(r, tipX, cy, w, h, color)
+    local step = w / GLYPH_STEPS
+    for i = 0, GLYPH_STEPS - 1 do
+        local colH = h * (i + 1) / GLYPH_STEPS
+        r:rect(tipX + i * step, cy - colH / 2, step * 1.5, colH, color)
+    end
+end
+
+-- Up-pointing filled triangle: full-width base at baseY, narrowing to an apex
+-- h above it (screen Y increases upward). Used as the Home roof.
+local function drawTriUp(r, cx, baseY, w, h, color)
+    local step = h / GLYPH_STEPS
+    for i = 0, GLYPH_STEPS - 1 do
+        local rowW = w * (1 - i / GLYPH_STEPS)
+        r:rect(cx - rowW / 2, baseY + i * step, rowW, step * 1.5, color)
+    end
+end
+
+-- 4-point star / sparkle (the Favourites glyph): four spikes of length `len`
+-- and base half-width `halfW`, all sharing the centre (cx, cy). Each spike is
+-- a tapering stack of rects, so the four overlap into a solid star core.
+local function drawStar(r, cx, cy, len, halfW, color)
+    local s = len / GLYPH_STEPS
+    for i = 0, GLYPH_STEPS - 1 do
+        local hw = halfW * (1 - i / GLYPH_STEPS)   -- taper toward each apex
+        r:rect(cx - hw,         cy + i * s,        hw * 2,   s * 1.5, color)  -- up
+        r:rect(cx - hw,         cy - i * s - s,    hw * 2,   s * 1.5, color)  -- down
+        r:rect(cx + i * s,      cy - hw,           s * 1.5,  hw * 2,  color)  -- right
+        r:rect(cx - i * s - s,  cy - hw,           s * 1.5,  hw * 2,  color)  -- left
+    end
+end
+
 function FarmTabletUI.new(settings, system, modDirectory)
     local self = setmetatable({}, FarmTabletUI_mt)
     self.settings     = settings
@@ -125,6 +169,8 @@ function FarmTabletUI:openTablet()
         self.uiState = "home"
     end
     self._page        = 0
+    self._homeMode    = "springboard"   -- always start on the full springboard
+    self._favEditing  = false
     self._sessionSec  = 0
     self._battery      = 80 + math.random(0, 16)
     self._batteryStart = nil
@@ -246,6 +292,50 @@ function FarmTabletUI:goHome()
     if FarmTabletFocus then FarmTabletFocus:setFocus(true, prev) end
 end
 
+--- App-bar Back: step up one level. If the current app registered a back
+--- handler that pops an in-app sub-page (returns true), refresh the content;
+--- otherwise we're at the app root, so fall through to the springboard.
+function FarmTabletUI:goBack()
+    local appId = self.system and self.system.currentApp
+    local fn    = appId and self._appBackHandlers and self._appBackHandlers[appId]
+    if fn then
+        local ok, handled = pcall(fn, self)
+        if ok and handled then
+            self:playUISound("back")
+            self._contentScrollY   = 0
+            self._contentScrollMax = 0
+            if self.isOpen and self.uiState == "app" then
+                self:_drawContent()
+                self._contentTimer = 0
+            end
+            return
+        elseif not ok and Logging and Logging.devWarning then
+            Logging.devWarning("FarmTablet: back handler error for app '%s': %s",
+                tostring(appId), tostring(handled))
+        end
+    end
+    self:goHome()
+end
+
+--- Open the favourites page (from the app-bar star). Lands on the springboard
+--- in "favourites" mode via the normal home transition.
+function FarmTabletUI:openFavorites()
+    self._homeMode   = "favorites"
+    self._favEditing = false
+    self._page       = 0
+    self:goHome()
+end
+
+--- Springboard star toggle: flip between the full springboard and the
+--- favourites page in place (no zoom — we're already on the home screen).
+function FarmTabletUI:toggleFavoritesMode()
+    self._homeMode   = (self._homeMode == "favorites") and "springboard" or "favorites"
+    self._favEditing = false
+    self._page       = 0
+    self:_rebuildScreen()
+    self:playUISound("click")
+end
+
 --- Launch an app from the springboard, with a zoom-open animation.
 function FarmTabletUI:launchApp(appId, fromRect)
     local ok = self:switchApp(appId)   -- sets state=app + rebuilds + sound
@@ -325,6 +415,9 @@ function FarmTabletUI:_rebuildScreen()
     self._closeBtn = nil
     self._homeBtn  = nil
     self._backBtn  = nil
+    self._starBtn  = nil
+    self._homeStarBtn = nil
+    self._favEditBtn  = nil
     self._unlockBtn = nil
     self._powerBtn  = nil
 
@@ -356,7 +449,7 @@ function FarmTabletUI:_drawFrame()
     r:clearCoverLayer()
 
     -- The tablet body — rounded bezel, camera, speaker grille, side buttons and
-    -- the drop shadow — is a baked texture (gui/tablet_frame.png) rendered in
+    -- the drop shadow — is a baked texture (gui/tablet_frame.dds) rendered in
     -- draw(), so the silhouette has real rounded corners. Here we only paint the
     -- screen surface and its border on top of that body.
 
@@ -465,6 +558,31 @@ end
 -- APP VIEW  (full-screen content + top app bar)
 -- ─────────────────────────────────────────────────────────
 
+-- Draw a star (Favourites) button: pill background + 4-point star. When
+-- `active` it glows in warm gold (a soft halo + brighter fill); otherwise it
+-- is a dim gold star on the standard translucent pill. Shared by the app-bar
+-- star and the springboard star toggle. Caller records the hit rect.
+function FarmTabletUI:_drawStarGlyph(x, y, w, h, active)
+    local r = self.r
+    local cx, cy = x + w / 2, y + h / 2
+    local len, halfW = FT.py(8), FT.px(2.6)
+    if active then
+        -- soft glow halo (expanding low-alpha gold rects)
+        r:rect(x - FT.px(2), y - FT.py(2), w + FT.px(4), h + FT.py(4), {1.0, 0.82, 0.28, 0.12})
+        r:rect(x + FT.px(1), y + FT.py(1), w - FT.px(2), h - FT.py(2), {1.0, 0.82, 0.28, 0.22})
+        drawStar(r, cx, cy, len, halfW, {1.0, 0.88, 0.40, 1.0})
+    else
+        r:rect(x, y, w, h, {1, 1, 1, 0.06})
+        drawStar(r, cx, cy, len, halfW, {1.0, 0.82, 0.28, 0.80})
+    end
+end
+
+-- Just the star shape (no pill/glow), centred in the box. Used as the
+-- "this app is a favourite" badge on icons in the favourites edit view.
+function FarmTabletUI:_drawStarMark(x, y, w, h, color)
+    drawStar(self.r, x + w / 2, y + h / 2, h * 0.45, h * 0.18, color)
+end
+
 function FarmTabletUI:_drawAppView()
     local L = FT.LAYOUT
     local r = self.r
@@ -478,34 +596,50 @@ function FarmTabletUI:_drawAppView()
     r:rect(sx, barY, sw, appbarH, {0,0,0,0.22})
     r:rect(sx, barY, sw, FT.py(1.4), {accent[1],accent[2],accent[3],0.65})
 
-    -- HOME button (left) — house glyph from rects
+    -- Top-left nav (#90): a little house (Home), a left-arrow (Back) and a
+    -- star (Favourites). Home jumps to the springboard; Back steps up one
+    -- level (sub-page → app root → springboard); the star opens the
+    -- favourites page. Glyphs are built from rects (no triangle primitive).
+    local btnH  = FT.py(20)
+    local glyph = {0.92, 0.95, 0.99, 0.95}
+
+    -- HOME — a little house
     local hbW = FT.px(34)
     local hbX = sx + FT.px(6)
-    local hbY = barY + (appbarH - FT.py(20))/2
-    r:rect(hbX, hbY, hbW, FT.py(20), {1,1,1,0.08})
-    local hx = hbX + hbW/2
-    local hy = hbY + FT.py(10)
-    r:rect(hx - FT.px(7), hy - FT.py(5), FT.px(14), FT.py(8), {0.9,0.93,0.97,0.9})        -- house body
-    r:rect(hx - FT.px(9), hy + FT.py(2), FT.px(18), FT.py(2), {0.9,0.93,0.97,0.9})         -- eaves
-    r:rect(hx - FT.px(2), hy - FT.py(5), FT.px(4), FT.py(4), {accent[1],accent[2],accent[3],1}) -- door
-    self._homeBtn = { x = hbX, y = barY, w = hbW + FT.px(4), h = appbarH }
+    local hbY = barY + (appbarH - btnH) / 2
+    r:rect(hbX, hbY, hbW, btnH, {1,1,1,0.08})
+    local cx           = hbX + hbW / 2
+    local bodyW, bodyH = FT.px(13), FT.py(7)
+    local roofW, roofH = FT.px(18), FT.py(6)
+    local houseBottom  = hbY + (btnH - (bodyH + roofH)) / 2
+    r:rect(cx - bodyW / 2, houseBottom, bodyW, bodyH, glyph)                                       -- body
+    r:rect(cx - FT.px(2), houseBottom, FT.px(4), FT.py(4.5), {accent[1], accent[2], accent[3], 1}) -- door
+    drawTriUp(r, cx, houseBottom + bodyH, roofW, roofH, glyph)                                     -- roof
+    self._homeBtn = { x = hbX, y = barY, w = hbW, h = appbarH }
 
-    -- BACK button (next to home)
+    -- BACK — a left-pointing arrow
     local bbW = FT.px(30)
     local bbX = hbX + hbW + FT.px(6)
-    r:rect(bbX, hbY, bbW, FT.py(20), {1,1,1,0.06})
-    -- chevron
-    r:rect(bbX + FT.px(13), hbY + FT.py(4),  FT.px(2), FT.py(6), {0.9,0.93,0.97,0.8})
-    r:rect(bbX + FT.px(11), hbY + FT.py(8),  FT.px(2), FT.py(5), {0.9,0.93,0.97,0.8})
-    r:rect(bbX + FT.px(13), hbY + FT.py(11), FT.px(2), FT.py(6), {0.9,0.93,0.97,0.8})
+    r:rect(bbX, hbY, bbW, btnH, {1,1,1,0.06})
+    local acy = hbY + btnH / 2
+    local headW, headH, shaftH = FT.px(7), FT.py(12), FT.py(3)
+    local tipX = bbX + FT.px(8)
+    drawTriLeft(r, tipX, acy, headW, headH, glyph)                              -- arrowhead
+    r:rect(tipX + headW * 0.5, acy - shaftH / 2, FT.px(10), shaftH, glyph)      -- shaft
     self._backBtn = { x = bbX, y = barY, w = bbW, h = appbarH }
+
+    -- STAR — opens the favourites page
+    local sbW = FT.px(30)
+    local sbX = bbX + bbW + FT.px(6)
+    self:_drawStarGlyph(sbX, hbY, sbW, btnH, false)
+    self._starBtn = { x = sbX, y = barY, w = sbW, h = appbarH }
 
     -- App icon (small) + title (centre-left)
     local app = self.system.registry:get(self.system.currentApp)
     local appName = (app and g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
                     or (app and app.navLabel) or "App"
     local titleIconSz = FT.py(20)
-    local tiX = bbX + bbW + FT.px(10)
+    local tiX = sbX + sbW + FT.px(10)
     local tiY = barY + (appbarH - titleIconSz)/2
     table.insert(self._iconQueue, { appId = self.system.currentApp, x = tiX, y = tiY, size = titleIconSz,
                                     mono = (app and app.navLabel) or "?" })
@@ -549,6 +683,15 @@ end
 FarmTabletUI._appDrawers = {}
 function FarmTabletUI:registerDrawer(appId, fn)
     FarmTabletUI._appDrawers[appId] = fn
+end
+
+-- Register an optional back handler for an app with in-app sub-pages.
+-- fn(self) should pop one level and return true if it handled the back,
+-- or false/nil when already at the app's root (then Back goes to the
+-- springboard). Called by app files that have sub-views.
+FarmTabletUI._appBackHandlers = {}
+function FarmTabletUI:registerBackHandler(appId, fn)
+    FarmTabletUI._appBackHandlers[appId] = fn
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -597,6 +740,37 @@ function FarmTabletUI:_fxRect(x, y, w, h, col)
     self._fx:setDimension(w, h)
     self._fx:setColor(col[1], col[2], col[3], col[4])
     self._fx:render()
+end
+
+-- Round the screen's four corners so the screen reads as a recessed, rounded
+-- screen instead of a flat sheet pasted on the frame. The frame texture bakes a
+-- rounded recess (gen_icons srad ≈ 3% of screen width), but the square screen
+-- surface is painted over it and hides that rounding. We mask each corner's
+-- outer nook with the body graphite. Drawn immediately, over the screen content.
+function FarmTabletUI:_drawScreenCorners()
+    if not self._fx then return end
+    local L = FT.LAYOUT
+    local R = L.screenW * 0.03           -- matches the baked recess radius
+    if R <= 0 then return end
+    local N    = 6
+    local step = R / N
+    local x0, x1 = L.screenX, L.screenX + L.screenW
+    local y0, y1 = L.screenY, L.screenY + L.screenH   -- y0 = bottom, y1 = top
+    local topC = {0.165, 0.176, 0.208, 1}             -- body graphite (top)
+    local botC = {0.059, 0.067, 0.086, 1}             -- body graphite (bottom)
+    for i = 0, N - 1 do
+        local a    = (i + 0.5) * step                 -- inward from the outer edge
+        local nook = R - math.sqrt(math.max(0, R*R - (R - a)*(R - a)))
+        if nook > 0 then
+            local h  = step * 1.5
+            local yT = (y1 - a) - h * 0.5
+            local yB = (y0 + a) - h * 0.5
+            self:_fxRect(x0,        yT, nook, h, topC)   -- top-left
+            self:_fxRect(x1 - nook, yT, nook, h, topC)   -- top-right
+            self:_fxRect(x0,        yB, nook, h, botC)   -- bottom-left
+            self:_fxRect(x1 - nook, yB, nook, h, botC)   -- bottom-right
+        end
+    end
 end
 
 function FarmTabletUI:_drawAnim()
@@ -698,7 +872,7 @@ function FarmTabletUI:_drawWallpaper()
             return
         end
     end
-    FT_Icons.renderImage("wall", "wallpaper.png", L.screenX, L.screenY, L.screenW, L.screenH, 1.0)
+    FT_Icons.renderImage("wall", "wallpaper.dds", L.screenX, L.screenY, L.screenW, L.screenH, 1.0)
 end
 
 function FarmTabletUI:draw()
@@ -712,7 +886,7 @@ function FarmTabletUI:draw()
     local rH = L.tabletH / (1 - 2*mf)
     local okFrame = false
     if FT_Icons then
-        okFrame = FT_Icons.renderImage("frame", "tablet_frame.png",
+        okFrame = FT_Icons.renderImage("frame", "tablet_frame.dds",
             L.tabletX - mf*rW, L.tabletY - mf*rH, rW, rH, 1.0)
     end
     if not okFrame then
@@ -734,6 +908,9 @@ function FarmTabletUI:draw()
 
     -- 4. App icons
     self:_drawIconQueue()
+
+    -- 4b. Round the screen corners to match the baked frame recess
+    self:_drawScreenCorners()
 
     -- 5. Transient animation overlay
     self:_drawAnim()
@@ -897,6 +1074,36 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── Springboard icon press / release (tactile launch) ──
     if self.uiState == "home" then
         if isDown and btn == 1 then
+            -- Star toggle: springboard ↔ favourites page
+            if hit(self._homeStarBtn, px, py) then
+                self:toggleFavoritesMode(); return true
+            end
+            -- Favourites EDIT / DONE button
+            if hit(self._favEditBtn, px, py) then
+                self._favEditing = not self._favEditing
+                self:_rebuildScreen(); self:playUISound("click"); return true
+            end
+            -- Page dots (work in every home mode)
+            for _, pd in ipairs(self._pageDots) do
+                if hit(pd, px, py) and pd.page ~= self._page then
+                    self._page = pd.page
+                    self:_rebuildScreen()
+                    self:playUISound("paging")
+                    return true
+                end
+            end
+            -- Favourites edit mode: tapping an app toggles its favourite state
+            if self._homeMode == "favorites" and self._favEditing then
+                for _, ib in ipairs(self._iconBtns) do
+                    if hit(ib, px, py) then
+                        self:toggleFavorite(ib.appId)
+                        self:_rebuildScreen(); self:playUISound("click")
+                        return true
+                    end
+                end
+                return true   -- swallow misses so nothing launches while editing
+            end
+            -- Normal: press an icon / dock app to launch
             for _, ib in ipairs(self._iconBtns) do
                 if hit(ib, px, py) then
                     self._pressedIcon = ib.appId
@@ -910,15 +1117,6 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
                     self._pressedIcon = db.appId
                     self._pressedRect = { x = db.x, y = db.y, w = db.w, h = db.h }
                     self._pressMoved  = false
-                    return true
-                end
-            end
-            -- page dots
-            for _, pd in ipairs(self._pageDots) do
-                if hit(pd, px, py) and pd.page ~= self._page then
-                    self._page = pd.page
-                    self:_rebuildScreen()
-                    self:playUISound("paging")
                     return true
                 end
             end
@@ -951,7 +1149,8 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     if self.uiState == "app" then
         if isDown and btn == 1 then
             if hit(self._homeBtn, px, py) then self:goHome(); return true end
-            if hit(self._backBtn, px, py) then self:goHome(); return true end
+            if hit(self._backBtn, px, py) then self:goBack(); return true end
+            if hit(self._starBtn, px, py) then self:openFavorites(); return true end
 
             for _, cb in ipairs(self._contentBtns) do
                 if not cb._isText and hit(cb, px, py) then

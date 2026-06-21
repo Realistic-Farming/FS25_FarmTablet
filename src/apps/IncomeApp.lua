@@ -724,10 +724,9 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
     }) then return end
 
     local startY = self:drawAppHeader("Worker Costs", "Integration")
-    local x, contentY, cw, _ = self:contentInner()
+    local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y    = startY + scrollY
-    local minY = contentY + FT.py(8)
     local mgr  = g_currentMission and g_currentMission.workerCostsManager
 
     if not mgr then
@@ -800,8 +799,13 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
                 snap.levels.novice, snap.levels.experienced, snap.levels.master))
             y = y - FT.py(2)
 
+            -- Draw every worker. The renderer clips rows that fall outside the
+            -- content area (flushContent's clipY/clipH) and setContentHeight()
+            -- below measures the FULL list, so the scrollbar + wheel can reach
+            -- all of them. #81: an early `break` here stopped both the draw and
+            -- the height accounting, which zeroed _contentScrollMax and locked
+            -- the roster to the ~5 rows that happened to fit on screen.
             for _, w in ipairs(snap.workers) do
-                if y <= minY + FT.py(20) then break end
                 local fatPct   = math.floor((w.fatigue or 0) * 100)
                 local stColor  = w.working and FT.C.POSITIVE or FT.C.TEXT_DIM
                 local nm       = tostring(w.name or "Worker")

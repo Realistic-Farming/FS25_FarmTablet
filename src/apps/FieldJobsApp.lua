@@ -9,6 +9,15 @@ local _activeJob   = nil   -- { fieldId, fieldName, vehicleName, taskType, start
 local _jobHistory  = {}    -- array of completed job records
 local _view        = "home"  -- "home" | "start" | "history"
 
+-- App-bar Back: return to the app's home view from a sub-view first.
+FarmTabletUI:registerBackHandler("field_jobs", function()
+    if _view ~= "home" then
+        _view = "home"
+        return true
+    end
+    return false
+end)
+
 -- Fields & vehicles cached at view open to avoid per-frame queries
 local _cachedFields   = nil
 local _cachedVehicles = nil

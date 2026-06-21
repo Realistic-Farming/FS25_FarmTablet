@@ -1,7 +1,8 @@
 -- =========================================================
 -- FarmTablet v2 – FT_Icons
--- Loads and renders the baked glossy app-icon PNGs (gui/icons/<id>.png)
--- plus shared UI images (wallpaper).
+-- Loads and renders the baked glossy app-icon textures (gui/icons/<id>.dds,
+-- mipmapped via tools/gen_icons.py) plus shared UI images (wallpaper, frame).
+-- User-supplied custom backgrounds stay PNG and load through renderAbs().
 --
 -- Overlays are created once and CACHED for the session, then repositioned /
 -- resized / tinted each frame. That keeps icon rendering cheap enough to
@@ -41,15 +42,15 @@ local function getOverlay(key, path)
     return nil
 end
 
---- Returns (overlay, isFallback) for an app id. Falls back to _fallback.png
+--- Returns (overlay, isFallback) for an app id. Falls back to _fallback.dds
 --- (a neutral tile) when the app has no baked icon, so the caller can draw a
 --- text monogram on top.
 function FT_Icons.getAppOverlay(appId)
     if FT_Icons._guiDir == nil then return nil, true end
     local ov = getOverlay("icon:" .. tostring(appId),
-                          FT_Icons._guiDir .. "icons/" .. tostring(appId) .. ".png")
+                          FT_Icons._guiDir .. "icons/" .. tostring(appId) .. ".dds")
     if ov ~= nil then return ov, false end
-    local fb = getOverlay("icon:_fallback", FT_Icons._guiDir .. "icons/_fallback.png")
+    local fb = getOverlay("icon:_fallback", FT_Icons._guiDir .. "icons/_fallback.dds")
     return fb, true
 end
 
@@ -78,8 +79,8 @@ function FT_Icons.renderIcon(appId, x, y, size, scale, alpha)
     return isFallback
 end
 
---- Render an arbitrary gui image (e.g. wallpaper.png) stretched to a rect.
---- `relPath` is relative to gui/ (e.g. "wallpaper.png").
+--- Render an arbitrary gui image (e.g. wallpaper.dds) stretched to a rect.
+--- `relPath` is relative to gui/ (e.g. "wallpaper.dds").
 --- `tint` is an optional {r,g,b} multiply colour; alpha is separate.
 function FT_Icons.renderImage(key, relPath, x, y, w, h, alpha, tint)
     if FT_Icons._guiDir == nil then return false end

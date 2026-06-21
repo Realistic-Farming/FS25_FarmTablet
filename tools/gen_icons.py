@@ -14,6 +14,9 @@
 # ============================================================
 import os
 import math
+import glob
+import shutil
+import subprocess
 from PIL import Image, ImageDraw, ImageFilter
 
 HERE     = os.path.dirname(os.path.abspath(__file__))
@@ -644,6 +647,60 @@ def make_frame():
     img.save(os.path.join(MOD_DIR, "gui", "tablet_frame.png"))
     print("  tablet_frame.png")
 
+# ── DDS conversion (#89) ──────────────────────────────────
+# The GIANTS engine wants mipmapped textures; a raw PNG triggers the
+# "raw format / CPU mip generation" performance warnings that flooded log.txt.
+# We bake the PNGs above, then convert them to mipmapped DDS with legacy
+# (DX9) headers so the engine loads them without rebuilding mips at runtime:
+#   - icons  -> BC3_UNORM (DXT5)   : small, alpha, stylized art tolerates DXT
+#   - frame  -> B8G8R8A8_UNORM     : big smooth gradients, no block banding
+#   - wall   -> B8G8R8A8_UNORM     : full-screen gradient, no block banding
+# texconv is the standalone Microsoft DirectXTex tool (single exe, no install):
+#   https://github.com/microsoft/DirectXTex/releases  (asset: texconv.exe)
+# Point gen_icons.py at it via the FT_TEXCONV env var or put it on PATH.
+GUI_DIR = os.path.join(MOD_DIR, "gui")
+
+def _find_texconv():
+    env = os.environ.get("FT_TEXCONV")
+    if env and os.path.isfile(env):
+        return env
+    return shutil.which("texconv") or shutil.which("texconv.exe")
+
+def _run_texconv(texconv, fmt, out_dir, files):
+    if not files:
+        return
+    cmd = [texconv, "-f", fmt, "-m", "0", "-dx9", "-y", "-o", out_dir] + files
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
+
+def convert_to_dds():
+    texconv = _find_texconv()
+    if not texconv:
+        print("\n  [!] texconv not found — shipping raw PNGs (in-game mip warnings will remain).")
+        print("      Install DirectXTex texconv.exe and re-run, or set FT_TEXCONV to its path:")
+        print("      https://github.com/microsoft/DirectXTex/releases")
+        return False
+
+    print("\nConverting gui textures to mipmapped DDS via texconv...")
+    icon_pngs  = sorted(glob.glob(os.path.join(OUT_DIR, "*.png")))
+    frame_png  = os.path.join(GUI_DIR, "tablet_frame.png")
+    wall_png   = os.path.join(GUI_DIR, "wallpaper.png")
+    big_pngs   = [p for p in (frame_png, wall_png) if os.path.isfile(p)]
+
+    _run_texconv(texconv, "BC3_UNORM",       OUT_DIR, icon_pngs)   # icons -> DXT5
+    _run_texconv(texconv, "B8G8R8A8_UNORM",  GUI_DIR, big_pngs)    # frame/wall -> uncompressed
+
+    # Remove the intermediate PNGs so only the DDS ship (the PNGs are procedural
+    # build artifacts of this script; the contact sheet under tools/ is kept).
+    removed = 0
+    for p in icon_pngs + big_pngs:
+        try:
+            os.remove(p); removed += 1
+        except OSError:
+            pass
+    print("  %d icon DDS + %d image DDS written; %d intermediate PNGs removed"
+          % (len(icon_pngs), len(big_pngs), removed))
+    return True
+
 def main():
     print("Generating %d app icons at %dpx (SS x%d)..." % (len(ICONS), SIZE, SS))
     rendered = {}
@@ -673,6 +730,8 @@ def main():
         sheet.alpha_composite(rendered[app_id], (cx, cy))
     sheet.save(SHEET)
     print("  contact sheet -> tools/_contact_sheet.png")
+
+    convert_to_dds()
 
 if __name__ == "__main__":
     main()

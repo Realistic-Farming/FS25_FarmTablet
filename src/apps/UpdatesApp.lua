@@ -4,6 +4,20 @@
 
 local CHANGELOG = {
     {
+        version = "2.5.1.0",
+        date    = "2026",
+        changes = {
+            "New: Favourites page — tap the star in the app bar or on the home screen to see just your starred apps; the star glows gold when it's open",
+            "New: tap EDIT on the Favourites page to pick which apps you want; your picks are saved per savegame",
+            "New: clearer app-bar buttons — a little house for Home and a real left arrow for Back",
+            "New: Back now steps up one level (leaves a sub-page first) instead of always jumping straight home",
+            "New: customise the app-icon labels in Settings — show or hide them, and change their size and colour",
+            "Fix: the tablet screen now has rounded corners that match the frame instead of looking pasted on",
+            "Fix: tablet textures are now mipmapped DDS, clearing the texture/performance warnings from log.txt",
+            "Fix: the Worker Costs app roster now scrolls past the first 5 staff",
+        },
+    },
+    {
         version = "2.5.0.0",
         date    = "2026",
         changes = {
