@@ -450,17 +450,9 @@ function FarmTabletUI:_drawFrame()
 
     -- The tablet body — rounded bezel, camera, speaker grille, side buttons and
     -- the drop shadow — is a baked texture (gui/tablet_frame.dds) rendered in
-    -- draw(), so the silhouette has real rounded corners. Here we only paint the
-    -- screen surface and its border on top of that body.
-
-    -- Screen backing: black under wallpaper (home/lock), bg-palette in apps.
-    if self.uiState == "app" then
-        local pal = FT.BG_PALETTE[self.settings.tabletBgColorIndex or 1] or FT.BG_PALETTE[1]
-        r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0,0,0,1})
-        r:rect(L.screenX, L.screenY, L.screenW, L.screenH, pal.color)
-    else
-        r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0.02,0.03,0.04,1})
-    end
+    -- draw(), so the silhouette has real rounded corners. The dark screen
+    -- backing is painted in draw() (_drawScreenBacking) UNDER the wallpaper;
+    -- here we only add the inner screen border, which sits on top of everything.
 
     -- Inner screen border (subtle)
     local stroke = FT.px(1)
@@ -469,6 +461,21 @@ function FarmTabletUI:_drawFrame()
     r:rect(L.screenX, L.screenY + L.screenH - stroke, L.screenW, stroke, {accent[1],accent[2],accent[3],0.30})
     r:rect(L.screenX, L.screenY, stroke, L.screenH, {accent[1],accent[2],accent[3],0.18})
     r:rect(L.screenX + L.screenW - stroke, L.screenY, stroke, L.screenH, {accent[1],accent[2],accent[3],0.18})
+end
+
+-- Screen backing fill, drawn immediately in draw() UNDER the wallpaper: the
+-- bg-palette colour while in an app, a near-black on the home / lock screens.
+-- Kept off the base overlay layer so the rest of the chrome can flush on top
+-- of the wallpaper.
+function FarmTabletUI:_drawScreenBacking()
+    local L = FT.LAYOUT
+    if self.uiState == "app" then
+        local pal = FT.BG_PALETTE[self.settings.tabletBgColorIndex or 1] or FT.BG_PALETTE[1]
+        self:_fxRect(L.screenX, L.screenY, L.screenW, L.screenH, {0, 0, 0, 1})
+        self:_fxRect(L.screenX, L.screenY, L.screenW, L.screenH, pal.color)
+    else
+        self:_fxRect(L.screenX, L.screenY, L.screenW, L.screenH, {0.02, 0.03, 0.04, 1})
+    end
 end
 
 -- ── Status bar (clock / battery / wifi / power) ───────────
@@ -742,37 +749,6 @@ function FarmTabletUI:_fxRect(x, y, w, h, col)
     self._fx:render()
 end
 
--- Round the screen's four corners so the screen reads as a recessed, rounded
--- screen instead of a flat sheet pasted on the frame. The frame texture bakes a
--- rounded recess (gen_icons srad ≈ 3% of screen width), but the square screen
--- surface is painted over it and hides that rounding. We mask each corner's
--- outer nook with the body graphite. Drawn immediately, over the screen content.
-function FarmTabletUI:_drawScreenCorners()
-    if not self._fx then return end
-    local L = FT.LAYOUT
-    local R = L.screenW * 0.03           -- matches the baked recess radius
-    if R <= 0 then return end
-    local N    = 6
-    local step = R / N
-    local x0, x1 = L.screenX, L.screenX + L.screenW
-    local y0, y1 = L.screenY, L.screenY + L.screenH   -- y0 = bottom, y1 = top
-    local topC = {0.165, 0.176, 0.208, 1}             -- body graphite (top)
-    local botC = {0.059, 0.067, 0.086, 1}             -- body graphite (bottom)
-    for i = 0, N - 1 do
-        local a    = (i + 0.5) * step                 -- inward from the outer edge
-        local nook = R - math.sqrt(math.max(0, R*R - (R - a)*(R - a)))
-        if nook > 0 then
-            local h  = step * 1.5
-            local yT = (y1 - a) - h * 0.5
-            local yB = (y0 + a) - h * 0.5
-            self:_fxRect(x0,        yT, nook, h, topC)   -- top-left
-            self:_fxRect(x1 - nook, yT, nook, h, topC)   -- top-right
-            self:_fxRect(x0,        yB, nook, h, botC)   -- bottom-left
-            self:_fxRect(x1 - nook, yB, nook, h, botC)   -- bottom-right
-        end
-    end
-end
-
 function FarmTabletUI:_drawAnim()
     local a = self._anim
     if not a then return end
@@ -893,24 +869,27 @@ function FarmTabletUI:draw()
         self:_fxRect(L.tabletX, L.tabletY, L.tabletW, L.tabletH, {0.10, 0.11, 0.13, 1})
     end
 
-    -- 1. Screen surface + chrome (drawn over the body)
-    self.r:flushBase()
+    -- 0b. Screen backing — the dark/palette fill that sits UNDER the wallpaper.
+    --     Drawn before the wallpaper; all other chrome goes on top of it.
+    self:_drawScreenBacking()
 
-    -- 2. Wallpaper (home / lock) — custom image if set, else default
+    -- 1. Wallpaper (home / lock) — custom image if set, else default
     if self._useWallpaper then
         self:_drawWallpaper()
     end
 
-    -- 3. Screen content (status bar, app content, labels, text)
+    -- 2. Screen chrome (status bar signal/battery/power, screen border, dock,
+    --    page dots, app bar, nav + star). On the base layer, flushed AFTER the
+    --    wallpaper so it is never hidden behind it on the home / lock screens.
+    self.r:flushBase()
+
+    -- 3. Screen content (app content, labels, text)
     local clipY, clipH = nil, nil
     if self.uiState == "app" then clipY = L.contentY; clipH = L.contentH end
     self.r:flushContent(clipY, clipH)
 
     -- 4. App icons
     self:_drawIconQueue()
-
-    -- 4b. Round the screen corners to match the baked frame recess
-    self:_drawScreenCorners()
 
     -- 5. Transient animation overlay
     self:_drawAnim()
