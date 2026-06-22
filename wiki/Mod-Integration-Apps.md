@@ -204,4 +204,4 @@ The one companion app that is always present, because it runs on a built in invo
 2. Reload the save. The tablet checks for mods when the mission finishes loading.
 3. Turn on Debug Mode in [[Settings]] and check `log.txt`. Detection results are logged, so you can see whether the tablet found the mod.
 
-The detection looks for a specific object each mod publishes. If a companion mod changes that in a future version, the app might stop appearing until I update the bridge. If that happens, open an [issue](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) and tell me which mod and version.
+The detection looks for a specific object each mod publishes. If a companion mod changes that in a future version, the app might stop appearing until I update the bridge. If that happens, open an [issue](https://github.com/Realistic-Farming/FS25_FarmTablet/issues) and tell me which mod and version.

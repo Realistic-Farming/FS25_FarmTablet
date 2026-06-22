@@ -7,6 +7,15 @@
 
 local _dashView = "home"   -- "home" | "customize"
 
+-- App-bar Back: leave the customize sub-view before exiting the app.
+FarmTabletUI:registerBackHandler(FT.APP.DASHBOARD, function()
+    if _dashView ~= "home" then
+        _dashView = "home"
+        return true
+    end
+    return false
+end)
+
 -- ── Widget registry ───────────────────────────────────────
 -- Defines every possible widget, its display label, and the
 -- section it belongs to. Render order follows this table.

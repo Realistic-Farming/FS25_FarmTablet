@@ -6,7 +6,7 @@ Farm Tablet installs like any other FS25 mod. You drop one zip in your mods fold
 
 ## Install in about ten seconds
 
-1. **Download** `FS25_FarmTablet.zip` from the [Releases page](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases).
+1. **Download** `FS25_FarmTablet.zip` from the [Releases page](https://github.com/Realistic-Farming/FS25_FarmTablet/releases).
 2. **Drop the zip** (do not unzip it) into your mods folder:
    - Windows: `Documents\My Games\FarmingSimulator2025\mods\`
    - Mac: `~/Library/Application Support/FarmingSimulator2025/mods/`
@@ -23,7 +23,7 @@ Updating is just as simple. Replace the old zip with the new one in your mods fo
 
 Your settings are stored in the savegame, not in the zip, so nothing is lost when you update. Your position, scale, background, startup app, and keybind all carry over.
 
-If you want to see what changed in a release, open the tablet and tap the **Updates** app. It shows the full changelog, newest first. You can also read it on the [Releases page](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases).
+If you want to see what changed in a release, open the tablet and tap the **Updates** app. It shows the full changelog, newest first. You can also read it on the [Releases page](https://github.com/Realistic-Farming/FS25_FarmTablet/releases).
 
 ---
 
@@ -58,4 +58,4 @@ Remove `FS25_FarmTablet.zip` from your mods folder and disable it on the mod scr
 - **Dedicated server:** safe. The tablet skips itself on the server with no overhead.
 - **Other mods:** no known conflicts. The tablet reads game data and does not modify your farm.
 
-If you do hit a conflict, please open an [issue](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) and tell me which mod, I will take a look.
+If you do hit a conflict, please open an [issue](https://github.com/Realistic-Farming/FS25_FarmTablet/issues) and tell me which mod, I will take a look.

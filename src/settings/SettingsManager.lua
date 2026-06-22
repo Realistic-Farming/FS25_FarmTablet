@@ -62,6 +62,15 @@ function SettingsManager:loadSettings(settingsObject)
             settingsObject.tabletBgColorIndex      = xml:getInt(self.XMLTAG..".tabletBgColorIndex",       1)
             settingsObject.dashWidgets             = xml:getString(self.XMLTAG..".dashWidgets",
                 "balance,loan,income,expenses,net_pl,fields,vehicles,season,day,time,weather")
+            -- Favourites: "__none__" sentinel preserves a deliberately empty list
+            local favStr = xml:getString(self.XMLTAG..".favoriteApps",
+                "dashboard,weather,app_store,settings")
+            if favStr == "__none__" then favStr = "" end
+            settingsObject.favoriteApps            = favStr
+            -- App-icon label appearance
+            settingsObject.iconLabelsShow          = xml:getBool(self.XMLTAG..".iconLabelsShow", true)
+            settingsObject.iconLabelSize           = xml:getInt(self.XMLTAG..".iconLabelSize",  2)
+            settingsObject.iconLabelColor          = xml:getInt(self.XMLTAG..".iconLabelColor", 1)
             xml:delete()
             return
         end
@@ -102,6 +111,16 @@ function SettingsManager:saveSettings(settingsObject)
         xml:setString(self.XMLTAG..".dashWidgets",
             settingsObject.dashWidgets or
             "balance,loan,income,expenses,net_pl,fields,vehicles,season,day,time,weather")
+        local favSave = settingsObject.favoriteApps
+        if favSave == nil then
+            favSave = "dashboard,weather,app_store,settings"
+        elseif favSave == "" then
+            favSave = "__none__"   -- preserve an intentionally empty list
+        end
+        xml:setString(self.XMLTAG..".favoriteApps", favSave)
+        xml:setBool(self.XMLTAG..".iconLabelsShow", settingsObject.iconLabelsShow ~= false)
+        xml:setInt(self.XMLTAG..".iconLabelSize",  settingsObject.iconLabelSize  or 2)
+        xml:setInt(self.XMLTAG..".iconLabelColor", settingsObject.iconLabelColor or 1)
 
         xml:save()
         xml:delete()

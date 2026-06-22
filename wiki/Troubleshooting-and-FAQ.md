@@ -1,6 +1,6 @@
 # Troubleshooting and FAQ
 
-Common questions and quick fixes. If your problem is not here, turn on Debug Mode in [[Settings]], reproduce the issue, and open an [issue](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues) with what `log.txt` shows. The more detail the better.
+Common questions and quick fixes. If your problem is not here, turn on Debug Mode in [[Settings]], reproduce the issue, and open an [issue](https://github.com/Realistic-Farming/FS25_FarmTablet/issues) with what `log.txt` shows. The more detail the better.
 
 ---
 
@@ -87,7 +87,7 @@ Farm Tablet ships in 26 languages and follows your game language automatically.
 No. The tablet only does work while it is open, and data reads are cached so they do not run every frame.
 
 **How do I see what changed in an update?**
-Open the **Updates** app for the full changelog, newest first. It is also on the [Releases page](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases).
+Open the **Updates** app for the full changelog, newest first. It is also on the [Releases page](https://github.com/Realistic-Farming/FS25_FarmTablet/releases).
 
 **How do I report a bug or suggest an app?**
-Open an [issue](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues). Bug reports and ideas are welcome, this is a community shaped project and feedback drives what gets built next.
+Open an [issue](https://github.com/Realistic-Farming/FS25_FarmTablet/issues). Bug reports and ideas are welcome, this is a community shaped project and feedback drives what gets built next.

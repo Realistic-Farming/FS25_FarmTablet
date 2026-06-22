@@ -53,6 +53,15 @@ function Settings:resetToDefaults(saveImmediately)
     -- Dashboard widget visibility (comma-separated widget IDs)
     self.dashWidgets = "balance,loan,income,expenses,net_pl,fields,vehicles,season,day,time,weather"
 
+    -- Favourite apps shown on the springboard's star/favourites page
+    -- (comma-separated app IDs). Seeded with the default dock apps.
+    self.favoriteApps = "dashboard,weather,app_store,settings"
+
+    -- App-icon label appearance on the springboard
+    self.iconLabelsShow = true   -- draw the text label under each icon
+    self.iconLabelSize  = 2      -- 1 = small, 2 = medium, 3 = large
+    self.iconLabelColor = 1      -- 1 = white, 2 = gold, 3 = app accent
+
     if saveImmediately then
         self:save()
         Logging.info("Farm Tablet: Settings reset to defaults")
@@ -110,6 +119,16 @@ function Settings:validateSettings()
     if type(self.dashWidgets) ~= "string" or self.dashWidgets == "" then
         self.dashWidgets = "balance,loan,income,expenses,net_pl,fields,vehicles,season,day,time,weather"
     end
+
+    -- Favourites: may be empty (user cleared them); just guarantee a string.
+    if type(self.favoriteApps) ~= "string" then
+        self.favoriteApps = "dashboard,weather,app_store,settings"
+    end
+
+    -- Icon labels: guarantee a boolean + clamp the size/colour indices.
+    if type(self.iconLabelsShow) ~= "boolean" then self.iconLabelsShow = true end
+    self.iconLabelSize  = math.max(1, math.min(3, math.floor(self.iconLabelSize  or 2)))
+    self.iconLabelColor = math.max(1, math.min(3, math.floor(self.iconLabelColor or 1)))
 end
 
 function Settings:save()

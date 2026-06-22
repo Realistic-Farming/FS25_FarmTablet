@@ -220,6 +220,55 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     self.r:appText(cx + FT.px(2), y - FT.py(2), FT.FONT.TINY, bgHint, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - HINT_H - BTN_GAP
 
+    -- App-icon labels: show/hide, size, colour (springboard text under icons)
+    local LBL_SIZE_NAMES  = { "SMALL", "MEDIUM", "LARGE" }
+    local LBL_COLOR_NAMES = { "WHITE", "GOLD", "ACCENT" }
+    local lblShow  = (s.iconLabelsShow ~= false)
+    local lblSize  = math.max(1, math.min(3, s.iconLabelSize  or 2))
+    local lblColIx = math.max(1, math.min(3, s.iconLabelColor or 1))
+
+    y = y - BTN_H
+    self:drawButton(y, "APP LABELS: " .. (lblShow and "ON" or "OFF"), FT.C.BTN_NEUTRAL, {
+        onClick = function()
+            playClickSound(s)
+            s.iconLabelsShow = not lblShow
+            s:save()
+            refresh(self)
+        end
+    })
+    self.r:appText(cx + FT.px(2), y - FT.py(2),
+        FT.FONT.TINY, "Show or hide the text under each app icon",
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - HINT_H - BTN_GAP
+
+    y = y - BTN_H
+    self:drawButton(y, "LABEL SIZE: " .. LBL_SIZE_NAMES[lblSize], FT.C.BTN_NEUTRAL, {
+        onClick = function()
+            playClickSound(s)
+            s.iconLabelSize = (lblSize % 3) + 1
+            s:save()
+            refresh(self)
+        end
+    })
+    self.r:appText(cx + FT.px(2), y - FT.py(2),
+        FT.FONT.TINY, "Click to cycle  |  Icon label text size",
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - HINT_H - BTN_GAP
+
+    y = y - BTN_H
+    self:drawButton(y, "LABEL COLOR: " .. LBL_COLOR_NAMES[lblColIx], FT.C.BTN_NEUTRAL, {
+        onClick = function()
+            playClickSound(s)
+            s.iconLabelColor = (lblColIx % 3) + 1
+            s:save()
+            refresh(self)
+        end
+    })
+    self.r:appText(cx + FT.px(2), y - FT.py(2),
+        FT.FONT.TINY, "Click to cycle  |  White, gold, or each app's accent",
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+    y = y - HINT_H - BTN_GAP
+
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
 
@@ -374,13 +423,13 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Docs / Releases:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - FT.py(14)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet",
+        "github.com/Realistic-Farming/FS25_FarmTablet",
         RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
     y = y - FT.py(16)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL, "Bug Reports:", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - FT.py(14)
     self.r:appText(cx + FT.px(14), y, FT.FONT.SMALL,
-        "github.com/TheCodingDad-TisonK/FS25_FarmTablet/issues",
+        "github.com/Realistic-Farming/FS25_FarmTablet/issues",
         RenderText.ALIGN_LEFT, FT.C.BRAND)
 
     -- Console hint card

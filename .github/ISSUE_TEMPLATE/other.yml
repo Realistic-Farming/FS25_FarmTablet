@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Use this for questions, general feedback, or anything that doesn't fit Bug Report, Compatibility Report, or Feature Request.
-        For questions only, consider [Discussions](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/discussions) instead.
+        For questions only, consider [Discussions](https://github.com/Realistic-Farming/FS25_FarmTablet/discussions) instead.
   - type: textarea
     id: description
     attributes:

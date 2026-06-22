@@ -58,4 +58,4 @@ The quick version of what lives here: display position and scale, Enter Edit Mod
 
 The full changelog for Farm Tablet, newest version first. Each block shows the version number and the list of what changed in it.
 
-It is the fastest way to see whether you are on the latest build and what you would get by updating. Grab new versions from the [Releases page](https://github.com/TheCodingDad-TisonK/FS25_FarmTablet/releases), drop the zip in, and your settings carry over.
+It is the fastest way to see whether you are on the latest build and what you would get by updating. Grab new versions from the [Releases page](https://github.com/Realistic-Farming/FS25_FarmTablet/releases), drop the zip in, and your settings carry over.
