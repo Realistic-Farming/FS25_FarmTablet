@@ -580,5 +580,17 @@
     "views_unique": 24,
     "clones_total": 71,
     "clones_unique": 22
+  },
+  "2026-06-20": {
+    "views_total": 114,
+    "views_unique": 30,
+    "clones_total": 250,
+    "clones_unique": 82
+  },
+  "2026-06-21": {
+    "views_total": 150,
+    "views_unique": 36,
+    "clones_total": 138,
+    "clones_unique": 53
   }
 }
