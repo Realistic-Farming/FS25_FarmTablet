@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Dostupné příkazy"/>
         <text name="ft_help_s2_console_text" text="Otevrete vyvojarskou konzoli klavesou tilda a napiste tablet pro vypis vsech prikazu. Napriklad TabletKeybind H meni klavesu otevreni, TabletSetStartupApp weather nastavi prvni aplikaci a TabletResetSettings obnovi vychozi nastaveni."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Veterinar"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Tyden tovarny"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Stav AnimalAutoCare a bezpecne osetreni"/>
+        <text name="ft_desc_app_animal_vet_system" text="Monitor nemoci a lecby AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Prehled FactoryWeekSchedule: pracovnici, udalosti a pozary"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: financovani, splatky a stav zabaveni"/>
+        <text name="ft_common_on" text="Zap"/>
+        <text name="ft_common_off" text="Vyp"/>
+        <text name="ft_common_connected" text="Pripojeno"/>
+        <text name="ft_common_inactive" text="Neaktivni"/>
+        <text name="ft_common_status" text="STAV"/>
+        <text name="ft_common_overview" text="PREHLED"/>
+        <text name="ft_common_busy" text="Zaneprazdneno"/>
+        <text name="ft_common_available" text="Dostupne"/>
+        <text name="ft_common_time" text="Cas"/>
+        <text name="ft_common_event" text="Udalost"/>
+        <text name="ft_common_open" text="Otevreno"/>
+        <text name="ft_common_closed" text="Zavreno"/>
+        <text name="ft_common_note" text="POZNAMKA"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare nebyl nalezen."/>
+        <text name="ft_aac_overall" text="Celkove"/>
+        <text name="ft_aac_food" text="Krmivo"/>
+        <text name="ft_aac_water" text="Voda"/>
+        <text name="ft_aac_straw" text="Slama"/>
+        <text name="ft_aac_purchase_cost" text="Naklady na nakup"/>
+        <text name="ft_aac_care_cost" text="Naklady na peci"/>
+        <text name="ft_aac_care_now" text="Pecovat"/>
+        <text name="ft_aac_last_action" text="POSLEDNI AKCE"/>
+        <text name="ft_aac_no_action" text="Zatim nebyla zaznamenana zadna akce."/>
+        <text name="ft_vet_active_cases" text="%d aktivnich pripadu"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem nebyl nalezen."/>
+        <text name="ft_vet_active_illnesses" text="Aktivni nemoci"/>
+        <text name="ft_vet_veterinarian" text="Veterinar"/>
+        <text name="ft_vet_no_sick_pens" text="Zadne nemocne ohrady nehlaseny."/>
+        <text name="ft_vet_cases" text="PRIPADY"/>
+        <text name="ft_vet_pen" text="Ohrada"/>
+        <text name="ft_vet_illness" text="Nemoc"/>
+        <text name="ft_vet_worker" text="Pracovnik"/>
+        <text name="ft_vet_self" text="Sam"/>
+        <text name="ft_vet_case_line" text="%s - %d zvirat - asi %d min"/>
+        <text name="ft_fws_open_count" text="%d/%d otevreno"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule nebyl nalezen."/>
+        <text name="ft_fws_factories_open" text="Otevrene tovarny"/>
+        <text name="ft_fws_fire_system" text="Pozarni system"/>
+        <text name="ft_fws_factories" text="TOVARNY"/>
+        <text name="ft_fws_no_factories" text="V cache HUD FactoryWeekSchedule zatim nejsou zadne tovarny."/>
+        <text name="ft_fws_factory" text="Tovarna"/>
+        <text name="ft_fws_no_event" text="Zadna udalost"/>
+        <text name="ft_rd_status_repossession" text="Probiha zabaveni"/>
+        <text name="ft_rd_status_repossessed" text="Zabaveno"/>
+        <text name="ft_rd_status_paid" text="Zaplaceno"/>
+        <text name="ft_rd_status_overdue" text="Po splatnosti"/>
+        <text name="ft_rd_status_active" text="Aktivni"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer nebyl nalezen."/>
+        <text name="ft_rd_active_financing" text="Aktivni financovani"/>
+        <text name="ft_rd_remaining_debt" text="Zbyvajici dluh"/>
+        <text name="ft_rd_credit_score" text="Kreditni skore"/>
+        <text name="ft_rd_open_notices" text="Otevrena upozorneni"/>
+        <text name="ft_rd_repossessions" text="Zabaveni"/>
+        <text name="ft_rd_check_repo" text="Zkontrolovat zabaveni"/>
+        <text name="ft_rd_contracts" text="SMLOUVY"/>
+        <text name="ft_rd_no_contracts" text="Zadne aktivni smlouvy o financovani."/>
+        <text name="ft_rd_vehicle" text="Vozidlo"/>
+        <text name="ft_rd_money_line" text="Zbyva: %s | Splatka: %s"/>
+        <text name="ft_rd_installment_line" text="Splatky: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Upozorneni: %d"/>
+        <text name="ft_rd_server_note" text="Zabaveni vozidel stale probiha pres RealisticDealer na strane serveru."/>
+        <text name="ft_network_default_provider" text="Sit"/>
+        <text name="ft_network_title" text="Sit"/>
+        <text name="ft_network_choose_provider" text="Vyberte operatora"/>
+        <text name="ft_network_choose_hint" text="Vyberte operatora a poté jej aktivujte."/>
+        <text name="ft_network_activate" text="AKTIVOVAT"/>
+        <text name="ft_network_provider_active" text="Aktivni: %s."/>
+        <text name="ft_network_outage_short" text="Vypadek"/>
+        <text name="ft_network_no_signal_short" text="Zadny signal"/>
+        <text name="ft_network_weak_short" text="Slaby"/>
+        <text name="ft_network_recovered" text="%s: signal obnoven."/>
+        <text name="ft_network_outage_msg" text="%s: vypadek site, asi 2 herni hodiny."/>
+        <text name="ft_network_no_signal_msg" text="%s: zde neni signal."/>
+        <text name="ft_network_weak_msg" text="%s: slaby signal."/>
+        <text name="ft_battery_empty" text="Baterie tabletu vybita"/>
+        <text name="ft_battery_charging" text="Nabijeni tabletu..."/>
+        <text name="ft_battery_charge_hint" text="Chvili nabijte pro pokracovani."/>
+        <text name="ft_battery_charge" text="NABIT"/>
     </texts>
 </l10n>

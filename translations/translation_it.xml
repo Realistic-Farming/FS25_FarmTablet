@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Comandi disponibili"/>
         <text name="ft_help_s2_console_text" text="Apri la console sviluppatore con il tasto tilde e digita tablet per elencare tutti i comandi. Ad esempio TabletKeybind H cambia il tasto di apertura, TabletSetStartupApp weather imposta la prima app e TabletResetSettings ripristina i valori predefiniti."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Veterinario"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Settimana fabbrica"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Stato di AnimalAutoCare e attivatore di cure sicure"/>
+        <text name="ft_desc_app_animal_vet_system" text="Monitor malattie e cure di AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Panoramica FactoryWeekSchedule con operai, eventi e incendi"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: finanziamenti, rate e stato dei pignoramenti"/>
+        <text name="ft_common_on" text="Attivo"/>
+        <text name="ft_common_off" text="Disattivato"/>
+        <text name="ft_common_connected" text="Connesso"/>
+        <text name="ft_common_inactive" text="Inattivo"/>
+        <text name="ft_common_status" text="STATO"/>
+        <text name="ft_common_overview" text="PANORAMICA"/>
+        <text name="ft_common_busy" text="Occupato"/>
+        <text name="ft_common_available" text="Disponibile"/>
+        <text name="ft_common_time" text="Ora"/>
+        <text name="ft_common_event" text="Evento"/>
+        <text name="ft_common_open" text="Aperto"/>
+        <text name="ft_common_closed" text="Chiuso"/>
+        <text name="ft_common_note" text="NOTA"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare non e stato rilevato."/>
+        <text name="ft_aac_overall" text="Totale"/>
+        <text name="ft_aac_food" text="Cibo"/>
+        <text name="ft_aac_water" text="Acqua"/>
+        <text name="ft_aac_straw" text="Paglia"/>
+        <text name="ft_aac_purchase_cost" text="Costo d'acquisto"/>
+        <text name="ft_aac_care_cost" text="Costo cure"/>
+        <text name="ft_aac_care_now" text="Cura ora"/>
+        <text name="ft_aac_last_action" text="ULTIMA AZIONE"/>
+        <text name="ft_aac_no_action" text="Nessuna azione ancora registrata."/>
+        <text name="ft_vet_active_cases" text="%d casi attivi"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem non e stato rilevato."/>
+        <text name="ft_vet_active_illnesses" text="Malattie attive"/>
+        <text name="ft_vet_veterinarian" text="Veterinario"/>
+        <text name="ft_vet_no_sick_pens" text="Nessun recinto malato segnalato."/>
+        <text name="ft_vet_cases" text="CASI"/>
+        <text name="ft_vet_pen" text="Recinto"/>
+        <text name="ft_vet_illness" text="Malattia"/>
+        <text name="ft_vet_worker" text="Operaio"/>
+        <text name="ft_vet_self" text="Tu"/>
+        <text name="ft_vet_case_line" text="%s - %d animali - circa %d min"/>
+        <text name="ft_fws_open_count" text="%d/%d aperte"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule non e stato rilevato."/>
+        <text name="ft_fws_factories_open" text="Fabbriche aperte"/>
+        <text name="ft_fws_fire_system" text="Sistema antincendio"/>
+        <text name="ft_fws_factories" text="FABBRICHE"/>
+        <text name="ft_fws_no_factories" text="Nessuna fabbrica nella cache HUD di FactoryWeekSchedule."/>
+        <text name="ft_fws_factory" text="Fabbrica"/>
+        <text name="ft_fws_no_event" text="Nessun evento"/>
+        <text name="ft_rd_status_repossession" text="Pignoramento in corso"/>
+        <text name="ft_rd_status_repossessed" text="Pignorato"/>
+        <text name="ft_rd_status_paid" text="Pagato"/>
+        <text name="ft_rd_status_overdue" text="Scaduto"/>
+        <text name="ft_rd_status_active" text="Attivo"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer non e stato rilevato."/>
+        <text name="ft_rd_active_financing" text="Finanziamenti attivi"/>
+        <text name="ft_rd_remaining_debt" text="Debito residuo"/>
+        <text name="ft_rd_credit_score" text="Punteggio di credito"/>
+        <text name="ft_rd_open_notices" text="Avvisi aperti"/>
+        <text name="ft_rd_repossessions" text="Pignoramenti"/>
+        <text name="ft_rd_check_repo" text="Vedi pignoramenti"/>
+        <text name="ft_rd_contracts" text="CONTRATTI"/>
+        <text name="ft_rd_no_contracts" text="Nessun contratto di finanziamento attivo."/>
+        <text name="ft_rd_vehicle" text="Veicolo"/>
+        <text name="ft_rd_money_line" text="Residuo: %s | Rata: %s"/>
+        <text name="ft_rd_installment_line" text="Rate: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Avvisi: %d"/>
+        <text name="ft_rd_server_note" text="I pignoramenti dei veicoli passano ancora da RealisticDealer lato server."/>
+        <text name="ft_network_default_provider" text="Rete"/>
+        <text name="ft_network_title" text="Rete"/>
+        <text name="ft_network_choose_provider" text="Scegli operatore"/>
+        <text name="ft_network_choose_hint" text="Seleziona un operatore, poi attivalo."/>
+        <text name="ft_network_activate" text="ATTIVA"/>
+        <text name="ft_network_provider_active" text="Attivo: %s."/>
+        <text name="ft_network_outage_short" text="Guasto"/>
+        <text name="ft_network_no_signal_short" text="Nessun segnale"/>
+        <text name="ft_network_weak_short" text="Debole"/>
+        <text name="ft_network_recovered" text="%s: segnale ripristinato."/>
+        <text name="ft_network_outage_msg" text="%s: guasto di rete, circa 2 ore di gioco."/>
+        <text name="ft_network_no_signal_msg" text="%s: nessun segnale qui."/>
+        <text name="ft_network_weak_msg" text="%s: segnale debole."/>
+        <text name="ft_battery_empty" text="Batteria del tablet scarica"/>
+        <text name="ft_battery_charging" text="Tablet in carica..."/>
+        <text name="ft_battery_charge_hint" text="Carica un momento per continuare."/>
+        <text name="ft_battery_charge" text="CARICA"/>
     </texts>
 </l10n>

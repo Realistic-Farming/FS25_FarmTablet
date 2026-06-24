@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Commandes disponibles"/>
         <text name="ft_help_s2_console_text" text="用波浪键打开开发者控制台，输入 tablet 即可列出所有命令。例如 TabletKeybind H 更改打开键，TabletSetStartupApp weather 设置第一个应用，TabletResetSettings 还原默认值。"/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="动物兽医"/>
+        <text name="ft_ui_app_factory_week_schedule" text="工厂周"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare 状态与安全照护触发"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem 疾病与治疗监控"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule 概览：工人、事件与火灾状态"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer：融资、分期与收回状态"/>
+        <text name="ft_common_on" text="开"/>
+        <text name="ft_common_off" text="关"/>
+        <text name="ft_common_connected" text="已连接"/>
+        <text name="ft_common_inactive" text="未激活"/>
+        <text name="ft_common_status" text="状态"/>
+        <text name="ft_common_overview" text="概览"/>
+        <text name="ft_common_busy" text="忙碌"/>
+        <text name="ft_common_available" text="可用"/>
+        <text name="ft_common_time" text="时间"/>
+        <text name="ft_common_event" text="事件"/>
+        <text name="ft_common_open" text="营业"/>
+        <text name="ft_common_closed" text="关闭"/>
+        <text name="ft_common_note" text="备注"/>
+        <text name="ft_aac_not_detected" text="未检测到 AnimalAutoCare。"/>
+        <text name="ft_aac_overall" text="总体"/>
+        <text name="ft_aac_food" text="饲料"/>
+        <text name="ft_aac_water" text="水"/>
+        <text name="ft_aac_straw" text="稻草"/>
+        <text name="ft_aac_purchase_cost" text="购买成本"/>
+        <text name="ft_aac_care_cost" text="照护成本"/>
+        <text name="ft_aac_care_now" text="立即照护"/>
+        <text name="ft_aac_last_action" text="上次操作"/>
+        <text name="ft_aac_no_action" text="尚未记录任何操作。"/>
+        <text name="ft_vet_active_cases" text="%d 个活动病例"/>
+        <text name="ft_vet_not_detected" text="未检测到 AnimalVetSystem。"/>
+        <text name="ft_vet_active_illnesses" text="活动疾病"/>
+        <text name="ft_vet_veterinarian" text="兽医"/>
+        <text name="ft_vet_no_sick_pens" text="未报告患病畜栏。"/>
+        <text name="ft_vet_cases" text="病例"/>
+        <text name="ft_vet_pen" text="畜栏"/>
+        <text name="ft_vet_illness" text="疾病"/>
+        <text name="ft_vet_worker" text="工人"/>
+        <text name="ft_vet_self" text="亲自"/>
+        <text name="ft_vet_case_line" text="%s - %d 只动物 - 约 %d 分钟"/>
+        <text name="ft_fws_open_count" text="%d/%d 开放"/>
+        <text name="ft_fws_not_detected" text="未检测到 FactoryWeekSchedule。"/>
+        <text name="ft_fws_factories_open" text="开放的工厂"/>
+        <text name="ft_fws_fire_system" text="火灾系统"/>
+        <text name="ft_fws_factories" text="工厂"/>
+        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD 缓存中暂无工厂。"/>
+        <text name="ft_fws_factory" text="工厂"/>
+        <text name="ft_fws_no_event" text="无事件"/>
+        <text name="ft_rd_status_repossession" text="收回进行中"/>
+        <text name="ft_rd_status_repossessed" text="已收回"/>
+        <text name="ft_rd_status_paid" text="已付清"/>
+        <text name="ft_rd_status_overdue" text="逾期"/>
+        <text name="ft_rd_status_active" text="活动"/>
+        <text name="ft_rd_not_detected" text="未检测到 RealisticDealer。"/>
+        <text name="ft_rd_active_financing" text="活动融资"/>
+        <text name="ft_rd_remaining_debt" text="剩余债务"/>
+        <text name="ft_rd_credit_score" text="信用评分"/>
+        <text name="ft_rd_open_notices" text="未处理通知"/>
+        <text name="ft_rd_repossessions" text="收回"/>
+        <text name="ft_rd_check_repo" text="查看收回"/>
+        <text name="ft_rd_contracts" text="合同"/>
+        <text name="ft_rd_no_contracts" text="没有活动的融资合同。"/>
+        <text name="ft_rd_vehicle" text="车辆"/>
+        <text name="ft_rd_money_line" text="剩余：%s | 月供：%s"/>
+        <text name="ft_rd_installment_line" text="分期：%d/%d"/>
+        <text name="ft_rd_notices_line" text="通知：%d"/>
+        <text name="ft_rd_server_note" text="车辆收回仍通过服务器端的 RealisticDealer 处理。"/>
+        <text name="ft_network_default_provider" text="网络"/>
+        <text name="ft_network_title" text="网络"/>
+        <text name="ft_network_choose_provider" text="选择网络运营商"/>
+        <text name="ft_network_choose_hint" text="选择一个运营商，然后激活它。"/>
+        <text name="ft_network_activate" text="激活"/>
+        <text name="ft_network_provider_active" text="已启用：%s。"/>
+        <text name="ft_network_outage_short" text="中断"/>
+        <text name="ft_network_no_signal_short" text="无信号"/>
+        <text name="ft_network_weak_short" text="弱"/>
+        <text name="ft_network_recovered" text="%s：信号已恢复。"/>
+        <text name="ft_network_outage_msg" text="%s：网络中断，约 2 个游戏小时。"/>
+        <text name="ft_network_no_signal_msg" text="%s：此处无信号。"/>
+        <text name="ft_network_weak_msg" text="%s：信号弱。"/>
+        <text name="ft_battery_empty" text="平板电池电量耗尽"/>
+        <text name="ft_battery_charging" text="平板充电中..."/>
+        <text name="ft_battery_charge_hint" text="稍微充电以继续。"/>
+        <text name="ft_battery_charge" text="充电"/>
     </texts>
 </l10n>

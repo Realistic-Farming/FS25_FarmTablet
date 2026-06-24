@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Perintah yang Tersedia"/>
         <text name="ft_help_s2_console_text" text="Buka konsol pengembang dengan tombol tilde dan ketik tablet untuk menampilkan semua perintah. Misalnya TabletKeybind H mengubah tombol pembuka, TabletSetStartupApp weather mengatur aplikasi pertama, dan TabletResetSettings memulihkan setelan bawaan."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Dokter Hewan"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Minggu Pabrik"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Status AnimalAutoCare dan pemicu perawatan aman"/>
+        <text name="ft_desc_app_animal_vet_system" text="Monitor penyakit dan perawatan AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Ikhtisar FactoryWeekSchedule: pekerja, acara, dan kebakaran"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: pembiayaan, cicilan, dan status penyitaan"/>
+        <text name="ft_common_on" text="Nyala"/>
+        <text name="ft_common_off" text="Mati"/>
+        <text name="ft_common_connected" text="Terhubung"/>
+        <text name="ft_common_inactive" text="Tidak aktif"/>
+        <text name="ft_common_status" text="STATUS"/>
+        <text name="ft_common_overview" text="IKHTISAR"/>
+        <text name="ft_common_busy" text="Sibuk"/>
+        <text name="ft_common_available" text="Tersedia"/>
+        <text name="ft_common_time" text="Waktu"/>
+        <text name="ft_common_event" text="Acara"/>
+        <text name="ft_common_open" text="Buka"/>
+        <text name="ft_common_closed" text="Tutup"/>
+        <text name="ft_common_note" text="CATATAN"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare tidak terdeteksi."/>
+        <text name="ft_aac_overall" text="Keseluruhan"/>
+        <text name="ft_aac_food" text="Pakan"/>
+        <text name="ft_aac_water" text="Air"/>
+        <text name="ft_aac_straw" text="Jerami"/>
+        <text name="ft_aac_purchase_cost" text="Biaya beli"/>
+        <text name="ft_aac_care_cost" text="Biaya perawatan"/>
+        <text name="ft_aac_care_now" text="Rawat sekarang"/>
+        <text name="ft_aac_last_action" text="TINDAKAN TERAKHIR"/>
+        <text name="ft_aac_no_action" text="Belum ada tindakan yang tercatat."/>
+        <text name="ft_vet_active_cases" text="%d kasus aktif"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem tidak terdeteksi."/>
+        <text name="ft_vet_active_illnesses" text="Penyakit aktif"/>
+        <text name="ft_vet_veterinarian" text="Dokter hewan"/>
+        <text name="ft_vet_no_sick_pens" text="Tidak ada kandang sakit yang dilaporkan."/>
+        <text name="ft_vet_cases" text="KASUS"/>
+        <text name="ft_vet_pen" text="Kandang"/>
+        <text name="ft_vet_illness" text="Penyakit"/>
+        <text name="ft_vet_worker" text="Pekerja"/>
+        <text name="ft_vet_self" text="Sendiri"/>
+        <text name="ft_vet_case_line" text="%s - %d hewan - sekitar %d mnt"/>
+        <text name="ft_fws_open_count" text="%d/%d buka"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule tidak terdeteksi."/>
+        <text name="ft_fws_factories_open" text="Pabrik buka"/>
+        <text name="ft_fws_fire_system" text="Sistem kebakaran"/>
+        <text name="ft_fws_factories" text="PABRIK"/>
+        <text name="ft_fws_no_factories" text="Belum ada pabrik di cache HUD FactoryWeekSchedule."/>
+        <text name="ft_fws_factory" text="Pabrik"/>
+        <text name="ft_fws_no_event" text="Tidak ada acara"/>
+        <text name="ft_rd_status_repossession" text="Penyitaan berjalan"/>
+        <text name="ft_rd_status_repossessed" text="Disita"/>
+        <text name="ft_rd_status_paid" text="Lunas"/>
+        <text name="ft_rd_status_overdue" text="Terlambat"/>
+        <text name="ft_rd_status_active" text="Aktif"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer tidak terdeteksi."/>
+        <text name="ft_rd_active_financing" text="Pembiayaan aktif"/>
+        <text name="ft_rd_remaining_debt" text="Sisa utang"/>
+        <text name="ft_rd_credit_score" text="Skor kredit"/>
+        <text name="ft_rd_open_notices" text="Pemberitahuan terbuka"/>
+        <text name="ft_rd_repossessions" text="Penyitaan"/>
+        <text name="ft_rd_check_repo" text="Lihat penyitaan"/>
+        <text name="ft_rd_contracts" text="KONTRAK"/>
+        <text name="ft_rd_no_contracts" text="Tidak ada kontrak pembiayaan aktif."/>
+        <text name="ft_rd_vehicle" text="Kendaraan"/>
+        <text name="ft_rd_money_line" text="Sisa: %s | Angsuran: %s"/>
+        <text name="ft_rd_installment_line" text="Cicilan: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Pemberitahuan: %d"/>
+        <text name="ft_rd_server_note" text="Penyitaan kendaraan tetap berjalan melalui RealisticDealer di sisi server."/>
+        <text name="ft_network_default_provider" text="Jaringan"/>
+        <text name="ft_network_title" text="Jaringan"/>
+        <text name="ft_network_choose_provider" text="Pilih operator"/>
+        <text name="ft_network_choose_hint" text="Pilih operator, lalu aktifkan."/>
+        <text name="ft_network_activate" text="AKTIFKAN"/>
+        <text name="ft_network_provider_active" text="Aktif: %s."/>
+        <text name="ft_network_outage_short" text="Gangguan"/>
+        <text name="ft_network_no_signal_short" text="Tidak ada sinyal"/>
+        <text name="ft_network_weak_short" text="Lemah"/>
+        <text name="ft_network_recovered" text="%s: sinyal pulih."/>
+        <text name="ft_network_outage_msg" text="%s: gangguan jaringan, sekitar 2 jam dalam game."/>
+        <text name="ft_network_no_signal_msg" text="%s: tidak ada sinyal di sini."/>
+        <text name="ft_network_weak_msg" text="%s: sinyal lemah."/>
+        <text name="ft_battery_empty" text="Baterai tablet habis"/>
+        <text name="ft_battery_charging" text="Mengisi daya tablet..."/>
+        <text name="ft_battery_charge_hint" text="Isi daya sebentar untuk lanjut."/>
+        <text name="ft_battery_charge" text="ISI DAYA"/>
     </texts>
 </l10n>

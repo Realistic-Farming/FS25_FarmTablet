@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="利用可能なコマンド"/>
         <text name="ft_help_s2_console_text" text="チルダキーで開発者コンソールを開き、tablet と入力するとすべてのコマンドが表示されます。例えば TabletKeybind H は開くキーを変更し、TabletSetStartupApp weather は最初のアプリを設定し、TabletResetSettings は既定値に戻します。"/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="動物獣医"/>
+        <text name="ft_ui_app_factory_week_schedule" text="工場ウィーク"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare の状態と安全なケア実行"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem の病気と治療モニター"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule の概要: 作業員、イベント、火災状態"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: ローン、分割払い、差し押さえ状況"/>
+        <text name="ft_common_on" text="オン"/>
+        <text name="ft_common_off" text="オフ"/>
+        <text name="ft_common_connected" text="接続済み"/>
+        <text name="ft_common_inactive" text="非アクティブ"/>
+        <text name="ft_common_status" text="状態"/>
+        <text name="ft_common_overview" text="概要"/>
+        <text name="ft_common_busy" text="使用中"/>
+        <text name="ft_common_available" text="利用可能"/>
+        <text name="ft_common_time" text="時刻"/>
+        <text name="ft_common_event" text="イベント"/>
+        <text name="ft_common_open" text="営業中"/>
+        <text name="ft_common_closed" text="閉鎖"/>
+        <text name="ft_common_note" text="メモ"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare が見つかりませんでした。"/>
+        <text name="ft_aac_overall" text="全体"/>
+        <text name="ft_aac_food" text="飼料"/>
+        <text name="ft_aac_water" text="水"/>
+        <text name="ft_aac_straw" text="わら"/>
+        <text name="ft_aac_purchase_cost" text="購入コスト"/>
+        <text name="ft_aac_care_cost" text="ケアコスト"/>
+        <text name="ft_aac_care_now" text="今すぐケア"/>
+        <text name="ft_aac_last_action" text="最後の操作"/>
+        <text name="ft_aac_no_action" text="まだ操作が記録されていません。"/>
+        <text name="ft_vet_active_cases" text="対応中 %d 件"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem が見つかりませんでした。"/>
+        <text name="ft_vet_active_illnesses" text="進行中の病気"/>
+        <text name="ft_vet_veterinarian" text="獣医"/>
+        <text name="ft_vet_no_sick_pens" text="病気の畜舎の報告はありません。"/>
+        <text name="ft_vet_cases" text="件数"/>
+        <text name="ft_vet_pen" text="畜舎"/>
+        <text name="ft_vet_illness" text="病気"/>
+        <text name="ft_vet_worker" text="作業員"/>
+        <text name="ft_vet_self" text="自分"/>
+        <text name="ft_vet_case_line" text="%s - 動物 %d 頭 - 約 %d 分"/>
+        <text name="ft_fws_open_count" text="%d/%d 稼働"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule が見つかりませんでした。"/>
+        <text name="ft_fws_factories_open" text="稼働中の工場"/>
+        <text name="ft_fws_fire_system" text="火災システム"/>
+        <text name="ft_fws_factories" text="工場"/>
+        <text name="ft_fws_no_factories" text="FactoryWeekSchedule の HUD キャッシュにまだ工場がありません。"/>
+        <text name="ft_fws_factory" text="工場"/>
+        <text name="ft_fws_no_event" text="イベントなし"/>
+        <text name="ft_rd_status_repossession" text="差し押さえ進行中"/>
+        <text name="ft_rd_status_repossessed" text="差し押さえ済み"/>
+        <text name="ft_rd_status_paid" text="支払い済み"/>
+        <text name="ft_rd_status_overdue" text="延滞"/>
+        <text name="ft_rd_status_active" text="有効"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer が見つかりませんでした。"/>
+        <text name="ft_rd_active_financing" text="有効なローン"/>
+        <text name="ft_rd_remaining_debt" text="残債"/>
+        <text name="ft_rd_credit_score" text="信用スコア"/>
+        <text name="ft_rd_open_notices" text="未処理の通知"/>
+        <text name="ft_rd_repossessions" text="差し押さえ"/>
+        <text name="ft_rd_check_repo" text="差し押さえを確認"/>
+        <text name="ft_rd_contracts" text="契約"/>
+        <text name="ft_rd_no_contracts" text="有効なローン契約はありません。"/>
+        <text name="ft_rd_vehicle" text="車両"/>
+        <text name="ft_rd_money_line" text="残り: %s | 返済額: %s"/>
+        <text name="ft_rd_installment_line" text="分割: %d/%d"/>
+        <text name="ft_rd_notices_line" text="通知: %d"/>
+        <text name="ft_rd_server_note" text="車両の差し押さえは引き続きサーバー側の RealisticDealer で処理されます。"/>
+        <text name="ft_network_default_provider" text="ネットワーク"/>
+        <text name="ft_network_title" text="ネットワーク"/>
+        <text name="ft_network_choose_provider" text="通信事業者を選択"/>
+        <text name="ft_network_choose_hint" text="事業者を選択してから有効化してください。"/>
+        <text name="ft_network_activate" text="有効化"/>
+        <text name="ft_network_provider_active" text="使用中: %s。"/>
+        <text name="ft_network_outage_short" text="障害"/>
+        <text name="ft_network_no_signal_short" text="圏外"/>
+        <text name="ft_network_weak_short" text="弱い"/>
+        <text name="ft_network_recovered" text="%s: 信号が回復しました。"/>
+        <text name="ft_network_outage_msg" text="%s: ネットワーク障害、ゲーム内で約 2 時間。"/>
+        <text name="ft_network_no_signal_msg" text="%s: ここは圏外です。"/>
+        <text name="ft_network_weak_msg" text="%s: 信号が弱いです。"/>
+        <text name="ft_battery_empty" text="タブレットのバッテリー切れ"/>
+        <text name="ft_battery_charging" text="タブレットを充電中..."/>
+        <text name="ft_battery_charge_hint" text="続けるには少し充電してください。"/>
+        <text name="ft_battery_charge" text="充電"/>
     </texts>
 </l10n>

@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Elérhető parancsok"/>
         <text name="ft_help_s2_console_text" text="Nyisd meg a fejlesztoi konzolt a tilde billentyuvel, es ird be a tablet szot az osszes parancs listazasahoz. Pelda: TabletKeybind H megvaltoztatja a nyito billentyut, TabletSetStartupApp weather beallitja az elso alkalmazast, a TabletResetSettings pedig visszaallitja az alapertelmezeseket."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Allatorvos"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Gyari het"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare allapot es biztonsagos gondozas"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem betegseg- es kezelesfigyelo"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule attekintes: munkasok, esemenyek es tuz"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: finanszirozas, reszletek es elkobzasi allapot"/>
+        <text name="ft_common_on" text="Be"/>
+        <text name="ft_common_off" text="Ki"/>
+        <text name="ft_common_connected" text="Csatlakozva"/>
+        <text name="ft_common_inactive" text="Inaktiv"/>
+        <text name="ft_common_status" text="ALLAPOT"/>
+        <text name="ft_common_overview" text="ATTEKINTES"/>
+        <text name="ft_common_busy" text="Foglalt"/>
+        <text name="ft_common_available" text="Elerheto"/>
+        <text name="ft_common_time" text="Ido"/>
+        <text name="ft_common_event" text="Esemeny"/>
+        <text name="ft_common_open" text="Nyitva"/>
+        <text name="ft_common_closed" text="Zarva"/>
+        <text name="ft_common_note" text="JEGYZET"/>
+        <text name="ft_aac_not_detected" text="Az AnimalAutoCare nem talalhato."/>
+        <text name="ft_aac_overall" text="Osszesen"/>
+        <text name="ft_aac_food" text="Takarmany"/>
+        <text name="ft_aac_water" text="Viz"/>
+        <text name="ft_aac_straw" text="Szalma"/>
+        <text name="ft_aac_purchase_cost" text="Vasarlasi koltseg"/>
+        <text name="ft_aac_care_cost" text="Gondozasi koltseg"/>
+        <text name="ft_aac_care_now" text="Gondozas most"/>
+        <text name="ft_aac_last_action" text="UTOLSO MUVELET"/>
+        <text name="ft_aac_no_action" text="Meg nem rogzitettek muveletet."/>
+        <text name="ft_vet_active_cases" text="%d aktiv eset"/>
+        <text name="ft_vet_not_detected" text="Az AnimalVetSystem nem talalhato."/>
+        <text name="ft_vet_active_illnesses" text="Aktiv betegsegek"/>
+        <text name="ft_vet_veterinarian" text="Allatorvos"/>
+        <text name="ft_vet_no_sick_pens" text="Nincs jelentett beteg karam."/>
+        <text name="ft_vet_cases" text="ESETEK"/>
+        <text name="ft_vet_pen" text="Karam"/>
+        <text name="ft_vet_illness" text="Betegseg"/>
+        <text name="ft_vet_worker" text="Munkas"/>
+        <text name="ft_vet_self" text="Sajat maga"/>
+        <text name="ft_vet_case_line" text="%s - %d allat - kb. %d perc"/>
+        <text name="ft_fws_open_count" text="%d/%d nyitva"/>
+        <text name="ft_fws_not_detected" text="A FactoryWeekSchedule nem talalhato."/>
+        <text name="ft_fws_factories_open" text="Nyitott gyarak"/>
+        <text name="ft_fws_fire_system" text="Tuzrendszer"/>
+        <text name="ft_fws_factories" text="GYARAK"/>
+        <text name="ft_fws_no_factories" text="Meg nincs gyar a FactoryWeekSchedule HUD gyorsitotaraban."/>
+        <text name="ft_fws_factory" text="Gyar"/>
+        <text name="ft_fws_no_event" text="Nincs esemeny"/>
+        <text name="ft_rd_status_repossession" text="Elkobzas folyamatban"/>
+        <text name="ft_rd_status_repossessed" text="Elkobozva"/>
+        <text name="ft_rd_status_paid" text="Kifizetve"/>
+        <text name="ft_rd_status_overdue" text="Lejart"/>
+        <text name="ft_rd_status_active" text="Aktiv"/>
+        <text name="ft_rd_not_detected" text="A RealisticDealer nem talalhato."/>
+        <text name="ft_rd_active_financing" text="Aktiv finanszirozas"/>
+        <text name="ft_rd_remaining_debt" text="Fennmarado tartozas"/>
+        <text name="ft_rd_credit_score" text="Hitelpontszam"/>
+        <text name="ft_rd_open_notices" text="Nyitott ertesitesek"/>
+        <text name="ft_rd_repossessions" text="Elkobzasok"/>
+        <text name="ft_rd_check_repo" text="Elkobzas megtekintese"/>
+        <text name="ft_rd_contracts" text="SZERZODESEK"/>
+        <text name="ft_rd_no_contracts" text="Nincs aktiv finanszirozasi szerzodes."/>
+        <text name="ft_rd_vehicle" text="Jarmu"/>
+        <text name="ft_rd_money_line" text="Fennmarado: %s | Reszlet: %s"/>
+        <text name="ft_rd_installment_line" text="Reszletek: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Ertesitesek: %d"/>
+        <text name="ft_rd_server_note" text="A jarmuvek elkobzasa tovabbra is a RealisticDealeren keresztul tortenik a szerveroldalon."/>
+        <text name="ft_network_default_provider" text="Halozat"/>
+        <text name="ft_network_title" text="Halozat"/>
+        <text name="ft_network_choose_provider" text="Valassz szolgaltatot"/>
+        <text name="ft_network_choose_hint" text="Valassz egy szolgaltatot, majd aktivald."/>
+        <text name="ft_network_activate" text="AKTIVALAS"/>
+        <text name="ft_network_provider_active" text="Aktiv: %s."/>
+        <text name="ft_network_outage_short" text="Kimaradas"/>
+        <text name="ft_network_no_signal_short" text="Nincs jel"/>
+        <text name="ft_network_weak_short" text="Gyenge"/>
+        <text name="ft_network_recovered" text="%s: jel helyreallt."/>
+        <text name="ft_network_outage_msg" text="%s: halozati kimaradas, kb. 2 jatekora."/>
+        <text name="ft_network_no_signal_msg" text="%s: itt nincs jel."/>
+        <text name="ft_network_weak_msg" text="%s: gyenge jel."/>
+        <text name="ft_battery_empty" text="A tablet akkumulatora lemerult"/>
+        <text name="ft_battery_charging" text="Tablet toltese..."/>
+        <text name="ft_battery_charge_hint" text="Toltsd egy kicsit a folytatashoz."/>
+        <text name="ft_battery_charge" text="TOLTES"/>
     </texts>
 </l10n>

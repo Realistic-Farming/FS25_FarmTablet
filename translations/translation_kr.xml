@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="사용 가능한 명령"/>
         <text name="ft_help_s2_console_text" text="물결표 키로 개발자 콘솔을 열고 tablet을 입력하면 모든 명령을 볼 수 있습니다. 예를 들어 TabletKeybind H는 여는 키를 바꾸고, TabletSetStartupApp weather는 첫 앱을 설정하며, TabletResetSettings는 기본값으로 되돌립니다."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="동물 수의"/>
+        <text name="ft_ui_app_factory_week_schedule" text="공장 주간"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare 상태 및 안전 돌봄 실행"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem 질병 및 치료 모니터"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule 개요: 작업자, 이벤트, 화재 상태"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: 금융, 할부, 압류 상태"/>
+        <text name="ft_common_on" text="켜짐"/>
+        <text name="ft_common_off" text="꺼짐"/>
+        <text name="ft_common_connected" text="연결됨"/>
+        <text name="ft_common_inactive" text="비활성"/>
+        <text name="ft_common_status" text="상태"/>
+        <text name="ft_common_overview" text="개요"/>
+        <text name="ft_common_busy" text="사용 중"/>
+        <text name="ft_common_available" text="사용 가능"/>
+        <text name="ft_common_time" text="시간"/>
+        <text name="ft_common_event" text="이벤트"/>
+        <text name="ft_common_open" text="열림"/>
+        <text name="ft_common_closed" text="닫힘"/>
+        <text name="ft_common_note" text="메모"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare를 찾을 수 없습니다."/>
+        <text name="ft_aac_overall" text="전체"/>
+        <text name="ft_aac_food" text="사료"/>
+        <text name="ft_aac_water" text="물"/>
+        <text name="ft_aac_straw" text="짚"/>
+        <text name="ft_aac_purchase_cost" text="구매 비용"/>
+        <text name="ft_aac_care_cost" text="관리 비용"/>
+        <text name="ft_aac_care_now" text="지금 돌보기"/>
+        <text name="ft_aac_last_action" text="마지막 작업"/>
+        <text name="ft_aac_no_action" text="아직 기록된 작업이 없습니다."/>
+        <text name="ft_vet_active_cases" text="활성 사례 %d건"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem을 찾을 수 없습니다."/>
+        <text name="ft_vet_active_illnesses" text="활성 질병"/>
+        <text name="ft_vet_veterinarian" text="수의사"/>
+        <text name="ft_vet_no_sick_pens" text="보고된 아픈 축사가 없습니다."/>
+        <text name="ft_vet_cases" text="사례"/>
+        <text name="ft_vet_pen" text="축사"/>
+        <text name="ft_vet_illness" text="질병"/>
+        <text name="ft_vet_worker" text="작업자"/>
+        <text name="ft_vet_self" text="직접"/>
+        <text name="ft_vet_case_line" text="%s - 동물 %d마리 - 약 %d분"/>
+        <text name="ft_fws_open_count" text="%d/%d 가동"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule를 찾을 수 없습니다."/>
+        <text name="ft_fws_factories_open" text="가동 중인 공장"/>
+        <text name="ft_fws_fire_system" text="화재 시스템"/>
+        <text name="ft_fws_factories" text="공장"/>
+        <text name="ft_fws_no_factories" text="아직 FactoryWeekSchedule HUD 캐시에 공장이 없습니다."/>
+        <text name="ft_fws_factory" text="공장"/>
+        <text name="ft_fws_no_event" text="이벤트 없음"/>
+        <text name="ft_rd_status_repossession" text="압류 진행 중"/>
+        <text name="ft_rd_status_repossessed" text="압류됨"/>
+        <text name="ft_rd_status_paid" text="완납"/>
+        <text name="ft_rd_status_overdue" text="연체"/>
+        <text name="ft_rd_status_active" text="활성"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer를 찾을 수 없습니다."/>
+        <text name="ft_rd_active_financing" text="활성 금융"/>
+        <text name="ft_rd_remaining_debt" text="잔여 부채"/>
+        <text name="ft_rd_credit_score" text="신용 점수"/>
+        <text name="ft_rd_open_notices" text="미처리 통지"/>
+        <text name="ft_rd_repossessions" text="압류"/>
+        <text name="ft_rd_check_repo" text="압류 확인"/>
+        <text name="ft_rd_contracts" text="계약"/>
+        <text name="ft_rd_no_contracts" text="활성 금융 계약이 없습니다."/>
+        <text name="ft_rd_vehicle" text="차량"/>
+        <text name="ft_rd_money_line" text="잔여: %s | 납입금: %s"/>
+        <text name="ft_rd_installment_line" text="할부: %d/%d"/>
+        <text name="ft_rd_notices_line" text="통지: %d"/>
+        <text name="ft_rd_server_note" text="차량 압류는 여전히 서버 측 RealisticDealer를 통해 처리됩니다."/>
+        <text name="ft_network_default_provider" text="네트워크"/>
+        <text name="ft_network_title" text="네트워크"/>
+        <text name="ft_network_choose_provider" text="통신사 선택"/>
+        <text name="ft_network_choose_hint" text="통신사를 선택한 다음 활성화하세요."/>
+        <text name="ft_network_activate" text="활성화"/>
+        <text name="ft_network_provider_active" text="활성: %s."/>
+        <text name="ft_network_outage_short" text="장애"/>
+        <text name="ft_network_no_signal_short" text="신호 없음"/>
+        <text name="ft_network_weak_short" text="약함"/>
+        <text name="ft_network_recovered" text="%s: 신호가 복구되었습니다."/>
+        <text name="ft_network_outage_msg" text="%s: 네트워크 장애, 게임 시간 약 2시간."/>
+        <text name="ft_network_no_signal_msg" text="%s: 여기는 신호가 없습니다."/>
+        <text name="ft_network_weak_msg" text="%s: 신호가 약합니다."/>
+        <text name="ft_battery_empty" text="태블릿 배터리 방전"/>
+        <text name="ft_battery_charging" text="태블릿 충전 중..."/>
+        <text name="ft_battery_charge_hint" text="계속하려면 잠시 충전하세요."/>
+        <text name="ft_battery_charge" text="충전"/>
     </texts>
 </l10n>

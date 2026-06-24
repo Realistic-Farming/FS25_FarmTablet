@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Các lệnh có sẵn"/>
         <text name="ft_help_s2_console_text" text="Mo bang dieu khien nha phat trien bang phim dau ngã va go tablet de liet ke moi lenh. Vi du TabletKeybind H doi phim mo, TabletSetStartupApp weather dat ung dung dau tien, va TabletResetSettings khoi phuc mac dinh."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Thu y"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Tuan nha may"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Trang thai AnimalAutoCare va nut cham soc an toan"/>
+        <text name="ft_desc_app_animal_vet_system" text="Theo doi benh va dieu tri AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Tong quan FactoryWeekSchedule: cong nhan, su kien va chay"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: tai chinh, tra gop va trang thai thu hoi"/>
+        <text name="ft_common_on" text="Bat"/>
+        <text name="ft_common_off" text="Tat"/>
+        <text name="ft_common_connected" text="Da ket noi"/>
+        <text name="ft_common_inactive" text="Khong hoat dong"/>
+        <text name="ft_common_status" text="TRANG THAI"/>
+        <text name="ft_common_overview" text="TONG QUAN"/>
+        <text name="ft_common_busy" text="Ban"/>
+        <text name="ft_common_available" text="San sang"/>
+        <text name="ft_common_time" text="Thoi gian"/>
+        <text name="ft_common_event" text="Su kien"/>
+        <text name="ft_common_open" text="Mo"/>
+        <text name="ft_common_closed" text="Dong"/>
+        <text name="ft_common_note" text="GHI CHU"/>
+        <text name="ft_aac_not_detected" text="Khong phat hien AnimalAutoCare."/>
+        <text name="ft_aac_overall" text="Tong the"/>
+        <text name="ft_aac_food" text="Thuc an"/>
+        <text name="ft_aac_water" text="Nuoc"/>
+        <text name="ft_aac_straw" text="Rom"/>
+        <text name="ft_aac_purchase_cost" text="Chi phi mua"/>
+        <text name="ft_aac_care_cost" text="Chi phi cham soc"/>
+        <text name="ft_aac_care_now" text="Cham soc ngay"/>
+        <text name="ft_aac_last_action" text="HANH DONG CUOI"/>
+        <text name="ft_aac_no_action" text="Chua ghi nhan hanh dong nao."/>
+        <text name="ft_vet_active_cases" text="%d ca dang hoat dong"/>
+        <text name="ft_vet_not_detected" text="Khong phat hien AnimalVetSystem."/>
+        <text name="ft_vet_active_illnesses" text="Benh dang hoat dong"/>
+        <text name="ft_vet_veterinarian" text="Bac si thu y"/>
+        <text name="ft_vet_no_sick_pens" text="Khong co chuong benh nao duoc bao."/>
+        <text name="ft_vet_cases" text="CA BENH"/>
+        <text name="ft_vet_pen" text="Chuong"/>
+        <text name="ft_vet_illness" text="Benh"/>
+        <text name="ft_vet_worker" text="Cong nhan"/>
+        <text name="ft_vet_self" text="Tu lam"/>
+        <text name="ft_vet_case_line" text="%s - %d con - khoang %d phut"/>
+        <text name="ft_fws_open_count" text="%d/%d mo"/>
+        <text name="ft_fws_not_detected" text="Khong phat hien FactoryWeekSchedule."/>
+        <text name="ft_fws_factories_open" text="Nha may dang mo"/>
+        <text name="ft_fws_fire_system" text="He thong chua chay"/>
+        <text name="ft_fws_factories" text="NHA MAY"/>
+        <text name="ft_fws_no_factories" text="Chua co nha may nao trong bo nho HUD FactoryWeekSchedule."/>
+        <text name="ft_fws_factory" text="Nha may"/>
+        <text name="ft_fws_no_event" text="Khong co su kien"/>
+        <text name="ft_rd_status_repossession" text="Dang thu hoi"/>
+        <text name="ft_rd_status_repossessed" text="Da thu hoi"/>
+        <text name="ft_rd_status_paid" text="Da tra"/>
+        <text name="ft_rd_status_overdue" text="Qua han"/>
+        <text name="ft_rd_status_active" text="Hoat dong"/>
+        <text name="ft_rd_not_detected" text="Khong phat hien RealisticDealer."/>
+        <text name="ft_rd_active_financing" text="Tai chinh dang hoat dong"/>
+        <text name="ft_rd_remaining_debt" text="No con lai"/>
+        <text name="ft_rd_credit_score" text="Diem tin dung"/>
+        <text name="ft_rd_open_notices" text="Thong bao dang mo"/>
+        <text name="ft_rd_repossessions" text="Thu hoi"/>
+        <text name="ft_rd_check_repo" text="Xem thu hoi"/>
+        <text name="ft_rd_contracts" text="HOP DONG"/>
+        <text name="ft_rd_no_contracts" text="Khong co hop dong tai chinh nao dang hoat dong."/>
+        <text name="ft_rd_vehicle" text="Phuong tien"/>
+        <text name="ft_rd_money_line" text="Con lai: %s | Ky tra: %s"/>
+        <text name="ft_rd_installment_line" text="Ky tra: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Thong bao: %d"/>
+        <text name="ft_rd_server_note" text="Viec thu hoi phuong tien van chay qua RealisticDealer o phia may chu."/>
+        <text name="ft_network_default_provider" text="Mang"/>
+        <text name="ft_network_title" text="Mang"/>
+        <text name="ft_network_choose_provider" text="Chon nha mang"/>
+        <text name="ft_network_choose_hint" text="Chon mot nha mang, sau do kich hoat."/>
+        <text name="ft_network_activate" text="KICH HOAT"/>
+        <text name="ft_network_provider_active" text="Dang dung: %s."/>
+        <text name="ft_network_outage_short" text="Su co"/>
+        <text name="ft_network_no_signal_short" text="Khong co song"/>
+        <text name="ft_network_weak_short" text="Yeu"/>
+        <text name="ft_network_recovered" text="%s: da khoi phuc song."/>
+        <text name="ft_network_outage_msg" text="%s: su co mang, khoang 2 gio trong game."/>
+        <text name="ft_network_no_signal_msg" text="%s: khong co song o day."/>
+        <text name="ft_network_weak_msg" text="%s: song yeu."/>
+        <text name="ft_battery_empty" text="Tablet het pin"/>
+        <text name="ft_battery_charging" text="Dang sac tablet..."/>
+        <text name="ft_battery_charge_hint" text="Sac mot luc de tiep tuc."/>
+        <text name="ft_battery_charge" text="SAC"/>
     </texts>
 </l10n>

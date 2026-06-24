@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Tilgjengelige kommandoer"/>
         <text name="ft_help_s2_console_text" text="Apne utviklerkonsollen med tilde-tasten og skriv tablet for a liste alle kommandoer. For eksempel endrer TabletKeybind H apnetasten, TabletSetStartupApp weather setter forste app, og TabletResetSettings gjenoppretter standardverdiene."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Veterinaer"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Fabrikkuke"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare-status og trygg stell-utloser"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem sykdoms- og behandlingsmonitor"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule-oversikt med arbeidere, hendelser og brann"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: finansiering, avdrag og tilbaketakingsstatus"/>
+        <text name="ft_common_on" text="Pa"/>
+        <text name="ft_common_off" text="Av"/>
+        <text name="ft_common_connected" text="Tilkoblet"/>
+        <text name="ft_common_inactive" text="Inaktiv"/>
+        <text name="ft_common_status" text="STATUS"/>
+        <text name="ft_common_overview" text="OVERSIKT"/>
+        <text name="ft_common_busy" text="Opptatt"/>
+        <text name="ft_common_available" text="Tilgjengelig"/>
+        <text name="ft_common_time" text="Tid"/>
+        <text name="ft_common_event" text="Hendelse"/>
+        <text name="ft_common_open" text="Apen"/>
+        <text name="ft_common_closed" text="Stengt"/>
+        <text name="ft_common_note" text="NOTAT"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare ble ikke funnet."/>
+        <text name="ft_aac_overall" text="Totalt"/>
+        <text name="ft_aac_food" text="For"/>
+        <text name="ft_aac_water" text="Vann"/>
+        <text name="ft_aac_straw" text="Halm"/>
+        <text name="ft_aac_purchase_cost" text="Kjopskostnad"/>
+        <text name="ft_aac_care_cost" text="Stellkostnad"/>
+        <text name="ft_aac_care_now" text="Stell na"/>
+        <text name="ft_aac_last_action" text="SISTE HANDLING"/>
+        <text name="ft_aac_no_action" text="Ingen handling er registrert enna."/>
+        <text name="ft_vet_active_cases" text="%d aktive tilfeller"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem ble ikke funnet."/>
+        <text name="ft_vet_active_illnesses" text="Aktive sykdommer"/>
+        <text name="ft_vet_veterinarian" text="Veterinaer"/>
+        <text name="ft_vet_no_sick_pens" text="Ingen syke binger rapportert."/>
+        <text name="ft_vet_cases" text="TILFELLER"/>
+        <text name="ft_vet_pen" text="Binge"/>
+        <text name="ft_vet_illness" text="Sykdom"/>
+        <text name="ft_vet_worker" text="Arbeider"/>
+        <text name="ft_vet_self" text="Selv"/>
+        <text name="ft_vet_case_line" text="%s - %d dyr - ca. %d min"/>
+        <text name="ft_fws_open_count" text="%d/%d apne"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule ble ikke funnet."/>
+        <text name="ft_fws_factories_open" text="Fabrikker apne"/>
+        <text name="ft_fws_fire_system" text="Brannsystem"/>
+        <text name="ft_fws_factories" text="FABRIKKER"/>
+        <text name="ft_fws_no_factories" text="Ingen fabrikker i FactoryWeekSchedule HUD-bufferen enna."/>
+        <text name="ft_fws_factory" text="Fabrikk"/>
+        <text name="ft_fws_no_event" text="Ingen hendelse"/>
+        <text name="ft_rd_status_repossession" text="Tilbaketaking pagar"/>
+        <text name="ft_rd_status_repossessed" text="Tatt tilbake"/>
+        <text name="ft_rd_status_paid" text="Betalt"/>
+        <text name="ft_rd_status_overdue" text="Forfalt"/>
+        <text name="ft_rd_status_active" text="Aktiv"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer ble ikke funnet."/>
+        <text name="ft_rd_active_financing" text="Aktiv finansiering"/>
+        <text name="ft_rd_remaining_debt" text="Gjenstaende gjeld"/>
+        <text name="ft_rd_credit_score" text="Kredittscore"/>
+        <text name="ft_rd_open_notices" text="Apne varsler"/>
+        <text name="ft_rd_repossessions" text="Tilbaketakinger"/>
+        <text name="ft_rd_check_repo" text="Se tilbaketaking"/>
+        <text name="ft_rd_contracts" text="KONTRAKTER"/>
+        <text name="ft_rd_no_contracts" text="Ingen aktive finansieringskontrakter."/>
+        <text name="ft_rd_vehicle" text="Kjoretoy"/>
+        <text name="ft_rd_money_line" text="Gjenstaende: %s | Avdrag: %s"/>
+        <text name="ft_rd_installment_line" text="Avdrag: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Varsler: %d"/>
+        <text name="ft_rd_server_note" text="Tilbaketaking av kjoretoy gar fortsatt via RealisticDealer pa serversiden."/>
+        <text name="ft_network_default_provider" text="Nettverk"/>
+        <text name="ft_network_title" text="Nettverk"/>
+        <text name="ft_network_choose_provider" text="Velg operator"/>
+        <text name="ft_network_choose_hint" text="Velg en operator og aktiver den."/>
+        <text name="ft_network_activate" text="AKTIVER"/>
+        <text name="ft_network_provider_active" text="Aktiv: %s."/>
+        <text name="ft_network_outage_short" text="Brudd"/>
+        <text name="ft_network_no_signal_short" text="Ingen signal"/>
+        <text name="ft_network_weak_short" text="Svakt"/>
+        <text name="ft_network_recovered" text="%s: signal gjenopprettet."/>
+        <text name="ft_network_outage_msg" text="%s: nettverksbrudd, ca. 2 spilltimer."/>
+        <text name="ft_network_no_signal_msg" text="%s: ingen signal her."/>
+        <text name="ft_network_weak_msg" text="%s: svakt signal."/>
+        <text name="ft_battery_empty" text="Nettbrettets batteri er tomt"/>
+        <text name="ft_battery_charging" text="Lader nettbrett..."/>
+        <text name="ft_battery_charge_hint" text="Lad litt for a fortsette."/>
+        <text name="ft_battery_charge" text="LAD"/>
     </texts>
 </l10n>

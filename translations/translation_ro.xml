@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Comenzi disponibile"/>
         <text name="ft_help_s2_console_text" text="Deschide consola de dezvoltare cu tasta tilda si scrie tablet pentru a lista toate comenzile. De exemplu TabletKeybind H schimba tasta de deschidere, TabletSetStartupApp weather seteaza prima aplicatie, iar TabletResetSettings restaureaza valorile implicite."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Veterinar"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Saptamana fabrica"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Stare AnimalAutoCare si declansator de ingrijire sigura"/>
+        <text name="ft_desc_app_animal_vet_system" text="Monitor de boli si tratamente AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Prezentare FactoryWeekSchedule: muncitori, evenimente si incendii"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: finantare, rate si stare a confiscarilor"/>
+        <text name="ft_common_on" text="Pornit"/>
+        <text name="ft_common_off" text="Oprit"/>
+        <text name="ft_common_connected" text="Conectat"/>
+        <text name="ft_common_inactive" text="Inactiv"/>
+        <text name="ft_common_status" text="STARE"/>
+        <text name="ft_common_overview" text="PREZENTARE"/>
+        <text name="ft_common_busy" text="Ocupat"/>
+        <text name="ft_common_available" text="Disponibil"/>
+        <text name="ft_common_time" text="Ora"/>
+        <text name="ft_common_event" text="Eveniment"/>
+        <text name="ft_common_open" text="Deschis"/>
+        <text name="ft_common_closed" text="Inchis"/>
+        <text name="ft_common_note" text="NOTA"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare nu a fost detectat."/>
+        <text name="ft_aac_overall" text="General"/>
+        <text name="ft_aac_food" text="Hrana"/>
+        <text name="ft_aac_water" text="Apa"/>
+        <text name="ft_aac_straw" text="Paie"/>
+        <text name="ft_aac_purchase_cost" text="Cost de achizitie"/>
+        <text name="ft_aac_care_cost" text="Cost de ingrijire"/>
+        <text name="ft_aac_care_now" text="Ingrijeste acum"/>
+        <text name="ft_aac_last_action" text="ULTIMA ACTIUNE"/>
+        <text name="ft_aac_no_action" text="Nicio actiune inregistrata inca."/>
+        <text name="ft_vet_active_cases" text="%d cazuri active"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem nu a fost detectat."/>
+        <text name="ft_vet_active_illnesses" text="Boli active"/>
+        <text name="ft_vet_veterinarian" text="Veterinar"/>
+        <text name="ft_vet_no_sick_pens" text="Niciun tarc bolnav raportat."/>
+        <text name="ft_vet_cases" text="CAZURI"/>
+        <text name="ft_vet_pen" text="Tarc"/>
+        <text name="ft_vet_illness" text="Boala"/>
+        <text name="ft_vet_worker" text="Muncitor"/>
+        <text name="ft_vet_self" text="Singur"/>
+        <text name="ft_vet_case_line" text="%s - %d animale - aproximativ %d min"/>
+        <text name="ft_fws_open_count" text="%d/%d deschise"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule nu a fost detectat."/>
+        <text name="ft_fws_factories_open" text="Fabrici deschise"/>
+        <text name="ft_fws_fire_system" text="Sistem antiincendiu"/>
+        <text name="ft_fws_factories" text="FABRICI"/>
+        <text name="ft_fws_no_factories" text="Inca nu exista fabrici in cache-ul HUD FactoryWeekSchedule."/>
+        <text name="ft_fws_factory" text="Fabrica"/>
+        <text name="ft_fws_no_event" text="Niciun eveniment"/>
+        <text name="ft_rd_status_repossession" text="Confiscare in curs"/>
+        <text name="ft_rd_status_repossessed" text="Confiscat"/>
+        <text name="ft_rd_status_paid" text="Platit"/>
+        <text name="ft_rd_status_overdue" text="Restant"/>
+        <text name="ft_rd_status_active" text="Activ"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer nu a fost detectat."/>
+        <text name="ft_rd_active_financing" text="Finantare activa"/>
+        <text name="ft_rd_remaining_debt" text="Datorie ramasa"/>
+        <text name="ft_rd_credit_score" text="Scor de credit"/>
+        <text name="ft_rd_open_notices" text="Notificari deschise"/>
+        <text name="ft_rd_repossessions" text="Confiscari"/>
+        <text name="ft_rd_check_repo" text="Vezi confiscari"/>
+        <text name="ft_rd_contracts" text="CONTRACTE"/>
+        <text name="ft_rd_no_contracts" text="Niciun contract de finantare activ."/>
+        <text name="ft_rd_vehicle" text="Vehicul"/>
+        <text name="ft_rd_money_line" text="Ramas: %s | Rata: %s"/>
+        <text name="ft_rd_installment_line" text="Rate: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Notificari: %d"/>
+        <text name="ft_rd_server_note" text="Confiscarile de vehicule trec in continuare prin RealisticDealer pe partea de server."/>
+        <text name="ft_network_default_provider" text="Retea"/>
+        <text name="ft_network_title" text="Retea"/>
+        <text name="ft_network_choose_provider" text="Alege operatorul"/>
+        <text name="ft_network_choose_hint" text="Selecteaza un operator, apoi activeaza-l."/>
+        <text name="ft_network_activate" text="ACTIVEAZA"/>
+        <text name="ft_network_provider_active" text="Activ: %s."/>
+        <text name="ft_network_outage_short" text="Pana"/>
+        <text name="ft_network_no_signal_short" text="Fara semnal"/>
+        <text name="ft_network_weak_short" text="Slab"/>
+        <text name="ft_network_recovered" text="%s: semnal restabilit."/>
+        <text name="ft_network_outage_msg" text="%s: pana de retea, aproximativ 2 ore de joc."/>
+        <text name="ft_network_no_signal_msg" text="%s: aici nu e semnal."/>
+        <text name="ft_network_weak_msg" text="%s: semnal slab."/>
+        <text name="ft_battery_empty" text="Bateria tabletei este descarcata"/>
+        <text name="ft_battery_charging" text="Se incarca tableta..."/>
+        <text name="ft_battery_charge_hint" text="Incarca putin pentru a continua."/>
+        <text name="ft_battery_charge" text="INCARCA"/>
     </texts>
 </l10n>

@@ -114,5 +114,92 @@
         <text name="ft_help_s2_console_title" text="Доступные команды"/>
         <text name="ft_help_s2_console_text" text="Откройте консоль разработчика клавишей тильды и введите tablet, чтобы увидеть все команды. Например, TabletKeybind H меняет клавишу открытия, TabletSetStartupApp weather задаёт первое приложение, а TabletResetSettings восстанавливает значения по умолчанию."/>
 
+        <!-- v2.5.x: battery, network and companion-app integrations -->
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Ветеринар"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Неделя завода"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="Статус AnimalAutoCare и безопасный уход"/>
+        <text name="ft_desc_app_animal_vet_system" text="Монитор болезней и лечения AnimalVetSystem"/>
+        <text name="ft_desc_app_factory_week_schedule" text="Обзор FactoryWeekSchedule: рабочие, события и пожары"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: финансирование, платежи и статус изъятий"/>
+        <text name="ft_common_on" text="Вкл"/>
+        <text name="ft_common_off" text="Выкл"/>
+        <text name="ft_common_connected" text="Подключено"/>
+        <text name="ft_common_inactive" text="Неактивно"/>
+        <text name="ft_common_status" text="СТАТУС"/>
+        <text name="ft_common_overview" text="ОБЗОР"/>
+        <text name="ft_common_busy" text="Занято"/>
+        <text name="ft_common_available" text="Доступно"/>
+        <text name="ft_common_time" text="Время"/>
+        <text name="ft_common_event" text="Событие"/>
+        <text name="ft_common_open" text="Открыто"/>
+        <text name="ft_common_closed" text="Закрыто"/>
+        <text name="ft_common_note" text="ЗАМЕТКА"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare не обнаружен."/>
+        <text name="ft_aac_overall" text="Общее"/>
+        <text name="ft_aac_food" text="Корм"/>
+        <text name="ft_aac_water" text="Вода"/>
+        <text name="ft_aac_straw" text="Солома"/>
+        <text name="ft_aac_purchase_cost" text="Стоимость покупки"/>
+        <text name="ft_aac_care_cost" text="Стоимость ухода"/>
+        <text name="ft_aac_care_now" text="Уход сейчас"/>
+        <text name="ft_aac_last_action" text="ПОСЛЕДНЕЕ ДЕЙСТВИЕ"/>
+        <text name="ft_aac_no_action" text="Действия пока не зарегистрированы."/>
+        <text name="ft_vet_active_cases" text="Активных случаев: %d"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem не обнаружен."/>
+        <text name="ft_vet_active_illnesses" text="Активные болезни"/>
+        <text name="ft_vet_veterinarian" text="Ветеринар"/>
+        <text name="ft_vet_no_sick_pens" text="Больных загонов не отмечено."/>
+        <text name="ft_vet_cases" text="СЛУЧАИ"/>
+        <text name="ft_vet_pen" text="Загон"/>
+        <text name="ft_vet_illness" text="Болезнь"/>
+        <text name="ft_vet_worker" text="Работник"/>
+        <text name="ft_vet_self" text="Сам"/>
+        <text name="ft_vet_case_line" text="%s - животных: %d - около %d мин"/>
+        <text name="ft_fws_open_count" text="Открыто %d/%d"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule не обнаружен."/>
+        <text name="ft_fws_factories_open" text="Заводы открыты"/>
+        <text name="ft_fws_fire_system" text="Система пожаротушения"/>
+        <text name="ft_fws_factories" text="ЗАВОДЫ"/>
+        <text name="ft_fws_no_factories" text="В кэше HUD FactoryWeekSchedule пока нет заводов."/>
+        <text name="ft_fws_factory" text="Завод"/>
+        <text name="ft_fws_no_event" text="Нет событий"/>
+        <text name="ft_rd_status_repossession" text="Идёт изъятие"/>
+        <text name="ft_rd_status_repossessed" text="Изъято"/>
+        <text name="ft_rd_status_paid" text="Оплачено"/>
+        <text name="ft_rd_status_overdue" text="Просрочено"/>
+        <text name="ft_rd_status_active" text="Активно"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer не обнаружен."/>
+        <text name="ft_rd_active_financing" text="Активное финансирование"/>
+        <text name="ft_rd_remaining_debt" text="Остаток долга"/>
+        <text name="ft_rd_credit_score" text="Кредитный рейтинг"/>
+        <text name="ft_rd_open_notices" text="Открытые уведомления"/>
+        <text name="ft_rd_repossessions" text="Изъятия"/>
+        <text name="ft_rd_check_repo" text="Проверить изъятия"/>
+        <text name="ft_rd_contracts" text="ДОГОВОРЫ"/>
+        <text name="ft_rd_no_contracts" text="Нет активных договоров финансирования."/>
+        <text name="ft_rd_vehicle" text="Техника"/>
+        <text name="ft_rd_money_line" text="Остаток: %s | Платёж: %s"/>
+        <text name="ft_rd_installment_line" text="Платежи: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Уведомления: %d"/>
+        <text name="ft_rd_server_note" text="Изъятие техники по-прежнему проходит через RealisticDealer на стороне сервера."/>
+        <text name="ft_network_default_provider" text="Сеть"/>
+        <text name="ft_network_title" text="Сеть"/>
+        <text name="ft_network_choose_provider" text="Выберите оператора"/>
+        <text name="ft_network_choose_hint" text="Выберите оператора, затем активируйте его."/>
+        <text name="ft_network_activate" text="АКТИВИРОВАТЬ"/>
+        <text name="ft_network_provider_active" text="Активен: %s."/>
+        <text name="ft_network_outage_short" text="Сбой"/>
+        <text name="ft_network_no_signal_short" text="Нет сигнала"/>
+        <text name="ft_network_weak_short" text="Слабый"/>
+        <text name="ft_network_recovered" text="%s: сигнал восстановлен."/>
+        <text name="ft_network_outage_msg" text="%s: сбой сети, около 2 игровых часов."/>
+        <text name="ft_network_no_signal_msg" text="%s: здесь нет сигнала."/>
+        <text name="ft_network_weak_msg" text="%s: слабый сигнал."/>
+        <text name="ft_battery_empty" text="Батарея планшета разряжена"/>
+        <text name="ft_battery_charging" text="Зарядка планшета..."/>
+        <text name="ft_battery_charge_hint" text="Зарядите немного, чтобы продолжить."/>
+        <text name="ft_battery_charge" text="ЗАРЯДИТЬ"/>
     </texts>
 </l10n>
