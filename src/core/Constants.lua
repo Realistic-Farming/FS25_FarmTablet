@@ -146,6 +146,10 @@ FT.APP_COLOR = {
     fleet_manager       = {0.20, 0.85, 0.78, 1.00}, -- teal
     production_buildings= {0.90, 0.62, 0.15, 1.00}, -- amber-orange
     farm_stats          = {0.40, 0.88, 0.55, 1.00}, -- green-mint
+    animal_auto_care    = {0.95, 0.62, 0.22, 1.00}, -- orange
+    animal_vet_system   = {0.92, 0.35, 0.40, 1.00}, -- veterinary red
+    factory_week_schedule = {0.70, 0.62, 0.35, 1.00}, -- brass
+    realistic_dealer    = {0.35, 0.72, 1.00, 1.00}, -- dealer blue
 }
 
 -- Helper: get the accent color for a given app id
@@ -187,6 +191,10 @@ FT.APP = {
     FLEET            = "fleet_manager",
     PRODUCTION       = "production_buildings",
     FARM_STATS       = "farm_stats",
+    ANIMAL_AUTO_CARE = "animal_auto_care",
+    ANIMAL_VET       = "animal_vet_system",
+    FACTORY_WEEK     = "factory_week_schedule",
+    REALISTIC_DEALER = "realistic_dealer",
 }
 
 -- Helper: scale a reference pixel value to normalized coords.

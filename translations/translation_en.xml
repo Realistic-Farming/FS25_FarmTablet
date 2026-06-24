@@ -58,6 +58,92 @@
         <text name="ft_ui_app_fleet_manager" text="Fleet Manager"/>
         <text name="ft_ui_app_production_buildings" text="Production"/>
         <text name="ft_ui_app_farm_stats" text="Farm Stats"/>
+        <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare"/>
+        <text name="ft_ui_app_animal_vet_system" text="Animal Vet"/>
+        <text name="ft_ui_app_factory_week_schedule" text="Factory Week"/>
+        <text name="ft_ui_app_realistic_dealer" text="RealisticDealer"/>
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare status and safe care trigger"/>
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem illness and treatment monitor"/>
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule overview with workers, events and fire state"/>
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer financing, installments and repossession status"/>
+        <text name="ft_common_on" text="On"/>
+        <text name="ft_common_off" text="Off"/>
+        <text name="ft_common_connected" text="Connected"/>
+        <text name="ft_common_inactive" text="Inactive"/>
+        <text name="ft_common_status" text="STATUS"/>
+        <text name="ft_common_overview" text="OVERVIEW"/>
+        <text name="ft_common_busy" text="Busy"/>
+        <text name="ft_common_available" text="Available"/>
+        <text name="ft_common_time" text="Time"/>
+        <text name="ft_common_event" text="Event"/>
+        <text name="ft_common_open" text="Open"/>
+        <text name="ft_common_closed" text="Closed"/>
+        <text name="ft_common_note" text="NOTE"/>
+        <text name="ft_aac_not_detected" text="AnimalAutoCare was not detected."/>
+        <text name="ft_aac_overall" text="Overall"/>
+        <text name="ft_aac_food" text="Food"/>
+        <text name="ft_aac_water" text="Water"/>
+        <text name="ft_aac_straw" text="Straw"/>
+        <text name="ft_aac_purchase_cost" text="Purchase Cost"/>
+        <text name="ft_aac_care_cost" text="Care Cost"/>
+        <text name="ft_aac_care_now" text="Care Now"/>
+        <text name="ft_aac_last_action" text="LAST ACTION"/>
+        <text name="ft_aac_no_action" text="No action has been recorded yet."/>
+        <text name="ft_vet_active_cases" text="%d active cases"/>
+        <text name="ft_vet_not_detected" text="AnimalVetSystem was not detected."/>
+        <text name="ft_vet_active_illnesses" text="Active Illnesses"/>
+        <text name="ft_vet_veterinarian" text="Veterinarian"/>
+        <text name="ft_vet_no_sick_pens" text="No sick animal pens reported."/>
+        <text name="ft_vet_cases" text="CASES"/>
+        <text name="ft_vet_pen" text="Pen"/>
+        <text name="ft_vet_illness" text="Illness"/>
+        <text name="ft_vet_worker" text="Worker"/>
+        <text name="ft_vet_self" text="Self"/>
+        <text name="ft_vet_case_line" text="%s - %d animals - about %d min"/>
+        <text name="ft_fws_open_count" text="%d/%d open"/>
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule was not detected."/>
+        <text name="ft_fws_factories_open" text="Factories Open"/>
+        <text name="ft_fws_fire_system" text="Fire System"/>
+        <text name="ft_fws_factories" text="FACTORIES"/>
+        <text name="ft_fws_no_factories" text="No factories are in the FactoryWeekSchedule HUD cache yet."/>
+        <text name="ft_fws_factory" text="Factory"/>
+        <text name="ft_fws_no_event" text="No event"/>
+        <text name="ft_rd_status_repossession" text="Repossession running"/>
+        <text name="ft_rd_status_repossessed" text="Repossessed"/>
+        <text name="ft_rd_status_paid" text="Paid"/>
+        <text name="ft_rd_status_overdue" text="Overdue"/>
+        <text name="ft_rd_status_active" text="Active"/>
+        <text name="ft_rd_not_detected" text="RealisticDealer was not detected."/>
+        <text name="ft_rd_active_financing" text="Active Financing"/>
+        <text name="ft_rd_remaining_debt" text="Remaining Debt"/>
+        <text name="ft_rd_credit_score" text="Credit Score"/>
+        <text name="ft_rd_open_notices" text="Open Notices"/>
+        <text name="ft_rd_repossessions" text="Repossessions"/>
+        <text name="ft_rd_check_repo" text="Check Repo"/>
+        <text name="ft_rd_contracts" text="CONTRACTS"/>
+        <text name="ft_rd_no_contracts" text="No active financing contracts."/>
+        <text name="ft_rd_vehicle" text="Vehicle"/>
+        <text name="ft_rd_money_line" text="Remaining: %s | Rate: %s"/>
+        <text name="ft_rd_installment_line" text="Installments: %d/%d"/>
+        <text name="ft_rd_notices_line" text="Notices: %d"/>
+        <text name="ft_rd_server_note" text="Vehicle repossessions still run through RealisticDealer server-side."/>
+        <text name="ft_network_default_provider" text="Network"/>
+        <text name="ft_network_title" text="Network"/>
+        <text name="ft_network_choose_provider" text="Choose Network Provider"/>
+        <text name="ft_network_choose_hint" text="Select a provider, then activate it."/>
+        <text name="ft_network_activate" text="ACTIVATE"/>
+        <text name="ft_network_provider_active" text="Active: %s."/>
+        <text name="ft_network_outage_short" text="Outage"/>
+        <text name="ft_network_no_signal_short" text="No signal"/>
+        <text name="ft_network_weak_short" text="Weak"/>
+        <text name="ft_network_recovered" text="%s: signal restored."/>
+        <text name="ft_network_outage_msg" text="%s: network outage, about 2 in-game hours."/>
+        <text name="ft_network_no_signal_msg" text="%s: no signal here."/>
+        <text name="ft_network_weak_msg" text="%s: weak signal."/>
+        <text name="ft_battery_empty" text="Tablet battery empty"/>
+        <text name="ft_battery_charging" text="Tablet charging..."/>
+        <text name="ft_battery_charge_hint" text="Charge briefly to continue."/>
+        <text name="ft_battery_charge" text="CHARGE"/>
 
         <!-- ═══════════════════════════════════════════════ -->
         <!-- HELP STRINGS                                    -->

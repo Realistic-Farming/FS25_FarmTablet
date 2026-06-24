@@ -22,6 +22,20 @@ local HOMEIND_REF  = 10    -- home-indicator strip height
 -- ── Dock favourites (always-present built-ins) ───────────
 local DOCK_APPS = { "dashboard", "weather", "app_store", "settings" }
 
+local function ftUiText(key, fallback)
+    if g_i18n and key and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or tostring(key or "")
+end
+
+-- Axis-aligned hit test for a {x,y,w,h} rect. Defined here (top of file) so it
+-- is in scope for every mouse handler below — the provider/battery handlers are
+-- declared before the dispatch section and would otherwise see a nil global.
+local function hit(b, px, py)
+    return b and px >= b.x and px <= b.x + b.w and py >= b.y and py <= b.y + b.h
+end
+
 -- ── Nav-glyph helpers (#90) ──────────────────────────────
 -- The renderer only draws axis-aligned rects, so the Back arrow and Home
 -- house are approximated with a short stack of rects. Sizes are passed in
@@ -116,9 +130,35 @@ function FarmTabletUI.new(settings, system, modDirectory)
     self._anim    = nil      -- {kind, t, dur, data}
     self._fx      = nil      -- reusable plain-colour overlay for fades/curtains
 
-    -- Battery flavour (drains slowly while open)
-    self._battery    = 86
+    -- Battery and mobile-network systems are local tablet flavour only.
+    self._battery    = 100
     self._sessionSec = 0
+    self._batteryStart = nil
+    self._batteryEmpty = false
+    self._batteryChargeBtn = nil
+    self._batteryCharging = false
+    self._batteryChargeTimer = 0
+
+    self._signalBars = 4
+    self._signalLabel = "4G"
+    self._signalState = "ok"
+    self._signalTimer = 0
+    self._signalOutageActive = false
+    self._signalOutageEndMin = nil
+    self._signalNextCheckMin = nil
+    self._signalLastNotify = nil
+    self._signalLastState = nil
+    self._signalProviderSelected = false
+    self._signalProvider = nil
+    self._signalProviders = {
+        { id = "landnetz", name = "LandNetz" },
+        { id = "agrar",    name = "AgrarFunk" },
+        { id = "hof",      name = "HofMobil" },
+        { id = "fbm",      name = "Netzbetreiber" },
+    }
+    self._providerBtns = {}
+    self._providerConfirmBtn = nil
+    self._providerPending = nil
 
     -- Camera lock while tablet is open (normal mode)
     self._tabletCamRotX = nil
@@ -162,8 +202,11 @@ function FarmTabletUI:openTablet()
     self.system.isTabletOpen = true
     self.system.registry:autoDetect()
 
-    -- Fresh session: start at the lock screen (if enabled) or the home springboard.
-    if self.settings.lockScreenEnabled ~= false then
+    -- Fresh session: first choose a local mobile provider, then continue to lock/home.
+    if not self._signalProviderSelected then
+        self.uiState = "provider"
+        self._providerPending = self._providerPending or ((self._signalProviders and self._signalProviders[1]) or { id = "landnetz", name = "LandNetz" })
+    elseif self.settings.lockScreenEnabled ~= false then
         self.uiState = "lock"
     else
         self.uiState = "home"
@@ -172,8 +215,12 @@ function FarmTabletUI:openTablet()
     self._homeMode    = "springboard"   -- always start on the full springboard
     self._favEditing  = false
     self._sessionSec  = 0
-    self._battery      = 80 + math.random(0, 16)
-    self._batteryStart = nil
+    if self._battery == nil then self._battery = 100 end
+    self._batteryStart = self._battery
+    self._batteryEmpty = (self._battery or 0) <= 0
+    self._batteryCharging = false
+    self._batteryChargeTimer = 0
+    if self._batteryEmpty then self.uiState = "empty" end
     self._unlockKnobX = nil
     self._unlockDragging = false
     self._pressedIcon = nil
@@ -263,6 +310,12 @@ end
 -- ─────────────────────────────────────────────────────────
 
 function FarmTabletUI:unlock()
+    if (self._battery or 0) <= 0 then
+        self._batteryEmpty = true
+        self.uiState = "empty"
+        self:_rebuildScreen()
+        return
+    end
     if self.uiState ~= "lock" then return end
     self.uiState = "home"
     self._unlockDragging = false
@@ -338,6 +391,12 @@ end
 
 --- Launch an app from the springboard, with a zoom-open animation.
 function FarmTabletUI:launchApp(appId, fromRect)
+    if (self._battery or 0) <= 0 then
+        self._batteryEmpty = true
+        self.uiState = "empty"
+        self:_rebuildScreen()
+        return false
+    end
     local ok = self:switchApp(appId)   -- sets state=app + rebuilds + sound
     if ok and self.isOpen then
         self:_startAnim("launch", 280, { id = appId, rect = fromRect or self._appCellRects[appId] or self:_screenCenterSquare() })
@@ -420,10 +479,20 @@ function FarmTabletUI:_rebuildScreen()
     self._favEditBtn  = nil
     self._unlockBtn = nil
     self._powerBtn  = nil
+    self._batteryChargeBtn = nil
+    self._providerBtns = {}
+    self._providerConfirmBtn = nil
 
     self:_drawFrame()
 
-    if self.uiState == "lock" then
+    if self.uiState == "empty" then
+        self._useWallpaper = false
+        self:_drawBatteryEmpty()
+    elseif self.uiState == "provider" then
+        self._useWallpaper = true
+        self:_drawStatusBar()
+        self:_drawProviderSelect()
+    elseif self.uiState == "lock" then
         self._useWallpaper = true
         self:_drawStatusBar()
         self:_drawLock()
@@ -519,12 +588,22 @@ function FarmTabletUI:_drawStatusBar()
               or {0.95,0.3,0.3,0.95}
     r:rect(batX + FT.px(1.5), batY + FT.py(1.5), (batW - FT.px(3)) * lvl, batH - FT.py(3), bc)
 
-    -- Wifi bars (ascending)
-    local wfX = batX - FT.px(10) - FT.px(14)
+    -- Local mobile signal bars (0-4)
+    local wfX = batX - FT.px(12) - FT.px(18)
+    local bars = math.max(0, math.min(4, tonumber(self._signalBars) or 4))
     for i = 0, 3 do
-        local bh2 = FT.py(3 + i*2.5)
-        r:rect(wfX + i*FT.px(4), cy - FT.py(4) , FT.px(2.4), bh2, {1,1,1,0.55})
+        local bh2 = FT.py(4 + i*3.0)
+        local active = (i + 1) <= bars
+        local col = active and {0.72,1.00,0.72,0.95} or {1,1,1,0.20}
+        r:rect(wfX + i*FT.px(4.6), cy - FT.py(5), FT.px(2.8), bh2, col)
     end
+    if bars == 0 then
+        r:rect(wfX - FT.px(1), cy + FT.py(4), FT.px(21), FT.py(1.8), {0.95,0.30,0.30,0.95})
+    end
+
+    -- Remember the level the icon was drawn at, so the 1s tick only forces a
+    -- rebuild when the battery actually changes (icon fill/colour is chrome).
+    self._batteryDrawn = math.floor(self._battery or 80)
 
     self:_statusBarText()
 end
@@ -547,14 +626,43 @@ function FarmTabletUI:_statusBarText()
     local farmName = (data and data:getFarmName(farmId)) or "My Farm"
     r:text(sx + sw/2, cy, FT.FONT.SMALL, farmName, RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL)
 
+    local bars = math.max(0, math.min(4, tonumber(self._signalBars) or 4))
+    local net = "4G"
+    local col = FT.C.TEXT_DIM
+    if self._signalOutageActive then
+        net = ftUiText("ft_network_outage_short", "Outage")
+        col = {1.0,0.45,0.35,1}
+    elseif bars <= 0 then
+        net = ftUiText("ft_network_no_signal_short", "No signal")
+        col = {1.0,0.45,0.35,1}
+    elseif bars == 1 then
+        net = ftUiText("ft_network_weak_short", "Weak")
+        col = {1.0,0.80,0.25,1}
+    elseif bars == 2 then
+        net = "3G"
+        col = {0.85,0.95,1.0,1}
+    end
+    local provider = tostring(self._signalProvider or ftUiText("ft_network_default_provider", "Network"))
+    if string.len(provider) > 9 then provider = string.sub(provider, 1, 9) .. "." end
+    r:text(sx + sw - FT.px(118), cy, FT.FONT.TINY,
+        provider .. " | " .. net, RenderText.ALIGN_RIGHT, col)
+
     -- Battery % (left of the battery icon cluster)
-    r:text(sx + sw - FT.px(58), cy, FT.FONT.TINY,
+    r:text(sx + sw - FT.px(56), cy, FT.FONT.TINY,
         string.format("%d%%", math.floor(self._battery or 80)),
         RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
 end
 
 function FarmTabletUI:_refreshStatusBar()
     if not self.isOpen then return end
+    if self.uiState == "empty" then return end
+    -- The provider-select screen draws its title / hint / button labels into the
+    -- persistent text queue. Wiping _texts here would erase them (they are not
+    -- re-added like the status bar / lock clock), so do a full rebuild instead.
+    if self.uiState == "provider" then
+        self:_rebuildScreen()
+        return
+    end
     -- Only persistent text lives in _texts (status bar + lock clock); safe to rebuild.
     self.r._texts = {}
     self:_statusBarText()
@@ -891,11 +999,264 @@ function FarmTabletUI:draw()
     -- 4. App icons
     self:_drawIconQueue()
 
+    -- 4b. Tablet-local network notification
+    self:_drawSignalToast()
+
     -- 5. Transient animation overlay
     self:_drawAnim()
 
     -- 6. Edit-mode chrome
     self:_drawEditOverlay()
+end
+
+-- ─────────────────────────────────────────────────────────
+-- BATTERY + LOCAL MOBILE NETWORK SYSTEMS
+-- ─────────────────────────────────────────────────────────
+
+function FarmTabletUI:_drawProviderSelect()
+    local L = FT.LAYOUT
+    local r = self.r
+    local cx = L.screenX + L.screenW / 2
+    local top = L.screenY + L.screenH * 0.78
+
+    r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0.02,0.03,0.04,0.72})
+    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_network_choose_provider", "Choose Network Provider"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    r:text(cx, top - FT.py(28), FT.FONT.SMALL, ftUiText("ft_network_choose_hint", "Select a provider, then activate it."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+
+    local bw = FT.px(280)
+    local bh = FT.py(34)
+    local gap = FT.py(8)
+    local startY = top - FT.py(74)
+    local providers = self._signalProviders or {}
+    if self._providerPending == nil and providers[1] ~= nil then
+        self._providerPending = providers[1]
+    end
+
+    for i, provider in ipairs(providers) do
+        local bx = cx - bw / 2
+        local by = startY - (i - 1) * (bh + gap)
+        local selected = self._providerPending ~= nil and self._providerPending.id == provider.id
+        r:rect(bx - FT.px(2), by - FT.py(2), bw + FT.px(4), bh + FT.py(4), selected and {0.45,1.0,0.45,0.35} or {1,1,1,0.08})
+        r:rect(bx, by, bw, bh, selected and {0.10,0.48,0.22,0.94} or {0.08,0.10,0.14,0.94})
+        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, provider.name, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        table.insert(self._providerBtns, {x=bx, y=by, w=bw, h=bh, provider=provider})
+    end
+
+    local cbw = FT.px(170)
+    local cbh = FT.py(34)
+    local cbx = cx - cbw / 2
+    local cby = L.screenY + L.screenH * 0.18
+    r:rect(cbx, cby, cbw, cbh, {0.10,0.55,0.22,0.96})
+    r:text(cx, cby + cbh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_network_activate", "ACTIVATE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    self._providerConfirmBtn = {x=cbx, y=cby, w=cbw, h=cbh}
+end
+
+function FarmTabletUI:_selectSignalProvider(provider)
+    provider = provider or { id = "default", name = ftUiText("ft_network_default_provider", "Network") }
+    self._signalProvider = provider.name or ftUiText("ft_network_default_provider", "Network")
+    self._signalProviderSelected = true
+    self._signalLastNotify = nil
+    self:_updateSignalSystem(0, true)
+    self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
+    self:_rebuildScreen()
+    self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_provider_active", "Active: %s."), tostring(self._signalProvider)))
+    self:playUISound("paging")
+end
+
+function FarmTabletUI:_onMouseProvider(px, py, isDown, isUp, btn)
+    if btn ~= 1 then return true end
+    if isDown then
+        for _, b in ipairs(self._providerBtns or {}) do
+            if hit(b, px, py) then
+                self._providerPending = b.provider
+                self:_rebuildScreen()
+                self:playUISound("click")
+                return true
+            end
+        end
+        if hit(self._providerConfirmBtn, px, py) then
+            self:_selectSignalProvider(self._providerPending or ((self._signalProviders or {})[1]))
+            return true
+        end
+    end
+    return true
+end
+
+function FarmTabletUI:_drawBatteryEmpty()
+    local L = FT.LAYOUT
+    local r = self.r
+    local cx = L.screenX + L.screenW / 2
+    local cy = L.screenY + L.screenH * 0.56
+    r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0,0,0,1})
+
+    local batW = FT.px(92)
+    local batH = FT.py(38)
+    local batX = cx - batW / 2
+    local batY = cy - batH / 2
+    r:rect(batX, batY, batW, batH, {1,1,1,0.16})
+    r:rect(batX + batW, batY + batH*0.32, FT.px(5), batH*0.36, {1,1,1,0.16})
+    r:rect(batX + FT.px(3), batY + FT.py(3), math.max(FT.px(2), (batW-FT.px(6))*math.max(0, math.min(1, (self._battery or 0)/100))), batH-FT.py(6), {0.95,0.30,0.30,0.90})
+
+    if self._batteryCharging then
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_charging", "Tablet charging..."), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, string.format("%d%%", math.floor(self._battery or 0)), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    else
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_empty", "Tablet battery empty"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, ftUiText("ft_battery_charge_hint", "Charge briefly to continue."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        local bw = FT.px(170)
+        local bh = FT.py(40)
+        local bx = cx - bw / 2
+        local by = L.screenY + L.screenH * 0.28
+        r:rect(bx, by, bw, bh, {0.10,0.55,0.22,0.95})
+        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_battery_charge", "CHARGE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        self._batteryChargeBtn = {x=bx, y=by, w=bw, h=bh}
+    end
+end
+
+function FarmTabletUI:_startBatteryCharge()
+    if self._batteryCharging then return end
+    self._batteryCharging = true
+    self._batteryChargeTimer = 0
+    self._battery = 0
+    self.uiState = "empty"
+    self:_rebuildScreen()
+    self:playUISound("paging")
+end
+
+function FarmTabletUI:_onMouseBatteryEmpty(px, py, isDown, isUp, btn)
+    if isDown and btn == 1 and hit(self._batteryChargeBtn, px, py) then
+        self:_startBatteryCharge()
+        return true
+    end
+    return true
+end
+
+function FarmTabletUI:_getWorldMinuteOfDay()
+    local data = self.system and self.system.data
+    local world = data and data.getWorldInfo and data:getWorldInfo()
+    if world and world.hour ~= nil and world.minute ~= nil then
+        return (tonumber(world.hour) or 0) * 60 + (tonumber(world.minute) or 0)
+    end
+    if g_currentMission and g_currentMission.environment then
+        local h = tonumber(g_currentMission.environment.currentHour) or 0
+        local m = tonumber(g_currentMission.environment.currentMinute) or 0
+        return h * 60 + m
+    end
+    return 0
+end
+
+function FarmTabletUI:_notifySignal(title, msg)
+    local key = tostring(title or "") .. tostring(msg or "")
+    if self._signalLastNotify == key then return end
+    self._signalLastNotify = key
+    self._signalToast = { title = tostring(title or ""), msg = tostring(msg or ""), time = 4200 }
+end
+
+function FarmTabletUI:_drawSignalToast()
+    local toast = self._signalToast
+    if toast == nil or (tonumber(toast.time) or 0) <= 0 then return end
+    if self.uiState == "empty" or self.uiState == "provider" then return end
+    local L = FT.LAYOUT
+    local w = FT.px(330)
+    local h = FT.py(42)
+    local x = L.screenX + L.screenW - w - FT.px(18)
+    local y = L.screenY + L.screenH - L.statusH - h - FT.py(10)
+    self:_fxRect(x, y, w, h, {0,0,0,0.72})
+    self:_fxRect(x, y + h - FT.py(2), w, FT.py(2), {0.35,0.90,0.45,0.92})
+    self.r:text(x + FT.px(13), y + h - FT.py(15), FT.FONT.SMALL, tostring(toast.title or ""), RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1})
+    self.r:text(x + FT.px(13), y + FT.py(10), FT.FONT.TINY, tostring(toast.msg or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+end
+
+function FarmTabletUI:_calcLocalSignalBars()
+    local x, z = 0, 0
+    local player = g_currentMission and g_currentMission.player
+    if player and player.rootNode and getWorldTranslation then
+        local px, _, pz = getWorldTranslation(player.rootNode)
+        x, z = tonumber(px) or 0, tonumber(pz) or 0
+    end
+    local wave = math.sin(x * 0.0021) + math.cos(z * 0.0017) + math.sin((x + z) * 0.0011)
+    if wave > 1.15 then return 4 end
+    if wave > 0.25 then return 3 end
+    if wave > -0.65 then return 2 end
+    if wave > -1.35 then return 1 end
+    return 0
+end
+
+function FarmTabletUI:_updateSignalSystem(dt, force)
+    self._signalTimer = (self._signalTimer or 0) + (dt or 0)
+    if not force and self._signalTimer < 1000 then return false end
+    self._signalTimer = 0
+
+    local oldBars = self._signalBars
+    local oldOutage = self._signalOutageActive
+    local minute = self:_getWorldMinuteOfDay()
+
+    if self._signalOutageActive then
+        local endMin = self._signalOutageEndMin or minute
+        local wrappedNow = minute
+        if endMin >= 1440 and minute < (endMin % 1440) then wrappedNow = minute + 1440 end
+        if wrappedNow >= endMin then
+            self._signalOutageActive = false
+            self._signalOutageEndMin = nil
+            self._signalNextCheckMin = (minute + 180) % 1440
+            self._signalJustRecovered = true
+            self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_recovered", "%s: signal restored."), tostring(self._signalProvider or ftUiText("ft_network_default_provider", "Network"))))
+        end
+    else
+        if self._signalNextCheckMin == nil then self._signalNextCheckMin = (minute + 20) % 1440 end
+        local nextMin = self._signalNextCheckMin or minute
+        if minute == nextMin or math.abs(minute - nextMin) <= 2 then
+            self._signalNextCheckMin = (minute + 20) % 1440
+            if math.random(1, 100) <= 12 then
+                self._signalOutageActive = true
+                self._signalOutageEndMin = minute + 120
+                self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_outage_msg", "%s: network outage, about 2 in-game hours."), tostring(self._signalProvider or ftUiText("ft_network_default_provider", "Network"))))
+            end
+        end
+    end
+
+    if self._signalOutageActive then
+        self._signalBars = 0
+        self._signalLabel = ftUiText("ft_network_outage_short", "Outage")
+        self._signalState = "outage"
+    else
+        self._signalBars = self:_calcLocalSignalBars()
+        if self._signalBars <= 0 then
+            self._signalLabel = ftUiText("ft_network_no_signal_short", "No signal")
+            self._signalState = "offline"
+        elseif self._signalBars == 1 then
+            self._signalLabel = ftUiText("ft_network_weak_short", "Weak")
+            self._signalState = "weak"
+        else
+            self._signalLabel = tostring(self._signalProvider or ftUiText("ft_network_default_provider", "Network"))
+            self._signalState = "ok"
+        end
+    end
+
+    local stateKey = tostring(self._signalState) .. ":" .. tostring(self._signalBars)
+    if stateKey ~= self._signalLastState then
+        self._signalLastState = stateKey
+        local provider = tostring(self._signalProvider or ftUiText("ft_network_default_provider", "Network"))
+        if self._signalState == "offline" then
+            self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_no_signal_msg", "%s: no signal here."), provider))
+        elseif self._signalState == "weak" then
+            self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_weak_msg", "%s: weak signal."), provider))
+        elseif self._signalState == "ok" and (oldBars or 4) <= 1 and self._signalJustRecovered ~= true then
+            self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_recovered", "%s: signal restored."), provider))
+        end
+        self._signalJustRecovered = false
+    end
+
+    if self.system then
+        self.system.signal = self.system.signal or {}
+        self.system.signal.bars = self._signalBars
+        self.system.signal.state = self._signalState
+        self.system.signal.label = self._signalLabel
+        self.system.signal.outageActive = self._signalOutageActive == true
+        self.system.signal.outageEndMinute = self._signalOutageEndMin
+    end
+
+    return oldBars ~= self._signalBars or oldOutage ~= self._signalOutageActive
 end
 
 function FarmTabletUI:update(dt)
@@ -921,10 +1282,45 @@ function FarmTabletUI:update(dt)
         if self._anim.t >= self._anim.dur then self._anim = nil end
     end
 
-    -- Battery flavour: drain ~1% per real minute open
-    self._sessionSec = (self._sessionSec or 0) + dt/1000
-    if self._batteryStart == nil then self._batteryStart = self._battery or 80 end
-    self._battery = math.max(3, self._batteryStart - math.floor(self._sessionSec / 60))
+    if self._signalToast ~= nil then
+        self._signalToast.time = (tonumber(self._signalToast.time) or 0) - (dt or 0)
+        if self._signalToast.time <= 0 then self._signalToast = nil end
+    end
+
+    if self.uiState ~= "provider" and self:_updateSignalSystem(dt) and self.uiState ~= "empty" then
+        self:_rebuildScreen()
+    end
+
+    if self._batteryCharging then
+        self._batteryChargeTimer = (self._batteryChargeTimer or 0) + dt
+        self._battery = math.min(100, math.floor((self._batteryChargeTimer or 0) / 5000 * 100))
+        if self._batteryChargeTimer >= 5000 then
+            self._batteryCharging = false
+            self._batteryEmpty = false
+            self._battery = 100
+            self._batteryStart = self._battery
+            self._sessionSec = 0
+            self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
+            self:_rebuildScreen()
+            self:playUISound("paging")
+        elseif not self._lastChargeDraw or (self._batteryChargeTimer - self._lastChargeDraw) >= 1000 then
+            self._lastChargeDraw = self._batteryChargeTimer
+            self:_rebuildScreen()
+        end
+        return
+    else
+        -- Drain about 1% per real minute while the tablet is open.
+        self._sessionSec = (self._sessionSec or 0) + dt/1000
+        if self._batteryStart == nil then self._batteryStart = self._battery or 100 end
+        self._battery = math.max(0, self._batteryStart - math.floor(self._sessionSec / 60))
+        if (self._battery or 0) <= 0 and self.uiState ~= "empty" then
+            self._batteryEmpty = true
+            self.uiState = "empty"
+            self:_rebuildScreen()
+            self:playUISound("back")
+            return
+        end
+    end
 
     -- Scroll / paging by state
     if self.uiState == "app" then
@@ -940,7 +1336,15 @@ function FarmTabletUI:update(dt)
     self._clockTimer = (self._clockTimer or 0) + dt
     if self._clockTimer >= 1000 then
         self._clockTimer = 0
-        self:_refreshStatusBar()
+        -- The battery icon fill/colour is chrome (only drawn on a rebuild), so when
+        -- the level ticks down we rebuild the whole screen for the icon to track it
+        -- — same pattern the signal system uses above. Otherwise the clock / % text
+        -- refreshes in place without a rebuild.
+        if self.uiState ~= "empty" and math.floor(self._battery or 0) ~= (self._batteryDrawn or -1) then
+            self:_rebuildScreen()
+        else
+            self:_refreshStatusBar()
+        end
     end
 
     -- Live app content refresh (data stays current while open)
@@ -1023,10 +1427,6 @@ end
 -- MOUSE INPUT  (dispatch by state)
 -- ─────────────────────────────────────────────────────────
 
-local function hit(b, px, py)
-    return b and px >= b.x and px <= b.x + b.w and py >= b.y and py <= b.y + b.h
-end
-
 function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     if not self.isOpen then return false end
     -- While editing (move/resize) the dedicated edit handler owns the mouse.
@@ -1037,6 +1437,14 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- Consume scroll wheel so it never reaches the camera
     if isDown and (btn == Input.MOUSE_BUTTON_WHEEL_UP or btn == Input.MOUSE_BUTTON_WHEEL_DOWN) then
         return true
+    end
+
+    if self.uiState == "empty" then
+        return self:_onMouseBatteryEmpty(px, py, isDown, isUp, btn)
+    end
+
+    if self.uiState == "provider" then
+        return self:_onMouseProvider(px, py, isDown, isUp, btn)
     end
 
     -- Lock screen gets its own handler (slide-to-unlock drag)

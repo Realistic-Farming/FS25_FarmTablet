@@ -19,6 +19,10 @@ local KNOWN_INTEGRATIONS = {
     { appId = FT.APP.RANDOM_EVENTS,  label = "Random World Events", mod = "FS25_RandomWorldEvents"    },
     { appId = FT.APP.USED_PLUS,      label = "UsedPlus",            mod = "FS25_UsedPlus"             },
     { appId = FT.APP.ROLEPLAY_PHONE, label = "Invoices / Phone",    mod = "(always active)"           },
+    { appId = FT.APP.ANIMAL_AUTO_CARE, label = "AnimalAutoCare",     mod = "FS25_AnimalAutoCare"       },
+    { appId = FT.APP.ANIMAL_VET,     label = "AnimalVetSystem",      mod = "FS25_AnimalVetSystem"      },
+    { appId = FT.APP.FACTORY_WEEK,   label = "FactoryWeekSchedule",  mod = "FS25_FactoryWeekSchedule"  },
+    { appId = FT.APP.REALISTIC_DEALER, label = "RealisticDealer",    mod = "FS25_RealisticDealer"      },
 }
 
 FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
@@ -114,7 +118,9 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     if dimmed and known then
         desc = "Install " .. known.mod .. " to enable"
     elseif app then
-        desc = app.description or ""
+        desc = (app.descriptionKey and g_i18n and g_i18n:hasText(app.descriptionKey) and g_i18n:getText(app.descriptionKey))
+            or app.description
+            or ""
         if #desc > 44 then desc = desc:sub(1, 42) .. ">" end
     else
         desc = ""
