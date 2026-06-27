@@ -21077,25 +21077,25 @@
     "watchers": 3
   },
   {
-    "timestamp": "2026-06-27T00:09:34Z",
+    "timestamp": "2026-06-27T12:09:38Z",
     "date": "2026-06-27",
     "views": {
-      "count": 800,
-      "uniques": 164
+      "count": 942,
+      "uniques": 170
     },
     "clones": {
-      "count": 1465,
-      "uniques": 471
+      "count": 1493,
+      "uniques": 474
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 367,
-        "uniques": 94
+        "count": 370,
+        "uniques": 97
       },
       {
         "referrer": "kingmods.net",
-        "count": 58,
+        "count": 57,
         "uniques": 34
       },
       {
@@ -21105,7 +21105,7 @@
       },
       {
         "referrer": "Yahoo",
-        "count": 6,
+        "count": 9,
         "uniques": 1
       },
       {
@@ -21133,32 +21133,32 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
-        "count": 208,
-        "uniques": 101
+        "count": 201,
+        "uniques": 98
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet",
         "title": "Overview",
-        "count": 176,
-        "uniques": 73
+        "count": 189,
+        "uniques": 80
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
         "title": "/releases",
-        "count": 46,
-        "uniques": 20
-      },
-      {
-        "path": "/Realistic-Farming/FS25_FarmTablet/issues",
-        "title": "/issues",
-        "count": 35,
-        "uniques": 8
+        "count": 44,
+        "uniques": 18
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases",
         "title": "/releases",
-        "count": 34,
-        "uniques": 14
+        "count": 38,
+        "uniques": 15
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/issues",
+        "title": "/issues",
+        "count": 36,
+        "uniques": 9
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/issues/93",
@@ -21169,8 +21169,8 @@
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.1.0",
         "title": "/releases/tag/v2.5.1.0",
-        "count": 25,
-        "uniques": 18
+        "count": 26,
+        "uniques": 19
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/issues",
@@ -21195,7 +21195,7 @@
       {
         "assets": [
           {
-            "downloads": 105,
+            "downloads": 111,
             "name": "FS25_FarmTablet.zip"
           }
         ],
