@@ -263,7 +263,7 @@ function FarmTabletUI:openTablet()
     self:_startAnim("wake", 360)
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    self:updateFocus()
 end
 
 function FarmTabletUI:closeTablet()
@@ -298,11 +298,19 @@ function FarmTabletUI:closeTablet()
     self._tabletCamRotZ = nil
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_CLOSED)
-    if FarmTabletFocus then FarmTabletFocus:setFocus(false, nil) end
+    self:updateFocus()
 end
 
 function FarmTabletUI:toggleTablet()
     if self.isOpen then self:closeTablet() else self:openTablet() end
+end
+
+function FarmTabletUI:updateFocus()
+    if FarmTabletFocus then
+        local isFocused = self.isOpen and self.uiState == "app"
+        local appId = isFocused and self.system.currentApp or nil
+        FarmTabletFocus:setFocus(self.isOpen, appId)
+    end
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -314,6 +322,7 @@ function FarmTabletUI:unlock()
         self._batteryEmpty = true
         self.uiState = "empty"
         self:_rebuildScreen()
+        self:updateFocus()
         return
     end
     if self.uiState ~= "lock" then return end
@@ -323,7 +332,7 @@ function FarmTabletUI:unlock()
     self:_rebuildScreen()
     self:_startAnim("unlock", 300)
     if self.settings.soundOnTabletToggle ~= false then self:playUISound("paging") end
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    self:updateFocus()
 end
 
 function FarmTabletUI:lockNow()
@@ -333,6 +342,7 @@ function FarmTabletUI:lockNow()
     self:_rebuildScreen()
     self:_startAnim("lock", 200)
     self:playUISound("back")
+    self:updateFocus()
 end
 
 function FarmTabletUI:goHome()
@@ -342,7 +352,7 @@ function FarmTabletUI:goHome()
     local rect = self._appCellRects[prev] or self:_screenCenterSquare()
     self:_startAnim("home", 240, { id = prev, rect = rect })
     self:playUISound("back")
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, prev) end
+    self:updateFocus()
 end
 
 --- App-bar Back: step up one level. If the current app registered a back
@@ -395,6 +405,7 @@ function FarmTabletUI:launchApp(appId, fromRect)
         self._batteryEmpty = true
         self.uiState = "empty"
         self:_rebuildScreen()
+        self:updateFocus()
         return false
     end
     local ok = self:switchApp(appId)   -- sets state=app + rebuilds + sound
@@ -833,7 +844,7 @@ function FarmTabletUI:switchApp(appId)
     end
 
     FT_EventBus:emit(FT_EventBus.EVENTS.APP_SWITCHED, appId)
-    if FarmTabletFocus then FarmTabletFocus:setFocus(self.isOpen, appId) end
+    self:updateFocus()
     return true
 end
 
@@ -1061,6 +1072,7 @@ function FarmTabletUI:_selectSignalProvider(provider)
     self:_rebuildScreen()
     self:_notifySignal(ftUiText("ft_network_title", "Network"), string.format(ftUiText("ft_network_provider_active", "Active: %s."), tostring(self._signalProvider)))
     self:playUISound("paging")
+    self:updateFocus()
 end
 
 function FarmTabletUI:_onMouseProvider(px, py, isDown, isUp, btn)
@@ -1303,6 +1315,7 @@ function FarmTabletUI:update(dt)
             self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
             self:_rebuildScreen()
             self:playUISound("paging")
+            self:updateFocus()
         elseif not self._lastChargeDraw or (self._batteryChargeTimer - self._lastChargeDraw) >= 1000 then
             self._lastChargeDraw = self._batteryChargeTimer
             self:_rebuildScreen()
@@ -1318,6 +1331,7 @@ function FarmTabletUI:update(dt)
             self.uiState = "empty"
             self:_rebuildScreen()
             self:playUISound("back")
+            self:updateFocus()
             return
         end
     end
