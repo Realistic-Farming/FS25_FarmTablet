@@ -35,6 +35,13 @@ function FT_EventBus:emit(event, ...)
     end
 end
 
+-- Drop every listener. Called on mission unload so that a companion mod which
+-- forgot its :off() cannot leave a dead closure in this singleton table, where it
+-- would pin the unloaded mod's objects and fire into it on the next load cycle.
+function FT_EventBus:reset()
+    self._listeners = {}
+end
+
 -- Well-known events
 FT_EventBus.EVENTS = {
     APP_SWITCHED      = "app_switched",
