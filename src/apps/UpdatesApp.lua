@@ -1,245 +1,175 @@
 -- =========================================================
--- FarmTablet v2 – Updates / Changelog App
+-- FarmTablet – Aktualisierungen / Versionsverlauf
+-- Saubere, deutsch lesbare Darstellung ohne englische Debug-Zeilen
 -- =========================================================
+
+
+local function ftSafeText(key, fallback)
+    local raw = fallback or tostring(key or "")
+    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, raw) end
+    if g_i18n ~= nil and key ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then return g_i18n:getText(key) end
+    if FT ~= nil and FT.l10nAuto ~= nil then return FT.l10nAuto(raw) end
+    return raw
+end
+
+local function py(v) return (FT and FT.py and FT.py(v)) or v end
+local function px(v) return (FT and FT.px and FT.px(v)) or v end
+local function col(c, fallback) return c or fallback or {1,1,1,1} end
 
 local CHANGELOG = {
     {
-        version = "2.5.1.0",
-        date    = "2026",
-        changes = {
-            "New: Favourites page — tap the star in the app bar or on the home screen to see just your starred apps; the star glows gold when it's open",
-            "New: tap EDIT on the Favourites page to pick which apps you want; your picks are saved per savegame",
-            "New: clearer app-bar buttons — a little house for Home and a real left arrow for Back",
-            "New: Back now steps up one level (leaves a sub-page first) instead of always jumping straight home",
-            "New: customise the app-icon labels in Settings — show or hide them, and change their size and colour",
-            "Fix: the status bar signal/battery/power, dock and home indicator now render on the home and lock screens",
-            "Fix: app-icon textures are now mipmapped DDS, clearing most of the texture warnings from log.txt",
-            "Fix: the Worker Costs app roster now scrolls past the first 5 staff",
+        version = "2.5.1.0", date = "2026",
+        neu = {
+            ftSafeText("ft_changelog_251_new_1", "Favorites page for frequently used apps"),
+            ftSafeText("ft_changelog_251_new_2", "Favorite app selection is saved per savegame"),
+            ftSafeText("ft_changelog_251_new_3", "Clearer Home and Back buttons"),
+            ftSafeText("ft_changelog_251_new_4", "App labels can be adjusted in settings"),
+        },
+        verbessert = {
+            ftSafeText("ft_changelog_251_imp_1", "Reworked status bar with battery, signal and time"),
+            ftSafeText("ft_changelog_251_imp_2", "App icons optimized and loaded more cleanly"),
+            ftSafeText("ft_changelog_251_imp_3", "Worker list can be fully scrolled"),
         },
     },
     {
-        version = "2.5.0.0",
-        date    = "2026",
-        changes = {
-            "New: real tablet experience — a lock screen with slide-to-unlock, then a home springboard",
-            "New: glossy app icons for every app (built-in + integrated mods), on a paged grid with a dock",
-            "New: tap an app to launch it with a zoom-open animation; every icon presses in when touched",
-            "New: status bar with live clock, draining battery and signal; tap the power icon to lock",
-            "New: apps open full-screen with a Home/Back bar; redesigned 3D frame, screen gloss + wallpaper",
-            "New: custom home background — drop a PNG in your savegame's FTBackground folder and pick it in Settings",
+        version = "2.5.0.0", date = "2026",
+        neu = {
+            ftSafeText("ft_changelog_250_new_1", "New tablet start screen with lock screen"),
+            ftSafeText("ft_changelog_250_new_2", "New app grid with dock and page indicator"),
+            ftSafeText("ft_changelog_250_new_3", "Apps open with a clean tablet animation"),
+            ftSafeText("ft_changelog_250_new_4", "Custom background via FTBackground folder"),
+        },
+        verbessert = {
+            ftSafeText("ft_changelog_250_imp_1", "3D frame, screen glare and surface reworked"),
+            ftSafeText("ft_changelog_250_imp_2", "Fullscreen apps with Home and Back bar"),
         },
     },
     {
-        version = "2.4.0.0",
-        date    = "2026",
-        changes = {
-            "New: Personnel (Pro-Staff) app — a dedicated HR command center for Worker Costs",
-            "New: Roster tab — sort/filter workers, pin to your vehicle, fire (two-tap, severance applies)",
-            "New: Hire tab — recruitment pool with per-candidate level and signing cost; reroll candidates",
-            "New: Payroll tab — wage structure, running estimate, and the Pro-Staff cost impact per worker",
-            "New: fully multiplayer — actions route to the host and sync back to everyone",
+        version = "2.4.0.0", date = "2026",
+        neu = {
+            ftSafeText("ft_changelog_240_new_1", "Personnel app for Pro Staff / Worker Costs"),
+            ftSafeText("ft_changelog_240_new_2", "Worker list with sorting and filters"),
+            ftSafeText("ft_changelog_240_new_3", "Hiring, dismissal and wage overview for staff"),
+        },
+        verbessert = {
+            ftSafeText("ft_changelog_240_imp_1", "Multiplayer actions are synchronized through the host"),
         },
     },
     {
-        version = "2.3.2.4",
-        date    = "2026",
-        changes = {
-            "New: Worker Costs app now shows the Pro-Staff roster — level, hours, jobs, and fatigue per worker",
-            "New: roster section scrolls; multiplayer clients see a host-managed note until sync lands",
-        },
+        version = "2.3.2.4", date = "2026",
+        neu = { ftSafeText("ft_changelog_2324_new_1", "Worker Costs app now shows staff, hours, jobs and fatigue") },
+        verbessert = { ftSafeText("ft_changelog_2324_imp_1", "Personnel area can be scrolled") },
     },
     {
-        version = "2.3.2.3",
-        date    = "2026",
-        changes = {
-            "Fix: paging arrows and toggles now update instantly (removed an up-to-4s delay)",
-            "Fix: Production app no longer reads 'stalled' while a production is running",
-            "Fix: Soil app shows N/P/K in ppm so the numbers match the Soil Fertilizer HUD",
-            "Change: renamed the confusing 'DESEL' button to 'UNPIN' (Workshop and Income)",
-            "Fix: vehicle camera no longer zooms when scrolling inside the tablet",
+        version = "2.3.2.3", date = "2026",
+        behoben = {
+            ftSafeText("ft_changelog_2323_fix_1", "Arrows and toggles react immediately"),
+            ftSafeText("ft_changelog_2323_fix_2", "Production shows running processes correctly"),
+            ftSafeText("ft_changelog_2323_fix_3", "Vehicle camera no longer zooms when scrolling in the tablet"),
         },
+        verbessert = { ftSafeText("ft_changelog_2323_imp_1", "Soil values now match the HUD") },
     },
     {
-        version = "2.2.0.0",
-        date    = "2026",
-        changes = {
-            "Improvement: Added Scroll helper to support all apps with long content",
-            "New: Added Ukrainian translation",
-            "Chore: Bumped version to 2.2.0.0",
-        },
+        version = "2.2.0.0", date = "2026",
+        neu = { ftSafeText("ft_changelog_220_new_1", "Ukrainian translation added") },
+        verbessert = { ftSafeText("ft_changelog_220_imp_1", "Scroll help added for long app content") },
     },
     {
-        version = "2.1.9.0",
-        date    = "2026",
-        changes = {
-            "Storage: historical peak price tracking — saved per savegame",
-            "Storage: peak shown under each crop (orange = below peak, green = at peak)",
-            "Storage: price comparison section — all stations sorted best-first",
-        },
+        version = "2.1.9.0", date = "2026",
+        neu = { ftSafeText("ft_changelog_219_new_1", "Storage app saves historical best prices per savegame") },
+        verbessert = { ftSafeText("ft_changelog_219_imp_1", "Price comparison sorts selling stations by best price") },
     },
     {
-        version = "2.1.8.0",
-        date    = "2026",
-        changes = {
-            "New: Time Controls app — time scale presets + skip to time of day",
-            "New: Hotspot Manager — list/remove map pins, clear all (confirm)",
-            "New: Notes app — checkbox todo list, saves per savegame",
-            "New: Farm Admin — money, time, repair all, fill all fuel",
-            "Fix: tablet content refreshes every 4s while open",
+        version = "2.1.8.0", date = "2026",
+        neu = {
+            ftSafeText("ft_changelog_218_new_1", "Time controls with time jumps"),
+            ftSafeText("ft_changelog_218_new_2", "Hotspot manager for map markers"),
+            ftSafeText("ft_changelog_218_new_3", "Notes app with todo list"),
+            ftSafeText("ft_changelog_218_new_4", "Farm Admin for money, time, repair and refuelling"),
         },
+        behoben = { ftSafeText("ft_changelog_218_fix_1", "Tablet content updates regularly while open") },
     },
     {
-        version = "2.1.7.0",
-        date    = "2026",
-        changes = {
-            "New: Storage app — silo inventory and current sell prices",
-            "New: Invoices app with in-tablet creation form",
-            "New: RoleplayPhone integration foundation",
-            "New: UsedPlus integration app",
-            "Fix: camera lock and mouse cursor while tablet open",
-        },
+        version = "2.1.7.0", date = "2026",
+        neu = { ftSafeText("ft_changelog_217_new_1", "Storage app"), ftSafeText("ft_changelog_217_new_2", "Invoices app"), ftSafeText("ft_changelog_217_new_3", "UsedPlus integration"), ftSafeText("ft_changelog_217_new_4", "RoleplayPhone foundation") },
+        behoben = { ftSafeText("ft_changelog_217_fix_1", "Camera and mouse remain locked correctly when the tablet is open") },
     },
     {
-        version = "2.1.5.0",
-        date    = "2026",
-        changes = {
-            "Fix: App Store now scrolls (all mod apps visible)",
-            "Fix: Updates app now scrolls (all entries visible)",
-            "New: About section in Settings with version + links",
-        },
+        version = "2.1.5.0", date = "2026",
+        neu = { ftSafeText("ft_changelog_215_new_1", "Info area in settings") },
+        behoben = { ftSafeText("ft_changelog_215_fix_1", "App Store and Updates can be fully scrolled") },
     },
     {
-        version = "2.1.4.0",
-        date    = "2026",
-        changes = {
-            "New: Market Dynamics integration app",
-            "New: Worker Costs integration app",
-            "New: Random World Events integration app",
-            "Fix: cross-mod detection for NPC/Soil/CropStress apps",
-        },
+        version = "2.1.4.0", date = "2026",
+        neu = { ftSafeText("ft_changelog_214_new_1", "Market Dynamics app"), ftSafeText("ft_changelog_214_new_2", "Worker Costs app"), ftSafeText("ft_changelog_214_new_3", "Random World Events app") },
+        behoben = { ftSafeText("ft_changelog_214_fix_1", "Improved detection of other mods") },
     },
     {
-        version = "2.1.3.0",
-        date    = "2025",
-        changes = {
-            "Added background color picker in Settings",
-            "Fix: translations missing from zip package",
-            "Fix: SettingsUI key name alignment",
-            "Fix: companion mod setting changes server-only in MP",
-        },
+        version = "2.1.3.0", date = "2025",
+        neu = { ftSafeText("ft_changelog_213_new_1", "Colour selection for backgrounds") },
+        behoben = { ftSafeText("ft_changelog_213_fix_1", "Missing translations in ZIP package"), ftSafeText("ft_changelog_213_fix_2", "Settings key alignment") },
     },
     {
-        version = "2.1.2.1",
-        date    = "2025",
-        changes = {
-            "Fix: app name translation keys in AppRegistry",
-            "Fix: remove broken texture atlas causing overlay warnings on every open",
-            "Fix: use getfenv(0) to detect cross-mod globals in autoDetect()",
-            "Fix: updated the UpdateApp to latest changelogs",
-        },
+        version = "2.1.2.0", date = "2025",
+        neu = { ftSafeText("ft_changelog_212_new_1", "26 languages"), ftSafeText("ft_changelog_212_new_2", "Info icon per app"), ftSafeText("ft_changelog_212_new_3", "Multiplayer and dedicated server support") },
     },
     {
-        version = "2.1.2.0",
-        date    = "2025",
-        changes = {
-            "Added translations for 26 languages",
-            "Added info icon per app (bottom right corner)",
-            "Added help section to pause menu",
-            "Added multiplayer support",
-            "Added dedicated server support",
-        },
+        version = "2.1.0.0", date = "2025",
+        neu = { ftSafeText("ft_changelog_210_new_1", "Complete V2 rebuild"), ftSafeText("ft_changelog_210_new_2", "New interface"), ftSafeText("ft_changelog_210_new_3", "Central drawing functions"), ftSafeText("ft_changelog_210_new_4", "All apps reworked") },
     },
     {
-        version = "2.1.0.0",
-        date    = "2025",
-        changes = {
-            "Complete V2 overhaul — new sidebar layout",
-            "FT_Renderer: centralized drawing API",
-            "FT_DataProvider: cached game data queries",
-            "AppRegistry: dynamic app registration system",
-            "EventBus: decoupled pub/sub communication",
-            "All apps rewritten with new drawer pattern",
-            "Improved progress bars with glow effects",
-            "Clock + farm name in persistent topbar",
-            "Hero card for balance on Dashboard",
-            "Weather hero card with condition icon",
-            "Field list with phase badges + row highlights",
-            "Animal pens with per-metric color bars",
-            "Workshop: vehicle selection with diagnostics",
-            "Bucket Tracker: summary stat cards",
-        },
+        version = "1.1.2", date = "2024",
+        neu = { ftSafeText("ft_changelog_112_new_1", "Soil Fertilizer, Seasonal Crop Stress and NPC Favor integration") },
+        behoben = { ftSafeText("ft_changelog_112_fix_1", "Navigation buttons no longer overflow") },
     },
     {
-        version = "1.1.2",
-        date    = "2024",
-        changes = {
-            "Added Soil Fertilizer integration",
-            "Added Seasonal Crop Stress integration",
-            "Added NPC Favor integration",
-            "Fixed nav button overflow on small screens",
-        },
-    },
-    {
-        version = "1.1.1",
-        date    = "2024",
-        changes = {
-            "Tax Mod integration app",
-            "Income Mod integration app",
-            "Bucket Tracker app introduced",
-            "Scale fixes for ultrawide monitors",
-        },
-    },
-    {
-        version = "1.0.0",
-        date    = "2024",
-        changes = {
-            "Initial release",
-            "Dashboard, Weather, Fields, Animals, Workshop",
-            "Settings integration in pause menu",
-            "Console commands for power users",
-        },
+        version = "1.0.0", date = "2024",
+        neu = { ftSafeText("ft_changelog_100_new_1", "First release with dashboard, weather, fields, animals and workshop") },
     },
 }
+
+local function drawChangeGroup(ui, x, y, w, title, list, color)
+    if list == nil or #list == 0 then return y end
+    ui.r:appText(x, y, FT.FONT.SMALL, title, RenderText.ALIGN_LEFT, color)
+    y = y - py(14)
+    for _, text in ipairs(list) do
+        ui.r:appText(x + px(10), y, FT.FONT.BODY, "• " .. tostring(text), RenderText.ALIGN_LEFT, col(FT.C.TEXT_NORMAL, {0.9,0.9,0.9,1}))
+        y = y - py(13)
+    end
+    return y - py(4)
+end
 
 FarmTabletUI:registerDrawer(FT.APP.UPDATES, function(self)
     local AC = FT.appColor(FT.APP.UPDATES)
 
-    if self:drawHelpPage("_updatesHelp", FT.APP.UPDATES, "Updates", AC, {
-        { title = "WHAT IS THIS APP",
-          body  = "Shows the changelog for Farm Tablet — what changed\n" ..
-                  "in each version, newest first." },
-        { title = "VERSION ENTRIES",
-          body  = "Each block shows the version number on the left and\n" ..
-                  "the release date on the right.\n" ..
-                  "Bullet points below list individual changes." },
-        { title = "KEEPING UP TO DATE",
-          body  = "Download the latest version from the mod page on\n" ..
-                  "GitHub or KingMods to get new features and fixes." },
+    if self:drawHelpPage("_updatesHelp", FT.APP.UPDATES, ftSafeText("ft_auto_updates", "Aktualisierungen"), AC, {
+        { title = ftSafeText("ft_updates_help_history_title", "VERSION HISTORY"), body = ftSafeText("ft_updates_help_history_body", "Shows FarmTablet changes sorted by version.") },
+        { title = ftSafeText("ft_updates_help_structure_title", "STRUCTURE"), body = ftSafeText("ft_updates_help_structure_body", "Each version is split into New, Improved and Fixed.") },
     }) then return end
 
     local scrollY  = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader("Updates", "Changelog")
-    local x, contentY, cw, _ = self:contentInner()
+    local afterHdr = self:drawAppHeader(ftSafeText("ft_auto_updates", "Aktualisierungen"), ftSafeText("ft_updates_version_history", "Version history"))
+    local x, _, cw, _ = self:contentInner()
     local y = afterHdr + scrollY
 
     for _, entry in ipairs(CHANGELOG) do
-        self.r:appRect(x - FT.px(4), y - FT.py(2), cw + FT.px(8), FT.py(18), FT.C.BG_CARD)
-        self.r:appText(x + FT.px(6),      y + FT.py(4), FT.FONT.BODY, "v" .. entry.version, RenderText.ALIGN_LEFT,  FT.C.BRAND)
-        self.r:appText(x + cw - FT.px(4), y + FT.py(4), FT.FONT.TINY, entry.date,           RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
-        y = y - FT.py(22)
-        for _, change in ipairs(entry.changes) do
-            self.r:appRect(x + FT.px(6), y + FT.py(5), FT.px(4), FT.px(4), FT.C.BRAND_DIM)
-            local txt = change
-            if #txt > 46 then txt = txt:sub(1,44) .. ">" end
-            self.r:appText(x + FT.px(16), y, FT.FONT.SMALL, txt, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-            y = y - FT.py(16)
-        end
-        y = y - FT.py(6)
+        local counts = 0
+        counts = counts + ((entry.neu and #entry.neu or 0) + (entry.verbessert and #entry.verbessert or 0) + (entry.behoben and #entry.behoben or 0))
+        local cardH = py(42 + counts * 15 + 28)
+        self.r:appRect(x - px(4), y - cardH + py(6), cw + px(8), cardH, {0.11, 0.13, 0.16, 0.82})
+        self.r:appRect(x - px(4), y - py(2), cw + px(8), py(2), {AC[1], AC[2], AC[3], 0.85})
+
+        self.r:appText(x + px(8), y - py(14), FT.FONT.TITLE, ftSafeText("ft_updates_version", "Version") .. " " .. tostring(entry.version), RenderText.ALIGN_LEFT, col(FT.C.TEXT_BRIGHT, {1,1,1,1}))
+        self.r:appText(x + cw - px(8), y - py(14), FT.FONT.SMALL, tostring(entry.date or ""), RenderText.ALIGN_RIGHT, col(FT.C.TEXT_DIM, {0.75,0.75,0.75,1}))
+        y = y - py(34)
+
+        y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_new", "New"), entry.neu, col(FT.C.BRAND, FT.C.TEXT_ACCENT))
+        y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_improved", "Improved"), entry.verbessert, col(FT.C.POSITIVE, FT.C.TEXT_ACCENT))
+        y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_fixed", "Fixed"), entry.behoben, col(FT.C.WARNING, FT.C.TEXT_ACCENT))
+        y = y - py(12)
     end
 
-    self:setContentHeight(afterHdr - y)
+    self:setContentHeight(math.max(0, afterHdr - y + scrollY + py(120)))
     self:drawInfoIcon("_updatesHelp", AC)
-
-    -- ── Scroll indicator bar ──────────────────────────────
     self:drawScrollBar()
 end)

@@ -13,6 +13,8 @@ function FT_Renderer.new()
     self._buttons    = {}      -- managed hitboxes (cleared per-app)
     self._appLayer   = {}      -- sub-list cleared on app switch
     self._coverLayer = {}      -- drawn LAST to clip scrolled content (rebuilt with chrome)
+    self._headerLayer = {}     -- app header overlays (fixed; not part of scroll body)
+    self._headerTexts = {}     -- app header texts (fixed; not part of scroll body)
     return self
 end
 
@@ -72,7 +74,31 @@ end
 function FT_Renderer:text(x, y, size, txt, align, color)
     table.insert(self._texts, {
         x = x, y = y, size = size or FT.FONT.BODY,
-        text = tostring(txt),
+        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
+        align = align or RenderText.ALIGN_LEFT,
+        color = color or FT.C.TEXT_NORMAL,
+    })
+end
+
+
+--- Draws an app header/fixed overlay rectangle.
+--- Cleared with the app layer but rendered above the scrolling body.
+function FT_Renderer:appHeaderRect(x, y, w, h, color, sliceId)
+    local ov = self:_newOverlay(x, y, w, h, color, sliceId)
+    if ov then
+        ov.y = y
+        ov.h = h
+    end
+    table.insert(self._headerLayer, ov)
+    return ov
+end
+
+--- Queues fixed app-header text (title/subtitle), rendered above scrolling body.
+function FT_Renderer:appHeaderText(x, y, size, txt, align, color)
+    table.insert(self._headerTexts, {
+        _isText = true,
+        x = x, y = y, size = size or FT.FONT.BODY,
+        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
         align = align or RenderText.ALIGN_LEFT,
         color = color or FT.C.TEXT_NORMAL,
     })
@@ -85,7 +111,7 @@ function FT_Renderer:appText(x, y, size, txt, align, color)
     table.insert(self._buttons, {   -- mixed table: text entries have _isText=true
         _isText = true,
         x = x, y = y, size = size or FT.FONT.BODY,
-        text = tostring(txt),
+        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
         align = align or RenderText.ALIGN_LEFT,
         color = color or FT.C.TEXT_NORMAL,
     })
@@ -97,7 +123,13 @@ end
 --- callers must do that themselves if they want click handling.
 function FT_Renderer:button(x, y, w, h, label, color, meta)
     local ov = self:appRect(x, y, w, h, color or FT.C.BTN_NEUTRAL)
-    self:appText(x + w/2, y + h/2 - FT.py(3), FT.FONT.SMALL, label,
+    local txt = (FT.l10nAuto ~= nil and FT.l10nAuto(label) or tostring(label or ""))
+    local len = string.len(tostring(txt or ""))
+    local fontSize = FT.FONT.SMALL
+    if len > 32 then
+        fontSize = FT.FONT.TINY
+    end
+    self:appText(x + w/2, y + h/2 - FT.py(3), fontSize, txt,
         RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
     local btn = { ov=ov, x=x, y=y, w=w, h=h, meta=meta }
     table.insert(self._buttons, btn)
@@ -174,6 +206,11 @@ function FT_Renderer:clearAppLayer()
         if item.delete then item:delete() end
     end
     self._appLayer = {}
+    for _, item in ipairs(self._headerLayer) do
+        if item and item.delete then item:delete() end
+    end
+    self._headerLayer = {}
+    self._headerTexts = {}
     -- Remove text and buttons too
     self._buttons = {}
 end
@@ -199,6 +236,8 @@ function FT_Renderer:destroyAll()
     end
     self._overlays   = {}
     self._coverLayer = {}
+    self._headerLayer = {}
+    self._headerTexts = {}
     self._texts      = {}
     self._buttons    = {}
 end
@@ -227,15 +266,18 @@ function FT_Renderer:flushContent(clipY, clipH)
     local clipTop    = doClip and (clipY + clipH) or nil
     local clipBottom = doClip and clipY or nil
 
-    -- Native FS25 clip rect for app overlays — prevents any bleed past content edges
+    -- Body clipping: app headers are fixed; scrolling content must never bleed into them.
+    local bodyClipTop = (doClip and FT.LAYOUT and FT.LAYOUT.bodyClipTop) and math.min(clipTop, FT.LAYOUT.bodyClipTop) or clipTop
+
+    -- Native FS25 clip rect for app body overlays — prevents bleed into app header and edges
     local cx1 = doClip and FT.LAYOUT.contentX or nil
     local cy1 = doClip and clipY or nil
     local cx2 = doClip and (FT.LAYOUT.contentX + FT.LAYOUT.contentW) or nil
-    local cy2 = doClip and (clipY + clipH) or nil
+    local cy2 = doClip and bodyClipTop or nil
 
     local function inView(oy, oh)
         if not doClip then return true end
-        return (oy + oh) >= clipBottom and oy <= clipTop
+        return (oy + oh) >= clipBottom and oy <= (bodyClipTop or clipTop)
     end
 
     -- 2. App overlays (scrolled content, clipped via native clip rect)
@@ -246,17 +288,27 @@ function FT_Renderer:flushContent(clipY, clipH)
             end
         end
     end
-    -- 3. Cover overlays (drawn on top of app-layer to clip overflow)
+    -- 3. Fixed app header overlays (title divider, banners)
+    for _, ov in ipairs(self._headerLayer) do
+        if ov and ov.render then ov:render() end
+    end
+    -- 4. Cover overlays (drawn on top of app-layer to clip overflow)
     for _, ov in ipairs(self._coverLayer) do
         if ov and ov.render then ov:render() end
     end
-    -- 4. Persistent text
+    -- 5. Persistent text
     for _, t in ipairs(self._texts) do
         setTextAlignment(t.align)
         setTextColor(unpack(t.color))
         renderText(t.x, t.y, t.size, t.text)
     end
-    -- 5. App text (mixed in _buttons, clipped)
+    -- 6. Fixed app header text
+    for _, t in ipairs(self._headerTexts) do
+        setTextAlignment(t.align)
+        setTextColor(unpack(t.color))
+        renderText(t.x, t.y, t.size, t.text)
+    end
+    -- 7. App body text (mixed in _buttons, clipped)
     for _, t in ipairs(self._buttons) do
         if t._isText then
             if t.x == nil or t.y == nil or t.size == nil then

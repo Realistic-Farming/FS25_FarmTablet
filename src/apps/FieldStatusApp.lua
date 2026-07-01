@@ -2,41 +2,47 @@
 -- FarmTablet v2 – Field Status App
 -- =========================================================
 
+local function ftText(key, fallback)
+    if g_i18n and key and g_i18n.hasText and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or tostring(key or "")
+end
+
+local function ftFormat(key, fallback, ...)
+    local text = ftText(key, fallback)
+    local ok, result = pcall(string.format, text, ...)
+    if ok then return result end
+    return text
+end
+
 FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
     local AC = FT.appColor(FT.APP.FIELDS)
 
-    if self:drawHelpPage("_fieldsHelp", FT.APP.FIELDS, "Field Manager", AC, {
-        { title = "SUMMARY BADGES",
-          body  = "Top of the screen shows totals: READY fields that can\n" ..
-                  "be harvested, GROW fields with crops growing, and EMPTY\n" ..
-                  "fields with no active crop." },
-        { title = "COLUMNS: # / CROP / HA / STATE",
-          body  = "# = field ID.  CROP = crop type name.\n" ..
-                  "HA = field area in hectares.\n" ..
-                  "STATE = current field condition (see dot colours below)." },
-        { title = "STATE DOT COLOURS",
-          body  = "Green  = Ready to harvest.\n" ..
-                  "Blue   = Growing normally.\n" ..
-                  "Yellow = Needs attention (fertilise, plough, roll, etc.).\n" ..
-                  "Grey   = Fallow / empty field." },
-        { title = "SCROLLING",
-          body  = "If you own more fields than fit on screen the list\n" ..
-                  "scrolls automatically. Use the mouse wheel to scroll." },
+    if self:drawHelpPage("_fieldsHelp", FT.APP.FIELDS, ftText("ft_ui_app_field_status", "Field Manager"), AC, {
+        { title = ftText("ft_fields_help_summary_title", "SUMMARY BADGES"),
+          body  = ftText("ft_fields_help_summary_body", "Top of the screen shows totals: READY fields that can\nbe harvested, GROW fields with crops growing, and EMPTY\nfields with no active crop.") },
+        { title = ftText("ft_fields_help_columns_title", "COLUMNS: # / CROP / HA / STATE"),
+          body  = ftText("ft_fields_help_columns_body", "# = field ID.  CROP = crop type name.\nHA = field area in hectares.\nSTATE = current field condition (see dot colours below).") },
+        { title = ftText("ft_fields_help_state_colors_title", "STATE DOT COLOURS"),
+          body  = ftText("ft_fields_help_state_colors_body", "Green  = Ready to harvest.\nBlue   = Growing normally.\nYellow = Needs attention (fertilise, plough, roll, etc.).\nGrey   = Fallow / empty field.") },
+        { title = ftText("ft_fields_help_scrolling_title", "SCROLLING"),
+          body  = ftText("ft_fields_help_scrolling_body", "If you own more fields than fit on screen the list\nscrolls automatically. Use the mouse wheel to scroll.") },
     }) then return end
 
     local data   = self.system.data
     local farmId = data:getPlayerFarmId()
     local fields = data:getOwnedFields(farmId)
 
-    local startY = self:drawAppHeader("Field Manager", #fields .. " fields")
+    local startY = self:drawAppHeader(ftText("ft_ui_app_field_status", "Field Manager"), ftFormat("ft_fields_count", "%d fields", #fields))
     local x, contentY, cw, contentH = self:contentInner()
     local scrollY = self:getContentScrollY()
 
     if #fields == 0 then
         self.r:appText(x, startY - FT.py(12), FT.FONT.BODY,
-            "You don't own any fields yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            ftText("ft_fields_none", "You don't own any fields yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         self.r:appText(x, startY - FT.py(32), FT.FONT.SMALL,
-            "Purchase land to start farming.", RenderText.ALIGN_LEFT, FT.C.MUTED)
+            ftText("ft_fields_none_hint", "Purchase land to start farming."), RenderText.ALIGN_LEFT, FT.C.MUTED)
         self:drawInfoIcon("_fieldsHelp", AC)
         return
     end
@@ -51,17 +57,17 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
 
     local y  = startY - FT.py(2) + scrollY
     local bx = x
-    if countReady   > 0 then bx = bx + self.r:badge(bx, y, countReady..  " READY", FT.C.BTN_PRIMARY)   + FT.px(4) end
-    if countGrowing > 0 then bx = bx + self.r:badge(bx, y, countGrowing.." GROW",  FT.C.BTN_NEUTRAL)   + FT.px(4) end
-    if countEmpty   > 0 then         self.r:badge(bx, y, countEmpty..  " EMPTY", {0.18,0.18,0.22,0.9}) end
+    if countReady   > 0 then bx = bx + self.r:badge(bx, y, countReady.." "..ftText("ft_fields_badge_ready", "READY"), FT.C.BTN_PRIMARY)   + FT.px(4) end
+    if countGrowing > 0 then bx = bx + self.r:badge(bx, y, countGrowing.." "..ftText("ft_fields_badge_grow", "GROW"),  FT.C.BTN_NEUTRAL)   + FT.px(4) end
+    if countEmpty   > 0 then         self.r:badge(bx, y, countEmpty.." "..ftText("ft_fields_badge_empty", "EMPTY"), {0.18,0.18,0.22,0.9}) end
 
     y = y - FT.py(20)
     y = self:drawRule(y, 0.4)
 
     self.r:appText(x,             y, FT.FONT.TINY, "#",     RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
-    self.r:appText(x + FT.px(28), y, FT.FONT.TINY, "CROP",  RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
+    self.r:appText(x + FT.px(28), y, FT.FONT.TINY, ftText("ft_fields_col_crop", "CROP"),  RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
     self.r:appText(x + cw * 0.6,  y, FT.FONT.TINY, "HA",    RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
-    self.r:appText(x + cw,        y, FT.FONT.TINY, "STATE", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+    self.r:appText(x + cw,        y, FT.FONT.TINY, ftText("ft_fields_col_state", "STATE"), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     y = y - FT.py(16)
 
     local rowH  = FT.py(19)

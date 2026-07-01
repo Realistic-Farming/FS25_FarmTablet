@@ -186,7 +186,7 @@ function FarmTabletManager:delete()
         self._origCameraZoom = nil
     end
     if self.invoiceManager then self.invoiceManager:save() end
-    if self.settings then self.settings:save() end
+    if self.settings then self.settings:save(true) end
     if self.system then self.system:delete() end
     if self.ui then self.ui:delete() end
     if self.settingsGUI then self.settingsGUI:unregisterConsoleCommands() end

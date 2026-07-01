@@ -1,4 +1,11 @@
 -- =========================================================
+
+local function ftLockText(key, fallback)
+    if g_i18n and key and g_i18n.hasText and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or tostring(key or "")
+end
 -- FarmTablet v2 – LockScreen
 -- Adds FarmTabletUI:_drawLock / _lockText / _onMouseLock.
 -- A real lock screen: big clock, date, farm name and a
@@ -77,25 +84,29 @@ function FarmTabletUI:_lockText()
     local world = data and data:getWorldInfo()
     local timeStr = world and string.format("%02d:%02d", world.hour % 24, world.minute) or "--:--"
     local clockY = L.screenY + L.screenH * 0.50
-    r:text(cx, clockY, CLOCK_SIZE, timeStr, RenderText.ALIGN_CENTER, {0.98,0.99,1.0,1.0})
+    r:appText(cx, clockY, CLOCK_SIZE, timeStr, RenderText.ALIGN_CENTER, {0.98,0.99,1.0,1.0})
 
     -- date / season line
     if world then
         local seasonStr = (data.getSeasonName and data:getSeasonName(world.season)) or ""
-        local dateStr = string.format("%s  -  Day %d", seasonStr, world.day or 1)
-        r:text(cx, clockY - FT.py(26), FT.FONT.SMALL, dateStr, RenderText.ALIGN_CENTER, {0.85,0.88,0.92,0.9})
+        local fmt = ftLockText("ft_lockscreen_date_day", "%s  -  Tag %d")
+        local ok, dateStr = pcall(string.format, fmt, FT.l10nAuto(seasonStr), tonumber(world.day) or 1)
+        if not ok then
+            dateStr = tostring(FT.l10nAuto(seasonStr)) .. "  -  Tag " .. tostring(world.day or 1)
+        end
+        r:appText(cx, clockY - FT.py(26), FT.FONT.SMALL, dateStr, RenderText.ALIGN_CENTER, {0.85,0.88,0.92,0.9})
     end
 
     -- farm name
     local farmId = data and data:getPlayerFarmId()
     local farmName = (data and data:getFarmName(farmId)) or "My Farm"
-    r:text(cx, clockY - FT.py(42), FT.FONT.TINY, farmName, RenderText.ALIGN_CENTER, {0.7,0.74,0.8,0.85})
+    r:appText(cx, clockY - FT.py(42), FT.FONT.SMALL, farmName, RenderText.ALIGN_CENTER, {0.7,0.74,0.8,0.85})
 
     -- slide hint
     if self._unlockTrack then
         local g = self._unlockTrack
-        r:text(g.trackX + g.trackW/2 + FT.px(14), g.trackY + g.trackH/2 - FT.py(4),
-            FT.FONT.SMALL, "slide to unlock", RenderText.ALIGN_CENTER, {1,1,1,0.45})
+        r:appText(g.trackX + g.trackW/2 + FT.px(14), g.trackY + g.trackH/2 - FT.py(4),
+            FT.FONT.SMALL, ftLockText("ft_lockscreen_slide_to_unlock", "slide to unlock"), RenderText.ALIGN_CENTER, {1,1,1,0.75})
     end
 end
 

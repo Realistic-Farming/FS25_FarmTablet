@@ -51,9 +51,9 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
 
     local apps    = self.system.registry:getAll()
     local scrollY = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader("App Store", #apps .. " installed")
+    local afterHdr = self:drawAppHeader(FT.l10nAuto("App Store"), tostring(#apps) .. " " .. FT.l10nAuto("installed"))
     local x, contentY, cw, _ = self:contentInner()
-    local y = afterHdr + scrollY
+    local y = afterHdr - FT.py(8) + scrollY
 
     -- ── Built-in and farm groups ───────────────────────────
     local groups     = {}
@@ -66,7 +66,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
         end
     end
 
-    local groupLabels = { core = "BUILT-IN", farm = "FARMING", finance = "FINANCE" }
+    local groupLabels = { core = FT.l10nAuto("BUILT-IN"), farm = FT.l10nAuto("FARMING"), finance = FT.l10nAuto("FINANCE") }
 
     for _, gid in ipairs(groupOrder) do
         local list = groups[gid]
@@ -81,7 +81,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
     end
 
     -- ── Mod integrations ──────────────────────────────────
-    y = self:drawSection(y, "MOD INTEGRATIONS")
+    y = self:drawSection(y, FT.l10nAuto("MOD INTEGRATIONS"))
 
     for _, known in ipairs(KNOWN_INTEGRATIONS) do
         local app       = self.system.registry:get(known.appId)
@@ -103,14 +103,14 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     local alpha = dimmed and 0.35 or 1.00
 
     -- Card background
-    self.r:appRect(x - FT.px(4), y - FT.py(4), cw + FT.px(8), FT.py(30),
+    self.r:appRect(x - FT.px(4), y - FT.py(8), cw + FT.px(8), FT.py(38),
         dimmed and {0.08, 0.09, 0.12, 0.50} or FT.C.BG_CARD)
 
     -- App name
     local nameColor = dimmed
         and {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha}
         or FT.C.TEXT_BRIGHT
-    self.r:appText(x + FT.px(8), y + FT.py(10), FT.FONT.BODY,
+    self.r:appText(x + FT.px(10), y + FT.py(12), FT.FONT.BODY,
         dispName, RenderText.ALIGN_LEFT, nameColor)
 
     -- Description / hint
@@ -121,33 +121,33 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
         desc = (app.descriptionKey and g_i18n and g_i18n:hasText(app.descriptionKey) and g_i18n:getText(app.descriptionKey))
             or app.description
             or ""
-        if #desc > 44 then desc = desc:sub(1, 42) .. ">" end
+        if #desc > 58 then desc = desc:sub(1, 56) .. ">" end
     else
         desc = ""
     end
-    self.r:appText(x + FT.px(8), y - FT.py(4), FT.FONT.TINY,
+    self.r:appText(x + FT.px(10), y - FT.py(3), FT.FONT.TINY,
         desc, RenderText.ALIGN_LEFT,
         {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha})
 
     -- Version / developer (right side)
     if app and not dimmed then
-        self.r:appText(x + cw - FT.px(4), y + FT.py(10), FT.FONT.TINY,
-            app.version or "Built-in", RenderText.ALIGN_RIGHT, FT.C.BRAND)
-        self.r:appText(x + cw - FT.px(4), y - FT.py(4), FT.FONT.TINY,
-            app.developer or "", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+        self.r:appText(x + cw - FT.px(58), y + FT.py(12), FT.FONT.TINY,
+            FT.l10nAuto(app.version or "Built-in"), RenderText.ALIGN_RIGHT, FT.C.BRAND)
+        self.r:appText(x + cw - FT.px(58), y - FT.py(3), FT.FONT.TINY,
+            FT.l10nAuto(app.developer or ""), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     elseif dimmed then
-        self.r:appText(x + cw - FT.px(4), y + FT.py(10), FT.FONT.TINY,
-            "not installed", RenderText.ALIGN_RIGHT,
+        self.r:appText(x + cw - FT.px(8), y + FT.py(12), FT.FONT.TINY,
+            FT.l10nAuto("not installed"), RenderText.ALIGN_RIGHT,
             {FT.C.MUTED[1], FT.C.MUTED[2], FT.C.MUTED[3], 0.45})
     end
 
     -- OPEN button (only for installed apps)
     if app and not dimmed then
         local appId = app.id
-        local btn = self.r:button(x + cw - FT.px(48), y, FT.px(44), FT.py(14),
-            "OPEN", FT.C.BTN_PRIMARY, { onClick = function() self:switchApp(appId) end })
+        local btn = self.r:button(x + cw - FT.px(48), y - FT.py(2), FT.px(44), FT.py(15),
+            FT.l10nAuto("OPEN"), FT.C.BTN_PRIMARY, { onClick = function() self:switchApp(appId) end })
         table.insert(self._contentBtns, btn)
     end
 
-    return y - FT.py(34)
+    return y - FT.py(42)
 end

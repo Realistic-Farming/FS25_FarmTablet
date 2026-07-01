@@ -42,6 +42,13 @@ function Settings:resetToDefaults(saveImmediately)
     self.lockScreenEnabled       = true   -- show lock screen (slide to unlock) on open
     self.customBackground        = ""     -- PNG filename in savegame/FTBackground (empty = default wallpaper)
     self.debugMode               = false
+    self.tabletBatteryLevel      = 100
+    self.tabletBatteryDrainMs    = 0
+    self.tabletBatteryDrainEnabled = true
+    self.tabletBatteryDrainMode    = "standby"  -- off/open/standby
+    self.tabletBatteryDrainProfile = "normal"   -- low/normal/high/custom
+    self.tabletBatteryOpenMinutes  = 10
+    self.tabletBatteryStandbyMinutes = 15
 
     -- HUD / tablet window position and scale (saved across sessions)
     self.tabletPosX              = 0.5   -- normalized, centre-anchored
@@ -129,12 +136,30 @@ function Settings:validateSettings()
     if type(self.iconLabelsShow) ~= "boolean" then self.iconLabelsShow = true end
     self.iconLabelSize  = math.max(1, math.min(3, math.floor(self.iconLabelSize  or 2)))
     self.iconLabelColor = math.max(1, math.min(3, math.floor(self.iconLabelColor or 1)))
+
+    -- Tablet battery is saved per savegame. Clamp strictly so old/broken XML values
+    -- cannot make the UI stay at 100% or jump to invalid states.
+    self.tabletBatteryLevel   = math.max(0, math.min(100, math.floor(tonumber(self.tabletBatteryLevel) or 100)))
+    self.tabletBatteryDrainMs = math.max(0, tonumber(self.tabletBatteryDrainMs) or 0)
+    self.tabletBatteryDrainEnabled = self.tabletBatteryDrainEnabled == nil and true or not not self.tabletBatteryDrainEnabled
+    if self.tabletBatteryDrainEnabled == false then
+        self.tabletBatteryDrainMode = "off"
+    end
+    local mode = tostring(self.tabletBatteryDrainMode or "standby")
+    if mode ~= "off" and mode ~= "open" and mode ~= "standby" then mode = "standby" end
+    self.tabletBatteryDrainMode = mode
+    local profile = tostring(self.tabletBatteryDrainProfile or "normal")
+    if profile ~= "low" and profile ~= "normal" and profile ~= "high" and profile ~= "custom" then profile = "normal" end
+    self.tabletBatteryDrainProfile = profile
+    self.tabletBatteryOpenMinutes = math.max(5, math.min(60, math.floor(tonumber(self.tabletBatteryOpenMinutes) or 10)))
+    self.tabletBatteryStandbyMinutes = math.max(5, math.min(180, math.floor(tonumber(self.tabletBatteryStandbyMinutes) or 15)))
+    self.tabletBatteryDrainEnabled = (self.tabletBatteryDrainMode ~= "off")
 end
 
-function Settings:save()
+function Settings:save(silent)
     self.manager:saveSettings(self)
-    Logging.info("Farm Tablet: Settings Saved. Keybind: %s, Startup: %s", 
-        self.tabletKeybind, self:getStartupAppName())
+    -- Kein Log-Spam mehr: das Speichern passiert auch automatisch durch Akku-,
+    -- UI- und Hintergrundwerte. Diese Routine schreibt nur die XML.
 end
 
 function Settings:setStartupApp(appId)

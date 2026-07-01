@@ -15,6 +15,34 @@ local function ftAkitaBool(v)
     return v == true and ftAkitaText("ft_common_on", "On") or ftAkitaText("ft_common_off", "Off")
 end
 
+local function ftAkitaCurrentLang()
+    local lang = ""
+    if g_languageShort ~= nil then lang = tostring(g_languageShort) end
+    if (lang == "" or lang == "nil") and g_i18n ~= nil then
+        lang = tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or "")
+    end
+    return string.lower(lang)
+end
+
+local function ftAkitaLineText(line)
+    local t = tostring(line or "")
+    local lang = ftAkitaCurrentLang()
+    if lang:sub(1,2) ~= "de" then
+        t = t:gsub("Gesamt", "Overall")
+        t = t:gsub("Futter", "Food")
+        t = t:gsub("Wasser", "Water")
+        t = t:gsub("Stroh", "Straw")
+        t = t:gsub("Auffüllen ab", "Refill below")
+        t = t:gsub("Zielfüllung", "Target fill")
+        t = t:gsub("Priorität", "Priority")
+        t = t:gsub("Letzte Aktion", "Last action")
+        t = t:gsub(": An", ": On")
+        t = t:gsub(": Aus", ": Off")
+    end
+    return t
+end
+
+
 local function ftAkitaSafeCall(obj, name, ...)
     if obj ~= nil and type(obj[name]) == "function" then
         local ok, result = pcall(obj[name], obj, ...)
@@ -78,7 +106,7 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
     for _, line in ipairs(lines) do
         line = tostring(line or "")
         if line ~= "" and not line:find("^Status:") and shown < 10 then
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, ftAkitaLineText(line), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
             y = y - FT.py(12)
             shown = shown + 1
         end
@@ -142,16 +170,33 @@ end)
 
 FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
     local AC = FT.appColor(FT.APP.FACTORY_WEEK)
+    local offlineFrozen = self._signalOutageActive == true
     local fws = g_currentMission and g_currentMission.fws_weekSchedule or nil
-    local open, total = 0, 0
-    if fws and fws.getOpenFactoryCountForHud then open, total = fws:getOpenFactoryCountForHud() end
+    local liveOpen, liveTotal = 0, 0
+    if fws and fws.getOpenFactoryCountForHud then liveOpen, liveTotal = fws:getOpenFactoryCountForHud() end
+    if fws ~= nil and offlineFrozen ~= true then
+        self._fwsTabletCache = {
+            open = liveOpen,
+            total = liveTotal,
+            hudDayName = fws.hudDayName,
+            hudTimeText = fws.hudTimeText,
+            fireAutoEnabled = fws.fireAutoEnabled,
+            hudEventSummaryText = fws.hudEventSummaryText,
+            factoriesForHud = fws.factoriesForHud,
+        }
+    end
+    local fwsView = (offlineFrozen and self._fwsTabletCache) or fws
+    local open, total = liveOpen, liveTotal
+    if offlineFrozen and self._fwsTabletCache ~= nil then
+        open, total = tonumber(self._fwsTabletCache.open) or 0, tonumber(self._fwsTabletCache.total) or 0
+    end
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_factory_week_schedule", "FactoryWeekSchedule"),
-        fws and string.format(ftAkitaText("ft_fws_open_count", "%d/%d open"), open, total) or ftAkitaText("ft_common_inactive", "Inactive")
+        fwsView and string.format(ftAkitaText("ft_fws_open_count", "%d/%d open"), open, total) or ftAkitaText("ft_common_inactive", "Inactive")
     )
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
-    if fws == nil then
+    if fwsView == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_fws_not_detected", "FactoryWeekSchedule was not detected."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
@@ -159,16 +204,16 @@ FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
     end
 
     y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"))
-    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fws.hudDayName or "-") .. " " .. (fws.hudTimeText or "-")))
+    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fwsView.hudDayName or "-") .. " " .. (fwsView.hudTimeText or "-")))
     y = self:drawRow(y, ftAkitaText("ft_fws_factories_open", "Factories Open"), tostring(open) .. " / " .. tostring(total), nil, open > 0 and FT.C.POSITIVE or FT.C.WARNING)
-    y = self:drawRow(y, ftAkitaText("ft_fws_fire_system", "Fire System"), ftAkitaBool(fws.fireAutoEnabled == true))
-    if fws.hudEventSummaryText ~= nil and tostring(fws.hudEventSummaryText) ~= "" then
-        y = self:drawRow(y, ftAkitaText("ft_common_event", "Event"), tostring(fws.hudEventSummaryText), nil, FT.C.WARNING)
+    y = self:drawRow(y, ftAkitaText("ft_fws_fire_system", "Fire System"), ftAkitaBool(fwsView.fireAutoEnabled == true))
+    if fwsView.hudEventSummaryText ~= nil and tostring(fwsView.hudEventSummaryText) ~= "" then
+        y = self:drawRow(y, ftAkitaText("ft_common_event", "Event"), tostring(fwsView.hudEventSummaryText), nil, FT.C.WARNING)
     end
 
     y = y - FT.py(6)
     y = self:drawSection(y, ftAkitaText("ft_fws_factories", "FACTORIES"))
-    local list = fws.factoriesForHud or {}
+    local list = fwsView.factoriesForHud or {}
     if #list == 0 then
         self.r:appText(x + FT.px(8), y - FT.py(12), FT.FONT.SMALL,
             ftAkitaText("ft_fws_no_factories", "No factories are in the FactoryWeekSchedule HUD cache yet."),
