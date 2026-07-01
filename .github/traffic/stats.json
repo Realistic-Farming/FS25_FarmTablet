@@ -22195,31 +22195,31 @@
     "watchers": 3
   },
   {
-    "timestamp": "2026-07-01T00:05:47Z",
+    "timestamp": "2026-07-01T12:34:14Z",
     "date": "2026-07-01",
     "views": {
-      "count": 913,
-      "uniques": 147
+      "count": 937,
+      "uniques": 151
     },
     "clones": {
-      "count": 1393,
-      "uniques": 436
+      "count": 1404,
+      "uniques": 440
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 391,
-        "uniques": 97
+        "count": 405,
+        "uniques": 102
       },
       {
         "referrer": "Google",
-        "count": 17,
+        "count": 16,
         "uniques": 12
       },
       {
         "referrer": "kingmods.net",
-        "count": 17,
-        "uniques": 10
+        "count": 15,
+        "uniques": 8
       },
       {
         "referrer": "Yahoo",
@@ -22256,26 +22256,26 @@
       {
         "path": "/Realistic-Farming/FS25_FarmTablet",
         "title": "Overview",
-        "count": 265,
-        "uniques": 101
+        "count": 293,
+        "uniques": 110
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet",
         "title": "Overview",
-        "count": 116,
-        "uniques": 53
+        "count": 106,
+        "uniques": 47
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases",
         "title": "/releases",
-        "count": 51,
-        "uniques": 17
+        "count": 56,
+        "uniques": 20
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.1.0",
         "title": "/releases/tag/v2.5.1.0",
-        "count": 39,
-        "uniques": 28
+        "count": 46,
+        "uniques": 33
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/issues",
@@ -22286,7 +22286,7 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_FarmTablet/releases",
         "title": "/releases",
-        "count": 36,
+        "count": 35,
         "uniques": 13
       },
       {
@@ -22318,7 +22318,7 @@
       {
         "assets": [
           {
-            "downloads": 145,
+            "downloads": 149,
             "name": "FS25_FarmTablet.zip"
           }
         ],
@@ -22566,7 +22566,7 @@
         "tag": "v1.1.0.9"
       }
     ],
-    "stars": 14,
+    "stars": 15,
     "forks": 1,
     "watchers": 3
   }
