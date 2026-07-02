@@ -17,7 +17,14 @@ SettingsManager.defaultConfig = {
     startupApp = "dashboard",  -- stored as string ID (see Settings.lua FT.APP constants)
     vibrationFeedback = true,
     soundEffects = true,
-    debugMode = false
+    debugMode = false,
+    tabletBatteryLevel = 100,
+    tabletBatteryDrainMs = 0,
+    tabletBatteryDrainEnabled = true,
+    tabletBatteryDrainMode = "standby",
+    tabletBatteryDrainProfile = "normal",
+    tabletBatteryOpenMinutes = 15,
+    tabletBatteryStandbyMinutes = 60
 }
 
 function SettingsManager.new()
@@ -55,6 +62,13 @@ function SettingsManager:loadSettings(settingsObject)
             settingsObject.lockScreenEnabled       = xml:getBool(self.XMLTAG..".lockScreenEnabled",       true)
             settingsObject.customBackground        = xml:getString(self.XMLTAG..".customBackground",      "")
             settingsObject.debugMode               = xml:getBool(self.XMLTAG..".debugMode",               self.defaultConfig.debugMode)
+            settingsObject.tabletBatteryLevel      = xml:getFloat(self.XMLTAG..".tabletBatteryLevel",      self.defaultConfig.tabletBatteryLevel)
+            settingsObject.tabletBatteryDrainMs    = xml:getFloat(self.XMLTAG..".tabletBatteryDrainMs",    self.defaultConfig.tabletBatteryDrainMs)
+            settingsObject.tabletBatteryDrainEnabled = xml:getBool(self.XMLTAG..".tabletBatteryDrainEnabled", self.defaultConfig.tabletBatteryDrainEnabled)
+            settingsObject.tabletBatteryDrainMode    = xml:getString(self.XMLTAG..".tabletBatteryDrainMode", self.defaultConfig.tabletBatteryDrainMode)
+            settingsObject.tabletBatteryDrainProfile = xml:getString(self.XMLTAG..".tabletBatteryDrainProfile", self.defaultConfig.tabletBatteryDrainProfile)
+            settingsObject.tabletBatteryOpenMinutes  = xml:getInt(self.XMLTAG..".tabletBatteryOpenMinutes", self.defaultConfig.tabletBatteryOpenMinutes)
+            settingsObject.tabletBatteryStandbyMinutes = xml:getInt(self.XMLTAG..".tabletBatteryStandbyMinutes", self.defaultConfig.tabletBatteryStandbyMinutes)
             settingsObject.tabletPosX              = xml:getFloat(self.XMLTAG..".tabletPosX",             0.5)
             settingsObject.tabletPosY              = xml:getFloat(self.XMLTAG..".tabletPosY",             0.5)
             settingsObject.tabletScale             = xml:getFloat(self.XMLTAG..".tabletScale",            1.0)
@@ -82,6 +96,13 @@ function SettingsManager:loadSettings(settingsObject)
     settingsObject.vibrationFeedback = self.defaultConfig.vibrationFeedback
     settingsObject.soundEffects = self.defaultConfig.soundEffects
     settingsObject.debugMode = self.defaultConfig.debugMode
+    settingsObject.tabletBatteryLevel = self.defaultConfig.tabletBatteryLevel
+    settingsObject.tabletBatteryDrainMs = self.defaultConfig.tabletBatteryDrainMs
+    settingsObject.tabletBatteryDrainEnabled = self.defaultConfig.tabletBatteryDrainEnabled
+    settingsObject.tabletBatteryDrainMode = self.defaultConfig.tabletBatteryDrainMode
+    settingsObject.tabletBatteryDrainProfile = self.defaultConfig.tabletBatteryDrainProfile
+    settingsObject.tabletBatteryOpenMinutes = self.defaultConfig.tabletBatteryOpenMinutes
+    settingsObject.tabletBatteryStandbyMinutes = self.defaultConfig.tabletBatteryStandbyMinutes
     settingsObject.tabletBgColorIndex = 1
 end
 
@@ -103,6 +124,13 @@ function SettingsManager:saveSettings(settingsObject)
         xml:setBool(self.XMLTAG..".lockScreenEnabled",       settingsObject.lockScreenEnabled)
         xml:setString(self.XMLTAG..".customBackground",      settingsObject.customBackground or "")
         xml:setBool(self.XMLTAG..".debugMode",               settingsObject.debugMode)
+        xml:setFloat(self.XMLTAG..".tabletBatteryLevel",      tonumber(settingsObject.tabletBatteryLevel) or 100)
+        xml:setFloat(self.XMLTAG..".tabletBatteryDrainMs",    tonumber(settingsObject.tabletBatteryDrainMs) or 0)
+        xml:setBool(self.XMLTAG..".tabletBatteryDrainEnabled", settingsObject.tabletBatteryDrainEnabled ~= false)
+        xml:setString(self.XMLTAG..".tabletBatteryDrainMode", tostring(settingsObject.tabletBatteryDrainMode or "standby"))
+        xml:setString(self.XMLTAG..".tabletBatteryDrainProfile", tostring(settingsObject.tabletBatteryDrainProfile or "normal"))
+        xml:setInt(self.XMLTAG..".tabletBatteryOpenMinutes", tonumber(settingsObject.tabletBatteryOpenMinutes) or 15)
+        xml:setInt(self.XMLTAG..".tabletBatteryStandbyMinutes", tonumber(settingsObject.tabletBatteryStandbyMinutes) or 60)
         xml:setFloat(self.XMLTAG..".tabletPosX",             settingsObject.tabletPosX or 0.5)
         xml:setFloat(self.XMLTAG..".tabletPosY",             settingsObject.tabletPosY or 0.5)
         xml:setFloat(self.XMLTAG..".tabletScale",            settingsObject.tabletScale or 1.0)

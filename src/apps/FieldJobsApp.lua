@@ -3,6 +3,13 @@
 -- Start/stop field work sessions and review job history.
 -- =========================================================
 
+
+local function FJText(key, fallback)
+    if FT_UI_TEXT ~= nil then return FT_UI_TEXT(key, fallback) end
+    if g_i18n and key and g_i18n:hasText(key) then return g_i18n:getText(key) end
+    return fallback or tostring(key or "")
+end
+
 -- ── Module state ──────────────────────────────────────────
 
 local _activeJob   = nil   -- { fieldId, fieldName, vehicleName, taskType, startTime, startDay }
@@ -264,7 +271,7 @@ FarmTabletUI:registerDrawer("field_jobs", function(self)
           body  = "Tap FINISH on the Home screen when you are done.\n"..
                   "Duration is calculated in in-game time and the\n"..
                   "record is saved to the History list." },
-        { title = "HISTORY",
+        { title = FJText("ft_common_history", "History"),
           body  = "Up to 30 completed jobs are stored per savegame.\n"..
                   "Each entry shows field, vehicle, task, day started,\n"..
                   "and how long the job took." },
@@ -294,7 +301,7 @@ function _drawHomeView(self)
     local subtitle = _activeJob and "1 active job" or "no active job"
     local startY = self:drawAppHeader("Field Jobs", subtitle)
     local x, contentY, cw, _ = self:contentInner()
-    local y = startY - FT.py(6)
+    local y = startY - FT.py(14)
 
     -- ── Active job card ────────────────────────────────
     if _activeJob then
@@ -361,15 +368,19 @@ function _drawHomeView(self)
         y = y - bh - FT.py(14)
 
     else
-        -- No active job — prompt
-        self.r:appText(x, y - FT.py(4),
-            FT.FONT.BODY, "No job running.",
+        -- No active job — compact card with clean spacing
+        local cardH = FT.py(44)
+        self.r:appRect(x - FT.px(4), y - cardH + FT.py(4), cw + FT.px(8), cardH,
+            {AC[1], AC[2], AC[3], 0.08})
+        self.r:appRect(x - FT.px(4), y - cardH + FT.py(4), FT.px(3), cardH,
+            {AC[1], AC[2], AC[3], 0.75})
+        self.r:appText(x + FT.px(10), y - FT.py(8),
+            FT.FONT.SMALL, FJText("ft_fieldjobs_no_job", "No job running."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        y = y - FT.py(22)
 
         local bw = FT.px(108)
         local bh = FT.py(22)
-        local sBtn = self.r:button(x, y, bw, bh, "START JOB",
+        local sBtn = self.r:button(x + FT.px(10), y - FT.py(32), bw, bh, FJText("ft_fieldjobs_start_job", "Start job"),
             FT.C.BTN_PRIMARY,
             { onClick = function()
                 -- Refresh caches when entering start view
@@ -387,7 +398,7 @@ function _drawHomeView(self)
                 self:switchApp("field_jobs")
             end })
         table.insert(self._contentBtns, sBtn)
-        y = y - bh - FT.py(10)
+        y = y - cardH - FT.py(14)
     end
 
     -- ── Divider + History preview ──────────────────────
@@ -396,13 +407,13 @@ function _drawHomeView(self)
 
     -- History header row
     self.r:appText(x, y,
-        FT.FONT.SMALL, "Recent Jobs",
+        FT.FONT.SMALL, FJText("ft_fieldjobs_recent_jobs", "Recent jobs"),
         RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
 
     if #_jobHistory > 0 then
         local hbw = FT.px(60)
         local hbh = FT.py(16)
-        local histBtn = self.r:button(x + cw - hbw, y - FT.py(2), hbw, hbh, "HISTORY",
+        local histBtn = self.r:button(x + cw - hbw, y - FT.py(2), hbw, hbh, FJText("ft_common_history", "History"),
             FT.C.BTN_NEUTRAL,
             { onClick = function()
                 _histScroll = 0
@@ -416,7 +427,7 @@ function _drawHomeView(self)
 
     if #_jobHistory == 0 then
         self.r:appText(x, y, FT.FONT.SMALL,
-            "No completed jobs yet.",
+            FJText("ft_fieldjobs_no_completed", "No completed jobs yet."),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
     else
         -- Show last 4 entries as a mini-list
@@ -674,7 +685,7 @@ function _drawHistoryView(self)
     y = y - FT.py(24)
 
     if #_jobHistory == 0 then
-        self.r:appText(x, y, FT.FONT.BODY, "No completed jobs yet.",
+        self.r:appText(x, y, FT.FONT.BODY, FJText("ft_fieldjobs_no_completed", "No completed jobs yet."),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         return
     end

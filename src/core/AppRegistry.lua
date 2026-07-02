@@ -221,6 +221,21 @@ end
 -- NOTE: Cross-mod globals (getfenv(0)["name"]) are per-mod scoped in FS25.
 -- Use g_currentMission.xxx properties for reliable cross-mod detection.
 function AppRegistry:autoDetect()
+    -- Settings Hub (ecosystem core-API): System Settings overview app.
+    -- Bridge: mission.settingsHub set by FS25_SettingsHub in Mission00.load
+    if g_currentMission and g_currentMission.settingsHub then
+        if not self:has(FT.APP.SYSTEM_SETTINGS) then
+            Logging.info("[FarmTablet] autoDetect: Settings Hub detected")
+            self:register({
+                id = FT.APP.SYSTEM_SETTINGS, group = "core",
+                name = "ft_ui_app_system_settings", navLabel = "SYS",
+                icon = "settings", order = 101,
+                developer = "TisonK", version = "Integrated",
+                description = "Overview of every ecosystem setting registered with the Settings Hub",
+            })
+        end
+    end
+
     -- Income Mod
     if g_currentMission and g_currentMission.incomeManager then
         if not self:has(FT.APP.INCOME) then
@@ -355,7 +370,7 @@ function AppRegistry:autoDetect()
             Logging.info("[FarmTablet] autoDetect: Random World Events detected")
             self:register({
                 id = FT.APP.RANDOM_EVENTS, group = "mods",
-                name = "ft_ui_app_random_events", navLabel = "RWE",
+                name = "ft_ui_app_random_world_events", navLabel = "RWE",
                 icon = "events", order = 27,
                 developer = "TisonK", version = "Integrated",
                 description = "Random world events tracker",
@@ -390,6 +405,61 @@ function AppRegistry:autoDetect()
             icon = "invoice", order = 29,
             developer = "TisonK", version = "Integrated",
             description = "Invoice tracker — built-in + RoleplayPhone integration",
+        })
+    end
+
+    -- AnimalAutoCare
+    if g_currentMission and g_currentMission.animalAutoCareCore and not self:has(FT.APP.ANIMAL_AUTO_CARE) then
+        Logging.info("[FarmTablet] autoDetect: AnimalAutoCare detected")
+        self:register({
+            id = FT.APP.ANIMAL_AUTO_CARE, group = "mods",
+            name = "ft_ui_app_animal_auto_care", navLabel = "AAC",
+            icon = "animal_auto_care", order = 30,
+            developer = "Akita83", version = "Integrated",
+            description = "AnimalAutoCare status and safe care trigger",
+            descriptionKey = "ft_desc_app_animal_auto_care",
+        })
+    end
+
+    -- AnimalVetSystem
+    if g_currentMission and (g_currentMission.animalVetSystem or g_currentMission.animalVet) and not self:has(FT.APP.ANIMAL_VET) then
+        Logging.info("[FarmTablet] autoDetect: AnimalVetSystem detected")
+        self:register({
+            id = FT.APP.ANIMAL_VET, group = "mods",
+            name = "ft_ui_app_animal_vet_system", navLabel = "VET",
+            icon = "animal_vet_system", order = 31,
+            developer = "Akita83", version = "Integrated",
+            description = "AnimalVetSystem illness and treatment monitor",
+            descriptionKey = "ft_desc_app_animal_vet_system",
+        })
+    end
+
+    -- FactoryWeekSchedule
+    if g_currentMission and g_currentMission.fws_weekSchedule and not self:has(FT.APP.FACTORY_WEEK) then
+        Logging.info("[FarmTablet] autoDetect: FactoryWeekSchedule detected")
+        self:register({
+            id = FT.APP.FACTORY_WEEK, group = "mods",
+            name = "ft_ui_app_factory_week_schedule", navLabel = "FWS",
+            icon = "factory_week_schedule", order = 32,
+            developer = "Akita83", version = "Integrated",
+            description = "FactoryWeekSchedule overview with workers, events and fire state",
+            descriptionKey = "ft_desc_app_factory_week_schedule",
+        })
+    end
+
+    -- RealisticDealer
+    local rd = (g_currentMission and (g_currentMission.realisticDealer or g_currentMission.RealisticDealer))
+            or g_realisticDealer
+            or (RealisticDealer and RealisticDealer.instance)
+    if rd ~= nil and not self:has(FT.APP.REALISTIC_DEALER) then
+        Logging.info("[FarmTablet] autoDetect: RealisticDealer detected")
+        self:register({
+            id = FT.APP.REALISTIC_DEALER, group = "mods",
+            name = "ft_ui_app_realistic_dealer", navLabel = "DEAL",
+            icon = "realistic_dealer", order = 33,
+            developer = "Akita83", version = "Integrated",
+            description = "RealisticDealer financing, installments and repossession status",
+            descriptionKey = "ft_desc_app_realistic_dealer",
         })
     end
 

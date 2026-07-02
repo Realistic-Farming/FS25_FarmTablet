@@ -40,6 +40,7 @@ source(modDirectory .. "src/FarmTabletManager.lua")
 source(modDirectory .. "src/apps/DashboardApp.lua")
 source(modDirectory .. "src/apps/AppStoreApp.lua")
 source(modDirectory .. "src/apps/SettingsApp.lua")
+source(modDirectory .. "src/apps/SystemSettingsApp.lua")
 source(modDirectory .. "src/apps/UpdatesApp.lua")
 source(modDirectory .. "src/apps/WeatherApp.lua")
 source(modDirectory .. "src/apps/WorkshopApp.lua")
@@ -68,6 +69,7 @@ source(modDirectory .. "src/apps/ContractsApp.lua")
 source(modDirectory .. "src/apps/FleetManagerApp.lua")
 source(modDirectory .. "src/apps/ProductionBuildingsApp.lua")
 source(modDirectory .. "src/apps/FarmStatsApp.lua")
+source(modDirectory .. "src/apps/AkitaTabletIntegrationsApp.lua")
 
 local farmTabletManager
 

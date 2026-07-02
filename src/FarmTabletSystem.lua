@@ -5,6 +5,56 @@
 -- =========================================================
 ---@class FarmTabletSystem
 FarmTabletSystem = {}
+
+local function _ftSystemLang()
+    if g_languageShort ~= nil then return string.lower(tostring(g_languageShort)) end
+    if g_i18n ~= nil then
+        return string.lower(tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or ""))
+    end
+    return ""
+end
+
+local function _ftSystemI18nKey(key)
+    if key == nil or key == "" or g_i18n == nil or g_i18n.hasText == nil then return nil end
+    if g_i18n:hasText(key) then
+        local v = g_i18n:getText(key)
+        if v ~= nil and v ~= "" then return v end
+    end
+    return nil
+end
+
+local function _ftSystemLocalizedFillName(ft, fallback)
+    if ft == nil then return fallback or "Unknown" end
+    local name = ft.name or ft.fillTypeName or ft.fruitTypeName
+    local candidates = {}
+    local function add(v) if v ~= nil and v ~= "" then table.insert(candidates, tostring(v)) end end
+    add(name)
+    if name ~= nil then
+        local n = tostring(name)
+        add(string.lower(n)); add(string.upper(n)); add(n:gsub("^%l", string.upper))
+    end
+    if name ~= nil and string.lower(tostring(name)) == "corn" then
+        add("maize"); add("MAIZE"); add("Maize")
+    end
+    for _, n in ipairs(candidates) do
+        local v = _ftSystemI18nKey("fillType_" .. n) or _ftSystemI18nKey("fruitType_" .. n)
+        if v ~= nil then return v end
+    end
+    if name ~= nil and string.lower(tostring(name)) == "corn" then
+        local lang = _ftSystemLang()
+        if lang == "de" or lang == "ger" then return "Mais" end
+        if lang == "ru" then return "Кукуруза" end
+        if lang == "fr" then return "Maïs" end
+        if lang == "es" then return "Maíz" end
+        if lang == "it" then return "Mais" end
+        if lang == "pl" then return "Kukurydza" end
+        if lang == "cz" or lang == "cs" then return "Kukuřice" end
+        if lang == "pt" or lang == "br" then return "Milho" end
+    end
+    local t = ft.title or ft.nameI18N or name or fallback or "Unknown"
+    if FT and FT.l10nAuto then return FT.l10nAuto(t) end
+    return t
+end
 local FarmTabletSystem_mt = Class(FarmTabletSystem)
 
 function FarmTabletSystem.new(settings)
@@ -130,7 +180,7 @@ function FarmTabletSystem:_getBucketFillInfo(v)
     end
     if info.fillType and g_fillTypeManager then
         local ft2 = g_fillTypeManager:getFillTypeByIndex(info.fillType)
-        if ft2 then info.name = ft2.title or ft2.name or "Unknown" end
+        if ft2 then info.name = _ftSystemLocalizedFillName(ft2, "Unknown") end
     end
     return info
 end

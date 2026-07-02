@@ -17,22 +17,175 @@ local FT_DataProvider_mt = Class(FT_DataProvider)
 
 local CACHE_TTL_MS = 2000  -- refresh every 2 seconds
 
+-- Localized fill/fruit display names.  Do not use internal English names like
+-- "corn" directly: FS uses language-specific fillType_* keys (e.g. German
+-- "Mais").  This helper also contains a tiny safety fallback for maps/mods
+-- that expose CORN while the base-game l10n key is named MAIZE.
+local function _ftDpLang()
+    if g_languageShort ~= nil then return string.lower(tostring(g_languageShort)) end
+    if g_i18n ~= nil then
+        local l = g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or ""
+        return string.lower(tostring(l))
+    end
+    return ""
+end
+
+local function _ftDpI18nKey(key)
+    if key == nil or key == "" or g_i18n == nil or g_i18n.hasText == nil then return nil end
+    if g_i18n:hasText(key) then
+        local v = g_i18n:getText(key)
+        if v ~= nil and v ~= "" then return v end
+    end
+    return nil
+end
+
+local function _ftDpLocalizedFillTypeName(ft, fallback)
+    if ft == nil then return fallback or "" end
+    local name = ft.name or ft.fillTypeName or ft.fruitTypeName
+    local candidates = {}
+    local function add(v) if v ~= nil and v ~= "" then table.insert(candidates, tostring(v)) end end
+    add(name)
+    if name ~= nil then
+        local n = tostring(name)
+        add(string.lower(n)); add(string.upper(n))
+        add(n:gsub("^%l", string.upper))
+    end
+    -- Giants base-game German name for corn is usually stored under maize.
+    if name ~= nil and string.lower(tostring(name)) == "corn" then
+        add("maize"); add("MAIZE"); add("Maize")
+    end
+    for _, n in ipairs(candidates) do
+        local v = _ftDpI18nKey("fillType_" .. n) or _ftDpI18nKey("fruitType_" .. n)
+        if v ~= nil then return v end
+    end
+    if name ~= nil and string.lower(tostring(name)) == "corn" then
+        local lang = _ftDpLang()
+        if lang == "de" or lang == "ger" or lang == "deutsch" then return "Mais" end
+        if lang == "ru" then return "Кукуруза" end
+        if lang == "fr" then return "Maïs" end
+        if lang == "es" then return "Maíz" end
+        if lang == "it" then return "Mais" end
+        if lang == "pl" then return "Kukurydza" end
+        if lang == "cz" or lang == "cs" then return "Kukuřice" end
+        if lang == "pt" or lang == "br" then return "Milho" end
+    end
+    local t = ft.title or ft.nameI18N or fallback or name or ""
+    if FT and FT.l10nAuto then return FT.l10nAuto(t) end
+    return t
+end
+
 function FT_DataProvider.new()
     local self = setmetatable({}, FT_DataProvider_mt)
     self._cache            = {}
     self._sessionIncome    = {}   -- [farmId] = accumulated income this session
     self._sessionExpenses  = {}   -- [farmId] = accumulated expenses this session
     self._origChangeBalance = nil -- saved original Farm.changeBalance for cleanup
+    self._networkOnline    = true
+    self._networkFrozen    = false
+    self._networkRecovered = false
+    self._frozenWorldInfo  = nil
     return self
+end
+
+function FT_DataProvider:setNetworkOnline(isOnline)
+    isOnline = isOnline ~= false
+    if self._networkOnline ~= isOnline then
+        if isOnline == false then
+            -- Weltzeit vor dem Offline-Schalten merken, damit Uhr/Tag sichtbar einfrieren.
+            local entry = self._cache and self._cache["world"] or nil
+            self._frozenWorldInfo = entry and entry.v or nil
+            if self._frozenWorldInfo == nil and g_currentMission and g_currentMission.environment then
+                local env = g_currentMission.environment
+                local dayTimeMs = env.dayTime or 0
+                local totalHours = dayTimeMs / 3600000
+                self._frozenWorldInfo = {
+                    day = env.currentDay or 1,
+                    season = env.currentSeason,
+                    hour = math.floor(totalHours) % 24,
+                    minute = math.floor((totalHours % 1) * 60),
+                }
+            end
+            if self._frozenWorldInfo ~= nil then
+                self._cache["world"] = { v = self._frozenWorldInfo, t = g_currentMission and g_currentMission.time or 0 }
+            end
+        end
+        self._networkOnline = isOnline
+        self._networkFrozen = not isOnline
+        if isOnline then
+            self._frozenWorldInfo = nil
+            -- Beim Wiederherstellen wird einmal sauber neu geladen.
+            self._networkRecovered = true
+            self:invalidate()
+        end
+    end
+end
+
+function FT_DataProvider:isNetworkOnline()
+    return self._networkOnline ~= false
+end
+
+local function _ftDefaultCachedValue(key)
+    key = tostring(key or "")
+    -- Numeric getters must keep returning numbers while the mobile network is offline.
+    -- Otherwise apps such as Dashboard/FarmStats compare a number with the generic
+    -- table fallback and crash with "attempt to compare number <= table".
+    if string.find(key, "^balance_") ~= nil then return 0 end
+    if string.find(key, "^loan_") ~= nil then return 0 end
+    if string.find(key, "^income_") ~= nil then return 0 end
+    if string.find(key, "^expenses_") ~= nil then return 0 end
+    if string.find(key, "^active_field_count_") ~= nil then return 0 end
+    if string.find(key, "^vehicle_count_") ~= nil then return 0 end
+    if key == "sell_prices" then return {} end
+    if key == "weather" then
+        return {
+            temperature = 0, rainScale = 0, isRaining = false, isStorming = false,
+            isFoggy = false, cloudCover = 0, windSpeed = 0, condKey = "clear",
+            condition = (FT and FT.l10nAuto and FT.l10nAuto("Clear")) or "Clear",
+            forecast = {}
+        }
+    end
+    if string.find(key, "^storages_") ~= nil then
+        return { siloCount = 0, totalCap = 0, crops = {} }
+    end
+    if string.find(key, "^animal_pens_") ~= nil then return {} end
+    if string.find(key, "^fleet_") ~= nil then return {} end
+    if string.find(key, "^productions_") ~= nil then return {} end
+    if string.find(key, "^fields_") ~= nil then return {} end
+    if string.find(key, "^contracts_") ~= nil then return {} end
+    if string.find(key, "^nearby_") ~= nil then return {} end
+    if key == "world" and g_currentMission and g_currentMission.environment then
+        local env = g_currentMission.environment
+        local dayTimeMs = env.dayTime or 0
+        local totalHours = dayTimeMs / 3600000
+        return { day = env.currentDay or 1, season = env.currentSeason, hour = math.floor(totalHours) % 24, minute = math.floor((totalHours % 1) * 60) }
+    end
+    return {}
 end
 
 function FT_DataProvider:_cached(key, ttl, fn)
     local now = g_currentMission and g_currentMission.time or 0
     local entry = self._cache[key]
+
+    -- Bei Netzausfall keine neuen Daten abrufen: vorhandene Cache-Daten bleiben stehen.
+    -- Wenn noch kein Cache existiert, geben wir einen passenden leeren Wert zurück.
+    -- Dadurch crashen Apps wie Lager/Tiere nicht mit pairs(nil) oder #nil.
+    if self._networkOnline == false then
+        if entry ~= nil then
+            return entry.v
+        end
+        local fallback = _ftDefaultCachedValue(key)
+        self._cache[key] = { v = fallback, t = now }
+        return fallback
+    end
+
     if entry and (now - entry.t) < (ttl or CACHE_TTL_MS) then
         return entry.v
     end
-    local v = fn()
+
+    local ok, v = pcall(fn)
+    if not ok or v == nil then
+        v = (entry ~= nil and entry.v) or _ftDefaultCachedValue(key)
+    end
     self._cache[key] = { v = v, t = now }
     return v
 end
@@ -50,7 +203,7 @@ function FT_DataProvider:getPlayerFarmId()
 end
 
 function FT_DataProvider:getBalance(farmId)
-    return self:_cached("balance_"..farmId, 1000, function()
+    local v = self:_cached("balance_"..farmId, 1000, function()
         if g_farmManager then
             local farm = g_farmManager:getFarmById(farmId)
             -- farm:getBalance() is the authoritative FS25 API (confirmed in AIJob.lua)
@@ -62,16 +215,18 @@ function FT_DataProvider:getBalance(farmId)
         end
         return 0
     end)
+    return tonumber(v) or 0
 end
 
 function FT_DataProvider:getLoan(farmId)
-    return self:_cached("loan_"..farmId, 2000, function()
+    local v = self:_cached("loan_"..farmId, 2000, function()
         if g_farmManager then
             local farm = g_farmManager:getFarmById(farmId)
             if farm and farm.loan then return math.floor(farm.loan) end
         end
         return 0
     end)
+    return tonumber(v) or 0
 end
 
 function FT_DataProvider:getFarmName(farmId)
@@ -175,6 +330,9 @@ end
 -- ── World / Environment ───────────────────────────────────
 
 function FT_DataProvider:getWorldInfo()
+    if self._networkOnline == false and self._frozenWorldInfo ~= nil then
+        return self._frozenWorldInfo
+    end
     return self:_cached("world", 500, function()
         if not (g_currentMission and g_currentMission.environment) then
             return nil
@@ -353,35 +511,42 @@ end
 -- the same logic as FS25's MapOverlayGenerator (minHarvestingGrowthState,
 -- harvestTransitions, witheredState). Avoids the static 0-8 table which
 -- gives wrong results for crops with more than 8 growth stages (e.g. Canola).
+local function _ftDpText(key, fallback)
+    if g_i18n and key and g_i18n.hasText and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or tostring(key or "")
+end
+
 local function _resolveGrowthState(gs, ft2)
     if gs == 0 or ft2 == nil then
-        return "Empty", FT.C.MUTED, "empty"
+        return _ftDpText("ft_field_state_empty", "Empty"), FT.C.MUTED, "empty"
     end
     local minH = ft2.minHarvestingGrowthState or 0
     local maxH = ft2.maxHarvestingGrowthState or minH
     -- Ready to harvest
     if minH > 0 and gs >= minH and gs <= maxH then
-        return "Ready", FT.C.POSITIVE, "ready"
+        return _ftDpText("ft_field_state_harvest", "Ready"), FT.C.POSITIVE, "ready"
     end
     -- Post-harvest stubble state (harvestTransitions set is crop-specific)
     if ft2.harvestTransitions then
         for _, hState in pairs(ft2.harvestTransitions) do
             if gs == hState then
-                return "Harvested", FT.C.MUTED, "empty"
+                return _ftDpText("ft_field_state_harvested", "Harvested"), FT.C.MUTED, "empty"
             end
         end
     end
     -- Withered
     if ft2.witheredState and gs == ft2.witheredState then
-        return "Withered", FT.C.NEGATIVE, "withered"
+        return _ftDpText("ft_field_state_withered", "Withered"), FT.C.NEGATIVE, "withered"
     end
     -- Growing stages (1 .. minH-1)
-    if gs == 1 then return "Seeded",     FT.C.MUTED,    "growing" end
-    if gs == 2 then return "Germinated", FT.C.INFO,     "growing" end
+    if gs == 1 then return _ftDpText("ft_field_state_seeded", "Seeded"),     FT.C.MUTED,    "growing" end
+    if gs == 2 then return _ftDpText("ft_field_state_germinated", "Germinated"), FT.C.INFO,     "growing" end
     if minH > 0 and gs == minH - 1 then
-        return "Ripening", FT.C.BRAND, "growing"
+        return _ftDpText("ft_field_state_ripening", "Ripening"), FT.C.BRAND, "growing"
     end
-    return "Growing", FT.C.WARNING, "growing"
+    return _ftDpText("ft_field_state_growing", "Growing"), FT.C.WARNING, "growing"
 end
 
 -- Each Farmland links to ONE Field via farmland.field (set by FieldManager).
@@ -403,8 +568,8 @@ function FT_DataProvider:getOwnedFields(farmId)
                 end
 
                 if field then
-                    local cropName   = "Empty"
-                    local stateName  = "Empty"
+                    local cropName   = _ftDpText("ft_field_crop_empty", "Empty")
+                    local stateName  = _ftDpText("ft_field_state_empty", "Empty")
                     local stateColor = FT.C.MUTED
                     local phase      = "empty"
 
@@ -418,7 +583,7 @@ function FT_DataProvider:getOwnedFields(farmId)
                             if fruitIdx and fruitIdx ~= unknown and g_fruitTypeManager then
                                 local ft2 = g_fruitTypeManager:getFruitTypeByIndex(fruitIdx)
                                 if ft2 then
-                                    cropName = ft2.nameI18N or ft2.name or "Unknown"
+                                    cropName = _ftDpLocalizedFillTypeName(ft2, _ftDpText("ft_field_crop_unknown", "Unknown"))
                                     local gs = fieldState.growthState or 0
                                     stateName, stateColor, phase = _resolveGrowthState(gs, ft2)
                                 end
@@ -473,6 +638,7 @@ function FT_DataProvider:getAnimalPens(farmId)
                         typeName = aspec.animalType.name
                     end
                 end
+                if FT and FT.l10nAuto then typeName = FT.l10nAuto(typeName) end
 
                 -- Count
                 local numAnimals = 0
@@ -661,7 +827,7 @@ function FT_DataProvider:getStorages(farmId)
                 if ft2 then
                     table.insert(out.crops, {
                         fillTypeIndex = fillTypeIdx,
-                        name          = ft2.title or ft2.name or ("Type "..fillTypeIdx),
+                        name          = _ftDpLocalizedFillTypeName(ft2, ("Type "..fillTypeIdx)),
                         amount        = math.floor(amount),
                     })
                 end
@@ -696,18 +862,46 @@ function FT_DataProvider:getSellPrices()
                                or stationName
                 end
 
-                -- Iterate all fill types; price > 0 means station accepts it
+                -- Iterate only fill types this station actually accepts.
+                -- Calling getEffectiveFillTypePrice() for every registered fill type can
+                -- trigger a GIANTS SellingStation call stack on some maps/mod sell points.
+                local candidates = {}
+                local function addCandidate(idx)
+                    idx = tonumber(idx)
+                    if idx ~= nil and idx > 1 then candidates[idx] = true end
+                end
+                if station.acceptedFillTypes ~= nil then
+                    for k, v in pairs(station.acceptedFillTypes) do
+                        if v == true or type(v) == "number" then addCandidate(k) end
+                    end
+                end
+                if station.fillTypes ~= nil then
+                    for k, v in pairs(station.fillTypes) do
+                        if v == true or type(v) == "number" then addCandidate(k) end
+                    end
+                end
+                if station.priceMultipliers ~= nil then
+                    for k, _ in pairs(station.priceMultipliers) do addCandidate(k) end
+                end
+
                 if g_fillTypeManager and g_fillTypeManager.fillTypes then
-                    for fillTypeIdx, fillType in pairs(g_fillTypeManager.fillTypes) do
-                        if type(fillTypeIdx) == "number" and fillTypeIdx > 1 then
-                            local ok, price = pcall(function()
-                                return station:getEffectiveFillTypePrice(fillTypeIdx)
-                            end)
-                            if ok and price and price > 0 then
+                    for fillTypeIdx, _ in pairs(candidates) do
+                        local fillType = g_fillTypeManager.fillTypes[fillTypeIdx]
+                        if fillType ~= nil then
+                            -- Do NOT call SellingStation:getEffectiveFillTypePrice() here.
+                            -- Some mod maps throw a GIANTS call stack from inside that method even when pcall catches it.
+                            -- Use only already cached/raw station price tables when available; otherwise skip safely.
+                            local price = nil
+                            if station.fillTypePrices ~= nil then
+                                price = station.fillTypePrices[fillTypeIdx]
+                            elseif station.prices ~= nil then
+                                price = station.prices[fillTypeIdx]
+                            end
+                            if price and type(price) == "number" and price > 0 then
                                 local p1000 = math.floor(price * 1000)
                                 if not out[fillTypeIdx] then
                                     out[fillTypeIdx] = {
-                                        name        = fillType.title or fillType.name or ("Type "..fillTypeIdx),
+                                        name        = fillType.title or fillType.name or ((FT and FT.l10nAuto and FT.l10nAuto("Type")) or "Type") .. " " .. fillTypeIdx,
                                         bestPrice   = 0,
                                         bestStation = "",
                                         stations    = {},
@@ -922,7 +1116,7 @@ end
 local SEASON_NAMES = {"Spring","Summer","Autumn","Winter"}
 function FT_DataProvider:getSeasonName(seasonIdx)
     if seasonIdx == nil then return nil end
-    return SEASON_NAMES[seasonIdx + 1] or "Unknown"
+    return (FT and FT.l10nAuto and FT.l10nAuto(SEASON_NAMES[seasonIdx + 1] or "Unknown")) or (SEASON_NAMES[seasonIdx + 1] or "Unknown")
 end
 
 --- Flushes all cached data immediately.
@@ -930,4 +1124,11 @@ end
 --- so the next draw cycle picks up fresh values.
 function FT_DataProvider:invalidate()
     self._cache = {}
+end
+
+function FT_DataProvider:getNetworkStatus()
+    return {
+        online = self._networkOnline ~= false,
+        frozen = self._networkFrozen == true,
+    }
 end

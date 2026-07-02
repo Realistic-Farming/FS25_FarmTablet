@@ -109,13 +109,13 @@ function _dashDrawHome(self, settings, AC)
     local enabled = parseWidgets(settings.dashWidgets or DEFAULT_WIDGETS)
 
     -- Pull all data up front (cached by DataProvider)
-    local balance  = data:getBalance(farmId)
-    local loan     = data:getLoan(farmId)
-    local income   = data:getIncome(farmId)
-    local expenses = data:getExpenses(farmId)
+    local balance  = tonumber(data:getBalance(farmId)) or 0
+    local loan     = tonumber(data:getLoan(farmId)) or 0
+    local income   = tonumber(data:getIncome(farmId)) or 0
+    local expenses = tonumber(data:getExpenses(farmId)) or 0
     local profit   = income - expenses
-    local fields   = data:getActiveFieldCount(farmId)
-    local vehicles = data:getVehicleCount(farmId)
+    local fields   = tonumber(data:getActiveFieldCount(farmId)) or 0
+    local vehicles = tonumber(data:getVehicleCount(farmId)) or 0
     local world    = data:getWorldInfo()
     local weather  = data:getWeather()
 
@@ -231,6 +231,9 @@ function _dashDrawHome(self, settings, AC)
     local hasWorld = enabled["season"] or enabled["day"] or enabled["time"] or enabled["weather"]
     if world and hasWorld then
         y = self:drawSection(y, "WORLD")
+        world.hour = tonumber(world.hour) or 0
+        world.minute = tonumber(world.minute) or 0
+        world.day = tonumber(world.day) or 1
         local timeStr    = string.format("%02d:%02d", world.hour % 24, world.minute)
         local seasonName = data:getSeasonName(world.season)
         if enabled["season"] and seasonName then

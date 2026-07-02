@@ -10,27 +10,39 @@ local _templateIdx  = 1
 local _fieldIdx     = 0    -- 0 = "Any field"; >0 = index into _ownedFieldNums
 
 local TEMPLATES = {
-    "Harvest crops",
-    "Sow seeds",
-    "Apply fertilizer",
-    "Plow / cultivate",
-    "Spray fields",
-    "Sell crops",
-    "Refuel vehicles",
-    "Repair vehicles",
-    "Feed animals",
-    "Clean animal pens",
-    "Mow grass",
-    "Bale hay / straw",
-    "Collect bales",
-    "Check contracts",
-    "Visit shop",
-    "Collect productions",
-    "Buy equipment",
-    "Water crops",
-    "Check weather",
-    "Field maintenance",
+    { key = "ft_notes_template_harvest", fallback = "Harvest crops" },
+    { key = "ft_notes_template_sow", fallback = "Sow seeds" },
+    { key = "ft_notes_template_fertilize", fallback = "Apply fertilizer" },
+    { key = "ft_notes_template_plow", fallback = "Plow / cultivate" },
+    { key = "ft_notes_template_spray", fallback = "Spray fields" },
+    { key = "ft_notes_template_sell", fallback = "Sell crops" },
+    { key = "ft_notes_template_refuel", fallback = "Refuel vehicles" },
+    { key = "ft_notes_template_repair", fallback = "Repair vehicles" },
+    { key = "ft_notes_template_feed", fallback = "Feed animals" },
+    { key = "ft_notes_template_clean", fallback = "Clean animal pens" },
+    { key = "ft_notes_template_mow", fallback = "Mow grass" },
+    { key = "ft_notes_template_bale", fallback = "Bale hay / straw" },
+    { key = "ft_notes_template_collect_bales", fallback = "Collect bales" },
+    { key = "ft_notes_template_contracts", fallback = "Check contracts" },
+    { key = "ft_notes_template_shop", fallback = "Visit shop" },
+    { key = "ft_notes_template_collect_prod", fallback = "Collect productions" },
+    { key = "ft_notes_template_buy", fallback = "Buy equipment" },
+    { key = "ft_notes_template_water", fallback = "Water crops" },
+    { key = "ft_notes_template_weather", fallback = "Check weather" },
+    { key = "ft_notes_template_field_maint", fallback = "Field maintenance" },
 }
+
+local function N(key, fallback)
+    if FT_UI_TEXT ~= nil then return FT_UI_TEXT(key, fallback) end
+    if g_i18n and key and g_i18n:hasText(key) then return g_i18n:getText(key) end
+    return fallback or tostring(key or "")
+end
+
+local function templateText(idx)
+    local t = TEMPLATES[idx] or TEMPLATES[1]
+    if type(t) == "table" then return N(t.key, t.fallback) end
+    return tostring(t or "---")
+end
 
 -- ── Owned field helper ───────────────────────────────────
 
@@ -119,21 +131,21 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
         if t.done then done = done + 1 else pending = pending + 1 end
     end
 
-    if self:drawHelpPage("_notesHelp", FT.APP.NOTES, "Notes", AC, {
-        { title = "TODO LIST",
+    if self:drawHelpPage("_notesHelp", FT.APP.NOTES, N("ft_app_notes", "Notes"), AC, {
+        { title = N("ft_notes_todo_list", "Todo list"),
           body  = "Keep track of farm tasks.\n\n" ..
                   "Use < / > to select a task template and field,\n" ..
                   "then + ADD to add it to the list.\n" ..
                   "Todos are saved automatically per savegame." },
-        { title = "ACTIONS",
+        { title = N("ft_notes_actions", "Actions"),
           body  = "DONE — mark a task as completed (■)\n" ..
                   "UNDO — mark it pending again (□)\n" ..
                   "✕    — remove the task entirely\n" ..
                   "CLEAR COMPLETED — remove all done tasks at once" },
     }) then return end
 
-    local startY = self:drawAppHeader("Notes",
-        pending > 0 and (pending .. " pending") or "All done!")
+    local startY = self:drawAppHeader(N("ft_app_notes", "Notes"),
+        pending > 0 and string.format(N("ft_notes_pending_fmt", "%d pending"), pending) or N("ft_notes_all_done", "All done!"))
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
@@ -141,12 +153,12 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     local GAP     = FT.py(5)
 
     -- ── Template picker + Add ─────────────────────────────
-    y = self:drawSection(y, "NEW TODO")
+    y = self:drawSection(y, N("ft_notes_new_task", "New task"))
     y = y - GAP
 
     local arrowW    = FT.px(28)
     local labelW    = cw - arrowW * 2 - FT.px(6)
-    local template  = TEMPLATES[_templateIdx] or "---"
+    local template  = templateText(_templateIdx)
 
     -- Prev arrow
     local btnPrev = self.r:button(x, y - BTN_H, arrowW, BTN_H, "<",
@@ -182,12 +194,12 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     if #ownedFields == 0 then
         self.r:appRect(x, y - BTN_H, cw, BTN_H, FT.C.BG_CARD)
         self.r:appText(x + cw * 0.5, y - BTN_H * 0.5 - FT.py(5),
-            FT.FONT.SMALL, "No fields owned",
+            FT.FONT.SMALL, N("ft_notes_no_fields", "No fields owned"),
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
     else
         local fieldLabel = _fieldIdx == 0
-            and "Any field"
-            or ("Field " .. tostring(ownedFields[_fieldIdx]))
+            and N("ft_notes_any_field", "Any field")
+            or (N("ft_common_field", "Field") .. " " .. tostring(ownedFields[_fieldIdx]))
 
         local btnFPrev = self.r:button(x, y - BTN_H, arrowW, BTN_H, "<",
             FT.C.BTN_NEUTRAL, {
@@ -215,12 +227,12 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
     -- Add button
     local btnAdd = self.r:button(x, y - BTN_H, cw, BTN_H,
-        "+ ADD TODO", FT.C.BTN_PRIMARY, {
+        N("ft_notes_add", "+ Add task"), FT.C.BTN_PRIMARY, {
         onClick = function()
-            local todoText = TEMPLATES[_templateIdx]
+            local todoText = templateText(_templateIdx)
             local fields = notes_getOwnedFieldNums()
             if _fieldIdx > 0 and fields[_fieldIdx] then
-                todoText = todoText .. " - Field " .. tostring(fields[_fieldIdx])
+                todoText = todoText .. " - " .. N("ft_common_field", "Field") .. " " .. tostring(fields[_fieldIdx])
             end
             table.insert(_todos, {text = todoText, done = false})
             notes_save()
@@ -233,12 +245,12 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
     y = self:drawSection(y,
-        string.format("TODO LIST  (%d pending · %d done)", pending, done))
+        string.format(N("ft_notes_list_count_fmt", "Tasks (%d open - %d done)"), pending, done))
     y = y - GAP
 
     if #_todos == 0 then
         self.r:appText(x + cw * 0.5, y - FT.py(12), FT.FONT.SMALL,
-            "No todos yet — add one above",
+            N("ft_notes_empty", "No tasks yet - add one above"),
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         y = y - FT.py(24)
     else
@@ -270,7 +282,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
             local btnDone = self.r:button(
                 x + statusW + FT.px(3) + textW + FT.px(3),
                 y - BTN_H, actionW, BTN_H,
-                todo.done and "UNDO" or "DONE",
+                todo.done and N("ft_common_undo", "Undo") or N("ft_common_done", "Done"),
                 todo.done and FT.C.BTN_NEUTRAL or FT.C.BTN_PRIMARY, {
                 onClick = function()
                     if _todos[capturedIdx] then
@@ -300,7 +312,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     if done > 0 then
         y = y - FT.py(4)
         local btnClearDone = self.r:button(x, y - BTN_H, cw, BTN_H,
-            string.format("CLEAR %d COMPLETED", done),
+            string.format(N("ft_notes_clear_completed_fmt", "Clear %d completed"), done),
             FT.C.BTN_DANGER, {
             onClick = function()
                 local remaining = {}

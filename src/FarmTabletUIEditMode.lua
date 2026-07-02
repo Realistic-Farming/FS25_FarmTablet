@@ -401,7 +401,7 @@ function FarmTabletUI:_drawEditOverlay()
     setTextAlignment(RenderText.ALIGN_CENTER)
     setTextColor(0.70, 0.85, 1.0, 0.90)
     renderText(0.5, 0.04, 0.010,
-        "TABLET EDIT MODE  |  Drag: move  |  Corners: scale  |  Edges: width  |  Right-click: exit")
+        FT.l10nAuto("TABLET EDIT MODE  |  Drag: move  |  Corners: scale  |  Edges: width  |  Right-click: exit"))
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(1,1,1,1)
 end

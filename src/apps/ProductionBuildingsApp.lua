@@ -5,6 +5,12 @@
 -- Data via g_currentMission.productionChainManager.
 -- =========================================================
 
+local function PText(key, fallback)
+    if FT_UI_TEXT ~= nil then return FT_UI_TEXT(key, fallback) end
+    if g_i18n and key and g_i18n:hasText(key) then return g_i18n:getText(key) end
+    return fallback or tostring(key or "")
+end
+
 FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
     local AC = FT.appColor(FT.APP.PRODUCTION)
 
@@ -33,18 +39,18 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
     local farmId  = data:getPlayerFarmId()
     local buildings = data:getProductionBuildings(farmId)
 
-    local subtitle = #buildings == 1 and "1 building" or (#buildings .. " buildings")
-    local startY   = self:drawAppHeader("Production", subtitle)
+    local subtitle = #buildings == 1 and PText("ft_production_one_building", "1 building") or string.format(PText("ft_production_buildings_fmt", "%d buildings"), #buildings)
+    local startY   = self:drawAppHeader(PText("ft_app_production", "Production"), subtitle)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
-    local y       = startY + scrollY
+    local y       = startY - FT.py(8) + scrollY
 
     if #buildings == 0 then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
-            "No production buildings owned.",
+            PText("ft_production_none", "No production buildings owned."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         self.r:appText(x, y - FT.py(28), FT.FONT.SMALL,
-            "Purchase a production placeable to track it here.",
+            PText("ft_production_buy_hint", "Purchase a production placeable to track it here."),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         self:drawInfoIcon("_prodHelp", AC)
         return
@@ -53,54 +59,56 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
     for _, b in ipairs(buildings) do
         -- ── Card background ───────────────────────────────
         local ioLines = math.max(#b.inputs, #b.outputs, 1)
-        local cardH   = FT.py(22 + 14 + ioLines * 13 + 10)
+        local cardH   = FT.py(30 + ioLines * 14 + 14)
 
         self.r:appRect(x - FT.px(4), y - cardH + FT.py(4),
             cw + FT.px(8), cardH, {AC[1]*0.06, AC[2]*0.06, AC[3]*0.06, 0.80})
+        self.r:appRect(x - FT.px(4), y - cardH + FT.py(4), FT.px(3), cardH,
+            {AC[1], AC[2], AC[3], 0.55})
 
         -- ── Building name ─────────────────────────────────
-        self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
+        self.r:appText(x + FT.px(10), y - FT.py(10), FT.FONT.SMALL,
             b.name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
 
         -- Status badge (top-right)
         local isActive   = b.activeCount > 0
         local statusText = isActive
-            and (b.activeCount .. "/" .. b.totalCount .. " active")
-            or  "stalled"
+            and string.format(PText("ft_production_active_fmt", "%d/%d active"), b.activeCount, b.totalCount)
+            or  PText("ft_production_stalled", "stalled")
         local statusColor = isActive and FT.C.POSITIVE or FT.C.WARNING
         self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
             statusText, RenderText.ALIGN_RIGHT, statusColor)
 
         -- Accent line below name
-        self.r:appRect(x + FT.px(6), y - FT.py(16), cw - FT.px(12), FT.py(1),
+        self.r:appRect(x + FT.px(10), y - FT.py(18), cw - FT.px(20), FT.py(1),
             {AC[1], AC[2], AC[3], 0.30})
 
-        local ioY = y - FT.py(22)
+        local ioY = y - FT.py(27)
 
         -- ── Inputs column ─────────────────────────────────
-        local colW = (cw - FT.px(12)) * 0.48
-        self.r:appText(x + FT.px(6), ioY, FT.FONT.TINY,
-            "INPUTS", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        local colW = (cw - FT.px(28)) * 0.48
+        self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
+            PText("ft_production_inputs", "Inputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         ioY = ioY - FT.py(13)
 
         if #b.inputs == 0 then
-            self.r:appText(x + FT.px(10), ioY, FT.FONT.TINY,
+            self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
                 "-", RenderText.ALIGN_LEFT, FT.C.MUTED)
             ioY = ioY - FT.py(13)
         else
             for _, inp in ipairs(b.inputs) do
-                self.r:appText(x + FT.px(10), ioY, FT.FONT.TINY,
+                self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
                     "- " .. inp, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
                 ioY = ioY - FT.py(13)
             end
         end
 
         -- ── Outputs column ────────────────────────────────
-        local outX = x + FT.px(6) + colW + FT.px(8)
-        local outY = y - FT.py(22)
+        local outX = x + FT.px(18) + colW + FT.px(18)
+        local outY = y - FT.py(27)
 
         self.r:appText(outX, outY, FT.FONT.TINY,
-            "OUTPUTS", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            PText("ft_production_outputs", "Outputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         outY = outY - FT.py(13)
 
         if #b.outputs == 0 then
@@ -115,7 +123,7 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
             end
         end
 
-        y = y - cardH - FT.py(6)
+        y = y - cardH - FT.py(8)
     end
 
     self:setContentHeight(startY - y + scrollY)
