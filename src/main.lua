@@ -116,6 +116,3 @@ FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mis
 end)
 
 Logging.info("[FarmTablet v2] Module loaded.")
-
--- Final runtime polish/localisation fixes
-source(modDirectory .. "src/core/RuntimeFixes.lua")

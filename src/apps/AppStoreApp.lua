@@ -121,7 +121,8 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
         desc = (app.descriptionKey and g_i18n and g_i18n:hasText(app.descriptionKey) and g_i18n:getText(app.descriptionKey))
             or app.description
             or ""
-        if #desc > 58 then desc = desc:sub(1, 56) .. ">" end
+        desc = FT.l10nAuto(desc)
+        if #desc > 72 then desc = desc:sub(1, 70) .. ">" end
     else
         desc = ""
     end

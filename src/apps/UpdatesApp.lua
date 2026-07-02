@@ -6,8 +6,11 @@
 
 local function ftSafeText(key, fallback)
     local raw = fallback or tostring(key or "")
+    if ftUiText ~= nil then
+        local v = ftUiText(key, raw)
+        if v ~= nil and v ~= tostring(key or "") and v ~= raw then return v end
+    end
     if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, raw) end
-    if g_i18n ~= nil and key ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then return g_i18n:getText(key) end
     if FT ~= nil and FT.l10nAuto ~= nil then return FT.l10nAuto(raw) end
     return raw
 end

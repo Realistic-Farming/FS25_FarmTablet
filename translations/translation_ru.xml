@@ -2469,5 +2469,10 @@
         <text name="ft_settings_battery_standby_rate" text="Расход ожидание" />
         <text name="ft_settings_hint_battery_standby_rate" text="Расход батареи, когда планшет закрыт." />
         <text name="ft_battery_rate_minutes" text="1%% / %d мин" />
+        <text name="ft_battery_service_title" text="Аккумулятор планшета" />
+        <text name="ft_battery_empty_auto_charge" text="Аккумулятор разряжен. Планшет на зарядке." />
+        <text name="ft_battery_charging_locked" text="Планшет на зарядке. Включение с 15%." />
+        <text name="ft_battery_charged_usable" text="Планшет достаточно заряжен. Нажмите T." />
+        <text name="ft_battery_charged_full" text="Планшет полностью заряжен." />
     </texts>
 </l10n>

@@ -178,8 +178,6 @@ end
 function FarmTabletManager:delete()
     -- #84 Tear down the cross-mod focus handle so the next session starts clean.
     if FarmTabletFocus then FarmTabletFocus:reset() end
-    -- Clear EventBus listeners so a companion's missed :off() cannot leak across reloads.
-    if FT_EventBus and FT_EventBus.reset then FT_EventBus:reset() end
     if self.mission then self.mission.farmTablet = nil end
     if self._origCameraZoom then
         Enterable.actionEventCameraZoomInOut = self._origCameraZoom

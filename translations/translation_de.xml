@@ -2428,5 +2428,10 @@
         <text name="ft_settings_battery_standby_rate" text="Verbrauch Standby" />
         <text name="ft_settings_hint_battery_standby_rate" text="Akkuverbrauch, wenn das Tablet geschlossen ist." />
         <text name="ft_battery_rate_minutes" text="1 %% / %d Min." />
+        <text name="ft_battery_service_title" text="Tablet-Akku" />
+        <text name="ft_battery_empty_auto_charge" text="Tablet-Akku leer. Tablet ist am Ladegerät." />
+        <text name="ft_battery_charging_locked" text="Tablet am Ladegerät. Einschalten ab 15% möglich." />
+        <text name="ft_battery_charged_usable" text="Tablet ausreichend geladen. Mit T wieder einschalten." />
+        <text name="ft_battery_charged_full" text="Tablet voll geladen." />
     </texts>
 </l10n>
