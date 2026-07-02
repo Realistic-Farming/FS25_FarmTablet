@@ -139,8 +139,10 @@ function FarmTabletUI.new(settings, system, modDirectory)
 
     -- Content area scroll state (per-app, reset on app switch)
     self._contentScrollY      = 0
+    self._contentScrollTarget = 0
     self._contentScrollMax    = 0
-    self._contentScrollStep   = FT.py and FT.py(48) or 0.040
+    self._contentScrollStep   = FT.py and FT.py(46) or 0.036
+    self._contentScrollMoving = false
 
     -- Animation (transient overlay drawn on top of the built screen)
     self._anim    = nil      -- {kind, t, dur, data}
@@ -157,6 +159,11 @@ function FarmTabletUI.new(settings, system, modDirectory)
     self._batteryChargeBtn = nil
     self._batteryCharging = false
     self._batteryChargeTimer = 0
+    self._batteryChargeLastMs = nil
+    self._batteryChargeStartLevel = nil
+    self._batteryChargeNotifyUsable = false
+    self._batteryChargeNotifyFull = false
+    self._batteryEmptyOpenBlockedLastMs = nil
 
     self._signalBars = 4
     self._signalLabel = "Realistic Farming Mobile"
@@ -331,6 +338,63 @@ function FarmTabletUI:_getSafeDtMs(dt)
     return elapsed
 end
 
+
+function FarmTabletUI:_getBatteryMinStartLevel()
+    local s = self.settings or {}
+    return math.max(5, math.min(50, tonumber(s.tabletBatteryMinStartLevel) or 15))
+end
+
+function FarmTabletUI:_formatBatteryChargeProgress()
+    local pct = math.floor(ftClampBattery(self._battery or 0))
+    local filled = math.floor((pct + 5) / 10)
+    if filled < 0 then filled = 0 elseif filled > 10 then filled = 10 end
+    local bar = string.rep("#", filled) .. string.rep("-", 10 - filled)
+    return string.format("%d%% [%s]", pct, bar)
+end
+
+function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress)
+    local title = ftUiText(titleKey or "ft_battery_service_title", titleFallback or "Tablet battery")
+    local msg = ftUiText(msgKey or "ft_battery_charging_info", msgFallback or "Tablet is charging.")
+    if withProgress == true then
+        msg = msg .. " " .. self:_formatBatteryChargeProgress()
+    end
+    self._signalToast = { title = title, msg = msg, time = 5200 }
+    local text = title .. ": " .. msg
+    if g_currentMission ~= nil and g_currentMission.addIngameNotification ~= nil then
+        local typ = (FSBaseMission and (FSBaseMission.INGAME_NOTIFICATION_INFO or FSBaseMission.INGAME_NOTIFICATION_OK or FSBaseMission.INGAME_NOTIFICATION_CRITICAL)) or 1
+        pcall(function() g_currentMission:addIngameNotification(typ, text) end)
+    elseif g_currentMission ~= nil and g_currentMission.hud ~= nil and g_currentMission.hud.showBlinkingWarning ~= nil then
+        pcall(function() g_currentMission.hud:showBlinkingWarning(text, 5000) end)
+    elseif g_FarmTablet ~= nil and g_FarmTablet.showNotification ~= nil then
+        pcall(function() g_FarmTablet:showNotification(title, msg) end)
+    end
+end
+
+function FarmTabletUI:_forceCloseForBattery()
+    if not self.isOpen then return end
+    self.isOpen = false
+    if self.system ~= nil then self.system.isTabletOpen = false end
+    self._anim = nil
+    self:_destroy()
+    if self.system ~= nil and self.system.onTabletClosed ~= nil then
+        pcall(function() self.system:onTabletClosed() end)
+    end
+    if g_currentMission ~= nil then
+        pcall(function() g_currentMission:removeDrawable(self) end)
+        if self._mouseListener ~= nil then
+            pcall(function() removeModEventListener(self._mouseListener) end)
+            self._mouseListener = nil
+        end
+    end
+    if g_inputBinding ~= nil and g_inputBinding.setShowMouseCursor ~= nil then
+        pcall(function() g_inputBinding:setShowMouseCursor(false) end)
+    end
+    self._tabletCamRotX = nil
+    self._tabletCamRotY = nil
+    self._tabletCamRotZ = nil
+    if FarmTabletFocus then FarmTabletFocus:setFocus(false, nil) end
+end
+
 function FarmTabletUI:_updateBatterySystem(dt)
     if self._batteryCharging then return false end
     self._battery = ftClampBattery(self._battery)
@@ -362,13 +426,11 @@ function FarmTabletUI:_updateBatterySystem(dt)
         self.settings.tabletBatteryLevel = now
         self.settings.tabletBatteryDrainMs = self._batteryDrainMs
         self:_persistBattery(false)
-        if now <= 0 and self.uiState ~= "empty" then
+        if now <= 0 then
             self._batteryEmpty = true
-            if self.isOpen then
-                self.uiState = "empty"
-                self:_rebuildScreen()
-                self:playUISound("back")
-            end
+            self:_forceCloseForBattery()
+            self:_startBatteryCharge(true)
+            self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_empty_auto_charge", "Tablet-Akku leer. Tablet ist am Ladegerät.", true)
         end
         return true
     end
@@ -392,6 +454,28 @@ function FarmTabletUI:openTablet()
         self.isOpen = false
         if self.system ~= nil then self.system.isTabletOpen = false end
         return
+    end
+
+    self._battery = ftClampBattery(self.settings.tabletBatteryLevel or self._battery or 100)
+    if (self._battery or 0) <= 0 then
+        self:_startBatteryCharge(true)
+    end
+    if self._batteryCharging == true and (self._battery or 0) < self:_getBatteryMinStartLevel() then
+        local nowMs = self:_getBatteryRealTimeMs()
+        if self._batteryEmptyOpenBlockedLastMs == nil or (nowMs - self._batteryEmptyOpenBlockedLastMs) > 2500 then
+            self._batteryEmptyOpenBlockedLastMs = nowMs
+            self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charging_locked", "Tablet am Ladegerät. Einschalten ab 15% möglich.", true)
+        end
+        self.isOpen = false
+        if self.system ~= nil then self.system.isTabletOpen = false end
+        return
+    end
+    if self._batteryCharging == true and (self._battery or 0) >= self:_getBatteryMinStartLevel() then
+        -- Beim Öffnen wird das Tablet vom Ladegerät genommen. Der aktuelle Akkustand bleibt erhalten.
+        self._batteryCharging = false
+        self._batteryChargeLastMs = nil
+        self._batteryDrainMs = 0
+        self:_persistBattery(true)
     end
 
     self.isOpen = true
@@ -462,7 +546,7 @@ function FarmTabletUI:openTablet()
     self:_startAnim("wake", 360)
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
-    self:updateFocus()
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
 end
 
 function FarmTabletUI:closeTablet()
@@ -501,7 +585,7 @@ function FarmTabletUI:closeTablet()
     self:_persistBattery(true)
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_CLOSED)
-    self:updateFocus()
+    if FarmTabletFocus then FarmTabletFocus:setFocus(false, nil) end
 end
 
 function FarmTabletUI:toggleTablet()
@@ -512,18 +596,6 @@ function FarmTabletUI:toggleTablet()
         return
     end
     if self.isOpen then self:closeTablet() else self:openTablet() end
-end
-
--- Central authority for the cross-mod focus handle (#84). Derives focus from the
--- live UI state so lock / home / empty / repair / provider screens all report the
--- tablet as visible but with NO app focused; only uiState == "app" focuses an app.
--- Called from _rebuildScreen (every state transition) plus open/close.
-function FarmTabletUI:updateFocus()
-    if FarmTabletFocus then
-        local isFocused = self.isOpen and self.uiState == "app"
-        local appId = isFocused and self.system and self.system.currentApp or nil
-        FarmTabletFocus:setFocus(self.isOpen, appId)
-    end
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -544,7 +616,7 @@ function FarmTabletUI:unlock()
     self:_rebuildScreen()
     self:_startAnim("unlock", 300)
     if self.settings.soundOnTabletToggle ~= false then self:playUISound("paging") end
-    self:updateFocus()
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
 end
 
 function FarmTabletUI:lockNow()
@@ -563,7 +635,7 @@ function FarmTabletUI:goHome()
     local rect = self._appCellRects[prev] or self:_screenCenterSquare()
     self:_startAnim("home", 240, { id = prev, rect = rect })
     self:playUISound("back")
-    self:updateFocus()
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, prev) end
 end
 
 --- App-bar Back: step up one level. If the current app registered a back
@@ -730,11 +802,6 @@ function FarmTabletUI:_rebuildScreen()
         self:_drawStatusBar()
         self:_drawHome()
     end
-
-    -- Re-derive the cross-mod focus handle now that uiState is settled (#84 focus
-    -- leak fix): every in-tablet state transition funnels through here, so this is the
-    -- single place that keeps FarmTabletFocus honest across lock/home/empty/repair/app.
-    self:updateFocus()
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -1111,7 +1178,7 @@ function FarmTabletUI:switchApp(appId)
     end
 
     FT_EventBus:emit(FT_EventBus.EVENTS.APP_SWITCHED, appId)
-    self:updateFocus()
+    if FarmTabletFocus then FarmTabletFocus:setFocus(self.isOpen, appId) end
     return true
 end
 
@@ -1939,19 +2006,27 @@ function FarmTabletUI:_drawBatteryEmpty()
     end
 end
 
-function FarmTabletUI:_startBatteryCharge()
+function FarmTabletUI:_startBatteryCharge(silent)
     if self._batteryCharging then return end
     self._batteryCharging = true
     self._batteryChargeTimer = 0
-    self._battery = 0
-    self.uiState = "empty"
-    self:_rebuildScreen()
-    self:playUISound("paging")
+    self._batteryChargeLastMs = self:_getBatteryRealTimeMs()
+    self._batteryChargeStartLevel = ftClampBattery(self._battery or 0)
+    self._batteryChargeNotifyUsable = false
+    self._batteryChargeNotifyFull = false
+    self._batteryEmpty = true
+    if self.isOpen then
+        self.uiState = "empty"
+        self:_rebuildScreen()
+        self:playUISound("paging")
+    elseif silent ~= true then
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_empty_auto_charge", "Tablet-Akku leer. Tablet ist am Ladegerät.", true)
+    end
 end
 
 function FarmTabletUI:_onMouseBatteryEmpty(px, py, isDown, isUp, btn)
     if isDown and btn == 1 and hit(self._batteryChargeBtn, px, py) then
-        self:_startBatteryCharge()
+        self:_startBatteryCharge(false)
         return true
     end
     return true
@@ -2183,6 +2258,57 @@ function FarmTabletUI:_updateSignalSystem(dt, force)
     return oldBars ~= self._signalBars or oldOutage ~= self._signalOutageActive
 end
 
+
+function FarmTabletUI:_updateBatteryCharging(dt)
+    local nowMs = self:_getBatteryRealTimeMs()
+    if self._batteryChargeLastMs == nil then self._batteryChargeLastMs = nowMs end
+    local elapsed = nowMs - self._batteryChargeLastMs
+    self._batteryChargeLastMs = nowMs
+    if elapsed < 0 then elapsed = 0 end
+    if elapsed > 5000 then elapsed = 5000 end
+    self._batteryChargeTimer = (self._batteryChargeTimer or 0) + elapsed
+
+    -- Ladegerät: 1% alle 6 Sekunden Echtzeit, also ca. 10 Minuten von 0 auf 100.
+    local oldPct = math.floor(self._battery or 0)
+    local startLevel = tonumber(self._batteryChargeStartLevel) or 0
+    local gained = math.floor((self._batteryChargeTimer or 0) / 6000)
+    self._battery = math.min(100, math.max(oldPct, math.floor(startLevel + gained)))
+    local pct = math.floor(self._battery or 0)
+
+    if pct ~= oldPct then
+        self.settings.tabletBatteryLevel = pct
+        self.settings.tabletBatteryDrainMs = 0
+        self:_persistBattery(false)
+    end
+
+    if pct >= self:_getBatteryMinStartLevel() and self._batteryChargeNotifyUsable ~= true then
+        self._batteryChargeNotifyUsable = true
+        self._batteryEmpty = false
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charged_usable", "Tablet ausreichend geladen. Mit T wieder einschalten.", true)
+    end
+
+    if pct >= 100 then
+        self._batteryCharging = false
+        self._batteryEmpty = false
+        self._battery = 100
+        self._batteryStart = self._battery
+        self._sessionSec = 0
+        self._batteryDrainMs = 0
+        self:_persistBattery(true)
+        if self.isOpen then
+            self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
+            self:_rebuildScreen()
+            self:playUISound("paging")
+        elseif self._batteryChargeNotifyFull ~= true then
+            self._batteryChargeNotifyFull = true
+            self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charged_full", "Tablet voll geladen.", true)
+        end
+    elseif self.isOpen and (not self._lastChargeDraw or ((self._batteryChargeTimer or 0) - self._lastChargeDraw) >= 1000) then
+        self._lastChargeDraw = self._batteryChargeTimer
+        self:_rebuildScreen()
+    end
+end
+
 function FarmTabletUI:update(dt)
     -- Das Empfangssystem muss auch laufen, wenn das Tablet weggepackt ist.
     -- So koennen Netzausfaelle per vorhandener Blinkanzeige gemeldet werden.
@@ -2205,7 +2331,11 @@ function FarmTabletUI:update(dt)
     end
 
     if not self.isOpen then
-        self:_updateBatterySystem(dt)
+        if self._batteryCharging then
+            self:_updateBatteryCharging(dt)
+        else
+            self:_updateBatterySystem(dt)
+        end
         return
     end
     if repairChanged then
@@ -2244,23 +2374,7 @@ function FarmTabletUI:update(dt)
     end
 
     if self._batteryCharging then
-        self._batteryChargeTimer = (self._batteryChargeTimer or 0) + dt
-        self._battery = math.min(100, math.floor((self._batteryChargeTimer or 0) / 5000 * 100))
-        if self._batteryChargeTimer >= 5000 then
-            self._batteryCharging = false
-            self._batteryEmpty = false
-            self._battery = 100
-            self._batteryStart = self._battery
-            self._sessionSec = 0
-            self._batteryDrainMs = 0
-            self:_persistBattery(true)
-            self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
-            self:_rebuildScreen()
-            self:playUISound("paging")
-        elseif not self._lastChargeDraw or (self._batteryChargeTimer - self._lastChargeDraw) >= 1000 then
-            self._lastChargeDraw = self._batteryChargeTimer
-            self:_rebuildScreen()
-        end
+        self:_updateBatteryCharging(dt)
         return
     else
         local batteryChanged = self:_updateBatterySystem(dt)
@@ -2272,6 +2386,7 @@ function FarmTabletUI:update(dt)
     -- Scroll / paging by state
     if self.uiState == "app" then
         self:_pollContentScroll()
+        self:_updateContentScrollSmooth(dt)
         if self.system.currentApp == FT.APP.DIGGING and self.updateDiggingApp then
             self:updateDiggingApp(dt)
         end
@@ -2340,39 +2455,48 @@ end
 -- CONTENT AREA SCROLL  (Settings and other tall apps)
 -- ─────────────────────────────────────────────────────────
 
+function FarmTabletUI:_redrawScrolledContent()
+    if not self.r then return end
+    self.r:clearAppLayer()
+    self._contentBtns = {}
+    self:_drawContent()
+end
+
+function FarmTabletUI:_applyContentScroll(dir, fast)
+    if (self._contentScrollMax or 0) <= 0 then return false end
+
+    -- Stable wheel scrolling:
+    -- The previous eased/animated scroll rebuilt the app layer over several
+    -- frames. On larger app lists this felt jerky and sometimes continued
+    -- farther than expected. Keep it simple and LS-like: one wheel notch moves
+    -- a calm, fixed distance and redraws exactly once.
+    local step = self._contentScrollStep or FT.py(46)
+    if fast then step = step * 1.25 end
+
+    local maxY = self._contentScrollMax or 0
+    local current = self._contentScrollY or 0
+    local newY = math.max(0, math.min(current + (dir * step), maxY))
+    if math.abs(newY - current) <= 0.0001 then return false end
+
+    self._contentScrollY = newY
+    self._contentScrollTarget = newY
+    self._contentScrollMoving = false
+    self:_redrawScrolledContent()
+    return true
+end
+
+function FarmTabletUI:_updateContentScrollSmooth(dt)
+    -- Intentionally disabled. Direct, single-redraw wheel scrolling is smoother
+    -- in this tablet because every redraw rebuilds text/buttons for the current
+    -- app. Animating that rebuild over multiple frames caused stutter.
+    self._contentScrollMoving = false
+end
+
 function FarmTabletUI:_pollContentScroll()
-    if not self.isOpen then return end
-    local L  = FT.LAYOUT
-    local px = self._mouseX
-    local py = self._mouseY
-    if not (L.contentX and L.contentW) then return end
-    if not (px >= L.contentX and px <= L.contentX + L.contentW and
-            py >= L.contentY and py <= L.contentY + L.contentH) then
-        self._cWheelUpWas   = false
-        self._cWheelDownWas = false
-        return
-    end
-    if (self._contentScrollMax or 0) <= 0 then
-        self._cWheelUpWas   = false
-        self._cWheelDownWas = false
-        return
-    end
-    local upNow   = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_UP)
-    local downNow = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
-    local dir = nil
-    if upNow   and not self._cWheelUpWas   then dir = -1 end
-    if downNow and not self._cWheelDownWas then dir =  1 end
-    self._cWheelUpWas   = upNow
-    self._cWheelDownWas = downNow
-    if dir == nil then return end
-    local step    = self._contentScrollStep or FT.py(145)
-    local newScroll = math.max(0, math.min((self._contentScrollY or 0) + dir * step, self._contentScrollMax or 0))
-    if math.abs(newScroll - (self._contentScrollY or 0)) > 0.0001 then
-        self._contentScrollY = newScroll
-        self.r:clearAppLayer()
-        self._contentBtns = {}
-        self:_drawContent()
-    end
+    -- Wheel input is handled by _onMouse only. Polling the wheel here made
+    -- some mice/drivers repeat a single wheel notch for several frames, which
+    -- felt like the list was running to the bottom by itself.
+    return
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -2386,8 +2510,19 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     self._mouseX = px
     self._mouseY = py
 
-    -- Consume scroll wheel so it never reaches the camera
+    -- Direct mouse-wheel scrolling in apps. Do it here instead of only via polling,
+    -- so every wheel notch reacts immediately and the camera never receives it.
     if isDown and (btn == Input.MOUSE_BUTTON_WHEEL_UP or btn == Input.MOUSE_BUTTON_WHEEL_DOWN) then
+        if self.uiState == "app" then
+            local L = FT.LAYOUT
+            if L.contentX and px >= L.contentX and px <= L.contentX + L.contentW and
+               py >= L.contentY and py <= L.contentY + L.contentH then
+                local dir = (btn == Input.MOUSE_BUTTON_WHEEL_UP) and -1 or 1
+                self:_applyContentScroll(dir, false)
+                self._cWheelUpWas   = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_UP)
+                self._cWheelDownWas = Input.isMouseButtonPressed(Input.MOUSE_BUTTON_WHEEL_DOWN)
+            end
+        end
         return true
     end
 
@@ -2603,8 +2738,9 @@ end
 function FarmTabletUI:setContentHeight(totalH)
     local _, _, _, ch = self:contentInner()
     self._contentScrollMax  = math.max(0, totalH - ch)
-    self._contentScrollStep = FT.py(145)
+    self._contentScrollStep = FT.py(46)
     self._contentScrollY = math.min(self._contentScrollY or 0, self._contentScrollMax)
+    self._contentScrollTarget = math.min(self._contentScrollTarget or self._contentScrollY or 0, self._contentScrollMax)
 end
 
 function FarmTabletUI:drawScrollBar()
@@ -2675,7 +2811,7 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
         self.r:appRect(x, divY - FT.py(2), w, FT.py(3), {accent[1], accent[2], accent[3], 0.12})
     end
 
-    FT.LAYOUT.bodyClipTop = divY - FT.py(10)
+    FT.LAYOUT.bodyClipTop = divY - FT.py(6)
     return divY - FT.py(12)
 end
 

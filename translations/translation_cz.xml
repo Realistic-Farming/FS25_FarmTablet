@@ -2418,5 +2418,10 @@
         <text name="ft_settings_battery_standby_rate" text="Standby drain" />
         <text name="ft_settings_hint_battery_standby_rate" text="Battery use while the tablet is closed." />
         <text name="ft_battery_rate_minutes" text="1%% / %d min" />
+        <text name="ft_battery_service_title" text="Tablet battery" />
+        <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
+        <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_full" text="Tablet fully charged." />
     </texts>
 </l10n>

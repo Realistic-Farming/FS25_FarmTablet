@@ -4165,6 +4165,12 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_battery_charge_hint"] = "Zum Weiterbenutzen kurz laden.",
     ["ft_battery_charging"] = "Tablet lädt ...",
     ["ft_battery_empty"] = "Tablet-Akku leer",
+
+    ["ft_battery_service_title"] = "Tablet-Akku",
+    ["ft_battery_empty_auto_charge"] = "Tablet-Akku leer. Tablet ist am Ladegerät.",
+    ["ft_battery_charging_locked"] = "Tablet am Ladegerät. Einschalten ab 15% möglich.",
+    ["ft_battery_charged_usable"] = "Tablet ausreichend geladen. Mit T wieder einschalten.",
+    ["ft_battery_charged_full"] = "Tablet voll geladen.",
     ["ft_common_available"] = "Verfügbar",
     ["ft_common_busy"] = "Beschäftigt",
     ["ft_common_close"] = "SCHLIESSEN",
@@ -5266,4 +5272,32 @@ do
     de["Worker list with sorting and filters"] = "Mitarbeiterliste mit Sortierung und Filtern"
     de["Hiring, dismissal and wage overview for staff"] = "Einstellung, Entlassung und Lohnübersicht für Personal"
     de["Multiplayer actions are synchronized through the host"] = "Multiplayer-Aktionen werden über den Host synchronisiert"
+end
+
+
+-- FarmTablet 2.5.2.9: final German leftovers for App Store / integrations
+-- Keep this as the very last l10n table patch so older fallback texts are also caught.
+do
+    FT.FINAL_DE_TEXT = FT.FINAL_DE_TEXT or {}
+    local de = FT.FINAL_DE_TEXT
+    de["Integrated"] = "Integriert"
+    de["integration"] = "Integration"
+    de["built-in"] = "eingebaut"
+    de["built-in + RoleplayPhone integration"] = "eingebaut + RoleplayPhone-Integration"
+    de["Invoice tracker — built-in + RoleplayPhone integration"] = "Rechnungsverwaltung – eingebaut + RoleplayPhone-Integration"
+    de["AnimalVetSystem illness and treatment monitor"] = "AnimalVetSystem: Krankheiten und Behandlungen"
+    de["FactoryWeekSchedule: worker, events and fire status"] = "FactoryWeekSchedule: Arbeiter, Ereignisse und Feuerstatus"
+    de["RealisticDealer: financing, rates and repossessions"] = "RealisticDealer: Finanzierungen, Raten und Rücknahmen"
+    de["Status from AnimalAutoCare and safe care action"] = "Status von Tier-Autopflege und sichere Pflege-Aktion"
+    de["Install FS25_IncomeMod to enable"] = "FS25_IncomeMod installieren, um es zu aktivieren"
+    de["Install FS25_TaxMod to enable"] = "FS25_TaxMod installieren, um es zu aktivieren"
+    de["Install FS25_NPCFavor to enable"] = "FS25_NPCFavor installieren, um es zu aktivieren"
+    de["Install FS25_SeasonalCropStress to enable"] = "FS25_SeasonalCropStress installieren, um es zu aktivieren"
+    de["Install FS25_SoilFertilizer to enable"] = "FS25_SoilFertilizer installieren, um es zu aktivieren"
+    de["Install FS25_MarketDynamics to enable"] = "FS25_MarketDynamics installieren, um es zu aktivieren"
+    de["Install FS25_WorkerCosts to enable"] = "FS25_WorkerCosts installieren, um es zu aktivieren"
+    de["Install FS25_RandomWorldEvents to enable"] = "FS25_RandomWorldEvents installieren, um es zu aktivieren"
+    de["Install FS25_UsedPlus to enable"] = "FS25_UsedPlus installieren, um es zu aktivieren"
+    de["All companion mod integrations are listed here."] = "Alle Begleit-Mod-Integrationen werden hier angezeigt."
+    de["Companion mod integrations"] = "Begleit-Mod-Integrationen"
 end

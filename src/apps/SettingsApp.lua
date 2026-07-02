@@ -103,13 +103,11 @@ local function ftSafeText(key, fallback)
     if ftSettingsIsGerman() and key ~= nil and FT_SETTINGS_DE[tostring(key)] ~= nil then
         return FT_SETTINGS_DE[tostring(key)]
     end
-    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, fallback) end
-    if g_i18n ~= nil and key ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then return g_i18n:getText(key) end
-    return fallback or tostring(key or "")
+    if ftUiText ~= nil then return ftUiText(key, fallback) end
+    return fallback
 end
 
 local function ftSafeFormat(key, fallback, ...)
-    if FT ~= nil and FT.l10nFormat ~= nil then return FT.l10nFormat(key, fallback, ...) end
     if ftUiFormat ~= nil then return ftUiFormat(key, fallback, ...) end
     return string.format(fallback, ...)
 end
