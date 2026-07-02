@@ -633,6 +633,15 @@
         <text name="ft_auto_current_balance_2" text="Текущий баланс" />
         <text name="ft_auto_current_conditions_and_forecast" text="Текущая погода и прогноз" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
+        <text name="ft_auto_category" text="Категория" />
+        <text name="ft_auto_cooldown" text="Перезарядка" />
+        <text name="ft_auto_economic" text="Экономика" />
+        <text name="ft_auto_event_categories" text="КАТЕГОРИИ СОБЫТИЙ" />
+        <text name="ft_auto_event_types" text="Типы событий" />
+        <text name="ft_auto_market_movers_per_1_000_l" text="ДВИЖЕНИЯ РЫНКА  (за 1000 л)" />
+        <text name="ft_auto_special" text="Особые" />
+        <text name="ft_auto_volatility" text="Волатильность" />
+        <text name="ft_auto_wildlife" text="Дикая природа" />
         <text name="ft_auto_current_fuel_as_a_percentage_of_tank_capacity" text="Current fuel as a percentage of tank capacity.&#10;" />
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Current in-game day, season (if Seasons mod is active),&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="current wage level, cost mode, active&#10;" />

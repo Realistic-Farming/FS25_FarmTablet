@@ -633,6 +633,15 @@
         <text name="ft_auto_current_balance_2" text="Current Balance" />
         <text name="ft_auto_current_conditions_and_forecast" text="Current conditions and forecast" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
+        <text name="ft_auto_category" text="Danh mục" />
+        <text name="ft_auto_cooldown" text="Thời gian chờ" />
+        <text name="ft_auto_economic" text="Kinh tế" />
+        <text name="ft_auto_event_categories" text="DANH MỤC SỰ KIỆN" />
+        <text name="ft_auto_event_types" text="Loại sự kiện" />
+        <text name="ft_auto_market_movers_per_1_000_l" text="BIẾN ĐỘNG THỊ TRƯỜNG  (mỗi 1.000 L)" />
+        <text name="ft_auto_special" text="Đặc biệt" />
+        <text name="ft_auto_volatility" text="Độ biến động" />
+        <text name="ft_auto_wildlife" text="Động vật hoang dã" />
         <text name="ft_auto_current_fuel_as_a_percentage_of_tank_capacity" text="Current fuel as a percentage of tank capacity.&#10;" />
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Current in-game day, season (if Seasons mod is active),&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="current wage level, cost mode, active&#10;" />

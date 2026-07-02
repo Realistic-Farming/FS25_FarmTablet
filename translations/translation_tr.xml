@@ -633,6 +633,15 @@
         <text name="ft_auto_current_balance_2" text="Current Balance" />
         <text name="ft_auto_current_conditions_and_forecast" text="Current conditions and forecast" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
+        <text name="ft_auto_category" text="Kategori" />
+        <text name="ft_auto_cooldown" text="Bekleme süresi" />
+        <text name="ft_auto_economic" text="Ekonomik" />
+        <text name="ft_auto_event_categories" text="OLAY KATEGORİLERİ" />
+        <text name="ft_auto_event_types" text="Olay türleri" />
+        <text name="ft_auto_market_movers_per_1_000_l" text="PİYASA HAREKETLERİ  (1.000 L başına)" />
+        <text name="ft_auto_special" text="Özel" />
+        <text name="ft_auto_volatility" text="Volatilite" />
+        <text name="ft_auto_wildlife" text="Yaban hayatı" />
         <text name="ft_auto_current_fuel_as_a_percentage_of_tank_capacity" text="Current fuel as a percentage of tank capacity.&#10;" />
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Current in-game day, season (if Seasons mod is active),&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="current wage level, cost mode, active&#10;" />
