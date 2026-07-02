@@ -221,6 +221,21 @@ end
 -- NOTE: Cross-mod globals (getfenv(0)["name"]) are per-mod scoped in FS25.
 -- Use g_currentMission.xxx properties for reliable cross-mod detection.
 function AppRegistry:autoDetect()
+    -- Settings Hub (ecosystem core-API): System Settings overview app.
+    -- Bridge: mission.settingsHub set by FS25_SettingsHub in Mission00.load
+    if g_currentMission and g_currentMission.settingsHub then
+        if not self:has(FT.APP.SYSTEM_SETTINGS) then
+            Logging.info("[FarmTablet] autoDetect: Settings Hub detected")
+            self:register({
+                id = FT.APP.SYSTEM_SETTINGS, group = "core",
+                name = "ft_ui_app_system_settings", navLabel = "SYS",
+                icon = "settings", order = 101,
+                developer = "TisonK", version = "Integrated",
+                description = "Overview of every ecosystem setting registered with the Settings Hub",
+            })
+        end
+    end
+
     -- Income Mod
     if g_currentMission and g_currentMission.incomeManager then
         if not self:has(FT.APP.INCOME) then

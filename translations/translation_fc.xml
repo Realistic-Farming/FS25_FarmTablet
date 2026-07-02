@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="Magasin d'applications" />
         <text name="ft_ui_app_updates" text="Mises à jour" />
         <text name="ft_ui_app_settings" text="Paramètres" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="Atelier" />
         <text name="ft_ui_app_field_status" text="Responsable de terrain" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

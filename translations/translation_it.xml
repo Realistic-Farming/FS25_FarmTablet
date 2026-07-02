@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="App Store" />
         <text name="ft_ui_app_updates" text="Aggiornamenti" />
         <text name="ft_ui_app_settings" text="Impostazioni" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="Officina" />
         <text name="ft_ui_app_field_status" text="Responsabile del campo" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

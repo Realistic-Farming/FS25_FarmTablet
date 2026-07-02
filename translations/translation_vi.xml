@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="Cửa hàng ứng dụng" />
         <text name="ft_ui_app_updates" text="Cập nhật" />
         <text name="ft_ui_app_settings" text="Cài đặt" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="Xưởng" />
         <text name="ft_ui_app_field_status" text="Người quản lý hiện trường" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

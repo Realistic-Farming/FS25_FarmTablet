@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="應用程式商店" />
         <text name="ft_ui_app_updates" text="更新" />
         <text name="ft_ui_app_settings" text="設定" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="工作坊" />
         <text name="ft_ui_app_field_status" text="現場經理" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

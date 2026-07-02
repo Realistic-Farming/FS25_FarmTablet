@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="アプリストア" />
         <text name="ft_ui_app_updates" text="アップデート" />
         <text name="ft_ui_app_settings" text="設定" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="ワークショップ" />
         <text name="ft_ui_app_field_status" text="フィールドマネージャー" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

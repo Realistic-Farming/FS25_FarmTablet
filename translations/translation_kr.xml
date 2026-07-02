@@ -25,6 +25,7 @@
         <text name="ft_ui_app_store" text="앱스토어" />
         <text name="ft_ui_app_updates" text="업데이트" />
         <text name="ft_ui_app_settings" text="설정" />
+        <text name="ft_ui_app_system_settings" text="System Settings" />
         <text name="ft_ui_app_workshop" text="작업장" />
         <text name="ft_ui_app_field_status" text="현장 관리자" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />

@@ -2195,6 +2195,7 @@ FT.APP_COLOR = {
     animal_vet_system   = {0.92, 0.35, 0.40, 1.00}, -- veterinary red
     factory_week_schedule = {0.70, 0.62, 0.35, 1.00}, -- brass
     realistic_dealer    = {0.35, 0.72, 1.00, 1.00}, -- dealer blue
+    system_settings     = {0.55, 0.62, 0.72, 1.00}, -- steel grey (ecosystem core)
 }
 
 -- Helper: get the accent color for a given app id
@@ -2207,6 +2208,7 @@ FT.APP = {
     DASHBOARD    = "dashboard",
     APP_STORE    = "app_store",
     SETTINGS     = "settings",
+    SYSTEM_SETTINGS = "system_settings",
     UPDATES      = "updates",
     WORKSHOP     = "workshop",
     FIELDS       = "field_status",
