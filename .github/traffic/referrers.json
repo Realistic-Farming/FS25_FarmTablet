@@ -2685,5 +2685,52 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-07-06": [
+    {
+      "referrer": "github.com",
+      "count": 416,
+      "uniques": 122
+    },
+    {
+      "referrer": "Google",
+      "count": 12,
+      "uniques": 9
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 7,
+      "uniques": 4
+    },
+    {
+      "referrer": "Yahoo",
+      "count": 7,
+      "uniques": 1
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 5,
+      "uniques": 1
+    },
+    {
+      "referrer": "der-ls-treffpunkt.de",
+      "count": 3,
+      "uniques": 2
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 3,
+      "uniques": 1
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "search.brave.com",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
