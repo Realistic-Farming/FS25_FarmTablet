@@ -2768,12 +2768,12 @@
   "2026-07-09": [
     {
       "referrer": "github.com",
-      "count": 360,
-      "uniques": 119
+      "count": 339,
+      "uniques": 117
     },
     {
       "referrer": "Google",
-      "count": 11,
+      "count": 9,
       "uniques": 8
     },
     {
@@ -2783,7 +2783,7 @@
     },
     {
       "referrer": "Yahoo",
-      "count": 7,
+      "count": 6,
       "uniques": 1
     },
     {
