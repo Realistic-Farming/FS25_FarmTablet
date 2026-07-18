@@ -6,9 +6,9 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     local AC = FT.appColor(FT.APP.WEATHER)
 
     if self:drawHelpPage("_weatherHelp", FT.APP.WEATHER, "Weather", AC, {
-        { title = "CONDITION HERO CARD",
-          body  = "Shows the current weather condition with a colour-coded\n" ..
-                  "left stripe: blue = rain, orange = storm, grey = overcast,\n" ..
+        { title = "CURRENT CONDITION",
+          body  = "Shows the current weather at the top with a colour-coded\n" ..
+                  "left edge: blue = rain, orange = storm, grey = overcast,\n" ..
                   "white = clear, dark = fog." },
         { title = "TEMPERATURE",
           body  = "Current air temperature in Celsius with a feel label:\n" ..
@@ -19,7 +19,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
                   "0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." },
         { title = "WIND",
           body  = "Wind speed in km/h and compass direction.\n" ..
-                  "Shown top-right of the hero card and in the detail rows." },
+                  "Shown top-right of the current condition and in the detail rows." },
         { title = "PRECIPITATION",
           body  = "Rain or storm intensity shown with a fill bar.\n" ..
                   "Bar length reflects the rain scale value (0-100%)." },
