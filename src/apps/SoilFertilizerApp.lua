@@ -63,7 +63,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
     local data   = self.system.data
     local farmId  = data:getPlayerFarmId()
     local fields  = data:getOwnedFields(farmId)
-    local isAdmin = (FS.isPlayerAdmin == nil) or (FS.isPlayerAdmin() == true)
+    local isAdmin = (FS.isPlayerAdmin ~= nil) and (FS.isPlayerAdmin() == true)
 
     -- Summary count (asleep = simulation disabled for any reason).
     local asleep = 0
