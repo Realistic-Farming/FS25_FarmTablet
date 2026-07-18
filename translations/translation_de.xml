@@ -2299,6 +2299,12 @@
         <text name="ft_settings_hint_home_image" text="Eigene PNG-Dateien aus dem Ordner FTBackground nutzen." />
         <text name="ft_settings_app_labels" text="App-Beschriftungen" />
         <text name="ft_settings_text_size_title" text="Textgröße" />
+        <text name="ft_settings_content_font_title" text="App-Textgröße" />
+        <text name="ft_settings_hint_content_font" text="Größe des Textes in den Apps. Größer ist auf großen Bildschirmen besser lesbar." />
+        <text name="ft_font_scale_small" text="Klein (0.8x)" />
+        <text name="ft_font_scale_normal" text="Normal (1.0x)" />
+        <text name="ft_font_scale_large" text="Groß (1.25x)" />
+        <text name="ft_font_scale_huge" text="Sehr groß (1.5x)" />
         <text name="ft_settings_hint_text_size2" text="Größe der App-Beschriftungen." />
         <text name="ft_settings_text_color_title" text="Textfarbe" />
         <text name="ft_settings_hint_text_color2" text="Farbe der App-Beschriftungen." />

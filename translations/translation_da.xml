@@ -2298,6 +2298,12 @@
         <text name="ft_settings_hint_home_image" text="Use your own PNG files from the FTBackground folder." />
         <text name="ft_settings_app_labels" text="App labels" />
         <text name="ft_settings_text_size_title" text="Text size" />
+        <text name="ft_settings_content_font_title" text="Content text size" />
+        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger is easier to read on big screens." />
+        <text name="ft_font_scale_small" text="Small (0.8x)" />
+        <text name="ft_font_scale_normal" text="Normal (1.0x)" />
+        <text name="ft_font_scale_large" text="Large (1.25x)" />
+        <text name="ft_font_scale_huge" text="Huge (1.5x)" />
         <text name="ft_settings_hint_text_size2" text="Size of app labels." />
         <text name="ft_settings_text_color_title" text="Text colour" />
         <text name="ft_settings_hint_text_color2" text="Colour of app labels." />

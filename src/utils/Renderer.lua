@@ -266,6 +266,9 @@ function FT_Renderer:flushContent(clipY, clipH)
     local clipTop    = doClip and (clipY + clipH) or nil
     local clipBottom = doClip and clipY or nil
 
+    -- Text scale: grows font with the tablet scale + the player's font setting.
+    local fs = (FT.LAYOUT and FT.LAYOUT.fontScale) or 1
+
     -- Body clipping: app headers are fixed; scrolling content must never bleed into them.
     local bodyClipTop = (doClip and FT.LAYOUT and FT.LAYOUT.bodyClipTop) and math.min(clipTop, FT.LAYOUT.bodyClipTop) or clipTop
 
@@ -300,13 +303,13 @@ function FT_Renderer:flushContent(clipY, clipH)
     for _, t in ipairs(self._texts) do
         setTextAlignment(t.align)
         setTextColor(unpack(t.color))
-        renderText(t.x, t.y, t.size, t.text)
+        renderText(t.x, t.y, t.size * fs, t.text)
     end
     -- 6. Fixed app header text
     for _, t in ipairs(self._headerTexts) do
         setTextAlignment(t.align)
         setTextColor(unpack(t.color))
-        renderText(t.x, t.y, t.size, t.text)
+        renderText(t.x, t.y, t.size * fs, t.text)
     end
     -- 7. App body text (mixed in _buttons, clipped)
     for _, t in ipairs(self._buttons) do
@@ -315,10 +318,10 @@ function FT_Renderer:flushContent(clipY, clipH)
                 -- Guard: skip corrupt entries; they would crash renderText with nil arg
                 Logging.devWarning("FarmTablet Renderer: skipped nil text entry — text=%s x=%s y=%s",
                     tostring(t.text), tostring(t.x), tostring(t.y))
-            elseif not doClip or inView(t.y, t.size) then
+            elseif not doClip or inView(t.y, t.size * fs) then
                 setTextAlignment(t.align)
                 setTextColor(unpack(t.color))
-                renderText(t.x, t.y, t.size, t.text)
+                renderText(t.x, t.y, t.size * fs, t.text)
             end
         end
     end

@@ -2150,6 +2150,9 @@ FT.LAYOUT = {
     topbarX = 0, topbarY = 0, topbarW = 0, topbarH = 0,
     -- Scale factors
     scaleX = 1, scaleY = 1,
+    -- Text scale: tabletScale * contentFontScale. Applied to every rendered
+    -- font size so text grows with the tablet (and the player's font setting).
+    fontScale = 1,
 }
 
 -- ── Per-App Accent Colors ─────────────────────────────────
