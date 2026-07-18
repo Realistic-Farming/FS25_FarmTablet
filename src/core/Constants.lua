@@ -4,7 +4,7 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.5.2.9"
+FT.VERSION = "2.5.2.15"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
 
 -- Generic localization helpers.  This keeps old app scripts from drawing
 -- fixed English labels directly on screen: if a visible text has a matching
