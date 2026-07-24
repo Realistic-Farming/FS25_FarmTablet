@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FarmTablet Soil — Field Blocks Mock v3 (targets + prescriptions)</title>
+  <style>
+    /*
+      Color tokens map 1:1 to FT.C in src/core/Constants.lua.
+      Layout mirrors FarmTabletUI drawer chrome:
+      drawAppHeader → status strip → drawSection → drawRule → drawBar / rows → drawInfoIcon + scroll.
+      v3: bar values show current / expected; TREATMENT lists per-deficit prescriptions
+      (mirrored from SoilTreatmentDialog rate strings + action text).
+    */
+    :root {
+      --bg-deep:   rgb(10, 13, 18);       /* BG_DEEP  0.04,0.05,0.07 */
+      --bg-panel:  rgb(18, 23, 31);       /* BG_PANEL 0.07,0.09,0.12 */
+      --bg-card:   rgb(23, 28, 38);       /* BG_CARD  0.09,0.11,0.15 */
+      --bg-nav:    rgb(13, 15, 23);       /* BG_NAV */
+
+      --brand:     rgb(41, 194, 97);      /* BRAND / soil accent ~sage */
+      --soil:      rgb(140, 204, 102);    /* APP_COLOR.soil_fertilizer */
+      --positive:  rgb(56, 224, 117);     /* POSITIVE */
+      --negative:  rgb(242, 71, 71);      /* NEGATIVE */
+      --warning:   rgb(255, 184, 26);     /* WARNING */
+      --info:      rgb(77, 166, 255);     /* INFO */
+      --muted:     rgb(107, 112, 128);    /* MUTED */
+
+      --text-bright: rgb(245, 247, 250); /* TEXT_BRIGHT */
+      --text-normal: rgb(199, 204, 214); /* TEXT_NORMAL */
+      --text-dim:    rgb(168, 173, 189); /* TEXT_DIM */
+      --text-accent: rgb(77, 230, 128);  /* TEXT_ACCENT */
+
+      --rule:      rgba(51, 56, 71, 0.80); /* RULE */
+      --border:    rgba(41, 194, 97, 0.22);
+
+      --font: "Segoe UI", "Tahoma", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: #020305;
+      color: var(--text-normal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px 12px 40px;
+      gap: 10px;
+    }
+
+    .page-banner {
+      width: min(920px, 100%);
+      background: #3a2a12;
+      color: #f0c060;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      border: 1px solid #5a4520;
+    }
+
+    /* Tablet shell ~ REF_W 900 × REF_H 600 */
+    .tablet {
+      width: min(900px, 100%);
+      aspect-ratio: 900 / 600;
+      max-height: calc(100vh - 100px);
+      background: var(--bg-deep);
+      border: 14px solid #1a1c21;
+      border-radius: 18px;
+      box-shadow:
+        inset 0 0 0 2px #2a2d34,
+        0 24px 60px rgba(0, 0, 0, 0.65);
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @media (max-width: 720px) {
+      .tablet {
+        aspect-ratio: auto;
+        height: min(720px, calc(100vh - 90px));
+      }
+    }
+
+    .chrome-side {
+      width: 56px;
+      flex-shrink: 0;
+      background: var(--bg-nav);
+      border-right: 1px solid rgba(41, 194, 97, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 0;
+      gap: 10px;
+    }
+
+    .chrome-side .home {
+      width: 28px;
+      height: 28px;
+      background: rgba(41, 194, 97, 0.18);
+      border: 1px solid rgba(41, 194, 97, 0.45);
+      color: var(--soil);
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chrome-side .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--soil);
+      opacity: 0.85;
+    }
+
+    .chrome-side .muted-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--muted);
+      opacity: 0.45;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-panel);
+      position: relative;
+    }
+
+    .statusbar {
+      flex-shrink: 0;
+      height: 22px;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid rgba(41, 194, 97, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .statusbar .sig { color: var(--text-accent); }
+
+    .drawer {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 16px 12px;
+      position: relative;
+    }
+
+    .app-header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 4px;
+    }
+
+    .app-header .title {
+      font-size: 17px;
+      font-weight: 650;
+      color: var(--text-bright);
+      letter-spacing: -0.01em;
+    }
+
+    .app-header .subtitle {
+      font-size: 11px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .app-header-rule {
+      flex-shrink: 0;
+      height: 2px;
+      margin: 6px 0 4px;
+      background: rgba(140, 204, 102, 0.80);
+      position: relative;
+    }
+
+    .app-header-rule::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 2px;
+      height: 3px;
+      background: rgba(140, 204, 102, 0.12);
+    }
+
+    .status-strip {
+      flex-shrink: 0;
+      margin: 6px 0 8px;
+      padding: 5px 8px;
+      background: rgba(140, 204, 102, 0.10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .status-strip .on { color: var(--positive); font-weight: 650; }
+    .status-strip .hint { color: var(--info); font-size: 10px; }
+
+    .badge-row {
+      flex-shrink: 0;
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ft-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 52px;
+      height: 18px;
+      padding: 0 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-bright);
+    }
+
+    .ft-badge.needs { background: rgba(242, 71, 71, 0.55); }
+    .ft-badge.fair  { background: rgba(255, 184, 26, 0.45); color: #1a1405; }
+    .ft-badge.good  { background: rgba(18, 148, 71, 0.85); }
+
+    .rule {
+      flex-shrink: 0;
+      height: 1px;
+      background: var(--rule);
+      margin: 2px 0 10px;
+    }
+
+    .section {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 2px 0 10px;
+    }
+
+    .section .tick {
+      width: 3px;
+      height: 13px;
+      background: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .section .label {
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      color: var(--text-accent);
+      text-transform: uppercase;
+    }
+
+    .scroll-wrap {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      gap: 6px;
+    }
+
+    .scroll {
+      flex: 1;
+      min-width: 0;
+      overflow-y: auto;
+      padding-right: 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .scroll::-webkit-scrollbar { width: 0; }
+
+    .scrollbar {
+      width: 4px;
+      flex-shrink: 0;
+      background: rgba(31, 36, 51, 0.85);
+      position: relative;
+      align-self: stretch;
+    }
+
+    .scrollbar .thumb {
+      position: absolute;
+      top: 8%;
+      left: 0;
+      width: 100%;
+      height: 28%;
+      background: rgba(41, 194, 97, 0.80);
+    }
+
+    .scroll-label {
+      position: absolute;
+      right: 22px;
+      bottom: 28px;
+      font-size: 9px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .field-block {
+      background: var(--bg-card);
+      position: relative;
+      padding: 8px 10px 10px;
+    }
+
+    .field-block::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+    }
+
+    .field-block.urgency-poor::before { background: var(--negative); }
+    .field-block.urgency-fair::before { background: var(--warning); }
+    .field-block.urgency-good::before { background: var(--positive); }
+
+    .field-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding-left: 6px;
+      margin-bottom: 6px;
+    }
+
+    .field-head .meta {
+      font-size: 12px;
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+
+    .field-head .meta .dim {
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    .field-head .urgency {
+      font-size: 12px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .field-head .urgency.poor { color: var(--negative); }
+    .field-head .urgency.fair { color: var(--warning); }
+    .field-head .urgency.good { color: var(--positive); }
+
+    .field-rule {
+      height: 1px;
+      background: var(--rule);
+      margin: 4px 0 8px;
+      opacity: 0.7;
+    }
+
+    /* Label + progressBar track + current / expected */
+    .bar-row {
+      display: grid;
+      grid-template-columns: 58px 1fr 124px;
+      align-items: center;
+      gap: 8px;
+      padding: 0 4px;
+      margin-bottom: 7px;
+      font-size: 11px;
+    }
+
+    .bar-row .lbl {
+      color: var(--text-normal);
+      font-weight: 550;
+    }
+
+    .bar-row .val {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--text-accent);
+      white-space: nowrap;
+      font-size: 10px;
+    }
+
+    .bar-row .val.poor { color: var(--negative); }
+    .bar-row .val.fair { color: var(--warning); }
+    .bar-row .val.good { color: var(--positive); }
+    .bar-row .val.gated {
+      color: var(--muted);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .track {
+      height: 5px;
+      background: var(--bg-panel);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      width: 0;
+    }
+
+    .fill.good { background: var(--positive); }
+    .fill.fair { background: var(--warning); }
+    .fill.poor { background: var(--negative); }
+    .fill.gated {
+      width: 100% !important;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(107, 112, 128, 0.55),
+        rgba(107, 112, 128, 0.55) 3px,
+        rgba(23, 28, 38, 0.9) 3px,
+        rgba(23, 28, 38, 0.9) 6px
+      );
+    }
+
+    .mini-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0 6px;
+      padding-left: 4px;
+    }
+
+    .mini-section .tick {
+      width: 3px;
+      height: 12px;
+      background: var(--brand);
+    }
+
+    .mini-section .label {
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: 0.06em;
+      color: var(--text-accent);
+      text-transform: uppercase;
+    }
+
+    /* Per-deficit prescription rows (SoilTreatmentDialog style) */
+    .rx-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0 4px;
+    }
+
+    .rx-row {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 8px;
+      align-items: start;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .rx-row .rx-key {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--warning);
+      padding-top: 1px;
+    }
+
+    .rx-row .rx-key.ok { color: var(--positive); }
+    .rx-row .rx-key.scout { color: var(--info); }
+
+    .rx-row .rx-detail {
+      color: var(--text-dim);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rx-row .rx-detail strong {
+      color: var(--soil);
+      font-weight: 650;
+    }
+
+    .rx-row.ok .rx-detail {
+      color: var(--positive);
+      font-weight: 550;
+    }
+
+    .info-icon {
+      position: absolute;
+      right: 16px;
+      bottom: 10px;
+      width: 18px;
+      height: 18px;
+      background: rgba(140, 204, 102, 0.18);
+      border: 1.2px solid rgba(140, 204, 102, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--soil);
+      font-size: 11px;
+      font-weight: 700;
+      font-family: Georgia, "Times New Roman", serif;
+      cursor: default;
+      z-index: 2;
+    }
+
+    .footer-note {
+      width: min(900px, 100%);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.45;
+      padding: 0 4px;
+    }
+
+    .footer-note strong {
+      color: var(--text-dim);
+      font-weight: 650;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-banner">MOCK — not live · FarmTablet app structure · v3 targets + prescriptions</div>
+
+  <div class="tablet" role="application" aria-label="Soil Fertilizer FarmTablet drawer mock">
+    <aside class="chrome-side" aria-hidden="true">
+      <div class="home">⌂</div>
+      <div class="dot" title="Soil Fertilizer"></div>
+      <div class="muted-dot"></div>
+      <div class="muted-dot"></div>
+      <div class="muted-dot"></div>
+    </aside>
+
+    <div class="content">
+      <div class="statusbar">
+        <span>FARM TABLET</span>
+        <span class="sig">SOIL · READY</span>
+      </div>
+
+      <div class="drawer">
+        <!-- drawAppHeader("Soil Fertilizer", "…") -->
+        <div class="app-header">
+          <div class="title">Soil Fertilizer</div>
+          <div class="subtitle" id="subtitle">4 fields</div>
+        </div>
+        <div class="app-header-rule" aria-hidden="true"></div>
+
+        <div class="status-strip">
+          <span class="on">Active</span>
+          <span class="hint">sorted by urgency</span>
+        </div>
+
+        <div class="badge-row" id="badges" aria-live="polite"></div>
+        <div class="rule" aria-hidden="true"></div>
+
+        <div class="section">
+          <span class="tick" aria-hidden="true"></span>
+          <span class="label" id="fields-section">FIELDS  (4)</span>
+        </div>
+
+        <div class="scroll-wrap">
+          <main class="scroll" id="blocks" aria-label="Field soil blocks"></main>
+          <div class="scrollbar" aria-hidden="true"><div class="thumb"></div></div>
+        </div>
+
+        <div class="info-icon" title="Help (drawInfoIcon)">?</div>
+        <span class="scroll-label" aria-hidden="true">scroll</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer-note">
+    <strong>vs today:</strong>
+    Live Soil drawer = field list + SELECT detail with text rows.
+    This mock keeps FarmTablet chrome (header, Active strip, badges, FIELDS section, BG_CARD blocks, ?, scroll)
+    and adds <strong>current / expected</strong> on every bar plus a full <strong>TREATMENT</strong> block
+    with per-deficit product + rate lines (SoilTreatmentDialog style) so Overview and Treatment stay on one card.
+  </p>
+
+  <script>
+    // SoilConstants.PPM_DISPLAY + STATUS_THRESHOLDS + CROP_NUTRIENT_TARGETS (opt)
+    const PPM = { N: 3.0, P: 0.6, K: 4.0 };
+    const THRESH = {
+      N: { poor: 30, fair: 50 },
+      P: { poor: 25, fair: 40 },
+      K: { poor: 20, fair: 40 },
+      pressure: 20, // SoilTreatmentDialog protection threshold
+      phLow: 6.5,  // dialog lime trigger (PH_OPTIMAL / PH_NEUTRAL_LOW)
+      omLow: 3.0
+    };
+
+    /*
+      Sample fields. Internal N/P/K 0–100; display ppm = internal × PPM.
+      Targets = crop opt (maize / wheat / barley) or STATUS fair / PH_OPTIMAL.
+      Prescriptions mirror SoilTreatmentDialog:_populateData + _rateString:
+        "PRODUCT rate unit (total unit)" joined with "  ·  "
+    */
+    const FIELDS = [
+      {
+        id: 7,
+        crop: "Corn",
+        ha: 6.8,
+        n: 28, p: 18, k: 15,
+        targetN: 60, targetP: 40, targetK: 45, // maize opt
+        ph: 5.2, targetPh: 6.5,
+        om: 2.4, targetOm: 4.0,
+        weed: 62, pest: 48, disease: null,
+        prescriptions: [
+          {
+            key: "N",
+            detail: "<strong>UREA</strong> 207 kg/ha (1408 kg)  ·  <strong>UAN32</strong> 132 L/ha (898 L)"
+          },
+          {
+            key: "P",
+            detail: "<strong>MAP</strong> 54 kg/ha (368 kg)  ·  <strong>DAP</strong> 67 kg/ha (456 kg)"
+          },
+          {
+            key: "K",
+            detail: "<strong>POTASH</strong> 300 kg/ha (2040 kg)  ·  <strong>LIQUID_POTASH</strong> 300 L/ha (2040 L)"
+          },
+          {
+            key: "pH",
+            detail: "Apply <strong>LIME</strong> or <strong>LIQUIDLIME</strong> to raise pH."
+          },
+          {
+            key: "OM",
+            detail: "Plow in <strong>MANURE</strong>, <strong>COMPOST</strong>, or chop straw."
+          },
+          {
+            key: "Weed",
+            detail: "Apply <strong>HERBICIDE</strong> or use mechanical WEEDER/HOE."
+          },
+          {
+            key: "Pest",
+            detail: "Apply <strong>INSECTICIDE</strong> immediately."
+          },
+          {
+            key: "Disease",
+            cls: "scout",
+            detail: "Unscouted — scout before fungicide (do not spray blind)."
+          }
+        ]
+      },
+      {
+        id: 12,
+        crop: "Wheat",
+        ha: 4.2,
+        n: 22, p: 48, k: 55,
+        targetN: 55, targetP: 40, targetK: 40, // wheat opt
+        ph: 6.4, targetPh: 6.5,
+        om: 4.1, targetOm: 4.0,
+        weed: 12, pest: 8, disease: 6,
+        prescriptions: [
+          {
+            key: "N",
+            detail: "<strong>UREA</strong> 214 kg/ha (899 kg)  ·  <strong>UAN32</strong> 136 L/ha (572 L)"
+          }
+        ]
+      },
+      {
+        id: 21,
+        crop: "Meadow / grass",
+        ha: 2.0,
+        n: 42, p: 38, k: 44,
+        targetN: 50, targetP: 40, targetK: 40, // STATUS fair fallback
+        ph: 6.3, targetPh: 6.5,
+        om: 5.8, targetOm: 4.0,
+        weed: 14, pest: 6, disease: 4,
+        prescriptions: [
+          {
+            key: "N",
+            detail: "Top-up <strong>AMS</strong> 121 kg/ha (242 kg)  ·  <strong>AN</strong> 71 kg/ha (142 kg)"
+          }
+        ]
+      },
+      {
+        id: 3,
+        crop: "Barley",
+        ha: 3.1,
+        n: 58, p: 52, k: 61,
+        targetN: 45, targetP: 35, targetK: 35, // barley opt
+        ph: 6.8, targetPh: 6.5,
+        om: 5.2, targetOm: 4.0,
+        weed: 8, pest: 5, disease: 3,
+        prescriptions: [
+          {
+            key: "OK",
+            cls: "ok",
+            detail: "Looking good — no treatment needed."
+          }
+        ]
+      }
+    ];
+
+    function ppm(v, key) { return Math.round(v * PPM[key]); }
+
+    function npkStatus(v, key) {
+      const t = THRESH[key];
+      if (v < t.poor) return "poor";
+      if (v < t.fair) return "fair";
+      return "good";
+    }
+
+    function phStatus(ph) {
+      if (ph >= 6.0 && ph <= 7.5) return "good";
+      if (ph >= 5.5 && ph < 6.0) return "fair";
+      if (ph > 7.5 && ph <= 8.0) return "fair";
+      return "poor";
+    }
+
+    function omStatus(om) {
+      if (om >= 4.0) return "good";
+      if (om >= 3.0) return "fair";
+      return "poor";
+    }
+
+    function pressureStatus(p) {
+      if (p == null) return "gated";
+      if (p >= THRESH.pressure) return "poor";
+      if (p >= 12) return "fair";
+      return "good";
+    }
+
+    function pressureFill(p) {
+      if (p == null) return 100;
+      return Math.max(0, Math.min(100, p));
+    }
+
+    function nutrientFill(v) { return Math.max(0, Math.min(100, v)); }
+
+    function phFill(ph) {
+      const score = 100 - Math.min(100, Math.abs(ph - 6.75) / 1.75 * 100);
+      return Math.max(8, score);
+    }
+
+    function omFill(om) { return Math.max(0, Math.min(100, (om / 10) * 100)); }
+
+    function computeUrgency(f) {
+      const nDef = Math.max(0, (THRESH.N.poor - f.n) / THRESH.N.poor);
+      const pDef = Math.max(0, (THRESH.P.poor - f.p) / THRESH.P.poor);
+      const kDef = Math.max(0, (THRESH.K.poor - f.k) / THRESH.K.poor);
+      const phDef = f.ph < 5.5 ? Math.min(1, (5.5 - f.ph) / 1.5) : 0;
+      const weedDef = Math.max(0, (f.weed - THRESH.pressure) / 80);
+      const pestDef = Math.max(0, (f.pest - THRESH.pressure) / 80);
+      const diseaseDef = f.disease == null
+        ? 0.15
+        : Math.max(0, (f.disease - THRESH.pressure) / 80);
+      const avg = (nDef + pDef + kDef + phDef + weedDef + pestDef + diseaseDef) / 7;
+      return Math.min(100, Math.round(avg * 100));
+    }
+
+    function urgencyClass(u) {
+      if (u >= 60) return "poor";
+      if (u >= 25) return "fair";
+      return "good";
+    }
+
+    function bucket(u) {
+      if (u >= 60) return "needs";
+      if (u >= 25) return "fair";
+      return "good";
+    }
+
+    function barRow(label, valueText, fillPct, status, gated) {
+      const fillClass = gated ? "gated" : status;
+      const valClass = gated ? "val gated" : ("val " + status);
+      return `
+        <div class="bar-row">
+          <span class="lbl">${label}</span>
+          <div class="track" aria-hidden="true">
+            <div class="fill ${fillClass}" style="width:${gated ? 100 : fillPct}%"></div>
+          </div>
+          <span class="${valClass}">${valueText}</span>
+        </div>`;
+    }
+
+    function renderPrescriptions(list) {
+      const rows = list.map((rx) => {
+        const keyCls = rx.cls === "ok" ? "rx-key ok" : (rx.cls === "scout" ? "rx-key scout" : "rx-key");
+        const rowCls = rx.cls === "ok" ? "rx-row ok" : "rx-row";
+        return `
+          <div class="${rowCls}">
+            <span class="${keyCls}">${rx.key}</span>
+            <span class="rx-detail">${rx.detail}</span>
+          </div>`;
+      }).join("");
+      return `<div class="rx-list">${rows}</div>`;
+    }
+
+    function renderBlock(f) {
+      const urgency = f.urgency;
+      const uClass = urgencyClass(urgency);
+      const diseaseGated = f.disease == null;
+
+      const bars = [
+        barRow(
+          "N",
+          ppm(f.n, "N") + " / " + ppm(f.targetN, "N") + " ppm",
+          nutrientFill(f.n),
+          npkStatus(f.n, "N"),
+          false
+        ),
+        barRow(
+          "P",
+          ppm(f.p, "P") + " / " + ppm(f.targetP, "P") + " ppm",
+          nutrientFill(f.p),
+          npkStatus(f.p, "P"),
+          false
+        ),
+        barRow(
+          "K",
+          ppm(f.k, "K") + " / " + ppm(f.targetK, "K") + " ppm",
+          nutrientFill(f.k),
+          npkStatus(f.k, "K"),
+          false
+        ),
+        barRow(
+          "pH",
+          f.ph.toFixed(1) + " / " + f.targetPh.toFixed(1) + " pH",
+          phFill(f.ph),
+          phStatus(f.ph),
+          false
+        ),
+        barRow(
+          "OM",
+          f.om.toFixed(1) + " / " + f.targetOm.toFixed(1),
+          omFill(f.om),
+          omStatus(f.om),
+          false
+        ),
+        barRow(
+          "Weed",
+          f.weed + " / 0 %",
+          pressureFill(f.weed),
+          pressureStatus(f.weed),
+          false
+        ),
+        barRow(
+          "Pest",
+          f.pest + " / 0 %",
+          pressureFill(f.pest),
+          pressureStatus(f.pest),
+          false
+        ),
+        barRow(
+          "Disease",
+          diseaseGated ? "Unscouted" : (f.disease + " / 0 %"),
+          pressureFill(f.disease),
+          pressureStatus(f.disease),
+          diseaseGated
+        )
+      ].join("");
+
+      return `
+        <article class="field-block urgency-${uClass}" data-urgency="${urgency}">
+          <div class="field-head">
+            <div class="meta">
+              Field ${f.id}
+              <span class="dim">·</span> ${f.crop}
+              <span class="dim">·</span> ${f.ha.toFixed(1)} ha
+            </div>
+            <div class="urgency ${uClass}" title="Urgency">${urgency}%</div>
+          </div>
+          <div class="field-rule"></div>
+          ${bars}
+          <div class="field-rule"></div>
+          <div class="mini-section">
+            <span class="tick" aria-hidden="true"></span>
+            <span class="label">Treatment</span>
+          </div>
+          ${renderPrescriptions(f.prescriptions)}
+        </article>`;
+    }
+
+    function init() {
+      const enriched = FIELDS.map((f) => ({ ...f, urgency: computeUrgency(f) }));
+      enriched.sort((a, b) => b.urgency - a.urgency);
+
+      const counts = { needs: 0, fair: 0, good: 0 };
+      enriched.forEach((f) => { counts[bucket(f.urgency)]++; });
+
+      document.getElementById("subtitle").textContent = enriched.length + " fields";
+      document.getElementById("fields-section").textContent =
+        "FIELDS  (" + enriched.length + ")";
+
+      const badges = [];
+      if (counts.needs > 0) badges.push(`<span class="ft-badge needs">${counts.needs} NEEDS</span>`);
+      if (counts.fair > 0) badges.push(`<span class="ft-badge fair">${counts.fair} FAIR</span>`);
+      if (counts.good > 0) badges.push(`<span class="ft-badge good">${counts.good} GOOD</span>`);
+      document.getElementById("badges").innerHTML = badges.join("");
+
+      document.getElementById("blocks").innerHTML = enriched.map(renderBlock).join("");
+    }
+
+    init();
+  </script>
+</body>
+</html>
