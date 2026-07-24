@@ -3216,13 +3216,13 @@
   "2026-07-24": [
     {
       "referrer": "github.com",
-      "count": 302,
-      "uniques": 122
+      "count": 305,
+      "uniques": 123
     },
     {
       "referrer": "Google",
-      "count": 18,
-      "uniques": 14
+      "count": 20,
+      "uniques": 15
     },
     {
       "referrer": "kingmods.net",
@@ -3237,11 +3237,6 @@
     {
       "referrer": "chatgpt.com",
       "count": 3,
-      "uniques": 1
-    },
-    {
-      "referrer": "teams.public.onecdn.static.microsoft",
-      "count": 2,
       "uniques": 1
     },
     {
