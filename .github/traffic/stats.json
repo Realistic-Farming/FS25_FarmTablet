@@ -29959,5 +29959,376 @@
     "stars": 18,
     "forks": 1,
     "watchers": 4
+  },
+  {
+    "timestamp": "2026-07-24T00:01:29Z",
+    "date": "2026-07-24",
+    "views": {
+      "count": 536,
+      "uniques": 177
+    },
+    "clones": {
+      "count": 607,
+      "uniques": 154
+    },
+    "referrers": [
+      {
+        "referrer": "github.com",
+        "count": 302,
+        "uniques": 122
+      },
+      {
+        "referrer": "Google",
+        "count": 18,
+        "uniques": 14
+      },
+      {
+        "referrer": "kingmods.net",
+        "count": 13,
+        "uniques": 9
+      },
+      {
+        "referrer": "forbidden-mods.de",
+        "count": 4,
+        "uniques": 1
+      },
+      {
+        "referrer": "chatgpt.com",
+        "count": 3,
+        "uniques": 1
+      },
+      {
+        "referrer": "teams.public.onecdn.static.microsoft",
+        "count": 2,
+        "uniques": 1
+      },
+      {
+        "referrer": "Bing",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet",
+        "title": "Overview",
+        "count": 295,
+        "uniques": 160
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/releases",
+        "title": "/releases",
+        "count": 42,
+        "uniques": 32
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.2.15",
+        "title": "/releases/tag/v2.5.2.15",
+        "count": 41,
+        "uniques": 35
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.1.0",
+        "title": "/releases/tag/v2.5.1.0",
+        "count": 28,
+        "uniques": 24
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png",
+        "title": "/blob/main/.github/images/ft-home.png",
+        "count": 20,
+        "uniques": 19
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/issues",
+        "title": "/issues",
+        "count": 17,
+        "uniques": 15
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-dashboard.png",
+        "title": "/blob/main/.github/images/ft-dashboard.png",
+        "count": 15,
+        "uniques": 14
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-lockscreen.png",
+        "title": "/blob/main/.github/images/ft-lockscreen.png",
+        "count": 14,
+        "uniques": 14
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-settings.png",
+        "title": "/blob/main/.github/images/ft-settings.png",
+        "count": 12,
+        "uniques": 12
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/tree/development",
+        "title": "/tree/development",
+        "count": 8,
+        "uniques": 3
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 72,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.5.2.15"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 244,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.5.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 47,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.5.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 29,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.4.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 27,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.4.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.4"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 27,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.3"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 59,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.2"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 6,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.2.0"
+      },
+      {
+        "assets": [],
+        "tag": "v2.3.1.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 64,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 59,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.3.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 8,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.2.2.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 50,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.2.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 59,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.2.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 33,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.8.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 8,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.7.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 18,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.5.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 23,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.4.0"
+      },
+      {
+        "assets": [],
+        "tag": "v2.1.2.2"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 12,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.2.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.2.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v2.1.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.1.2.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v1.1.2.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 6,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v1.1.1.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_FarmTablet.zip"
+          }
+        ],
+        "tag": "v1.1.1.0"
+      }
+    ],
+    "stars": 18,
+    "forks": 1,
+    "watchers": 4
   }
 ]
