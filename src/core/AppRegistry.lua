@@ -293,7 +293,7 @@ function AppRegistry:autoDetect()
         })
     end
 
-    -- Irrigation Suite (Wizard UI brief) — same SCS mission handle
+    -- Irrigation Suite (Wizard UI brief) - same SCS mission handle
     if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
         Logging.info("[FarmTablet] autoDetect: Irrigation Suite (Seasonal Crop Stress)")
         self:register({
