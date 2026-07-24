@@ -29,6 +29,7 @@ local CHANGELOG = {
         verbessert = {
             ftSafeText("ft_changelog_253_imp_1", "App text now scales with the tablet, with a new font-size setting"),
             ftSafeText("ft_changelog_253_imp_2", "New app icons for Rotation Planner, Irrigation Suite and System Settings"),
+            ftSafeText("ft_changelog_253_imp_3", "Soil app redesigned with cleaner per-field nutrient cards"),
         },
         behoben = {
             ftSafeText("ft_changelog_253_fix_1", "FieldSentry admin gate is now fail-closed, so it locks down when permissions are unclear"),
