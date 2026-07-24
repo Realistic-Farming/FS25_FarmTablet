@@ -28,15 +28,23 @@ end
 local LEGUME  = { "soybean", "peas", "clover", "alfalfa" }
 local NEUTRAL = { "wheat", "barley", "maize", "canola" }
 
-local function pickCandidates(currentCrop)
+local function pickCandidates(currentCrop, soil)
     local RP = _rp()
     if RP ~= nil and RP.pickCandidates ~= nil then
-        return RP.pickCandidates(currentCrop)
+        return RP.pickCandidates(currentCrop, soil)
+    end
+    -- Prefer blessed pool on the soil system when SF shared helper is not visible.
+    local legumes, neutrals = LEGUME, NEUTRAL
+    if soil ~= nil and type(soil.getRotationCandidatePool) == "function" then
+        local ok, pool = pcall(function() return soil:getRotationCandidatePool() end)
+        if ok and type(pool) == "table" and type(pool.LEGUME) == "table" and type(pool.NEUTRAL) == "table" then
+            legumes, neutrals = pool.LEGUME, pool.NEUTRAL
+        end
     end
     local cur = currentCrop and string.lower(currentCrop) or ""
     local legume, neutral
-    for _, c in ipairs(LEGUME) do if c ~= cur then legume = c break end end
-    for _, c in ipairs(NEUTRAL) do if c ~= cur and c ~= legume then neutral = c break end end
+    for _, c in ipairs(legumes) do if c ~= cur then legume = c break end end
+    for _, c in ipairs(neutrals) do if c ~= cur and c ~= legume then neutral = c break end end
     return { (cur ~= "" and cur or nil), legume, neutral }
 end
 
@@ -204,7 +212,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         y = y - FT.py(28)
     else
-        local candidates = pickCandidates(info.lastCrop)
+        local candidates = pickCandidates(info.lastCrop, soil)
         for i = 1, 3 do
             local cand = candidates[i]
             if cand ~= nil then
