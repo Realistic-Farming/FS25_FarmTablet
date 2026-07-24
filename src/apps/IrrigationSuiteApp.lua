@@ -55,25 +55,58 @@ local function _dayBits(activeDays)
     return table.concat(on, " ")
 end
 
-local function _fieldByFarmlandId(farmlandId)
-    if g_fieldManager == nil or g_fieldManager.fields == nil then return nil end
-    for _, field in pairs(g_fieldManager.fields) do
-        local fl = field and field.farmland
-        local id = fl and fl.id
-        if id == farmlandId then return field end
+-- Module-level coverage cache (rebuild on systems/coverage change only).
+local _coveragePolyCache = nil
+local _coveragePolyKey = nil
+local _farmlandFieldIndex = nil
+
+local function _farmlandFieldMap()
+    if _farmlandFieldIndex ~= nil then return _farmlandFieldIndex end
+    local map = {}
+    if g_fieldManager ~= nil and g_fieldManager.fields ~= nil then
+        for _, field in pairs(g_fieldManager.fields) do
+            local fl = field and field.farmland
+            local id = fl and fl.id
+            if id ~= nil and map[id] == nil then
+                map[id] = field
+            end
+        end
     end
-    return nil
+    _farmlandFieldIndex = map
+    return map
 end
 
---- Cache field polygons for covered farmland ids (light overlay).
+local function _coverageKey(systems)
+    local parts = { tostring(#(systems or {})) }
+    for _, sys in ipairs(systems or {}) do
+        local ids = {}
+        for _, fid in ipairs(sys.coveredFields or {}) do
+            ids[#ids + 1] = tostring(fid)
+        end
+        table.sort(ids)
+        parts[#parts + 1] = string.format("%s:%s:%s",
+            tostring(sys.id or sys.name or "?"),
+            sys.isActive == true and "1" or "0",
+            table.concat(ids, ","))
+    end
+    return table.concat(parts, "|")
+end
+
+--- Real frame-cache: rebuild polygons only when the coverage fingerprint changes.
 local function _cacheCoveragePolys(scs, systems)
+    local key = _coverageKey(systems)
+    if _coveragePolyCache ~= nil and _coveragePolyKey == key then
+        return _coveragePolyCache
+    end
+
     local cache = { entries = {}, minX = 1e9, maxX = -1e9, minZ = 1e9, maxZ = -1e9 }
     local seen = {}
+    local fieldMap = _farmlandFieldMap()
     for _, sys in ipairs(systems or {}) do
         for _, fid in ipairs(sys.coveredFields or {}) do
             if not seen[fid] then
                 seen[fid] = true
-                local field = _fieldByFarmlandId(fid)
+                local field = fieldMap[fid]
                 if field ~= nil and type(scs.getFieldPolygonWorld) == "function" then
                     local ok, vx, vz, n = pcall(function()
                         return scs:getFieldPolygonWorld(field)
@@ -81,13 +114,13 @@ local function _cacheCoveragePolys(scs, systems)
                     if ok and type(vx) == "table" and type(vz) == "table" and type(n) == "number" and n >= 3 then
                         local pts = {}
                         for i = 1, n do
-                            local x, z = vx[i], vz[i]
-                            if x ~= nil and z ~= nil then
-                                pts[#pts + 1] = { x = x, z = z }
-                                if x < cache.minX then cache.minX = x end
-                                if x > cache.maxX then cache.maxX = x end
-                                if z < cache.minZ then cache.minZ = z end
-                                if z > cache.maxZ then cache.maxZ = z end
+                            local px, pz = vx[i], vz[i]
+                            if px ~= nil and pz ~= nil then
+                                pts[#pts + 1] = { x = px, z = pz }
+                                if px < cache.minX then cache.minX = px end
+                                if px > cache.maxX then cache.maxX = px end
+                                if pz < cache.minZ then cache.minZ = pz end
+                                if pz > cache.maxZ then cache.maxZ = pz end
                             end
                         end
                         if #pts >= 3 then
@@ -102,6 +135,8 @@ local function _cacheCoveragePolys(scs, systems)
             end
         end
     end
+    _coveragePolyCache = cache
+    _coveragePolyKey = key
     return cache
 end
 
