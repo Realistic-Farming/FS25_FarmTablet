@@ -30,6 +30,7 @@
         <text name="ft_ui_app_field_status" text="Veldmanager" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />
         <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
+        <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
         <text name="ft_ui_app_animals" text="Dieren" />
         <text name="ft_ui_app_weather" text="Weer" />
         <text name="ft_ui_app_digging" text="Graven" />

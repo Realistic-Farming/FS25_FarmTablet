@@ -293,6 +293,18 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- Irrigation Suite (Wizard UI brief) — same SCS mission handle
+    if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
+        Logging.info("[FarmTablet] autoDetect: Irrigation Suite (Seasonal Crop Stress)")
+        self:register({
+            id = FT.APP.IRRIGATION_SUITE, group = "mods",
+            name = "ft_ui_app_irrigation_suite", navLabel = "IRRI",
+            icon = "crop_stress", order = 23.5,
+            developer = "WizardlyPayload", version = "Integrated",
+            description = "Farm-wide irrigation operations, trend, and usage",
+        })
+    end
+
     -- Soil Fertilizer
     -- Bridge: mission.soilFertilityManager set by SoilFertilizer in Mission00.load
     local hasSoil = (g_currentMission and g_currentMission.soilFertilityManager ~= nil)
