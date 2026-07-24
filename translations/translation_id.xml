@@ -29,6 +29,7 @@
         <text name="ft_ui_app_workshop" text="Bengkel" />
         <text name="ft_ui_app_field_status" text="Manajer Lapangan" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />
+        <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
         <text name="ft_ui_app_animals" text="Hewan" />
         <text name="ft_ui_app_weather" text="Cuaca" />
         <text name="ft_ui_app_digging" text="Penggalian" />

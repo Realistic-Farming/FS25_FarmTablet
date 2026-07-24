@@ -29,6 +29,7 @@
         <text name="ft_ui_app_workshop" text="Työpaja" />
         <text name="ft_ui_app_field_status" text="Kenttäpäällikkö" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />
+        <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
         <text name="ft_ui_app_animals" text="Eläimet" />
         <text name="ft_ui_app_weather" text="Sää" />
         <text name="ft_ui_app_digging" text="Kaivaminen" />

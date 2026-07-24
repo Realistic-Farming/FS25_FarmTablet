@@ -322,6 +322,18 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- Crop Rotation Planner (Wizard UI brief #739) — SF mission handle only
+    if hasSoil and not self:has(FT.APP.ROTATION_PLANNER) then
+        Logging.info("[FarmTablet] autoDetect: Rotation Planner (Soil Fertilizer)")
+        self:register({
+            id = FT.APP.ROTATION_PLANNER, group = "mods",
+            name = "ft_ui_app_rotation_planner", navLabel = "ROTATE",
+            icon = "soil", order = 24.6,
+            developer = "WizardlyPayload", version = "Integrated",
+            description = "Farm-wide crop rotation standing and next-crop compare",
+        })
+    end
+
     -- Market Dynamics
     -- Bridge: mission.MarketDynamics set by MarketDynamics mod in Mission00.load
     if g_currentMission and g_currentMission.MarketDynamics then
