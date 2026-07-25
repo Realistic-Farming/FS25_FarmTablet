@@ -2483,5 +2483,9 @@
         <text name="ft_battery_charging_locked" text="Планшет на зарядке. Включение с 15%." />
         <text name="ft_battery_charged_usable" text="Планшет достаточно заряжен. Нажмите T." />
         <text name="ft_battery_charged_full" text="Планшет полностью заряжен." />
+        <text name="ft_weather_mode_real" text="Real" />
+        <text name="ft_weather_mode_arid" text="Arid" />
+        <text name="ft_weather_mode_normal" text="Normal" />
+        <text name="ft_weather_mode_wet" text="Wet" />
     </texts>
 </l10n>
