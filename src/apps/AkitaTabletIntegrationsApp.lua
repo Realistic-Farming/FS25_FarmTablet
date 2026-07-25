@@ -156,8 +156,10 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
                 or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
                 or tostring(d.treatmentMode or ftAkitaText("ft_vet_self", "Self"))
             self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
-            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, status, RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
+            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
+                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
+                FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
             self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
                 string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, tonumber(d.animalCount) or 0, rem),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
@@ -226,10 +228,13 @@ FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
             local worker = tostring(fac.workerText or fac.workersText or "")
             local event = tostring(fac.hudEventText or fac.eventText or "")
             self.r:appRect(x - FT.px(4), y - FT.py(48), cw + FT.px(8), FT.py(52), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
-            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, state, RenderText.ALIGN_RIGHT, fac.isOpen and FT.C.POSITIVE or FT.C.WARNING)
+            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
+                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, state,
+                RenderText.ALIGN_RIGHT, fac.isOpen and FT.C.POSITIVE or FT.C.WARNING)
             local line = worker ~= "" and worker or (event ~= "" and event or ftAkitaText("ft_fws_no_event", "No event"))
-            self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY, line, RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
+                FT_Renderer.truncate(line, 40), RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL)
             y = y - FT.py(58)
         end
     end

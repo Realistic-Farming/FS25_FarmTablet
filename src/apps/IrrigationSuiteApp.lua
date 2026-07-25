@@ -275,7 +275,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 local scol = sys.isActive and FT.C.POSITIVE or FT.C.MUTED
                 local coverN = #(sys.coveredFields or {})
                 self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
-                    string.format("#%s  %s", tostring(sys.id or "?"), tostring(sys.type or "system")),
+                    FT_Renderer.truncate(string.format("#%s  %s",
+                        tostring(sys.id or "?"), tostring(sys.type or "system")), 22),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, state,
                     RenderText.ALIGN_RIGHT, scol)
@@ -332,11 +333,11 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
                     moisture ~= nil and _pct(moisture) or "n/a",
                     RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
-                y = y - FT.py(12)
+                y = y - FT.py(14)
                 if moisture ~= nil then
                     local barY = y
                     self.r:progressBar(x, barY, cw, moisture, 1.0, AC)
-                    y = y - FT.py(10)
+                    y = barY - FT.py(10)
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                         string.format("pivot ~%s   sky/other ~%s",
                             _pct(irrShare), _pct(rainShare)),

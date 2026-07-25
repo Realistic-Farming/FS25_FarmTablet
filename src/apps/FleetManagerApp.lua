@@ -68,8 +68,9 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
             {AC[1], AC[2], AC[3], 0.28})
 
         local nameColor = v.aiActive and FT.C.INFO or FT.C.TEXT_BRIGHT
+        local nameMax = v.aiActive and 20 or 26
         self.r:appText(x + FT.px(8), y - FT.py(11), FT.FONT.BODY,
-            tostring(v.name or "-"), RenderText.ALIGN_LEFT, nameColor)
+            FT_Renderer.truncate(tostring(v.name or "-"), nameMax), RenderText.ALIGN_LEFT, nameColor)
         if v.aiActive then
             self.r:appText(x + cw - FT.px(8), y - FT.py(11), FT.FONT.TINY,
                 ftFleetText("ft_ai_active_short", "HELFER"), RenderText.ALIGN_RIGHT, FT.C.INFO)
@@ -90,7 +91,8 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
                 {fuelColor[1], fuelColor[2], fuelColor[3], 0.90})
         end
         self.r:appText(valueX, fuelY + FT.py(1), FT.FONT.TINY,
-            string.format("%d%%  %d/%d L", fuelPct, tonumber(v.fuelLitres) or 0, tonumber(v.fuelCap) or 0),
+            FT_Renderer.truncate(string.format("%d%%  %d/%d L",
+                fuelPct, tonumber(v.fuelLitres) or 0, tonumber(v.fuelCap) or 0), 16),
             RenderText.ALIGN_LEFT, fuelColor)
 
         local wearPct = tonumber(v.wearPct) or 0

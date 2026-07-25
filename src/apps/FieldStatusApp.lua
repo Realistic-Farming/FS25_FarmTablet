@@ -86,7 +86,9 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
             self.r:appText(x + cw * 0.6, y, FT.FONT.SMALL,
                 string.format("%.1f", field.area), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         end
-        self.r:appText(x + cw, y, FT.FONT.SMALL, field.stateName, RenderText.ALIGN_RIGHT, field.stateColor or FT.C.MUTED)
+        -- Keep STATE clear of the HA column.
+        local stateDisp = FT_Renderer.truncate(field.stateName or "", 12)
+        self.r:appText(x + cw, y, FT.FONT.SMALL, stateDisp, RenderText.ALIGN_RIGHT, field.stateColor or FT.C.MUTED)
         y = y - rowH
     end
 

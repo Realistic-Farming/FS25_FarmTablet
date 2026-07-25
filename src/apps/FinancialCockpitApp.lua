@@ -858,7 +858,7 @@ local function _drawHeart(self, x, y, w, snap, AC)
     end
     if worstLabel ~= "" then
         self.r:appText(x + w - FT.px(10), y - FT.py(18), FT.FONT.TINY,
-            worstLabel, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     end
 
     _pocketBtn(self, x, y - h, w, h, "", {0, 0, 0, 0}, {
@@ -922,8 +922,9 @@ local function _drawHome(self, snap, AC)
         y = self:drawRow(y, _T("ft_fc_forecast_month_end", "Month-end outlook"),
             fc.monthEndProjected, nil, FT.C.TEXT_NORMAL)
     end
+    -- OPEN on its own row so it cannot cover the forecast values above.
     local fcBtnW = FT.px(72)
-    _pocketBtn(self, x + cw - fcBtnW, y + FT.py(2), fcBtnW, FT.py(16),
+    _pocketBtn(self, x + cw - fcBtnW, y - FT.py(2), fcBtnW, FT.py(16),
         _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
             onClick = function()
                 _view = "forecast"

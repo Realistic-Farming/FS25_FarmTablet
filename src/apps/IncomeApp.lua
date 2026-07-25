@@ -251,8 +251,9 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                     local hoursLeft = math.floor((f.timeRemaining or 0) / 3600000)
                     local pctColor  = f.progress >= 66 and FT.C.POSITIVE
                                    or f.progress >= 33 and FT.C.WARNING or FT.C.TEXT_DIM
-                    y = self:drawRow(y,
-                        (f.npcName or "?") .. "  " .. (f.description or f.type or ""),
+                    local left = FT_Renderer.truncate(
+                        (f.npcName or "?") .. "  " .. (f.description or f.type or ""), 28)
+                    y = self:drawRow(y, left,
                         string.format("%d%%  %dh left", math.floor(f.progress or 0), hoursLeft),
                         nil, pctColor)
                 end
