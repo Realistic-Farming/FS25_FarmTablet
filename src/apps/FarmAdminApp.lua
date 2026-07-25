@@ -157,14 +157,18 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
                   "Amounts: +$1K · +$10K · +$100K · +$1M" },
         { title = "TIME SCALE",
           body  = "Sets how fast game time passes.\n" ..
-                  "⏸ PAUSE freezes time. Active speed highlighted." },
+                  "PAUSE freezes time. Active speed highlighted.\n" ..
+                  "Absorbed the old Time Controls hub tile." },
         { title = "SKIP TO",
           body  = "Jumps the clock to a preset time of day.\n" ..
                   "Advances to tomorrow if time has passed today." },
         { title = "VEHICLES",
-          body  = "REPAIR ALL — resets damage on all your vehicles.\n" ..
-                  "FILL FUEL  — fills fuel (and AdBlue) to max\n" ..
+          body  = "REPAIR ALL - resets damage on all your vehicles.\n" ..
+                  "FILL FUEL  - fills fuel (and AdBlue) to max\n" ..
                   "             on all your motorized vehicles." },
+        { title = "MULTIPLAYER",
+          body  = "Host / listen-server only today. Admin access from\n" ..
+                  "pure clients is a separate tracked issue." },
     }) then return end
 
     -- In multiplayer, only the host/listen-server can use these controls.
