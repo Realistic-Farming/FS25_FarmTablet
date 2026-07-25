@@ -351,6 +351,44 @@ function FT_DataProvider:getWorldInfo()
     end)
 end
 
+--- Soft-detect WeatherGuard (6th core service). Prefer mission handle.
+local function _ftWeatherGuard()
+    local wg = g_currentMission and g_currentMission.weatherGuard
+    if wg ~= nil then return wg end
+    local ok, alt = pcall(function()
+        local env = getfenv(0)
+        return env["g_weatherGuard"] or env["g_WeatherGuard"]
+    end)
+    if ok then return alt end
+    return nil
+end
+
+local function _ftCondFromType(weatherType, rainScale, fogScale, cloud)
+    local t = type(weatherType) == "string" and weatherType:lower() or nil
+    if t == "storm" or t == "hail" then
+        return "Stormy", "storm"
+    elseif t == "rain" or t == "shower" then
+        return "Rainy", "rain"
+    elseif t == "snow" then
+        return "Snow", "snow"
+    elseif t == "fog" then
+        return "Foggy", "fog"
+    elseif t == "cloud" or t == "cloudy" or t == "overcast" then
+        if (cloud or 0) > 0.70 then return "Overcast", "overcast" end
+        return "Partly Cloudy", "cloudy"
+    elseif t == "clear" or t == "sun" or t == "sunny" then
+        return "Clear", "clear"
+    end
+    -- Heuristic fallback (engine path / incomplete type)
+    local rs = tonumber(rainScale) or 0
+    if rs > 0.70 then return "Stormy", "storm" end
+    if rs > 0.05 then return "Rainy", "rain" end
+    if (fogScale or 0) > 0.3 then return "Foggy", "fog" end
+    if (cloud or 0) > 0.70 then return "Overcast", "overcast" end
+    if (cloud or 0) > 0.30 then return "Partly Cloudy", "cloudy" end
+    return "Clear", "clear"
+end
+
 function FT_DataProvider:getWeather()
     return self:_cached("weather", 2000, function()
         if not (g_currentMission and g_currentMission.environment) then
@@ -363,52 +401,62 @@ function FT_DataProvider:getWeather()
         local weather = env.weatherSystem or env.weather
         if not weather then return nil end
 
+        local wg = _ftWeatherGuard()
+        local sky = nil
+        if wg ~= nil and type(wg.getCurrentSky) == "function" then
+            local ok, result = pcall(function() return wg:getCurrentSky() end)
+            if ok then sky = result end
+        end
+
         -- ── Rain / precipitation ──────────────────────────
-        -- Try all known FS25 rain scale method/field names
         local rainScale = 0
-        if     weather.getRainFallScale          then rainScale = weather:getRainFallScale()
-        elseif weather.getRainScale              then rainScale = weather:getRainScale()
+        if sky ~= nil and type(sky.rainScale) == "number" then
+            rainScale = sky.rainScale
+        elseif weather.getRainFallScale then rainScale = weather:getRainFallScale()
+        elseif weather.getRainScale then rainScale = weather:getRainScale()
         elseif weather.getPrecipitationIntensity then rainScale = weather:getPrecipitationIntensity()
         elseif type(weather.rainFallScale) == "number" then rainScale = weather.rainFallScale
-        elseif type(env.rainScale)         == "number" then rainScale = env.rainScale
+        elseif type(env.rainScale) == "number" then rainScale = env.rainScale
         end
 
         -- ── Temperature ───────────────────────────────────
         local temp = 15
-        if     weather.getCurrentTemperature then temp = weather:getCurrentTemperature()
-        elseif weather.getTemperature        then temp = weather:getTemperature()
+        if sky ~= nil and type(sky.temperature) == "number" then
+            temp = sky.temperature
+        elseif weather.getCurrentTemperature then temp = weather:getCurrentTemperature()
+        elseif weather.getTemperature then temp = weather:getTemperature()
         elseif type(weather.temperature) == "number" then temp = weather.temperature
-        elseif type(env.temperature)     == "number" then temp = env.temperature
+        elseif type(env.temperature) == "number" then temp = env.temperature
         end
 
         -- ── Cloud cover (0.0 – 1.0) ───────────────────────
+        -- WeatherGuard field is cloudCoverage; FarmTablet UI uses cloudCover.
         local cloud = 0
-        if     weather.getCloudCoverage then
+        if sky ~= nil and type(sky.cloudCoverage) == "number" then
+            cloud = sky.cloudCoverage
+        elseif weather.getCloudCoverage then
             cloud = weather:getCloudCoverage()
         elseif env.cloudUpdater and env.cloudUpdater.getCloudCoverage then
             cloud = env.cloudUpdater:getCloudCoverage()
         elseif type(weather.cloudCoverage) == "number" then cloud = weather.cloudCoverage
-        elseif type(env.cloudCoverage)     == "number" then cloud = env.cloudCoverage
+        elseif type(env.cloudCoverage) == "number" then cloud = env.cloudCoverage
         end
-        -- Clamp to 0–1 (some mods return 0–100)
         if cloud > 1.0 then cloud = cloud / 100 end
 
-        -- ── Fog ───────────────────────────────────────────
+        -- ── Fog (engine; WeatherGuard does not publish fog) ─
         local fogScale = 0
         if     type(weather.fogScale) == "number" then fogScale = weather.fogScale
         elseif type(env.fogScale)     == "number" then fogScale = env.fogScale
         end
 
-        -- ── Wind ──────────────────────────────────────────
+        -- ── Wind (engine; WeatherGuard does not publish wind) ─
         local windSpeed = 0
         if     weather.getWindSpeed       then windSpeed = weather:getWindSpeed()
         elseif type(weather.windSpeed) == "number" then windSpeed = weather.windSpeed
         elseif type(env.windSpeed)     == "number" then windSpeed = env.windSpeed
         end
-        -- Convert m/s → km/h if value looks like m/s (< 30)
         if windSpeed > 0 and windSpeed < 30 then windSpeed = windSpeed * 3.6 end
 
-        -- Wind direction (optional)
         local windDir = nil
         if     weather.getWindDirection then
             local deg = weather:getWindDirection()
@@ -424,81 +472,118 @@ function FT_DataProvider:getWeather()
             windDir    = dirs[idx]
         end
 
-        -- ── Humidity (optional, present in some mods) ─────
+        -- ── Humidity ──────────────────────────────────────
         local humidity = nil
-        if     weather.getHumidity        then humidity = weather:getHumidity()
+        if sky ~= nil and type(sky.humidity) == "number" then
+            humidity = sky.humidity
+        elseif weather.getHumidity then humidity = weather:getHumidity()
         elseif type(weather.humidity) == "number" then humidity = weather.humidity
-        elseif type(env.humidity)     == "number" then humidity = env.humidity
+        elseif type(env.humidity) == "number" then humidity = env.humidity
         end
         if humidity and humidity > 1.0 then humidity = humidity / 100 end
 
-        -- ── Build result table ─────────────────────────────
+        local isRaining = rainScale > 0.05
+        if sky ~= nil and sky.isRaining ~= nil then
+            isRaining = sky.isRaining == true or rainScale > 0.05
+        end
+
+        local weatherType = sky and sky.weatherType or nil
+        local condition, condKey = _ftCondFromType(weatherType, rainScale, fogScale, cloud)
+
         local w = {
             temperature = temp,
             rainScale   = rainScale,
-            isRaining   = rainScale > 0.05,
-            isStorming  = rainScale > 0.70,
-            isFoggy     = fogScale  > 0.3,
-            cloudCover  = cloud,       -- 0.0–1.0
-            windSpeed   = windSpeed,   -- km/h
-            windDir     = windDir,     -- compass string or nil
-            humidity    = humidity,    -- 0.0–1.0 or nil
+            isRaining   = isRaining,
+            isStorming  = rainScale > 0.70 or condKey == "storm",
+            isFoggy     = fogScale > 0.3 or condKey == "fog",
+            cloudCover  = cloud,
+            windSpeed   = windSpeed,
+            windDir     = windDir,
+            humidity    = humidity,
+            condition   = condition,
+            condKey     = condKey,
+            weatherType = weatherType,
+            source      = wg ~= nil and "weatherguard" or "engine",
         }
 
-        if     w.isStorming then w.condition = "Stormy";        w.condKey = "storm"
-        elseif w.isRaining  then w.condition = "Rainy";         w.condKey = "rain"
-        elseif w.isFoggy    then w.condition = "Foggy";         w.condKey = "fog"
-        elseif cloud > 0.70 then w.condition = "Overcast";      w.condKey = "overcast"
-        elseif cloud > 0.30 then w.condition = "Partly Cloudy"; w.condKey = "cloudy"
-        else                     w.condition = "Clear";         w.condKey = "clear"
+        -- WeatherGuard world-weather dial (1 Real / 2 Arid / 3 Normal / 4 Wet)
+        if wg ~= nil then
+            local okMode, mode = pcall(function() return wg:getWeatherMode() end)
+            if okMode and type(mode) == "number" then
+                w.weatherMode = mode
+            end
+            local okName, modeName = pcall(function() return wg:getWeatherModeName() end)
+            if okName and type(modeName) == "string" then
+                w.weatherModeName = modeName
+            end
+            local okH, horizon = pcall(function() return wg:getForecastHorizonDays() end)
+            if okH and type(horizon) == "number" then
+                w.forecastHorizonDays = horizon
+            end
         end
 
-        -- ── Projected 5-day Forecast ──────────────────────
-        -- FS25 has no public forecast Lua API (confirmed: SeasonalCropStress
-        -- WeatherIntegration.lua comment).  We build a projection from:
-        --   • Near-term (days 1-2): current cloud coverage → rain probability
-        --   • Far-term  (days 3-5): seasonal base rain probability, blended in
-        -- Temperature drifts ±1 C per day toward the seasonal mean.
-        do
-            -- Seasonal base rain probabilities (spring/summer/autumn/winter)
+        -- ── Forecast ──────────────────────────────────────
+        -- Prefer WeatherGuard's real engine forecast. Fall back to the old
+        -- seasonal heuristic only when WeatherGuard is absent.
+        if wg ~= nil and type(wg.getForecastRain) == "function" then
+            local fc = {}
+            local maxDays = 5
+            if type(w.forecastHorizonDays) == "number" then
+                maxDays = math.max(1, math.min(5, math.floor(w.forecastHorizonDays)))
+            end
+            for day = 1, maxDays do
+                local okR, rain = pcall(function() return wg:getForecastRain(day) end)
+                local okT, fTemp = pcall(function() return wg:getForecastTemperature(day) end)
+                if not okR or rain == nil then
+                    break -- honest horizon edge
+                end
+                local rainN = tonumber(rain) or 0
+                local condKeyF, conditionF
+                if     rainN > 0.70 then condKeyF, conditionF = "storm", "Stormy"
+                elseif rainN > 0.05 then condKeyF, conditionF = "rain",  "Rainy"
+                else                     condKeyF, conditionF = "clear", "Clear"
+                end
+                fc[#fc + 1] = {
+                    condition   = conditionF,
+                    condKey     = condKeyF,
+                    temperature = (okT and type(fTemp) == "number") and math.floor(fTemp + 0.5) or nil,
+                    rainProb    = math.floor(math.max(0, math.min(1, rainN)) * 100),
+                    rainScale   = rainN,
+                    source      = "weatherguard",
+                }
+            end
+            w.forecast = fc
+            w.forecastIsReal = true
+        else
+            -- Legacy projection (no WeatherGuard): season + cloud heuristic.
             local SEASONAL_RAIN = {[0]=0.30, [1]=0.12, [2]=0.28, [3]=0.35}
             local season = env.currentSeason
             season = (type(season) == "number") and math.floor(season) or 0
             local seasonRain = SEASONAL_RAIN[season] or 0.25
-
-            -- Best cloud coverage reading for the projection
-            local cloudFC = cloud  -- already clamped 0-1 above
-            if env.cloudUpdater and env.cloudUpdater.getCloudCoverage then
-                cloudFC = env.cloudUpdater:getCloudCoverage()
-                if cloudFC > 1.0 then cloudFC = cloudFC / 100 end
-            end
-
+            local cloudFC = cloud
             local fc = {}
             for day = 1, 5 do
-                -- Blend: day 1 = 100% cloud-based, day 5 = 100% seasonal
-                local blend   = (day - 1) / 4   -- 0.0 → 1.0
+                local blend = (day - 1) / 4
                 local rainProb = cloudFC * 0.7 * (1 - blend) + seasonRain * blend
-
-                -- Slight temperature drift toward seasonal typical
                 local seasonalMid = ({[0]=12, [1]=24, [2]=14, [3]=2})[season] or 15
                 local projTemp = math.floor(temp + (seasonalMid - temp) * blend * 0.3)
-
-                local condKey, condition
-                if     rainProb > 0.60 then condKey, condition = "storm",    "Stormy"
-                elseif rainProb > 0.35 then condKey, condition = "rain",     "Rainy"
-                elseif cloudFC  > 0.55 then condKey, condition = "overcast", "Overcast"
-                elseif cloudFC  > 0.25 then condKey, condition = "cloudy",   "Partly Cloudy"
-                else                        condKey, condition = "clear",    "Clear"
+                local condKeyF, conditionF
+                if     rainProb > 0.60 then condKeyF, conditionF = "storm",    "Stormy"
+                elseif rainProb > 0.35 then condKeyF, conditionF = "rain",     "Rainy"
+                elseif cloudFC  > 0.55 then condKeyF, conditionF = "overcast", "Overcast"
+                elseif cloudFC  > 0.25 then condKeyF, conditionF = "cloudy",   "Partly Cloudy"
+                else                        condKeyF, conditionF = "clear",    "Clear"
                 end
-
-                table.insert(fc, {
-                    condition   = condition,
-                    condKey     = condKey,
+                fc[#fc + 1] = {
+                    condition   = conditionF,
+                    condKey     = condKeyF,
                     temperature = projTemp,
                     rainProb    = math.floor(rainProb * 100),
-                })
+                    source      = "projected",
+                }
             end
             w.forecast = fc
+            w.forecastIsReal = false
         end
 
         return w
