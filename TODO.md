@@ -12,6 +12,13 @@
 - [ ] Focus state passes previous appId instead of nil on goHome/openTablet/unlock (Point 1).
 
 ## Features / enhancements
+- [x] Irrigation Suite app (FT #100): a read-only SCS operating picture (coverage overlay + system status), built to Wizard's UI brief and merged; real frame-cache for the coverage overlay (03a6198).
+- [x] Rotation Planner app (FT #99): reads SoilFertilizer's #739 rotation data surface (lastCrop3 + bonus countdown), prefers the SF-blessed candidate pool.
+- [x] Soil tablet field-card redesign (FT #101): the Soil app field cards reworked per Tyson's approval.
+- [x] App text scales with the tablet + a font-size setting (#96); Weather app help copy dejargoned (#91).
+- [x] App icons for irrigation_suite / rotation_planner / system_settings (gen_icons emblems + baked DDS).
+- [x] FieldSentry admin gate is now fail-closed, not fail-open (security).
+- [ ] Financial Cockpit page (FT-6): read-only financial HEALTH heart + instruments + self-recorded monthly history via its own StateLedger module. Brief staged; buildable on the Time Guard handle. Not started.
 - [ ] DataProvider renderer object pool (Point 2, not blocking).
 - [ ] Pocket Profile / Worker Profiles app (deferred; depends on WorkerCosts).
 
