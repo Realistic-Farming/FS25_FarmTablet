@@ -31,6 +31,95 @@
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />
         <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
         <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
+        <text name="ft_ui_app_financial_cockpit" text="Financial Cockpit" />
+        <text name="ft_fc_health" text="FARM HEALTH" />
+        <text name="ft_fc_band_green" text="Healthy" />
+        <text name="ft_fc_band_amber" text="Watch" />
+        <text name="ft_fc_band_red" text="Critical" />
+        <text name="ft_fc_band_partial" text="Partial / Estimated" />
+        <text name="ft_fc_band_neutral" text="Neutral" />
+        <text name="ft_fc_partial" text="PARTIAL" />
+        <text name="ft_fc_not_tracked" text="Not yet tracked" />
+        <text name="ft_fc_syncing" text="Syncing" />
+        <text name="ft_fc_unavailable" text="Unavailable" />
+        <text name="ft_fc_open" text="OPEN" />
+        <text name="ft_fc_months" text="months" />
+        <text name="ft_fc_month" text="Month" />
+        <text name="ft_fc_year" text="Year" />
+        <text name="ft_fc_balance" text="Balance" />
+        <text name="ft_fc_loan" text="Loan" />
+        <text name="ft_fc_net_worth" text="Net worth" />
+        <text name="ft_fc_clock" text="Economic clock" />
+        <text name="ft_fc_period" text="Period" />
+        <text name="ft_fc_days_per_period" text="Days / period" />
+        <text name="ft_fc_section_instruments" text="INSTRUMENTS" />
+        <text name="ft_fc_section_rhythm" text="RHYTHM" />
+        <text name="ft_fc_section_forecast" text="FORECAST" />
+        <text name="ft_fc_section_history" text="HISTORY" />
+        <text name="ft_fc_section_flows" text="FLOWS AND SIGNALS" />
+        <text name="ft_fc_section_vitals" text="VITALS" />
+        <text name="ft_fc_forecast_label" text="Projection" />
+        <text name="ft_fc_forecast_month_end" text="Month-end outlook" />
+        <text name="ft_fc_forecast_remaining" text="Period remaining" />
+        <text name="ft_fc_forecast_next_pay" text="Next income pulse" />
+        <text name="ft_fc_forecast_tax" text="Tax accumulated (annual)" />
+        <text name="ft_fc_forecast_wages" text="Wage burn (known)" />
+        <text name="ft_fc_forecast_fuel" text="Fuel spend" />
+        <text name="ft_fc_forecast_limited" text="Limited to readable flows" />
+        <text name="ft_fc_forecast_disclaimer" text="Projection only. Missing flows are not invented." />
+        <text name="ft_fc_history" text="Monthly record" />
+        <text name="ft_fc_history_host_only" text="Host-only in v1" />
+        <text name="ft_fc_history_host_only_detail" text="Monthly history is recorded on the host. Live cash and leverage still stand." />
+        <text name="ft_fc_history_dedicated" text="Unavailable on this server" />
+        <text name="ft_fc_history_no_ledger" text="No StateLedger (live vitals only)" />
+        <text name="ft_fc_history_wait_detail" text="A compact row is written each closed in-game month." />
+        <text name="ft_fc_no_history_yet" text="No history yet" />
+        <text name="ft_fc_recent_months" text="RECENT MONTHS" />
+        <text name="ft_fc_yearly_rollup" text="YEARLY ROLLUP" />
+        <text name="ft_fc_vital_cash" text="Cash position" />
+        <text name="ft_fc_vital_cash_detail" text="Available farm balance." />
+        <text name="ft_fc_vital_leverage" text="Leverage" />
+        <text name="ft_fc_vital_leverage_detail" text="Loan share of balance plus loan." />
+        <text name="ft_fc_vital_runway" text="Cash runway" />
+        <text name="ft_fc_vital_runway_partial" text="Needs a fuller cost picture before runway is confident." />
+        <text name="ft_fc_vital_runway_detail" text="Balance divided by known operating burn." />
+        <text name="ft_fc_vital_direction" text="Profit direction" />
+        <text name="ft_fc_vital_direction_wait" text="Needs at least two monthly samples." />
+        <text name="ft_fc_vital_direction_detail" text="Change in net worth across the last two closed months." />
+        <text name="ft_fc_vital_margin" text="Margin" />
+        <text name="ft_fc_vital_margin_wait" text="Needs a recorded month with flow totals." />
+        <text name="ft_fc_vital_margin_partial" text="Flow gaps remain; margin is estimated only." />
+        <text name="ft_fc_vital_trajectory" text="Net-worth trajectory" />
+        <text name="ft_fc_vital_trajectory_wait" text="Needs at least two monthly samples." />
+        <text name="ft_fc_vital_trajectory_detail" text="Net worth change over the recent recorded window." />
+        <text name="ft_fc_worst_rule" text="Heart color = worst vital that has data. Neutrals and partials do not count as healthy." />
+        <text name="ft_fc_pocket_vital" text="Health vital" />
+        <text name="ft_fc_pocket_history" text="Financial history" />
+        <text name="ft_fc_pocket_forecast" text="Forecast" />
+        <text name="ft_fc_pocket_flows" text="Flows and signals" />
+        <text name="ft_fc_flow_income" text="Income" />
+        <text name="ft_fc_flow_income_mode" text="Pay mode" />
+        <text name="ft_fc_flow_tax" text="Tax paid (total)" />
+        <text name="ft_fc_flow_wages" text="Wages (month)" />
+        <text name="ft_fc_flow_fuel" text="Fuel spend" />
+        <text name="ft_fc_flow_dairy_income" text="Dairy contract income" />
+        <text name="ft_fc_flow_rwe" text="World-event money" />
+        <text name="ft_fc_signal_coop" text="Co-Op level" />
+        <text name="ft_fc_signal_coop_note" text="Level only. Quantified savings wait on ProStaff benefit getters." />
+        <text name="ft_fc_signal_dairy" text="Dairy barns" />
+        <text name="ft_fc_signal_market" text="Market events" />
+        <text name="ft_fc_signal_rwe" text="World event" />
+        <text name="ft_fc_dollar_flows" text="DOLLAR FLOWS" />
+        <text name="ft_fc_signals" text="SIGNALS" />
+        <text name="ft_fc_honesty" text="Honesty" />
+        <text name="ft_fc_help_health_title" text="FARM HEALTH" />
+        <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
+        <text name="ft_fc_help_history_title" text="HISTORY" />
+        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
+        <text name="ft_fc_help_forecast_title" text="FORECAST" />
+        <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
+        <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
+        <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="Animais" />
         <text name="ft_ui_app_weather" text="Clima" />
         <text name="ft_ui_app_digging" text="Escavação" />

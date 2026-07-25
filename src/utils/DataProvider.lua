@@ -339,12 +339,12 @@ function FT_DataProvider:getWorldInfo()
         end
         local env = g_currentMission.environment
         -- FS25 uses env.dayTime (ms within the day, 0–86400000).
-        -- Seasons mod adds currentSeason; guard with nil check.
+        -- currentSeason is always present in base FS25 (1-4); not a Seasons-mod add-on.
         local dayTimeMs  = env.dayTime or 0
         local totalHours = dayTimeMs / 3600000
         return {
             day    = env.currentDay or 1,
-            season = env.currentSeason,   -- nil in base game
+            season = env.currentSeason,
             hour   = math.floor(totalHours) % 24,
             minute = math.floor((totalHours % 1) * 60),
         }
