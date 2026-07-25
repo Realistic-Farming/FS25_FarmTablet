@@ -117,7 +117,8 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
         y = self:drawRow(y, "World data", "unavailable", nil, FT.C.MUTED)
     end
 
-    self:setContentHeight(startY - y + scrollY)
+    -- Reserve room so the info icon does not sit on the Time value.
+    self:setContentHeight(startY - y + scrollY + FT.py(28))
     self:drawScrollBar()
     self:drawInfoIcon("_statsHelp", AC)
 end)

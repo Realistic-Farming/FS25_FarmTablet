@@ -990,7 +990,7 @@ local function _drawHome(self, snap, AC)
     end
 
     local fBtnW = FT.px(72)
-    _pocketBtn(self, x + cw - fBtnW, y + FT.py(2), fBtnW, FT.py(16),
+    _pocketBtn(self, x + cw - fBtnW, y - FT.py(2), fBtnW, FT.py(16),
         _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
             onClick = function()
                 _view = "flows"

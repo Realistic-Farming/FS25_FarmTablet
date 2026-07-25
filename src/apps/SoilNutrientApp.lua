@@ -173,30 +173,36 @@ local function _buildTreatments(info, SC, settings)
         add("OM", "Monitor. Maintain organic inputs.", FT.C.WARNING)
     end
 
+    -- Match the bars above: treat against crop target (fallback = fair threshold).
     local nVal = info.nitrogen and info.nitrogen.value or 0
-    if nVal < (nT.poor or 30) then
-        add("N", _nutrientActionText(SC, nVal, targetN, rrMult, fieldArea,
+    local nNeed = targetN or (nT.fair or 50)
+    if nVal < nNeed * 0.60 then
+        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
             { { "UREA", "N" }, { "UAN32", "N" } }, "Apply UREA or UAN32"), FT.C.NEGATIVE)
-    elseif nVal < (nT.fair or 50) then
-        add("N", _nutrientActionText(SC, nVal, targetN, rrMult, fieldArea,
+    elseif nVal < nNeed then
+        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
             { { "AMS", "N" }, { "AN", "N" } }, "Apply AMS or AN"), FT.C.WARNING)
     end
 
     local pVal = info.phosphorus and info.phosphorus.value or 0
-    if pVal < (pT.poor or 25) then
-        add("P", _nutrientActionText(SC, pVal, targetP, rrMult, fieldArea,
+    local pNeed = targetP or (pT.fair or 40)
+    if pVal < pNeed * 0.60 then
+        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
             { { "MAP", "P" }, { "DAP", "P" } }, "Apply MAP or DAP"), FT.C.NEGATIVE)
-    elseif pVal < (pT.fair or 40) then
-        add("P", _nutrientActionText(SC, pVal, targetP, rrMult, fieldArea,
+    elseif pVal < pNeed then
+        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
             { { "LIQUID_MAP", "P" }, { "LIQUID_DAP", "P" } }, "Top-up with Liquid MAP / DAP"), FT.C.WARNING)
+    elseif pVal > pNeed * 1.15 then
+        add("P", "Above target - skip P product this pass.", FT.C.WARNING)
     end
 
     local kVal = info.potassium and info.potassium.value or 0
-    if kVal < (kT.poor or 20) then
-        add("K", _nutrientActionText(SC, kVal, targetK, rrMult, fieldArea,
+    local kNeed = targetK or (kT.fair or 40)
+    if kVal < kNeed * 0.60 then
+        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
             { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Apply POTASH"), FT.C.NEGATIVE)
-    elseif kVal < (kT.fair or 40) then
-        add("K", _nutrientActionText(SC, kVal, targetK, rrMult, fieldArea,
+    elseif kVal < kNeed then
+        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
             { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Top-up with POTASH"), FT.C.WARNING)
     end
 
@@ -294,15 +300,17 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
     if settings then
         local en = settings.enabled ~= false
+        -- Banner bottom is at y-22; leave clear air before FIELDS so Active
+        -- never paints on top of the section header.
         self.r:appRect(x - FT.px(4), y - FT.py(22), cw + FT.px(8), FT.py(20),
             { AC[1] * 0.10, AC[2] * 0.10, AC[3] * 0.10, 0.95 })
         self.r:appText(x, y - FT.py(18), FT.FONT.SMALL,
             en and "Active" or "DISABLED", RenderText.ALIGN_LEFT, en and FT.C.POSITIVE or FT.C.WARNING)
         if soilSys.PFActive then
-            self.r:appText(x + cw, y - FT.py(18), FT.FONT.TINY,
+            self.r:appText(x + cw - FT.px(8), y - FT.py(18), FT.FONT.TINY,
                 "PF DLC active", RenderText.ALIGN_RIGHT, FT.C.INFO)
         end
-        y = y - FT.py(26)
+        y = y - FT.py(36)
     end
 
     local farmId = self.system.data:getPlayerFarmId()
@@ -460,16 +468,23 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             end
 
             y = y - FT.py(4)
-            self.r:appText(innerX, y, FT.FONT.TINY, "TREATMENT",
+            self.r:appText(innerX, y, FT.FONT.TINY, "TREATMENT PLAN",
                 RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
             y = y - FT.py(13)
-            for _, row in ipairs(treats) do
-                self.r:appText(innerX, y, FT.FONT.TINY, row.label,
-                    RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM)
-                local txt = _truncate(row.text, 38)
-                self.r:appText(innerX + FT.px(48), y, FT.FONT.TINY, txt,
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            if #treats == 0 then
+                self.r:appText(innerX, y, FT.FONT.TINY,
+                    "No actions — levels look fine.",
+                    RenderText.ALIGN_LEFT, FT.C.POSITIVE)
                 y = y - FT.py(13)
+            else
+                for _, row in ipairs(treats) do
+                    self.r:appText(innerX, y, FT.FONT.TINY, row.label,
+                        RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM)
+                    local txt = _truncate(row.text, 42)
+                    self.r:appText(innerX + FT.px(52), y, FT.FONT.TINY, txt,
+                        RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                    y = y - FT.py(13)
+                end
             end
         end
 
@@ -477,7 +492,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         y = cardBottom - FT.py(10)
     end
 
-    self:setContentHeight(startY - y + scrollY)
+    self:setContentHeight(startY - y + scrollY + FT.py(28))
     self:drawInfoIcon("_soilHelp", AC)
     self:drawScrollBar()
 end)

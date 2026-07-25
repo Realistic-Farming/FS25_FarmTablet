@@ -362,12 +362,14 @@ FarmTabletUI:registerDrawer(FT.APP.CROP_STRESS, function(self)
     if settings and settings.enabled ~= nil then
         local en   = settings.enabled
         local diff = settings.difficulty or "Normal"
+        -- Banner bottom is at y-22; leave clear air before FIELDS so DISABLED
+        -- never paints over the section header (same clash as Soil Fertilizer).
         self.r:appRect(x - FT.px(4), y - FT.py(22), cw + FT.px(8), FT.py(20),
             {accent[1]*0.10, accent[2]*0.10, accent[3]*0.10, 0.95})
         self.r:appText(x, y - FT.py(18), FT.FONT.SMALL,
             en and ("Active  |  Difficulty: " .. tostring(diff)) or "DISABLED",
             RenderText.ALIGN_LEFT, en and FT.C.POSITIVE or FT.C.WARNING)
-        y = y - FT.py(26)
+        y = y - FT.py(36)
     end
 
     if not moistureData and not stressData then
@@ -427,16 +429,23 @@ FarmTabletUI:registerDrawer(FT.APP.CROP_STRESS, function(self)
         local valStr = moistPct and string.format("%d%% moisture", moistPct) or "--"
         if stressPct > 5 then valStr = valStr .. "  !" .. stressPct .. "%" end
 
-        y = self:drawRow(y, label, valStr, nil, moistPct and moistColor or FT.C.TEXT_DIM)
+        -- Indent value off the right edge so it clears the scrollbar.
+        local xInner, _, wInner = self:contentInner()
+        self.r:appText(xInner + FT.px(14), y, FT.FONT.BODY, label,
+            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+        self.r:appText(xInner + wInner - FT.px(14), y, FT.FONT.BODY, valStr,
+            RenderText.ALIGN_RIGHT, moistPct and moistColor or FT.C.TEXT_DIM)
+        y = y - FT.py(FT.SP.ROW)
 
         if moistPct then
             y = y + FT.py(FT.SP.ROW) - FT.py(8)
-            y = self:drawBar(y, moistPct, 100, moistColor)
-            y = y - FT.py(2)
+            local barW = wInner - FT.px(12)
+            self.r:progressBar(xInner, y, barW, moistPct, 100, moistColor)
+            y = y - FT.py(10)
         end
     end
 
-    self:setContentHeight(startY - y + scrollY)
+    self:setContentHeight(startY - y + scrollY + FT.py(28))
     self:drawInfoIcon("_cropStressHelp", AC)
     self:drawScrollBar()
 end)
