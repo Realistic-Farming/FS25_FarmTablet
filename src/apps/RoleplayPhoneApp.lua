@@ -96,21 +96,31 @@ local function initForm(self)
     }
 end
 
+-- Left label gutter so row titles never sit under ◄ / -1k steppers.
+local FORM_LABEL_W = nil
+local function _formLabelW()
+    if FORM_LABEL_W == nil then FORM_LABEL_W = FT.px(70) end
+    return FORM_LABEL_W
+end
+
 -- ── Cycler row helper ─────────────────────────────────────
 local function drawCycler(self, y, label, value, onChange)
     local x, _, w, _ = self:contentInner()
-
-    self.r:appText(x + FT.px(4), y - FT.py(9),
-        FT.FONT.TINY, label, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    y = y - FT.py(13)
-
-    self.r:appRect(x - FT.px(4), y - FT.py(2), w + FT.px(8), FT.py(18), FT.C.BG_CARD)
-
-    local arrowW = FT.px(22)
+    local labelW = _formLabelW()
     local rowH   = FT.py(16)
     local appId  = FT.APP.ROLEPLAY_PHONE
 
-    local btnL = self.r:button(x, y, arrowW, rowH, "◄", FT.C.BTN_NEUTRAL, {
+    self.r:appRect(x - FT.px(4), y - FT.py(2), w + FT.px(8), FT.py(18), FT.C.BG_CARD)
+
+    -- Label in a reserved left column (not on top of the arrows).
+    self.r:appText(x + FT.px(4), y + FT.py(4),
+        FT.FONT.TINY, label, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+
+    local ctrlX = x + labelW
+    local ctrlW = w - labelW
+    local arrowW = FT.px(22)
+
+    local btnL = self.r:button(ctrlX, y, arrowW, rowH, "◄", FT.C.BTN_NEUTRAL, {
         onClick = function()
             onChange(-1)
             self:switchApp(appId)
@@ -118,14 +128,16 @@ local function drawCycler(self, y, label, value, onChange)
     })
     table.insert(self._contentBtns, btnL)
 
-    local valX = x + arrowW + FT.px(6)
-    local valW = w - arrowW * 2 - FT.px(12)
+    local valX = ctrlX + arrowW + FT.px(4)
+    local valW = ctrlW - arrowW * 2 - FT.px(8)
     local valStr = tostring(value)
-    if #valStr > 26 then valStr = valStr:sub(1, 24) .. "…" end
+    -- Keep long party / description names out of the arrow buttons.
+    local maxChars = math.max(10, math.floor(valW / FT.px(6.5)))
+    if #valStr > maxChars then valStr = valStr:sub(1, math.max(1, maxChars - 1)) .. "…" end
     self.r:appText(valX + valW * 0.5, y + FT.py(4),
-        FT.FONT.BODY, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
 
-    local btnR = self.r:button(x + w - arrowW, y, arrowW, rowH, "►", FT.C.BTN_NEUTRAL, {
+    local btnR = self.r:button(ctrlX + ctrlW - arrowW, y, arrowW, rowH, "►", FT.C.BTN_NEUTRAL, {
         onClick = function()
             onChange(1)
             self:switchApp(appId)
@@ -133,7 +145,7 @@ local function drawCycler(self, y, label, value, onChange)
     })
     table.insert(self._contentBtns, btnR)
 
-    return y - FT.py(20)
+    return y - FT.py(22)
 end
 
 -- ── Amount row ────────────────────────────────────────────
@@ -141,32 +153,42 @@ local function drawAmountRow(self, y, amount)
     local x, _, w, _ = self:contentInner()
     local data   = self.system.data
     local appId  = FT.APP.ROLEPLAY_PHONE
-
-    self.r:appText(x + FT.px(4), y - FT.py(9),
-        FT.FONT.TINY, "AMOUNT", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    y = y - FT.py(13)
-
-    local stepW  = FT.px(30)
+    local labelW = _formLabelW()
     local rowH   = FT.py(16)
-    local steps  = { -1000, -100, -10, 10, 100, 1000 }
-    local labels = { "-1k", "-100", "-10", "+10", "+100", "+1k" }
 
     self.r:appRect(x - FT.px(4), y - FT.py(2), w + FT.px(8), FT.py(18), FT.C.BG_CARD)
 
+    self.r:appText(x + FT.px(4), y + FT.py(4),
+        FT.FONT.TINY, "AMOUNT", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+
+    local ctrlX = x + labelW
+    local ctrlW = w - labelW
+    -- Wide enough for "-100" / "+100" in SMALL font without spilling into the label.
+    local stepW  = FT.px(34)
+    local steps  = { -1000, -100, -10, 10, 100, 1000 }
+    local labels = { "-1k", "-100", "-10", "+10", "+100", "+1k" }
+
     local totalStepW = stepW * 3
-    local midX = x + totalStepW + FT.px(4)
-    local midW = w - totalStepW * 2 - FT.px(8)
+    local midX = ctrlX + totalStepW + FT.px(2)
+    local midW = ctrlW - totalStepW * 2 - FT.px(4)
+    if midW < FT.px(40) then
+        -- Narrow screens: shrink steppers so the money value still fits.
+        stepW = math.max(FT.px(28), math.floor((ctrlW - FT.px(44)) / 6))
+        totalStepW = stepW * 3
+        midX = ctrlX + totalStepW + FT.px(2)
+        midW = ctrlW - totalStepW * 2 - FT.px(4)
+    end
     self.r:appText(midX + midW * 0.5, y + FT.py(4),
-        FT.FONT.BODY, data:formatMoney(amount),
+        FT.FONT.SMALL, data:formatMoney(amount),
         RenderText.ALIGN_CENTER,
         amount > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
 
     for i, step in ipairs(steps) do
         local bx
         if i <= 3 then
-            bx = x + (i - 1) * stepW
+            bx = ctrlX + (i - 1) * stepW
         else
-            bx = x + w - (7 - i) * stepW
+            bx = ctrlX + ctrlW - (7 - i) * stepW
         end
         local stepVal = step
         local btn = self.r:button(bx, y, stepW - FT.px(2), rowH, labels[i], FT.C.BTN_NEUTRAL, {
@@ -178,7 +200,7 @@ local function drawAmountRow(self, y, amount)
         table.insert(self._contentBtns, btn)
     end
 
-    return y - FT.py(20)
+    return y - FT.py(22)
 end
 
 -- ── Invoice creation form (built-in / fallback mode only) ─
@@ -464,8 +486,11 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
 
             self.r:appRect(x - FT.px(4), y - FT.py(4), w + FT.px(8), cardH, FT.C.BG_CARD)
 
-            -- Line 1: party + badge
+            -- Line 1: party + badge (truncate party so it cannot run into PENDING/PAID)
             local party = (inv.party and inv.party ~= "") and inv.party or "Unknown"
+            local badgeReserve = FT.px(72)
+            local partyMax = math.max(8, math.floor((w - badgeReserve) / FT.px(7)))
+            if #party > partyMax then party = party:sub(1, math.max(1, partyMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line1Y,
                 FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
             self.r:appText(x + w - FT.px(4), line1Y,
@@ -473,7 +498,9 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
 
             -- Line 2: description + amount
             local desc = inv.description or ""
-            if #desc > 38 then desc = desc:sub(1, 36) .. "…" end
+            local amtReserve = FT.px(70)
+            local descMax = math.max(10, math.floor((w - amtReserve) / FT.px(6)))
+            if #desc > descMax then desc = desc:sub(1, math.max(1, descMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line2Y,
                 FT.FONT.SMALL, desc, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             self.r:appText(x + w - FT.px(4), line2Y,

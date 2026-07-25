@@ -264,9 +264,12 @@ local function drawHire(self, snap, bodyTop, AC)
     local hireH  = FT.py(16)
     for _, r in ipairs(recruits) do
         if visBlock(y, blockH) then
-            self.r:appText(x, y, FT.FONT.SMALL, tostring(r.name or "Recruit"),
+            local nameMax = math.max(8, math.floor((cw - hireW - FT.px(80)) / FT.px(6.5)))
+            self.r:appText(x, y, FT.FONT.SMALL,
+                FT_Renderer.truncate(tostring(r.name or "Recruit"), nameMax),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + FT.px(96), y, FT.FONT.TINY, "[" .. (r.levelName or "Novice") .. "]",
+            self.r:appText(x + FT.px(96), y, FT.FONT.TINY,
+                FT_Renderer.truncate("[" .. (r.levelName or "Novice") .. "]", 12),
                 RenderText.ALIGN_LEFT, levelColor(r.level))
 
             local slot     = r.slot

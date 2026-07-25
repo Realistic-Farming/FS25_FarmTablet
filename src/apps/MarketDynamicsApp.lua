@@ -150,7 +150,8 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
         end
     end
 
-    self:setContentHeight(startY - y + scrollY)
+    -- Extra bottom pad so the last mover and the info icon do not clip.
+    self:setContentHeight(startY - y + scrollY + FT.py(28))
     self:drawInfoIcon("_mktHelp", AC)
     self:drawScrollBar()
 end)

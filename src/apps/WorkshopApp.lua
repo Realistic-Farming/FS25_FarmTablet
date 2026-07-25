@@ -6,6 +6,21 @@
 -- • "REPAIR" button uses FS25 wear/repair APIs
 -- =========================================================
 
+--- serviceShed / myWorkshop_01 → Service Shed / My Workshop 01
+local function _prettyShopName(name)
+    name = tostring(name or "")
+    if name == "" then return "Workshop" end
+    name = name:match("([^/\\]+)$") or name
+    name = name:gsub("%.xml$", "")
+    name = name:gsub("(%l)(%u)", "%1 %2")
+    name = name:gsub("(%u+)(%u%l)", "%1 %2")
+    name = name:gsub("[_%-]+", " ")
+    name = name:gsub("%s+", " "):match("^%s*(.-)%s*$") or name
+    return (name:lower():gsub("(%a)([%w']*)", function(a, b)
+        return a:upper() .. b
+    end))
+end
+
 FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     local AC = FT.appColor(FT.APP.WORKSHOP)
 
@@ -67,30 +82,45 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
         if not found then self.system.workshopSelectedVehicle = nil; sel = nil end
     end
 
-    -- Workshop status banner
+    -- Workshop status banner (sized from content, clear gap before NEARBY).
     local accent = AC
+    local pad = FT.px(8)
+    local bannerH = FT.py(18)
     if #workshops == 0 then
-        self.r:appRect(x - FT.px(4), y - FT.py(18), cw + FT.px(8), FT.py(16),
+        local bannerBottom = y - bannerH
+        self.r:appRect(x - FT.px(4), bannerBottom, cw + FT.px(8), bannerH,
             {accent[1]*0.12, accent[2]*0.12, accent[3]*0.12, 0.95})
-        self.r:appText(x, y - FT.py(13), FT.FONT.SMALL,
-            "No workshop found on this farm  (repairs disabled)", RenderText.ALIGN_LEFT, FT.C.WARNING)
-        y = y - FT.py(24)
+        self.r:appText(x + pad, y - FT.py(5), FT.FONT.SMALL,
+            "No workshop found on this farm  (repairs disabled)",
+            RenderText.ALIGN_LEFT, FT.C.WARNING)
+        -- Extra air so the next section header cannot sit inside this bar.
+        y = bannerBottom - FT.py(14)
     else
         local ws = workshops[1]
         local wsName = "Workshop"
-        if ws.getName then wsName = ws:getName() or wsName
-        elseif ws.configFileName then wsName = ws.configFileName:match("([^/\\]+)%.xml$") or wsName end
-        self.r:appRect(x - FT.px(4), y - FT.py(18), cw + FT.px(8), FT.py(16),
+        if ws.getName then
+            local n = ws:getName()
+            if n ~= nil and tostring(n) ~= "" then wsName = tostring(n) end
+        end
+        if wsName == "Workshop" and ws.configFileName then
+            wsName = ws.configFileName:match("([^/\\]+)%.xml$") or wsName
+        end
+        wsName = _prettyShopName(wsName)
+        local bannerBottom = y - bannerH
+        self.r:appRect(x - FT.px(4), bannerBottom, cw + FT.px(8), bannerH,
             {accent[1]*0.10, accent[2]*0.10, accent[3]*0.10, 0.95})
-        self.r:appText(x, y - FT.py(13), FT.FONT.SMALL, wsName, RenderText.ALIGN_LEFT, FT.C.POSITIVE)
-        self.r:appText(x + cw, y - FT.py(13), FT.FONT.TINY, "REPAIRS AVAILABLE", RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
-        y = y - FT.py(24)
+        self.r:appText(x + pad, y - FT.py(5), FT.FONT.SMALL, wsName,
+            RenderText.ALIGN_LEFT, FT.C.POSITIVE)
+        self.r:appText(x + cw - pad, y - FT.py(5), FT.FONT.TINY, "REPAIRS AVAILABLE",
+            RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
+        y = bannerBottom - FT.py(14)
     end
 
     if #nearby == 0 then
-        y = y - FT.py(4)
-        self.r:appText(x, y, FT.FONT.BODY, "No vehicles within 35 m.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        self.r:appText(x, y - FT.py(18), FT.FONT.SMALL, "Walk closer to a vehicle to inspect it.", RenderText.ALIGN_LEFT, FT.C.MUTED)
+        self.r:appText(x + pad, y, FT.FONT.BODY, "No vehicles within 35 m.",
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        self.r:appText(x + pad, y - FT.py(18), FT.FONT.SMALL,
+            "Walk closer to a vehicle to inspect it.", RenderText.ALIGN_LEFT, FT.C.MUTED)
         self:drawInfoIcon("_workshopHelp", AC)
         return
     end
@@ -108,7 +138,8 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
         end
         local nm = v.name
         if #nm > 22 then nm = nm:sub(1, 20) .. ">" end
-        self.r:appText(x, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT,
+        -- Same left pad as shop banner / section header text.
+        self.r:appText(x + pad, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT,
             isSel and FT.C.TEXT_BRIGHT or FT.C.TEXT_NORMAL)
         local wearColor = v.wearPct <= 30 and FT.C.POSITIVE or v.wearPct <= 65 and FT.C.WARNING or FT.C.NEGATIVE
         self.r:appText(x + cw - btnW - FT.px(62), y, FT.FONT.TINY,

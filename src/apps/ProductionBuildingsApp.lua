@@ -66,11 +66,7 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
         self.r:appRect(x - FT.px(4), y - cardH + FT.py(4), FT.px(3), cardH,
             {AC[1], AC[2], AC[3], 0.55})
 
-        -- ── Building name ─────────────────────────────────
-        self.r:appText(x + FT.px(10), y - FT.py(10), FT.FONT.SMALL,
-            b.name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-
-        -- Status badge (top-right)
+        -- Status badge (top-right) first so the name can reserve space.
         local isActive   = b.activeCount > 0
         local statusText = isActive
             and string.format(PText("ft_production_active_fmt", "%d/%d active"), b.activeCount, b.totalCount)
@@ -78,6 +74,11 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
         local statusColor = isActive and FT.C.POSITIVE or FT.C.WARNING
         self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
             statusText, RenderText.ALIGN_RIGHT, statusColor)
+
+        -- ── Building name ─────────────────────────────────
+        local nameMax = math.max(10, math.floor((cw - FT.px(90)) / FT.px(6.5)))
+        self.r:appText(x + FT.px(10), y - FT.py(10), FT.FONT.SMALL,
+            FT_Renderer.truncate(b.name, nameMax), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
 
         -- Accent line below name
         self.r:appRect(x + FT.px(10), y - FT.py(18), cw - FT.px(20), FT.py(1),
@@ -96,9 +97,10 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
                 "-", RenderText.ALIGN_LEFT, FT.C.MUTED)
             ioY = ioY - FT.py(13)
         else
+            local fillMax = math.max(8, math.floor(colW / FT.px(6)))
             for _, inp in ipairs(b.inputs) do
                 self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
-                    "- " .. inp, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                    "- " .. FT_Renderer.truncate(inp, fillMax), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
                 ioY = ioY - FT.py(13)
             end
         end
@@ -115,9 +117,10 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
             self.r:appText(outX + FT.px(4), outY, FT.FONT.TINY,
                 "-", RenderText.ALIGN_LEFT, FT.C.MUTED)
         else
+            local fillMax = math.max(8, math.floor(colW / FT.px(6)))
             for _, out2 in ipairs(b.outputs) do
                 self.r:appText(outX + FT.px(4), outY, FT.FONT.TINY,
-                    "- " .. out2, RenderText.ALIGN_LEFT,
+                    "- " .. FT_Renderer.truncate(out2, fillMax), RenderText.ALIGN_LEFT,
                     isActive and FT.C.POSITIVE or FT.C.TEXT_DIM)
                 outY = outY - FT.py(13)
             end
