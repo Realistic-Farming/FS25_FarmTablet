@@ -951,7 +951,7 @@ local function _drawHome(self, snap, AC)
             nil, FT.C.TEXT_NORMAL)
     end
     local hBtnW = FT.px(72)
-    _pocketBtn(self, x + cw - hBtnW, y + FT.py(2), hBtnW, FT.py(16),
+    _pocketBtn(self, x + cw - hBtnW, y - FT.py(2), hBtnW, FT.py(16),
         _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
             onClick = function()
                 _view = "history"
