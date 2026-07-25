@@ -236,6 +236,24 @@ function AppRegistry:autoDetect()
         end
     end
 
+    -- Financial Cockpit (FT-6): finance-group home page. Always available. The
+    -- live vitals (cash, leverage, runway) read base-game balance and loan, so
+    -- the page stands on its own. Time Guard adds the month clock that records
+    -- history; its absence is stated in the app rather than hiding the page.
+    if not self:has(FT.APP.FINANCIAL_COCKPIT) then
+        Logging.info("[FarmTablet] autoDetect: Financial Cockpit")
+        self:register({
+            id = FT.APP.FINANCIAL_COCKPIT, group = "finance",
+            name = "ft_ui_app_financial_cockpit", navLabel = "COCK",
+            icon = "financial_cockpit", order = 5,
+            developer = "Realistic Farming", version = "Integrated",
+            description = "Whole-farm financial health, instruments, history and projection",
+        })
+    end
+    if FinancialCockpit and type(FinancialCockpit.bind) == "function" then
+        pcall(FinancialCockpit.bind)
+    end
+
     -- Income Mod
     if g_currentMission and g_currentMission.incomeManager then
         if not self:has(FT.APP.INCOME) then

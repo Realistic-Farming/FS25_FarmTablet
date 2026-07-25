@@ -409,6 +409,30 @@ def em_income(d, L):
     # up arrow
     poly(d, [(CX+int(R*0.5), CY-int(R*0.5)), (CX+int(R*0.95), CY-int(R*0.5)), (CX+int(R*0.72), CY-int(R*0.95))], fill=W)
 
+def em_cockpit(d, L):
+    # health heart (financial cockpit beating heart)
+    r = int(R * 0.42)
+    circle(d, CX - int(R * 0.32), CY - int(R * 0.18), r, fill=W)
+    circle(d, CX + int(R * 0.32), CY - int(R * 0.18), r, fill=W)
+    poly(d, [
+        (CX - int(R * 0.78), CY - int(R * 0.05)),
+        (CX + int(R * 0.78), CY - int(R * 0.05)),
+        (CX, CY + int(R * 0.95)),
+    ], fill=W)
+    # ECG pulse engraved across the heart
+    y0 = CY + int(R * 0.05)
+    pts = [
+        (CX - int(R * 0.70), y0),
+        (CX - int(R * 0.35), y0),
+        (CX - int(R * 0.18), y0 - int(R * 0.38)),
+        (CX - int(R * 0.02), y0 + int(R * 0.42)),
+        (CX + int(R * 0.18), y0 - int(R * 0.22)),
+        (CX + int(R * 0.35), y0),
+        (CX + int(R * 0.70), y0),
+    ]
+    for i in range(len(pts) - 1):
+        line(d, pts[i], pts[i + 1], R * 0.10, fill=DETAIL)
+
 def em_tax(d, L):
     rr = int(R*0.24)
     circle(d, CX-int(R*0.45), CY-int(R*0.45), rr, fill=W)
@@ -564,6 +588,7 @@ ICONS = {
     "crop_stress":          ((1.00, 0.80, 0.25), em_crop_stress),
     "irrigation_suite":     ((0.25, 0.72, 0.88), em_irrigation),
     "rotation_planner":     ((0.48, 0.78, 0.42), em_rotation),
+    "financial_cockpit":    ((0.22, 0.82, 0.48), em_cockpit),
     "system_settings":      ((0.55, 0.62, 0.72), em_hub),
     "soil_fertilizer":      ((0.55, 0.80, 0.40), em_soil),
     "field_sentry":         ((0.35, 0.82, 0.66), em_sentry),
