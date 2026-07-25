@@ -65,7 +65,8 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
         self.r:appText(x + w - FT.px(8), y - FT.py(17),
             FT.FONT.BODY, tostring(score) .. (rating ~= "" and ("  " .. rating) or ""),
             RenderText.ALIGN_RIGHT, scoreColor)
-        y = y - FT.py(4)
+        -- Clear gap so CREDIT does not sit inside the next section header.
+        y = y - FT.py(28)
     end
 
     -- ── Active sale listings ───────────────────────────────
@@ -86,7 +87,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
                 statusColor = FT.C.WARNING
                 statusLabel = "  OFFER"
             end
-            local nameText = (lst.vehicleName or "Unknown")
+            local nameText = FT_Renderer.truncate(lst.vehicleName or "Unknown", 22)
             self.r:appText(x + FT.px(4), y - FT.py(10),
                 FT.FONT.BODY, nameText, RenderText.ALIGN_LEFT, statusColor)
             if statusLabel ~= "" then

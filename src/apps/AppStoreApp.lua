@@ -106,12 +106,13 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     self.r:appRect(x - FT.px(4), y - FT.py(8), cw + FT.px(8), FT.py(38),
         dimmed and {0.08, 0.09, 0.12, 0.50} or FT.C.BG_CARD)
 
-    -- App name
+    -- App name (keep clear of version / OPEN on the right)
     local nameColor = dimmed
         and {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha}
         or FT.C.TEXT_BRIGHT
+    local nameMax = dimmed and 22 or 18
     self.r:appText(x + FT.px(10), y + FT.py(12), FT.FONT.BODY,
-        dispName, RenderText.ALIGN_LEFT, nameColor)
+        FT_Renderer.truncate(dispName, nameMax), RenderText.ALIGN_LEFT, nameColor)
 
     -- Description / hint
     local desc
@@ -130,12 +131,10 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
         desc, RenderText.ALIGN_LEFT,
         {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha})
 
-    -- Version / developer (right side)
+    -- Version on the top-right; OPEN alone on the lower right (no developer clash).
     if app and not dimmed then
-        self.r:appText(x + cw - FT.px(58), y + FT.py(12), FT.FONT.TINY,
+        self.r:appText(x + cw - FT.px(8), y + FT.py(12), FT.FONT.TINY,
             FT.l10nAuto(app.version or "Built-in"), RenderText.ALIGN_RIGHT, FT.C.BRAND)
-        self.r:appText(x + cw - FT.px(58), y - FT.py(3), FT.FONT.TINY,
-            FT.l10nAuto(app.developer or ""), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     elseif dimmed then
         self.r:appText(x + cw - FT.px(8), y + FT.py(12), FT.FONT.TINY,
             FT.l10nAuto("not installed"), RenderText.ALIGN_RIGHT,
@@ -145,7 +144,7 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     -- OPEN button (only for installed apps)
     if app and not dimmed then
         local appId = app.id
-        local btn = self.r:button(x + cw - FT.px(48), y - FT.py(2), FT.px(44), FT.py(15),
+        local btn = self.r:button(x + cw - FT.px(48), y - FT.py(4), FT.px(44), FT.py(15),
             FT.l10nAuto("OPEN"), FT.C.BTN_PRIMARY, { onClick = function() self:switchApp(appId) end })
         table.insert(self._contentBtns, btn)
     end

@@ -128,15 +128,16 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
             if i % 2 == 0 then
                 self.r:appRect(x - FT.px(4), y - FT.py(4), cw + FT.px(8), rowH, altBg)
             end
-            -- Status dot + field id + reason label.
+            -- Status dot + field id + reason (truncate before the SLEEP/MEADOW buttons).
             self.r:appRect(x + FT.px(2), y + FT.py(5), FT.px(6), FT.py(6), dotCol)
             self.r:appText(x + FT.px(14), y, FT.FONT.SMALL,
                 "#" .. tostring(field.id), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-            self.r:appText(x + FT.px(54), y, FT.FONT.SMALL, label, RenderText.ALIGN_LEFT, dotCol)
+            local reasonMax = math.max(6, math.floor((sleepX - x - FT.px(60)) / FT.px(6.5)))
+            local reasonTxt = FT_Renderer.truncate(label, reasonMax)
             if isMeadow then
-                self.r:appText(x + FT.px(54), y - FT.py(11), FT.FONT.TINY,
-                    "meadow", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                reasonTxt = FT_Renderer.truncate(reasonTxt .. " · meadow", reasonMax)
             end
+            self.r:appText(x + FT.px(54), y, FT.FONT.SMALL, reasonTxt, RenderText.ALIGN_LEFT, dotCol)
 
             -- Sleep toggle (manual blacklist).
             local sleepCol = isManual and FT.C.WARNING or FT.C.BTN_NEUTRAL

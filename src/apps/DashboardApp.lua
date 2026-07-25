@@ -272,7 +272,7 @@ function _dashDrawCustomize(self, settings, AC)
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY - FT.py(2)
 
-    -- DONE button (top-right)
+    -- DONE button (top-right); tip sits on the row below so it cannot collide.
     local doneBW = FT.px(48)
     local doneBH = FT.py(20)
     local doneBtn = self.r:button(x + cw - doneBW, y, doneBW, doneBH,
@@ -283,11 +283,12 @@ function _dashDrawCustomize(self, settings, AC)
         end
     })
     table.insert(self._contentBtns, doneBtn)
+    y = y - doneBH - FT.py(4)
 
-    self.r:appText(x, y + FT.py(4), FT.FONT.TINY,
+    self.r:appText(x, y, FT.FONT.TINY,
         "Tap ON/OFF to show or hide each widget.",
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    y = y - FT.py(26)
+    y = y - FT.py(18)
 
     -- Widget rows, grouped by section
     local lastSection = ""
