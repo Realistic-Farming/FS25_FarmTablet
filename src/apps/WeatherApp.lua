@@ -6,7 +6,20 @@
 -- Falls back to engine reads + projected forecast without WG.
 -- =========================================================
 
-local MODE_LABELS = { "Real", "Arid", "Normal", "Wet" }
+local function _T(key, fallback)
+    if g_i18n and key and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or key
+end
+
+-- Dial chip labels. Short on purpose: the chips are cw/4 wide in TINY font.
+-- The fuller meaning lives in the help page and the note line under the dial.
+local MODE_KEYS = {
+    "ft_weather_mode_real", "ft_weather_mode_arid",
+    "ft_weather_mode_normal", "ft_weather_mode_wet",
+}
+local MODE_FALLBACK = { "Real", "Arid", "Normal", "Wet" }
 local MODE_COLORS = {
     { 0.55, 0.58, 0.62, 1.0 },
     { 0.78, 0.62, 0.28, 1.0 },
@@ -14,15 +27,11 @@ local MODE_COLORS = {
     { 0.28, 0.55, 0.88, 1.0 },
 }
 
+-- WeatherGuard publishes g_weatherGuard into its OWN mod environment, which is
+-- not visible from here: getfenv(0) is per-mod scoped in FS25. The shared
+-- g_currentMission field is the only handle that crosses the mod boundary.
 local function _wg()
-    local wg = g_currentMission and g_currentMission.weatherGuard
-    if wg ~= nil then return wg end
-    local ok, alt = pcall(function()
-        local env = getfenv(0)
-        return env["g_weatherGuard"] or env["g_WeatherGuard"]
-    end)
-    if ok then return alt end
-    return nil
+    return g_currentMission and g_currentMission.weatherGuard or nil
 end
 
 FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
@@ -34,21 +43,21 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
                   "left edge: blue = rain, orange = storm, grey = overcast,\n" ..
                   "white = clear, dark = fog." },
         { title = "WEATHERGUARD",
-          body  = "When FS25_WeatherGuard is installed, this app reads the\n" ..
-                  "shared weather truth (same sky every mod uses) and a real\n" ..
-                  "engine forecast instead of a guessed projection." },
+          body  = "With FS25_WeatherGuard installed this app reads the shared\n" ..
+                  "weather truth and a real engine forecast, not a guess." },
         { title = "WORLD WEATHER DIAL",
-          body  = "Real / Arid / Normal / Wet chips set the shared world\n" ..
-                  "weather mode (admin-only in multiplayer). Same meaning\n" ..
-                  "as the World Climate control in Soil Fertilizer." },
+          body  = "Real / Arid / Normal / Wet set the shared world climate.\n" ..
+                  "Admin-only in multiplayer. Matches Soil Fertilizer." },
         { title = "TEMPERATURE",
-          body  = "Current air temperature in Celsius with a feel label:\n" ..
-                  "Freezing (<0)  Cold (<8)  Cool (<16)  Mild (<24)\n" ..
-                  "Warm (<32)  Hot (32+)." },
+          body  = "Air temperature in Celsius with a feel label: Freezing (<0)\n" ..
+                  "Cold (<8)  Cool (<16)  Mild (<24)  Warm (<32)  Hot (32+)." },
+        { title = "OTHER READINGS",
+          body  = "Cloud cover: 0-19% Clear, 20-39% Partly, 40-69% Mostly,\n" ..
+                  "70%+ Overcast. Wind: km/h plus compass direction.\n" ..
+                  "Precipitation: rain or storm intensity as a fill bar." },
         { title = "FORECAST",
-          body  = "With WeatherGuard: real Day +1.. outlook from the game\n" ..
-                  "forecast (about 9 days filled; we show up to five).\n" ..
-                  "Without WeatherGuard: a projected estimate only." },
+          body  = "With WeatherGuard: real outlook, rain shown as intensity.\n" ..
+                  "Without it: a projected estimate showing rain chance." },
     }) then return end
 
     local data = self.system.data
@@ -103,7 +112,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
                 self.r:appRect(cx, y - FT.py(2), chipW, FT.py(2), col)
             end
             self.r:appText(cx + chipW * 0.5, y - chipH * 0.55, FT.FONT.TINY,
-                MODE_LABELS[i], RenderText.ALIGN_CENTER,
+                _T(MODE_KEYS[i], MODE_FALLBACK[i]), RenderText.ALIGN_CENTER,
                 selected and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
             local btn = self.r:button(cx, y - chipH, chipW, chipH, "",
                 { 0, 0, 0, 0.01 },
@@ -214,7 +223,14 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             if f and y > contentY + FT.py(8) then
                 local cond = f.condition or "Unknown"
                 local tempF = f.temperature ~= nil and string.format("%.0f C", f.temperature) or nil
-                local rainBit = f.rainProb ~= nil and string.format("  %d%% rain", f.rainProb) or ""
+                -- WeatherGuard gives rainfall INTENSITY at a sampled moment, the
+                -- projection gives a chance of rain. Never label one as the other.
+                local rainBit = ""
+                if f.rainIntensity ~= nil then
+                    rainBit = string.format("  %d%% intensity", f.rainIntensity)
+                elseif f.rainProb ~= nil then
+                    rainBit = string.format("  %d%% chance", f.rainProb)
+                end
                 local right = (tempF and (cond .. "  " .. tempF) or cond) .. rainBit
                 y = self:drawRow(y, "Day +" .. i, right, nil, FT.C.TEXT_DIM)
             end

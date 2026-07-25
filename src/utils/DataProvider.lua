@@ -351,16 +351,12 @@ function FT_DataProvider:getWorldInfo()
     end)
 end
 
---- Soft-detect WeatherGuard (6th core service). Prefer mission handle.
+--- Soft-detect WeatherGuard (6th core service).
+--- WeatherGuard publishes g_weatherGuard into its OWN mod environment, which is
+--- not reachable from here: getfenv(0) is per-mod scoped in FS25. The shared
+--- g_currentMission field is the only handle that crosses the mod boundary.
 local function _ftWeatherGuard()
-    local wg = g_currentMission and g_currentMission.weatherGuard
-    if wg ~= nil then return wg end
-    local ok, alt = pcall(function()
-        local env = getfenv(0)
-        return env["g_weatherGuard"] or env["g_WeatherGuard"]
-    end)
-    if ok then return alt end
-    return nil
+    return g_currentMission and g_currentMission.weatherGuard or nil
 end
 
 local function _ftCondFromType(weatherType, rainScale, fogScale, cloud)
@@ -543,13 +539,16 @@ function FT_DataProvider:getWeather()
                 elseif rainN > 0.05 then condKeyF, conditionF = "rain",  "Rainy"
                 else                     condKeyF, conditionF = "clear", "Clear"
                 end
+                -- getForecastRain returns rainfallScale: the INTENSITY of rain at
+                -- the sampled moment on that day, not a chance of rain. Publish it
+                -- as rainIntensity so no consumer can render it as a probability.
                 fc[#fc + 1] = {
-                    condition   = conditionF,
-                    condKey     = condKeyF,
-                    temperature = (okT and type(fTemp) == "number") and math.floor(fTemp + 0.5) or nil,
-                    rainProb    = math.floor(math.max(0, math.min(1, rainN)) * 100),
-                    rainScale   = rainN,
-                    source      = "weatherguard",
+                    condition     = conditionF,
+                    condKey       = condKeyF,
+                    temperature   = (okT and type(fTemp) == "number") and math.floor(fTemp + 0.5) or nil,
+                    rainIntensity = math.floor(math.max(0, math.min(1, rainN)) * 100),
+                    rainScale     = rainN,
+                    source        = "weatherguard",
                 }
             end
             w.forecast = fc

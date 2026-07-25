@@ -2442,5 +2442,9 @@
         <text name="ft_battery_charging_locked" text="Tablet am Ladegerät. Einschalten ab 15% möglich." />
         <text name="ft_battery_charged_usable" text="Tablet ausreichend geladen. Mit T wieder einschalten." />
         <text name="ft_battery_charged_full" text="Tablet voll geladen." />
+        <text name="ft_weather_mode_real" text="Real" />
+        <text name="ft_weather_mode_arid" text="Arid" />
+        <text name="ft_weather_mode_normal" text="Normal" />
+        <text name="ft_weather_mode_wet" text="Wet" />
     </texts>
 </l10n>
