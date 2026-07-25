@@ -23,6 +23,16 @@ local function _ftSystemI18nKey(key)
     return nil
 end
 
+local function _ftSystemPrettyCropName(name)
+    name = tostring(name or "")
+    if name == "" then return name end
+    if name:find("%l") then return name end
+    name = name:gsub("_", " ")
+    return (name:lower():gsub("(%a)([%w']*)", function(first, rest)
+        return first:upper() .. rest
+    end))
+end
+
 local function _ftSystemLocalizedFillName(ft, fallback)
     if ft == nil then return fallback or "Unknown" end
     local name = ft.name or ft.fillTypeName or ft.fruitTypeName
@@ -40,6 +50,15 @@ local function _ftSystemLocalizedFillName(ft, fallback)
         local v = _ftSystemI18nKey("fillType_" .. n) or _ftSystemI18nKey("fruitType_" .. n)
         if v ~= nil then return v end
     end
+    if name ~= nil and g_fillTypeManager ~= nil and g_fillTypeManager.getFillTypeByName ~= nil then
+        local n = tostring(name)
+        local fill = g_fillTypeManager:getFillTypeByName(n)
+            or g_fillTypeManager:getFillTypeByName(string.upper(n))
+            or g_fillTypeManager:getFillTypeByName(string.lower(n))
+        if fill ~= nil and fill.title ~= nil and tostring(fill.title) ~= "" then
+            return tostring(fill.title)
+        end
+    end
     if name ~= nil and string.lower(tostring(name)) == "corn" then
         local lang = _ftSystemLang()
         if lang == "de" or lang == "ger" then return "Mais" end
@@ -51,7 +70,8 @@ local function _ftSystemLocalizedFillName(ft, fallback)
         if lang == "cz" or lang == "cs" then return "Kukuřice" end
         if lang == "pt" or lang == "br" then return "Milho" end
     end
-    local t = ft.title or ft.nameI18N or name or fallback or "Unknown"
+    local pretty = (name ~= nil and name ~= "") and _ftSystemPrettyCropName(name) or nil
+    local t = ft.title or ft.nameI18N or pretty or fallback or "Unknown"
     if FT and FT.l10nAuto then return FT.l10nAuto(t) end
     return t
 end
