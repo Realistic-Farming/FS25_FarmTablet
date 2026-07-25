@@ -236,6 +236,24 @@ function AppRegistry:autoDetect()
         end
     end
 
+    -- Financial Cockpit (FT-6): finance-group home page. Always available. The
+    -- live vitals (cash, leverage, runway) read base-game balance and loan, so
+    -- the page stands on its own. Time Guard adds the month clock that records
+    -- history; its absence is stated in the app rather than hiding the page.
+    if not self:has(FT.APP.FINANCIAL_COCKPIT) then
+        Logging.info("[FarmTablet] autoDetect: Financial Cockpit")
+        self:register({
+            id = FT.APP.FINANCIAL_COCKPIT, group = "finance",
+            name = "ft_ui_app_financial_cockpit", navLabel = "COCK",
+            icon = "financial_cockpit", order = 5,
+            developer = "Realistic Farming", version = "Integrated",
+            description = "Whole-farm financial health, instruments, history and projection",
+        })
+    end
+    if FinancialCockpit and type(FinancialCockpit.bind) == "function" then
+        pcall(FinancialCockpit.bind)
+    end
+
     -- Income Mod
     if g_currentMission and g_currentMission.incomeManager then
         if not self:has(FT.APP.INCOME) then
@@ -293,6 +311,18 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- Irrigation Suite (Wizard UI brief) - same SCS mission handle
+    if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
+        Logging.info("[FarmTablet] autoDetect: Irrigation Suite (Seasonal Crop Stress)")
+        self:register({
+            id = FT.APP.IRRIGATION_SUITE, group = "mods",
+            name = "ft_ui_app_irrigation_suite", navLabel = "IRRI",
+            icon = "crop_stress", order = 23.5,
+            developer = "WizardlyPayload", version = "Integrated",
+            description = "Farm-wide irrigation operations, trend, and usage",
+        })
+    end
+
     -- Soil Fertilizer
     -- Bridge: mission.soilFertilityManager set by SoilFertilizer in Mission00.load
     local hasSoil = (g_currentMission and g_currentMission.soilFertilityManager ~= nil)
@@ -319,6 +349,18 @@ function AppRegistry:autoDetect()
             icon = "soil", order = 24.5,
             developer = "TisonK", version = "Integrated",
             description = "FieldSentry — per-field soil-sim status, sleep and meadow toggles",
+        })
+    end
+
+    -- Crop Rotation Planner (Wizard UI brief #739) — SF mission handle only
+    if hasSoil and not self:has(FT.APP.ROTATION_PLANNER) then
+        Logging.info("[FarmTablet] autoDetect: Rotation Planner (Soil Fertilizer)")
+        self:register({
+            id = FT.APP.ROTATION_PLANNER, group = "mods",
+            name = "ft_ui_app_rotation_planner", navLabel = "ROTATE",
+            icon = "soil", order = 24.6,
+            developer = "WizardlyPayload", version = "Integrated",
+            description = "Farm-wide crop rotation standing and next-crop compare",
         })
     end
 

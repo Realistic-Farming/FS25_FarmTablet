@@ -261,6 +261,24 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     actionRow(ftSafeText("ft_settings_text_size_title", "Text size"), sizeNames[lblSize], ftSafeText("ft_settings_hint_text_size2", "Size of app labels."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s); s.iconLabelSize = (lblSize % 3) + 1; s:save(); refresh(self)
     end)
+
+    local FONT_SCALES = { 0.8, 1.0, 1.25, 1.5 }
+    local fontScaleNames = {
+        ftSafeText("ft_font_scale_small",  "Small (0.8x)"),
+        ftSafeText("ft_font_scale_normal", "Normal (1.0x)"),
+        ftSafeText("ft_font_scale_large",  "Large (1.25x)"),
+        ftSafeText("ft_font_scale_huge",   "Huge (1.5x)"),
+    }
+    local curFontScale = s.contentFontScale or 1.0
+    local fsIdx = 2
+    for i, v in ipairs(FONT_SCALES) do if math.abs(v - curFontScale) < 0.01 then fsIdx = i; break end end
+    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger is easier to read on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+        playClickSound(s)
+        s.contentFontScale = FONT_SCALES[(fsIdx % #FONT_SCALES) + 1]
+        s:save()
+        if g_FarmTablet and g_FarmTablet.ui then g_FarmTablet.ui:_build() end
+        refresh(self)
+    end)
     actionRow(ftSafeText("ft_settings_text_color_title", "Text colour"), colorNames[lblColIx], ftSafeText("ft_settings_hint_text_color2", "Colour of app labels."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s); s.iconLabelColor = (lblColIx % 3) + 1; s:save(); refresh(self)
     end)

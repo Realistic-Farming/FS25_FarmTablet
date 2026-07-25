@@ -21,6 +21,23 @@ local function col(c, fallback) return c or fallback or {1,1,1,1} end
 
 local CHANGELOG = {
     {
+        version = "2.5.3.0", date = "2026",
+        neu = {
+            ftSafeText("ft_changelog_253_new_1", "Rotation Planner app: plan crop rotations using Soil & Fertilizer's own recommendations"),
+            ftSafeText("ft_changelog_253_new_2", "Irrigation Suite app: a read-only operating picture for Seasonal Crop Stress irrigation"),
+            ftSafeText("ft_changelog_253_new_3", "Weather app reads the new WeatherGuard service: a real forecast plus a World Weather dial"),
+            ftSafeText("ft_changelog_253_new_4", "Financial Cockpit app: whole-farm health, live instruments and monthly history"),
+        },
+        verbessert = {
+            ftSafeText("ft_changelog_253_imp_1", "App text now scales with the tablet, with a new font-size setting"),
+            ftSafeText("ft_changelog_253_imp_2", "New app icons for Rotation Planner, Irrigation Suite and System Settings"),
+            ftSafeText("ft_changelog_253_imp_3", "Soil app redesigned with cleaner per-field nutrient cards"),
+        },
+        behoben = {
+            ftSafeText("ft_changelog_253_fix_1", "FieldSentry admin gate is now fail-closed, so it locks down when permissions are unclear"),
+        },
+    },
+    {
         version = "2.5.1.0", date = "2026",
         neu = {
             ftSafeText("ft_changelog_251_new_1", "Favorites page for frequently used apps"),

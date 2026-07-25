@@ -409,6 +409,30 @@ def em_income(d, L):
     # up arrow
     poly(d, [(CX+int(R*0.5), CY-int(R*0.5)), (CX+int(R*0.95), CY-int(R*0.5)), (CX+int(R*0.72), CY-int(R*0.95))], fill=W)
 
+def em_cockpit(d, L):
+    # health heart (financial cockpit beating heart)
+    r = int(R * 0.42)
+    circle(d, CX - int(R * 0.32), CY - int(R * 0.18), r, fill=W)
+    circle(d, CX + int(R * 0.32), CY - int(R * 0.18), r, fill=W)
+    poly(d, [
+        (CX - int(R * 0.78), CY - int(R * 0.05)),
+        (CX + int(R * 0.78), CY - int(R * 0.05)),
+        (CX, CY + int(R * 0.95)),
+    ], fill=W)
+    # ECG pulse engraved across the heart
+    y0 = CY + int(R * 0.05)
+    pts = [
+        (CX - int(R * 0.70), y0),
+        (CX - int(R * 0.35), y0),
+        (CX - int(R * 0.18), y0 - int(R * 0.38)),
+        (CX - int(R * 0.02), y0 + int(R * 0.42)),
+        (CX + int(R * 0.18), y0 - int(R * 0.22)),
+        (CX + int(R * 0.35), y0),
+        (CX + int(R * 0.70), y0),
+    ]
+    for i in range(len(pts) - 1):
+        line(d, pts[i], pts[i + 1], R * 0.10, fill=DETAIL)
+
 def em_tax(d, L):
     rr = int(R*0.24)
     circle(d, CX-int(R*0.45), CY-int(R*0.45), rr, fill=W)
@@ -502,6 +526,40 @@ def em_invoice(d, L):
         yy = y0 + int(h*0.28) + i*int(h*0.2)
         line(d, (x0+int(w*0.2), yy), (x0+int(w*0.8), yy), R*0.07, fill=DETAIL)
 
+def em_irrigation(d, L):
+    # water droplet: round bulb, pointed top (upright teardrop)
+    circle(d, CX, CY + int(R*0.24), int(R*0.60), fill=W)
+    poly(d, [(CX - int(R*0.58), CY + int(R*0.30)),
+             (CX + int(R*0.58), CY + int(R*0.30)),
+             (CX, CY - int(R*0.90))], fill=W)
+    # gloss crescent (engraved) so it reads as water
+    d.arc([CX - int(R*0.34), CY - int(R*0.10), CX + int(R*0.06), CY + int(R*0.40)],
+          200, 300, fill=DETAIL, width=int(R*0.08))
+
+def em_rotation(d, L):
+    # crop-rotation cycle: circular arrow around a field-centre dot
+    r = int(R * 0.76)
+    d.arc([CX - r, CY - r, CX + r, CY + r], 45, 320, fill=W, width=int(R * 0.17))
+    a = math.radians(320)
+    ex = CX + math.cos(a) * r; ey = CY + math.sin(a) * r
+    poly(d, [(ex - R*0.04, ey - R*0.32), (ex + R*0.32, ey), (ex - R*0.30, ey + R*0.06)], fill=W)
+    circle(d, CX, CY, int(R * 0.24), fill=W)
+    circle(d, CX, CY, int(R * 0.11), fill=DETAIL)
+
+def em_hub(d, L):
+    # ecosystem hub: central node + satellite nodes on spokes (SettingsHub)
+    n = 6; ring = int(R * 0.82)
+    pts = []
+    for i in range(n):
+        a = i * (2 * math.pi / n) - math.pi / 2
+        pts.append((CX + int(math.cos(a) * ring), CY + int(math.sin(a) * ring)))
+    for (sx, sy) in pts:
+        line(d, (CX, CY), (sx, sy), R * 0.09)
+    for (sx, sy) in pts:
+        circle(d, sx, sy, int(R * 0.19), fill=W)
+    circle(d, CX, CY, int(R * 0.34), fill=W)
+    circle(d, CX, CY, int(R * 0.14), fill=DETAIL)
+
 # ── app registry (id -> (accent 0..1, emblem)) ────────────
 ICONS = {
     "dashboard":            ((0.16, 0.76, 0.38), em_dashboard),
@@ -528,6 +586,10 @@ ICONS = {
     "tax_mod":              ((1.00, 0.40, 0.40), em_tax),
     "npc_favor":            ((0.80, 0.50, 1.00), em_npc),
     "crop_stress":          ((1.00, 0.80, 0.25), em_crop_stress),
+    "irrigation_suite":     ((0.25, 0.72, 0.88), em_irrigation),
+    "rotation_planner":     ((0.48, 0.78, 0.42), em_rotation),
+    "financial_cockpit":    ((0.22, 0.82, 0.48), em_cockpit),
+    "system_settings":      ((0.55, 0.62, 0.72), em_hub),
     "soil_fertilizer":      ((0.55, 0.80, 0.40), em_soil),
     "field_sentry":         ((0.35, 0.82, 0.66), em_sentry),
     "market_dynamics":      ((0.30, 0.78, 0.95), em_market),

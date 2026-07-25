@@ -720,6 +720,9 @@ function FarmTabletUI:_computeLayout()
 
     FT.LAYOUT.scaleX = tw / FT.REF_W
     FT.LAYOUT.scaleY = th / FT.REF_H
+    -- Font scale tracks the tablet scale so text grows with the tablet, then
+    -- applies the player's own content-font multiplier on top.
+    FT.LAYOUT.fontScale = (self.settings.tabletScale or 1.0) * (self.settings.contentFontScale or 1.0)
     FT.LAYOUT.tabletX = tx;  FT.LAYOUT.tabletY = ty
     FT.LAYOUT.tabletW = tw;  FT.LAYOUT.tabletH = th
 
