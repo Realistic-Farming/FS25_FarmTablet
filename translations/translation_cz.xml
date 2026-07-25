@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Počasí" />
-        <text name="ft_ui_startupapp_4" text="Kopání" />
+        <text name="ft_ui_startupapp_4" text="Bagr" />
         <text name="ft_ui_soundeffects_short" text="Zvukové efekty" />
         <text name="ft_ui_soundeffects_long" text="Přehrávejte zvukové efekty pro interakce s tabletem" />
         <text name="ft_ui_debug_short" text="Režim ladění" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Počasí" />
         <text name="ft_ui_app_digging" text="Kopání" />
         <text name="ft_ui_app_bucket_tracker" text="Bucket Tracker" />
+        <text name="ft_ui_app_excavator" text="Bagr" />
         <text name="ft_ui_app_income_mod" text="Příjem Mod" />
         <text name="ft_ui_app_tax_mod" text="Daňová mod" />
         <text name="ft_ui_app_npc_favor" text="NPC Favor" />

@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="儀表板" />
         <text name="ft_ui_startupapp_2" text="應用程式商店" />
         <text name="ft_ui_startupapp_3" text="天氣" />
-        <text name="ft_ui_startupapp_4" text="挖掘" />
+        <text name="ft_ui_startupapp_4" text="挖土機" />
         <text name="ft_ui_soundeffects_short" text="音效" />
         <text name="ft_ui_soundeffects_long" text="播放平板電腦互動的音效" />
         <text name="ft_ui_debug_short" text="偵錯模式" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="天氣" />
         <text name="ft_ui_app_digging" text="挖掘" />
         <text name="ft_ui_app_bucket_tracker" text="桶追蹤器" />
+        <text name="ft_ui_app_excavator" text="挖土機" />
         <text name="ft_ui_app_income_mod" text="收入模式" />
         <text name="ft_ui_app_tax_mod" text="稅收模式" />
         <text name="ft_ui_app_npc_favor" text="NPC Favor" />

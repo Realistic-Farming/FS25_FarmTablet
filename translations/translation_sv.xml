@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Instrumentbräda" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Väder" />
-        <text name="ft_ui_startupapp_4" text="Grävning" />
+        <text name="ft_ui_startupapp_4" text="Grävmaskin" />
         <text name="ft_ui_soundeffects_short" text="Ljudeffekter" />
         <text name="ft_ui_soundeffects_long" text="Spela ljudeffekter för surfplattor" />
         <text name="ft_ui_debug_short" text="Felsökningsläge" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Väder" />
         <text name="ft_ui_app_digging" text="Grävning" />
         <text name="ft_ui_app_bucket_tracker" text="Bucket Tracker" />
+        <text name="ft_ui_app_excavator" text="Grävmaskin" />
         <text name="ft_ui_app_income_mod" text="Inkomst Mod" />
         <text name="ft_ui_app_tax_mod" text="Skatt Mod" />
         <text name="ft_ui_app_npc_favor" text="NPC-favor" />

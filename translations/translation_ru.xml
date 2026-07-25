@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Панель управления" />
         <text name="ft_ui_startupapp_2" text="Магазин приложений" />
         <text name="ft_ui_startupapp_3" text="Погода" />
-        <text name="ft_ui_startupapp_4" text="Копать" />
+        <text name="ft_ui_startupapp_4" text="Экскаватор" />
         <text name="ft_ui_soundeffects_short" text="Звуковые эффекты" />
         <text name="ft_ui_soundeffects_long" text="Воспроизведение звуковых эффектов при взаимодействии с планшетом" />
         <text name="ft_ui_debug_short" text="Режим отладки" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Погода" />
         <text name="ft_ui_app_digging" text="Копать" />
         <text name="ft_ui_app_bucket_tracker" text="Трекер ковша" />
+        <text name="ft_ui_app_excavator" text="Экскаватор" />
         <text name="ft_ui_app_income_mod" text="Мод дохода" />
         <text name="ft_ui_app_tax_mod" text="Налоговый мод" />
         <text name="ft_ui_app_npc_favor" text="Благосклонность NPC" />
