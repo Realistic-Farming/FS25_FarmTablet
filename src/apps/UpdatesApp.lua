@@ -26,6 +26,7 @@ local CHANGELOG = {
             ftSafeText("ft_changelog_253_new_1", "Rotation Planner app: plan crop rotations using Soil & Fertilizer's own recommendations"),
             ftSafeText("ft_changelog_253_new_2", "Irrigation Suite app: a read-only operating picture for Seasonal Crop Stress irrigation"),
             ftSafeText("ft_changelog_253_new_3", "Weather app reads the new WeatherGuard service: a real forecast plus a World Weather dial"),
+            ftSafeText("ft_changelog_253_new_4", "Financial Cockpit app: whole-farm health, live instruments and monthly history"),
         },
         verbessert = {
             ftSafeText("ft_changelog_253_imp_1", "App text now scales with the tablet, with a new font-size setting"),
