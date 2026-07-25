@@ -35,8 +35,8 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMALS, function(self)
     end
 
     local scrollY = self:getContentScrollY()
-    local y    = startY + scrollY
-    local minY = contentY + FT.py(8)
+    local y = startY + scrollY
+    local pad = FT.px(8)
 
     local function barColor(pct)
         if pct >= 60 then return FT.C.POSITIVE
@@ -44,52 +44,58 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMALS, function(self)
         else return FT.C.NEGATIVE end
     end
 
+    -- One shared left edge for title, labels, and bars so rows line up.
+    -- Label left + percent right, bar on the next line (same pattern as Soil cards).
+    local function drawMetric(rowY, label, pct)
+        local p = math.max(0, math.min(100, tonumber(pct) or 0))
+        self.r:appText(x + pad, rowY, FT.FONT.TINY, label,
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        self.r:appText(x + cw - pad, rowY, FT.FONT.TINY, string.format("%d%%", p),
+            RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
+        local barY = rowY - FT.py(12)
+        self.r:progressBar(x + pad, barY, cw - pad * 2, p, 100, barColor(p))
+        return barY - FT.py(8)
+    end
+
     for _, pen in ipairs(pens) do
-        local cardH = FT.py(10)
-            + (pen.hasFood        and pen.foodPct  ~= nil and FT.py(24) or 0)
-            + (pen.hasWater       and pen.waterPct ~= nil and FT.py(24) or 0)
-            + (pen.hasCleanliness and pen.cleanPct ~= nil and FT.py(24) or 0)
-            + FT.py(18)
-        cardH = math.max(cardH, FT.py(30))
+        local metrics = {}
+        if pen.hasFood and pen.foodPct ~= nil then
+            metrics[#metrics + 1] = { label = FT.l10nAuto("FOOD"), pct = pen.foodPct }
+        end
+        if pen.hasWater and pen.waterPct ~= nil then
+            metrics[#metrics + 1] = { label = FT.l10nAuto("WATER"), pct = pen.waterPct }
+        end
+        if pen.hasCleanliness and pen.cleanPct ~= nil then
+            metrics[#metrics + 1] = { label = FT.l10nAuto("STRAW/CLEAN"), pct = pen.cleanPct }
+        end
 
-        self.r:appRect(x - FT.px(4), y - cardH, cw + FT.px(8), cardH, FT.C.BG_CARD)
+        local headerH = FT.py(22)
+        local metricH = #metrics * FT.py(20)
+        local cardH = headerH + metricH + FT.py(10)
+        if #metrics == 0 then cardH = FT.py(30) end
+        local cardBottom = y - cardH
 
-        local header = pen.typeName
+        self.r:appRect(x - FT.px(4), cardBottom, cw + FT.px(8), cardH, FT.C.BG_CARD)
+
+        local header = tostring(pen.typeName or FT.l10n("ft_auto_unknown", "Unknown"))
         if pen.numAnimals > 0 then
             header = header .. "  (" .. pen.numAnimals .. " / " .. pen.maxAnimals .. ")"
         else
             header = header .. "  (" .. FT.l10n("ft_common_empty_lower", "empty") .. ")"
         end
-        y = y - FT.py(4)
-        self.r:appText(x + FT.px(8), y, FT.FONT.BODY, header, RenderText.ALIGN_LEFT,
+        self.r:appText(x + pad, y - FT.py(6), FT.FONT.BODY, header, RenderText.ALIGN_LEFT,
             pen.numAnimals > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
-        y = y - FT.py(18)
 
-        if pen.hasFood and pen.foodPct ~= nil then
-            local pct = math.max(0, math.min(100, pen.foodPct))
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY,
-                FT.l10nFormat("ft_animals_food_pct", "FOOD  %d%%", pct), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-            y = y - FT.py(10)
-            y = self.r:progressBar(x + FT.px(4), y, cw - FT.px(8), pct, 100, barColor(pct))
+        local rowY = y - headerH
+        for _, m in ipairs(metrics) do
+            rowY = drawMetric(rowY, m.label, m.pct)
         end
-        if pen.hasWater and pen.waterPct ~= nil then
-            local pct = math.max(0, math.min(100, pen.waterPct))
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY,
-                FT.l10nFormat("ft_animals_water_pct", "WATER  %d%%", pct), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-            y = y - FT.py(10)
-            y = self.r:progressBar(x + FT.px(4), y, cw - FT.px(8), pct, 100, barColor(pct))
-        end
-        if pen.hasCleanliness and pen.cleanPct ~= nil then
-            local pct = math.max(0, math.min(100, pen.cleanPct))
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY,
-                FT.l10nFormat("ft_animals_straw_clean_pct", "STRAW/CLEAN  %d%%", pct), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-            y = y - FT.py(10)
-            y = self.r:progressBar(x + FT.px(4), y, cw - FT.px(8), pct, 100, barColor(pct))
-        end
-        y = y - FT.py(6)
+
+        -- Pin to pre-sized card bottom, then gap before the next pen.
+        y = cardBottom - FT.py(8)
     end
 
     self:setContentHeight(startY - y + scrollY)
     self:drawInfoIcon("_animalsHelp", AC)
     self:drawScrollBar()
-    end)
+end)
