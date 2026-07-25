@@ -5,7 +5,9 @@
 -- live instruments, monthly history via own StateLedger module, and a
 -- projection forecast. Moves no money. Never re-implements owning apps.
 --
--- Gate: AppRegistry autoDetect on g_currentMission.timeGuard.
+-- Gate: none. The page always registers because cash / leverage / runway read
+-- base-game balance and loan. Time Guard is the month clock that records
+-- history; without it the history vitals say so instead of promising samples.
 -- Balance/loan: FT_DataProvider. Economic mods: pcall, neutral when absent.
 -- =========================================================
 
@@ -76,7 +78,10 @@ local function _isServer()
 end
 
 -- Best-effort: dedicated peers have no host FarmTablet recorder.
+-- Time Guard is the month clock that closes a row. Without it nothing ever
+-- records, so say that plainly rather than promising samples that never come.
 local function _historyMode()
+    if _timeGuard() == nil then return "no_clock" end
     if _isServer() then return "available" end
     local m = g_currentMission
     if m ~= nil and (m.isDedicatedServer == true
@@ -535,7 +540,20 @@ local function _buildVitals(snap)
     end
 
     -- History-derived vitals
-    if histMode == "dedicated" then
+    if histMode == "no_clock" then
+        local noClock = _T("ft_fc_history_no_clock", "Needs Time Guard")
+        local noClockDetail = _T("ft_fc_history_no_clock_detail",
+            "Install Time Guard to record monthly history. Live vitals still stand.")
+        for _, id in ipairs({ "direction", "margin", "trajectory" }) do
+            vitals[#vitals + 1] = {
+                id = id,
+                label = _T("ft_fc_vital_" .. id, id),
+                band = "neutral",
+                valueText = noClock,
+                detail = noClockDetail,
+            }
+        end
+    elseif histMode == "dedicated" then
         local unavailable = _T("ft_fc_history_dedicated", "Unavailable on this server")
         for _, id in ipairs({ "direction", "margin", "trajectory" }) do
             vitals[#vitals + 1] = {
@@ -1019,7 +1037,15 @@ local function _drawHistoryPocket(self, snap, AC)
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
 
-    if snap.historyMode == "dedicated" then
+    if snap.historyMode == "no_clock" then
+        y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
+            _T("ft_fc_history_no_clock", "Needs Time Guard"), nil, FT.C.MUTED)
+        self.r:appText(x, y, FT.FONT.TINY,
+            _T("ft_fc_history_no_clock_detail",
+                "Install Time Guard to record monthly history. Live vitals still stand."),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        y = y - FT.py(18)
+    elseif snap.historyMode == "dedicated" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
             _T("ft_fc_history_dedicated", "Unavailable on this server"), nil, FT.C.MUTED)
     elseif snap.historyMode == "host_only" then
@@ -1198,7 +1224,8 @@ FarmTabletUI:registerDrawer(FT.APP.FINANCIAL_COCKPIT, function(self)
         { title = _T("ft_fc_help_history_title", "HISTORY"),
           body  = _T("ft_fc_help_history_body",
               "This page records a compact monthly row itself.\n" ..
-              "Host / single-player only in v1. Gaps stay gaps.") },
+              "Needs Time Guard for the month clock. Host / single-player\n" ..
+              "only in v1. Gaps stay gaps.") },
         { title = _T("ft_fc_help_forecast_title", "FORECAST"),
           body  = _T("ft_fc_help_forecast_body",
               "Labeled as a projection. PARTIAL when a flow is missing.\n" ..

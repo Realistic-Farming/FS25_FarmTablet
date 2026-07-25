@@ -2530,5 +2530,7 @@
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
         <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
+        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
+        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
     </texts>
 </l10n>

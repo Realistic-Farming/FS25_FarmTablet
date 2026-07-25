@@ -2572,5 +2572,7 @@
         <text name="ft_battery_charging_locked" text="Планшет на зарядке. Включение с 15%." />
         <text name="ft_battery_charged_usable" text="Планшет достаточно заряжен. Нажмите T." />
         <text name="ft_battery_charged_full" text="Планшет полностью заряжен." />
+        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
+        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
     </texts>
 </l10n>
