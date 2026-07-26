@@ -39,6 +39,18 @@ local function _ftDpI18nKey(key)
     return nil
 end
 
+--- POPPY / OILSEED_RADISH → Poppy / Oilseed Radish (only when still ALLCAPS/internal).
+local function _ftDpPrettyCropName(name)
+    name = tostring(name or "")
+    if name == "" then return name end
+    -- Already a human title (has lowercase) — keep as-is.
+    if name:find("%l") then return name end
+    name = name:gsub("_", " ")
+    return (name:lower():gsub("(%a)([%w']*)", function(first, rest)
+        return first:upper() .. rest
+    end))
+end
+
 local function _ftDpLocalizedFillTypeName(ft, fallback)
     if ft == nil then return fallback or "" end
     local name = ft.name or ft.fillTypeName or ft.fruitTypeName
@@ -58,6 +70,25 @@ local function _ftDpLocalizedFillTypeName(ft, fallback)
         local v = _ftDpI18nKey("fillType_" .. n) or _ftDpI18nKey("fruitType_" .. n)
         if v ~= nil then return v end
     end
+    -- Mod fruits often register a fill type with a real title even when fillType_* i18n is missing.
+    if name ~= nil and g_fillTypeManager ~= nil and g_fillTypeManager.getFillTypeByName ~= nil then
+        local n = tostring(name)
+        local fill = g_fillTypeManager:getFillTypeByName(n)
+            or g_fillTypeManager:getFillTypeByName(string.upper(n))
+            or g_fillTypeManager:getFillTypeByName(string.lower(n))
+        if fill ~= nil then
+            if fill.title ~= nil and tostring(fill.title) ~= "" then
+                return tostring(fill.title)
+            end
+            local fillName = fill.name or fill.fillTypeName
+            if fillName ~= nil then
+                local v = _ftDpI18nKey("fillType_" .. tostring(fillName))
+                    or _ftDpI18nKey("fillType_" .. string.lower(tostring(fillName)))
+                    or _ftDpI18nKey("fillType_" .. string.upper(tostring(fillName)))
+                if v ~= nil then return v end
+            end
+        end
+    end
     if name ~= nil and string.lower(tostring(name)) == "corn" then
         local lang = _ftDpLang()
         if lang == "de" or lang == "ger" or lang == "deutsch" then return "Mais" end
@@ -69,7 +100,11 @@ local function _ftDpLocalizedFillTypeName(ft, fallback)
         if lang == "cz" or lang == "cs" then return "Kukuřice" end
         if lang == "pt" or lang == "br" then return "Milho" end
     end
-    local t = ft.title or ft.nameI18N or fallback or name or ""
+    -- Prefer the real fruit/fill name over a generic "Unknown" fallback.
+    -- (Bug: fallback was listed before name, so mod crops without i18n keys
+    --  showed as Unknown in Field Manager even when fruitType.name was POPPY.)
+    local pretty = (name ~= nil and name ~= "") and _ftDpPrettyCropName(name) or nil
+    local t = ft.title or ft.nameI18N or pretty or fallback or ""
     if FT and FT.l10nAuto then return FT.l10nAuto(t) end
     return t
 end

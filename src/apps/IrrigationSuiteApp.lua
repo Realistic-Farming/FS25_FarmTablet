@@ -222,36 +222,42 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
     local startY = self:drawAppHeader("Irrigation Suite", "")
     local x, cyBottom, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
-    local y = startY + scrollY
+    local bottomPad = FT.py(28)
 
     local scs = _scs()
     if scs == nil then
-        self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
+        local yMiss = startY + scrollY
+        self.r:appText(x, yMiss - FT.py(12), FT.FONT.BODY,
             "Seasonal Crop Stress not detected.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        self.r:appText(x, y - FT.py(30), FT.FONT.SMALL,
+        self.r:appText(x, yMiss - FT.py(30), FT.FONT.SMALL,
             "Install FS25_SeasonalCropStress. This app stays hidden when absent.",
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         self:drawInfoIcon("_irrigationSuiteHelp", AC)
         return
     end
 
-    -- Mode strip
+    -- Mode strip is FIXED (like Personnel tabs). Putting it at startY made the
+    -- labels sit above bodyClipTop so Operations / Forecast / Usage were clipped.
     local mode = self.system.irrigationSuiteMode or "operations"
     local btnW = (cw - FT.px(8)) / 3
-    local btnH = FT.py(20)
+    local btnH = FT.py(22)
+    local tabY = startY - btnH
     for i, m in ipairs(MODES) do
         local bx = x + (i - 1) * (btnW + FT.px(4))
         local selected = (mode == m)
-        local col = selected and AC or FT.C.BTN_NEUTRAL
+        local col = selected and { AC[1], AC[2], AC[3], 0.95 } or FT.C.BTN_NEUTRAL
         local captured = m
-        local btn = self.r:button(bx, y, btnW, btnH, MODE_LABEL[m], col, {
+        local btn = self.r:button(bx, tabY, btnW, btnH, MODE_LABEL[m], col, {
             onClick = function()
                 self.system.irrigationSuiteMode = captured
+                self._contentScrollY = 0
+                self._contentScrollTarget = 0
             end
         })
         table.insert(self._contentBtns, btn)
     end
-    y = y - btnH - FT.py(8)
+
+    local y = tabY - FT.py(10) + scrollY
     y = self:drawRule(y, 0.35)
 
     local systems = _pcall(function() return scs:getIrrigationSystems() end) or {}
@@ -275,7 +281,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 local scol = sys.isActive and FT.C.POSITIVE or FT.C.MUTED
                 local coverN = #(sys.coveredFields or {})
                 self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
-                    string.format("#%s  %s", tostring(sys.id or "?"), tostring(sys.type or "system")),
+                    FT_Renderer.truncate(string.format("#%s  %s",
+                        tostring(sys.id or "?"), tostring(sys.type or "system")), 22),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, state,
                     RenderText.ALIGN_RIGHT, scol)
@@ -301,8 +308,10 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
         y = y - FT.py(14)
         local polyCache = _cacheCoveragePolys(scs, systems)
-        local mapH = FT.py(110)
-        _drawCoverageMap(self, x, y, cw, mapH, polyCache, AC)
+        -- Slightly shorter map so the moisture list stays inside the frame.
+        local mapH = FT.py(96)
+        local mapW = cw - FT.px(6)
+        _drawCoverageMap(self, x, y, mapW, mapH, polyCache, AC)
         y = y - mapH - FT.py(10)
 
         y = self:drawRule(y, 0.3)
@@ -326,17 +335,20 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     break
                 end
                 local tag = irrigated and "watering" or "idle"
+                -- Keep % and bars clear of the scrollbar / frame edge.
+                local valueX = x + cw - FT.px(10)
+                local barW = cw - FT.px(12)
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                     string.format("Field #%s  %s", tostring(fid), tag),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
-                self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
+                self.r:appText(valueX, y - FT.py(1), FT.FONT.SMALL,
                     moisture ~= nil and _pct(moisture) or "n/a",
                     RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
-                y = y - FT.py(12)
+                y = y - FT.py(14)
                 if moisture ~= nil then
                     local barY = y
-                    self.r:progressBar(x, barY, cw, moisture, 1.0, AC)
-                    y = y - FT.py(10)
+                    self.r:progressBar(x, barY, barW, moisture, 1.0, AC)
+                    y = barY - FT.py(10)
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                         string.format("pivot ~%s   sky/other ~%s",
                             _pct(irrShare), _pct(rainShare)),
@@ -533,6 +545,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         end
     end
 
+    self:setContentHeight((tabY - FT.py(10)) - y + scrollY + bottomPad)
     self:drawInfoIcon("_irrigationSuiteHelp", AC)
-    self:setContentHeight(startY - y + scrollY + FT.py(12))
+    self:drawScrollBar()
 end)

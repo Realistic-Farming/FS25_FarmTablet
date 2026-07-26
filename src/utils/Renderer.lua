@@ -188,13 +188,23 @@ end
 
 --- Draws a small filled badge/chip with a centred label.
 --- Returns the badge width so callers can advance their X cursor.
+--- Width follows the label so "URGENT" / "12 READY" are not clipped.
 function FT_Renderer:badge(x, y, label, color)
-    local w = FT.px(36)
-    local h = FT.py(13)
+    local text = tostring(label or "")
+    local w = math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
+    local h = FT.py(14)
     self:appRect(x, y - FT.py(1), w, h, color or FT.C.BRAND_DIM)
-    self:appText(x + w/2, y + h/2 - FT.py(2), FT.FONT.TINY, label,
+    self:appText(x + w/2, y + h/2 - FT.py(3), FT.FONT.TINY, text,
         RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
     return w
+end
+
+--- Truncate a string to maxLen characters with an ellipsis.
+function FT_Renderer.truncate(str, maxLen)
+    str = tostring(str or "")
+    maxLen = tonumber(maxLen) or 20
+    if #str <= maxLen then return str end
+    return str:sub(1, math.max(1, maxLen - 1)) .. "…"
 end
 
 -- ── Lifecycle ─────────────────────────────────────────────

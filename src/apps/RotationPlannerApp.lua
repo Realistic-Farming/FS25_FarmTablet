@@ -181,10 +181,12 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
                     { AC[1] * 0.12, AC[2] * 0.12, AC[3] * 0.12, 0.95 })
             end
 
-            local label = string.format("#%s  %s", tostring(field.id), line)
+            local bx = x + cw - btnW
+            local labelMax = math.max(10, math.floor((cw - btnW - FT.px(12)) / FT.px(6.5)))
+            local label = FT_Renderer.truncate(
+                string.format("#%s  %s", tostring(field.id), line), labelMax)
             self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, label, RenderText.ALIGN_LEFT, col)
 
-            local bx = x + cw - btnW
             local by = y - FT.py(2)
             local btn = self.r:button(bx, by, btnW, btnH, isSel and "VIEW" or "SELECT", AC, {
                 onClick = function()

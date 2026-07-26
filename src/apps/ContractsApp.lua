@@ -139,7 +139,6 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
     -- ── Contract card helper ──────────────────────────────
     local cardH  = FT.py(58)
     local padX   = FT.px(10)
-    local BADGE_W = FT.px(52)
 
     local function drawCard(mission, cardAccent, statusLabel, statusColor)
         local typeName   = getTypeName(mission)
@@ -168,16 +167,18 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
             FT.px(3), cardH,
             {cardAccent[1], cardAccent[2], cardAccent[3], 0.80})
 
-        -- Status badge (top-right corner)
-        self.r:appRect(x + cw - BADGE_W, y - FT.py(1), BADGE_W, FT.py(12),
+        -- Status badge (top-right); width follows the label so EXPIRING is not clipped.
+        local badgeW = math.max(FT.px(52), FT.px(8) + string.len(tostring(statusLabel or "")) * FT.px(5.2))
+        self.r:appRect(x + cw - badgeW, y - FT.py(1), badgeW, FT.py(12),
             {statusColor[1], statusColor[2], statusColor[3], 0.20})
-        self.r:appText(x + cw - BADGE_W / 2, y + FT.py(4),
+        self.r:appText(x + cw - badgeW / 2, y + FT.py(4),
             FT.FONT.TINY, statusLabel,
             RenderText.ALIGN_CENTER, statusColor)
 
-        -- Row 1: type name
+        -- Row 1: type name (keep clear of the status badge)
+        local typeMax = math.max(8, math.floor((cw - badgeW - padX - FT.px(8)) / FT.px(7)))
         self.r:appText(x + padX, y - FT.py(3),
-            FT.FONT.BODY, typeName,
+            FT.FONT.BODY, FT_Renderer.truncate(typeName, typeMax),
             RenderText.ALIGN_LEFT, {cardAccent[1], cardAccent[2], cardAccent[3], 1.00})
 
         -- Row 2: field / location

@@ -50,6 +50,14 @@ function FarmTabletUI:_exitEditMode()
     self._emResizing     = false
     self._emEdgeDragging = nil
     self._emHoverCorner  = nil
+
+    -- Restore camera before clearing saved values
+    if self._emCamRotX and g_cameraManager and setRotation then
+        local cam = g_cameraManager:getActiveCamera()
+        if cam and cam ~= 0 then
+            setRotation(cam, self._emCamRotX, self._emCamRotY, self._emCamRotZ)
+        end
+    end
     self._emCamRotX      = nil
     self._emCamRotY      = nil
     self._emCamRotZ      = nil

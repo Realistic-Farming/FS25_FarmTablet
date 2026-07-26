@@ -42,7 +42,9 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
                   "own and stay on this machine." },
         { title = "EDITING",
           body  = "This overview is read-only for now. Change values\n" ..
-                  "from each mod's own settings for the moment." },
+                  "from each mod's own settings for the moment.\n" ..
+                  "Making this page editable is proposed and waiting\n" ..
+                  "on Tyson before we build it." },
     }) then return end
 
     local startY = self:drawAppHeader("System Settings", "Settings Hub")
