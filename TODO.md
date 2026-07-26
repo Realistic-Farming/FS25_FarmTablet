@@ -10,6 +10,9 @@
 
 ## Bugs
 - [ ] Focus state passes previous appId instead of nil on goHome/openTablet/unlock (Point 1).
+- [x] FT-001 `_exitEditMode()` restores camera rotation (fixed, merged to main).
+- [x] FT-002 Nil guard on `g_currentMission` in `SettingsManager:getSettings()` (fixed, merged to main).
+- [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
 - [x] Irrigation Suite app (FT #100): a read-only SCS operating picture (coverage overlay + system status), built to Wizard's UI brief and merged; real frame-cache for the coverage overlay (03a6198).
