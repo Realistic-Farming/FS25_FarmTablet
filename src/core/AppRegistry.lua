@@ -392,15 +392,31 @@ function AppRegistry:autoDetect()
                 description = "Worker wages and cost breakdown",
             })
         end
-        -- Personnel (Pro-Staff) — dedicated HR management app, same dependency.
+        -- Personnel — WorkerCosts HR (hire/fire/payroll). Not the Co-Op ladder.
         if not self:has(FT.APP.PERSONNEL) then
-            Logging.info("[FarmTablet] autoDetect: Personnel (Pro-Staff) app enabled")
+            Logging.info("[FarmTablet] autoDetect: Personnel (WorkerCosts) app enabled")
             self:register({
                 id = FT.APP.PERSONNEL, group = "mods",
                 name = "ft_ui_app_personnel", navLabel = "STAFF",
                 icon = "personnel", order = 27,
                 developer = "TisonK", version = "Integrated",
-                description = "Pro-Staff personnel management — hire, fire, assign, payroll",
+                description = "WorkerCosts personnel - hire, fire, assign, payroll",
+            })
+        end
+    end
+
+    -- Pro-Staff Co-Op investment ladder (separate mod from WorkerCosts Personnel)
+    do
+        local ps = (g_currentMission and g_currentMission.proStaffManager)
+            or getfenv(0)["g_proStaffCoOp"]
+        if ps ~= nil and not self:has(FT.APP.PROSTAFF) then
+            Logging.info("[FarmTablet] autoDetect: Pro-Staff Co-Op detected")
+            self:register({
+                id = FT.APP.PROSTAFF, group = "mods",
+                name = "ft_ui_app_prostaff", navLabel = "COOP",
+                icon = "personnel", order = 27.5,
+                developer = "WizardlyPayload", version = "Integrated",
+                description = "Pro-Staff Co-Op membership level and investment",
             })
         end
     end
