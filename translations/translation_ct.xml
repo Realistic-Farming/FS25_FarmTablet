@@ -1,35 +1,36 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <l10n>
     <texts>
-        <text name="ft_ui_section" text="農場平板電腦" />
-        <text name="ft_ui_welcome_title" text="農場平板電腦 v2" />
+        <text name="ft_ui_section" text="è¾²å ´å¹³æ¿é›»è…¦" />
+        <text name="ft_ui_welcome_title" text="è¾²å ´å¹³æ¿é›»è…¦ v2" />
         <text name="ft_ui_welcome_message" text="Press %s to open" />
-        <text name="ft_ui_enabled_short" text="啟用平板電腦" />
-        <text name="ft_ui_enabled_long" text="啟用或停用農場平板電腦系統" />
-        <text name="ft_ui_keybind_short" text="打開鑰匙" />
-        <text name="ft_ui_keybind_long" text="打開/關閉農場平板電腦的鑰匙" />
-        <text name="ft_ui_notifications_short" text="通知" />
-        <text name="ft_ui_notifications_long" text="在遊戲載入時顯示平板電腦通知" />
-        <text name="ft_ui_startupapp_short" text="啟動應用程式" />
-        <text name="ft_ui_startupapp_long" text="打開平板電腦時的預設應用程式" />
-        <text name="ft_ui_startupapp_1" text="儀表板" />
-        <text name="ft_ui_startupapp_2" text="應用程式商店" />
-        <text name="ft_ui_startupapp_3" text="天氣" />
-        <text name="ft_ui_startupapp_4" text="挖掘" />
-        <text name="ft_ui_soundeffects_short" text="音效" />
-        <text name="ft_ui_soundeffects_long" text="播放平板電腦互動的音效" />
-        <text name="ft_ui_debug_short" text="偵錯模式" />
-        <text name="ft_ui_debug_long" text="在控制台中啟用偵錯日誌記錄" />
-        <text name="ft_ui_reset" text="重設平板電腦設定" />
-        <text name="ft_ui_app_dashboard" text="儀表板" />
-        <text name="ft_ui_app_store" text="應用程式商店" />
-        <text name="ft_ui_app_updates" text="更新" />
-        <text name="ft_ui_app_settings" text="設定" />
+        <text name="ft_ui_enabled_short" text="å•Ÿç”¨å¹³æ¿é›»è…¦" />
+        <text name="ft_ui_enabled_long" text="å•Ÿç”¨æˆ–åœç”¨è¾²å ´å¹³æ¿é›»è…¦ç³»çµ±" />
+        <text name="ft_ui_keybind_short" text="æ‰“é–‹é‘°åŒ™" />
+        <text name="ft_ui_keybind_long" text="æ‰“é–‹/é—œé–‰è¾²å ´å¹³æ¿é›»è…¦çš„é‘°åŒ™" />
+        <text name="ft_ui_notifications_short" text="é€šçŸ¥" />
+        <text name="ft_ui_notifications_long" text="åœ¨éŠæˆ²è¼‰å…¥æ™‚é¡¯ç¤ºå¹³æ¿é›»è…¦é€šçŸ¥" />
+        <text name="ft_ui_startupapp_short" text="å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_ui_startupapp_long" text="æ‰“é–‹å¹³æ¿é›»è…¦æ™‚çš„é è¨­æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_ui_startupapp_1" text="å„€è¡¨æ¿" />
+        <text name="ft_ui_startupapp_2" text="æ‡‰ç”¨ç¨‹å¼å•†åº—" />
+        <text name="ft_ui_startupapp_3" text="å¤©æ°£" />
+        <text name="ft_ui_startupapp_4" text="æŒ–æŽ˜" />
+        <text name="ft_ui_soundeffects_short" text="éŸ³æ•ˆ" />
+        <text name="ft_ui_soundeffects_long" text="æ’­æ”¾å¹³æ¿é›»è…¦äº’å‹•çš„éŸ³æ•ˆ" />
+        <text name="ft_ui_debug_short" text="åµéŒ¯æ¨¡å¼" />
+        <text name="ft_ui_debug_long" text="åœ¨æŽ§åˆ¶å°ä¸­å•Ÿç”¨åµéŒ¯æ—¥èªŒè¨˜éŒ„" />
+        <text name="ft_ui_reset" text="é‡è¨­å¹³æ¿é›»è…¦è¨­å®š" />
+        <text name="ft_ui_app_dashboard" text="å„€è¡¨æ¿" />
+        <text name="ft_ui_app_store" text="æ‡‰ç”¨ç¨‹å¼å•†åº—" />
+        <text name="ft_ui_app_updates" text="æ›´æ–°" />
+        <text name="ft_ui_app_settings" text="è¨­å®š" />
         <text name="ft_ui_app_system_settings" text="System Settings" />
-        <text name="ft_ui_app_workshop" text="工作坊" />
-        <text name="ft_ui_app_field_status" text="現場經理" />
+        <text name="ft_ui_app_workshop" text="å·¥ä½œåŠ" />
+        <text name="ft_ui_app_field_status" text="ç¾å ´ç¶“ç†" />
         <text name="ft_ui_app_field_sentry" text="Field Sentry" />
         <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
+        <text name="ft_ui_app_organic" text="Organic" />
         <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
         <text name="ft_ui_app_financial_cockpit" text="Financial Cockpit" />
         <text name="ft_fc_health" text="FARM HEALTH" />
@@ -120,15 +121,15 @@
         <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
-        <text name="ft_ui_app_animals" text="動物" />
-        <text name="ft_ui_app_weather" text="天氣" />
-        <text name="ft_ui_app_digging" text="挖掘" />
-        <text name="ft_ui_app_bucket_tracker" text="桶追蹤器" />
-        <text name="ft_ui_app_income_mod" text="收入模式" />
-        <text name="ft_ui_app_tax_mod" text="稅收模式" />
+        <text name="ft_ui_app_animals" text="å‹•ç‰©" />
+        <text name="ft_ui_app_weather" text="å¤©æ°£" />
+        <text name="ft_ui_app_digging" text="æŒ–æŽ˜" />
+        <text name="ft_ui_app_bucket_tracker" text="æ¡¶è¿½è¹¤å™¨" />
+        <text name="ft_ui_app_income_mod" text="æ”¶å…¥æ¨¡å¼" />
+        <text name="ft_ui_app_tax_mod" text="ç¨…æ”¶æ¨¡å¼" />
         <text name="ft_ui_app_npc_favor" text="NPC Favor" />
-        <text name="ft_ui_app_crop_stress" text="作物脅迫" />
-        <text name="ft_ui_app_soil_fertilizer" text="土壤肥料" />
+        <text name="ft_ui_app_crop_stress" text="ä½œç‰©è„…è¿«" />
+        <text name="ft_ui_app_soil_fertilizer" text="åœŸå£¤è‚¥æ–™" />
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
@@ -145,125 +146,125 @@
         <text name="ft_ui_app_production_buildings" text="Production" />
         <text name="ft_ui_app_farm_stats" text="Farm Stats" />
         <text name="ft_ui_app_field_jobs" text="Treballs al Camp" />
-        <text name="ft_help_cat_start" text="入門" />
-        <text name="ft_help_cat_apps" text="農場應用程式" />
-        <text name="ft_help_cat_mods" text="配套模組" />
-        <text name="ft_help_cat_settings" text="設定和控制台" />
-        <text name="ft_help_p1_title" text="打開和導航" />
-        <text name="ft_help_p1_open_title" text="開啟平板電腦" />
+        <text name="ft_help_cat_start" text="å…¥é–€" />
+        <text name="ft_help_cat_apps" text="è¾²å ´æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_help_cat_mods" text="é…å¥—æ¨¡çµ„" />
+        <text name="ft_help_cat_settings" text="è¨­å®šå’ŒæŽ§åˆ¶å°" />
+        <text name="ft_help_p1_title" text="æ‰“é–‹å’Œå°Žèˆª" />
+        <text name="ft_help_p1_open_title" text="é–‹å•Ÿå¹³æ¿é›»è…¦" />
         <text name="ft_help_p1_open_text" text="Press T (configurable) at any time to open or close the Farm Tablet. You can change the key in the Settings app or by typing TabletKeybind followed by a key letter in the developer console." />
-        <text name="ft_help_p1_nav_title" text="主畫面與應用程式" />
-        <text name="ft_help_p1_nav_text" text="Farm Tablet 的操作就像手機。滑動以解鎖，然後在主畫面點按應用程式圖示即可開啟。點按上方列的 HOME 可返回圖示格。底部的 Dock 放置常用程式，滑鼠滾輪可切換頁面。App Store 應用程式會列出你所有的應用程式。" />
-        <text name="ft_help_p2_title" text="移動和調整大小" />
-        <text name="ft_help_p2_move_title" text="編輯模式" />
-        <text name="ft_help_p2_move_text" text="開啟“設定”應用程式並點擊“進入編輯模式”。在編輯模式下，您可以拖曳平板電腦主體以將其重新定位在螢幕上的任何位置，拖曳任何角落手柄以縮放整個平板電腦，或拖曳左邊緣或右邊緣以僅調整寬度。右鍵點選任意位置可退出編輯模式。您的位置和比例會自動儲存。" />
-        <text name="ft_help_p2_key_title" text="更改開啟密鑰" />
-        <text name="ft_help_p2_key_text" text="預設鍵是 T。要更改它，請打開“設置”應用程式並找到“Keybind”設置，或者在開發者控制台中鍵入 TabletKeybind，後跟鍵名稱 - 例如 TabletKeybind H 將鍵設置為 H。單字母、F 鍵以及 TAB 和 ESC 等常用鍵都支援。" />
-        <text name="ft_help_a1_title" text="儀表板和天氣" />
-        <text name="ft_help_a1_dash_title" text="儀表板" />
-        <text name="ft_help_a1_dash_text" text="儀表板是您一目了然的農場摘要。它在頂部的大英雄卡中顯示您當前的餘額，然後在下面顯示該會話的收入、支出和淨利潤。農場統計列出了您擁有的田地數量和車輛總數。世界部分顯示當前季節、日期、時間以及即時天氣快照。點擊儀表板右下角的小資訊圖示即可取得每個值的詳細說明。" />
-        <text name="ft_help_a1_weather_title" text="天氣應用程式" />
-        <text name="ft_help_a1_weather_text" text="天氣應用程式顯示詳細的多日天氣預報，包括溫度、降水機率和風力。情況用顏色編碼：藍色表示下雨，橘色表示暴風雨，白色表示晴朗的天空。將其與作物脅迫模組一起使用來決定何時安排灌溉。" />
-        <text name="ft_help_a2_title" text="田野與動物" />
-        <text name="ft_help_a2_fields_title" text="現場經理" />
-        <text name="ft_help_a2_fields_text" text="字段管理器列出了您擁有的每個字段。每行顯示作物類型、目前生長階段（作為徽章）（播種、生長、就緒）以及顏色編碼的狀態點。綠色表示該欄位不需要關注。黃色意味著它需要一些東西——肥料、犁地或碾壓。紅色表示農作物已準備好收穫或需要緊急行動。" />
-        <text name="ft_help_a2_animals_title" text="動物" />
-        <text name="ft_help_a2_animals_text" text="動物應用程式透過三個進度條顯示您擁有的每個圍欄：食物水平、水位和清潔度。綠條無需執行任何操作。黃色條應該很快就會被填滿。紅條至關重要，如果無人看管，將會影響生產力。" />
-        <text name="ft_help_a3_title" text="車間和桶追蹤器" />
-        <text name="ft_help_a3_workshop_title" text="工作坊" />
-        <text name="ft_help_a3_workshop_text" text="步行到任何車輛 35 公尺範圍內，它就會自動出現在 Workshop 應用程式中。每個條目都會顯示燃油油位、磨損百分比和總運行時間。點擊任何車輛上的“選擇”以固定它 - 即使您離開，固定的車輛在應用程式中仍然可見，從而可以輕鬆監控在現場工作的機器。" />
-        <text name="ft_help_a3_bucket_title" text="桶追蹤器" />
-        <text name="ft_help_a3_bucket_text" text="當您駕駛輪式裝載機、挖土機或物料搬運機時，鏟鬥追蹤器會自動啟動。它對每個傾倒週期進行計數，並保存材料類型和每次負載的估計重量的運行日誌。用它來追蹤土方工程、肥料撒播或散裝物料搬運作業的生產力。" />
-        <text name="ft_help_m1_title" text="收入和稅收模式" />
-        <text name="ft_help_m1_income_title" text="FS25 收入模式" />
-        <text name="ft_help_m1_income_text" text="當 FS25_IncomeMod 啟用時，收入應用程式會出現在主畫面。它顯示付款模式與金額，並可讓你在不離開平板的情況下啟用或停用該模組。變更會立即生效。" />
-        <text name="ft_help_m1_tax_title" text="FS25 稅務模組" />
-        <text name="ft_help_m1_tax_text" text="當 FS25_TaxMod 處於活動狀態時，稅務應用程式會顯示您目前的稅率、退貨百分比以及本次會話支付的稅金總額。您可以從平板電腦上開啟或關閉該模組，並一目了然地查看您的最低餘額要求。" />
-        <text name="ft_help_m2_title" text="作物脅迫與土壤肥料" />
-        <text name="ft_help_m2_cropstress_title" text="FS25 季節性作物脅迫" />
-        <text name="ft_help_m2_cropstress_text" text="當 FS25_SeasonalCropStress 處於活動狀態時，作物壓力應用程式會列出每個田地及其當前土壤濕度百分比和累積的乾旱壓力。顏色編碼條一目了然地顯示健康狀況：綠色表示良好，黃色表示警告，紅色表示壓力已經形成並且產量已經開始下降。安裝該模組並打開自己的幫助部分以獲得完整的灌溉指導。" />
-        <text name="ft_help_m2_soil_title" text="FS25土壤肥料" />
-        <text name="ft_help_m2_soil_text" text="當 FS25_SoilFertilizer 處於活動狀態時，Soil Fertilizer 應用程式會顯示每個田地的氮、磷、鉀、pH 值和有機質。從清單中選擇任何田地以查看其完整的土壤剖面以及是否需要施肥。營養等級以顏色編碼：綠色為良好，黃色為一般，紅色需要注意。" />
-        <text name="ft_help_m3_title" text="應用程式商店" />
-        <text name="ft_help_m3_appstore_title" text="發現已安裝的應用程式" />
-        <text name="ft_help_m3_appstore_text" text="App Store 應用程式列出了在平板電腦上註冊的每個應用程序，包括配套 mod 應用程式。需要當前未啟動的 mod 的應用程式會顯示為灰色狀態，因此您知道一旦啟用匹配的 mod，它們就可用。無需配置 - 載入 mod 時，配套應用程式會自動出現。" />
+        <text name="ft_help_p1_nav_title" text="ä¸»ç•«é¢èˆ‡æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_help_p1_nav_text" text="Farm Tablet çš„æ“ä½œå°±åƒæ‰‹æ©Ÿã€‚æ»‘å‹•ä»¥è§£éŽ–ï¼Œç„¶å¾Œåœ¨ä¸»ç•«é¢é»žæŒ‰æ‡‰ç”¨ç¨‹å¼åœ–ç¤ºå³å¯é–‹å•Ÿã€‚é»žæŒ‰ä¸Šæ–¹åˆ—çš„ HOME å¯è¿”å›žåœ–ç¤ºæ ¼ã€‚åº•éƒ¨çš„ Dock æ”¾ç½®å¸¸ç”¨ç¨‹å¼ï¼Œæ»‘é¼ æ»¾è¼ªå¯åˆ‡æ›é é¢ã€‚App Store æ‡‰ç”¨ç¨‹å¼æœƒåˆ—å‡ºä½ æ‰€æœ‰çš„æ‡‰ç”¨ç¨‹å¼ã€‚" />
+        <text name="ft_help_p2_title" text="ç§»å‹•å’Œèª¿æ•´å¤§å°" />
+        <text name="ft_help_p2_move_title" text="ç·¨è¼¯æ¨¡å¼" />
+        <text name="ft_help_p2_move_text" text="é–‹å•Ÿâ€œè¨­å®šâ€æ‡‰ç”¨ç¨‹å¼ä¸¦é»žæ“Šâ€œé€²å…¥ç·¨è¼¯æ¨¡å¼â€ã€‚åœ¨ç·¨è¼¯æ¨¡å¼ä¸‹ï¼Œæ‚¨å¯ä»¥æ‹–æ›³å¹³æ¿é›»è…¦ä¸»é«”ä»¥å°‡å…¶é‡æ–°å®šä½åœ¨èž¢å¹•ä¸Šçš„ä»»ä½•ä½ç½®ï¼Œæ‹–æ›³ä»»ä½•è§’è½æ‰‹æŸ„ä»¥ç¸®æ”¾æ•´å€‹å¹³æ¿é›»è…¦ï¼Œæˆ–æ‹–æ›³å·¦é‚Šç·£æˆ–å³é‚Šç·£ä»¥åƒ…èª¿æ•´å¯¬åº¦ã€‚å³éµé»žé¸ä»»æ„ä½ç½®å¯é€€å‡ºç·¨è¼¯æ¨¡å¼ã€‚æ‚¨çš„ä½ç½®å’Œæ¯”ä¾‹æœƒè‡ªå‹•å„²å­˜ã€‚" />
+        <text name="ft_help_p2_key_title" text="æ›´æ”¹é–‹å•Ÿå¯†é‘°" />
+        <text name="ft_help_p2_key_text" text="é è¨­éµæ˜¯ Tã€‚è¦æ›´æ”¹å®ƒï¼Œè«‹æ‰“é–‹â€œè¨­ç½®â€æ‡‰ç”¨ç¨‹å¼ä¸¦æ‰¾åˆ°â€œKeybindâ€è¨­ç½®ï¼Œæˆ–è€…åœ¨é–‹ç™¼è€…æŽ§åˆ¶å°ä¸­éµå…¥ TabletKeybindï¼Œå¾Œè·Ÿéµåç¨± - ä¾‹å¦‚ TabletKeybind H å°‡éµè¨­ç½®ç‚º Hã€‚å–®å­—æ¯ã€F éµä»¥åŠ TAB å’Œ ESC ç­‰å¸¸ç”¨éµéƒ½æ”¯æ´ã€‚" />
+        <text name="ft_help_a1_title" text="å„€è¡¨æ¿å’Œå¤©æ°£" />
+        <text name="ft_help_a1_dash_title" text="å„€è¡¨æ¿" />
+        <text name="ft_help_a1_dash_text" text="å„€è¡¨æ¿æ˜¯æ‚¨ä¸€ç›®äº†ç„¶çš„è¾²å ´æ‘˜è¦ã€‚å®ƒåœ¨é ‚éƒ¨çš„å¤§è‹±é›„å¡ä¸­é¡¯ç¤ºæ‚¨ç•¶å‰çš„é¤˜é¡ï¼Œç„¶å¾Œåœ¨ä¸‹é¢é¡¯ç¤ºè©²æœƒè©±çš„æ”¶å…¥ã€æ”¯å‡ºå’Œæ·¨åˆ©æ½¤ã€‚è¾²å ´çµ±è¨ˆåˆ—å‡ºäº†æ‚¨æ“æœ‰çš„ç”°åœ°æ•¸é‡å’Œè»Šè¼›ç¸½æ•¸ã€‚ä¸–ç•Œéƒ¨åˆ†é¡¯ç¤ºç•¶å‰å­£ç¯€ã€æ—¥æœŸã€æ™‚é–“ä»¥åŠå³æ™‚å¤©æ°£å¿«ç…§ã€‚é»žæ“Šå„€è¡¨æ¿å³ä¸‹è§’çš„å°è³‡è¨Šåœ–ç¤ºå³å¯å–å¾—æ¯å€‹å€¼çš„è©³ç´°èªªæ˜Žã€‚" />
+        <text name="ft_help_a1_weather_title" text="å¤©æ°£æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_help_a1_weather_text" text="å¤©æ°£æ‡‰ç”¨ç¨‹å¼é¡¯ç¤ºè©³ç´°çš„å¤šæ—¥å¤©æ°£é å ±ï¼ŒåŒ…æ‹¬æº«åº¦ã€é™æ°´æ©ŸçŽ‡å’Œé¢¨åŠ›ã€‚æƒ…æ³ç”¨é¡è‰²ç·¨ç¢¼ï¼šè—è‰²è¡¨ç¤ºä¸‹é›¨ï¼Œæ©˜è‰²è¡¨ç¤ºæš´é¢¨é›¨ï¼Œç™½è‰²è¡¨ç¤ºæ™´æœ—çš„å¤©ç©ºã€‚å°‡å…¶èˆ‡ä½œç‰©è„…è¿«æ¨¡çµ„ä¸€èµ·ä½¿ç”¨ä¾†æ±ºå®šä½•æ™‚å®‰æŽ’çŒæº‰ã€‚" />
+        <text name="ft_help_a2_title" text="ç”°é‡Žèˆ‡å‹•ç‰©" />
+        <text name="ft_help_a2_fields_title" text="ç¾å ´ç¶“ç†" />
+        <text name="ft_help_a2_fields_text" text="å­—æ®µç®¡ç†å™¨åˆ—å‡ºäº†æ‚¨æ“æœ‰çš„æ¯å€‹å­—æ®µã€‚æ¯è¡Œé¡¯ç¤ºä½œç‰©é¡žåž‹ã€ç›®å‰ç”Ÿé•·éšŽæ®µï¼ˆä½œç‚ºå¾½ç« ï¼‰ï¼ˆæ’­ç¨®ã€ç”Ÿé•·ã€å°±ç·’ï¼‰ä»¥åŠé¡è‰²ç·¨ç¢¼çš„ç‹€æ…‹é»žã€‚ç¶ è‰²è¡¨ç¤ºè©²æ¬„ä½ä¸éœ€è¦é—œæ³¨ã€‚é»ƒè‰²æ„å‘³è‘—å®ƒéœ€è¦ä¸€äº›æ±è¥¿â€”â€”è‚¥æ–™ã€çŠåœ°æˆ–ç¢¾å£“ã€‚ç´…è‰²è¡¨ç¤ºè¾²ä½œç‰©å·²æº–å‚™å¥½æ”¶ç©«æˆ–éœ€è¦ç·Šæ€¥è¡Œå‹•ã€‚" />
+        <text name="ft_help_a2_animals_title" text="å‹•ç‰©" />
+        <text name="ft_help_a2_animals_text" text="å‹•ç‰©æ‡‰ç”¨ç¨‹å¼é€éŽä¸‰å€‹é€²åº¦æ¢é¡¯ç¤ºæ‚¨æ“æœ‰çš„æ¯å€‹åœæ¬„ï¼šé£Ÿç‰©æ°´å¹³ã€æ°´ä½å’Œæ¸…æ½”åº¦ã€‚ç¶ æ¢ç„¡éœ€åŸ·è¡Œä»»ä½•æ“ä½œã€‚é»ƒè‰²æ¢æ‡‰è©²å¾ˆå¿«å°±æœƒè¢«å¡«æ»¿ã€‚ç´…æ¢è‡³é—œé‡è¦ï¼Œå¦‚æžœç„¡äººçœ‹ç®¡ï¼Œå°‡æœƒå½±éŸ¿ç”Ÿç”¢åŠ›ã€‚" />
+        <text name="ft_help_a3_title" text="è»Šé–“å’Œæ¡¶è¿½è¹¤å™¨" />
+        <text name="ft_help_a3_workshop_title" text="å·¥ä½œåŠ" />
+        <text name="ft_help_a3_workshop_text" text="æ­¥è¡Œåˆ°ä»»ä½•è»Šè¼› 35 å…¬å°ºç¯„åœå…§ï¼Œå®ƒå°±æœƒè‡ªå‹•å‡ºç¾åœ¨ Workshop æ‡‰ç”¨ç¨‹å¼ä¸­ã€‚æ¯å€‹æ¢ç›®éƒ½æœƒé¡¯ç¤ºç‡ƒæ²¹æ²¹ä½ã€ç£¨æç™¾åˆ†æ¯”å’Œç¸½é‹è¡Œæ™‚é–“ã€‚é»žæ“Šä»»ä½•è»Šè¼›ä¸Šçš„â€œé¸æ“‡â€ä»¥å›ºå®šå®ƒ - å³ä½¿æ‚¨é›¢é–‹ï¼Œå›ºå®šçš„è»Šè¼›åœ¨æ‡‰ç”¨ç¨‹å¼ä¸­ä»ç„¶å¯è¦‹ï¼Œå¾žè€Œå¯ä»¥è¼•é¬†ç›£æŽ§åœ¨ç¾å ´å·¥ä½œçš„æ©Ÿå™¨ã€‚" />
+        <text name="ft_help_a3_bucket_title" text="æ¡¶è¿½è¹¤å™¨" />
+        <text name="ft_help_a3_bucket_text" text="ç•¶æ‚¨é§•é§›è¼ªå¼è£è¼‰æ©Ÿã€æŒ–åœŸæ©Ÿæˆ–ç‰©æ–™æ¬é‹æ©Ÿæ™‚ï¼ŒéŸé¬¥è¿½è¹¤å™¨æœƒè‡ªå‹•å•Ÿå‹•ã€‚å®ƒå°æ¯å€‹å‚¾å€’é€±æœŸé€²è¡Œè¨ˆæ•¸ï¼Œä¸¦ä¿å­˜ææ–™é¡žåž‹å’Œæ¯æ¬¡è² è¼‰çš„ä¼°è¨ˆé‡é‡çš„é‹è¡Œæ—¥èªŒã€‚ç”¨å®ƒä¾†è¿½è¹¤åœŸæ–¹å·¥ç¨‹ã€è‚¥æ–™æ’’æ’­æˆ–æ•£è£ç‰©æ–™æ¬é‹ä½œæ¥­çš„ç”Ÿç”¢åŠ›ã€‚" />
+        <text name="ft_help_m1_title" text="æ”¶å…¥å’Œç¨…æ”¶æ¨¡å¼" />
+        <text name="ft_help_m1_income_title" text="FS25 æ”¶å…¥æ¨¡å¼" />
+        <text name="ft_help_m1_income_text" text="ç•¶ FS25_IncomeMod å•Ÿç”¨æ™‚ï¼Œæ”¶å…¥æ‡‰ç”¨ç¨‹å¼æœƒå‡ºç¾åœ¨ä¸»ç•«é¢ã€‚å®ƒé¡¯ç¤ºä»˜æ¬¾æ¨¡å¼èˆ‡é‡‘é¡ï¼Œä¸¦å¯è®“ä½ åœ¨ä¸é›¢é–‹å¹³æ¿çš„æƒ…æ³ä¸‹å•Ÿç”¨æˆ–åœç”¨è©²æ¨¡çµ„ã€‚è®Šæ›´æœƒç«‹å³ç”Ÿæ•ˆã€‚" />
+        <text name="ft_help_m1_tax_title" text="FS25 ç¨…å‹™æ¨¡çµ„" />
+        <text name="ft_help_m1_tax_text" text="ç•¶ FS25_TaxMod è™•æ–¼æ´»å‹•ç‹€æ…‹æ™‚ï¼Œç¨…å‹™æ‡‰ç”¨ç¨‹å¼æœƒé¡¯ç¤ºæ‚¨ç›®å‰çš„ç¨…çŽ‡ã€é€€è²¨ç™¾åˆ†æ¯”ä»¥åŠæœ¬æ¬¡æœƒè©±æ”¯ä»˜çš„ç¨…é‡‘ç¸½é¡ã€‚æ‚¨å¯ä»¥å¾žå¹³æ¿é›»è…¦ä¸Šé–‹å•Ÿæˆ–é—œé–‰è©²æ¨¡çµ„ï¼Œä¸¦ä¸€ç›®äº†ç„¶åœ°æŸ¥çœ‹æ‚¨çš„æœ€ä½Žé¤˜é¡è¦æ±‚ã€‚" />
+        <text name="ft_help_m2_title" text="ä½œç‰©è„…è¿«èˆ‡åœŸå£¤è‚¥æ–™" />
+        <text name="ft_help_m2_cropstress_title" text="FS25 å­£ç¯€æ€§ä½œç‰©è„…è¿«" />
+        <text name="ft_help_m2_cropstress_text" text="ç•¶ FS25_SeasonalCropStress è™•æ–¼æ´»å‹•ç‹€æ…‹æ™‚ï¼Œä½œç‰©å£“åŠ›æ‡‰ç”¨ç¨‹å¼æœƒåˆ—å‡ºæ¯å€‹ç”°åœ°åŠå…¶ç•¶å‰åœŸå£¤æ¿•åº¦ç™¾åˆ†æ¯”å’Œç´¯ç©çš„ä¹¾æ—±å£“åŠ›ã€‚é¡è‰²ç·¨ç¢¼æ¢ä¸€ç›®äº†ç„¶åœ°é¡¯ç¤ºå¥åº·ç‹€æ³ï¼šç¶ è‰²è¡¨ç¤ºè‰¯å¥½ï¼Œé»ƒè‰²è¡¨ç¤ºè­¦å‘Šï¼Œç´…è‰²è¡¨ç¤ºå£“åŠ›å·²ç¶“å½¢æˆä¸¦ä¸”ç”¢é‡å·²ç¶“é–‹å§‹ä¸‹é™ã€‚å®‰è£è©²æ¨¡çµ„ä¸¦æ‰“é–‹è‡ªå·±çš„å¹«åŠ©éƒ¨åˆ†ä»¥ç²å¾—å®Œæ•´çš„çŒæº‰æŒ‡å°Žã€‚" />
+        <text name="ft_help_m2_soil_title" text="FS25åœŸå£¤è‚¥æ–™" />
+        <text name="ft_help_m2_soil_text" text="ç•¶ FS25_SoilFertilizer è™•æ–¼æ´»å‹•ç‹€æ…‹æ™‚ï¼ŒSoil Fertilizer æ‡‰ç”¨ç¨‹å¼æœƒé¡¯ç¤ºæ¯å€‹ç”°åœ°çš„æ°®ã€ç£·ã€é‰€ã€pH å€¼å’Œæœ‰æ©Ÿè³ªã€‚å¾žæ¸…å–®ä¸­é¸æ“‡ä»»ä½•ç”°åœ°ä»¥æŸ¥çœ‹å…¶å®Œæ•´çš„åœŸå£¤å‰–é¢ä»¥åŠæ˜¯å¦éœ€è¦æ–½è‚¥ã€‚ç‡Ÿé¤Šç­‰ç´šä»¥é¡è‰²ç·¨ç¢¼ï¼šç¶ è‰²ç‚ºè‰¯å¥½ï¼Œé»ƒè‰²ç‚ºä¸€èˆ¬ï¼Œç´…è‰²éœ€è¦æ³¨æ„ã€‚" />
+        <text name="ft_help_m3_title" text="æ‡‰ç”¨ç¨‹å¼å•†åº—" />
+        <text name="ft_help_m3_appstore_title" text="ç™¼ç¾å·²å®‰è£çš„æ‡‰ç”¨ç¨‹å¼" />
+        <text name="ft_help_m3_appstore_text" text="App Store æ‡‰ç”¨ç¨‹å¼åˆ—å‡ºäº†åœ¨å¹³æ¿é›»è…¦ä¸Šè¨»å†Šçš„æ¯å€‹æ‡‰ç”¨ç¨‹åºï¼ŒåŒ…æ‹¬é…å¥— mod æ‡‰ç”¨ç¨‹å¼ã€‚éœ€è¦ç•¶å‰æœªå•Ÿå‹•çš„ mod çš„æ‡‰ç”¨ç¨‹å¼æœƒé¡¯ç¤ºç‚ºç°è‰²ç‹€æ…‹ï¼Œå› æ­¤æ‚¨çŸ¥é“ä¸€æ—¦å•Ÿç”¨åŒ¹é…çš„ modï¼Œå®ƒå€‘å°±å¯ç”¨ã€‚ç„¡éœ€é…ç½® - è¼‰å…¥ mod æ™‚ï¼Œé…å¥—æ‡‰ç”¨ç¨‹å¼æœƒè‡ªå‹•å‡ºç¾ã€‚" />
         <text name="ft_help_s1_title" text="Tablet Settings" />
-        <text name="ft_help_s1_settings_title" text="你可以改變什麼" />
-        <text name="ft_help_s1_settings_text" text="開啟設定應用程式來管理平板：位置與縮放（或編輯模式）、背景顏色、你自己的主畫面圖片、鎖定畫面、啟動應用程式、音效與通知。所有設定會自動儲存。" />
-        <text name="ft_help_s1_sound_title" text="音效" />
-        <text name="ft_help_s1_sound_text" text="預設情況下，聲音效果處於開啟狀態。當您切換應用程式時，會播放應用程式選擇點擊聲。當遊戲內幫助面板開啟或關閉時，會發出尋呼聲音。兩者都可以在“設定”應用程式中獨立切換。" />
-        <text name="ft_help_s2_title" text="控制台命令" />
-        <text name="ft_help_s2_console_title" text="可用指令" />
-        <text name="ft_help_s2_console_text" text="用波浪鍵開啟開發者主控台，輸入 tablet 即可列出所有指令。例如 TabletKeybind H 變更開啟鍵，TabletSetStartupApp weather 設定第一個應用程式，TabletResetSettings 還原預設值。" />
+        <text name="ft_help_s1_settings_title" text="ä½ å¯ä»¥æ”¹è®Šä»€éº¼" />
+        <text name="ft_help_s1_settings_text" text="é–‹å•Ÿè¨­å®šæ‡‰ç”¨ç¨‹å¼ä¾†ç®¡ç†å¹³æ¿ï¼šä½ç½®èˆ‡ç¸®æ”¾ï¼ˆæˆ–ç·¨è¼¯æ¨¡å¼ï¼‰ã€èƒŒæ™¯é¡è‰²ã€ä½ è‡ªå·±çš„ä¸»ç•«é¢åœ–ç‰‡ã€éŽ–å®šç•«é¢ã€å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼ã€éŸ³æ•ˆèˆ‡é€šçŸ¥ã€‚æ‰€æœ‰è¨­å®šæœƒè‡ªå‹•å„²å­˜ã€‚" />
+        <text name="ft_help_s1_sound_title" text="éŸ³æ•ˆ" />
+        <text name="ft_help_s1_sound_text" text="é è¨­æƒ…æ³ä¸‹ï¼Œè²éŸ³æ•ˆæžœè™•æ–¼é–‹å•Ÿç‹€æ…‹ã€‚ç•¶æ‚¨åˆ‡æ›æ‡‰ç”¨ç¨‹å¼æ™‚ï¼Œæœƒæ’­æ”¾æ‡‰ç”¨ç¨‹å¼é¸æ“‡é»žæ“Šè²ã€‚ç•¶éŠæˆ²å…§å¹«åŠ©é¢æ¿é–‹å•Ÿæˆ–é—œé–‰æ™‚ï¼Œæœƒç™¼å‡ºå°‹å‘¼è²éŸ³ã€‚å…©è€…éƒ½å¯ä»¥åœ¨â€œè¨­å®šâ€æ‡‰ç”¨ç¨‹å¼ä¸­ç¨ç«‹åˆ‡æ›ã€‚" />
+        <text name="ft_help_s2_title" text="æŽ§åˆ¶å°å‘½ä»¤" />
+        <text name="ft_help_s2_console_title" text="å¯ç”¨æŒ‡ä»¤" />
+        <text name="ft_help_s2_console_text" text="ç”¨æ³¢æµªéµé–‹å•Ÿé–‹ç™¼è€…ä¸»æŽ§å°ï¼Œè¼¸å…¥ tablet å³å¯åˆ—å‡ºæ‰€æœ‰æŒ‡ä»¤ã€‚ä¾‹å¦‚ TabletKeybind H è®Šæ›´é–‹å•Ÿéµï¼ŒTabletSetStartupApp weather è¨­å®šç¬¬ä¸€å€‹æ‡‰ç”¨ç¨‹å¼ï¼ŒTabletResetSettings é‚„åŽŸé è¨­å€¼ã€‚" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
-        <text name="ft_ui_app_animal_vet_system" text="動物獸醫" />
-        <text name="ft_ui_app_factory_week_schedule" text="工廠週" />
+        <text name="ft_ui_app_animal_vet_system" text="å‹•ç‰©ç¸é†«" />
+        <text name="ft_ui_app_factory_week_schedule" text="å·¥å» é€±" />
         <text name="ft_ui_app_realistic_dealer" text="RealisticDealer" />
-        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare 狀態與安全照護觸發" />
-        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem 疾病與治療監控" />
-        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule 概覽：工人、事件與火災狀態" />
-        <text name="ft_desc_app_realistic_dealer" text="RealisticDealer：融資、分期與收回狀態" />
+        <text name="ft_desc_app_animal_auto_care" text="AnimalAutoCare ç‹€æ…‹èˆ‡å®‰å…¨ç…§è­·è§¸ç™¼" />
+        <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem ç–¾ç—…èˆ‡æ²»ç™‚ç›£æŽ§" />
+        <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule æ¦‚è¦½ï¼šå·¥äººã€äº‹ä»¶èˆ‡ç«ç½ç‹€æ…‹" />
+        <text name="ft_desc_app_realistic_dealer" text="RealisticDealerï¼šèžè³‡ã€åˆ†æœŸèˆ‡æ”¶å›žç‹€æ…‹" />
         <text name="ft_common_on" text="On" />
         <text name="ft_common_off" text="Off" />
-        <text name="ft_common_connected" text="已連線" />
-        <text name="ft_common_inactive" text="未啟用" />
-        <text name="ft_common_status" text="狀態" />
-        <text name="ft_common_overview" text="概覽" />
-        <text name="ft_common_busy" text="忙碌" />
-        <text name="ft_common_available" text="可用" />
-        <text name="ft_common_time" text="時間" />
-        <text name="ft_common_event" text="事件" />
+        <text name="ft_common_connected" text="å·²é€£ç·š" />
+        <text name="ft_common_inactive" text="æœªå•Ÿç”¨" />
+        <text name="ft_common_status" text="ç‹€æ…‹" />
+        <text name="ft_common_overview" text="æ¦‚è¦½" />
+        <text name="ft_common_busy" text="å¿™ç¢Œ" />
+        <text name="ft_common_available" text="å¯ç”¨" />
+        <text name="ft_common_time" text="æ™‚é–“" />
+        <text name="ft_common_event" text="äº‹ä»¶" />
         <text name="ft_common_open" text="Open" />
-        <text name="ft_common_closed" text="關閉" />
-        <text name="ft_common_note" text="備註" />
-        <text name="ft_aac_not_detected" text="未偵測到 AnimalAutoCare。" />
-        <text name="ft_aac_overall" text="總體" />
-        <text name="ft_aac_food" text="飼料" />
-        <text name="ft_aac_water" text="水" />
-        <text name="ft_aac_straw" text="稻草" />
-        <text name="ft_aac_purchase_cost" text="購買成本" />
-        <text name="ft_aac_care_cost" text="照護成本" />
-        <text name="ft_aac_care_now" text="立即照護" />
-        <text name="ft_aac_last_action" text="上次操作" />
-        <text name="ft_aac_no_action" text="尚未記錄任何操作。" />
-        <text name="ft_vet_active_cases" text="%d 個進行中病例" />
-        <text name="ft_vet_not_detected" text="未偵測到 AnimalVetSystem。" />
-        <text name="ft_vet_active_illnesses" text="進行中疾病" />
-        <text name="ft_vet_veterinarian" text="獸醫" />
-        <text name="ft_vet_no_sick_pens" text="未回報患病畜欄。" />
-        <text name="ft_vet_cases" text="病例" />
-        <text name="ft_vet_pen" text="畜欄" />
-        <text name="ft_vet_illness" text="疾病" />
-        <text name="ft_vet_worker" text="工人" />
-        <text name="ft_vet_self" text="親自" />
-        <text name="ft_vet_case_line" text="%s - %d 隻動物 - 約 %d 分鐘" />
-        <text name="ft_fws_open_count" text="%d/%d 開放" />
-        <text name="ft_fws_not_detected" text="未偵測到 FactoryWeekSchedule。" />
-        <text name="ft_fws_factories_open" text="開放的工廠" />
-        <text name="ft_fws_fire_system" text="火災系統" />
-        <text name="ft_fws_factories" text="工廠" />
-        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD 快取中尚無工廠。" />
-        <text name="ft_fws_factory" text="工廠" />
-        <text name="ft_fws_no_event" text="無事件" />
-        <text name="ft_rd_status_repossession" text="收回進行中" />
-        <text name="ft_rd_status_repossessed" text="已收回" />
-        <text name="ft_rd_status_paid" text="已付清" />
-        <text name="ft_rd_status_overdue" text="逾期" />
-        <text name="ft_rd_status_active" text="進行中" />
-        <text name="ft_rd_not_detected" text="未偵測到 RealisticDealer。" />
-        <text name="ft_rd_active_financing" text="進行中融資" />
-        <text name="ft_rd_remaining_debt" text="剩餘債務" />
-        <text name="ft_rd_credit_score" text="信用評分" />
-        <text name="ft_rd_open_notices" text="未處理通知" />
-        <text name="ft_rd_repossessions" text="收回" />
-        <text name="ft_rd_check_repo" text="檢視收回" />
-        <text name="ft_rd_contracts" text="合約" />
-        <text name="ft_rd_no_contracts" text="沒有進行中的融資合約。" />
-        <text name="ft_rd_vehicle" text="車輛" />
-        <text name="ft_rd_money_line" text="剩餘：%s | 月付：%s" />
-        <text name="ft_rd_installment_line" text="分期：%d/%d" />
-        <text name="ft_rd_notices_line" text="通知：%d" />
-        <text name="ft_rd_server_note" text="車輛收回仍透過伺服器端的 RealisticDealer 處理。" />
+        <text name="ft_common_closed" text="é—œé–‰" />
+        <text name="ft_common_note" text="å‚™è¨»" />
+        <text name="ft_aac_not_detected" text="æœªåµæ¸¬åˆ° AnimalAutoCareã€‚" />
+        <text name="ft_aac_overall" text="ç¸½é«”" />
+        <text name="ft_aac_food" text="é£¼æ–™" />
+        <text name="ft_aac_water" text="æ°´" />
+        <text name="ft_aac_straw" text="ç¨»è‰" />
+        <text name="ft_aac_purchase_cost" text="è³¼è²·æˆæœ¬" />
+        <text name="ft_aac_care_cost" text="ç…§è­·æˆæœ¬" />
+        <text name="ft_aac_care_now" text="ç«‹å³ç…§è­·" />
+        <text name="ft_aac_last_action" text="ä¸Šæ¬¡æ“ä½œ" />
+        <text name="ft_aac_no_action" text="å°šæœªè¨˜éŒ„ä»»ä½•æ“ä½œã€‚" />
+        <text name="ft_vet_active_cases" text="%d å€‹é€²è¡Œä¸­ç—…ä¾‹" />
+        <text name="ft_vet_not_detected" text="æœªåµæ¸¬åˆ° AnimalVetSystemã€‚" />
+        <text name="ft_vet_active_illnesses" text="é€²è¡Œä¸­ç–¾ç—…" />
+        <text name="ft_vet_veterinarian" text="ç¸é†«" />
+        <text name="ft_vet_no_sick_pens" text="æœªå›žå ±æ‚£ç—…ç•œæ¬„ã€‚" />
+        <text name="ft_vet_cases" text="ç—…ä¾‹" />
+        <text name="ft_vet_pen" text="ç•œæ¬„" />
+        <text name="ft_vet_illness" text="ç–¾ç—…" />
+        <text name="ft_vet_worker" text="å·¥äºº" />
+        <text name="ft_vet_self" text="è¦ªè‡ª" />
+        <text name="ft_vet_case_line" text="%s - %d éš»å‹•ç‰© - ç´„ %d åˆ†é˜" />
+        <text name="ft_fws_open_count" text="%d/%d é–‹æ”¾" />
+        <text name="ft_fws_not_detected" text="æœªåµæ¸¬åˆ° FactoryWeekScheduleã€‚" />
+        <text name="ft_fws_factories_open" text="é–‹æ”¾çš„å·¥å» " />
+        <text name="ft_fws_fire_system" text="ç«ç½ç³»çµ±" />
+        <text name="ft_fws_factories" text="å·¥å» " />
+        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD å¿«å–ä¸­å°šç„¡å·¥å» ã€‚" />
+        <text name="ft_fws_factory" text="å·¥å» " />
+        <text name="ft_fws_no_event" text="ç„¡äº‹ä»¶" />
+        <text name="ft_rd_status_repossession" text="æ”¶å›žé€²è¡Œä¸­" />
+        <text name="ft_rd_status_repossessed" text="å·²æ”¶å›ž" />
+        <text name="ft_rd_status_paid" text="å·²ä»˜æ¸…" />
+        <text name="ft_rd_status_overdue" text="é€¾æœŸ" />
+        <text name="ft_rd_status_active" text="é€²è¡Œä¸­" />
+        <text name="ft_rd_not_detected" text="æœªåµæ¸¬åˆ° RealisticDealerã€‚" />
+        <text name="ft_rd_active_financing" text="é€²è¡Œä¸­èžè³‡" />
+        <text name="ft_rd_remaining_debt" text="å‰©é¤˜å‚µå‹™" />
+        <text name="ft_rd_credit_score" text="ä¿¡ç”¨è©•åˆ†" />
+        <text name="ft_rd_open_notices" text="æœªè™•ç†é€šçŸ¥" />
+        <text name="ft_rd_repossessions" text="æ”¶å›ž" />
+        <text name="ft_rd_check_repo" text="æª¢è¦–æ”¶å›ž" />
+        <text name="ft_rd_contracts" text="åˆç´„" />
+        <text name="ft_rd_no_contracts" text="æ²’æœ‰é€²è¡Œä¸­çš„èžè³‡åˆç´„ã€‚" />
+        <text name="ft_rd_vehicle" text="è»Šè¼›" />
+        <text name="ft_rd_money_line" text="å‰©é¤˜ï¼š%s | æœˆä»˜ï¼š%s" />
+        <text name="ft_rd_installment_line" text="åˆ†æœŸï¼š%d/%d" />
+        <text name="ft_rd_notices_line" text="é€šçŸ¥ï¼š%d" />
+        <text name="ft_rd_server_note" text="è»Šè¼›æ”¶å›žä»é€éŽä¼ºæœå™¨ç«¯çš„ RealisticDealer è™•ç†ã€‚" />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Network" />
         <text name="ft_network_choose_provider" text="Choose network provider" />
@@ -273,20 +274,20 @@
         <text name="ft_network_outage_short" text="Outage" />
         <text name="ft_network_no_signal_short" text="No signal" />
         <text name="ft_network_weak_short" text="Weak" />
-        <text name="ft_network_recovered" text="%s：訊號已恢復。" />
-        <text name="ft_network_outage_msg" text="%s：網路中斷，約 2 個遊戲小時。" />
-        <text name="ft_network_no_signal_msg" text="%s：此處無訊號。" />
-        <text name="ft_network_weak_msg" text="%s：訊號弱。" />
-        <text name="ft_battery_empty" text="平板電池電量耗盡" />
-        <text name="ft_battery_charging" text="平板充電中..." />
-        <text name="ft_battery_charge_hint" text="稍微充電以繼續。" />
-        <text name="ft_battery_charge" text="充電" />
+        <text name="ft_network_recovered" text="%sï¼šè¨Šè™Ÿå·²æ¢å¾©ã€‚" />
+        <text name="ft_network_outage_msg" text="%sï¼šç¶²è·¯ä¸­æ–·ï¼Œç´„ 2 å€‹éŠæˆ²å°æ™‚ã€‚" />
+        <text name="ft_network_no_signal_msg" text="%sï¼šæ­¤è™•ç„¡è¨Šè™Ÿã€‚" />
+        <text name="ft_network_weak_msg" text="%sï¼šè¨Šè™Ÿå¼±ã€‚" />
+        <text name="ft_battery_empty" text="å¹³æ¿é›»æ± é›»é‡è€—ç›¡" />
+        <text name="ft_battery_charging" text="å¹³æ¿å……é›»ä¸­..." />
+        <text name="ft_battery_charge_hint" text="ç¨å¾®å……é›»ä»¥ç¹¼çºŒã€‚" />
+        <text name="ft_battery_charge" text="å……é›»" />
         <text name="ft_common_rare" text="Rare" />
         <text name="ft_common_normal" text="Normal" />
         <text name="ft_common_frequent" text="Frequent" />
         <text name="ft_common_close" text="CLOSE" />
-        <text name="ft_network_fee_format" text="Base fee: %s €/day" />
-        <text name="ft_network_fee_deducted" text="Base fee deducted: %d €" />
+        <text name="ft_network_fee_format" text="Base fee: %s â‚¬/day" />
+        <text name="ft_network_fee_deducted" text="Base fee deducted: %d â‚¬" />
         <text name="ft_network_provider_changed" text="Provider changed: %s." />
         <text name="ft_network_outages_changed" text="Outages: %s." />
         <text name="ft_network_outage_label" text="Network outage" />
@@ -314,7 +315,7 @@
         <text name="ft_repair_remaining_day_format" text="%d day %02d:%02d" />
         <text name="ft_settings_provider" text="Provider" />
         <text name="ft_settings_base_fee" text="Base fee" />
-        <text name="ft_settings_fee_per_day" text="%d €/day" />
+        <text name="ft_settings_fee_per_day" text="%d â‚¬/day" />
         <text name="ft_settings_reception" text="Reception" />
         <text name="ft_settings_network_outages" text="Network outages" />
         <text name="ft_settings_duration" text="Duration" />
@@ -373,7 +374,7 @@
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="1 active job" />
         <text name="ft_auto_1_building" text="1 building" />
-        <text name="ft_auto_1_real_time_60_fast_forward" text="1× = real-time  ·  60× = fast-forward&#10;" />
+        <text name="ft_auto_1_real_time_60_fast_forward" text="1Ã— = real-time  Â·  60Ã— = fast-forward&#10;" />
         <text name="ft_auto_1_silo" text="1 silo" />
         <text name="ft_auto_1_vehicle" text="1 vehicle" />
         <text name="ft_auto_1f" text="%.1f" />
@@ -419,7 +420,7 @@
         <text name="ft_auto_active_at_least_one_production_chain_is_enabled_and" text="Active: at least one production chain is enabled and&#10;" />
         <text name="ft_auto_active_contracts" text="ACTIVE CONTRACTS" />
         <text name="ft_auto_active_contracts_2" text="Active Contracts" />
-        <text name="ft_auto_active_contracts_completion_reward_time_remaining" text="Active contracts — completion, reward, time remaining" />
+        <text name="ft_auto_active_contracts_completion_reward_time_remaining" text="Active contracts â€” completion, reward, time remaining" />
         <text name="ft_auto_active_difficulty" text="Active  |  Difficulty: " />
         <text name="ft_auto_active_event" text="ACTIVE EVENT" />
         <text name="ft_auto_active_events" text="ACTIVE EVENTS  (" />
@@ -476,12 +477,12 @@
         <text name="ft_auto_all_four_nutrients_should_be_green_for_optimal_yield" text="All four nutrients should be green for optimal yield.&#10;" />
         <text name="ft_auto_all_known_companion_mod_integrations_are_listed_here" text="All known companion mod integrations are listed here.&#10;" />
         <text name="ft_auto_all_owned_fields_with_crop_and_growth_state" text="All owned fields with crop and growth state" />
-        <text name="ft_auto_all_owned_vehicles_fuel_wear_operating_hours" text="All owned vehicles — fuel, wear, operating hours" />
+        <text name="ft_auto_all_owned_vehicles_fuel_wear_operating_hours" text="All owned vehicles â€” fuel, wear, operating hours" />
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="AMOUNT" />
         <text name="ft_auto_amount_3" text="Amount" />
-        <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K Â· +$10K Â· +$100K Â· +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Amounts shown in litres, sorted largest-first.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
         <text name="ft_auto_and_a_colour_coded_bar" text="and a colour-coded bar.&#10;" />
@@ -502,7 +503,7 @@
         <text name="ft_auto_animal_auto_care" text="animal_auto_care" />
         <text name="ft_auto_animal_care" text="Animal Care" />
         <text name="ft_auto_animal_pens" text="Animal Pens" />
-        <text name="ft_auto_animal_pens_food_water_cleanliness" text="Animal pens — food, water, cleanliness" />
+        <text name="ft_auto_animal_pens_food_water_cleanliness" text="Animal pens â€” food, water, cleanliness" />
         <text name="ft_auto_animal_pens_with_per_metric_color_bars" text="Animal pens with per-metric color bars" />
         <text name="ft_auto_animal_vet_system" text="animal_vet_system" />
         <text name="ft_auto_animalautocare" text="AnimalAutoCare" />
@@ -567,15 +568,15 @@
         <text name="ft_auto_bank" text="Bank" />
         <text name="ft_auto_bar_length_reflects_the_rain_scale_value_0_100" text="Bar length reflects the rain scale value (0-100%)." />
         <text name="ft_auto_base_fee" text="Base fee" />
-        <text name="ft_auto_base_fee_deducted_d" text="Base fee deducted: %d €" />
-        <text name="ft_auto_base_fee_s_day" text="Base fee: %s €/day" />
+        <text name="ft_auto_base_fee_deducted_d" text="Base fee deducted: %d â‚¬" />
+        <text name="ft_auto_base_fee_s_day" text="Base fee: %s â‚¬/day" />
         <text name="ft_auto_base_rate" text="Base Rate" />
         <text name="ft_auto_bck" text="BCK" />
         <text name="ft_auto_best_sell_prices" text="BEST SELL PRICES" />
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="BEST SELL PRICES  (per 1,000 L)" />
         <text name="ft_auto_between_25_and_75_of_the_listing_window" text="between 25% and 75% of the listing window.&#10;" />
         <text name="ft_auto_boolean" text="boolean" />
-        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="breakdowns — repair before reaching 80%." />
+        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="breakdowns â€” repair before reaching 80%." />
         <text name="ft_auto_browse_and_manage_installed_apps" text="Browse and manage installed apps" />
         <text name="ft_auto_bucket" text="bucket" />
         <text name="ft_auto_bucket_fill_level_and_material_type_as_a_bar" text="bucket fill level and material type as a bar.&#10;" />
@@ -630,7 +631,7 @@
         <text name="ft_auto_clear_3" text="clear" />
         <text name="ft_auto_clear_all" text="CLEAR ALL" />
         <text name="ft_auto_clear_all_d" text="CLEAR ALL (%d)" />
-        <text name="ft_auto_clear_completed_remove_all_done_tasks_at_once" text="CLEAR COMPLETED — remove all done tasks at once" />
+        <text name="ft_auto_clear_completed_remove_all_done_tasks_at_once" text="CLEAR COMPLETED â€” remove all done tasks at once" />
         <text name="ft_auto_clear_d_completed" text="CLEAR %d COMPLETED" />
         <text name="ft_auto_clears_all_load_history_and_resets_the_session_totals" text="Clears all load history and resets the session totals&#10;" />
         <text name="ft_auto_click" text="click" />
@@ -662,7 +663,7 @@
         <text name="ft_auto_columns_crop_ha_state" text="COLUMNS: # / CROP / HA / STATE" />
         <text name="ft_auto_combine" text="Combine" />
         <text name="ft_auto_complete_favors_for_an_npc_to_increase_their" text="Complete favors for an NPC to increase their&#10;" />
-        <text name="ft_auto_complete_v2_overhaul_new_sidebar_layout" text="Complete V2 overhaul — new sidebar layout" />
+        <text name="ft_auto_complete_v2_overhaul_new_sidebar_layout" text="Complete V2 overhaul â€” new sidebar layout" />
         <text name="ft_auto_completed" text="Completed" />
         <text name="ft_auto_completed_collect_reward_from_npc" text="COMPLETED - COLLECT REWARD FROM NPC" />
         <text name="ft_auto_completion_updates_automatically" text="Completion updates automatically." />
@@ -674,7 +675,7 @@
         <text name="ft_auto_conditions" text="CONDITIONS" />
         <text name="ft_auto_configure_this_in_the_income_mod_settings" text="Configure this in the Income Mod settings." />
         <text name="ft_auto_confirm_clear_all_d" text="CONFIRM CLEAR ALL (%d)" />
-        <text name="ft_auto_confirm_start_job" text="CONFIRM — START JOB" />
+        <text name="ft_auto_confirm_start_job" text="CONFIRM â€” START JOB" />
         <text name="ft_auto_connected" text="Connected" />
         <text name="ft_auto_console_commands_for_power_users" text="Console commands for power users" />
         <text name="ft_auto_console_useful_for_troubleshooting_leave_off_during" text="console. Useful for troubleshooting. Leave off during&#10;" />
@@ -696,7 +697,7 @@
         <text name="ft_auto_contracts" text="CONTRACTS" />
         <text name="ft_auto_contracts_2" text="Contracts" />
         <text name="ft_auto_contracts_3" text="contracts" />
-        <text name="ft_auto_contracts_appear_here_available_ones_do_not" text="contracts appear here — available ones do not." />
+        <text name="ft_auto_contracts_appear_here_available_ones_do_not" text="contracts appear here â€” available ones do not." />
         <text name="ft_auto_contracts_board_in_the_pause_menu_only_accepted" text="Contracts board in the pause menu. Only accepted&#10;" />
         <text name="ft_auto_contracts_in_amber_are_expiring_soon_2_game_hours" text="Contracts in amber are expiring soon (&lt; 2 game hours).&#10;" />
         <text name="ft_auto_contracts_marked_done_are_complete_but_unpaid" text="Contracts marked DONE are complete but unpaid.&#10;" />
@@ -725,15 +726,15 @@
         <text name="ft_auto_current_balance_2" text="Current Balance" />
         <text name="ft_auto_current_conditions_and_forecast" text="Current conditions and forecast" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
-        <text name="ft_auto_category" text="類別" />
-        <text name="ft_auto_cooldown" text="冷卻時間" />
-        <text name="ft_auto_economic" text="經濟" />
-        <text name="ft_auto_event_categories" text="事件類別" />
-        <text name="ft_auto_event_types" text="事件類型" />
-        <text name="ft_auto_market_movers_per_1_000_l" text="市場波動  (每1,000公升)" />
-        <text name="ft_auto_special" text="特殊" />
-        <text name="ft_auto_volatility" text="波動性" />
-        <text name="ft_auto_wildlife" text="野生動物" />
+        <text name="ft_auto_category" text="é¡žåˆ¥" />
+        <text name="ft_auto_cooldown" text="å†·å»æ™‚é–“" />
+        <text name="ft_auto_economic" text="ç¶“æ¿Ÿ" />
+        <text name="ft_auto_event_categories" text="äº‹ä»¶é¡žåˆ¥" />
+        <text name="ft_auto_event_types" text="äº‹ä»¶é¡žåž‹" />
+        <text name="ft_auto_market_movers_per_1_000_l" text="å¸‚å ´æ³¢å‹•  (æ¯1,000å…¬å‡)" />
+        <text name="ft_auto_special" text="ç‰¹æ®Š" />
+        <text name="ft_auto_volatility" text="æ³¢å‹•æ€§" />
+        <text name="ft_auto_wildlife" text="é‡Žç”Ÿå‹•ç‰©" />
         <text name="ft_auto_current_fuel_as_a_percentage_of_tank_capacity" text="Current fuel as a percentage of tank capacity.&#10;" />
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Current in-game day, season (if Seasons mod is active),&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="current wage level, cost mode, active&#10;" />
@@ -749,13 +750,13 @@
         <text name="ft_auto_d_active_cases" text="%d active cases" />
         <text name="ft_auto_d_d_open" text="%d/%d open" />
         <text name="ft_auto_d_d_working" text="%d  (%d working)" />
-        <text name="ft_auto_d_day" text="%d €/day" />
+        <text name="ft_auto_d_day" text="%d â‚¬/day" />
         <text name="ft_auto_d_day_02d_02d" text="%d day %02d:%02d" />
         <text name="ft_auto_d_day_s_remaining" text="%d day%s remaining" />
         <text name="ft_auto_d_dh_left" text="%d%%  %dh left" />
         <text name="ft_auto_d_dl_dl" text="%d%%  (%dL / %dL)" />
         <text name="ft_auto_d_fields" text="%d fields" />
-        <text name="ft_auto_d_fields_d_asleep" text="%d fields  ·  %d asleep" />
+        <text name="ft_auto_d_fields_d_asleep" text="%d fields  Â·  %d asleep" />
         <text name="ft_auto_d_hr_s_remaining" text="%d hr%s remaining" />
         <text name="ft_auto_d_in_game_hours" text="%d in-game hours" />
         <text name="ft_auto_d_l" text="%d L" />
@@ -808,7 +809,7 @@
         <text name="ft_auto_display_damage_s" text="DISPLAY DAMAGE: %s" />
         <text name="ft_auto_display_in_stock_duration_approx_1_in_game_hour" text="Display in stock - duration: approx. 1 in-game hour" />
         <text name="ft_auto_display_ordered_duration_approx_1_in_game_day" text="Display ordered - duration: approx. 1 in-game day" />
-        <text name="ft_auto_display_position_scale" text="DISPLAY — POSITION &amp; SCALE" />
+        <text name="ft_auto_display_position_scale" text="DISPLAY â€” POSITION &amp; SCALE" />
         <text name="ft_auto_displays_fs25_marketdynamics_status" text="Displays FS25_MarketDynamics status:&#10;" />
         <text name="ft_auto_displays_fs25_randomworldevents_status" text="Displays FS25_RandomWorldEvents status:&#10;" />
         <text name="ft_auto_displays_fs25_workercosts_status" text="Displays FS25_WorkerCosts status:&#10;" />
@@ -817,8 +818,8 @@
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Docs / Releases:" />
         <text name="ft_auto_done" text="DONE" />
-        <text name="ft_auto_done_collect_reward" text="DONE — COLLECT REWARD" />
-        <text name="ft_auto_done_mark_a_task_as_completed" text="DONE — mark a task as completed (■)&#10;" />
+        <text name="ft_auto_done_collect_reward" text="DONE â€” COLLECT REWARD" />
+        <text name="ft_auto_done_mark_a_task_as_completed" text="DONE â€” mark a task as completed (â– )&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Download the latest version from the mod page on&#10;" />
         <text name="ft_auto_drag_a_corner_handle_to_scale_the_whole_tablet" text="Drag a corner handle to scale the whole tablet.&#10;" />
         <text name="ft_auto_drag_left_or_right_edge_to_adjust_width_only" text="Drag left or right edge to adjust width only.&#10;" />
@@ -843,7 +844,7 @@
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Each row shows field ID, crop type, moisture %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
         <text name="ft_auto_edit" text="EDIT" />
-        <text name="ft_auto_elapsed" text="  ·  Elapsed: " />
+        <text name="ft_auto_elapsed" text="  Â·  Elapsed: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="EMPTY" />
         <text name="ft_auto_empty_3" text="Empty" />
@@ -931,7 +932,7 @@
         <text name="ft_auto_farmtablet_2" text="[FarmTablet] " />
         <text name="ft_auto_farmtablet_autodetect_animalautocare_detected" text="[FarmTablet] autoDetect: AnimalAutoCare detected" />
         <text name="ft_auto_farmtablet_autodetect_animalvetsystem_detected" text="[FarmTablet] autoDetect: AnimalVetSystem detected" />
-        <text name="ft_auto_farmtablet_autodetect_complete_d_apps_registered" text="[FarmTablet] autoDetect complete — %d apps registered" />
+        <text name="ft_auto_farmtablet_autodetect_complete_d_apps_registered" text="[FarmTablet] autoDetect complete â€” %d apps registered" />
         <text name="ft_auto_farmtablet_autodetect_crop_stress_detected" text="[FarmTablet] autoDetect: Crop Stress detected" />
         <text name="ft_auto_farmtablet_autodetect_factoryweekschedule_detected" text="[FarmTablet] autoDetect: FactoryWeekSchedule detected" />
         <text name="ft_auto_farmtablet_autodetect_fieldsentry_detected" text="[FarmTablet] autoDetect: FieldSentry detected" />
@@ -948,18 +949,18 @@
         <text name="ft_auto_farmtablet_autodetect_worker_costs_detected" text="[FarmTablet] autoDetect: Worker Costs detected" />
         <text name="ft_auto_farmtablet_back_handler_error_for_app_s_s" text="FarmTablet: back handler error for app '%s': %s" />
         <text name="ft_auto_farmtablet_could_not_create_overlay_for_sliceid_s" text="FarmTablet: Could not create overlay for sliceId: %s" />
-        <text name="ft_auto_farmtablet_edit_mode_off_position_scale_saved" text="[FarmTablet] Edit mode OFF — position/scale saved" />
-        <text name="ft_auto_farmtablet_edit_mode_on_drag_to_move_corners_to_resize" text="[FarmTablet] Edit mode ON — drag to move, corners to resize, right-click to exit" />
+        <text name="ft_auto_farmtablet_edit_mode_off_position_scale_saved" text="[FarmTablet] Edit mode OFF â€” position/scale saved" />
+        <text name="ft_auto_farmtablet_edit_mode_on_drag_to_move_corners_to_resize" text="[FarmTablet] Edit mode ON â€” drag to move, corners to resize, right-click to exit" />
         <text name="ft_auto_farmtablet_eventbus_error_in_listener_for" text="[FarmTablet EventBus] Error in listener for '" />
         <text name="ft_auto_farmtablet_integration_call_failed_s" text="[FarmTablet] Integration call failed: %s" />
         <text name="ft_auto_farmtablet_invoicemanager_loaded_d_invoices" text="[FarmTablet/InvoiceManager] Loaded %d invoices" />
         <text name="ft_auto_farmtablet_invoicemanager_max_invoice_limit_reached_d" text="[FarmTablet/InvoiceManager] Max invoice limit reached (%d)" />
         <text name="ft_auto_farmtablet_invoicemanager_saved_d_invoices" text="[FarmTablet/InvoiceManager] Saved %d invoices" />
-        <text name="ft_auto_farmtablet_renderer_skipped_nil_text_entry_text_s_x_s_y" text="FarmTablet Renderer: skipped nil text entry — text=%s x=%s y=%s" />
+        <text name="ft_auto_farmtablet_renderer_skipped_nil_text_entry_text_s_x_s_y" text="FarmTablet Renderer: skipped nil text entry â€” text=%s x=%s y=%s" />
         <text name="ft_auto_farmtablet_system" text="[FarmTablet System] " />
         <text name="ft_auto_farmtablet_ui" text="[FarmTablet UI] " />
         <text name="ft_auto_farmtablet_v" text="FarmTablet v" />
-        <text name="ft_auto_farmtablet_v2_dedicated_server_detected_skipping_initia" text="[FarmTablet v2] Dedicated server detected – skipping initialisation." />
+        <text name="ft_auto_farmtablet_v2_dedicated_server_detected_skipping_initia" text="[FarmTablet v2] Dedicated server detected â€“ skipping initialisation." />
         <text name="ft_auto_farmtablet_v2_initializing" text="[FarmTablet v2] Initializing..." />
         <text name="ft_auto_farmtablet_v2_module_loaded" text="[FarmTablet v2] Module loaded." />
         <text name="ft_auto_farmtablet_v2_ready" text="[FarmTablet v2] Ready." />
@@ -1000,10 +1001,10 @@
         <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Fields: land you own with a crop growing.&#10;" />
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="FieldSentry decides which fields the soil simulation runs&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="FieldSentry is not available." />
-        <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry — per-field soil-sim status, sleep and meadow toggles" />
+        <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry â€” per-field soil-sim status, sleep and meadow toggles" />
         <text name="ft_auto_fill" text="Fill" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
-        <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  — fills fuel (and AdBlue) to max&#10;" />
+        <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  â€” fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Filled = time elapsed. An offer can arrive any time&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
@@ -1149,7 +1150,7 @@
         <text name="ft_auto_ha_3" text="HA" />
         <text name="ft_auto_haeufig" text="Haeufig" />
         <text name="ft_auto_haeufig_2" text="haeufig" />
-        <text name="ft_auto_haeufig_3" text="häufig" />
+        <text name="ft_auto_haeufig_3" text="hÃ¤ufig" />
         <text name="ft_auto_harvest_crops" text="Harvest crops" />
         <text name="ft_auto_harvested" text="Harvested" />
         <text name="ft_auto_harvesting" text="Harvesting" />
@@ -1159,7 +1160,7 @@
         <text name="ft_auto_help_panel_sound_on" text="HELP PANEL SOUND: ON" />
         <text name="ft_auto_help_panel_sound_paging_when_the_fs25_help_opens" text="Help Panel Sound: paging when the FS25 help opens.&#10;" />
         <text name="ft_auto_hero_card_for_balance_on_dashboard" text="Hero card for balance on Dashboard" />
-        <text name="ft_auto_high_wear_reduces_efficiency_repair_before_reaching_80" text="High wear reduces efficiency — repair before reaching 80%.&#10;" />
+        <text name="ft_auto_high_wear_reduces_efficiency_repair_before_reaching_80" text="High wear reduces efficiency â€” repair before reaching 80%.&#10;" />
         <text name="ft_auto_high_wear_reduces_vehicle_efficiency_and_can_cause" text="High wear reduces vehicle efficiency and can cause&#10;" />
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Higher organic matter improves water retention and&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="Higher reputation unlocks better favor rewards." />
@@ -1169,7 +1170,7 @@
         <text name="ft_auto_hire_tab" text="HIRE TAB" />
         <text name="ft_auto_hired_s_signing_s" text="Hired %s (signing %s)" />
         <text name="ft_auto_history" text="HISTORY" />
-        <text name="ft_auto_history_2" text="History · " />
+        <text name="ft_auto_history_2" text="History Â· " />
         <text name="ft_auto_history_3" text="history" />
         <text name="ft_auto_hof" text="hof" />
         <text name="ft_auto_home" text="home" />
@@ -1187,7 +1188,7 @@
         <text name="ft_auto_hours" text="Hours" />
         <text name="ft_auto_hours_2" text="hours" />
         <text name="ft_auto_hours_status" text="HOURS / STATUS" />
-        <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is — straw level for pigs and cows,&#10;" />
+        <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is â€” straw level for pigs and cows,&#10;" />
         <text name="ft_auto_how_much_tax_is_charged_per_cycle" text="How much tax is charged per cycle.&#10;" />
         <text name="ft_auto_humidity" text="Humidity" />
         <text name="ft_auto_icon" text="icon:" />
@@ -1256,7 +1257,7 @@
         <text name="ft_auto_inventory" text="INVENTORY" />
         <text name="ft_auto_invoice" text="invoice" />
         <text name="ft_auto_invoice_tracker" text="INVOICE TRACKER" />
-        <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Invoice tracker — built-in + RoleplayPhone integration" />
+        <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Invoice tracker â€” built-in + RoleplayPhone integration" />
         <text name="ft_auto_invoices" text="Invoices" />
         <text name="ft_auto_invoices_created_on_the_phone_appear_here" text="invoices created on the phone appear here&#10;" />
         <text name="ft_auto_invoices_phone" text="Invoices / Phone" />
@@ -1311,7 +1312,7 @@
         <text name="ft_auto_loan_outstanding_loan_amount_0_if_debt_free" text="Loan: outstanding loan amount (0 if debt-free).&#10;" />
         <text name="ft_auto_loan_payment" text="Loan Payment" />
         <text name="ft_auto_lock" text="lock" />
-        <text name="ft_auto_log_field_work_sessions_field_vehicle_task_duration" text="Log field work sessions — field, vehicle, task, duration" />
+        <text name="ft_auto_log_field_work_sessions_field_vehicle_task_duration" text="Log field work sessions â€” field, vehicle, task, duration" />
         <text name="ft_auto_longer_bar_more_moisture_in_the_soil" text="Longer bar = more moisture in the soil.&#10;" />
         <text name="ft_auto_low_cleanliness_reduces_output_and_animal_happiness" text="Low cleanliness reduces output and animal happiness." />
         <text name="ft_auto_low_medium_high_tiers_are_configured_in" text="Low / Medium / High tiers are configured in&#10;" />
@@ -1363,14 +1364,14 @@
         <text name="ft_auto_month_to_date" text="Month To Date" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Monthly Total" />
-        <text name="ft_auto_more_tap_history" text=" more — tap HISTORY" />
+        <text name="ft_auto_more_tap_history" text=" more â€” tap HISTORY" />
         <text name="ft_auto_mostly_cloudy" text="Mostly Cloudy" />
         <text name="ft_auto_mount_a_wheel_loader_excavator_or_material_handler" text="mount a wheel loader, excavator, or material handler.&#10;" />
         <text name="ft_auto_mow_grass" text="Mow grass" />
         <text name="ft_auto_mowing" text="Mowing" />
         <text name="ft_auto_mowing_cutting" text="Mowing / Cutting" />
         <text name="ft_auto_multi" text="^multi" />
-        <text name="ft_auto_multi_day_outlook_day_1_through_day_5" text="Multi-day outlook — Day +1 through Day +5.&#10;" />
+        <text name="ft_auto_multi_day_outlook_day_1_through_day_5" text="Multi-day outlook â€” Day +1 through Day +5.&#10;" />
         <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
@@ -1392,7 +1393,7 @@
         <text name="ft_auto_net_savings" text="Net Savings" />
         <text name="ft_auto_net_surcharge" text="Net Surcharge" />
         <text name="ft_auto_net_worth" text="Net Worth" />
-        <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Net Worth: balance minus loan — your true financial position." />
+        <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Net Worth: balance minus loan â€” your true financial position." />
         <text name="ft_auto_network" text="Network" />
         <text name="ft_auto_network_outage" text="Network outage" />
         <text name="ft_auto_network_outage_detected_estimated_duration_approx_d_in" text="Network outage detected. Estimated duration: approx. %d in-game hours." />
@@ -1406,36 +1407,36 @@
         <text name="ft_auto_new_added_ukrainian_translation" text="New: Added Ukrainian translation" />
         <text name="ft_auto_new_apps_open_full_screen_with_a_home_back_bar_redesign" text="New: apps open full-screen with a Home/Back bar; redesigned 3D frame, screen gloss + wallpaper" />
         <text name="ft_auto_new_back_now_steps_up_one_level_leaves_a_sub_page_first" text="New: Back now steps up one level (leaves a sub-page first) instead of always jumping straight home" />
-        <text name="ft_auto_new_clearer_app_bar_buttons_a_little_house_for_home_and" text="New: clearer app-bar buttons — a little house for Home and a real left arrow for Back" />
-        <text name="ft_auto_new_custom_home_background_drop_a_png_in_your_savegame" text="New: custom home background — drop a PNG in your savegame's FTBackground folder and pick it in Settings" />
-        <text name="ft_auto_new_customise_the_app_icon_labels_in_settings_show_or_h" text="New: customise the app-icon labels in Settings — show or hide them, and change their size and colour" />
-        <text name="ft_auto_new_farm_admin_money_time_repair_all_fill_all_fuel" text="New: Farm Admin — money, time, repair all, fill all fuel" />
-        <text name="ft_auto_new_favourites_page_tap_the_star_in_the_app_bar_or_on_t" text="New: Favourites page — tap the star in the app bar or on the home screen to see just your starred apps; the star glows gold when it's open" />
-        <text name="ft_auto_new_fully_multiplayer_actions_route_to_the_host_and_syn" text="New: fully multiplayer — actions route to the host and sync back to everyone" />
+        <text name="ft_auto_new_clearer_app_bar_buttons_a_little_house_for_home_and" text="New: clearer app-bar buttons â€” a little house for Home and a real left arrow for Back" />
+        <text name="ft_auto_new_custom_home_background_drop_a_png_in_your_savegame" text="New: custom home background â€” drop a PNG in your savegame's FTBackground folder and pick it in Settings" />
+        <text name="ft_auto_new_customise_the_app_icon_labels_in_settings_show_or_h" text="New: customise the app-icon labels in Settings â€” show or hide them, and change their size and colour" />
+        <text name="ft_auto_new_farm_admin_money_time_repair_all_fill_all_fuel" text="New: Farm Admin â€” money, time, repair all, fill all fuel" />
+        <text name="ft_auto_new_favourites_page_tap_the_star_in_the_app_bar_or_on_t" text="New: Favourites page â€” tap the star in the app bar or on the home screen to see just your starred apps; the star glows gold when it's open" />
+        <text name="ft_auto_new_fully_multiplayer_actions_route_to_the_host_and_syn" text="New: fully multiplayer â€” actions route to the host and sync back to everyone" />
         <text name="ft_auto_new_glossy_app_icons_for_every_app_built_in_integrated" text="New: glossy app icons for every app (built-in + integrated mods), on a paged grid with a dock" />
-        <text name="ft_auto_new_hire_tab_recruitment_pool_with_per_candidate_level" text="New: Hire tab — recruitment pool with per-candidate level and signing cost; reroll candidates" />
-        <text name="ft_auto_new_hotspot_manager_list_remove_map_pins_clear_all_conf" text="New: Hotspot Manager — list/remove map pins, clear all (confirm)" />
+        <text name="ft_auto_new_hire_tab_recruitment_pool_with_per_candidate_level" text="New: Hire tab â€” recruitment pool with per-candidate level and signing cost; reroll candidates" />
+        <text name="ft_auto_new_hotspot_manager_list_remove_map_pins_clear_all_conf" text="New: Hotspot Manager â€” list/remove map pins, clear all (confirm)" />
         <text name="ft_auto_new_invoice" text="NEW INVOICE" />
         <text name="ft_auto_new_invoice_2" text="New Invoice" />
         <text name="ft_auto_new_invoices_app_with_in_tablet_creation_form" text="New: Invoices app with in-tablet creation form" />
         <text name="ft_auto_new_job" text="New Job" />
         <text name="ft_auto_new_market_dynamics_integration_app" text="New: Market Dynamics integration app" />
-        <text name="ft_auto_new_notes_app_checkbox_todo_list_saves_per_savegame" text="New: Notes app — checkbox todo list, saves per savegame" />
-        <text name="ft_auto_new_payroll_tab_wage_structure_running_estimate_and_the" text="New: Payroll tab — wage structure, running estimate, and the Pro-Staff cost impact per worker" />
-        <text name="ft_auto_new_personnel_pro_staff_app_a_dedicated_hr_command_cent" text="New: Personnel (Pro-Staff) app — a dedicated HR command center for Worker Costs" />
+        <text name="ft_auto_new_notes_app_checkbox_todo_list_saves_per_savegame" text="New: Notes app â€” checkbox todo list, saves per savegame" />
+        <text name="ft_auto_new_payroll_tab_wage_structure_running_estimate_and_the" text="New: Payroll tab â€” wage structure, running estimate, and the Pro-Staff cost impact per worker" />
+        <text name="ft_auto_new_personnel_pro_staff_app_a_dedicated_hr_command_cent" text="New: Personnel (Pro-Staff) app â€” a dedicated HR command center for Worker Costs" />
         <text name="ft_auto_new_random_world_events_integration_app" text="New: Random World Events integration app" />
-        <text name="ft_auto_new_real_tablet_experience_a_lock_screen_with_slide_to" text="New: real tablet experience — a lock screen with slide-to-unlock, then a home springboard" />
+        <text name="ft_auto_new_real_tablet_experience_a_lock_screen_with_slide_to" text="New: real tablet experience â€” a lock screen with slide-to-unlock, then a home springboard" />
         <text name="ft_auto_new_roleplayphone_integration_foundation" text="New: RoleplayPhone integration foundation" />
         <text name="ft_auto_new_roster_section_scrolls_multiplayer_clients_see_a_ho" text="New: roster section scrolls; multiplayer clients see a host-managed note until sync lands" />
-        <text name="ft_auto_new_roster_tab_sort_filter_workers_pin_to_your_vehicle" text="New: Roster tab — sort/filter workers, pin to your vehicle, fire (two-tap, severance applies)" />
+        <text name="ft_auto_new_roster_tab_sort_filter_workers_pin_to_your_vehicle" text="New: Roster tab â€” sort/filter workers, pin to your vehicle, fire (two-tap, severance applies)" />
         <text name="ft_auto_new_status_bar_with_live_clock_draining_battery_and_sig" text="New: status bar with live clock, draining battery and signal; tap the power icon to lock" />
-        <text name="ft_auto_new_storage_app_silo_inventory_and_current_sell_prices" text="New: Storage app — silo inventory and current sell prices" />
+        <text name="ft_auto_new_storage_app_silo_inventory_and_current_sell_prices" text="New: Storage app â€” silo inventory and current sell prices" />
         <text name="ft_auto_new_tap_an_app_to_launch_it_with_a_zoom_open_animation" text="New: tap an app to launch it with a zoom-open animation; every icon presses in when touched" />
         <text name="ft_auto_new_tap_edit_on_the_favourites_page_to_pick_which_apps" text="New: tap EDIT on the Favourites page to pick which apps you want; your picks are saved per savegame" />
-        <text name="ft_auto_new_time_controls_app_time_scale_presets_skip_to_time_o" text="New: Time Controls app — time scale presets + skip to time of day" />
+        <text name="ft_auto_new_time_controls_app_time_scale_presets_skip_to_time_o" text="New: Time Controls app â€” time scale presets + skip to time of day" />
         <text name="ft_auto_new_todo" text="NEW TODO" />
         <text name="ft_auto_new_usedplus_integration_app" text="New: UsedPlus integration app" />
-        <text name="ft_auto_new_worker_costs_app_now_shows_the_pro_staff_roster_lev" text="New: Worker Costs app now shows the Pro-Staff roster — level, hours, jobs, and fatigue per worker" />
+        <text name="ft_auto_new_worker_costs_app_now_shows_the_pro_staff_roster_lev" text="New: Worker Costs app now shows the Pro-Staff roster â€” level, hours, jobs, and fatigue per worker" />
         <text name="ft_auto_new_worker_costs_integration_app" text="New: Worker Costs integration app" />
         <text name="ft_auto_nitrogen" text="Nitrogen" />
         <text name="ft_auto_nitrogen_phosphorus_potassium_ph_and_organic" text="nitrogen, phosphorus, potassium, pH, and organic&#10;" />
@@ -1470,12 +1471,12 @@
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="No sell price data found" />
-        <text name="ft_auto_no_setup_needed_apps_appear_automatically_when_the" text="No setup needed — apps appear automatically when the&#10;" />
-        <text name="ft_auto_no_setup_required_just_start_working" text="No setup required — just start working." />
+        <text name="ft_auto_no_setup_needed_apps_appear_automatically_when_the" text="No setup needed â€” apps appear automatically when the&#10;" />
+        <text name="ft_auto_no_setup_required_just_start_working" text="No setup required â€” just start working." />
         <text name="ft_auto_no_sick_animal_pens_reported" text="No sick animal pens reported." />
         <text name="ft_auto_no_signal" text="No signal" />
         <text name="ft_auto_no_silos_owned" text="No silos owned." />
-        <text name="ft_auto_no_todos_yet_add_one_above" text="No todos yet — add one above" />
+        <text name="ft_auto_no_todos_yet_add_one_above" text="No todos yet â€” add one above" />
         <text name="ft_auto_no_vehicle" text="No vehicle" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="No vehicles within 35 m." />
@@ -1561,7 +1562,7 @@
         <text name="ft_auto_outgoing" text="outgoing" />
         <text name="ft_auto_outgoing_money_you_owe" text="OUTGOING  (money you owe)" />
         <text name="ft_auto_outputs" text="OUTPUTS" />
-        <text name="ft_auto_outputs_pile_up_if_the_unloading_station_is_full_check" text="Outputs pile up if the unloading station is full — check&#10;" />
+        <text name="ft_auto_outputs_pile_up_if_the_unloading_station_is_full_check" text="Outputs pile up if the unloading station is full â€” check&#10;" />
         <text name="ft_auto_outside_this_range_nutrient_uptake_is_reduced_even" text="Outside this range nutrient uptake is reduced even&#10;" />
         <text name="ft_auto_ovc" text="OVC" />
         <text name="ft_auto_overall" text="Overall" />
@@ -1583,9 +1584,9 @@
         <text name="ft_auto_partly_cloudy" text="Partly Cloudy" />
         <text name="ft_auto_party" text="PARTY" />
         <text name="ft_auto_party_2" text="party" />
-        <text name="ft_auto_pause" text="⏸ PAUSE" />
-        <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
-        <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
+        <text name="ft_auto_pause" text="â¸ PAUSE" />
+        <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="â¸ PAUSE freezes time. Active speed highlighted." />
+        <text name="ft_auto_pause_freezes_time_completely" text="â¸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="PAY" />
         <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
         <text name="ft_auto_payment_mode_2" text="Payment Mode" />
@@ -1636,7 +1637,7 @@
         <text name="ft_auto_precipitation_2" text="Precipitation" />
         <text name="ft_auto_prepend" text="prepend" />
         <text name="ft_auto_present" text="Present" />
-        <text name="ft_auto_press_clear_all_once_it_turns_red_and_asks" text="Press CLEAR ALL once — it turns red and asks&#10;" />
+        <text name="ft_auto_press_clear_all_once_it_turns_red_and_asks" text="Press CLEAR ALL once â€” it turns red and asks&#10;" />
         <text name="ft_auto_press_s_to_open" text="Press %s to open" />
         <text name="ft_auto_price_comparison" text="PRICE COMPARISON" />
         <text name="ft_auto_price_comparison_all_stations" text="PRICE COMPARISON  (all stations)" />
@@ -1646,13 +1647,13 @@
         <text name="ft_auto_pro_staff" text="PRO-STAFF  (" />
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="PRO-STAFF IMPACT" />
-        <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management — hire, fire, assign, payroll" />
+        <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management â€” hire, fire, assign, payroll" />
         <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Production" />
         <text name="ft_auto_production_2" text="production" />
-        <text name="ft_auto_production_building_chains_inputs_outputs_active_status" text="Production building chains — inputs, outputs, active status" />
+        <text name="ft_auto_production_building_chains_inputs_outputs_active_status" text="Production building chains â€” inputs, outputs, active status" />
         <text name="ft_auto_production_buildings" text="production_buildings" />
         <text name="ft_auto_production_buildings_must_be_owned_by_your_farm" text="Production buildings must be owned by your farm.&#10;" />
         <text name="ft_auto_production_lines_are_currently_active" text="production lines are currently active." />
@@ -1710,12 +1711,12 @@
         <text name="ft_auto_remaining_debt" text="Remaining Debt" />
         <text name="ft_auto_remaining_s" text="Remaining: %s" />
         <text name="ft_auto_remaining_s_rate_s" text="Remaining: %s | Rate: %s" />
-        <text name="ft_auto_remove_the_task_entirely" text="✕    — remove the task entirely&#10;" />
+        <text name="ft_auto_remove_the_task_entirely" text="âœ•    â€” remove the task entirely&#10;" />
         <text name="ft_auto_reopen_initial_selection" text="REOPEN INITIAL SELECTION" />
         <text name="ft_auto_repair" text="REPAIR" />
         <text name="ft_auto_repair_2" text="repair" />
         <text name="ft_auto_repair_all" text="REPAIR ALL" />
-        <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL — resets damage on all your vehicles.&#10;" />
+        <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL â€” resets damage on all your vehicles.&#10;" />
         <text name="ft_auto_repair_button" text="REPAIR BUTTON" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Repair completed. Tablet is ready to use again." />
         <text name="ft_auto_repair_vehicle" text="REPAIR VEHICLE" />
@@ -1750,7 +1751,7 @@
         <text name="ft_auto_roster" text="ROSTER" />
         <text name="ft_auto_roster_2" text="roster" />
         <text name="ft_auto_roster_data_unavailable" text="Roster data unavailable." />
-        <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Roster is host-managed — syncs to clients soon." />
+        <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Roster is host-managed â€” syncs to clients soon." />
         <text name="ft_auto_roster_tab" text="ROSTER TAB" />
         <text name="ft_auto_rows_marked_fert_in_yellow_need_fertilising" text="Rows marked [FERT!] in yellow need fertilising.&#10;" />
         <text name="ft_auto_running_costs" text="RUNNING COSTS" />
@@ -1764,9 +1765,9 @@
         <text name="ft_auto_s_data_frozen" text="%s - data frozen" />
         <text name="ft_auto_s_day_d" text="%s  -  Day %d" />
         <text name="ft_auto_s_invoice_d" text="%s.invoice(%d)" />
-        <text name="ft_auto_s_s" text="%s – %s" />
+        <text name="ft_auto_s_s" text="%s â€“ %s" />
         <text name="ft_auto_s_s_2" text="%s/%s" />
-        <text name="ft_auto_s_s_mo_d_mo_left" text="%s  •  %s/mo  •  %d mo left" />
+        <text name="ft_auto_s_s_mo_d_mo_left" text="%s  â€¢  %s/mo  â€¢  %d mo left" />
         <text name="ft_auto_same_colour_thresholds_as_food" text="Same colour thresholds as food.&#10;" />
         <text name="ft_auto_scale" text="Scale" />
         <text name="ft_auto_scale_fixes_for_ultrawide_monitors" text="Scale fixes for ultrawide monitors" />
@@ -1779,7 +1780,7 @@
         <text name="ft_auto_season" text="Season" />
         <text name="ft_auto_season_2" text="season" />
         <text name="ft_auto_season_day_time_weather" text="SEASON / DAY / TIME / WEATHER" />
-        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod — blank in base game.&#10;" />
+        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod â€” blank in base game.&#10;" />
         <text name="ft_auto_seasonal" text="Seasonal" />
         <text name="ft_auto_seasonal_crop_stress" text="Seasonal Crop Stress" />
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
@@ -1815,7 +1816,7 @@
         <text name="ft_auto_settings_integration_in_pause_menu" text="Settings integration in pause menu" />
         <text name="ft_auto_shop" text="Shop" />
         <text name="ft_auto_shops" text=" shops  |  " />
-        <text name="ft_auto_shops_may_break_game_features_be_careful" text="Shops) may break game features — be careful." />
+        <text name="ft_auto_shops_may_break_game_features_be_careful" text="Shops) may break game features â€” be careful." />
         <text name="ft_auto_should_i_draw_my_overlay_right_now" text="should I draw my overlay right now?" />
         <text name="ft_auto_show_all_tablet_commands" text="Show all tablet commands" />
         <text name="ft_auto_show_current_settings" text="Show current settings" />
@@ -1832,7 +1833,7 @@
         <text name="ft_auto_shows_every_production_building_your_farm_owns" text="Shows every production building your farm owns.&#10;" />
         <text name="ft_auto_shows_item_name_monthly_payment_and_remaining" text="Shows item name, monthly payment, and remaining&#10;" />
         <text name="ft_auto_shows_the_best_available_sell_price_per_stored_crop" text="Shows the best available sell price per stored crop&#10;" />
-        <text name="ft_auto_shows_the_changelog_for_farm_tablet_what_changed" text="Shows the changelog for Farm Tablet — what changed&#10;" />
+        <text name="ft_auto_shows_the_changelog_for_farm_tablet_what_changed" text="Shows the changelog for Farm Tablet â€” what changed&#10;" />
         <text name="ft_auto_shows_the_current_tablet_position_x_y_and_scale" text="Shows the current tablet position (X/Y) and scale.&#10;" />
         <text name="ft_auto_shows_the_current_weather_condition_with_a_colour_coded" text="Shows the current weather condition with a colour-coded&#10;" />
         <text name="ft_auto_shows_the_vehicle_currently_being_tracked_with_its" text="Shows the vehicle currently being tracked with its&#10;" />
@@ -1843,7 +1844,7 @@
         <text name="ft_auto_silos" text=" silos" />
         <text name="ft_auto_silos_are_empty" text="Silos are empty" />
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(since the last time the savegame was loaded).&#10;" />
-        <text name="ft_auto_single_station_no_comparison_available" text="Single station — no comparison available" />
+        <text name="ft_auto_single_station_no_comparison_available" text="Single station â€” no comparison available" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="SKIP TO" />
         <text name="ft_auto_slate_grey" text="Slate Grey" />
@@ -1855,7 +1856,7 @@
         <text name="ft_auto_so_you_can_spot_what_needs_refuelling_at_a_glance" text="so you can spot what needs refuelling at a glance." />
         <text name="ft_auto_soil" text="SOIL" />
         <text name="ft_auto_soil_2" text="soil" />
-        <text name="ft_auto_soil_data_field" text="SOIL DATA  — Field " />
+        <text name="ft_auto_soil_data_field" text="SOIL DATA  â€” Field " />
         <text name="ft_auto_soil_fertilizer" text="Soil Fertilizer" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
         <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
@@ -1865,7 +1866,7 @@
         <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
-        <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level — emptiest machines appear first&#10;" />
+        <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level â€” emptiest machines appear first&#10;" />
         <text name="ft_auto_sound" text="Sound" />
         <text name="ft_auto_sound_effects" text="SOUND EFFECTS" />
         <text name="ft_auto_sound_effects_off" text="SOUND EFFECTS: OFF" />
@@ -1910,9 +1911,9 @@
         <text name="ft_auto_stone_picking" text="Stone Picking" />
         <text name="ft_auto_storage" text="Storage" />
         <text name="ft_auto_storage_2" text="storage" />
-        <text name="ft_auto_storage_historical_peak_price_tracking_saved_per_savega" text="Storage: historical peak price tracking — saved per savegame" />
+        <text name="ft_auto_storage_historical_peak_price_tracking_saved_per_savega" text="Storage: historical peak price tracking â€” saved per savegame" />
         <text name="ft_auto_storage_peak_shown_under_each_crop_orange_below_peak_gr" text="Storage: peak shown under each crop (orange = below peak, green = at peak)" />
-        <text name="ft_auto_storage_price_comparison_section_all_stations_sorted_be" text="Storage: price comparison section — all stations sorted best-first" />
+        <text name="ft_auto_storage_price_comparison_section_all_stations_sorted_be" text="Storage: price comparison section â€” all stations sorted best-first" />
         <text name="ft_auto_storages" text="storages_" />
         <text name="ft_auto_store" text="store" />
         <text name="ft_auto_storm" text="STORM" />
@@ -1980,7 +1981,7 @@
         <text name="ft_auto_tap_edit_then_pick_your_apps" text="Tap EDIT, then pick your apps" />
         <text name="ft_auto_tap_edit_to_add_widgets" text="Tap EDIT to add widgets." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
-        <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm — severance " />
+        <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm â€” severance " />
         <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Tap HOME to return to the app grid." />
         <text name="ft_auto_tap_new_to_open_the_creation_form" text="Tap + NEW to open the creation form.&#10;" />
         <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tap ON/OFF to show or hide each widget." />
@@ -2013,7 +2014,7 @@
         <text name="ft_auto_the_mod_deducts_periodic_tax_from_your_balance" text="The mod deducts periodic tax from your balance&#10;" />
         <text name="ft_auto_the_money_added_to_your_balance_per_payment_cycle" text="The money added to your balance per payment cycle.&#10;" />
         <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="the panel below. Pinned vehicles stay visible even&#10;" />
-        <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact — how levels (cheaper) and&#10;" />
+        <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact â€” how levels (cheaper) and&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="the release date on the right.&#10;" />
         <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="The roster lives on the host and is loading." />
         <text name="ft_auto_the_roster_lives_on_the_host_your_actions_are" text="The roster lives on the host. Your actions are&#10;" />
@@ -2022,15 +2023,15 @@
         <text name="ft_auto_their_effects_are" text="their effects are." />
         <text name="ft_auto_their_role_agronomist_mechanic_etc_is_shown_in" text="Their role (Agronomist, Mechanic, etc.) is shown in&#10;" />
         <text name="ft_auto_them_reroll_to_draw_fresh_candidates" text="them; REROLL to draw fresh candidates." />
-        <text name="ft_auto_them_tap_twice_severance_applies" text="them (tap twice — severance applies)." />
+        <text name="ft_auto_them_tap_twice_severance_applies" text="them (tap twice â€” severance applies)." />
         <text name="ft_auto_then_add_to_add_it_to_the_list" text="then + ADD to add it to the list.&#10;" />
         <text name="ft_auto_then_click_home_background_to_cycle_through_them" text="then click HOME BACKGROUND to cycle through them." />
         <text name="ft_auto_these_controls_affect_all_players_and" text="These controls affect all players and" />
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Third-party companion apps show their own version&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
-        <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="This is a shortcut — you can also click the icon in&#10;" />
+        <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="This is a shortcut â€” you can also click the icon in&#10;" />
         <text name="ft_auto_this_month" text="THIS MONTH" />
-        <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only — hire, fire, and assign&#10;" />
+        <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only â€” hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="tier, and how far through the listing period you are." />
         <text name="ft_auto_time" text="TIME" />
         <text name="ft_auto_time_2" text="Time" />
@@ -2040,7 +2041,7 @@
         <text name="ft_auto_time_controls_affect_all_players_and" text="Time controls affect all players and" />
         <text name="ft_auto_time_remaining" text="TIME REMAINING" />
         <text name="ft_auto_time_scale" text="TIME SCALE" />
-        <text name="ft_auto_time_scale_now" text="TIME SCALE  ·  now: " />
+        <text name="ft_auto_time_scale_now" text="TIME SCALE  Â·  now: " />
         <text name="ft_auto_time_shown_is_in_game_time_not_real_world_time" text="Time shown is in-game time, not real-world time.&#10;" />
         <text name="ft_auto_tisonk" text="TisonK" />
         <text name="ft_auto_to_collect" text=" to collect" />
@@ -2050,7 +2051,7 @@
         <text name="ft_auto_to_supplement_your_farm_earnings" text="to supplement your farm earnings." />
         <text name="ft_auto_to_zero_use_at_the_start_of_a_new_job_to_track" text="to zero. Use at the start of a new job to track&#10;" />
         <text name="ft_auto_todo_list" text="TODO LIST" />
-        <text name="ft_auto_todo_list_d_pending_d_done" text="TODO LIST  (%d pending · %d done)" />
+        <text name="ft_auto_todo_list_d_pending_d_done" text="TODO LIST  (%d pending Â· %d done)" />
         <text name="ft_auto_todos_are_saved_automatically_per_savegame" text="Todos are saved automatically per savegame." />
         <text name="ft_auto_toggle_tablet" text="Toggle tablet" />
         <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Toggles are admin-only and validated by the host. Clients&#10;" />
@@ -2074,10 +2075,10 @@
         <text name="ft_auto_true" text="true" />
         <text name="ft_auto_type" text="Type " />
         <text name="ft_auto_type_of_work_hit_confirm_to_begin_timing" text="type of work. Hit Confirm to begin timing.&#10;" />
-        <text name="ft_auto_type_tablet_in_console_for_all_commands" text="Command “tablet” shows console commands." />
+        <text name="ft_auto_type_tablet_in_console_for_all_commands" text="Command â€œtabletâ€ shows console commands." />
         <text name="ft_auto_unavailable" text="unavailable" />
         <text name="ft_auto_undo" text="UNDO" />
-        <text name="ft_auto_undo_mark_it_pending_again" text="UNDO — mark it pending again (□)&#10;" />
+        <text name="ft_auto_undo_mark_it_pending_again" text="UNDO â€” mark it pending again (â–¡)&#10;" />
         <text name="ft_auto_unknown" text="Unknown" />
         <text name="ft_auto_unknown_field" text="Unknown Field" />
         <text name="ft_auto_unloading" text="Unloading" />
@@ -2104,7 +2105,7 @@
         <text name="ft_auto_used" text="USED" />
         <text name="ft_auto_used_plus" text="used_plus" />
         <text name="ft_auto_usedplus" text="UsedPlus" />
-        <text name="ft_auto_usedplus_active_sale_listings_and_finance_deals" text="UsedPlus — active sale listings and finance deals" />
+        <text name="ft_auto_usedplus_active_sale_listings_and_finance_deals" text="UsedPlus â€” active sale listings and finance deals" />
         <text name="ft_auto_usedplus_is_not_installed" text="UsedPlus is not installed." />
         <text name="ft_auto_v2" text="v2" />
         <text name="ft_auto_values_update_live_as_you_walk_around" text="Values update live as you walk around." />
@@ -2113,14 +2114,14 @@
         <text name="ft_auto_vehicle_2" text="Vehicle" />
         <text name="ft_auto_vehicle_3" text="Vehicle: " />
         <text name="ft_auto_vehicle_4" text="vehicle" />
-        <text name="ft_auto_vehicle_has_no_stable_id_save_once_then_pin" text="Vehicle has no stable id — save once, then PIN" />
+        <text name="ft_auto_vehicle_has_no_stable_id_save_once_then_pin" text="Vehicle has no stable id â€” save once, then PIN" />
         <text name="ft_auto_vehicle_list" text="VEHICLE LIST" />
         <text name="ft_auto_vehicle_repossessions_still_run_through_realisticdealer" text="Vehicle repossessions still run through RealisticDealer server-side." />
         <text name="ft_auto_vehicles" text=" vehicles" />
         <text name="ft_auto_vehicles_2" text="VEHICLES" />
         <text name="ft_auto_vehicles_3" text="Vehicles" />
         <text name="ft_auto_vehicles_4" text="vehicles" />
-        <text name="ft_auto_vehicles_d_owned" text="VEHICLES  ·  %d owned" />
+        <text name="ft_auto_vehicles_d_owned" text="VEHICLES  Â·  %d owned" />
         <text name="ft_auto_vehicles_motorised_vehicles_owned_by_your_farm" text="Vehicles: motorised vehicles owned by your farm." />
         <text name="ft_auto_vehicles_motorized_vehicles_owned_by_your_farm" text="Vehicles: motorized vehicles owned by your farm.&#10;" />
         <text name="ft_auto_vehicles_nearby" text=" vehicles nearby" />
@@ -2191,7 +2192,7 @@
         <text name="ft_auto_when_you_are_driving_a_vehicle_its_name_and_current" text="When you are driving a vehicle its name and current&#10;" />
         <text name="ft_auto_when_you_walk_away_click_unpin_to_release_it" text="when you walk away. Click UNPIN to release it." />
         <text name="ft_auto_whenever_a_savegame_loads_turn_off_to_keep_things" text="whenever a savegame loads. Turn off to keep things&#10;" />
-        <text name="ft_auto_while_it_is_open_no_need_to_reopen_it" text="while it is open — no need to reopen it.&#10;" />
+        <text name="ft_auto_while_it_is_open_no_need_to_reopen_it" text="while it is open â€” no need to reopen it.&#10;" />
         <text name="ft_auto_white" text="WHITE" />
         <text name="ft_auto_white_clear_dark_fog" text="white = clear, dark = fog." />
         <text name="ft_auto_wiederhergestellt" text="wiederhergestellt" />
@@ -2275,7 +2276,7 @@
         <text name="ft_animals_help_water_title" text="WATER BAR" />
         <text name="ft_animals_help_water_body" text="Percentage of the water trough that is filled.&#10;Same colour thresholds as food.&#10;Animals without water lose productivity quickly." />
         <text name="ft_animals_help_straw_title" text="STRAW / CLEANLINESS BAR" />
-        <text name="ft_animals_help_straw_body" text="How clean the pen is — straw level for pigs and cows,&#10;cleanliness percentage for chickens and sheep.&#10;Low cleanliness reduces output and animal happiness." />
+        <text name="ft_animals_help_straw_body" text="How clean the pen is â€” straw level for pigs and cows,&#10;cleanliness percentage for chickens and sheep.&#10;Low cleanliness reduces output and animal happiness." />
         <text name="ft_animals_help_productivity_title" text="PRODUCTIVITY" />
         <text name="ft_animals_help_productivity_body" text="Overall animal productivity is driven by food, water,&#10;and cleanliness together. Keeping all three bars green&#10;maximises milk, eggs, wool, and manure output." />
         <text name="ft_animals_no_pens" text="No animal pens owned." />
@@ -2499,7 +2500,7 @@
         <text name="ft_signal_medium" text="Medium" />
         <text name="ft_signal_weak" text="Weak" />
         <text name="ft_signal_none" text="No signal" />
-        <text name="ft_price_per_day" text="%d €/day" />
+        <text name="ft_price_per_day" text="%d â‚¬/day" />
         <text name="ft_fleet_one_vehicle" text="1 vehicle" />
         <text name="ft_fleet_vehicles" text="vehicles" />
         <text name="ft_fleet_fuel" text="Fuel" />
