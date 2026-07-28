@@ -132,6 +132,7 @@
         <text name="ft_ui_app_market_dynamics" text="Marktdynamik" />
         <text name="ft_ui_app_worker_costs" text="Arbeiterkosten" />
         <text name="ft_ui_app_personnel" text="Personal" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Zufallsereignisse" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Rechnungen / Telefon" />

@@ -861,13 +861,11 @@ local function _drawHeart(self, x, y, w, snap, AC)
             FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     end
 
-    _pocketBtn(self, x, y - h, w, h, "", {0, 0, 0, 0}, {
-        onClick = function()
-            _vitalFocus = snap.heartVitalId
-            _view = "vital"
-            self:switchApp(FT.APP.FINANCIAL_COCKPIT)
-        end
-    })
+    _pocketBtn(self, x, y - h, w, h, "", {0, 0, 0, 0}, function()
+        _vitalFocus = snap.heartVitalId
+        _view = "vital"
+        self:switchApp(FT.APP.FINANCIAL_COCKPIT)
+    end)
     return y - h - FT.py(6)
 end
 
@@ -925,12 +923,10 @@ local function _drawHome(self, snap, AC)
     -- OPEN on its own row so it cannot cover the forecast values above.
     local fcBtnW = FT.px(72)
     _pocketBtn(self, x + cw - fcBtnW, y - FT.py(2), fcBtnW, FT.py(16),
-        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
-            onClick = function()
-                _view = "forecast"
-                self:switchApp(FT.APP.FINANCIAL_COCKPIT)
-            end
-        })
+        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, function()
+            _view = "forecast"
+            self:switchApp(FT.APP.FINANCIAL_COCKPIT)
+        end)
     y = y - FT.py(22)
     y = self:drawRule(y, 0.25)
 
@@ -952,12 +948,10 @@ local function _drawHome(self, snap, AC)
     end
     local hBtnW = FT.px(72)
     _pocketBtn(self, x + cw - hBtnW, y - FT.py(2), hBtnW, FT.py(16),
-        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
-            onClick = function()
-                _view = "history"
-                self:switchApp(FT.APP.FINANCIAL_COCKPIT)
-            end
-        })
+        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, function()
+            _view = "history"
+            self:switchApp(FT.APP.FINANCIAL_COCKPIT)
+        end)
     y = y - FT.py(22)
     y = self:drawRule(y, 0.25)
 
@@ -991,12 +985,10 @@ local function _drawHome(self, snap, AC)
 
     local fBtnW = FT.px(72)
     _pocketBtn(self, x + cw - fBtnW, y - FT.py(2), fBtnW, FT.py(16),
-        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, {
-            onClick = function()
-                _view = "flows"
-                self:switchApp(FT.APP.FINANCIAL_COCKPIT)
-            end
-        })
+        _T("ft_fc_open", "OPEN"), FT.C.BTN_NEUTRAL, function()
+            _view = "flows"
+            self:switchApp(FT.APP.FINANCIAL_COCKPIT)
+        end)
     y = y - FT.py(20)
 
     self:setContentHeight(startY - y + scrollY)
