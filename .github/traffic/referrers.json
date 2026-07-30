@@ -3408,13 +3408,13 @@
   "2026-07-30": [
     {
       "referrer": "github.com",
-      "count": 378,
-      "uniques": 108
+      "count": 351,
+      "uniques": 106
     },
     {
       "referrer": "Google",
-      "count": 24,
-      "uniques": 19
+      "count": 35,
+      "uniques": 22
     },
     {
       "referrer": "kingmods.net",
@@ -3428,8 +3428,8 @@
     },
     {
       "referrer": "Bing",
-      "count": 1,
-      "uniques": 1
+      "count": 2,
+      "uniques": 2
     },
     {
       "referrer": "ya.ru",
