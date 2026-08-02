@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Panel" />
         <text name="ft_ui_startupapp_2" text="Tienda de aplicaciones" />
         <text name="ft_ui_startupapp_3" text="Clima" />
-        <text name="ft_ui_startupapp_4" text="Excavación" />
+        <text name="ft_ui_startupapp_4" text="Excavadora" />
         <text name="ft_ui_soundeffects_short" text="Efectos sonoros" />
         <text name="ft_ui_soundeffects_long" text="Reproduzca efectos de sonido para interacciones con tabletas" />
         <text name="ft_ui_debug_short" text="Modo de depuración" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Clima" />
         <text name="ft_ui_app_digging" text="Excavación" />
         <text name="ft_ui_app_bucket_tracker" text="Rastreador de cubos" />
+        <text name="ft_ui_app_excavator" text="Excavadora" />
         <text name="ft_ui_app_income_mod" text="Modificación de ingresos" />
         <text name="ft_ui_app_tax_mod" text="Modificación de impuestos" />
         <text name="ft_ui_app_npc_favor" text="Favor del PNJ" />

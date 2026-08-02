@@ -13,7 +13,7 @@ local STARTUP_MAP = {
     [1] = "dashboard",
     [2] = "app_store",
     [3] = "weather",
-    [4] = "digging",
+    [4] = "excavator",
 }
 
 function Settings.new(manager)
@@ -93,10 +93,31 @@ function Settings:validateSettings()
     if type(self.startupApp) == "number" then
         self.startupApp = STARTUP_MAP[self.startupApp] or "dashboard"
     end
-    
+
+    -- Digging + Bucket Tracker merged into Excavator
+    if self.startupApp == "digging" or self.startupApp == "bucket_tracker" then
+        self.startupApp = "excavator"
+    end
+
     -- Ensure startup app is valid
     if self.startupApp == nil or self.startupApp == "" then
         self.startupApp = "dashboard"
+    end
+
+    -- Migrate favourites that still reference the old app ids
+    if type(self.favoriteApps) == "string" then
+        local seen, out = {}, {}
+        for id in string.gmatch(self.favoriteApps, "([^,]+)") do
+            id = id:gsub("^%s+", ""):gsub("%s+$", "")
+            if id == "digging" or id == "bucket_tracker" then
+                id = "excavator"
+            end
+            if id ~= "" and not seen[id] then
+                seen[id] = true
+                out[#out + 1] = id
+            end
+        end
+        self.favoriteApps = table.concat(out, ",")
     end
     
     -- Ensure keybind is valid

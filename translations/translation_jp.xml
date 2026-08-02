@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="ダッシュボード" />
         <text name="ft_ui_startupapp_2" text="アプリストア" />
         <text name="ft_ui_startupapp_3" text="天気" />
-        <text name="ft_ui_startupapp_4" text="掘る" />
+        <text name="ft_ui_startupapp_4" text="ショベル" />
         <text name="ft_ui_soundeffects_short" text="効果音" />
         <text name="ft_ui_soundeffects_long" text="タブレットのインタラクション用の効果音を再生する" />
         <text name="ft_ui_debug_short" text="デバッグモード" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="天気" />
         <text name="ft_ui_app_digging" text="掘る" />
         <text name="ft_ui_app_bucket_tracker" text="バケットトラッカー" />
+        <text name="ft_ui_app_excavator" text="ショベル" />
         <text name="ft_ui_app_income_mod" text="収入モッド" />
         <text name="ft_ui_app_tax_mod" text="税金モッド" />
         <text name="ft_ui_app_npc_favor" text="NPCの好意" />

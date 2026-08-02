@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Trang tổng quan" />
         <text name="ft_ui_startupapp_2" text="Cửa hàng ứng dụng" />
         <text name="ft_ui_startupapp_3" text="Thời tiết" />
-        <text name="ft_ui_startupapp_4" text="Đào" />
+        <text name="ft_ui_startupapp_4" text="Máy xúc" />
         <text name="ft_ui_soundeffects_short" text="Hiệu ứng âm thanh" />
         <text name="ft_ui_soundeffects_long" text="Phát hiệu ứng âm thanh khi tương tác với máy tính bảng" />
         <text name="ft_ui_debug_short" text="Chế độ gỡ lỗi" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Thời tiết" />
         <text name="ft_ui_app_digging" text="Đào" />
         <text name="ft_ui_app_bucket_tracker" text="Trình theo dõi nhóm" />
+        <text name="ft_ui_app_excavator" text="Máy xúc" />
         <text name="ft_ui_app_income_mod" text="Mod thu nhập" />
         <text name="ft_ui_app_tax_mod" text="Chế độ thuế" />
         <text name="ft_ui_app_npc_favor" text="Ưu đãi NPC" />

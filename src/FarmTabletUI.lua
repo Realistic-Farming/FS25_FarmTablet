@@ -1162,6 +1162,11 @@ end
 -- ─────────────────────────────────────────────────────────
 
 function FarmTabletUI:switchApp(appId)
+    if AppRegistry and AppRegistry.resolve then
+        appId = AppRegistry.resolve(appId)
+    elseif appId == FT.APP.DIGGING or appId == FT.APP.BUCKET then
+        appId = FT.APP.EXCAVATOR
+    end
     if not self.system.registry:has(appId) then return false end
     local app = self.system.registry:get(appId)
     if not app or not app.enabled then return false end
@@ -2390,8 +2395,8 @@ function FarmTabletUI:update(dt)
     if self.uiState == "app" then
         self:_pollContentScroll()
         self:_updateContentScrollSmooth(dt)
-        if self.system.currentApp == FT.APP.DIGGING and self.updateDiggingApp then
-            self:updateDiggingApp(dt)
+        if self.system.currentApp == FT.APP.EXCAVATOR and self.updateExcavatorApp then
+            self:updateExcavatorApp(dt)
         end
     elseif self.uiState == "home" then
         self:_pollHomePaging()
