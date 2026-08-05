@@ -105,12 +105,17 @@ FarmTabletUI:registerDrawer(FT.APP.PROSTAFF, function(self)
     y = self:drawRule(y, 0.3)
     y = self:drawSection(y, "ACTIVE BENEFITS")
 
+    -- pcall takes the arguments directly, so there is no inner closure and therefore
+    -- no vararg to capture. The previous version referenced `...` from inside an
+    -- anonymous function, which Lua 5.1 rejects at COMPILE time ("cannot use '...'
+    -- outside of a vararg function") - the whole file failed to load and this app was
+    -- dead in every session. Also guards a missing method instead of erroring into pcall.
     local function safeGet(funcName, ...)
-        local result = nil
-        pcall(function()
-            result = psm[funcName](psm, ...)
-        end)
-        return result
+        local fn = psm and psm[funcName]
+        if type(fn) ~= "function" then return nil end
+        local ok, result = pcall(fn, psm, ...)
+        if ok then return result end
+        return nil
     end
 
     local function pctLabel(mult, inverse)
