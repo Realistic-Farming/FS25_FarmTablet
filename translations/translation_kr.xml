@@ -2537,5 +2537,15 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="물 필요량 (조언)" />
+        <text name="ft_irr_advisory_locked_l7" text="협동조합 7레벨에서 해제" />
+        <text name="ft_irr_advisory_forward_call" text="전망 (조언)" />
+        <text name="ft_irr_advisory_locked_l18" text="협동조합 18레벨에서 해제" />
+        <text name="ft_irr_advisory_no_reads" text="아직 수분 측정이 있는 밭이 없습니다." />
+        <text name="ft_irr_call_water_today" text="오늘 물을 주세요" />
+        <text name="ft_irr_call_watch" text="관찰" />
+        <text name="ft_irr_call_can_hold" text="기다릴 수 있음" />
+        <text name="ft_irr_advisory_schedule_covers" text="일정이 충당" />
+        <text name="ft_irr_advisory_schedule_gap" text="일정 공백" />
     </texts>
 </l10n>

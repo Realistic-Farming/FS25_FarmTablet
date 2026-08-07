@@ -2537,5 +2537,15 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="BESOIN EN EAU (conseil)" />
+        <text name="ft_irr_advisory_locked_l7" text="Débloqué au niveau coopératif 7" />
+        <text name="ft_irr_advisory_forward_call" text="PREVISION (conseil)" />
+        <text name="ft_irr_advisory_locked_l18" text="Débloqué au niveau coopératif 18" />
+        <text name="ft_irr_advisory_no_reads" text="Aucune parcelle avec relevé d'eau pour l'instant." />
+        <text name="ft_irr_call_water_today" text="irriguer aujourd'hui" />
+        <text name="ft_irr_call_watch" text="surveiller" />
+        <text name="ft_irr_call_can_hold" text="peut attendre" />
+        <text name="ft_irr_advisory_schedule_covers" text="plan couvre" />
+        <text name="ft_irr_advisory_schedule_gap" text="trou de plan" />
     </texts>
 </l10n>
