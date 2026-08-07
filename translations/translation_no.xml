@@ -2537,5 +2537,15 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="VANNB EHOV (rådgivning)" />
+        <text name="ft_irr_advisory_locked_l7" text="Låses opp på kooperativnivå 7" />
+        <text name="ft_irr_advisory_forward_call" text="PROGNOSE (rådgivning)" />
+        <text name="ft_irr_advisory_locked_l18" text="Låses opp på kooperativnivå 18" />
+        <text name="ft_irr_advisory_no_reads" text="Ingen åkre med vannavlesninger ennå." />
+        <text name="ft_irr_call_water_today" text="vanne i dag" />
+        <text name="ft_irr_call_watch" text="følg med" />
+        <text name="ft_irr_call_can_hold" text="kan vente" />
+        <text name="ft_irr_advisory_schedule_covers" text="planen dekker" />
+        <text name="ft_irr_advisory_schedule_gap" text="planhull" />
     </texts>
 </l10n>

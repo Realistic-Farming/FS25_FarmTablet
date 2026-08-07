@@ -2537,5 +2537,15 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="VEDENTARVE (neuvonta)" />
+        <text name="ft_irr_advisory_locked_l7" text="Avautuu osuuskunnan tasolla 7" />
+        <text name="ft_irr_advisory_forward_call" text="ENNUSTE (neuvonta)" />
+        <text name="ft_irr_advisory_locked_l18" text="Avautuu osuuskunnan tasolla 18" />
+        <text name="ft_irr_advisory_no_reads" text="Ei vielä peltoja vesilukemin." />
+        <text name="ft_irr_call_water_today" text="kastele tänään" />
+        <text name="ft_irr_call_watch" text="tarkkaile" />
+        <text name="ft_irr_call_can_hold" text="voi odottaa" />
+        <text name="ft_irr_advisory_schedule_covers" text="aikataulu kattaa" />
+        <text name="ft_irr_advisory_schedule_gap" text="aikataulun aukko" />
     </texts>
 </l10n>
