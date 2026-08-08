@@ -1162,6 +1162,11 @@ end
 -- ─────────────────────────────────────────────────────────
 
 function FarmTabletUI:switchApp(appId)
+    if AppRegistry and AppRegistry.resolve then
+        appId = AppRegistry.resolve(appId)
+    elseif appId == FT.APP.TIME_CONTROLS then
+        appId = FT.APP.FARM_ADMIN
+    end
     if not self.system.registry:has(appId) then return false end
     local app = self.system.registry:get(appId)
     if not app or not app.enabled then return false end
