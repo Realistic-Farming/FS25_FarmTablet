@@ -366,6 +366,18 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- Organic Management (Arissani brief) — SF organic cert + practices
+    if hasSoil and not self:has(FT.APP.ORGANIC) then
+        Logging.info("[FarmTablet] autoDetect: Organic Management (Soil Fertilizer)")
+        self:register({
+            id = FT.APP.ORGANIC, group = "mods",
+            name = "ft_ui_app_organic", navLabel = "ORG",
+            icon = "soil", order = 24.7,
+            developer = "WizardlyPayload", version = "Integrated",
+            description = "Organic certification and practice advice",
+        })
+    end
+
     -- Market Dynamics
     -- Bridge: mission.MarketDynamics set by MarketDynamics mod in Mission00.load
     if g_currentMission and g_currentMission.MarketDynamics then

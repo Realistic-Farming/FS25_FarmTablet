@@ -2551,4 +2551,6 @@
         <text name="ft_irr_advisory_schedule_gap" text="mezera v plánu" />
     </texts>
 
+
+        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>
