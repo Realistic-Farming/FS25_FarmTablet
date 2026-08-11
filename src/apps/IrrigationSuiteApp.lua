@@ -14,6 +14,13 @@ local MODE_LABEL = {
     usage      = "Usage",
 }
 
+local function _T(key, fallback)
+    if g_i18n and key and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or key
+end
+
 local function _scs()
     return g_currentMission and g_currentMission.cropStressManager or nil
 end
@@ -195,6 +202,31 @@ local function _moistureSplit(scs, fieldId)
     local irrShare = math.max(0, math.min(moisture, rate))
     local rainShare = math.max(0, moisture - irrShare)
     return moisture, irrShare, rainShare
+end
+
+--- SCS-009: per-field water need, the pure ranking figure.
+--- Monotone in moisture deficit and dry stress; active irrigation (rate > 0)
+--- reduces need. Returns nil when moisture is unreadable (the field does not
+--- rank). Display-only: feeds the advisory sort, never any economic hook.
+local function _waterNeed(moisture, stress, rate)
+    if moisture == nil then return nil end
+    local deficit = math.max(0, 1 - moisture)          -- 0 wet .. 1 dry
+    local stressT = math.max(0, math.min(1, stress or 0))
+    local need    = deficit * 0.65 + stressT * 0.35
+    if (rate or 0) > 0 then
+        need = need * 0.6    -- already being watered: the edge is covered
+    end
+    return need
+end
+
+--- SCS-009: the plain call for a need value.
+--- Thresholds are display-only (no economic effect); they pick the words.
+---@param need number 0..1
+---@return string key, string fallback
+local function _waterCall(need)
+    if need >= 0.75 then return "ft_irr_call_water_today", "water today" end
+    if need >= 0.45 then return "ft_irr_call_watch", "watch" end
+    return "ft_irr_call_can_hold", "can hold"
 end
 
 FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
@@ -440,6 +472,150 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     y = y - FT.py(16)
                     break
                 end
+            end
+        end
+
+        -- ══════════════════════════════════════════════════════
+        -- SCS-009: ProStaff irrigation advisory (level-gated)
+        -- ══════════════════════════════════════════════════════
+        -- Read-only, display-only, no economic effect (the standing cert gate).
+        -- Everything feeds no cost / yield / price / efficiency hook. Data is all
+        -- shipped SCS getters, nil-safe, neutral-absent; SCS absent means the whole
+        -- app already returned above. ProStaff absent: the gated sections stay
+        -- honest-locked (header + the one-liner naming the unlocking level).
+        -- Local farm only: getPlayerFarmId + getOwnedFields, no cross-farm read.
+        local psm = g_currentMission and g_currentMission.proStaffManager
+        local hasForecastAccess = false
+        local hasPredictiveControl = false
+        if psm ~= nil then
+            pcall(function() hasForecastAccess = psm:hasForecastAccess(farmId) end)
+            pcall(function() hasPredictiveControl = psm:hasPredictiveControl(farmId) end)
+        end
+
+        -- Shared advisory data, computed once for both gated sections. All shipped
+        -- SCS reads, nil-safe, neutral-absent; display-only, no economic effect.
+        -- The urgency modifier (R1-A: never per-field) scales the WHOLE list but
+        -- reorders nothing - the per-field need figure stays the sort key.
+        local urgency = 1.0
+        do
+            local evap = _pcall(function() return scs:getEvaporativeDemand() end)
+            local temp = _pcall(function() return scs:getTemperature() end)
+            if evap ~= nil and temp ~= nil then
+                urgency = math.max(0.5, evap * (0.8 + math.max(0, temp - 10) * 0.02))
+            elseif evap ~= nil then
+                urgency = math.max(0.5, evap)
+            end
+        end
+        local ranked = {}
+        for _, f in ipairs(fields) do
+            local need = _waterNeed(
+                _pcall(function() return scs:getMoisture(f.id) end),
+                _pcall(function() return scs:getStress(f.id) end),
+                _pcall(function() return scs:getIrrigationRate(f.id) end))
+            if need ~= nil then
+                ranked[#ranked + 1] = { id = f.id, need = need }
+            end
+        end
+        table.sort(ranked, function(a, b) return a.need > b.need end)
+
+        y = self:drawRule(y, 0.3)
+
+        -- L7 WATER NEED -------------------------------------------------------
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
+            _T("ft_irr_advisory_water_need", "WATER NEED (advisory)"),
+            RenderText.ALIGN_LEFT, AC)
+        y = y - FT.py(14)
+        if not hasForecastAccess then
+            self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                _T("ft_irr_advisory_locked_l7", "Unlocks at co-op level 7"),
+                RenderText.ALIGN_LEFT, FT.C.MUTED)
+            y = y - FT.py(16)
+        else
+            local hint = _pcall(function() return scs:getCriticalAlertHint() end)
+            if hint ~= nil and hint ~= "" then
+                self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, tostring(hint),
+                    RenderText.ALIGN_LEFT, FT.C.WARN)
+                y = y - FT.py(14)
+            end
+
+            local shownNeed = 0
+            for _, r in ipairs(ranked) do
+                if shownNeed >= 8 then
+                    self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                        "… more fields omitted", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                    y = y - FT.py(14)
+                    break
+                end
+                local effNeed = math.min(1, r.need * urgency)
+                local callKey, callFallback = _waterCall(effNeed)
+                local callCol = effNeed >= 0.75 and FT.C.WARN
+                    or (effNeed >= 0.45 and FT.C.TEXT_DIM or FT.C.MUTED)
+                self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
+                    string.format("Field #%s", tostring(r.id)),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
+                    _T(callKey, callFallback), RenderText.ALIGN_RIGHT, callCol)
+                y = y - FT.py(14)
+                shownNeed = shownNeed + 1
+            end
+            if shownNeed == 0 then
+                self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                    _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                y = y - FT.py(14)
+            end
+        end
+
+        y = self:drawRule(y, 0.3)
+
+        -- L18 FORWARD CALL -----------------------------------------------------
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
+            _T("ft_irr_advisory_forward_call", "FORWARD CALL (advisory)"),
+            RenderText.ALIGN_LEFT, AC)
+        y = y - FT.py(14)
+        if not hasPredictiveControl then
+            self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                _T("ft_irr_advisory_locked_l18", "Unlocks at co-op level 18"),
+                RenderText.ALIGN_LEFT, FT.C.MUTED)
+            y = y - FT.py(16)
+        else
+            -- The hold-or-water call extended across the schedule read: which
+            -- fields' schedules cover the coming need and which gap. Still from
+            -- shipped reads only (getIrrigationSchedule); still display-only.
+            local covered, gap = 0, 0
+            local shownFwd = 0
+            for _, r in ipairs(ranked) do
+                if shownFwd >= 6 then break end
+                local sched = _pcall(function() return scs:getIrrigationSchedule(r.id) end)
+                local hasSched = type(sched) == "table"
+                    and tonumber(sched.startHour) ~= nil
+                    and tonumber(sched.endHour) ~= nil
+                local effNeed = math.min(1, r.need * urgency)
+                local callK, callF = _waterCall(effNeed)
+                if hasSched then covered = covered + 1 else gap = gap + 1 end
+                local fwdKey = hasSched and "ft_irr_advisory_schedule_covers"
+                    or "ft_irr_advisory_schedule_gap"
+                local fwdTxt = hasSched and "schedule covers" or "schedule gap"
+                local fwdCol = hasSched and FT.C.POSITIVE or FT.C.WARN
+                self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
+                    string.format("Field #%s  %s", tostring(r.id),
+                        _T(callK, callF)),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
+                    _T(fwdKey, fwdTxt), RenderText.ALIGN_RIGHT, fwdCol)
+                y = y - FT.py(14)
+                shownFwd = shownFwd + 1
+            end
+            if shownFwd == 0 then
+                self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                    _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                y = y - FT.py(14)
+            else
+                self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                    string.format("%d covered  ·  %d gap", covered, gap),
+                    RenderText.ALIGN_LEFT, FT.C.MUTED)
+                y = y - FT.py(14)
             end
         end
 

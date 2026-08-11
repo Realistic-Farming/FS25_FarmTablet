@@ -132,7 +132,7 @@
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
-        <text name="ft_ui_app_prostaff" text="Pro-Staff Co-Op" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Random Events" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Invoices" />
@@ -2537,5 +2537,16 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="ПОТРЕБА У ВОДІ (порада)" />
+        <text name="ft_irr_advisory_locked_l7" text="Відкривається на рівні кооперативу 7" />
+        <text name="ft_irr_advisory_forward_call" text="ПРОГНОЗ (порада)" />
+        <text name="ft_irr_advisory_locked_l18" text="Відкривається на рівні кооперативу 18" />
+        <text name="ft_irr_advisory_no_reads" text="Поки немає полів із показниками вологи." />
+        <text name="ft_irr_call_water_today" text="полити сьогодні" />
+        <text name="ft_irr_call_watch" text="спостерігати" />
+        <text name="ft_irr_call_can_hold" text="можна почекати" />
+        <text name="ft_irr_advisory_schedule_covers" text="графік покриває" />
+        <text name="ft_irr_advisory_schedule_gap" text="прогалина в графіку" />
     </texts>
+
 </l10n>

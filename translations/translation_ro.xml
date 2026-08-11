@@ -132,7 +132,7 @@
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
-        <text name="ft_ui_app_prostaff" text="Pro-Staff Co-Op" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Random Events" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Invoices" />
@@ -2537,5 +2537,16 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="NECESITATE DE APĂ (consiliere)" />
+        <text name="ft_irr_advisory_locked_l7" text="Deblocat la nivelul de cooperativă 7" />
+        <text name="ft_irr_advisory_forward_call" text="PREVIZIUNE (consiliere)" />
+        <text name="ft_irr_advisory_locked_l18" text="Deblocat la nivelul de cooperativă 18" />
+        <text name="ft_irr_advisory_no_reads" text="Niciun câmp cu citiri de apă deocamdată." />
+        <text name="ft_irr_call_water_today" text="udă astăzi" />
+        <text name="ft_irr_call_watch" text="urmărește" />
+        <text name="ft_irr_call_can_hold" text="poate aștepta" />
+        <text name="ft_irr_advisory_schedule_covers" text="planul acoperă" />
+        <text name="ft_irr_advisory_schedule_gap" text="gol de plan" />
     </texts>
+
 </l10n>

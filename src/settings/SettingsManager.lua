@@ -32,7 +32,10 @@ function SettingsManager.new()
 end
 
 function SettingsManager:getSavegameXmlFilePath()
-    if g_currentMission.missionInfo and g_currentMission.missionInfo.savegameDirectory then
+    if g_currentMission == nil or g_currentMission.missionInfo == nil then
+        return nil
+    end
+    if g_currentMission.missionInfo.savegameDirectory then
         return ("%s/%s.xml"):format(g_currentMission.missionInfo.savegameDirectory, SettingsManager.MOD_NAME)
     end
     return nil
