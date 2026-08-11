@@ -16,5 +16,11 @@ desktop.ini
 # Lua IDE files
 .luarc.json
 
-# Dev-only QA artifacts (icon generator contact sheet)
+# Dev-only QA artifacts (icon generator contact sheet + intermediate PNGs)
 tools/_contact_sheet.png
+gui/icons/*.png
+gui/tablet_frame.png
+gui/wallpaper.png
+
+# Pre-commit gate deps (tools/test/ - installed by npm, never shipped)
+node_modules/
