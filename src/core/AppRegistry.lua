@@ -66,18 +66,11 @@ AppRegistry.BUILTIN_APPS = {
         description = "Nearby vehicle diagnostics",
     },
     {
-        id = FT.APP.DIGGING,    group = "farm",
-        name = "ft_ui_app_digging",    navLabel = "DIG",
+        id = FT.APP.EXCAVATOR,  group = "farm",
+        name = "ft_ui_app_excavator",  navLabel = "EXC",
         icon = "digging",           order = 14,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Excavation tracking and soil scanner",
-    },
-    {
-        id = FT.APP.BUCKET,     group = "farm",
-        name = "ft_ui_app_bucket_tracker", navLabel = "BCK",
-        icon = "bucket",            order = 15,
-        developer = "FarmTablet",   version = "Built-in",
-        description = "Bucket/loader load counter",
+        description = "Terrain depth readout and bucket load counter",
     },
     {
         id = FT.APP.STORAGE,    group = "farm",
@@ -208,6 +201,15 @@ end
 
 function AppRegistry:has(id)
     return self._apps[id] ~= nil
+end
+
+-- Legacy Digging / Bucket Tracker ids redirect to Excavator so saved
+-- startupApp / favourite lists keep working after the merge.
+function AppRegistry.resolve(id)
+    if id == FT.APP.DIGGING or id == FT.APP.BUCKET then
+        return FT.APP.EXCAVATOR
+    end
+    return id
 end
 
 function AppRegistry:setEnabled(id, state)
@@ -404,15 +406,31 @@ function AppRegistry:autoDetect()
                 description = "Worker wages and cost breakdown",
             })
         end
-        -- Personnel (Pro-Staff) — dedicated HR management app, same dependency.
+        -- Personnel — WorkerCosts HR (hire/fire/payroll). Not the Co-Op ladder.
         if not self:has(FT.APP.PERSONNEL) then
-            Logging.info("[FarmTablet] autoDetect: Personnel (Pro-Staff) app enabled")
+            Logging.info("[FarmTablet] autoDetect: Personnel (WorkerCosts) app enabled")
             self:register({
                 id = FT.APP.PERSONNEL, group = "mods",
                 name = "ft_ui_app_personnel", navLabel = "STAFF",
                 icon = "personnel", order = 27,
                 developer = "TisonK", version = "Integrated",
-                description = "Pro-Staff personnel management — hire, fire, assign, payroll",
+                description = "WorkerCosts personnel - hire, fire, assign, payroll",
+            })
+        end
+    end
+
+    -- Pro-Staff Co-Op investment ladder (separate mod from WorkerCosts Personnel)
+    do
+        local ps = (g_currentMission and g_currentMission.proStaffManager)
+            or getfenv(0)["g_proStaffCoOp"]
+        if ps ~= nil and not self:has(FT.APP.PROSTAFF) then
+            Logging.info("[FarmTablet] autoDetect: Pro-Staff Co-Op detected")
+            self:register({
+                id = FT.APP.PROSTAFF, group = "mods",
+                name = "ft_ui_app_prostaff", navLabel = "COOP",
+                icon = "personnel", order = 27.5,
+                developer = "WizardlyPayload", version = "Integrated",
+                description = "Pro-Staff Co-Op membership level and investment",
             })
         end
     end
@@ -474,6 +492,21 @@ function AppRegistry:autoDetect()
             icon = "invoice", order = 29,
             developer = "TisonK", version = "Integrated",
             description = "Invoice tracker — built-in + RoleplayPhone integration",
+        })
+    end
+
+    -- DairyCore (Wizard UI - Tyson green light 2026-07-25)
+    -- Bridge: mission.dairyCoreManager, with getfenv(0) fallback for cross-mod scope
+    local dairyMgr = (g_currentMission and g_currentMission.dairyCoreManager)
+                  or getfenv(0)["g_dairyCoreManager"]
+    if dairyMgr ~= nil and not self:has(FT.APP.DAIRY) then
+        Logging.info("[FarmTablet] autoDetect: DairyCore detected")
+        self:register({
+            id = FT.APP.DAIRY, group = "mods",
+            name = "ft_ui_app_dairy", navLabel = "DAIRY",
+            icon = "dairy", order = 29,
+            developer = "TisonK", version = "Integrated",
+            description = "DairyCore per-barn herd health, quality, and spoilage",
         })
     end
 

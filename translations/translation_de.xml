@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="AppStore" />
         <text name="ft_ui_startupapp_3" text="Wetter" />
-        <text name="ft_ui_startupapp_4" text="Vermessung" />
+        <text name="ft_ui_startupapp_4" text="Bagger" />
         <text name="ft_ui_soundeffects_short" text="Soundeffekte" />
         <text name="ft_ui_soundeffects_long" text="Soundeffekte bei Tablet-Interaktionen abspielen" />
         <text name="ft_ui_debug_short" text="Debug-Modus" />
@@ -121,9 +121,11 @@
         <text name="ft_fc_help_readonly_title" text="Keine Veränderungen" />
         <text name="ft_fc_help_readonly_body" text="Die Finanzen-App verschiebt kein Geld und beeinflusst niemals&#10;Einkommen, Steuern, Gehälter oder andere Apps." />
         <text name="ft_ui_app_animals" text="Tiere" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Wetter" />
         <text name="ft_ui_app_digging" text="Vermessung" />
         <text name="ft_ui_app_bucket_tracker" text="Ladungsübersicht" />
+        <text name="ft_ui_app_excavator" text="Bagger" />
         <text name="ft_ui_app_income_mod" text="Finanzen" />
         <text name="ft_ui_app_tax_mod" text="Eichelhäher" />
         <text name="ft_ui_app_npc_favor" text="Nachbarschaftshilfe" />
@@ -2549,6 +2551,7 @@
         <text name="ft_irr_advisory_schedule_covers" text="Plan abgedeckt" />
         <text name="ft_irr_advisory_schedule_gap" text="Planlücke" />
     </texts>
+
 
         <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

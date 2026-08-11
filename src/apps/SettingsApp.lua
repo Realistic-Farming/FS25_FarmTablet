@@ -364,7 +364,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     end
     local ALL_STARTUP = {
         { id = "dashboard", label = ftSafeText("ft_ui_app_dashboard", "Dashboard") }, { id = "app_store", label = ftSafeText("ft_ui_app_store", "App Store") }, { id = "weather", label = ftSafeText("ft_ui_app_weather", "Weather") },
-        { id = "field_status", label = ftSafeText("ft_ui_app_field_status", "Fields") }, { id = "animals", label = ftSafeText("ft_ui_app_animals", "Animals") }, { id = "workshop", label = ftSafeText("ft_ui_app_workshop", "Workshop") }, { id = "digging", label = ftSafeText("ft_ui_app_digging", "Digging") },
+        { id = "field_status", label = ftSafeText("ft_ui_app_field_status", "Fields") }, { id = "animals", label = ftSafeText("ft_ui_app_animals", "Animals") }, { id = "workshop", label = ftSafeText("ft_ui_app_workshop", "Workshop") }, { id = "excavator", label = ftSafeText("ft_ui_app_excavator", "Excavator") },
     }
     local curStartup = s.startupApp or "dashboard"
     local sIdx = 1

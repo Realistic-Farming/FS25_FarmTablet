@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Weer" />
-        <text name="ft_ui_startupapp_4" text="Graven" />
+        <text name="ft_ui_startupapp_4" text="Graafmachine" />
         <text name="ft_ui_soundeffects_short" text="Geluidseffecten" />
         <text name="ft_ui_soundeffects_long" text="Speel geluidseffecten af â€‹â€‹voor tabletinteracties" />
         <text name="ft_ui_debug_short" text="Foutopsporingsmodus" />
@@ -122,9 +122,11 @@
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="Dieren" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Weer" />
         <text name="ft_ui_app_digging" text="Graven" />
         <text name="ft_ui_app_bucket_tracker" text="Emmer-tracker" />
+        <text name="ft_ui_app_excavator" text="Graafmachine" />
         <text name="ft_ui_app_income_mod" text="Inkomen Mod" />
         <text name="ft_ui_app_tax_mod" text="Belastingmod" />
         <text name="ft_ui_app_npc_favor" text="NPC-gunst" />
@@ -2549,4 +2551,5 @@
         <text name="ft_irr_advisory_schedule_covers" text="plan dekt" />
         <text name="ft_irr_advisory_schedule_gap" text="planhiaat" />
     </texts>
+
 </l10n>
