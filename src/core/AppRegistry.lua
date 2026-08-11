@@ -79,13 +79,8 @@ AppRegistry.BUILTIN_APPS = {
         developer = "FarmTablet",   version = "Built-in",
         description = "Silo inventory and current sell prices",
     },
-    {
-        id = FT.APP.TIME_CONTROLS, group = "farm",
-        name = "ft_ui_app_time_controls", navLabel = "TIME",
-        icon = "time",              order = 17,
-        developer = "FarmTablet",   version = "Built-in",
-        description = "Set time scale and skip to a time of day",
-    },
+    -- TIME_CONTROLS retired from the hub (IA): lives inside Farm Admin.
+    -- AppRegistry.resolve redirects the old id so saves/favourites keep working.
     {
         id = FT.APP.HOTSPOT_MGR, group = "farm",
         name = "ft_ui_app_hotspot_manager", navLabel = "PINS",
@@ -105,7 +100,7 @@ AppRegistry.BUILTIN_APPS = {
         name = "ft_ui_app_farm_admin", navLabel = "ADM",
         icon = "admin",             order = 20,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Admin controls: money, time, vehicle repair/fuel",
+        description = "Admin controls: money, time scale, skip time, repair/fuel",
     },
     {
         id = FT.APP.FIELD_JOBS, group = "farm",
@@ -203,9 +198,13 @@ function AppRegistry:has(id)
     return self._apps[id] ~= nil
 end
 
+-- Legacy Time Controls id redirects to Farm Admin (IA merge).
 -- Legacy Digging / Bucket Tracker ids redirect to Excavator so saved
 -- startupApp / favourite lists keep working after the merge.
 function AppRegistry.resolve(id)
+    if id == FT.APP.TIME_CONTROLS then
+        return FT.APP.FARM_ADMIN
+    end
     if id == FT.APP.DIGGING or id == FT.APP.BUCKET then
         return FT.APP.EXCAVATOR
     end

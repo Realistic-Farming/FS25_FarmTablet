@@ -1164,6 +1164,8 @@ end
 function FarmTabletUI:switchApp(appId)
     if AppRegistry and AppRegistry.resolve then
         appId = AppRegistry.resolve(appId)
+    elseif appId == FT.APP.TIME_CONTROLS then
+        appId = FT.APP.FARM_ADMIN
     elseif appId == FT.APP.DIGGING or appId == FT.APP.BUCKET then
         appId = FT.APP.EXCAVATOR
     end
