@@ -121,6 +121,7 @@
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="Animale" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Vreme" />
         <text name="ft_ui_app_digging" text="Săpat" />
         <text name="ft_ui_app_bucket_tracker" text="Bucket Tracker" />

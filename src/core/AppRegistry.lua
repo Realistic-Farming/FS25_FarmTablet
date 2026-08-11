@@ -483,6 +483,21 @@ function AppRegistry:autoDetect()
         })
     end
 
+    -- DairyCore (Wizard UI - Tyson green light 2026-07-25)
+    -- Bridge: mission.dairyCoreManager, with getfenv(0) fallback for cross-mod scope
+    local dairyMgr = (g_currentMission and g_currentMission.dairyCoreManager)
+                  or getfenv(0)["g_dairyCoreManager"]
+    if dairyMgr ~= nil and not self:has(FT.APP.DAIRY) then
+        Logging.info("[FarmTablet] autoDetect: DairyCore detected")
+        self:register({
+            id = FT.APP.DAIRY, group = "mods",
+            name = "ft_ui_app_dairy", navLabel = "DAIRY",
+            icon = "dairy", order = 29,
+            developer = "TisonK", version = "Integrated",
+            description = "DairyCore per-barn herd health, quality, and spoilage",
+        })
+    end
+
     -- AnimalAutoCare
     if g_currentMission and g_currentMission.animalAutoCareCore and not self:has(FT.APP.ANIMAL_AUTO_CARE) then
         Logging.info("[FarmTablet] autoDetect: AnimalAutoCare detected")
