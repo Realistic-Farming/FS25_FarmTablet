@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Kontrol Paneli" />
         <text name="ft_ui_startupapp_2" text="Uygulama Mağazası" />
         <text name="ft_ui_startupapp_3" text="Hava durumu" />
-        <text name="ft_ui_startupapp_4" text="Kazma" />
+        <text name="ft_ui_startupapp_4" text="Ekskavatör" />
         <text name="ft_ui_soundeffects_short" text="Ses efektleri" />
         <text name="ft_ui_soundeffects_long" text="Tablet etkileşimleri için ses efektleri çalın" />
         <text name="ft_ui_debug_short" text="Hata Ayıklama Modu" />
@@ -125,6 +125,7 @@
         <text name="ft_ui_app_weather" text="Hava durumu" />
         <text name="ft_ui_app_digging" text="Kazma" />
         <text name="ft_ui_app_bucket_tracker" text="Kova Takibi" />
+        <text name="ft_ui_app_excavator" text="Ekskavatör" />
         <text name="ft_ui_app_income_mod" text="Gelir Modu" />
         <text name="ft_ui_app_tax_mod" text="Vergi Modu" />
         <text name="ft_ui_app_npc_favor" text="NPC İyiliği" />
@@ -133,6 +134,7 @@
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Random Events" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Invoices" />
@@ -2537,5 +2539,16 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="SU İHTİYACI (tavsiye)" />
+        <text name="ft_irr_advisory_locked_l7" text="Kooperatif seviyesi 7'de açılır" />
+        <text name="ft_irr_advisory_forward_call" text="TAHMİN (tavsiye)" />
+        <text name="ft_irr_advisory_locked_l18" text="Kooperatif seviyesi 18'de açılır" />
+        <text name="ft_irr_advisory_no_reads" text="Henüz su okuması olan tarla yok." />
+        <text name="ft_irr_call_water_today" text="bugün sulayın" />
+        <text name="ft_irr_call_watch" text="izleyin" />
+        <text name="ft_irr_call_can_hold" text="bekleyebilir" />
+        <text name="ft_irr_advisory_schedule_covers" text="plan karşılıyor" />
+        <text name="ft_irr_advisory_schedule_gap" text="plan boşluğu" />
     </texts>
+
 </l10n>

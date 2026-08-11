@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Weather" />
-        <text name="ft_ui_startupapp_4" text="Digging" />
+        <text name="ft_ui_startupapp_4" text="Excavator" />
         <text name="ft_ui_soundeffects_short" text="Sound Effects" />
         <text name="ft_ui_soundeffects_long" text="Play sound effects for tablet interactions" />
         <text name="ft_ui_debug_short" text="Debug Mode" />
@@ -125,6 +125,7 @@
         <text name="ft_ui_app_weather" text="Weather" />
         <text name="ft_ui_app_digging" text="Digging" />
         <text name="ft_ui_app_bucket_tracker" text="Bucket Tracker" />
+        <text name="ft_ui_app_excavator" text="Excavator" />
         <text name="ft_ui_app_income_mod" text="Income Mod" />
         <text name="ft_ui_app_tax_mod" text="Tax Mod" />
         <text name="ft_ui_app_npc_favor" text="NPC Favor" />
@@ -133,6 +134,7 @@
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Random Events" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Invoices" />
@@ -146,6 +148,7 @@
         <text name="ft_ui_app_fleet_manager" text="Fleet Manager" />
         <text name="ft_ui_app_production_buildings" text="Production" />
         <text name="ft_ui_app_farm_stats" text="Farm Stats" />
+        <text name="ft_ui_app_dairycore" text="Dairy Core" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Animal Vet" />
         <text name="ft_ui_app_factory_week_schedule" text="Factory Week" />
@@ -2537,5 +2540,16 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="WATER NEED (advisory)" />
+        <text name="ft_irr_advisory_locked_l7" text="Unlocks at co-op level 7" />
+        <text name="ft_irr_advisory_forward_call" text="FORWARD CALL (advisory)" />
+        <text name="ft_irr_advisory_locked_l18" text="Unlocks at co-op level 18" />
+        <text name="ft_irr_advisory_no_reads" text="No owned fields with water reads yet." />
+        <text name="ft_irr_call_water_today" text="water today" />
+        <text name="ft_irr_call_watch" text="watch" />
+        <text name="ft_irr_call_can_hold" text="can hold" />
+        <text name="ft_irr_advisory_schedule_covers" text="schedule covers" />
+        <text name="ft_irr_advisory_schedule_gap" text="schedule gap" />
     </texts>
+
 </l10n>

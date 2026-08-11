@@ -2170,8 +2170,9 @@ FT.APP_COLOR = {
     animals      = {1.00, 0.62, 0.22, 1.00},  -- orange
     dairy        = {0.78, 0.88, 0.95, 1.00},  -- milk blue
     workshop     = {0.90, 0.38, 0.38, 1.00},  -- red/rust
-    digging      = {0.75, 0.55, 0.28, 1.00},  -- earth brown
-    bucket_tracker = {0.80, 0.60, 0.25, 1.00},-- sandy
+    digging      = {0.75, 0.55, 0.28, 1.00},  -- earth brown (legacy id; redirects to excavator)
+    bucket_tracker = {0.80, 0.60, 0.25, 1.00},-- sandy (legacy id; redirects to excavator)
+    excavator    = {0.78, 0.58, 0.28, 1.00},  -- earth/sand (Digging + Bucket Tracker merge)
     -- finance / mods
     income_mod   = {0.28, 0.90, 0.55, 1.00},  -- teal-green
     tax_mod      = {1.00, 0.40, 0.40, 1.00},  -- coral-red
@@ -2185,6 +2186,7 @@ FT.APP_COLOR = {
     market_dynamics  = {0.30, 0.78, 0.95, 1.00},  -- cyan-blue
     worker_costs     = {0.95, 0.58, 0.20, 1.00},  -- amber-orange
     personnel        = {0.95, 0.45, 0.30, 1.00},  -- warm coral (HR / people)
+    prostaff         = {0.55, 0.42, 0.88, 1.00},  -- co-op violet
     random_world_events = {0.70, 0.35, 0.90, 1.00}, -- purple
     used_plus           = {0.20, 0.78, 0.90, 1.00}, -- cyan
     roleplay_phone      = {0.90, 0.35, 0.85, 1.00}, -- magenta
@@ -2203,6 +2205,8 @@ FT.APP_COLOR = {
     factory_week_schedule = {0.70, 0.62, 0.35, 1.00}, -- brass
     realistic_dealer    = {0.35, 0.72, 1.00, 1.00}, -- dealer blue
     system_settings     = {0.55, 0.62, 0.72, 1.00}, -- steel grey (ecosystem core)
+    prostaff            = {0.30, 0.70, 0.92, 1.00}, -- co-op blue (trust / alliance)
+    dairy_core          = {0.95, 0.88, 0.35, 1.00}, -- golden yellow (dairy / milk)
 }
 
 -- Helper: get the accent color for a given app id
@@ -2222,8 +2226,9 @@ FT.APP = {
     ANIMALS      = "animals",
     DAIRY        = "dairy",
     WEATHER      = "weather",
-    DIGGING      = "digging",
-    BUCKET       = "bucket_tracker",
+    DIGGING      = "digging",           -- legacy; AppRegistry.resolve -> excavator
+    BUCKET       = "bucket_tracker",    -- legacy; AppRegistry.resolve -> excavator
+    EXCAVATOR    = "excavator",
     INCOME       = "income_mod",
     TAX          = "tax_mod",
     NPC_FAVOR        = "npc_favor",
@@ -2236,6 +2241,7 @@ FT.APP = {
     MARKET_DYNAMICS  = "market_dynamics",
     WORKER_COSTS     = "worker_costs",
     PERSONNEL        = "personnel",
+    PROSTAFF         = "prostaff",
     RANDOM_EVENTS    = "random_world_events",
     USED_PLUS        = "used_plus",
     ROLEPLAY_PHONE   = "roleplay_phone",
@@ -2253,6 +2259,8 @@ FT.APP = {
     ANIMAL_VET       = "animal_vet_system",
     FACTORY_WEEK     = "factory_week_schedule",
     REALISTIC_DEALER = "realistic_dealer",
+    PROSTAFF         = "prostaff",
+    DAIRY_CORE       = "dairy_core",
 }
 
 -- Helper: scale a reference pixel value to normalized coords.
@@ -4399,6 +4407,7 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_ui_app_contracts"] = "Aufträge",
     ["ft_ui_app_crop_stress"] = "Pflanzenstress",
     ["ft_ui_app_dashboard"] = "Übersicht",
+    ["ft_ui_app_dairycore"] = "Milchkern",
     ["ft_ui_app_digging"] = "Graben",
     ["ft_ui_app_factory_week_schedule"] = "Fabrik-Wochenplan",
     ["ft_ui_app_farm_admin"] = "Hof-Admin",

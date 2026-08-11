@@ -4,12 +4,19 @@
 > Status: FILLED from the ecosystem audit/baseline, kept current.
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
+## Bugs
+- [x] 2026-07-30: `src/apps/ProStaffApp.lua:111` failed to COMPILE - `...` referenced from inside an anonymous function ("cannot use '...' outside of a vararg function"). Lua 5.1 does not let a nested closure see the enclosing function's vararg. The whole file was rejected, so the ProStaff app was dead in every session. `safeGet` now passes the varargs straight to `pcall` (no inner closure) and guards a missing method.
+- [ ] **ROOT CAUSE, still open: `build.py` has NO Lua 5.1 syntax gate**, which is the only reason the above reached the game. SoilFertilizer catches this class of error before it can ship (its pre-commit hook runs `luaparse` pinned to 5.1 over every source file, plus a lint pass). Port that gate here: either a `tools/test/` harness of our own, or a syntax step in `build.py` that fails the build. A compile error in one app file takes the file down silently, so this is worth more than any individual fix.
+
 ## From the ecosystem audit (Arissani)
 - [ ] Focus state (Point 1): goHome / openTablet / unlock should pass nil, not the previous appId. Three one-line fixes in FarmTabletUI.lua.
 - [x] Confirmed: MarketDynamicsApp and RandomWorldEventsApp are real apps, not stubs (autoDetect registers them when handles present).
 
 ## Bugs
 - [ ] Focus state passes previous appId instead of nil on goHome/openTablet/unlock (Point 1).
+- [x] FT-001 `_exitEditMode()` restores camera rotation (fixed, merged to main).
+- [x] FT-002 Nil guard on `g_currentMission` in `SettingsManager:getSettings()` (fixed, merged to main).
+- [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
 - [x] Irrigation Suite app (FT #100): a read-only SCS operating picture (coverage overlay + system status), built to Wizard's UI brief and merged; real frame-cache for the coverage overlay (03a6198).
