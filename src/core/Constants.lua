@@ -2203,6 +2203,8 @@ FT.APP_COLOR = {
     factory_week_schedule = {0.70, 0.62, 0.35, 1.00}, -- brass
     realistic_dealer    = {0.35, 0.72, 1.00, 1.00}, -- dealer blue
     system_settings     = {0.55, 0.62, 0.72, 1.00}, -- steel grey (ecosystem core)
+    prostaff            = {0.30, 0.70, 0.92, 1.00}, -- co-op blue (trust / alliance)
+    dairy_core          = {0.95, 0.88, 0.35, 1.00}, -- golden yellow (dairy / milk)
 }
 
 -- Helper: get the accent color for a given app id
@@ -2253,6 +2255,8 @@ FT.APP = {
     ANIMAL_VET       = "animal_vet_system",
     FACTORY_WEEK     = "factory_week_schedule",
     REALISTIC_DEALER = "realistic_dealer",
+    PROSTAFF         = "prostaff",
+    DAIRY_CORE       = "dairy_core",
 }
 
 -- Helper: scale a reference pixel value to normalized coords.
@@ -4399,6 +4403,7 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_ui_app_contracts"] = "Aufträge",
     ["ft_ui_app_crop_stress"] = "Pflanzenstress",
     ["ft_ui_app_dashboard"] = "Übersicht",
+    ["ft_ui_app_dairycore"] = "Milchkern",
     ["ft_ui_app_digging"] = "Graben",
     ["ft_ui_app_factory_week_schedule"] = "Fabrik-Wochenplan",
     ["ft_ui_app_farm_admin"] = "Hof-Admin",

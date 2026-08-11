@@ -61,6 +61,7 @@ source(modDirectory .. "src/apps/RotationPlannerApp.lua")
 source(modDirectory .. "src/apps/MarketDynamicsApp.lua")
 source(modDirectory .. "src/apps/WorkerCostsApp.lua")
 source(modDirectory .. "src/apps/PersonnelApp.lua")
+source(modDirectory .. "src/apps/ProStaffApp.lua")
 source(modDirectory .. "src/apps/RandomWorldEventsApp.lua")
 source(modDirectory .. "src/apps/UsedPlusApp.lua")
 source(modDirectory .. "src/apps/RoleplayPhoneApp.lua")
@@ -75,6 +76,7 @@ source(modDirectory .. "src/apps/ProductionBuildingsApp.lua")
 source(modDirectory .. "src/apps/FarmStatsApp.lua")
 source(modDirectory .. "src/apps/FinancialCockpitApp.lua")
 source(modDirectory .. "src/apps/AkitaTabletIntegrationsApp.lua")
+source(modDirectory .. "src/apps/DairyCoreApp.lua")
 
 local farmTabletManager
 

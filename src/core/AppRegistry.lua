@@ -407,6 +407,21 @@ function AppRegistry:autoDetect()
         end
     end
 
+    -- ProStaff Co-Op
+    -- Bridge: mission.proStaffManager set by ProStaffCoOp in Mission00.load
+    if g_currentMission and g_currentMission.proStaffManager then
+        if not self:has(FT.APP.PROSTAFF) then
+            Logging.info("[FarmTablet] autoDetect: ProStaff Co-Op detected")
+            self:register({
+                id = FT.APP.PROSTAFF, group = "mods",
+                name = "ft_ui_app_prostaff", navLabel = "COOP",
+                icon = "prostaff", order = 27.5,
+                developer = "TisonK", version = "Integrated",
+                description = "Co-Op progression -- level, benefits, and investment status",
+            })
+        end
+    end
+
     -- Random World Events
     -- Bridge: mission.randomWorldEvents set by RandomWorldEvents in Mission00.load
     if g_currentMission and g_currentMission.randomWorldEvents then
@@ -505,6 +520,21 @@ function AppRegistry:autoDetect()
             description = "RealisticDealer financing, installments and repossession status",
             descriptionKey = "ft_desc_app_realistic_dealer",
         })
+    end
+
+    -- DairyCore
+    -- Bridge: mission.dairyCoreManager set by DairyCore in Mission00.load
+    if g_currentMission and g_currentMission.dairyCoreManager then
+        if not self:has(FT.APP.DAIRY_CORE) then
+            Logging.info("[FarmTablet] autoDetect: DairyCore detected")
+            self:register({
+                id = FT.APP.DAIRY_CORE, group = "mods",
+                name = "ft_ui_app_dairycore", navLabel = "DAIRY",
+                icon = "dairy_core", order = 34,
+                developer = "TisonK", version = "Integrated",
+                description = "Dairy barn health, milk quality, spoilage and contracts",
+            })
+        end
     end
 
     Logging.info("[FarmTablet] autoDetect complete — %d apps registered", #self:getAll())
