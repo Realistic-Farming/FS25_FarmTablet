@@ -17,6 +17,7 @@
 ## Near-term (next release cycle)
 - [ ] Focus state fix (Point 1): make goHome / openTablet / unlock pass nil instead of the previous appId (three one-line changes in FarmTabletUI.lua).
 - [x] Keep the ecosystem-map current: MarketDynamicsApp and RandomWorldEventsApp are NOT stubs (source files exist; autoDetect registers them when the handles are present).
+- [x] 2026-07-26 bug sweep: FT-001 (camera rotation restore), FT-002 (nil guard on g_currentMission), FT-003/FT-004/FT-005 fixed and merged to main.
 
 ## Mid-term (this season)
 - [ ] Financial Cockpit page (FT-6): read-only financial health page with a self-recorded monthly history module. Brief staged, buildable on the Time Guard handle; opt-in follow-ons per companion (FuelCosts spend, DairyCore income, RWE money attribution, ProStaff/WorkerCosts co-op figure).

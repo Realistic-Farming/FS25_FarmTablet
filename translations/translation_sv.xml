@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Instrumentbräda" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Väder" />
-        <text name="ft_ui_startupapp_4" text="Grävning" />
+        <text name="ft_ui_startupapp_4" text="Grävmaskin" />
         <text name="ft_ui_soundeffects_short" text="Ljudeffekter" />
         <text name="ft_ui_soundeffects_long" text="Spela ljudeffekter för surfplattor" />
         <text name="ft_ui_debug_short" text="Felsökningsläge" />
@@ -121,9 +121,11 @@
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="Djur" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Väder" />
         <text name="ft_ui_app_digging" text="Grävning" />
         <text name="ft_ui_app_bucket_tracker" text="Bucket Tracker" />
+        <text name="ft_ui_app_excavator" text="Grävmaskin" />
         <text name="ft_ui_app_income_mod" text="Inkomst Mod" />
         <text name="ft_ui_app_tax_mod" text="Skatt Mod" />
         <text name="ft_ui_app_npc_favor" text="NPC-favor" />
@@ -132,6 +134,7 @@
         <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
         <text name="ft_ui_app_worker_costs" text="Worker Costs" />
         <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
         <text name="ft_ui_app_random_world_events" text="Random Events" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Invoices" />
@@ -2536,5 +2539,18 @@
         <text name="ft_weather_mode_wet" text="Wet" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_irr_advisory_water_need" text="VATTENBEHOV (rådgivning)" />
+        <text name="ft_irr_advisory_locked_l7" text="Låses upp på kooperativ nivå 7" />
+        <text name="ft_irr_advisory_forward_call" text="PROGNOS (rådgivning)" />
+        <text name="ft_irr_advisory_locked_l18" text="Låses upp på kooperativ nivå 18" />
+        <text name="ft_irr_advisory_no_reads" text="Ännu inga åkrar med vattenavläsningar." />
+        <text name="ft_irr_call_water_today" text="vattna idag" />
+        <text name="ft_irr_call_watch" text="bevaka" />
+        <text name="ft_irr_call_can_hold" text="kan vänta" />
+        <text name="ft_irr_advisory_schedule_covers" text="planen täcker" />
+        <text name="ft_irr_advisory_schedule_gap" text="planlucka" />
     </texts>
+
+
+        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

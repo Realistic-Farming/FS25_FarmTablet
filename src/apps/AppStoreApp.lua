@@ -19,6 +19,7 @@ local KNOWN_INTEGRATIONS = {
     { appId = FT.APP.RANDOM_EVENTS,  label = "Random World Events", mod = "FS25_RandomWorldEvents"    },
     { appId = FT.APP.USED_PLUS,      label = "UsedPlus",            mod = "FS25_UsedPlus"             },
     { appId = FT.APP.ROLEPLAY_PHONE, label = "Invoices / Phone",    mod = "(always active)"           },
+    { appId = FT.APP.DAIRY,          label = "Dairy",               mod = "FS25_DairyCore"            },
     { appId = FT.APP.ANIMAL_AUTO_CARE, label = "AnimalAutoCare",     mod = "FS25_AnimalAutoCare"       },
     { appId = FT.APP.ANIMAL_VET,     label = "AnimalVetSystem",      mod = "FS25_AnimalVetSystem"      },
     { appId = FT.APP.FACTORY_WEEK,   label = "FactoryWeekSchedule",  mod = "FS25_FactoryWeekSchedule"  },
