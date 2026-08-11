@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="AppStore" />
         <text name="ft_ui_startupapp_3" text="Wetter" />
-        <text name="ft_ui_startupapp_4" text="Vermessung" />
+        <text name="ft_ui_startupapp_4" text="Bagger" />
         <text name="ft_ui_soundeffects_short" text="Soundeffekte" />
         <text name="ft_ui_soundeffects_long" text="Soundeffekte bei Tablet-Interaktionen abspielen" />
         <text name="ft_ui_debug_short" text="Debug-Modus" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Wetter" />
         <text name="ft_ui_app_digging" text="Vermessung" />
         <text name="ft_ui_app_bucket_tracker" text="Ladungsübersicht" />
+        <text name="ft_ui_app_excavator" text="Bagger" />
         <text name="ft_ui_app_income_mod" text="Finanzen" />
         <text name="ft_ui_app_tax_mod" text="Eichelhäher" />
         <text name="ft_ui_app_npc_favor" text="Nachbarschaftshilfe" />

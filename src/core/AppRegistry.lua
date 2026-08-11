@@ -66,18 +66,11 @@ AppRegistry.BUILTIN_APPS = {
         description = "Nearby vehicle diagnostics",
     },
     {
-        id = FT.APP.DIGGING,    group = "farm",
-        name = "ft_ui_app_digging",    navLabel = "DIG",
+        id = FT.APP.EXCAVATOR,  group = "farm",
+        name = "ft_ui_app_excavator",  navLabel = "EXC",
         icon = "digging",           order = 14,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Excavation tracking and soil scanner",
-    },
-    {
-        id = FT.APP.BUCKET,     group = "farm",
-        name = "ft_ui_app_bucket_tracker", navLabel = "BCK",
-        icon = "bucket",            order = 15,
-        developer = "FarmTablet",   version = "Built-in",
-        description = "Bucket/loader load counter",
+        description = "Terrain depth readout and bucket load counter",
     },
     {
         id = FT.APP.STORAGE,    group = "farm",
@@ -208,6 +201,15 @@ end
 
 function AppRegistry:has(id)
     return self._apps[id] ~= nil
+end
+
+-- Legacy Digging / Bucket Tracker ids redirect to Excavator so saved
+-- startupApp / favourite lists keep working after the merge.
+function AppRegistry.resolve(id)
+    if id == FT.APP.DIGGING or id == FT.APP.BUCKET then
+        return FT.APP.EXCAVATOR
+    end
+    return id
 end
 
 function AppRegistry:setEnabled(id, state)

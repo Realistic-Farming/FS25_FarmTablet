@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Pannello di controllo" />
         <text name="ft_ui_startupapp_2" text="App Store" />
         <text name="ft_ui_startupapp_3" text="Tempo atmosferico" />
-        <text name="ft_ui_startupapp_4" text="Scavo" />
+        <text name="ft_ui_startupapp_4" text="Escavatore" />
         <text name="ft_ui_soundeffects_short" text="Effetti sonori" />
         <text name="ft_ui_soundeffects_long" text="Riproduci effetti sonori per le interazioni con il tablet" />
         <text name="ft_ui_debug_short" text="Modalità di debug" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Tempo atmosferico" />
         <text name="ft_ui_app_digging" text="Scavo" />
         <text name="ft_ui_app_bucket_tracker" text="Localizzatore del secchio" />
+        <text name="ft_ui_app_excavator" text="Escavatore" />
         <text name="ft_ui_app_income_mod" text="Mod. Reddito" />
         <text name="ft_ui_app_tax_mod" text="Mod. fiscale" />
         <text name="ft_ui_app_npc_favor" text="Favore dell'NPC" />

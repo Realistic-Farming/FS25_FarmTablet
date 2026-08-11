@@ -111,6 +111,9 @@ function FarmTabletSystem:initialize()
     self.isInitialized = true
     self.registry:autoDetect()
     self.data:initSessionTracking()
+    if AppRegistry and AppRegistry.resolve then
+        self.currentApp = AppRegistry.resolve(self.currentApp)
+    end
     self:log("System initialized. Apps: %d", #self.registry:getAll())
 end
 
@@ -128,7 +131,9 @@ end
 
 function FarmTabletSystem:update(dt)
     if not self.settings.enabled or not self.isInitialized then return end
-    if self.currentApp == FT.APP.BUCKET and self.bucket.isEnabled then
+    -- Bucket counting runs every frame while the mod is enabled, even when
+    -- the Excavator page is closed or the tablet is put away.
+    if self.bucket.isEnabled then
         self:_updateBucket()
     end
 end

@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="계기반" />
         <text name="ft_ui_startupapp_2" text="앱스토어" />
         <text name="ft_ui_startupapp_3" text="날씨" />
-        <text name="ft_ui_startupapp_4" text="파기" />
+        <text name="ft_ui_startupapp_4" text="굴착기" />
         <text name="ft_ui_soundeffects_short" text="음향 효과" />
         <text name="ft_ui_soundeffects_long" text="태블릿 상호작용을 위한 음향 효과 재생" />
         <text name="ft_ui_debug_short" text="디버그 모드" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="날씨" />
         <text name="ft_ui_app_digging" text="파기" />
         <text name="ft_ui_app_bucket_tracker" text="버킷 추적기" />
+        <text name="ft_ui_app_excavator" text="굴착기" />
         <text name="ft_ui_app_income_mod" text="소득 모드" />
         <text name="ft_ui_app_tax_mod" text="세금 모드" />
         <text name="ft_ui_app_npc_favor" text="NPC 호의" />

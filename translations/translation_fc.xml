@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Tableau de bord" />
         <text name="ft_ui_startupapp_2" text="Magasin d'applications" />
         <text name="ft_ui_startupapp_3" text="Météo" />
-        <text name="ft_ui_startupapp_4" text="Creusement" />
+        <text name="ft_ui_startupapp_4" text="挖掘机" />
         <text name="ft_ui_soundeffects_short" text="Bruitage" />
         <text name="ft_ui_soundeffects_long" text="Jouer des effets sonores pour les interactions avec la tablette" />
         <text name="ft_ui_debug_short" text="Mode débogage" />
@@ -124,6 +124,7 @@
         <text name="ft_ui_app_weather" text="Météo" />
         <text name="ft_ui_app_digging" text="Creusement" />
         <text name="ft_ui_app_bucket_tracker" text="Suivi du seau" />
+        <text name="ft_ui_app_excavator" text="挖掘机" />
         <text name="ft_ui_app_income_mod" text="Mod de revenu" />
         <text name="ft_ui_app_tax_mod" text="Mod fiscal" />
         <text name="ft_ui_app_npc_favor" text="Faveur des PNJ" />
