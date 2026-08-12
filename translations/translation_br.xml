@@ -2541,9 +2541,9 @@
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="NECESSIDADE DE ÁGUA (conselho)" />
-        <text name="ft_irr_advisory_locked_l7" text="Desbloqueado no nível cooperativa 7" />
+        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="PREVISAO (conselho)" />
-        <text name="ft_irr_advisory_locked_l18" text="Desbloqueado no nível cooperativa 18" />
+        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
         <text name="ft_irr_advisory_no_reads" text="Ainda sem campos com leitura de água." />
         <text name="ft_irr_call_water_today" text="irrigar hoje" />
         <text name="ft_irr_call_watch" text="observar" />

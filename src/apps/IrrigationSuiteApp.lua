@@ -481,12 +481,18 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         -- Read-only, display-only, no economic effect (the standing cert gate).
         -- Everything feeds no cost / yield / price / efficiency hook. Data is all
         -- shipped SCS getters, nil-safe, neutral-absent; SCS absent means the whole
-        -- app already returned above. ProStaff absent: the gated sections stay
-        -- honest-locked (header + the one-liner naming the unlocking level).
+        -- app already returned above.
         -- Local farm only: getPlayerFarmId + getOwnedFields, no cross-farm read.
+        --
+        -- FAIL-OPEN when ProStaff is not installed (Wizard 2026-08-09). These are
+        -- ProStaff PROGRESSION gates, not a licence for the data: the advisories are
+        -- pure Crop Stress reads. Defaulting them false meant a farm without the
+        -- companion mod saw permanent "unlocks at level 7" teasers for a level system
+        -- that does not exist in their game. Absent companion = no gate at all;
+        -- present companion = its own levels decide, exactly as before.
         local psm = g_currentMission and g_currentMission.proStaffManager
-        local hasForecastAccess = false
-        local hasPredictiveControl = false
+        local hasForecastAccess = (psm == nil)
+        local hasPredictiveControl = (psm == nil)
         if psm ~= nil then
             pcall(function() hasForecastAccess = psm:hasForecastAccess(farmId) end)
             pcall(function() hasPredictiveControl = psm:hasPredictiveControl(farmId) end)

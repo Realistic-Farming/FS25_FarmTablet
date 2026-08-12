@@ -204,7 +204,7 @@ local function _readDairySignal()
         if type(row) == "table" then
             health = health or row.health or row.herdHealth
             spoilage = spoilage or row.spoilage
-            tier = tier or row.tierName or row.tier
+            tier = tier or row.qualityTier or row.tierName or row.tier
         end
     end
     return { present = true, barnCount = #rows, health = health, spoilage = spoilage, tier = tier }
