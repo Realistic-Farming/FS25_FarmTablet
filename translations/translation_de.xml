@@ -306,6 +306,7 @@
         <text name="ft_repair_service_title" text="Tablet-Service" />
         <text name="ft_repair_started_msg" text="Tablet in Reparatur." />
         <text name="ft_repair_done_msg" text="Tablet wieder einsatzbereit." />
+        <text name="ft_repair_force_done_msg" text="Erzwungene Reparatur abgeschlossen. Reparaturgebuehr berechnet: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in Reparatur. Wir melden uns." />
         <text name="ft_repair_title" text="DISPLAYSCHADEN" />
         <text name="ft_repair_subtitle" text="Displayschaden durch einen Sturz." />

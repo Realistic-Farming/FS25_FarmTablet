@@ -427,6 +427,7 @@ Type `tablet` in the developer console (`~` key) for the full list:
 | `TabletSetNotifications true\|false` | Toggle notifications |
 | `TabletSetStartupApp 1\|2\|3\|4` | Set default startup app |
 | `TabletResetSettings` | Reset all settings to defaults |
+| `TabletForceRepair` | Force repair the tablet for a fixed 3000 fee (temporary until the repair station ships) |
 
 > `TabletApp` appears in the `tablet` help text printout but is **not a registered command** — do not reference it as working.
 

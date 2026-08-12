@@ -6,6 +6,9 @@ FT = FT or {}
 
 FT.VERSION = "2.5.3.0"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
 
+-- TEMPORARY console command fee until the real repair station ships.
+FT.FORCE_REPAIR_FEE = 3000
+
 -- Generic localization helpers.  This keeps old app scripts from drawing
 -- fixed English labels directly on screen: if a visible text has a matching
 -- translation key, the renderer swaps it before drawing.

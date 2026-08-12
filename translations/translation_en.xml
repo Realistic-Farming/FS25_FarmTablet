@@ -308,6 +308,7 @@
         <text name="ft_repair_service_title" text="Tablet Service" />
         <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
         <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
+        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
         <text name="ft_repair_title" text="DISPLAY DAMAGE" />
         <text name="ft_repair_subtitle" text="Display damage from a drop" />
