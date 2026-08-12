@@ -1938,6 +1938,54 @@ function FarmTabletUI:_updateTabletRepairSystem(dt, force)
     return false
 end
 
+-- TEMPORARY console command helper until the real repair station ships.
+-- Instantly finishes an in-progress display repair so the tablet is usable again.
+-- Charges the farm a fixed fee, then clears the repair state exactly like a
+-- natural completion does (see _updateTabletRepairSystem). Remove this together
+-- with the TabletForceRepair console command once the repair station exists.
+function FarmTabletUI:forceCompleteRepair(fee)
+    if self._tabletRepairActive ~= true then
+        return false, "Tablet is not in repair, nothing to force"
+    end
+    fee = math.max(0, math.floor(tonumber(fee) or 0))
+    if fee > 0 then
+        if g_currentMission == nil or g_currentMission.getIsServer == nil or not g_currentMission:getIsServer() then
+            return false, "Money can only be deducted on the server"
+        end
+        if g_farmManager == nil then
+            return false, "Farm manager not available"
+        end
+        local farmId = self:_getNetworkBillingFarmId()
+        local ok = pcall(function()
+            local farm = g_farmManager:getFarmById(farmId)
+            if farm ~= nil and farm.changeBalance ~= nil then
+                farm:changeBalance(-fee, MoneyType.OTHER)
+                if g_currentMission.addMoneyChange ~= nil then
+                    g_currentMission:addMoneyChange(-fee, farmId, MoneyType.OTHER, true)
+                end
+            end
+        end)
+        if not ok then
+            return false, "Could not deduct the repair fee"
+        end
+    end
+    self._tabletRepairActive = false
+    self._tabletRepairStartMin = nil
+    self._tabletRepairEndMin = nil
+    self._tabletRepairNotifiedDone = true
+    self:_saveSignalProviderSelection({ id = self._signalProviderId or "realistic_farming", name = self._signalProvider or "Realistic Farming Mobile" })
+    self:_resetTabletRepairUseTimer()
+    if self.uiState == "repair" then
+        self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
+    end
+    if fee > 0 then
+        self:_notifyTabletRepair(ftUiFormat("ft_repair_force_done_msg", "Forced repair complete. Repair fee charged: %d.", fee))
+    else
+        self:_notifyTabletRepair(ftUiText("ft_repair_done_msg", "Repair completed. Tablet is ready to use again."))
+    end
+    return true, string.format("Forced repair complete. Repair fee charged: %d.", fee)
+end
+
 function FarmTabletUI:_drawRepairScreen()
     local L = FT.LAYOUT
     local r = self.r
