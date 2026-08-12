@@ -1940,7 +1940,7 @@ end
 
 -- TEMPORARY console command helper until the real repair station ships.
 -- Instantly finishes an in-progress display repair so the tablet is usable again.
--- Charges the farm a fixed fee (FT_FORCE_REPAIR_FEE), then clears the repair state
+-- Charges the farm a fixed fee (FT.FORCE_REPAIR_FEE), then clears the repair state
 -- exactly like a natural completion does (see _updateTabletRepairSystem). Remove
 -- this together with the TabletForceRepair console command once the repair
 -- station exists.
