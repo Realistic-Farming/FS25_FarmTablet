@@ -2543,9 +2543,9 @@
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="WATER NEED (advisory)" />
-        <text name="ft_irr_advisory_locked_l7" text="Unlocks at co-op level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="FORWARD CALL (advisory)" />
-        <text name="ft_irr_advisory_locked_l18" text="Unlocks at co-op level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Unlocks with Pro Staff Co-Op at level 18" />
         <text name="ft_irr_advisory_no_reads" text="No owned fields with water reads yet." />
         <text name="ft_irr_call_water_today" text="water today" />
         <text name="ft_irr_call_watch" text="watch" />
