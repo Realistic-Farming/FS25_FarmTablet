@@ -78,7 +78,6 @@ source(modDirectory .. "src/apps/ProductionBuildingsApp.lua")
 source(modDirectory .. "src/apps/FarmStatsApp.lua")
 source(modDirectory .. "src/apps/FinancialCockpitApp.lua")
 source(modDirectory .. "src/apps/AkitaTabletIntegrationsApp.lua")
-source(modDirectory .. "src/apps/DairyCoreApp.lua")
 
 local farmTabletManager
 
