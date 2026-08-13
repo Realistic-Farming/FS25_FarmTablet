@@ -35,6 +35,7 @@ source(modDirectory .. "src/ui/HomeScreen.lua")
 source(modDirectory .. "src/ui/LockScreen.lua")
 source(modDirectory .. "src/FarmTabletUIEditMode.lua")
 source(modDirectory .. "src/FarmTabletManager.lua")
+source(modDirectory .. "src/integrations/FTMasterHUDBridge.lua")
 
 -- Built-in Apps
 source(modDirectory .. "src/apps/DashboardApp.lua")
@@ -89,6 +90,11 @@ local function loadedMission(mission, node)
     if not isEnabled() then return end
     if mission.cancelLoading then return end
     farmTabletManager:onMissionLoaded()
+    -- MasterHUD claim (delegate-when-present): while the tablet is open it owns the
+    -- whole screen, so every other companion HUD stands down.
+    if FTMasterHUDBridge ~= nil then
+        FTMasterHUDBridge.register(farmTabletManager.ui)
+    end
 end
 
 local function load(mission)
