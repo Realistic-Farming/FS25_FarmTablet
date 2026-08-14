@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-14T06:15:07Z
-**Days tracked:** 112 | **Download snapshots:** 645 (hourly)
+**Last updated:** 2026-08-14T18:55:46Z
+**Days tracked:** 112 | **Download snapshots:** 650 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 447 | 161 |
-| Git Clones | 441 | 112 |
+| Page Views | 432 | 157 |
+| Git Clones | 475 | 124 |
 
 > **Engagement:** 2.7 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 1102 of 161 visitors cloned or downloaded (**684.4%**)
+> **14-day conversion:** 1119 of 157 visitors cloned or downloaded (**712.7%**)
 >
-> Unique cloners: 112 | Release downloads: 990
+> Unique cloners: 124 | Release downloads: 995
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 990 |
-| Git Clones (14-day) | 441 |
-| **Total Acquisitions** | **1431** |
+| Zip Downloads | 995 |
+| Git Clones (14-day) | 475 |
+| **Total Acquisitions** | **1470** |
 
 ---
 
@@ -54,13 +54,12 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 227 | 95 |
-| Google | 53 | 27 |
+| github.com | 220 | 89 |
+| Google | 59 | 30 |
 | Bing | 6 | 4 |
 | chatgpt.com | 6 | 4 |
 | search.brave.com | 2 | 1 |
 | DuckDuckGo | 1 | 1 |
-| kingmods.net | 1 | 1 |
 | yandex.ru | 1 | 1 |
 
 ---
@@ -81,16 +80,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_FarmTablet` | 269 | 143 |
-| `/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.2.15` | 51 | 33 |
-| `/Realistic-Farming/FS25_FarmTablet/releases` | 30 | 24 |
-| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-dashboard.png` | 11 | 11 |
+| `/Realistic-Farming/FS25_FarmTablet` | 256 | 139 |
+| `/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.2.15` | 53 | 34 |
+| `/Realistic-Farming/FS25_FarmTablet/releases` | 26 | 20 |
+| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-dashboard.png` | 13 | 13 |
+| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png` | 11 | 11 |
 | `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-lockscreen.png` | 10 | 10 |
-| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png` | 9 | 9 |
-| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-settings.png` | 9 | 6 |
-| `/Realistic-Farming/FS25_FarmTablet/issues` | 8 | 5 |
+| `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-settings.png` | 10 | 7 |
+| `/Realistic-Farming/FS25_FarmTablet/issues` | 7 | 4 |
 | `/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.3.0` | 5 | 4 |
-| `/Realistic-Farming/FS25_FarmTablet/pulls` | 4 | 4 |
+| `/Realistic-Farming/FS25_FarmTablet/tree/main/translations` | 5 | 2 |
 
 ---
 

@@ -3934,13 +3934,13 @@
   "2026-08-14": [
     {
       "referrer": "github.com",
-      "count": 227,
-      "uniques": 95
+      "count": 220,
+      "uniques": 89
     },
     {
       "referrer": "Google",
-      "count": 53,
-      "uniques": 27
+      "count": 59,
+      "uniques": 30
     },
     {
       "referrer": "Bing",
@@ -3959,11 +3959,6 @@
     },
     {
       "referrer": "DuckDuckGo",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "referrer": "kingmods.net",
       "count": 1,
       "uniques": 1
     },
