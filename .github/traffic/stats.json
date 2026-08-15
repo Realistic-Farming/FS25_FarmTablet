@@ -37396,26 +37396,26 @@
     "watchers": 3
   },
   {
-    "timestamp": "2026-08-15T12:38:47Z",
+    "timestamp": "2026-08-15T18:30:58Z",
     "date": "2026-08-15",
     "views": {
-      "count": 432,
-      "uniques": 157
+      "count": 437,
+      "uniques": 162
     },
     "clones": {
-      "count": 475,
-      "uniques": 124
+      "count": 493,
+      "uniques": 130
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 220,
-        "uniques": 89
+        "count": 224,
+        "uniques": 92
       },
       {
         "referrer": "Google",
-        "count": 59,
-        "uniques": 30
+        "count": 63,
+        "uniques": 32
       },
       {
         "referrer": "Bing",
@@ -37428,16 +37428,6 @@
         "uniques": 4
       },
       {
-        "referrer": "search.brave.com",
-        "count": 2,
-        "uniques": 1
-      },
-      {
-        "referrer": "DuckDuckGo",
-        "count": 1,
-        "uniques": 1
-      },
-      {
         "referrer": "yandex.ru",
         "count": 1,
         "uniques": 1
@@ -37447,14 +37437,14 @@
       {
         "path": "/Realistic-Farming/FS25_FarmTablet",
         "title": "Overview",
-        "count": 256,
-        "uniques": 139
+        "count": 259,
+        "uniques": 144
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.5.2.15",
         "title": "/releases/tag/v2.5.2.15",
-        "count": 53,
-        "uniques": 34
+        "count": 55,
+        "uniques": 35
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/releases",
@@ -37463,28 +37453,28 @@
         "uniques": 20
       },
       {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-settings.png",
+        "title": "/blob/main/.github/images/ft-settings.png",
+        "count": 13,
+        "uniques": 8
+      },
+      {
         "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-dashboard.png",
         "title": "/blob/main/.github/images/ft-dashboard.png",
-        "count": 13,
-        "uniques": 13
-      },
-      {
-        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png",
-        "title": "/blob/main/.github/images/ft-home.png",
-        "count": 11,
-        "uniques": 11
-      },
-      {
-        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-lockscreen.png",
-        "title": "/blob/main/.github/images/ft-lockscreen.png",
         "count": 10,
         "uniques": 10
       },
       {
-        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-settings.png",
-        "title": "/blob/main/.github/images/ft-settings.png",
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png",
+        "title": "/blob/main/.github/images/ft-home.png",
         "count": 10,
-        "uniques": 7
+        "uniques": 10
+      },
+      {
+        "path": "/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-lockscreen.png",
+        "title": "/blob/main/.github/images/ft-lockscreen.png",
+        "count": 9,
+        "uniques": 9
       },
       {
         "path": "/Realistic-Farming/FS25_FarmTablet/issues",
@@ -37509,7 +37499,7 @@
       {
         "assets": [
           {
-            "downloads": 48,
+            "downloads": 49,
             "name": "FS25_FarmTablet.zip"
           }
         ],
@@ -37518,7 +37508,7 @@
       {
         "assets": [
           {
-            "downloads": 167,
+            "downloads": 177,
             "name": "FS25_FarmTablet.zip"
           }
         ],

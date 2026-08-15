@@ -3971,13 +3971,13 @@
   "2026-08-15": [
     {
       "referrer": "github.com",
-      "count": 220,
-      "uniques": 89
+      "count": 224,
+      "uniques": 92
     },
     {
       "referrer": "Google",
-      "count": 59,
-      "uniques": 30
+      "count": 63,
+      "uniques": 32
     },
     {
       "referrer": "Bing",
@@ -3988,16 +3988,6 @@
       "referrer": "chatgpt.com",
       "count": 6,
       "uniques": 4
-    },
-    {
-      "referrer": "search.brave.com",
-      "count": 2,
-      "uniques": 1
-    },
-    {
-      "referrer": "DuckDuckGo",
-      "count": 1,
-      "uniques": 1
     },
     {
       "referrer": "yandex.ru",
