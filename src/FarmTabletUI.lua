@@ -437,7 +437,7 @@ function FarmTabletUI:_updateBatterySystem(dt)
     return false
 end
 
-function FarmTabletUI:openTablet()
+function FarmTabletUI:_openTabletBody()
     if not self.settings.enabled or self.isOpen then return end
     self._lastBatteryRealMs = nil
 
@@ -552,6 +552,52 @@ function FarmTabletUI:openTablet()
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
     if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+end
+
+--- BUILD 10:50, claim discipline.
+---
+--- Opening the tablet claims two things that belong to everybody: the mouse
+--- cursor, and the MasterHUD fullscreen slot, which the bridge derives from
+--- `ui.isOpen` and which HIDES EVERY OTHER HUD while it is set. Both used to be
+--- claimed part way through a long open, so a throw anywhere after `isOpen = true`
+--- left the player with no tablet AND no other HUD, and no way back except
+--- pressing the key again.
+---
+--- The open body is unchanged. It is simply not allowed to fail halfway and keep
+--- the claims: on any error everything it may have taken is handed back.
+function FarmTabletUI:_releaseClaims()
+    self.isOpen = false
+    if self.system ~= nil then
+        self.system.isTabletOpen = false
+    end
+
+    if g_currentMission ~= nil then
+        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
+            pcall(function() g_currentMission:removeDrawable(self) end)
+        end
+        if self._mouseListener ~= nil then
+            pcall(function() removeModEventListener(self._mouseListener) end)
+            self._mouseListener = nil
+        end
+    end
+
+    if g_inputBinding ~= nil and g_inputBinding.setShowMouseCursor ~= nil then
+        pcall(function() g_inputBinding:setShowMouseCursor(false) end)
+    end
+end
+
+function FarmTabletUI:openTablet()
+    local ok, err = pcall(FarmTabletUI._openTabletBody, self)
+    if ok then
+        return
+    end
+
+    self:_releaseClaims()
+
+    if not FarmTabletUI._loggedOpenFailure then
+        FarmTabletUI._loggedOpenFailure = true
+        Logging.warning("[FarmTablet v2] tablet did not open, claims released: %s", tostring(err))
+    end
 end
 
 function FarmTabletUI:closeTablet()

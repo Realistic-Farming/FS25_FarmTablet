@@ -4,7 +4,7 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.5.3.0"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
+FT.VERSION = "2.6.0.4"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
 
 -- TEMPORARY console command fee until the real repair station ships.
 FT.FORCE_REPAIR_FEE = 3000

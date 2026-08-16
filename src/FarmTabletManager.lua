@@ -130,7 +130,8 @@ function FarmTabletManager:onMissionLoaded()
         local title = string.format("Farm Tablet %s", FT.VERSION or "v2")
         local msg   = string.format(
             (g_i18n and g_i18n:getText("ft_ui_welcome_message")) or "Press %s to open",
-            self.inputHandler and self.inputHandler:getKeybindString() or "T"
+            self.inputHandler and self.inputHandler:getKeybindString()
+                or InputHandler.DEFAULT_KEY_LABEL
         )
         self:showNotification(title, msg)
     end
