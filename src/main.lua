@@ -122,8 +122,58 @@ local function unload()
     end
 end
 
+
+-- ---------------------------------------------------------
+-- BUILD 10:50: the tablet's toggle, as a real binding
+-- ---------------------------------------------------------
+-- Registered from the game's own player-action rebuild rather than once at
+-- startup. PlayerInputComponent:registerActionEvents runs every time the player
+-- context is (re)built, so a one-shot registration would be silently dropped the
+-- first time that happens and the tablet would stop answering. Same path
+-- FS25_FertilizerDepot uses.
+local _ftPlayerInputWrapped = false
+
+local function wrapPlayerInput()
+    if _ftPlayerInputWrapped then
+        return
+    end
+    if PlayerInputComponent == nil or PlayerInputComponent.registerActionEvents == nil then
+        return
+    end
+
+    _ftPlayerInputWrapped = true
+    local origRegister = PlayerInputComponent.registerActionEvents
+
+    PlayerInputComponent.registerActionEvents = function(inputComp, ...)
+        origRegister(inputComp, ...)
+
+        -- The owning player only. Networked players must not register a local
+        -- keyboard action.
+        if not (inputComp ~= nil and inputComp.player ~= nil and inputComp.player.isOwner) then
+            return
+        end
+
+        local handler = farmTabletManager ~= nil and farmTabletManager.inputHandler or nil
+        if handler == nil then
+            return
+        end
+
+        -- The context was just rebuilt, so any id from the previous one is stale.
+        handler:forgetRegistration()
+
+        g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
+        local ok, err = pcall(handler.register, handler)
+        g_inputBinding:endActionEventsModification()
+
+        if not ok then
+            Logging.warning("[FarmTablet v2] toggle action registration failed: %s", tostring(err))
+        end
+    end
+end
+
 Mission00.load                  = Utils.prependedFunction(Mission00.load, load)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, loadedMission)
+Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, wrapPlayerInput)
 FSBaseMission.delete            = Utils.appendedFunction(FSBaseMission.delete, unload)
 
 FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mission, dt)

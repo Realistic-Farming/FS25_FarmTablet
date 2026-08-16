@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="106">
     <author>TisonK, Akita83</author>
-    <version>2.6.0.0</version>
+    <version>2.6.0.4</version>
     <modName>FS25_FarmTablet</modName>
     <title>
         <en>Farm Tablet</en>
@@ -31,21 +31,52 @@
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
 
+    <actions>
+        <!-- ONFOOT only: Wizard locked player context for this pass, no vehicle
+             binding. The tablet is a full screen, not a driving control. -->
+        <action name="FT_TOGGLE_TABLET" category="ONFOOT" />
+    </actions>
+
     <l10n filenamePrefix="translations/translation" defaultLanguage="en">
         <text name="input_FT_TOGGLE_TABLET">
             <en>Toggle Farm Tablet</en>
             <de>Farm-Tablet ein-/ausblenden</de>
             <fr>Afficher/Masquer la Tablette</fr>
-            <es>Alternar Tablet Agrícola</es>
+            <nl>Farm-tablet tonen/verbergen</nl>
             <it>Mostra/Nascondi Tablet</it>
-            <cz>Zobrazit/Skrýt Tablet</cz>
             <pl>Pokaż/Ukryj Tablet</pl>
+            <es>Alternar Tablet Agrícola</es>
+            <ea>Alternar Tablet Agrícola</ea>
+            <pt>Mostrar/Ocultar Tablet</pt>
             <br>Alternar Tablet</br>
-            <uk>Показати/сховати планшет</uk>
             <ru>Показать/скрыть планшет</ru>
+            <uk>Показати/сховати планшет</uk>
+            <cz>Zobrazit/Skrýt Tablet</cz>
+            <hu>Farm tablet be-/kikapcsolása</hu>
+            <ro>Afișare/Ascundere tabletă</ro>
+            <tr>Çiftlik Tabletini Aç/Kapat</tr>
+            <fi>Näytä/piilota tabletti</fi>
+            <no>Vis/skjul nettbrett</no>
+            <sv>Visa/dölj surfplatta</sv>
             <da>Skift Farm Tablet</da>
+            <kr>팜 태블릿 열기/닫기</kr>
+            <jp>ファームタブレットの表示切替</jp>
+            <ct>開啟/關閉農場平板</ct>
+            <fc>打开/关闭农场平板</fc>
+            <id>Tampilkan/Sembunyikan Tablet</id>
+            <vi>Bật/tắt máy tính bảng</vi>
         </text>
     </l10n>
+    <inputBinding>
+        <actionBinding action="FT_TOGGLE_TABLET">
+            <!-- BUILD 11:20. Right Ctrl + T did not fire on eyes-on, so the chord moved
+                 to Right Shift + T, which is unused on this map and which Right Shift
+                 demonstrably works for elsewhere. Never plain KEY_t: that is CHAT, and
+                 other mods answer to a bare T. Never an F-key. -->
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rshift KEY_t" />
+        </actionBinding>
+    </inputBinding>
+
 
     <helpLines>
 
