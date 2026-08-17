@@ -520,12 +520,7 @@ function FarmTabletUI:_openTabletBody()
     end
 
     if g_currentMission then
-        -- MasterHUD present -> it draws us through the subscribe claim, so adding a
-        -- second drawable would render the tablet twice. Standalone, the drawable is
-        -- the only path.
-        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
-            g_currentMission:addDrawable(self)
-        end
+        g_currentMission:addDrawable(self)
     end
 
     if g_inputBinding then
@@ -619,9 +614,7 @@ function FarmTabletUI:closeTablet()
     end
 
     if g_currentMission then
-        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
-            g_currentMission:removeDrawable(self)
-        end
+        g_currentMission:removeDrawable(self)
         if self._mouseListener then
             removeModEventListener(self._mouseListener)
             self._mouseListener = nil
