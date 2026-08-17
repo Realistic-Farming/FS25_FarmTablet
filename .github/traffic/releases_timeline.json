@@ -183,5 +183,10 @@
     "published_at": "2026-07-24T21:23:29Z",
     "tag": "v2.5.3.0",
     "peak_downloads": 51
+  },
+  "v2.6.0.4-pre": {
+    "published_at": "2026-08-17T18:58:43Z",
+    "tag": "v2.6.0.4-pre",
+    "peak_downloads": 1
   }
 }
