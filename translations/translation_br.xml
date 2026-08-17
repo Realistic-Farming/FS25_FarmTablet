@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Painel" />
         <text name="ft_ui_startupapp_2" text="Loja de aplicativos" />
         <text name="ft_ui_startupapp_3" text="Clima" />
-        <text name="ft_ui_startupapp_4" text="Escavação" />
+        <text name="ft_ui_startupapp_4" text="Escavadeira" />
         <text name="ft_ui_soundeffects_short" text="Efeitos sonoros" />
         <text name="ft_ui_soundeffects_long" text="Reproduza efeitos sonoros para interações em tablets" />
         <text name="ft_ui_debug_short" text="Modo de depuração" />
@@ -121,9 +121,11 @@
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="Animais" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Clima" />
         <text name="ft_ui_app_digging" text="Escavação" />
         <text name="ft_ui_app_bucket_tracker" text="Rastreador de balde" />
+        <text name="ft_ui_app_excavator" text="Escavadeira" />
         <text name="ft_ui_app_income_mod" text="Modificação de renda" />
         <text name="ft_ui_app_tax_mod" text="Modificação fiscal" />
         <text name="ft_ui_app_npc_favor" text="Favor NPC" />
@@ -304,6 +306,7 @@
         <text name="ft_repair_service_title" text="Tablet Service" />
         <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
         <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
+        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
         <text name="ft_repair_title" text="DISPLAY DAMAGE" />
         <text name="ft_repair_subtitle" text="Display damage from a drop" />
@@ -2538,9 +2541,9 @@
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="NECESSIDADE DE ÁGUA (conselho)" />
-        <text name="ft_irr_advisory_locked_l7" text="Desbloqueado no nível cooperativa 7" />
+        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="PREVISAO (conselho)" />
-        <text name="ft_irr_advisory_locked_l18" text="Desbloqueado no nível cooperativa 18" />
+        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
         <text name="ft_irr_advisory_no_reads" text="Ainda sem campos com leitura de água." />
         <text name="ft_irr_call_water_today" text="irrigar hoje" />
         <text name="ft_irr_call_watch" text="observar" />
@@ -2548,4 +2551,7 @@
         <text name="ft_irr_advisory_schedule_covers" text="programa cobre" />
         <text name="ft_irr_advisory_schedule_gap" text="falha no programa" />
     </texts>
+
+
+        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

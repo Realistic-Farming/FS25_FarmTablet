@@ -25,6 +25,8 @@ function SettingsGUI:registerConsoleCommands()
     addConsoleCommand("TabletApp", "Switch to app by ID", "consoleCommandTabletApp", self)
     addConsoleCommand("TabletShowSettings", "Show current settings", "consoleCommandTabletShowSettings", self)
     addConsoleCommand("TabletResetSettings", "Reset all settings to defaults", "consoleCommandTabletResetSettings", self)
+    -- TEMPORARY: force repair the tablet until the real repair station ships.
+    addConsoleCommand("TabletForceRepair", "Force repair the tablet (temporary, charges 3000)", "consoleCommandTabletForceRepair", self)
     
     addConsoleCommand("tablet", "Show all tablet commands", "consoleCommandHelp", self)
     
@@ -43,6 +45,7 @@ function SettingsGUI:unregisterConsoleCommands()
     removeConsoleCommand("TabletApp")
     removeConsoleCommand("TabletShowSettings")
     removeConsoleCommand("TabletResetSettings")
+    removeConsoleCommand("TabletForceRepair")
     removeConsoleCommand("tablet")
 end
 
@@ -58,6 +61,7 @@ function SettingsGUI:consoleCommandHelp()
            "TabletApp [id] - Switch to app immediately\n" ..
            "TabletShowSettings - Show current settings\n" ..
            "TabletResetSettings - Reset to defaults\n" ..
+           "TabletForceRepair - Force repair tablet (temporary, charges 3000)\n" ..
            "==================================="
 end
 
@@ -184,4 +188,15 @@ function SettingsGUI:consoleCommandTabletResetSettings()
     end
     
     return "Error: Farm Tablet not initialized"
+end
+
+function SettingsGUI:consoleCommandTabletForceRepair()
+    if g_FarmTablet == nil or g_FarmTablet.ui == nil then
+        return "Error: Farm Tablet not initialized"
+    end
+    local ok, msg = g_FarmTablet.ui:forceCompleteRepair()
+    if ok then
+        return msg
+    end
+    return "Error: " .. tostring(msg or "could not force repair the tablet")
 end

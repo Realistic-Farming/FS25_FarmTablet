@@ -364,7 +364,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     end
     local ALL_STARTUP = {
         { id = "dashboard", label = ftSafeText("ft_ui_app_dashboard", "Dashboard") }, { id = "app_store", label = ftSafeText("ft_ui_app_store", "App Store") }, { id = "weather", label = ftSafeText("ft_ui_app_weather", "Weather") },
-        { id = "field_status", label = ftSafeText("ft_ui_app_field_status", "Fields") }, { id = "animals", label = ftSafeText("ft_ui_app_animals", "Animals") }, { id = "workshop", label = ftSafeText("ft_ui_app_workshop", "Workshop") }, { id = "digging", label = ftSafeText("ft_ui_app_digging", "Digging") },
+        { id = "field_status", label = ftSafeText("ft_ui_app_field_status", "Fields") }, { id = "animals", label = ftSafeText("ft_ui_app_animals", "Animals") }, { id = "workshop", label = ftSafeText("ft_ui_app_workshop", "Workshop") }, { id = "excavator", label = ftSafeText("ft_ui_app_excavator", "Excavator") },
     }
     local curStartup = s.startupApp or "dashboard"
     local sIdx = 1
@@ -434,7 +434,8 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     infoRow(ftSafeText("ft_common_version", "Version"), "v" .. tostring(FT.VERSION or ""))
     infoRow(ftSafeText("ft_common_author", "Author"), "TisonK")
     infoRow(ftSafeText("ft_settings_apps_loaded", "Apps loaded"), tostring(#self.system.registry:getAll()))
-    infoRow(ftSafeText("ft_settings_open_key", "Open key"), g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString() or "T")
+    infoRow(ftSafeText("ft_settings_open_key", "Open key"), g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
+        or InputHandler.DEFAULT_KEY_LABEL)
 
     local hintH = FT.py(44)
     self.r:appRect(cx - FT.px(4), y - hintH + FT.py(6), cw + FT.px(8), hintH, {0.10, 0.12, 0.15, 0.76})

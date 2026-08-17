@@ -437,7 +437,7 @@ function FarmTabletUI:_updateBatterySystem(dt)
     return false
 end
 
-function FarmTabletUI:openTablet()
+function FarmTabletUI:_openTabletBody()
     if not self.settings.enabled or self.isOpen then return end
     self._lastBatteryRealMs = nil
 
@@ -520,7 +520,12 @@ function FarmTabletUI:openTablet()
     end
 
     if g_currentMission then
-        g_currentMission:addDrawable(self)
+        -- MasterHUD present -> it draws us through the subscribe claim, so adding a
+        -- second drawable would render the tablet twice. Standalone, the drawable is
+        -- the only path.
+        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
+            g_currentMission:addDrawable(self)
+        end
     end
 
     if g_inputBinding then
@@ -549,6 +554,52 @@ function FarmTabletUI:openTablet()
     if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
 end
 
+--- BUILD 10:50, claim discipline.
+---
+--- Opening the tablet claims two things that belong to everybody: the mouse
+--- cursor, and the MasterHUD fullscreen slot, which the bridge derives from
+--- `ui.isOpen` and which HIDES EVERY OTHER HUD while it is set. Both used to be
+--- claimed part way through a long open, so a throw anywhere after `isOpen = true`
+--- left the player with no tablet AND no other HUD, and no way back except
+--- pressing the key again.
+---
+--- The open body is unchanged. It is simply not allowed to fail halfway and keep
+--- the claims: on any error everything it may have taken is handed back.
+function FarmTabletUI:_releaseClaims()
+    self.isOpen = false
+    if self.system ~= nil then
+        self.system.isTabletOpen = false
+    end
+
+    if g_currentMission ~= nil then
+        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
+            pcall(function() g_currentMission:removeDrawable(self) end)
+        end
+        if self._mouseListener ~= nil then
+            pcall(function() removeModEventListener(self._mouseListener) end)
+            self._mouseListener = nil
+        end
+    end
+
+    if g_inputBinding ~= nil and g_inputBinding.setShowMouseCursor ~= nil then
+        pcall(function() g_inputBinding:setShowMouseCursor(false) end)
+    end
+end
+
+function FarmTabletUI:openTablet()
+    local ok, err = pcall(FarmTabletUI._openTabletBody, self)
+    if ok then
+        return
+    end
+
+    self:_releaseClaims()
+
+    if not FarmTabletUI._loggedOpenFailure then
+        FarmTabletUI._loggedOpenFailure = true
+        Logging.warning("[FarmTablet v2] tablet did not open, claims released: %s", tostring(err))
+    end
+end
+
 function FarmTabletUI:closeTablet()
     if not self.isOpen then return end
 
@@ -568,7 +619,9 @@ function FarmTabletUI:closeTablet()
     end
 
     if g_currentMission then
-        g_currentMission:removeDrawable(self)
+        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
+            g_currentMission:removeDrawable(self)
+        end
         if self._mouseListener then
             removeModEventListener(self._mouseListener)
             self._mouseListener = nil
@@ -1162,6 +1215,13 @@ end
 -- ─────────────────────────────────────────────────────────
 
 function FarmTabletUI:switchApp(appId)
+    if AppRegistry and AppRegistry.resolve then
+        appId = AppRegistry.resolve(appId)
+    elseif appId == FT.APP.TIME_CONTROLS then
+        appId = FT.APP.FARM_ADMIN
+    elseif appId == FT.APP.DIGGING or appId == FT.APP.BUCKET then
+        appId = FT.APP.EXCAVATOR
+    end
     if not self.system.registry:has(appId) then return false end
     local app = self.system.registry:get(appId)
     if not app or not app.enabled then return false end
@@ -1931,6 +1991,49 @@ function FarmTabletUI:_updateTabletRepairSystem(dt, force)
     return false
 end
 
+-- TEMPORARY console command helper until the real repair station ships.
+-- Instantly finishes an in-progress display repair so the tablet is usable again.
+-- Charges the farm a fixed fee (FT.FORCE_REPAIR_FEE), then clears the repair state
+-- exactly like a natural completion does (see _updateTabletRepairSystem). Remove
+-- this together with the TabletForceRepair console command once the repair
+-- station exists.
+function FarmTabletUI:forceCompleteRepair()
+    if self._tabletRepairActive ~= true then
+        return false, "Tablet is not in repair, nothing to force"
+    end
+    local fee = FT.FORCE_REPAIR_FEE
+    if g_currentMission == nil or g_currentMission.getIsServer == nil or not g_currentMission:getIsServer() then
+        return false, "Money can only be deducted on the server"
+    end
+    if g_farmManager == nil then
+        return false, "Farm manager not available"
+    end
+    local farmId = self:_getNetworkBillingFarmId()
+    local ok = pcall(function()
+        local farm = g_farmManager:getFarmById(farmId)
+        if farm ~= nil and farm.changeBalance ~= nil then
+            farm:changeBalance(-fee, MoneyType.OTHER)
+            if g_currentMission.addMoneyChange ~= nil then
+                g_currentMission:addMoneyChange(-fee, farmId, MoneyType.OTHER, true)
+            end
+        end
+    end)
+    if not ok then
+        return false, "Could not deduct the repair fee"
+    end
+    self._tabletRepairActive = false
+    self._tabletRepairStartMin = nil
+    self._tabletRepairEndMin = nil
+    self._tabletRepairNotifiedDone = true
+    self:_saveSignalProviderSelection({ id = self._signalProviderId or "realistic_farming", name = self._signalProvider or "Realistic Farming Mobile" })
+    self:_resetTabletRepairUseTimer()
+    if self.uiState == "repair" then
+        self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
+    end
+    self:_notifyTabletRepair(ftUiFormat("ft_repair_force_done_msg", "Forced repair complete. Repair fee charged: %d.", fee))
+    return true, string.format("Forced repair complete. Repair fee charged: %d.", fee)
+end
+
 function FarmTabletUI:_drawRepairScreen()
     local L = FT.LAYOUT
     local r = self.r
@@ -2390,8 +2493,8 @@ function FarmTabletUI:update(dt)
     if self.uiState == "app" then
         self:_pollContentScroll()
         self:_updateContentScrollSmooth(dt)
-        if self.system.currentApp == FT.APP.DIGGING and self.updateDiggingApp then
-            self:updateDiggingApp(dt)
+        if self.system.currentApp == FT.APP.EXCAVATOR and self.updateExcavatorApp then
+            self:updateExcavatorApp(dt)
         end
     elseif self.uiState == "home" then
         self:_pollHomePaging()

@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="ダッシュボード" />
         <text name="ft_ui_startupapp_2" text="アプリストア" />
         <text name="ft_ui_startupapp_3" text="天気" />
-        <text name="ft_ui_startupapp_4" text="掘る" />
+        <text name="ft_ui_startupapp_4" text="ショベル" />
         <text name="ft_ui_soundeffects_short" text="効果音" />
         <text name="ft_ui_soundeffects_long" text="タブレットのインタラクション用の効果音を再生する" />
         <text name="ft_ui_debug_short" text="デバッグモード" />
@@ -121,9 +121,11 @@
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
         <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
         <text name="ft_ui_app_animals" text="動物" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="天気" />
         <text name="ft_ui_app_digging" text="掘る" />
         <text name="ft_ui_app_bucket_tracker" text="バケットトラッカー" />
+        <text name="ft_ui_app_excavator" text="ショベル" />
         <text name="ft_ui_app_income_mod" text="収入モッド" />
         <text name="ft_ui_app_tax_mod" text="税金モッド" />
         <text name="ft_ui_app_npc_favor" text="NPCの好意" />
@@ -304,6 +306,7 @@
         <text name="ft_repair_service_title" text="Tablet Service" />
         <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
         <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
+        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
         <text name="ft_repair_title" text="DISPLAY DAMAGE" />
         <text name="ft_repair_subtitle" text="Display damage from a drop" />
@@ -2538,9 +2541,9 @@
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="水の必要量（アドバイス）" />
-        <text name="ft_irr_advisory_locked_l7" text="協同組合レベル7で解放" />
+        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="見通し（アドバイス）" />
-        <text name="ft_irr_advisory_locked_l18" text="協同組合レベル18で解放" />
+        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
         <text name="ft_irr_advisory_no_reads" text="まだ水分データのある畑がありません。" />
         <text name="ft_irr_call_water_today" text="今日水をやる" />
         <text name="ft_irr_call_watch" text="観察" />
@@ -2548,4 +2551,7 @@
         <text name="ft_irr_advisory_schedule_covers" text="予定が対応" />
         <text name="ft_irr_advisory_schedule_gap" text="予定の隙間" />
     </texts>
+
+
+        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

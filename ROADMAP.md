@@ -15,6 +15,7 @@
 - Baseline date: 2026-06-29 (updated 2026-07-25)
 
 ## Near-term (next release cycle)
+- [~] TEMPORARY `TabletForceRepair` console command: force-completes a display repair for a fixed 3000 fee until the real repair station ships, then it is removed.
 - [ ] Focus state fix (Point 1): make goHome / openTablet / unlock pass nil instead of the previous appId (three one-line changes in FarmTabletUI.lua).
 - [x] Keep the ecosystem-map current: MarketDynamicsApp and RandomWorldEventsApp are NOT stubs (source files exist; autoDetect registers them when the handles are present).
 - [x] 2026-07-26 bug sweep: FT-001 (camera rotation restore), FT-002 (nil guard on g_currentMission), FT-003/FT-004/FT-005 fixed and merged to main.

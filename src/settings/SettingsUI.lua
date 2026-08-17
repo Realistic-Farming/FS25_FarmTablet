@@ -79,7 +79,7 @@ function SettingsUI:_doInject()
     
     -- Startup app option — UIHelper.createMultiOption uses 1-based numeric indices;
     -- Settings.startupApp is now a string ID. We map between them here.
-    local startupIdMap = { "dashboard", "app_store", "weather", "digging" }
+    local startupIdMap = { "dashboard", "app_store", "weather", "excavator" }
     local startupIdxMap = {}
     for i, id in ipairs(startupIdMap) do startupIdxMap[id] = i end
 
@@ -162,7 +162,7 @@ function SettingsUI:refreshUI()
     
     if self.startupOption and self.startupOption.setState then
         -- Map string app ID back to 1-based numeric index for the UI element
-        local startupIdxMap = { dashboard=1, app_store=2, weather=3, digging=4 }
+        local startupIdxMap = { dashboard=1, app_store=2, weather=3, excavator=4 }
         local idx = startupIdxMap[self.settings.startupApp] or 1
         self.startupOption:setState(idx)
     end

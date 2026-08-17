@@ -1,316 +1,169 @@
 -- =========================================================
--- FarmTablet v2 -- ProStaff Co-Op App
+-- FarmTablet - ProStaff Co-Op (Tyson green light 2026-07-25)
 -- =========================================================
--- Read-only dashboard for the 20-level Co-Op progression
--- system. Shows current level, investment progress, active
--- benefits, and next-level preview. Pulls all data from
--- g_currentMission.proStaffManager via the ProStaffAPI
--- getter proxy. No write actions from this tab.
+-- Investment / ladder summary over g_currentMission.proStaffManager.
+-- Not PersonnelApp (that is WorkerCosts HR). Buy via buyLevel when available.
 -- =========================================================
+
+local function _ps()
+    return (g_currentMission and g_currentMission.proStaffManager)
+        or getfenv(0)["g_proStaffCoOp"]
+end
+
+local function _money(n)
+    n = tonumber(n) or 0
+    if g_i18n ~= nil and g_i18n.formatMoney ~= nil then
+        local ok, s = pcall(function() return g_i18n:formatMoney(n, 0, true, true) end)
+        if ok and s then return s end
+    end
+    return string.format("$%.0f", n)
+end
+
+local function _levelName(level)
+    level = tonumber(level) or 0
+    if level <= 0 then return "None" end
+    if ProStaffConstants ~= nil and type(ProStaffConstants.LEVEL_NAMES) == "table" then
+        return ProStaffConstants.LEVEL_NAMES[level] or ("Level " .. tostring(level))
+    end
+    return "Level " .. tostring(level)
+end
+
+local function _modLine(label, value, neutral)
+    if value == nil then return nil end
+    if type(value) == "boolean" then
+        if value == false then return nil end
+        return label .. ": on"
+    end
+    local n = tonumber(value)
+    if n == nil then return nil end
+    if neutral ~= nil and math.abs(n - neutral) < 0.0001 then return nil end
+    if n < 1.0 then
+        return string.format("%s: %d%%", label, math.floor(n * 100 + 0.5))
+    end
+    return string.format("%s: x%.2f", label, n)
+end
 
 FarmTabletUI:registerDrawer(FT.APP.PROSTAFF, function(self)
     local AC = FT.appColor(FT.APP.PROSTAFF)
 
-    if self:drawHelpPage("_prostaffHelp", FT.APP.PROSTAFF, "ProStaff Co-Op", AC, {
-        { title = "WHAT THIS APP SHOWS",
-          body  = "Displays your farm's 20-level Co-Op progression\n" ..
-                  "status: current level, investment progress, active\n" ..
-                  "benefits, and what the next level unlocks." },
-        { title = "LEVELS",
-          body  = "Each level costs a one-time investment. Costs\n" ..
-                  "scale exponentially (level^2.2 * baseCost) and\n" ..
-                  "carry a wealth bracket premium at L10+." },
-        { title = "BENEFITS",
-          body  = "Active modifiers are listed by category: wages,\n" ..
-                  "fertilizer, fatigue, dairy, and feature flags.\n" ..
-                  "Benefits stack as you level up." },
-        { title = "INVESTMENT",
-          body  = "The progress bar shows total invested vs the\n" ..
-                  "next level cost. Purchase levels via the console\n" ..
-                  "command: proStaffBuy" },
+    if self:drawHelpPage("_prostaffHelp", FT.APP.PROSTAFF, "Pro-Staff Co-Op", AC, {
+        { title = "WHAT THIS IS",
+          body  = "Your farm's Pro-Staff Co-Op membership level,\n" ..
+                  "next investment cost, and active modifiers.\n" ..
+                  "This is not the Personnel / Worker Costs roster." },
+        { title = "INVEST",
+          body  = "BUY NEXT LEVEL spends the listed cost on the host\n" ..
+                  "via ProStaff's own buyLevel path. Pure clients need\n" ..
+                  "the host / NetworkSync to complete the purchase." },
+        { title = "MODIFIERS",
+          body  = "Only non-neutral effects at your current level are\n" ..
+                  "listed (wages, fatigue, fertilizer, dairy, flags)." },
     }) then return end
 
-    local ACENT = AC
-    local startY = self:drawAppHeader("ProStaff Co-Op", "Progression")
-    local x, contentY, cw, _ = self:contentInner()
+    local startY = self:drawAppHeader("Pro-Staff Co-Op", "Investment")
+    local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
-    local minY = contentY + FT.py(8)
+    local bottomPad = FT.py(28)
 
-    local psm = g_currentMission and g_currentMission.proStaffManager
-    if not psm then
+    local mgr = _ps()
+    if mgr == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
-            "ProStaff Co-Op is not installed.", RenderText.ALIGN_LEFT, FT.C.NEGATIVE)
+            "Pro-Staff Co-Op not detected.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         self.r:appText(x, y - FT.py(30), FT.FONT.SMALL,
-            "Install FS25_ProStaffCoOp to use this app.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        self:drawInfoIcon("_prostaffHelp", ACENT)
+            "Install FS25_ProStaffCoOp to use this app.",
+            RenderText.ALIGN_LEFT, FT.C.MUTED)
+        self:drawInfoIcon("_prostaffHelp", AC)
         return
     end
 
-    -- Resolve local farm
-    local farmId = nil
-    pcall(function()
-        if g_currentMission.getFarmId then
-            farmId = g_currentMission:getFarmId()
-        end
-    end)
-
     local level = 0
-    pcall(function() level = psm:getLevel(farmId) end)
-    local levelName = (ProStaffConstants and ProStaffConstants.LEVEL_NAMES and ProStaffConstants.LEVEL_NAMES[level])
-                  or "Unranked"
-    local maxLevel = (ProStaffConstants and ProStaffConstants.MAX_LEVEL) or 20
-
-    -- Investment data
-    local investmentTotal = 0
-    local rec = psm.farms and psm.farms[farmId]
-    if rec then
-        investmentTotal = rec.investmentTotal or 0
+    if type(mgr.getLevel) == "function" then
+        local ok, v = pcall(function() return mgr:getLevel() end)
+        if ok then level = tonumber(v) or 0 end
     end
-
     local nextCost = nil
-    pcall(function() nextCost = psm:getNextLevelCost(farmId) end)
+    if type(mgr.getNextLevelCost) == "function" then
+        local ok, v = pcall(function() return mgr:getNextLevelCost() end)
+        if ok then nextCost = v end
+    end
+    local invested = nil
+    if type(mgr.farms) == "table" then
+        local farmId = self.system.data:getPlayerFarmId()
+        local rec = mgr.farms[farmId]
+        if rec ~= nil then invested = rec.investmentTotal end
+    end
 
-    -- ── LEVEL HERO ─────────────────────────────────────────
-    local heroColor = level >= 10 and FT.C.POSITIVE or level >= 1 and ACENT or FT.C.TEXT_DIM
-    self.r:appRect(x - FT.px(4), y - FT.py(24), cw + FT.px(8), FT.py(22),
-        {heroColor[1]*0.12, heroColor[2]*0.12, heroColor[3]*0.12, 0.95})
-    self.r:appText(x, y - FT.py(20), FT.FONT.BODY,
-        "Level " .. level .. "  " .. levelName, RenderText.ALIGN_LEFT, heroColor)
-    self.r:appText(x + cw, y - FT.py(20), FT.FONT.SMALL,
-        level .. " / " .. maxLevel, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
-    y = y - FT.py(28)
+    y = self:drawSection(y, "MEMBERSHIP")
+    y = self:drawRow(y, "Level", string.format("%d  ·  %s", level, _levelName(level)),
+        nil, FT.C.TEXT_BRIGHT)
+    if invested ~= nil then
+        y = self:drawRow(y, "Invested", _money(invested), nil, FT.C.TEXT_NORMAL)
+    end
+    if nextCost ~= nil then
+        y = self:drawRow(y, "Next level cost", _money(nextCost), nil, FT.C.WARNING)
+    else
+        y = self:drawRow(y, "Next level cost", "MAX", nil, FT.C.POSITIVE)
+    end
+    y = y - FT.py(6)
 
-    -- ── PROGRESS BAR ───────────────────────────────────────
-    if level < maxLevel and nextCost and nextCost > 0 then
-        local pct = math.min(100, math.floor((investmentTotal / (investmentTotal + nextCost)) * 100))
-        y = self:drawRow(y, "Progress", tostring(pct) .. "%")
-        y = y + FT.py(FT.SP.ROW) - FT.py(8)
-        y = self:drawBar(y, pct, 100, ACENT)
-        y = y - FT.py(4)
-        y = self:drawRow(y, "Invested",
-            (g_i18n and g_i18n:formatMoney(math.floor(investmentTotal), 0, true, true))
-            or ("$" .. math.floor(investmentTotal)))
-        y = self:drawRow(y, "Next Level",
-            (g_i18n and g_i18n:formatMoney(nextCost, 0, true, true))
-            or ("$" .. nextCost))
-    elseif level >= maxLevel then
-        self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-            "MAX LEVEL REACHED", RenderText.ALIGN_LEFT, FT.C.POSITIVE)
+    if nextCost ~= nil and type(mgr.buyLevel) == "function" then
+        local btn = self.r:button(x, y - FT.py(22), cw, FT.py(22),
+            "BUY NEXT LEVEL", FT.C.BTN_PRIMARY, {
+                onClick = function()
+                    pcall(function() mgr:buyLevel() end)
+                end
+            })
+        table.insert(self._contentBtns, btn)
+        y = y - FT.py(30)
+    else
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "No further levels available.", RenderText.ALIGN_LEFT, FT.C.MUTED)
+        y = y - FT.py(22)
+    end
+
+    y = self:drawRule(y, 0.3)
+    y = self:drawSection(y, "ACTIVE MODIFIERS")
+
+    local mods = {}
+    local function try(label, fnName, neutral)
+        if type(mgr[fnName]) ~= "function" then return end
+        local ok, v = pcall(function() return mgr[fnName](mgr) end)
+        if not ok then return end
+        local line = _modLine(label, v, neutral)
+        if line then mods[#mods + 1] = line end
+    end
+    try("Wage cost", "getWageModifier", 1.0)
+    try("Fatigue mitigation", "getFatigueMitigation", 1.0)
+    try("Fatigue recovery", "getFatigueRecoveryBonus", 1.0)
+    try("Global effectiveness", "getGlobalEffectivenessBonus", 1.0)
+    try("Fertilizer cost", "getFertilizerDiscount", 1.0)
+    try("Fungicide cost", "getFungicideDiscount", 1.0)
+    try("Fungicide effect", "getFungicideEffectivenessBonus", 1.0)
+    try("Spray cost", "getSprayCostModifier", 1.0)
+    try("Vet supplies", "getVetSupplyDiscount", 1.0)
+    try("Dairy logistics", "getDairyLogisticsBonus", 1.0)
+    try("Bulk procurement", "getBulkProcurementBonus", 1.0)
+    try("Bulk transport", "getBulkTransportDiscount", 1.0)
+    try("Market intel", "hasMarketIntel", nil)
+    try("Forecast access", "hasForecastAccess", nil)
+    try("Predictive control", "hasPredictiveControl", nil)
+    try("Early warning", "hasEarlyWarning", nil)
+
+    if #mods == 0 then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "No active modifiers at this level yet.",
+            RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(20)
-    end
-
-    -- ── ACTIVE BENEFITS ────────────────────────────────────
-    y = y - FT.py(4)
-    y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "ACTIVE BENEFITS")
-
-    -- pcall takes the arguments directly, so there is no inner closure and therefore
-    -- no vararg to capture. The previous version referenced `...` from inside an
-    -- anonymous function, which Lua 5.1 rejects at COMPILE time ("cannot use '...'
-    -- outside of a vararg function") - the whole file failed to load and this app was
-    -- dead in every session. Also guards a missing method instead of erroring into pcall.
-    local function safeGet(funcName, ...)
-        local fn = psm and psm[funcName]
-        if type(fn) ~= "function" then return nil end
-        local ok, result = pcall(fn, psm, ...)
-        if ok then return result end
-        return nil
-    end
-
-    local function pctLabel(mult, inverse)
-        if not mult or mult == 1.0 then return nil end
-        if inverse then
-            return string.format("-%d%%", math.floor((1 - mult) * 100 + 0.5))
-        else
-            local delta = mult - 1.0
-            if delta > 0 then
-                return string.format("+%d%%", math.floor(delta * 100 + 0.5))
-            else
-                return string.format("%d%%", math.floor(mult * 100 + 0.5))
-            end
+    else
+        for _, line in ipairs(mods) do
+            self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, line,
+                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            y = y - FT.py(14)
         end
     end
 
-    -- WorkerCosts benefits
-    local wageMult = safeGet("getWageModifier", farmId)
-    local fatigueMit = safeGet("getFatigueMitigation", farmId)
-    local fatigueRec = safeGet("getFatigueRecoveryBonus", farmId)
-    local globalEff = safeGet("getGlobalEffectivenessBonus", farmId)
-
-    local hasWorkerBenefits = (wageMult and wageMult ~= 1.0)
-                           or (fatigueMit and fatigueMit ~= 1.0)
-                           or (fatigueRec and fatigueRec ~= 1.0)
-                           or (globalEff and globalEff ~= 1.0)
-
-    if hasWorkerBenefits then
-        y = self:drawRow(y, "Worker Costs", "", nil, FT.C.TEXT_DIM)
-        if wageMult and wageMult ~= 1.0 then
-            y = self:drawRow(y, "  Wage Modifier", pctLabel(wageMult, true))
-        end
-        if fatigueMit and fatigueMit ~= 1.0 then
-            y = self:drawRow(y, "  Fatigue Mitigation", pctLabel(fatigueMit, true))
-        end
-        if fatigueRec and fatigueRec ~= 1.0 then
-            y = self:drawRow(y, "  Fatigue Recovery", pctLabel(fatigueRec, false))
-        end
-        if globalEff and globalEff ~= 1.0 then
-            y = self:drawRow(y, "  Global Effectiveness", pctLabel(globalEff, false))
-        end
-    end
-
-    -- SoilFertilizer benefits
-    local fertDisc = safeGet("getFertilizerDiscount", farmId)
-    local fungDisc = safeGet("getFungicideDiscount", farmId)
-    local fungEff = safeGet("getFungicideEffectivenessBonus", farmId)
-    local sprayCost = safeGet("getSprayCostModifier", farmId)
-
-    local hasSoilBenefits = (fertDisc and fertDisc ~= 1.0)
-                         or (fungDisc and fungDisc ~= 1.0)
-                         or (fungEff and fungEff ~= 1.0)
-                         or (sprayCost and sprayCost ~= 1.0)
-
-    if hasSoilBenefits then
-        y = self:drawRow(y, "Soil & Crop Protection", "", nil, FT.C.TEXT_DIM)
-        if fertDisc and fertDisc ~= 1.0 then
-            y = self:drawRow(y, "  Fertilizer Discount", pctLabel(fertDisc, true))
-        end
-        if fungDisc and fungDisc ~= 1.0 then
-            y = self:drawRow(y, "  Fungicide Discount", pctLabel(fungDisc, true))
-        end
-        if fungEff and fungEff ~= 1.0 then
-            y = self:drawRow(y, "  Fungicide Effectiveness", pctLabel(fungEff, false))
-        end
-        if sprayCost and sprayCost ~= 1.0 then
-            y = self:drawRow(y, "  Spray Cost", pctLabel(sprayCost, true))
-        end
-    end
-
-    -- DairyCore / RLRM benefits
-    local vetDisc = safeGet("getVetSupplyDiscount", farmId)
-    local dairyLog = safeGet("getDairyLogisticsBonus", farmId)
-    local bulkProc = safeGet("getBulkProcurementBonus", farmId)
-    local bulkTrans = safeGet("getBulkTransportDiscount", farmId)
-
-    local hasDairyBenefits = (vetDisc and vetDisc ~= 1.0)
-                          or (dairyLog and dairyLog ~= 1.0)
-                          or (bulkProc and bulkProc ~= 1.0)
-                          or (bulkTrans and bulkTrans ~= 1.0)
-
-    if hasDairyBenefits then
-        y = self:drawRow(y, "Dairy & Logistics", "", nil, FT.C.TEXT_DIM)
-        if vetDisc and vetDisc ~= 1.0 then
-            y = self:drawRow(y, "  Vet Supply Discount", pctLabel(vetDisc, true))
-        end
-        if dairyLog and dairyLog ~= 1.0 then
-            y = self:drawRow(y, "  Dairy Logistics", pctLabel(dairyLog, false))
-        end
-        if bulkProc and bulkProc ~= 1.0 then
-            y = self:drawRow(y, "  Bulk Procurement", pctLabel(bulkProc, false))
-        end
-        if bulkTrans and bulkTrans ~= 1.0 then
-            y = self:drawRow(y, "  Bulk Transport", pctLabel(bulkTrans, true))
-        end
-    end
-
-    -- Feature flags
-    local hasForecast = false
-    local hasMarketIntel = false
-    local hasPredictive = false
-    local hasEarlyWarn = false
-    pcall(function() hasForecast = psm:hasForecastAccess(farmId) end)
-    pcall(function() hasMarketIntel = psm:hasMarketIntel(farmId) end)
-    pcall(function() hasPredictive = psm:hasPredictiveControl(farmId) end)
-    pcall(function() hasEarlyWarn = psm:hasEarlyWarning(farmId) end)
-
-    local hasAnyFlag = hasForecast or hasMarketIntel or hasPredictive or hasEarlyWarn
-    if hasAnyFlag then
-        y = self:drawRow(y, "Feature Access", "", nil, FT.C.TEXT_DIM)
-        if hasForecast then
-            y = self:drawRow(y, "  Agronomy Reports", "Active", nil, FT.C.POSITIVE)
-        end
-        if hasMarketIntel then
-            y = self:drawRow(y, "  Market Intel", "Active", nil, FT.C.POSITIVE)
-        end
-        if hasPredictive then
-            y = self:drawRow(y, "  Predictive Control", "Active", nil, FT.C.POSITIVE)
-        end
-    end
-
-    -- Check if there are NO active benefits at all
-    if not hasWorkerBenefits and not hasSoilBenefits and not hasDairyBenefits and not hasAnyFlag then
-        self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
-            "No active benefits yet. Level up to unlock modifiers.",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        y = y - FT.py(16)
-    end
-
-    -- ── COMING SOON ────────────────────────────────────────
-    y = y - FT.py(4)
-    y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "COMING SOON")
-
-    local comingSoon = {
-        { name = "L9 Herdsman Wage Rebate", desc = "3% post-deduction rebate on herdsman wages (pending base-game confirmation)" },
-        { name = "L20 Early Warning", desc = "Market event probability signals (pending MarketDynamics getEligibleEvents)" },
-    }
-    for _, item in ipairs(comingSoon) do
-        if y <= minY + FT.py(16) then break end
-        self.r:appText(x, y, FT.FONT.SMALL, item.name, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        self.r:appText(x + cw, y, FT.FONT.TINY, "NOT YET", RenderText.ALIGN_RIGHT, FT.C.WARNING)
-        y = y - FT.py(12)
-        self.r:appText(x + FT.px(8), y, FT.FONT.TINY, item.desc, RenderText.ALIGN_LEFT, FT.C.MUTED)
-        y = y - FT.py(14)
-    end
-
-    -- ── NEXT LEVEL PREVIEW ─────────────────────────────────
-    if level < maxLevel then
-        y = y - FT.py(4)
-        y = self:drawRule(y, 0.3)
-        local nextName = (ProStaffConstants and ProStaffConstants.LEVEL_NAMES and ProStaffConstants.LEVEL_NAMES[level + 1])
-                      or "Unknown"
-        y = self:drawSection(y, "NEXT: L" .. (level + 1) .. " " .. string.upper(nextName))
-
-        -- Describe what the next level unlocks based on the level table
-        local nextUnlockDesc = nil
-        local NEXT_LEVEL_EFFECTS = {
-            [1] = "5% hiring discount (WorkerCosts)",
-            [2] = "1.5% fertilizer discount + 5% fungicide + 5% vet supply discount",
-            [3] = "+5% worker efficiency + dairy collection bonus",
-            [4] = "Fatigue mitigation tier 1",
-            [5] = "2.5% wage reduction",
-            [6] = "+7% load/unload speed + tanker efficiency",
-            [7] = "4% fertilizer discount + Co-Op Agronomy Reports",
-            [8] = "Fatigue mitigation tier 2",
-            [9] = "5% wage reduction + NPC loyalty lock + herdsman rebate",
-            [10] = "Skilled Staff tier unlock",
-            [11] = "Fatigue recovery 1.75x",
-            [12] = "6% fertilizer + Precision Spray + 10% fungicide effectiveness + 10% vet discount",
-            [13] = "Fatigue mitigation tier 3 + Co-Op Spray Cooperative (-8%)",
-            [14] = "7.5% bulk transport discount + Co-Op fleet rebate",
-            [15] = "7.5% fertilizer discount + Market Intel + Syndicate Dairy Contract",
-            [16] = "Legendary tier + NPC field scouting + Legendary dairy routes",
-            [17] = "10% wage reduction",
-            [18] = "Fatigue recovery 1.85x global + 3-day disease forecast",
-            [19] = "+5% global effectiveness",
-            [20] = "+15% global effectiveness + Market early warning",
-        }
-        nextUnlockDesc = NEXT_LEVEL_EFFECTS[level + 1]
-
-        if nextUnlockDesc then
-            self.r:appText(x + FT.px(8), y - FT.py(8), FT.FONT.SMALL,
-                nextUnlockDesc, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-            y = y - FT.py(22)
-        end
-
-        if nextCost then
-            y = self:drawRow(y, "Cost",
-                (g_i18n and g_i18n:formatMoney(nextCost, 0, true, true))
-                or ("$" .. nextCost))
-        end
-    end
-
-    self:setContentHeight(startY - y + scrollY + FT.py(28))
-    self:drawInfoIcon("_prostaffHelp", ACENT)
+    self:setContentHeight(startY - y + scrollY + bottomPad)
+    self:drawInfoIcon("_prostaffHelp", AC)
     self:drawScrollBar()
 end)

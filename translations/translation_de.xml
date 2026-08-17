@@ -15,7 +15,7 @@
         <text name="ft_ui_startupapp_1" text="Dashboard" />
         <text name="ft_ui_startupapp_2" text="AppStore" />
         <text name="ft_ui_startupapp_3" text="Wetter" />
-        <text name="ft_ui_startupapp_4" text="Vermessung" />
+        <text name="ft_ui_startupapp_4" text="Bagger" />
         <text name="ft_ui_soundeffects_short" text="Soundeffekte" />
         <text name="ft_ui_soundeffects_long" text="Soundeffekte bei Tablet-Interaktionen abspielen" />
         <text name="ft_ui_debug_short" text="Debug-Modus" />
@@ -121,9 +121,11 @@
         <text name="ft_fc_help_readonly_title" text="Keine Veränderungen" />
         <text name="ft_fc_help_readonly_body" text="Die Finanzen-App verschiebt kein Geld und beeinflusst niemals&#10;Einkommen, Steuern, Gehälter oder andere Apps." />
         <text name="ft_ui_app_animals" text="Tiere" />
+        <text name="ft_ui_app_dairy" text="Dairy" />
         <text name="ft_ui_app_weather" text="Wetter" />
         <text name="ft_ui_app_digging" text="Vermessung" />
         <text name="ft_ui_app_bucket_tracker" text="Ladungsübersicht" />
+        <text name="ft_ui_app_excavator" text="Bagger" />
         <text name="ft_ui_app_income_mod" text="Finanzen" />
         <text name="ft_ui_app_tax_mod" text="Eichelhäher" />
         <text name="ft_ui_app_npc_favor" text="Nachbarschaftshilfe" />
@@ -304,6 +306,7 @@
         <text name="ft_repair_service_title" text="Tablet-Service" />
         <text name="ft_repair_started_msg" text="Tablet in Reparatur." />
         <text name="ft_repair_done_msg" text="Tablet wieder einsatzbereit." />
+        <text name="ft_repair_force_done_msg" text="Erzwungene Reparatur abgeschlossen. Reparaturgebuehr berechnet: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in Reparatur. Wir melden uns." />
         <text name="ft_repair_title" text="DISPLAYSCHADEN" />
         <text name="ft_repair_subtitle" text="Displayschaden durch einen Sturz." />
@@ -2539,9 +2542,9 @@
         <text name="ft_fc_history_no_clock" text="Time Guard benötigt" />
         <text name="ft_fc_history_no_clock_detail" text="Installiere Time Guard, um die monatliche Historie aufzuzeichnen. Die aktuellen Werte bleiben verfügbar." />
         <text name="ft_irr_advisory_water_need" text="BEWAESSERUNGSBEDARF (Beratung)" />
-        <text name="ft_irr_advisory_locked_l7" text="Freigeschaltet ab Koop-Level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="VORHERSAGE (Beratung)" />
-        <text name="ft_irr_advisory_locked_l18" text="Freigeschaltet ab Koop-Level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
         <text name="ft_irr_advisory_no_reads" text="Noch keine Felder mit Wasserwerten." />
         <text name="ft_irr_call_water_today" text="heute wässern" />
         <text name="ft_irr_call_watch" text="beobachten" />
@@ -2549,4 +2552,7 @@
         <text name="ft_irr_advisory_schedule_covers" text="Plan abgedeckt" />
         <text name="ft_irr_advisory_schedule_gap" text="Planlücke" />
     </texts>
+
+
+        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

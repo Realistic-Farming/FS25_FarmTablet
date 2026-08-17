@@ -35,14 +35,58 @@ local function _soilConstants()
 end
 
 --- Wider chip than Renderer:badge (fixed 36px clips "URGENT").
+local function _chipWidth(label)
+    local text = tostring(label or "")
+    return math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
+end
+
 local function _chip(self, x, y, label, color)
     local text = tostring(label or "")
-    local w = math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
+    local w = _chipWidth(text)
     local h = FT.py(14)
     self.r:appRect(x, y - FT.py(1), w, h, color or FT.C.BRAND_DIM)
     self.r:appText(x + w * 0.5, y + h * 0.5 - FT.py(3), FT.FONT.TINY, text,
         RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
     return w
+end
+
+--- Split "UREA …  ·  UAN32 …" into one product/rate line each.
+local function _splitProducts(text)
+    local parts = {}
+    text = tostring(text or "")
+    local start = 1
+    while true do
+        local i, j = string.find(text, "  ·  ", start, true)
+        if not i then
+            local rest = text:sub(start):match("^%s*(.-)%s*$")
+            if rest ~= nil and rest ~= "" then
+                parts[#parts + 1] = rest
+            end
+            break
+        end
+        local chunk = text:sub(start, i - 1):match("^%s*(.-)%s*$")
+        if chunk ~= nil and chunk ~= "" then
+            parts[#parts + 1] = chunk
+        end
+        start = j + 1
+    end
+    if #parts == 0 and text ~= "" then
+        parts[1] = text
+    end
+    return parts
+end
+
+--- Lines used by a treatment row: label + one line per product/rate.
+local function _treatmentLineCount(treats)
+    if treats == nil or #treats == 0 then
+        return 2 -- section title + "No actions"
+    end
+    local n = 1 -- "TREATMENT PLAN"
+    for _, row in ipairs(treats) do
+        n = n + 1 -- nutrient label
+        n = n + math.max(1, #_splitProducts(row.text))
+    end
+    return n
 end
 
 local function _pcall(fn, ...)
@@ -229,17 +273,17 @@ end
 --- Label + value on one line; bar on the next. Returns new y (below bar).
 local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     local rowTop = y
-    self.r:appText(x + FT.px(6), rowTop, FT.FONT.TINY, label,
+    self.r:appText(x + FT.px(6), rowTop, FT.FONT.SMALL, label,
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-    self.r:appText(x + cw - FT.px(6), rowTop, FT.FONT.TINY, valueText,
+    self.r:appText(x + cw - FT.px(6), rowTop, FT.FONT.SMALL, valueText,
         RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
     -- Drop clearly below the label before painting the track (avoids overlap).
-    local barY = rowTop - FT.py(12)
+    local barY = rowTop - FT.py(14)
     local barW = cw - FT.px(12)
     local fill = math.max(0, math.min(1, tonumber(ratio) or 0))
     self.r:progressBar(x + FT.px(6), barY, barW, fill, 1.0, color)
     -- progressBar bottom is barY; height ~5px upward. Advance past it + gap.
-    return barY - FT.py(8)
+    return barY - FT.py(10)
 end
 
 local function _truncate(str, maxLen)
@@ -374,13 +418,14 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
         -- Size the card from real content so fields never paint over each other.
         local metricRows = (info ~= nil) and 8 or 0
-        local metricH = metricRows * FT.py(20)
-        local headerH = FT.py(36)
+        local metricH = metricRows * FT.py(24)
+        local headerH = FT.py(40) -- title + chips on one band, ha under title
+        local treatLineH = FT.py(15)
         local treatH = 0
         if info ~= nil then
-            treatH = FT.py(16) + math.max(1, #treats) * FT.py(13)
+            treatH = FT.py(6) + _treatmentLineCount(treats) * treatLineH
         else
-            treatH = FT.py(18)
+            treatH = FT.py(20)
         end
         local cardH = headerH + metricH + treatH + FT.py(14)
         local cardBottom = y - cardH
@@ -388,24 +433,44 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         self.r:appRect(x - FT.px(2), cardBottom, cw + FT.px(4), cardH, FT.C.BG_CARD)
         self.r:appRect(x - FT.px(2), cardBottom, FT.px(3), cardH, uCol)
 
-        -- Header: title left, area right (crop truncated so it cannot collide).
-        local crop = _truncate(card.crop, 14)
-        self.r:appText(innerX, y - FT.py(4), FT.FONT.SMALL,
-            string.format("Field #%s  ·  %s", tostring(card.id), crop),
+        -- Header band: Field # left, URGENT/FERT chips right (no second overlapping line).
+        local urgencyTxt = _urgencyLabel(card.urgency)
+        local showFert = info ~= nil and info.needsFertilization
+        local chipGap = FT.px(5)
+        local chipsW = _chipWidth(urgencyTxt)
+        if showFert then
+            chipsW = chipsW + chipGap + _chipWidth("FERT")
+        end
+        local rightEdge = x + cw - FT.px(6)
+        local chipsLeft = rightEdge - chipsW
+        local titleMaxChars = 18
+        local titleBudget = chipsLeft - innerX - FT.px(10)
+        if titleBudget > 0 then
+            titleMaxChars = math.max(10, math.floor(titleBudget / FT.px(6.5)))
+        end
+        local crop = _truncate(card.crop, math.max(6, titleMaxChars - 10))
+        local title = string.format("Field #%s  ·  %s", tostring(card.id), crop)
+        self.r:appText(innerX, y - FT.py(2), FT.FONT.BODY, title,
             RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+
+        local chipY = y - FT.py(4)
+        local cx = rightEdge
+        if showFert then
+            local fw = _chipWidth("FERT")
+            cx = cx - fw
+            _chip(self, cx, chipY, "FERT", FT.C.WARNING)
+            cx = cx - chipGap
+        end
+        local uw = _chipWidth(urgencyTxt)
+        cx = cx - uw
+        _chip(self, cx, chipY, urgencyTxt, uCol)
+
         local haTxt = (card.area and card.area > 0) and string.format("%.1f ha", card.area) or ""
         if haTxt ~= "" then
-            self.r:appText(x + cw - FT.px(6), y - FT.py(4), FT.FONT.TINY,
-                haTxt, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appText(innerX, y - FT.py(18), FT.FONT.SMALL, haTxt,
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         end
-        y = y - FT.py(16)
-
-        local bx = innerX
-        bx = bx + _chip(self, bx, y, _urgencyLabel(card.urgency), uCol) + FT.px(5)
-        if info and info.needsFertilization then
-            bx = bx + _chip(self, bx, y, "FERT", FT.C.WARNING) + FT.px(5)
-        end
-        y = y - FT.py(18)
+        y = y - headerH
 
         if info == nil then
             self.r:appText(innerX, y, FT.FONT.SMALL, "No soil data for this field.",
@@ -468,22 +533,26 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             end
 
             y = y - FT.py(4)
-            self.r:appText(innerX, y, FT.FONT.TINY, "TREATMENT PLAN",
+            self.r:appText(innerX, y, FT.FONT.SMALL, "TREATMENT PLAN",
                 RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
-            y = y - FT.py(13)
+            y = y - treatLineH
             if #treats == 0 then
-                self.r:appText(innerX, y, FT.FONT.TINY,
+                self.r:appText(innerX, y, FT.FONT.SMALL,
                     "No actions — levels look fine.",
                     RenderText.ALIGN_LEFT, FT.C.POSITIVE)
-                y = y - FT.py(13)
+                y = y - treatLineH
             else
                 for _, row in ipairs(treats) do
-                    self.r:appText(innerX, y, FT.FONT.TINY, row.label,
+                    self.r:appText(innerX, y, FT.FONT.SMALL, row.label,
                         RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM)
-                    local txt = _truncate(row.text, 42)
-                    self.r:appText(innerX + FT.px(52), y, FT.FONT.TINY, txt,
-                        RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-                    y = y - FT.py(13)
+                    y = y - treatLineH
+                    local products = _splitProducts(row.text)
+                    for _, part in ipairs(products) do
+                        -- Full rate strings (no 42-char truncate) — one product per line.
+                        self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                        y = y - treatLineH
+                    end
                 end
             end
         end
