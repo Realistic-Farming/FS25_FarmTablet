@@ -4,18 +4,17 @@
 -- Optional bridge to FS25_MasterHUD. FarmTablet ships standalone (it renders as an
 -- engine drawable), so this is delegate-when-present:
 --
---   * MasterHUD installed -> FarmTablet subscribes as a self-draw with an
---     `isFullscreen` claim. While the tablet is open it owns the WHOLE screen, so
---     MasterHUD stands every other companion's HUD down (Income, Tax, RWE, Soil,
---     ...). A panel background is an overlay, and an overlay does not cover text
---     that was already rendered underneath it, so the others have to not draw.
---     This is the same contract SoilFertilizer's settings panel declared (its
---     `isFullscreen`), applied to the tablet's full-screen surface.
+--   * MasterHUD installed -> FarmTablet subscribes with an `isFullscreen` claim.
+--     While the tablet is open it owns the WHOLE screen, so MasterHUD stands every
+--     other companion's HUD down (Income, Tax, RWE, Soil, ...). The subscribe draw
+--     callback is a NO-OP: the tablet always renders via its own engine drawable,
+--     never through MasterHUD's draw loop.
 --   * MasterHUD absent -> FarmTablet keeps its engine drawable, exactly as before.
 --
--- While MasterHUD is active the tablet does NOT add itself as an engine drawable
--- (see FarmTabletUI:openTablet/closeTablet): MasterHUD's loop draws it when it
--- claims the screen, so the tablet renders once, not twice.
+-- The tablet is NOT a HUD. It must stay visible when MasterHUD hides suite HUDs.
+-- Rendering through MasterHUD's loop would suppress the tablet along with the
+-- corner overlays, so the engine drawable is the only draw path. The subscribe
+-- exists solely for the isFullscreen claim.
 -- =========================================================
 
 FTMasterHUDBridge = {}
@@ -32,12 +31,9 @@ function FTMasterHUDBridge.register(ui)
 
     local ok, err = pcall(function()
         hud:subscribe("FarmTablet_UI", {
-            -- MasterHUD calls this every frame; draw only while the tablet is open.
-            -- When the tablet claims the screen, MasterHUD's loop calls ONLY this
-            -- draw, so the tablet renders once in the right layer.
-            draw = function()
-                if ui.isOpen then ui:draw() end
-            end,
+            -- No-op: the tablet renders via its own engine drawable, not MasterHUD's
+            -- draw loop. This keeps the tablet visible when suite HUDs are hidden.
+            draw = function() end,
             -- Declares that the tablet owns the whole screen while open, so every
             -- other companion HUD stands down. Optional on MasterHUD's side, so an
             -- older MasterHUD simply ignores it and behaves exactly as before.
