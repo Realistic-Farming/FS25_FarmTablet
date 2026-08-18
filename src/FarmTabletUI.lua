@@ -1994,26 +1994,47 @@ function FarmTabletUI:forceCompleteRepair()
     if self._tabletRepairActive ~= true then
         return false, "Tablet is not in repair, nothing to force"
     end
-    local fee = FT.FORCE_REPAIR_FEE
-    if g_currentMission == nil or g_currentMission.getIsServer == nil or not g_currentMission:getIsServer() then
-        return false, "Money can only be deducted on the server"
+    if g_currentMission == nil or g_currentMission.getIsServer == nil then
+        return false, "Mission not ready"
     end
-    if g_farmManager == nil then
-        return false, "Farm manager not available"
-    end
-    local farmId = self:_getNetworkBillingFarmId()
-    local ok = pcall(function()
-        local farm = g_farmManager:getFarmById(farmId)
-        if farm ~= nil and farm.changeBalance ~= nil then
-            farm:changeBalance(-fee, MoneyType.OTHER)
-            if g_currentMission.addMoneyChange ~= nil then
-                g_currentMission:addMoneyChange(-fee, farmId, MoneyType.OTHER, true)
+    if g_currentMission:getIsServer() then
+        -- Server: charge the fee here and complete the repair locally.
+        local farmId = self:_getNetworkBillingFarmId()
+        local ok = pcall(function()
+            local farm = g_farmManager ~= nil and g_farmManager:getFarmById(farmId) or nil
+            if farm ~= nil and farm.changeBalance ~= nil then
+                farm:changeBalance(-FT.FORCE_REPAIR_FEE, MoneyType.OTHER)
+                if g_currentMission.addMoneyChange ~= nil then
+                    g_currentMission:addMoneyChange(-FT.FORCE_REPAIR_FEE, farmId, MoneyType.OTHER, true)
+                end
             end
+        end)
+        if not ok then
+            return false, "Could not deduct the repair fee"
         end
-    end)
-    if not ok then
-        return false, "Could not deduct the repair fee"
+        self:_completeLocalForceRepair()
+        return true, string.format("Forced repair complete. Repair fee charged: %d.", FT.FORCE_REPAIR_FEE)
     end
+
+    -- Client on a dedicated server: the fee can only be charged by the server.
+    -- Send the request; the server deducts and the broadcast confirm completes
+    -- the local repair (see FarmTabletForceRepairEvent).
+    if g_client ~= nil and g_client.getServerConnection ~= nil then
+        local conn = g_client:getServerConnection()
+        if conn ~= nil and conn.sendEvent ~= nil then
+            conn:sendEvent(FarmTabletForceRepairEvent.new(self:_getNetworkBillingFarmId()))
+            return true, string.format("Repair requested. Repair fee charged: %d.", FT.FORCE_REPAIR_FEE)
+        end
+    end
+    return false, "No server connection available"
+end
+
+-- Local half of a forced repair: clear the broken-display state. Called directly by
+-- the server path and by the receiving client when the fee-charge confirm arrives.
+-- The fee has already been charged wherever money can move.
+function FarmTabletUI:_completeLocalForceRepair()
+    if self._tabletRepairActive ~= true then return end
+    local fee = FT.FORCE_REPAIR_FEE
     self._tabletRepairActive = false
     self._tabletRepairStartMin = nil
     self._tabletRepairEndMin = nil
@@ -2024,7 +2045,6 @@ function FarmTabletUI:forceCompleteRepair()
         self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
     end
     self:_notifyTabletRepair(ftUiFormat("ft_repair_force_done_msg", "Forced repair complete. Repair fee charged: %d.", fee))
-    return true, string.format("Forced repair complete. Repair fee charged: %d.", fee)
 end
 
 function FarmTabletUI:_drawRepairScreen()
