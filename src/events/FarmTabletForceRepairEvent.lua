@@ -13,6 +13,8 @@
 FarmTabletForceRepairEvent = {}
 local FarmTabletForceRepairEvent_mt = Class(FarmTabletForceRepairEvent, Event)
 
+InitEventClass(FarmTabletForceRepairEvent, "FarmTabletForceRepairEvent")
+
 function FarmTabletForceRepairEvent.emptyNew()
     local self = Event.new(FarmTabletForceRepairEvent_mt)
     return self
