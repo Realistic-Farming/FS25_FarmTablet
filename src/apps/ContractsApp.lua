@@ -21,8 +21,23 @@ local CONTRACT_TYPE_NAMES = {
     TransportMission   = "Transport",
 }
 
+-- Defensive read of a mission method. A mission's field wrapper is engine-native
+-- and can sit half-initialised on some contracts (the game throws inside
+-- AbstractMissionField, e.g. "attempt to index nil with a number" from
+-- AbstractFieldMission:getLocation -> field:getName). A single bad contract must
+-- not take down the whole tab, so every mission read goes through here and falls
+-- back to a neutral value.
+local function safeGet(obj, method, fallback, ...)
+    if obj == nil or method == nil then return fallback end
+    local fn = obj[method]
+    if type(fn) ~= "function" then return fallback end
+    local ok, v = pcall(fn, obj, ...)
+    if not ok then return fallback end
+    return v
+end
+
 local function getTypeName(mission)
-    local raw = mission.getMissionTypeName and mission:getMissionTypeName()
+    local raw = safeGet(mission, "getMissionTypeName")
     return (raw and CONTRACT_TYPE_NAMES[raw]) or raw or "Contract"
 end
 
@@ -142,16 +157,16 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
 
     local function drawCard(mission, cardAccent, statusLabel, statusColor)
         local typeName   = getTypeName(mission)
-        local location   = (mission.getLocation and mission:getLocation()) or "Unknown Field"
+        local location   = safeGet(mission, "getLocation") or "Unknown Field"
         location = location:gsub("^Farmland:%s*", "")
         if #location > 26 then location = location:sub(1, 24) .. ".." end
 
-        local completion = (mission.getCompletion and mission:getCompletion()) or 0
+        local completion = safeGet(mission, "getCompletion") or 0
         local pct        = math.floor(completion * 100)
-        local reward     = (mission.getReward and mission:getReward()) or 0
+        local reward     = safeGet(mission, "getReward") or 0
         local rewardStr  = data:formatMoney(math.floor(reward))
 
-        local mins      = mission.getMinutesLeft and mission:getMinutesLeft()
+        local mins      = safeGet(mission, "getMinutesLeft")
         local timeStr   = fmtMins(mins)
         local timeColor
         if     timeStr == "EXPIRED" then timeColor = FT.C.NEGATIVE
@@ -212,12 +227,14 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
         y = y - cardH - FT.py(6)
     end
 
-    -- Expiring first (most urgent), then active, then done
+    -- Expiring first (most urgent), then active, then done. Each card is drawn
+    -- under pcall so one mission whose field wrapper is in a bad state is skipped
+    -- rather than crashing the whole Contracts tab.
     for _, m in ipairs(expiring) do
-        drawCard(m, {1.00, 0.62, 0.10, 1.00}, "EXPIRING", FT.C.WARNING)
+        pcall(drawCard, m, {1.00, 0.62, 0.10, 1.00}, "EXPIRING", FT.C.WARNING)
     end
     for _, m in ipairs(active) do
-        drawCard(m, AC, "ACTIVE", FT.C.POSITIVE)
+        pcall(drawCard, m, AC, "ACTIVE", FT.C.POSITIVE)
     end
     if #done > 0 then
         y = self:drawRule(y, 0.25)
@@ -226,7 +243,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         y = y - FT.py(14)
         for _, m in ipairs(done) do
-            drawCard(m, FT.C.POSITIVE, "DONE", FT.C.POSITIVE)
+            pcall(drawCard, m, FT.C.POSITIVE, "DONE", FT.C.POSITIVE)
         end
     end
 
