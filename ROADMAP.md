@@ -16,6 +16,7 @@
 
 ## Near-term (next release cycle)
 - [x] Organic app compost display (OM-201, 2026-08-18): the COMPOST section of the Organic app now shows live compost batch state from SoilFertilizer's CompostManager (`g_currentMission.compostManager:getBatchRows`): batch id, days remaining or READY + output litres, and the organic-safe tag. Read-only; starting/collecting stays on the SF console commands. Replaces the "waiting on compost production API" stub.
+- [x] TabletForceRepair works on a dedicated server (2026-08-18): the client previously hit "Money can only be deducted on the server" and could never force-complete a display repair on a dedi. The fee is now charged server-authoritatively through a new FarmTabletForceRepairEvent (client requests, server deducts, broadcast confirm completes the local repair), and the single-player path is unchanged. Remains a temporary command, removed when the repair station ships.
 - [~] TEMPORARY `TabletForceRepair` console command: force-completes a display repair for a fixed 3000 fee until the real repair station ships, then it is removed.
 - [ ] Focus state fix (Point 1): make goHome / openTablet / unlock pass nil instead of the previous appId (three one-line changes in FarmTabletUI.lua).
 - [x] Keep the ecosystem-map current: MarketDynamicsApp and RandomWorldEventsApp are NOT stubs (source files exist; autoDetect registers them when the handles are present).

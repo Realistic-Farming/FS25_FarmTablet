@@ -13,6 +13,7 @@
 - [x] Confirmed: MarketDynamicsApp and RandomWorldEventsApp are real apps, not stubs (autoDetect registers them when handles present).
 
 ## Bugs
+- [x] FT-006 TabletForceRepair on a dedicated server (2026-08-18): the client hit "Money can only be deducted on the server" and could not force-complete a display repair on a dedi. New `FarmTabletForceRepairEvent` (src/events/): the client sends the request, the server charges the 3000 fee via `farm:changeBalance` + `addMoneyChange`, then broadcasts a confirm that completes the requesting client's local repair (`_completeLocalForceRepair`). The single-player path in `forceCompleteRepair` is unchanged. Lua 5.1 syntax clean; built and uploaded to the RF Dev server (SHA256 byte-verified).
 - [ ] Focus state passes previous appId instead of nil on goHome/openTablet/unlock (Point 1).
 - [x] FT-001 `_exitEditMode()` restores camera rotation (fixed, merged to main).
 - [x] FT-002 Nil guard on `g_currentMission` in `SettingsManager:getSettings()` (fixed, merged to main).
