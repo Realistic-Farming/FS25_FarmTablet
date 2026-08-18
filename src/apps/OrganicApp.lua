@@ -2,7 +2,7 @@
 -- FarmTablet - Organic Management (Arissani brief)
 -- =========================================================
 -- Read-only hub over Soil Fertilizer organic certification.
--- CERTIFICATION + PRACTICES build now; COMPOST / LIVESTOCK / MARKET stub.
+-- CERTIFICATION + PRACTICES + COMPOST display built; LIVESTOCK / MARKET stub.
 -- Opt-in / opt-out via SF requestOptIn / requestOptOut only.
 -- =========================================================
 
@@ -252,10 +252,31 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     ------------------------------------------------------------------
     y = self:drawRule(y, 0.3)
     y = self:drawSection(y, "COMPOST")
-    self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-        "not available - waiting on compost production API",
-        RenderText.ALIGN_LEFT, FT.C.MUTED)
-    y = y - FT.py(22)
+    local compost = (g_currentMission ~= nil and g_currentMission.compostManager) or nil
+    if compost == nil or type(compost.getBatchRows) ~= "function" then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "not available - install SoilFertilizer", RenderText.ALIGN_LEFT, FT.C.MUTED)
+        y = y - FT.py(22)
+    else
+        local rows = _pcall(function() return compost:getBatchRows(farmId) end) or {}
+        if #rows == 0 then
+            self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+                "No compost batches. Start one from the SoilFertilizer console.",
+                RenderText.ALIGN_LEFT, FT.C.MUTED)
+        else
+            for _, b in ipairs(rows) do
+                local state = b.ready
+                    and string.format("READY - %d L", math.floor(b.outputLitres or 0))
+                    or  string.format("%d day(s) left", math.floor(b.daysRemaining or 0))
+                local tag = b.organicSafe and "organic-safe" or "not organic-safe"
+                self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
+                    string.format("Batch #%d: %s  (%s)", b.batchId, state, tag),
+                    RenderText.ALIGN_LEFT, b.ready and FT.C.POSITIVE or FT.C.TEXT_DIM)
+                y = y - FT.py(14)
+            end
+        end
+        y = y - FT.py(8)
+    end
 
     y = self:drawSection(y, "LIVESTOCK")
     self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
