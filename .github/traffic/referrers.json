@@ -4122,5 +4122,37 @@
       "count": 2,
       "uniques": 1
     }
+  ],
+  "2026-08-20": [
+    {
+      "referrer": "github.com",
+      "count": 245,
+      "uniques": 90
+    },
+    {
+      "referrer": "Google",
+      "count": 56,
+      "uniques": 32
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 17,
+      "uniques": 11
+    },
+    {
+      "referrer": "chatgpt.com",
+      "count": 8,
+      "uniques": 5
+    },
+    {
+      "referrer": "Bing",
+      "count": 3,
+      "uniques": 2
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 2,
+      "uniques": 1
+    }
   ]
 }
