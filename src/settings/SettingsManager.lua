@@ -113,7 +113,12 @@ end
 function SettingsManager:saveSettings(settingsObject)
     local xmlPath = self:getSavegameXmlFilePath()
     if not xmlPath then return end
-    
+
+    local dir = g_currentMission and g_currentMission.missionInfo and g_currentMission.missionInfo.savegameDirectory
+    if dir and createFolder ~= nil then
+        createFolder(dir)
+    end
+
     local xml = XMLFile.create("ft_Config", xmlPath, self.XMLTAG)
     if xml then
         xml:setBool(self.XMLTAG..".enabled",                 settingsObject.enabled)
