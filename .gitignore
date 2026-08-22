@@ -18,6 +18,7 @@ desktop.ini
 
 # Dev-only QA artifacts (icon generator contact sheet + intermediate PNGs)
 tools/_contact_sheet.png
+tools/_merge_translation.mjs
 gui/icons/*.png
 gui/tablet_frame.png
 gui/wallpaper.png
