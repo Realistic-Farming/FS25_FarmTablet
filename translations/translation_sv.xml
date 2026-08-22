@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="Inställningar och konsol" />
         <text name="ft_help_p1_title" text="Öppna &amp; navigera" />
         <text name="ft_help_p1_open_title" text="Öppnar surfplattan" />
-        <text name="ft_help_p1_open_text" text="Tryck på T (konfigurerbar) när som helst för att öppna eller stänga Farm Tablet. Du kan ändra nyckeln i appen Inställningar eller genom att skriva TabletKeybind följt av en nyckelbokstav i utvecklarkonsolen." />
         <text name="ft_help_p1_nav_title" text="Startskarm &amp; appar" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet fungerar som en telefon. Svep for att lasa upp och tryck sedan pa en appikon pa startskarmen for att oppna den. Tryck pa HOME i den ovre listen for att ga tillbaka till rutnatet. Dockan langst ner innehaller dina favoriter och mushjulet byter sida. App Store-appen listar alla dina appar." />
         <text name="ft_help_p2_title" text="Flytta &amp; ändra storlek" />
         <text name="ft_help_p2_move_title" text="Redigera läge" />
         <text name="ft_help_p2_move_text" text="Öppna appen Inställningar och klicka på ENTER EDIT-LÄGE. I redigeringsläge kan du dra surfplattans kropp för att flytta den var som helst på skärmen, dra valfritt hörnhandtag för att skala hela surfplattan, eller dra i vänster eller höger kant för att bara justera bredden. Högerklicka var som helst för att avsluta redigeringsläget. Din position och skala sparas automatiskt." />
         <text name="ft_help_p2_key_title" text="Ändra Open Key" />
-        <text name="ft_help_p2_key_text" text="Standardnyckeln är T. För att ändra den öppnar du appen Inställningar och hittar Keybind-inställningen, eller skriv TabletKeybind följt av ett nyckelnamn i utvecklarkonsolen — till exempel TabletKeybind H ställer in nyckeln till H. Enkla bokstäver, F-nycklar och vanliga nycklar som TAB och ESC stöds alla." />
         <text name="ft_help_a1_title" text="Instrumentpanel och väder" />
         <text name="ft_help_a1_dash_title" text="Instrumentbräda" />
         <text name="ft_help_a1_dash_text" text="Dashboarden är en översikt över gårdssammanfattningen. Den visar ditt nuvarande saldo i ett stort hjältekort överst, sedan inkomster, utgifter och nettovinst för sessionen nedan. Farm Stats listar hur många åkrar du äger och ditt totala antal fordon. Världssektionen visar aktuell säsong, dag, tid på dagen och en ögonblicksbild av väderleken. Tryck på den lilla infoikonen i det nedre högra hörnet av instrumentpanelen för en detaljerad förklaring av varje värde." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="Ljudeffekter är på som standard. App-select-klicket spelas upp när du byter app. Sökningsljudet spelas upp när hjälppanelen i spelet öppnas eller stängs. Båda kan växlas oberoende av varandra i appen Inställningar." />
         <text name="ft_help_s2_title" text="Konsolkommandon" />
         <text name="ft_help_s2_console_title" text="Tillgängliga kommandon" />
-        <text name="ft_help_s2_console_text" text="Oppna utvecklarkonsolen med tilde-tangenten och skriv tablet for att lista alla kommandon. Till exempel andrar TabletKeybind H oppningstangenten, TabletSetStartupApp weather satter forsta appen och TabletResetSettings aterstaller standardvarden." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veterinar" />
         <text name="ft_ui_app_factory_week_schedule" text="Fabriksvecka" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

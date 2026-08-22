@@ -3,7 +3,7 @@
 -- Central registry for all installed apps
 -- =========================================================
 ---@class AppRegistry
-AppRegistry = {}
+AppRegistry = AppRegistry or {}
 local AppRegistry_mt = Class(AppRegistry)
 
 -- App category display groups

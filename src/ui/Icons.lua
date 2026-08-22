@@ -42,13 +42,35 @@ local function getOverlay(key, path)
     return nil
 end
 
+-- BUILD 15:39 (PB-05). Icon files are named after the app id, so an id without
+-- a matching gui/icons/<id>.dds asks the engine for a file that is not in the
+-- zip and earns a missing-resource line in the log every session. That is what
+-- Brian saw as the `excavator.dds` error: EXCAVATOR is the merged id for the old
+-- Digging and Bucket Tracker apps and nothing ever baked a tile under the new
+-- name. AppRegistry has an `icon` field, but its values ("store", "fields",
+-- "admin", ...) do not match the shipped filenames either, so it is not usable
+-- as the resolver.
+--
+-- These are the ids that have no tile of their own, pointed at the closest
+-- shipped tile. Every one is a real, meaningful icon: the point of the fix is to
+-- silence the error WITHOUT handing a registered app a blank or dead icon, so
+-- the fallback monogram tile is deliberately not used here.
+local ICON_ALIAS = {
+    excavator  = "digging",           -- merge source: same earth/sand tile
+    dairy      = "animals",
+    dairy_core = "animals",
+    prostaff   = "personnel",         -- co-op staff, same people tile
+    organic    = "soil_fertilizer",
+}
+
 --- Returns (overlay, isFallback) for an app id. Falls back to _fallback.dds
 --- (a neutral tile) when the app has no baked icon, so the caller can draw a
 --- text monogram on top.
 function FT_Icons.getAppOverlay(appId)
     if FT_Icons._guiDir == nil then return nil, true end
-    local ov = getOverlay("icon:" .. tostring(appId),
-                          FT_Icons._guiDir .. "icons/" .. tostring(appId) .. ".dds")
+    local file = ICON_ALIAS[appId] or tostring(appId)
+    local ov = getOverlay("icon:" .. file,
+                          FT_Icons._guiDir .. "icons/" .. file .. ".dds")
     if ov ~= nil then return ov, false end
     local fb = getOverlay("icon:_fallback", FT_Icons._guiDir .. "icons/_fallback.dds")
     return fb, true

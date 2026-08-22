@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="Asetukset ja konsoli" />
         <text name="ft_help_p1_title" text="Avaaminen ja navigointi" />
         <text name="ft_help_p1_open_title" text="Tabletin avaaminen" />
-        <text name="ft_help_p1_open_text" text="Paina T (konfiguroitavissa) milloin tahansa avataksesi tai sulkeaksesi Farm Tabletin. Voit vaihtaa avaimen Asetukset-sovelluksessa tai kirjoittamalla TabletKeybind ja sen jälkeen avaimen kirjaimen kehittäjäkonsoliin." />
         <text name="ft_help_p1_nav_title" text="Aloitusnaytto &amp; sovellukset" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet toimii kuin puhelin. Avaa lukitus pyyhkaisemalla ja avaa sovellus napauttamalla sen kuvaketta aloitusnaytolla. Palaa ruudukkoon napauttamalla HOME ylapalkista. Alareunan telakka sisaltaa suosikit ja hiiren rulla vaihtaa sivuja. App Store -sovellus luettelee kaikki sovelluksesi." />
         <text name="ft_help_p2_title" text="Siirtäminen ja koon muuttaminen" />
         <text name="ft_help_p2_move_title" text="Muokkaustila" />
         <text name="ft_help_p2_move_text" text="Avaa Asetukset-sovellus ja napsauta ENTER EDIT MODE. Muokkaustilassa voit vetämällä tabletin runkoa siirtääksesi sen mihin tahansa näytölle, vetämällä mitä tahansa kulman kahvaa skaalataksesi koko tabletin tai vetämällä vasenta tai oikeaa reunaa säätääksesi vain leveyttä. Napsauta hiiren kakkospainikkeella mitä tahansa poistuaksesi muokkaustilasta. Sijaintisi ja asteikkosi tallennetaan automaattisesti." />
         <text name="ft_help_p2_key_title" text="Avaimen vaihtaminen" />
-        <text name="ft_help_p2_key_text" text="Oletusavain on T. Voit muuttaa sitä avaamalla Asetukset-sovelluksen ja etsimällä Keybind-asetuksen tai kirjoittamalla TabletKeybind ja sen jälkeen avaimen nimen kehittäjäkonsoliin – esimerkiksi TabletKeybind H asettaa avaimen H:ksi. Yksittäisiä kirjaimia, F-näppäimiä ja yleisiä näppäimiä, kuten TAB ja ESC, tuetaan." />
         <text name="ft_help_a1_title" text="Kojelauta ja sää" />
         <text name="ft_help_a1_dash_title" text="Kojelauta" />
         <text name="ft_help_a1_dash_text" text="Dashboard on maatilan yhteenveto yhdellä silmäyksellä. Se näyttää nykyisen saldosi suuressa sankarikortissa ylhäällä ja sen jälkeen tulot, kulut ja nettotulot istunnossa alla. Farm Stats näyttää, kuinka monta peltoa omistat ja ajoneuvosi kokonaismäärä. Maailma-osiossa näkyy nykyinen kausi, päivä, kellonaika ja reaaliaikainen sääkuva. Napauta pientä tietokuvaketta Dashboardin oikeassa alakulmassa saadaksesi yksityiskohtaisen selityksen jokaisesta arvosta." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="Äänitehosteet ovat oletuksena käytössä. Sovelluksen valintanapsautus toistetaan, kun vaihdat sovellusta. Hakuääni kuuluu, kun pelin sisäinen ohjepaneeli avautuu tai sulkeutuu. Molemmat voidaan vaihtaa erikseen Asetukset-sovelluksessa." />
         <text name="ft_help_s2_title" text="Konsolin komennot" />
         <text name="ft_help_s2_console_title" text="Käytettävissä olevat komennot" />
-        <text name="ft_help_s2_console_text" text="Avaa kehittajakonsoli tilde-nappaimella ja kirjoita tablet nahdaksesi kaikki komennot. Esimerkiksi TabletKeybind H vaihtaa avausnappaimen, TabletSetStartupApp weather asettaa ensimmaisen sovelluksen ja TabletResetSettings palauttaa oletukset." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Elainlaakari" />
         <text name="ft_ui_app_factory_week_schedule" text="Tehdasviikko" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

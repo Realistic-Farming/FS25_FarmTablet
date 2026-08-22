@@ -10,7 +10,7 @@
 -- repair. Every other client no-ops because its own tablet is not in repair.
 -- =========================================================
 
-FarmTabletForceRepairEvent = {}
+FarmTabletForceRepairEvent = FarmTabletForceRepairEvent or {}
 local FarmTabletForceRepairEvent_mt = Class(FarmTabletForceRepairEvent, Event)
 
 InitEventClass(FarmTabletForceRepairEvent, "FarmTabletForceRepairEvent")

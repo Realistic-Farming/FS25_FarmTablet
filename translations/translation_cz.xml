@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="Nastavení a konzole" />
         <text name="ft_help_p1_title" text="Otevírání a navigace" />
         <text name="ft_help_p1_open_title" text="Otevření tabletu" />
-        <text name="ft_help_p1_open_text" text="Stisknutím T (konfigurovatelné) kdykoli otevřete nebo zavřete Farm Tablet. Klíč můžete změnit v aplikaci Nastavení nebo zadáním TabletKeybind následovaného klíčovým písmenem ve vývojářské konzoli." />
         <text name="ft_help_p1_nav_title" text="Domovska obrazovka &amp; aplikace" />
         <text name="ft_help_p1_nav_text" text="Farmarsky Tablet funguje jako telefon. Posunutim odemknete, pak klepnete na ikonu aplikace na domovske obrazovce a otevrete ji. Klepnutim na HOME v hornim panelu se vratite na mrizku. Dok dole obsahuje oblibene a kolecko mysi prepina stranky. Aplikace App Store zobrazuje vsechny vase aplikace." />
         <text name="ft_help_p2_title" text="Přesouvání a změna velikosti" />
         <text name="ft_help_p2_move_title" text="Režim úprav" />
         <text name="ft_help_p2_move_text" text="Otevřete aplikaci Nastavení a klikněte na ZADAT REŽIM ÚPRAV. V režimu úprav můžete přetažením těla tabletu přemístit kdekoli na obrazovce, přetažením libovolného rohového úchytu změníte velikost celého tabletu nebo přetažením levého nebo pravého okraje upravíte pouze šířku. Klepnutím pravým tlačítkem kamkoli ukončíte režim úprav. Vaše poloha a měřítko se automaticky uloží." />
         <text name="ft_help_p2_key_title" text="Změna klíče Open" />
-        <text name="ft_help_p2_key_text" text="Výchozí klíč je T. Chcete-li jej změnit, otevřete aplikaci Nastavení a najděte nastavení Keybind, nebo ve vývojářské konzoli zadejte TabletKeybind následovaný názvem klíče – například TabletKeybind H nastaví klíč na H. Jsou podporována jednotlivá písmena, F-klávesy a běžné klávesy jako TAB a ESC." />
         <text name="ft_help_a1_title" text="Dashboard &amp; Weather" />
         <text name="ft_help_a1_dash_title" text="Dashboard" />
         <text name="ft_help_a1_dash_text" text="Dashboard je přehledné shrnutí farmy. Zobrazuje váš aktuální zůstatek na velké kartě hrdiny v horní části, poté příjmy, výdaje a čistý zisk za relaci níže. Farm Stats uvádí, kolik polí vlastníte a váš celkový počet vozidel. Sekce Svět zobrazuje aktuální roční období, den, denní dobu a aktuální stav počasí. Klepnutím na malou informační ikonu v pravém dolním rohu řídicího panelu zobrazíte podrobné vysvětlení každé hodnoty." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="Zvukové efekty jsou ve výchozím nastavení zapnuté. Při přepínání aplikací se přehraje kliknutí na výběr aplikace. Zvuk stránkování se přehraje, když se otevře nebo zavře panel nápovědy ve hře. Oba lze nezávisle přepínat v aplikaci Nastavení." />
         <text name="ft_help_s2_title" text="Příkazy konzoly" />
         <text name="ft_help_s2_console_title" text="Dostupné příkazy" />
-        <text name="ft_help_s2_console_text" text="Otevrete vyvojarskou konzoli klavesou tilda a napiste tablet pro vypis vsech prikazu. Napriklad TabletKeybind H meni klavesu otevreni, TabletSetStartupApp weather nastavi prvni aplikaci a TabletResetSettings obnovi vychozi nastaveni." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veterinar" />
         <text name="ft_ui_app_factory_week_schedule" text="Tyden tovarny" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

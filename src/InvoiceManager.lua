@@ -19,7 +19,7 @@
 -- =========================================================
 
 ---@class FT_InvoiceManager
-FT_InvoiceManager = {}
+FT_InvoiceManager = FT_InvoiceManager or {}
 local FT_InvoiceManager_mt = Class(FT_InvoiceManager)
 
 FT_InvoiceManager.XML_TAG      = "FTInvoices"

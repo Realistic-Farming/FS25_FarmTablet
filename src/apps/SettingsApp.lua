@@ -212,7 +212,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     )
     actionRow(ftSafeText("ft_settings_reset_position", "Reset position"), ftSafeText("ft_common_default", "Default"), ftSafeText("ft_settings_hint_reset_position", "Resets position, size and width."), ftSafeText("ft_common_reset", "Reset"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
-        s.tabletPosX = 0.5; s.tabletPosY = 0.5; s.tabletScale = 1.0; s.tabletWidthMult = 1.0
+        s.tabletPosX = 0.503646; s.tabletPosY = 0.519491; s.tabletScale = 1.607672; s.tabletWidthMult = 1.0
         s:save()
         if g_FarmTablet and g_FarmTablet.ui then g_FarmTablet.ui:applyPositionFromSettings() end
         refresh(self)

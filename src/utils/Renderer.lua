@@ -3,7 +3,7 @@
 -- Centralized drawing API. All visual output goes through here.
 -- =========================================================
 ---@class FT_Renderer
-FT_Renderer = {}
+FT_Renderer = FT_Renderer or {}
 local FT_Renderer_mt = Class(FT_Renderer)
 
 function FT_Renderer.new()

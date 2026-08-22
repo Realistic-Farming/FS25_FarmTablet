@@ -17,7 +17,7 @@
 -- exists solely for the isFullscreen claim.
 -- =========================================================
 
-FTMasterHUDBridge = {}
+FTMasterHUDBridge = FTMasterHUDBridge or {}
 
 FTMasterHUDBridge.active = false   -- MasterHUD present and we subscribed
 

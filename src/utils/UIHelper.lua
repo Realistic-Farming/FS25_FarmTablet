@@ -5,7 +5,7 @@
 -- Used exclusively by SettingsUI.lua.
 -- =========================================================
 ---@class UIHelper
-UIHelper = {}
+UIHelper = UIHelper or {}
 
 local function getTextSafe(key)
     local text = g_i18n:getText(key)

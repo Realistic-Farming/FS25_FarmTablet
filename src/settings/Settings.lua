@@ -5,7 +5,7 @@
 -- =========================================================
 ---@class Settings
 
-Settings = {}
+Settings = Settings or {}
 local Settings_mt = Class(Settings)
 
 -- Startup app migration helper
@@ -51,9 +51,9 @@ function Settings:resetToDefaults(saveImmediately)
     self.tabletBatteryStandbyMinutes = 15
 
     -- HUD / tablet window position and scale (saved across sessions)
-    self.tabletPosX              = 0.5   -- normalized, centre-anchored
-    self.tabletPosY              = 0.5
-    self.tabletScale             = 1.0   -- multiplier (0.5 – 2.0)
+    self.tabletPosX              = 0.503646   -- normalized, centre-anchored
+    self.tabletPosY              = 0.519491
+    self.tabletScale             = 1.607672   -- multiplier (0.5 – 2.0)
     self.tabletWidthMult         = 1.0   -- independent width stretch (0.5 – 2.0)
     self.contentFontScale        = 1.0   -- app text size multiplier (0.8 / 1.0 / 1.25 / 1.5)
     self.tabletBgColorIndex      = 1     -- index into FT.BG_PALETTE (1 = Deep Space)

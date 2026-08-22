@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="106">
     <author>TisonK, Akita83</author>
-    <version>2.6.0.4</version>
+    <version>2.6.0.6</version>
     <modName>FS25_FarmTablet</modName>
     <title>
         <en>Farm Tablet</en>
@@ -69,11 +69,15 @@
     </l10n>
     <inputBinding>
         <actionBinding action="FT_TOGGLE_TABLET">
-            <!-- BUILD 11:20. Right Ctrl + T did not fire on eyes-on, so the chord moved
-                 to Right Shift + T, which is unused on this map and which Right Shift
-                 demonstrably works for elsewhere. Never plain KEY_t: that is CHAT, and
-                 other mods answer to a bare T. Never an F-key. -->
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_rshift KEY_t" />
+            <!-- BUILD 15:39 (PB-12). Right Ctrl + T is the single player-facing
+                 authority, per DESIGN 15:00 §5: default binding, Controls row,
+                 save XML and bundled help all say the same thing. The 11:20
+                 build had moved to Right Shift + T after Right Ctrl + T failed
+                 on eyes-on; that failure is now explained by the tablet having
+                 no input context of its own, which BUILD 15:39 adds, so the
+                 chord is back to the locked one. Never plain KEY_t: that is
+                 CHAT, and other mods answer to a bare T. Never an F-key. -->
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rctrl KEY_t" />
         </actionBinding>
     </inputBinding>
 

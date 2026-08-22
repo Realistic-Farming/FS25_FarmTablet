@@ -8,7 +8,7 @@
 ---
 --- The old scan symbols are deliberately not quoted anywhere in this file, so a
 --- plain search for them across the packed mod comes back empty.
-InputHandler = {}
+InputHandler = InputHandler or {}
 local InputHandler_mt = Class(InputHandler)
 
 --- Must match the <action name=...> in modDesc.xml.
@@ -17,9 +17,9 @@ InputHandler.ACTION_NAME = "FT_TOGGLE_TABLET"
 --- Label of last resort, used only when the engine offers no way to ask what the
 --- key currently is. Must match the default binding in modDesc.xml.
 ---
---- BUILD 11:20: Right Shift + T. Right Ctrl + T was the 10:50 lock and did not
---- fire on eyes-on. Never plain T, which is chat, and never an F-key.
-InputHandler.DEFAULT_KEY_LABEL = "Right Shift + T"
+--- BUILD 15:39 (PB-12): Right Ctrl + T, the single locked authority. Must match
+--- the binding in modDesc.xml. Never plain T, which is chat, and never an F-key.
+InputHandler.DEFAULT_KEY_LABEL = "Right Ctrl + T"
 
 function InputHandler.new(tabletManager)
     local self = setmetatable({}, InputHandler_mt)
@@ -56,9 +56,26 @@ function InputHandler:register()
         false, true, false, true)
 
     if not ok or id == nil then
-        Logging.warning("[FarmTablet v2] %s registration failed", InputHandler.ACTION_NAME)
+        -- BUILD 21:53 (PB-H04, George TASK 21:39). The live log carried this warning
+        -- twice while Controls still listed the chord, which means both context
+        -- rebuilds failed the same way - and the proven cause class for a false
+        -- return here is a chord collision with an action already registered in the
+        -- context (the suite documented it on KEY_backslash in FS25_MasterHUD's
+        -- modDesc). So the failure now names the live chord so the colliding mod can
+        -- be found in Controls, and arms ONE deferred retry through update(): the
+        -- retry runs outside the rebuild that just failed, wrapped in its own
+        -- explicit player-context modification - the same cross-context registration
+        -- pattern FS25_MasterHUD uses from the vehicle hook, proven live by Brian's
+        -- rebind round trip.
+        self._retryPending = true
+        Logging.warning(
+            "[FarmTablet v2] %s registration failed (live chord: %s). Likely a chord "
+            .. "collision with another mod's action in the player context - rebinding "
+            .. "Farm Tablet in Controls resolves it. One deferred retry is armed.",
+            InputHandler.ACTION_NAME, self:getKeybindString())
         return false
     end
+    self._retryPending = false
 
     self.eventId = id
     -- The tablet is a whole screen, not a context prompt: no help-bar entry.
@@ -78,11 +95,44 @@ end
 --- next register() make a fresh one rather than returning early on a stale id.
 function InputHandler:forgetRegistration()
     self.eventId = nil
+    -- Fresh context, fresh one-retry allowance (see update).
+    self._retryUsed = false
 end
 
---- Kept so the manager's update call site is unchanged. There is deliberately
---- nothing here: polling the keyboard is the thing this build removed.
+--- BUILD 21:53: one deferred retry per failed registration, run from the manager's
+--- per-frame update - i.e. OUTSIDE the context rebuild whose registration just
+--- failed. Wrapped in an explicit player-context modification session, which is the
+--- registration form the suite has proven works outside a rebuild (FS25_MasterHUD
+--- re-registers its player actions this way from the vehicle hook). Exactly one
+--- retry per failure: if the chord is genuinely taken by another mod, retrying
+--- forever would only spam the log, and the Controls rebind is the real cure.
+--- Polling the keyboard is still gone - this touches only the action registration.
 function InputHandler:update(dt)
+    if not self._retryPending or self.eventId ~= nil then
+        return
+    end
+    -- One retry per context rebuild, hard-capped: the failure branch in register()
+    -- re-arms _retryPending, so without this guard a persistent collision would
+    -- retry (and log) every frame. forgetRegistration() resets the cap when the
+    -- engine genuinely rebuilds the context.
+    if self._retryUsed then
+        self._retryPending = false
+        return
+    end
+    self._retryUsed = true
+    self._retryPending = false
+    if g_inputBinding == nil or PlayerInputComponent == nil then
+        return
+    end
+    g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
+    local ok, err = pcall(self.register, self)
+    g_inputBinding:endActionEventsModification()
+    if ok and self.eventId ~= nil then
+        Logging.info("[FarmTablet v2] %s deferred retry succeeded", InputHandler.ACTION_NAME)
+    elseif not ok then
+        Logging.warning("[FarmTablet v2] %s deferred retry errored: %s",
+            InputHandler.ACTION_NAME, tostring(err))
+    end
 end
 
 --- The key the player would actually press, read live wherever the engine will

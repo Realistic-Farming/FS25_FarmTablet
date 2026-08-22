@@ -16,12 +16,50 @@ local GRID_COLS    = 5
 local DOCK_H_REF   = 78
 local HOMEIND_REF  = 10
 
--- Localised, truncated app label for the grid.
+-- BUILD 15:39 (PB-11). Sam's locked short display names, DESIGN 15:00 §4.
+-- The grid used to render the full localised app name and then hard-cut it to
+-- the label budget with a trailing ".", which is how "Financial Cockpit" reached
+-- Brian as "Financial." and "Field Sentinel" as "Field Sent.". A truncated name
+-- is not a name: these are the player nouns the grid shows, and the full name
+-- still appears in the app's own header once it is open.
+local SHORT_NAMES = {
+    financial_cockpit = "Finances",
+    field_status      = "Fields",
+    hotspot_manager   = "Hotspots",
+    fleet_manager     = "Fleet",
+    irrigation_suite  = "Irrigation",
+    soil_fertilizer   = "Soil",
+    field_sentry      = "Field Sentinel",
+}
+
+-- Localised app label for the grid. Prefers the locked short name; only falls
+-- back to truncation for a name nobody has locked yet, and even then it cuts on
+-- a word boundary rather than leaving a trailing ellipsis.
 local function appLabel(app, maxChars)
-    local name = (app and g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
-                 or (app and app.navLabel) or "?"
-    if #name > maxChars then name = string.sub(name, 1, maxChars - 1) .. "." end
-    return name
+    if app == nil then return "?" end
+
+    local short = SHORT_NAMES[app.id]
+    if short ~= nil then
+        -- Optional per-language override. Guarded with hasText, so no new key is
+        -- required in any of the 26 translation files for this to ship.
+        local key = "ft_ui_short_" .. app.id
+        if g_i18n ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then
+            return g_i18n:getText(key)
+        end
+        return short
+    end
+
+    local name = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
+                 or app.navLabel or "?"
+    if #name <= maxChars then return name end
+
+    -- Cut at the last space that still fits, so the label ends on a whole word.
+    local cut = string.sub(name, 1, maxChars)
+    local sp  = string.find(string.reverse(cut), " ")
+    if sp ~= nil and (maxChars - sp) >= 4 then
+        return string.sub(cut, 1, maxChars - sp)
+    end
+    return cut
 end
 
 local function isDockApp(id)
@@ -87,12 +125,16 @@ function FarmTabletUI:_drawHome()
     local toolTop = L.canvasY + L.canvasH - FT.py(2)
     local toolBot = toolTop - toolH
 
+    -- BUILD 15:39 (PB-02). The grid carries the same Home / Back / Star cluster
+    -- the app bar does, so the nav vocabulary does not change when the player
+    -- steps out of an app. At the grid root Home and Back are drawn dimmed and
+    -- are inert; the star stays live and doubles as the springboard/favourites
+    -- toggle it has always been.
+    local navRight = self:_drawNavCluster(sx, toolBot, toolH, FT.C.BRAND, favMode)
     local starW, starH = FT.px(30), FT.py(20)
-    local starX = sx + FT.px(14)
+    local starX = navRight - starW
     local starY = toolBot + (toolH - starH) / 2
-    self:_drawStarGlyph(starX, starY, starW, starH, favMode)
-    self._homeStarBtn = { x = starX - FT.px(3), y = starY - FT.py(3),
-                          w = starW + FT.px(6), h = starH + FT.py(6) }
+    self._homeStarBtn = self._starBtn
 
     if favMode then
         r:text(starX + starW + FT.px(10), toolBot + toolH / 2 - FT.py(5),
@@ -231,20 +273,33 @@ function FarmTabletUI:_drawHome()
     end
 
     -- ── Page dots ────────────────────────────────────────
+    -- BUILD 15:39 (PB-11). "Two tiny dots" was the whole page cue and Brian read
+    -- it as decoration. The dots are bigger, the active one is wider than the
+    -- rest so the position is legible at a glance rather than by brightness
+    -- alone, and a plain "Page 1 / 3" counter sits beside them.
     self._pageDots = {}
     if self._pageCount > 1 then
-        local dotSz  = FT.px(6)
-        local dotGap = FT.px(8)
-        local totalW = self._pageCount * dotSz + (self._pageCount - 1) * dotGap
-        local startX = sx + sw / 2 - totalW / 2
+        local dotSz    = FT.px(9)
+        local dotGap   = FT.px(9)
+        local activeW  = FT.px(20)
+        local totalW   = (self._pageCount - 1) * (dotSz + dotGap) + activeW
+        local counterW = FT.px(52)
+        local startX   = sx + sw / 2 - (totalW + counterW) / 2
         local dy = dotsY + dotsH / 2 - dotSz / 2
+
+        local dx = startX
         for pg = 0, self._pageCount - 1 do
-            local dx = startX + pg * (dotSz + dotGap)
             local active = (pg == self._page)
-            r:rect(dx, dy, dotSz, dotSz,
-                active and {0.95, 0.96, 0.98, 0.95} or {0.95, 0.96, 0.98, 0.30})
-            table.insert(self._pageDots, { x = dx - dotGap / 2, y = dotsY, w = dotSz + dotGap, h = dotsH, page = pg })
+            local w = active and activeW or dotSz
+            r:rect(dx, dy, w, dotSz,
+                active and {0.95, 0.96, 0.98, 0.95} or {0.95, 0.96, 0.98, 0.38})
+            table.insert(self._pageDots, { x = dx - dotGap / 2, y = dotsY, w = w + dotGap, h = dotsH, page = pg })
+            dx = dx + w + dotGap
         end
+
+        r:text(dx + FT.px(6), dotsY + dotsH / 2 - FT.py(4), FT.FONT.TINY,
+            string.format("%d / %d", (self._page or 0) + 1, self._pageCount),
+            RenderText.ALIGN_LEFT, {0.82, 0.85, 0.90, 0.90})
     end
 
     -- ── Dock (springboard mode only) ──────────────────────
@@ -255,14 +310,17 @@ function FarmTabletUI:_drawHome()
         end
         local nDock = #dockList
         if nDock > 0 then
-            local dockIcon = math.min(FT.py(48), dockH * 0.62)
+            -- BUILD 15:39 (PB-11): dock icons get text labels, so the panel is
+            -- a label row taller and the icon a little shorter to pay for it.
+            local dockLblH = FT.py(12)
+            local dockIcon = math.min(FT.py(42), dockH * 0.54)
             local dGap     = FT.px(18)
             local rowW     = nDock * dockIcon + (nDock - 1) * dGap
             local panelPad = FT.px(16)
             local panelW   = math.min(sw - FT.px(40), rowW + panelPad * 2)
+            local panelH   = dockIcon + dockLblH + FT.py(14)
             local panelX   = sx + sw / 2 - panelW / 2
-            local panelY   = dockY + (dockH - (dockIcon + FT.py(18))) / 2
-            local panelH   = dockIcon + FT.py(18)
+            local panelY   = dockY + (dockH - panelH) / 2
 
             -- frosted dock panel
             r:rect(panelX, panelY, panelW, panelH, {1, 1, 1, 0.06})
@@ -270,7 +328,7 @@ function FarmTabletUI:_drawHome()
             r:rect(panelX, panelY + panelH - FT.py(1), panelW, FT.py(1), {0, 0, 0, 0.20})
 
             local startX = sx + sw / 2 - rowW / 2
-            local iy = panelY + (panelH - dockIcon) / 2
+            local iy = panelY + dockLblH + FT.py(7)
             for i, app in ipairs(dockList) do
                 local ix = startX + (i - 1) * (dockIcon + dGap)
                 table.insert(self._iconQueue, {
@@ -279,6 +337,11 @@ function FarmTabletUI:_drawHome()
                 })
                 self._appCellRects[app.id] = { x = ix, y = iy, w = dockIcon, h = dockIcon }
                 table.insert(self._dockBtns, { appId = app.id, x = ix - dGap / 2, y = panelY, w = dockIcon + dGap, h = panelH })
+
+                -- Dock label. Same short-name rule as the grid, so a dock app
+                -- and its grid tile never read as two different apps.
+                r:appText(ix + dockIcon / 2, panelY + FT.py(4), lblFont,
+                    appLabel(app, lblMax), RenderText.ALIGN_CENTER, {0.95, 0.96, 0.98, 0.95})
             end
         end
     end

@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="設定とコンソール" />
         <text name="ft_help_p1_title" text="開くことと操作すること" />
         <text name="ft_help_p1_open_title" text="タブレットを開く" />
-        <text name="ft_help_p1_open_text" text="T (設定可能) を押すと、いつでもファーム タブレットを開いたり閉じたりできます。キーを変更するには、設定アプリで、または開発者コンソールで TabletKeybind に続いてキー文字を入力します。" />
         <text name="ft_help_p1_nav_title" text="ホーム画面とアプリ" />
         <text name="ft_help_p1_nav_text" text="Farm Tabletはスマートフォンのように動作します。スワイプしてロックを解除し、ホーム画面でアプリのアイコンをタップして開きます。上部バーのHOMEをタップするとグリッドに戻ります。下部のドックにはお気に入りが並び、マウスホイールでページを切り替えます。App Storeアプリにすべてのアプリが一覧表示されます。" />
         <text name="ft_help_p2_title" text="移動とサイズ変更" />
         <text name="ft_help_p2_move_title" text="編集モード" />
         <text name="ft_help_p2_move_text" text="設定アプリを開き、「編集モードに入る」をクリックします。編集モードでは、タブレット本体をドラッグして画面上の任意の場所に位置を変更したり、隅のハンドルをドラッグしてタブレット全体を拡大縮小したり、左端または右端をドラッグして幅のみを調整したりできます。任意の場所を右クリックして編集モードを終了します。位置とスケールは自動的に保存されます。" />
         <text name="ft_help_p2_key_title" text="オープンキーの変更" />
-        <text name="ft_help_p2_key_text" text="デフォルトのキーは T です。変更するには、設定アプリを開いてキーバインド設定を見つけるか、開発者コンソールで TabletKeybind に続いてキー名を入力します。たとえば、TabletKeybind H はキーを H に設定します。単一の文字、F キー、および TAB や ESC などの共通キーがすべてサポートされています。" />
         <text name="ft_help_a1_title" text="ダッシュボードと天気" />
         <text name="ft_help_a1_dash_title" text="ダッシュボード" />
         <text name="ft_help_a1_dash_text" text="ダッシュボードは、ファームの概要を一目で把握できるものです。上部の大きなヒーロー カードに現在の残高が表示され、その下にセッションの収入、支出、純利益が表示されます。 Farm Stats には、所有する畑の数と車両の総数がリストされます。 「世界」セクションには、現在の季節、曜日、時刻、およびライブ天気のスナップショットが表示されます。ダッシュボードの右下隅にある小さな情報アイコンをタップすると、すべての値の詳細な説明が表示されます。" />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="効果音はデフォルトでオンになっています。アプリを切り替えると、アプリ選択のクリック音が再生されます。ゲーム内のヘルプ パネルが開いたり閉じたりすると、ページング音が再生されます。どちらも設定アプリで個別に切り替えることができます。" />
         <text name="ft_help_s2_title" text="コンソールコマンド" />
         <text name="ft_help_s2_console_title" text="利用可能なコマンド" />
-        <text name="ft_help_s2_console_text" text="チルダキーで開発者コンソールを開き、tablet と入力するとすべてのコマンドが表示されます。例えば TabletKeybind H は開くキーを変更し、TabletSetStartupApp weather は最初のアプリを設定し、TabletResetSettings は既定値に戻します。" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="動物獣医" />
         <text name="ft_ui_app_factory_week_schedule" text="工場ウィーク" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />
