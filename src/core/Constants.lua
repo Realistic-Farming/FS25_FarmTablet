@@ -4,7 +4,7 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.6.0.4"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
+FT.VERSION = "2.6.0.6"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
 
 -- TEMPORARY console command fee until the real repair station ships.
 FT.FORCE_REPAIR_FEE = 3000
@@ -4204,7 +4204,7 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_battery_service_title"] = "Tablet-Akku",
     ["ft_battery_empty_auto_charge"] = "Tablet-Akku leer. Tablet ist am Ladegerät.",
     ["ft_battery_charging_locked"] = "Tablet am Ladegerät. Einschalten ab 15% möglich.",
-    ["ft_battery_charged_usable"] = "Tablet ausreichend geladen. Mit T wieder einschalten.",
+    ["ft_battery_charged_usable"] = "Tablet ausreichend geladen. Mit %s wieder einschalten.",
     ["ft_battery_charged_full"] = "Tablet voll geladen.",
     ["ft_common_available"] = "Verfügbar",
     ["ft_common_busy"] = "Beschäftigt",
@@ -4311,10 +4311,8 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_help_m3_title"] = "App Store",
     ["ft_help_p1_nav_text"] = "Das Farm-Tablet funktioniert wie ein Smartphone. Zum Entsperren wischen, danach auf dem Startbildschirm ein App-Symbol antippen, um es zu oeffnen. Tippe oben auf HOME, um zum Raster zurueckzukehren. Das Dock am unteren Rund enthaelt deine Favoriten, mit dem Mausrad wechselst du die Seiten. Die App-Store-App zeigt alle vorhandenen Apps.",
     ["ft_help_p1_nav_title"] = "Startbildschirm & Apps",
-    ["ft_help_p1_open_text"] = "Drücken Sie jederzeit T (konfigurierBalken), um das Farm Tablet zu öffnen oder zu schließen. Sie können den Schlüssel in der App „Einstellungen“ oder durch Eingabe von „TabletKeybind“ gefolgt von einem Schlüsselbuchstaben in der Entwicklerkonsole ändern.",
     ["ft_help_p1_open_title"] = "Öffnen des Tablets",
     ["ft_help_p1_title"] = "Öffnen und Navigieren",
-    ["ft_help_p2_key_text"] = "Der Standardschlüssel ist T. Um ihn zu ändern, öffnen Sie die App „Einstellungen“ und suchen Sie die Einstellung „Tastenkombination“ oder geben Sie „TabletKeybind“ gefolgt von einem Schlüsselnamen in der Entwicklerkonsole ein – „TabletKeybind H“ setzt den Schlüssel beispielsweise auf „H“. Einzelbuchstaben, F-Tasten und allgemeine Tasten wie TAB und ESC werden alle unterstützt.",
     ["ft_help_p2_key_title"] = "Ändern des Öffnungsschlüssels",
     ["ft_help_p2_move_text"] = "Öffnen Sie die App „Einstellungen“ und klicken Sie auf „BEARBEITUNGSMODUS EINGEBEN“. Im Bearbeitungsmodus können Sie den Tablet-Körper ziehen, um ihn ein einer beliebigen Stelle auf dem Bildschirm neu zu positionieren, einen beliebigen Eckgriff ziehen, um das gesamte Tablet zu skalieren, oder den linken oder rechten Rund ziehen, um nur die Breite anzupassen. Klicken Sie mit der rechten Maustaste auf eine beliebige Stelle, um den Bearbeitungsmodus zu verlassen. Ihre Position und Ihr Maßstab werden automatisch gespeichert.",
     ["ft_help_p2_move_title"] = "Bearbeitungsmodus",
@@ -4324,7 +4322,6 @@ FT.DE_L10N = FT.DE_L10N or {
     ["ft_help_s1_sound_text"] = "Soundeffekte sind standardmäßig aktiviert. Der App-Auswahlklick wird abgespielt, wenn Sie die App wechseln. Der Paging-Sound ertönt, wenn das Hilfefenster im Spiel geöffnet oder geschlossen wird. Beide können unabhängig voneinander in der Einstellungen-App umgeschaltet werden.",
     ["ft_help_s1_sound_title"] = "Soundeffekte",
     ["ft_help_s1_title"] = "Tablet-Einstellungen",
-    ["ft_help_s2_console_text"] = "Oeffne die Entwicklerkonsole mit der Tilde-Taste und tippe tablet, um alle Befehle zu sehen. Beispiel: TabletKeybind H aendert die Oeffnen-Taste, TabletSetStartupApp weather setzt die Start-App, und TabletResetSettings stellt die Standardwerte wieder her.",
     ["ft_help_s2_console_title"] = "Verfügbare Befehle",
     ["ft_help_s2_title"] = "Konsolenbefehle",
     ["ft_lockscreen_date_day"] = "%s  -  Tag %d",

@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="設定和控制台" />
         <text name="ft_help_p1_title" text="打開和導航" />
         <text name="ft_help_p1_open_title" text="開啟平板電腦" />
-        <text name="ft_help_p1_open_text" text="Press T (configurable) at any time to open or close the Farm Tablet. You can change the key in the Settings app or by typing TabletKeybind followed by a key letter in the developer console." />
         <text name="ft_help_p1_nav_title" text="主畫面與應用程式" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet 的操作就像手機。滑動以解鎖，然後在主畫面點按應用程式圖示即可開啟。點按上方列的 HOME 可返回圖示格。底部的 Dock 放置常用程式，滑鼠滾輪可切換頁面。App Store 應用程式會列出你所有的應用程式。" />
         <text name="ft_help_p2_title" text="移動和調整大小" />
         <text name="ft_help_p2_move_title" text="編輯模式" />
         <text name="ft_help_p2_move_text" text="開啟“設定”應用程式並點擊“進入編輯模式”。在編輯模式下，您可以拖曳平板電腦主體以將其重新定位在螢幕上的任何位置，拖曳任何角落手柄以縮放整個平板電腦，或拖曳左邊緣或右邊緣以僅調整寬度。右鍵點選任意位置可退出編輯模式。您的位置和比例會自動儲存。" />
         <text name="ft_help_p2_key_title" text="更改開啟密鑰" />
-        <text name="ft_help_p2_key_text" text="預設鍵是 T。要更改它，請打開“設置”應用程式並找到“Keybind”設置，或者在開發者控制台中鍵入 TabletKeybind，後跟鍵名稱 - 例如 TabletKeybind H 將鍵設置為 H。單字母、F 鍵以及 TAB 和 ESC 等常用鍵都支援。" />
         <text name="ft_help_a1_title" text="儀表板和天氣" />
         <text name="ft_help_a1_dash_title" text="儀表板" />
         <text name="ft_help_a1_dash_text" text="儀表板是您一目了然的農場摘要。它在頂部的大英雄卡中顯示您當前的餘額，然後在下面顯示該會話的收入、支出和淨利潤。農場統計列出了您擁有的田地數量和車輛總數。世界部分顯示當前季節、日期、時間以及即時天氣快照。點擊儀表板右下角的小資訊圖示即可取得每個值的詳細說明。" />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="預設情況下，聲音效果處於開啟狀態。當您切換應用程式時，會播放應用程式選擇點擊聲。當遊戲內幫助面板開啟或關閉時，會發出尋呼聲音。兩者都可以在“設定”應用程式中獨立切換。" />
         <text name="ft_help_s2_title" text="控制台命令" />
         <text name="ft_help_s2_console_title" text="可用指令" />
-        <text name="ft_help_s2_console_text" text="用波浪鍵開啟開發者主控台，輸入 tablet 即可列出所有指令。例如 TabletKeybind H 變更開啟鍵，TabletSetStartupApp weather 設定第一個應用程式，TabletResetSettings 還原預設值。" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="動物獸醫" />
         <text name="ft_ui_app_factory_week_schedule" text="工廠週" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="설정 및 콘솔" />
         <text name="ft_help_p1_title" text="열기 및 탐색" />
         <text name="ft_help_p1_open_title" text="태블릿 열기" />
-        <text name="ft_help_p1_open_text" text="Farm Tablet을 열거나 닫으려면 언제든지 T(구성 가능)를 누르세요. 설정 앱에서 키를 변경하거나 개발자 콘솔에서 TabletKeybind와 키 문자를 차례로 입력하여 변경할 수 있습니다." />
         <text name="ft_help_p1_nav_title" text="홈 화면 및 앱" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet은 휴대폰처럼 작동합니다. 밀어서 잠금을 해제한 다음 홈 화면에서 앱 아이콘을 눌러 엽니다. 상단 바의 HOME을 누르면 그리드로 돌아갑니다. 하단의 독에는 즐겨찾기가 있고 마우스 휠로 페이지를 넘깁니다. App Store 앱에 모든 앱이 표시됩니다." />
         <text name="ft_help_p2_title" text="이동 및 크기 조정" />
         <text name="ft_help_p2_move_title" text="편집 모드" />
         <text name="ft_help_p2_move_text" text="설정 앱을 열고 편집 모드 입력을 클릭하세요. 편집 모드에서는 타블렛 본체를 끌어 화면의 어느 위치로든 재배치할 수 있고, 모서리 핸들을 끌어 전체 타블렛의 크기를 조정하거나 왼쪽 또는 오른쪽 가장자리를 끌어 너비만 조정할 수 있습니다. 편집 모드를 종료하려면 아무 곳이나 마우스 오른쪽 버튼으로 클릭하세요. 위치와 규모는 자동으로 저장됩니다." />
         <text name="ft_help_p2_key_title" text="공개 키 변경" />
-        <text name="ft_help_p2_key_text" text="기본 키는 T입니다. 이를 변경하려면 설정 앱을 열고 Keybind 설정을 찾거나 개발자 콘솔에서 TabletKeybind와 키 이름을 차례로 입력하세요. 예를 들어 TabletKeybind H는 키를 H로 설정합니다. 단일 문자, F 키 및 TAB 및 ESC와 같은 일반 키가 모두 지원됩니다." />
         <text name="ft_help_a1_title" text="대시보드 및 날씨" />
         <text name="ft_help_a1_dash_title" text="계기반" />
         <text name="ft_help_a1_dash_text" text="대시보드는 한눈에 볼 수 있는 팜 요약입니다. 상단의 큰 영웅 카드에 현재 잔액이 표시되고 아래 세션의 수입, 지출 및 순이익이 표시됩니다. 농장 통계에는 소유한 필드 수와 총 차량 수가 나열됩니다. 세계 섹션에는 현재 계절, 요일, 시간 및 실시간 날씨 스냅샷이 표시됩니다. 모든 값에 대한 자세한 설명을 보려면 대시보드 오른쪽 하단에 있는 작은 정보 아이콘을 탭하세요." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="사운드 효과는 기본적으로 켜져 있습니다. 앱을 전환하면 앱 선택 클릭이 재생됩니다. 게임 내 도움말 패널이 열리거나 닫힐 때 페이징 소리가 재생됩니다. 둘 다 설정 앱에서 독립적으로 전환할 수 있습니다." />
         <text name="ft_help_s2_title" text="콘솔 명령" />
         <text name="ft_help_s2_console_title" text="사용 가능한 명령" />
-        <text name="ft_help_s2_console_text" text="물결표 키로 개발자 콘솔을 열고 tablet을 입력하면 모든 명령을 볼 수 있습니다. 예를 들어 TabletKeybind H는 여는 키를 바꾸고, TabletSetStartupApp weather는 첫 앱을 설정하며, TabletResetSettings는 기본값으로 되돌립니다." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="동물 수의" />
         <text name="ft_ui_app_factory_week_schedule" text="공장 주간" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

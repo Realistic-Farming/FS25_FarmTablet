@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="Beállítások és konzol" />
         <text name="ft_help_p1_title" text="Megnyitás és navigáció" />
         <text name="ft_help_p1_open_title" text="A táblagép kinyitása" />
-        <text name="ft_help_p1_open_text" text="Nyomja meg a T (konfigurálható) gombot bármikor a Farm Tablet megnyitásához vagy bezárásához. Módosíthatja a kulcsot a Beállítások alkalmazásban, vagy a TabletKeybind beírásával, majd egy kulcsbetűvel a fejlesztői konzolon." />
         <text name="ft_help_p1_nav_title" text="Kezdokepernyo &amp; alkalmazasok" />
         <text name="ft_help_p1_nav_text" text="A Farm Tablet ugy mukodik, mint egy telefon. Huzd el a feloldashoz, majd erintsd meg egy alkalmazas ikonjat a kezdokepernyon a megnyitashoz. Erintsd meg a HOME gombot a felso savon a racshoz valo visszateteshez. Az also dokk a kedvenceket tartalmazza, az egergorgo pedig lapoz. Az App Store alkalmazas felsorolja az osszes alkalmazasodat." />
         <text name="ft_help_p2_title" text="Áthelyezés és átméretezés" />
         <text name="ft_help_p2_move_title" text="Szerkesztés mód" />
         <text name="ft_help_p2_move_text" text="Nyissa meg a Beállítások alkalmazást, és kattintson a SZERKESZTÉSI MÓD BEJELENTKEZÉSÉRE. Szerkesztési módban húzással áthelyezheti a táblagép testét bárhová a képernyőn, bármely sarokfogantyú húzásával átméretezheti a teljes táblagépet, vagy a bal vagy jobb szélét húzva csak a szélességet módosíthatja. Kattintson a jobb gombbal bárhova a szerkesztési módból való kilépéshez. A pozíció és a lépték automatikusan mentésre kerülnek." />
         <text name="ft_help_p2_key_title" text="A nyitókulcs módosítása" />
-        <text name="ft_help_p2_key_text" text="Az alapértelmezett kulcs a T. A módosításhoz nyissa meg a Beállítások alkalmazást, és keresse meg a Keybind beállítást, vagy írja be a TabletKeybind szót, majd egy kulcsnevet a fejlesztői konzolba – például a TabletKeybind H a ​​kulcsot H értékre állítja. Az egyes betűk, az F-billentyűk és az általános billentyűk, például a TAB és az ESC egyaránt támogatottak." />
         <text name="ft_help_a1_title" text="Irányítópult és időjárás" />
         <text name="ft_help_a1_dash_title" text="Műszerfal" />
         <text name="ft_help_a1_dash_text" text="Az Irányítópult a gazdaság összefoglalója egy pillantással. Megjeleníti az aktuális egyenlegedet egy nagy hőskártyán a tetején, majd az alábbi munkamenet bevételeit, kiadásait és nettó nyereségét. A Farm Stats felsorolja, hogy hány mezője van, és hány járműve van. A Világ rész az aktuális évszakot, a napot, a napszakot és az élő időjárási pillanatképet mutatja. Érintse meg a kis információs ikont az Irányítópult jobb alsó sarkában az egyes értékek részletes magyarázatához." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="A hangeffektusok alapértelmezés szerint be vannak kapcsolva. Az alkalmazásválasztó kattintás akkor jelenik meg, amikor alkalmazást vált. A lapozóhang akkor szólal meg, amikor a játékon belüli súgópanel megnyílik vagy bezárul. Mindkettő egymástól függetlenül átkapcsolható a Beállítások alkalmazásban." />
         <text name="ft_help_s2_title" text="Konzolparancsok" />
         <text name="ft_help_s2_console_title" text="Elérhető parancsok" />
-        <text name="ft_help_s2_console_text" text="Nyisd meg a fejlesztoi konzolt a tilde billentyuvel, es ird be a tablet szot az osszes parancs listazasahoz. Pelda: TabletKeybind H megvaltoztatja a nyito billentyut, TabletSetStartupApp weather beallitja az elso alkalmazast, a TabletResetSettings pedig visszaallitja az alapertelmezeseket." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Allatorvos" />
         <text name="ft_ui_app_factory_week_schedule" text="Gyari het" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

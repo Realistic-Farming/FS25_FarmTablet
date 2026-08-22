@@ -4,10 +4,10 @@
 -- per-savegame config file (modName.xml in savegame dir).
 -- =========================================================
 ---@class SettingsManager
-SettingsManager = {}
+SettingsManager = SettingsManager or {}
 local SettingsManager_mt = Class(SettingsManager)
 
-SettingsManager.MOD_NAME = g_currentModName
+SettingsManager.MOD_NAME = (FarmTabletModName or g_currentModName)
 SettingsManager.XMLTAG = "FarmTablet"
 
 SettingsManager.defaultConfig = {

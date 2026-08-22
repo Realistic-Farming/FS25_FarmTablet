@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
     <texts>
         <text name="ft_ui_section" text="Tavoletta agricola" />
@@ -155,14 +155,12 @@
         <text name="ft_help_cat_settings" text="Impostazioni e console" />
         <text name="ft_help_p1_title" text="Apertura e navigazione" />
         <text name="ft_help_p1_open_title" text="Apertura del tablet" />
-        <text name="ft_help_p1_open_text" text="Premi T (configurabile) in qualsiasi momento per aprire o chiudere il Farm Tablet. Puoi modificare la chiave nell'app Impostazioni o digitando TabletKeybind seguito da una lettera chiave nella console per sviluppatori." />
         <text name="ft_help_p1_nav_title" text="Schermata Home &amp; app" />
         <text name="ft_help_p1_nav_text" text="Il Tablet Agricolo funziona come un telefono. Scorri per sbloccare, poi tocca l'icona di un'app nella schermata Home per aprirla. Tocca HOME nella barra in alto per tornare alla griglia. Il dock in basso contiene i preferiti e la rotellina del mouse cambia pagina. L'app App Store elenca tutte le tue app." />
         <text name="ft_help_p2_title" text="Spostamento e ridimensionamento" />
         <text name="ft_help_p2_move_title" text="ModalitÃ  Modifica" />
         <text name="ft_help_p2_move_text" text="Apri l'app Impostazioni e fai clic su ENTRA IN MODALITÃ€ MODIFICA. In modalitÃ  di modifica puoi trascinare il corpo del tablet per riposizionarlo ovunque sullo schermo, trascinare qualsiasi maniglia d'angolo per ridimensionare l'intero tablet o trascinare il bordo sinistro o destro per regolare solo la larghezza. Fare clic con il tasto destro in un punto qualsiasi per uscire dalla modalitÃ  di modifica. La tua posizione e la scala vengono salvate automaticamente." />
         <text name="ft_help_p2_key_title" text="Modifica della chiave di apertura" />
-        <text name="ft_help_p2_key_text" text="La chiave predefinita Ã¨ T. Per modificarla, apri l'app Impostazioni e trova l'impostazione Keybind oppure digita TabletKeybind seguito dal nome della chiave nella console per sviluppatori, ad esempio TabletKeybind H imposta la chiave su H. Sono tutti supportati lettere singole, tasti F e tasti comuni come TAB ed ESC." />
         <text name="ft_help_a1_title" text="Cruscotto e meteo" />
         <text name="ft_help_a1_dash_title" text="Pannello di controllo" />
         <text name="ft_help_a1_dash_text" text="Il Dashboard Ã¨ il riepilogo immediato della tua azienda agricola. Mostra il tuo saldo attuale in una grande carta eroe in alto, poi le entrate, le spese e l'utile netto per la sessione in basso. Farm Stats elenca quanti campi possiedi e il numero totale di veicoli. La sezione Mondo mostra la stagione corrente, il giorno, l'ora del giorno e un'istantanea del tempo in tempo reale. Tocca la piccola icona delle informazioni nell'angolo in basso a destra della dashboard per una spiegazione dettagliata di ogni valore." />
@@ -198,7 +196,6 @@
         <text name="ft_help_s1_sound_text" text="Gli effetti sonori sono attivi per impostazione predefinita. Il clic per la selezione dell'app viene riprodotto quando cambi app. Il suono del cercapersone viene riprodotto quando il pannello della guida del gioco si apre o si chiude. Entrambi possono essere attivati â€‹â€‹in modo indipendente nell'app Impostazioni." />
         <text name="ft_help_s2_title" text="Comandi della console" />
         <text name="ft_help_s2_console_title" text="Comandi disponibili" />
-        <text name="ft_help_s2_console_text" text="Apri la console sviluppatore con il tasto tilde e digita tablet per elencare tutti i comandi. Ad esempio TabletKeybind H cambia il tasto di apertura, TabletSetStartupApp weather imposta la prima app e TabletResetSettings ripristina i valori predefiniti." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veterinario" />
         <text name="ft_ui_app_factory_week_schedule" text="Settimana fabbrica" />
@@ -2533,7 +2530,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

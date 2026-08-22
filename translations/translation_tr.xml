@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
     <texts>
         <text name="ft_ui_section" text="Ã‡iftlik Tableti" />
@@ -155,14 +155,12 @@
         <text name="ft_help_cat_settings" text="Ayarlar ve Konsol" />
         <text name="ft_help_p1_title" text="AÃ§ma ve Gezinme" />
         <text name="ft_help_p1_open_title" text="Tableti AÃ§ma" />
-        <text name="ft_help_p1_open_text" text="Farm Tablet'i aÃ§mak veya kapatmak iÃ§in istediÄŸiniz zaman T'ye (yapÄ±landÄ±rÄ±labilir) basÄ±n. AnahtarÄ± Ayarlar uygulamasÄ±ndan veya geliÅŸtirici konsolunda TabletKeybind yazÄ±p ardÄ±ndan bir anahtar harfi yazarak deÄŸiÅŸtirebilirsiniz." />
         <text name="ft_help_p1_nav_title" text="Ana ekran &amp; uygulamalar" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet bir telefon gibi calisir. Kilidi acmak icin kaydirin, ardindan ana ekranda bir uygulama simgesine dokunarak acin. Izgaraya donmek icin ust cubuktaki HOME dugmesine dokunun. Alttaki dok favorilerinizi tutar, fare tekerleÄŸi sayfalar arasinda gecer. App Store uygulamasi tum uygulamalarinizi listeler." />
         <text name="ft_help_p2_title" text="TaÅŸÄ±ma ve Yeniden BoyutlandÄ±rma" />
         <text name="ft_help_p2_move_title" text="DÃ¼zenleme Modu" />
         <text name="ft_help_p2_move_text" text="Ayarlar uygulamasÄ±nÄ± aÃ§Ä±n ve DÃœZENLEME MODUNA GÄ°RÄ°N seÃ§eneÄŸine tÄ±klayÄ±n. DÃ¼zenleme modunda, ekranÄ±n herhangi bir yerine yeniden konumlandÄ±rmak iÃ§in tablet gÃ¶vdesini sÃ¼rÃ¼kleyebilir, tabletin tamamÄ±nÄ± Ã¶lÃ§eklendirmek iÃ§in herhangi bir kÃ¶ÅŸe tutamacÄ±nÄ± sÃ¼rÃ¼kleyebilir veya yalnÄ±zca geniÅŸliÄŸi ayarlamak iÃ§in sol veya saÄŸ kenarÄ± sÃ¼rÃ¼kleyebilirsiniz. DÃ¼zenleme modundan Ã§Ä±kmak iÃ§in herhangi bir yere saÄŸ tÄ±klayÄ±n. Konumunuz ve Ã¶lÃ§eÄŸiniz otomatik olarak kaydedilir." />
         <text name="ft_help_p2_key_title" text="AÃ§ma AnahtarÄ±nÄ± DeÄŸiÅŸtirme" />
-        <text name="ft_help_p2_key_text" text="VarsayÄ±lan anahtar T'dir. Bunu deÄŸiÅŸtirmek iÃ§in Ayarlar uygulamasÄ±nÄ± aÃ§Ä±n ve Keybind ayarÄ±nÄ± bulun veya geliÅŸtirici konsolunda TabletKeybind yazÄ±n ve ardÄ±ndan bir anahtar adÄ± yazÄ±n; Ã¶rneÄŸin TabletKeybind H, anahtarÄ± H olarak ayarlar. Tek harfler, F tuÅŸlarÄ± ve TAB ve ESC gibi ortak tuÅŸlarÄ±n tÃ¼mÃ¼ desteklenir." />
         <text name="ft_help_a1_title" text="Kontrol Paneli ve Hava Durumu" />
         <text name="ft_help_a1_dash_title" text="Kontrol Paneli" />
         <text name="ft_help_a1_dash_text" text="Kontrol Paneli, bir bakÄ±ÅŸta Ã§iftlik Ã¶zetinizdir. En Ã¼stte bÃ¼yÃ¼k bir kahraman kartÄ±nda mevcut bakiyenizi, ardÄ±ndan gelirinizi, giderlerinizi ve aÅŸaÄŸÄ±daki oturuma ait net kÃ¢rÄ±nÄ±zÄ± gÃ¶sterir. Ã‡iftlik Ä°statistikleri, sahip olduÄŸunuz tarla sayÄ±sÄ±nÄ± ve toplam araÃ§ sayÄ±nÄ±zÄ± listeler. DÃ¼nya bÃ¶lÃ¼mÃ¼ mevcut sezonu, gÃ¼nÃ¼, gÃ¼nÃ¼n saatini ve canlÄ± hava durumu anlÄ±k gÃ¶rÃ¼ntÃ¼sÃ¼nÃ¼ gÃ¶sterir. Her deÄŸerin ayrÄ±ntÄ±lÄ± aÃ§Ä±klamasÄ± iÃ§in Kontrol Panelinin saÄŸ alt kÃ¶ÅŸesindeki kÃ¼Ã§Ã¼k bilgi simgesine dokunun." />
@@ -198,7 +196,6 @@
         <text name="ft_help_s1_sound_text" text="Ses efektleri varsayÄ±lan olarak aÃ§Ä±ktÄ±r. Uygulama seÃ§me tÄ±klamasÄ±, uygulamalarÄ± deÄŸiÅŸtirdiÄŸinizde oynatÄ±lÄ±r. Ã‡aÄŸrÄ± sesi, oyun iÃ§i yardÄ±m paneli aÃ§Ä±ldÄ±ÄŸÄ±nda veya kapatÄ±ldÄ±ÄŸÄ±nda Ã§alÄ±nÄ±r. Her ikisi de Ayarlar uygulamasÄ±nda baÄŸÄ±msÄ±z olarak deÄŸiÅŸtirilebilir." />
         <text name="ft_help_s2_title" text="Konsol KomutlarÄ±" />
         <text name="ft_help_s2_console_title" text="Mevcut Komutlar" />
-        <text name="ft_help_s2_console_text" text="Gelistirici konsolunu tilde tusuyla acin ve tum komutlari listelemek icin tablet yazin. Ornegin TabletKeybind H acma tusunu degistirir, TabletSetStartupApp weather ilk uygulamayi ayarlar ve TabletResetSettings varsayilanlari geri yukler." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veteriner" />
         <text name="ft_ui_app_factory_week_schedule" text="Fabrika haftasi" />
@@ -2533,7 +2530,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

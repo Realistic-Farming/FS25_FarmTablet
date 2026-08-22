@@ -12,7 +12,7 @@
 --     (used on tablet close and after repairs).
 -- =========================================================
 ---@class FT_DataProvider
-FT_DataProvider = {}
+FT_DataProvider = FT_DataProvider or {}
 local FT_DataProvider_mt = Class(FT_DataProvider)
 
 local CACHE_TTL_MS = 2000  -- refresh every 2 seconds

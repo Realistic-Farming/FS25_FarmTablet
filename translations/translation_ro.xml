@@ -154,14 +154,12 @@
         <text name="ft_help_cat_settings" text="Setări și consolă" />
         <text name="ft_help_p1_title" text="Deschidere și navigare" />
         <text name="ft_help_p1_open_title" text="Deschiderea tabletei" />
-        <text name="ft_help_p1_open_text" text="Apăsați T (configurabil) în orice moment pentru a deschide sau închide tableta Farm. Puteți schimba cheia în aplicația Setări sau tastând TabletKeybind urmată de o literă cheie în consola pentru dezvoltatori." />
         <text name="ft_help_p1_nav_title" text="Ecran principal &amp; aplicatii" />
         <text name="ft_help_p1_nav_text" text="Farm Tablet functioneaza ca un telefon. Gliseaza pentru deblocare, apoi atinge o pictograma de aplicatie pe ecranul principal pentru a o deschide. Atinge HOME din bara de sus pentru a reveni la grila. Dock-ul de jos contine favoritele, iar rotita mouse-ului schimba paginile. Aplicatia App Store listeaza toate aplicatiile tale." />
         <text name="ft_help_p2_title" text="Mutare și redimensionare" />
         <text name="ft_help_p2_move_title" text="Mod Editare" />
         <text name="ft_help_p2_move_text" text="Deschideți aplicația Setări și faceți clic pe ENTER EDIT MODE. În modul de editare, puteți trage corpul tabletei pentru a-l repoziționa oriunde pe ecran, puteți trage orice mâner de colț pentru a scala întreaga tabletă sau puteți trage marginea din stânga sau din dreapta pentru a ajusta numai lățimea. Faceți clic dreapta oriunde pentru a ieși din modul de editare. Poziția și scara dvs. sunt salvate automat." />
         <text name="ft_help_p2_key_title" text="Schimbarea cheii de deschidere" />
-        <text name="ft_help_p2_key_text" text="Tasta implicită este T. Pentru a o modifica, deschideți aplicația Setări și găsiți setarea Keybind sau tastați TabletKeybind urmat de un nume de cheie în consola dezvoltatorului - de exemplu TabletKeybind H setează cheia la H. Sunt acceptate litere simple, taste F și taste comune precum TAB și ESC." />
         <text name="ft_help_a1_title" text="Tabloul de bord și vremea" />
         <text name="ft_help_a1_dash_title" text="Bord" />
         <text name="ft_help_a1_dash_text" text="Tabloul de bord este rezumatul fermei dvs. dintr-o privire. Afișează soldul dvs. curent într-un card erou mare în partea de sus, apoi veniturile, cheltuielile și profitul net pentru sesiunea de mai jos. Farm Stats listează câte câmpuri dețineți și numărul total de vehicule. Secțiunea Lume arată sezonul curent, ziua, ora și un instantaneu live al vremii. Atingeți pictograma mică de informații din colțul din dreapta jos al tabloului de bord pentru o explicație detaliată a fiecărei valori." />
@@ -197,7 +195,6 @@
         <text name="ft_help_s1_sound_text" text="Efectele sonore sunt activate în mod implicit. Clic-ul de selectare a aplicației se redă atunci când comutați între aplicații. Sunetul de paginare este redat atunci când panoul de ajutor din joc se deschide sau se închide. Ambele pot fi comutate independent în aplicația Setări." />
         <text name="ft_help_s2_title" text="Comenzi din consolă" />
         <text name="ft_help_s2_console_title" text="Comenzi disponibile" />
-        <text name="ft_help_s2_console_text" text="Deschide consola de dezvoltare cu tasta tilda si scrie tablet pentru a lista toate comenzile. De exemplu TabletKeybind H schimba tasta de deschidere, TabletSetStartupApp weather seteaza prima aplicatie, iar TabletResetSettings restaureaza valorile implicite." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veterinar" />
         <text name="ft_ui_app_factory_week_schedule" text="Saptamana fabrica" />
@@ -2532,7 +2529,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

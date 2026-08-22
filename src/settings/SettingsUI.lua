@@ -5,7 +5,7 @@
 -- Also adds a reset button to the frame footer.
 -- =========================================================
 ---@class SettingsUI
-SettingsUI = {}
+SettingsUI = SettingsUI or {}
 local SettingsUI_mt = Class(SettingsUI)
 
 function SettingsUI.new(settings)

@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
     <texts>
         <text name="ft_ui_section" text="Boerderij tablet" />
@@ -155,14 +155,12 @@
         <text name="ft_help_cat_settings" text="Instellingen en console" />
         <text name="ft_help_p1_title" text="Openen en navigeren" />
         <text name="ft_help_p1_open_title" text="De tablet openen" />
-        <text name="ft_help_p1_open_text" text="Druk op elk gewenst moment op T (configureerbaar) om de boerderijtablet te openen of te sluiten. U kunt de sleutel wijzigen in de app Instellingen of door TabletKeybind te typen, gevolgd door een sleutelletter in de ontwikkelaarsconsole." />
         <text name="ft_help_p1_nav_title" text="Startscherm &amp; apps" />
         <text name="ft_help_p1_nav_text" text="De Farm Tablet werkt als een telefoon. Veeg om te ontgrendelen, tik dan op een app-icoon op het startscherm om het te openen. Tik op HOME in de bovenbalk om terug te keren naar het raster. Het dock onderaan bevat je favorieten, en met het muiswiel wissel je van pagina. De App Store-app toont al je apps." />
         <text name="ft_help_p2_title" text="Verplaatsen en formaat wijzigen" />
         <text name="ft_help_p2_move_title" text="Bewerkingsmodus" />
         <text name="ft_help_p2_move_text" text="Open de app Instellingen en klik op ENTER EDIT MODE. In de bewerkingsmodus kunt u de tabletbehuizing slepen om deze ergens op het scherm te verplaatsen, een hoekgreep slepen om de hele tablet te schalen, of de linker- of rechterrand slepen om alleen de breedte aan te passen. Klik met de rechtermuisknop ergens om de bewerkingsmodus te verlaten. Uw positie en schaal worden automatisch opgeslagen." />
         <text name="ft_help_p2_key_title" text="De open sleutel wijzigen" />
-        <text name="ft_help_p2_key_text" text="De standaardsleutel is T. Om deze te wijzigen, opent u de app Instellingen en zoekt u de Keybind-instelling, of typt u TabletKeybind gevolgd door een sleutelnaam in de ontwikkelaarsconsole. TabletKeybind H stelt de sleutel bijvoorbeeld in op H. Enkele letters, F-toetsen en algemene sleutels zoals TAB en ESC worden allemaal ondersteund." />
         <text name="ft_help_a1_title" text="Dashboard en weer" />
         <text name="ft_help_a1_dash_title" text="Dashboard" />
         <text name="ft_help_a1_dash_text" text="Het Dashboard is uw boerderijoverzicht in Ã©Ã©n oogopslag. Het toont je huidige saldo op een grote heldenkaart bovenaan, en vervolgens de inkomsten, uitgaven en nettowinst voor de onderstaande sessie. Boerderijstatistieken geven aan hoeveel percelen u bezit en het totale aantal voertuigen. Het gedeelte Wereld toont het huidige seizoen, de dag, het tijdstip en een live momentopname van het weer. Tik op het kleine infopictogram in de rechterbenedenhoek van het Dashboard voor een gedetailleerde uitleg van elke waarde." />
@@ -198,7 +196,6 @@
         <text name="ft_help_s1_sound_text" text="Geluidseffecten zijn standaard ingeschakeld. De app-selecteerklik wordt afgespeeld wanneer u van app wisselt. Het oproepgeluid wordt afgespeeld wanneer het Help-paneel in de game wordt geopend of gesloten. Beide kunnen onafhankelijk worden geschakeld in de app Instellingen." />
         <text name="ft_help_s2_title" text="Console-opdrachten" />
         <text name="ft_help_s2_console_title" text="Beschikbare opdrachten" />
-        <text name="ft_help_s2_console_text" text="Open de ontwikkelaarsconsole met de tilde-toets en typ tablet om alle commando's te zien. Bijvoorbeeld TabletKeybind H wijzigt de openingstoets, TabletSetStartupApp weather stelt de eerste app in, en TabletResetSettings herstelt de standaardwaarden." />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Dierenarts" />
         <text name="ft_ui_app_factory_week_schedule" text="Fabrieksweek" />
@@ -2533,7 +2530,7 @@
         <text name="ft_battery_service_title" text="Tablet battery" />
         <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
         <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press T to turn it on." />
+        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
         <text name="ft_battery_charged_full" text="Tablet fully charged." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />

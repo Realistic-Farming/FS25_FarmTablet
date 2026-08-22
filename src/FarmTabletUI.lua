@@ -9,7 +9,7 @@
 --     becomes the full screen in APP state.
 -- =========================================================
 ---@class FarmTabletUI
-FarmTabletUI = {}
+FarmTabletUI = FarmTabletUI or {}
 local FarmTabletUI_mt = Class(FarmTabletUI)
 
 -- ── Frame / layout constants (reference px @ FT.REF_W x FT.REF_H) ──
@@ -50,6 +50,19 @@ end
 -- declared before the dispatch section and would otherwise see a nil global.
 local function hit(b, px, py)
     return b and px >= b.x and px <= b.x + b.w and py >= b.y and py <= b.y + b.h
+end
+
+-- BUILD 15:39 (PB-02). A control marked `enabled = false` is drawn dimmed and is
+-- inert: it is still hit-tested so the click is swallowed rather than falling
+-- through to whatever is behind it, but it fires no action, sound or animation.
+-- Declared after `hit` on purpose: an upvalue has to already exist to be closed
+-- over, and in Lua 5.1 a forward reference here would silently read a nil global.
+local function hitLive(b, px, py)
+    return b ~= nil and b.enabled ~= false and hit(b, px, py)
+end
+
+local function hitInert(b, px, py)
+    return b ~= nil and b.enabled == false and hit(b, px, py)
 end
 
 -- ── Nav-glyph helpers (#90) ──────────────────────────────
@@ -352,9 +365,30 @@ function FarmTabletUI:_formatBatteryChargeProgress()
     return string.format("%d%% [%s]", pct, bar)
 end
 
-function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress)
+--- BUILD 15:39 (PB-12). The one place that answers "what key opens the tablet",
+--- read live from the binding rather than from a hardcoded string. Falls back to
+--- the shipped default label, which is the same chord modDesc binds.
+function FarmTabletUI:_keybindLabel()
+    local handler = g_FarmTablet ~= nil and g_FarmTablet.inputHandler or nil
+    if handler ~= nil and handler.getKeybindString ~= nil then
+        local ok, label = pcall(handler.getKeybindString, handler)
+        if ok and type(label) == "string" and label ~= "" then
+            return label
+        end
+    end
+    return (InputHandler ~= nil and InputHandler.DEFAULT_KEY_LABEL) or "Right Ctrl + T"
+end
+
+function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress, ...)
     local title = ftUiText(titleKey or "ft_battery_service_title", titleFallback or "Tablet battery")
     local msg = ftUiText(msgKey or "ft_battery_charging_info", msgFallback or "Tablet is charging.")
+    -- Optional format arguments (e.g. the live keybind). string.format is only
+    -- reached when the caller passed some, so existing call sites are untouched
+    -- and a translation without a placeholder still renders verbatim.
+    if select("#", ...) > 0 then
+        local ok, formatted = pcall(string.format, msg, ...)
+        if ok then msg = formatted end
+    end
     if withProgress == true then
         msg = msg .. " " .. self:_formatBatteryChargeProgress()
     end
@@ -526,11 +560,20 @@ function FarmTabletUI:_openTabletBody()
     if g_inputBinding then
         g_inputBinding:setShowMouseCursor(true)
         self._mouseListener = {_ui = self}
-        function self._mouseListener:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
-            if not eventUsed and self._ui:_onMouse(posX, posY, isDown, isUp, button) then
-                return true
-            end
-            return eventUsed
+        -- BUILD 06:33 (Vera 8b FAILFIX). This listener ROUTES the mouse to the
+        -- tablet's hit tests. It does not, and cannot, consume it: BaseMission
+        -- fans mouseEvent out to `g_modEventListeners` and ignores what each
+        -- listener returns, and it passes no `eventUsed` argument, so the
+        -- previous "swallow the leftovers by returning true" was a door that
+        -- never opened - a wallpaper drag still panned the camera behind the
+        -- screen. What actually holds the camera is the FT_TABLET_MODAL input
+        -- context, claimed at the end of this open so the bound look axes are
+        -- already inactive on the first painted frame, with the per-frame
+        -- `setRotation` snap in `update()` as the belt. The return value is kept
+        -- honest for any listener chain that does read it.
+        function self._mouseListener:mouseEvent(posX, posY, isDown, isUp, button)
+            local ui = self._ui
+            return ui:_onMouse(posX, posY, isDown, isUp, button) == true
         end
         addModEventListener(self._mouseListener)
     end
@@ -547,6 +590,24 @@ function FarmTabletUI:_openTabletBody()
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
     if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+
+    -- BUILD 06:33 (Vera 8b FAILFIX). Claim the world HERE, at the end of a fully
+    -- successful open and before the first paint. The claim used to be taken
+    -- from update() on the frame after `_paintedOnce`, which left a window with
+    -- the tablet on screen and the player's bindings still live: `InputAction.MENU`
+    -- (-> onInputToggleMenu -> g_gui:changeScreen(nil, InGameMenu)) could open
+    -- the pause menu behind the tablet, and the look axes could still be driven.
+    -- `setContext(FT_TABLET_MODAL, true, false)` opens a new non-sub context, so
+    -- both go inactive the moment it lands.
+    --
+    -- The old timing existed to stop a half-finished open from muting the world
+    -- with nothing drawn over it. That is preserved without the window: this is
+    -- the LAST statement of the open body, so the repair and battery gates above
+    -- return before it, and `openTablet` pcalls this body and hands everything
+    -- back through `_releaseClaims` if anything above throws.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.claim(self)
+    end
 end
 
 --- BUILD 10:50, claim discipline.
@@ -562,8 +623,16 @@ end
 --- the claims: on any error everything it may have taken is handed back.
 function FarmTabletUI:_releaseClaims()
     self.isOpen = false
+    self._paintedOnce = false
     if self.system ~= nil then
         self.system.isTabletOpen = false
+    end
+
+    -- BUILD 15:39 (PB-03). The input context and the vanilla HUD are claimed
+    -- together and handed back together. An open that threw must not leave the
+    -- world muted with nothing drawn over it.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.release(false)
     end
 
     if g_currentMission ~= nil then
@@ -605,9 +674,17 @@ function FarmTabletUI:closeTablet()
     end
 
     self.isOpen = false
+    self._paintedOnce = false
     self.system.isTabletOpen = false
     self._anim = nil
     self:_destroy()
+
+    -- Give the world back before anything else: input context and vanilla HUD
+    -- (PB-03 / PB-10). Harmless when the Escape ladder already released with a
+    -- one-frame deferred context revert - that defer is preserved.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.release(false)
+    end
 
     if self.system.onTabletClosed then
         self.system:onTabletClosed()
@@ -674,7 +751,27 @@ function FarmTabletUI:lockNow()
     self:playUISound("back")
 end
 
+--- Home: go all the way back to the app grid root. From an app this is the zoom
+--- back into the app's own cell. From the grid it is a jump to springboard page
+--- one, with no zoom, because there is no icon to fly back to.
 function FarmTabletUI:goHome()
+    -- BUILD 16:25 (PB-02, 2b): entering the home state drops any live press.
+    -- Both branches below land on the grid, so a press captured before the
+    -- transition must not survive to be dispatched by the matching mouse-up.
+    self._pressedIcon = nil
+    self._pressedRect = nil
+
+    if self.uiState == "home" then
+        -- BUILD 15:39 (PB-02): Home from the grid means "root of the grid".
+        -- Inert at the root itself, so reaching here always changes something.
+        self._homeMode   = "springboard"
+        self._favEditing = false
+        self._page       = 0
+        self:_rebuildScreen()
+        self:playUISound("back")
+        return
+    end
+
     local prev = self.system.currentApp
     self.uiState = "home"
     self:_rebuildScreen()
@@ -688,6 +785,25 @@ end
 --- handler that pops an in-app sub-page (returns true), refresh the content;
 --- otherwise we're at the app root, so fall through to the springboard.
 function FarmTabletUI:goBack()
+    -- BUILD 15:39 (PB-02). On the grid, Back is a real one-level step: the
+    -- favourites page pops to the springboard, and page N pops to page N-1.
+    -- At the springboard root it is never reached, because it is drawn dimmed
+    -- and `_onMouse` refuses to dispatch a disabled control.
+    if self.uiState == "home" then
+        if self._homeMode == "favorites" then
+            self._homeMode   = "springboard"
+            self._favEditing = false
+            self._page       = 0
+            self:_rebuildScreen()
+            self:playUISound("back")
+        elseif (self._page or 0) > 0 then
+            self._page = self._page - 1
+            self:_rebuildScreen()
+            self:playUISound("back")
+        end
+        return
+    end
+
     local appId = self.system and self.system.currentApp
     local fn    = appId and self._appBackHandlers and self._appBackHandlers[appId]
     if fn then
@@ -1061,6 +1177,77 @@ function FarmTabletUI:_drawStarMark(x, y, w, h, color)
     drawStar(self.r, x + w / 2, y + h / 2, h * 0.45, h * 0.18, color)
 end
 
+-- BUILD 15:39 (PB-02). Shared disabled-control vocabulary, locked by DESIGN
+-- 15:00 §2: a control that cannot act right now keeps its glyph and its slot and
+-- is dimmed to ~45%. It never vanishes and it never reads as lit-but-dead.
+FarmTabletUI.DISABLED_ALPHA = 0.45
+
+local function dimmed(color, enabled)
+    if enabled then return color end
+    return { color[1], color[2], color[3], (color[4] or 1) * FarmTabletUI.DISABLED_ALPHA }
+end
+
+--- Which nav steps actually exist from where we are standing.
+--- Home = "back to the app grid", Back = "up exactly one level".
+--- On the grid itself both are inert, which is the PB-02 root case: the old code
+--- had no such state and answered a root Back by collapsing the strip and
+--- snapping back, which is a panic on an empty history, not a transition.
+function FarmTabletUI:_navState()
+    if self.uiState == "app" then
+        return true, true
+    end
+    if self.uiState == "home" then
+        local off = (self._homeMode == "favorites") or ((self._page or 0) > 0)
+        return off, off
+    end
+    return false, false
+end
+
+--- Draw the Home / Back / Star cluster. Returns the x just past the cluster so
+--- the caller can lay out whatever follows it.
+--- Buttons are recorded with an `enabled` flag; `_onMouse` skips disabled ones
+--- entirely, so a dimmed control has no hit action, no sound and no animation.
+function FarmTabletUI:_drawNavCluster(sx, barY, barH, accent, starActive)
+    local r = self.r
+    local homeOn, backOn = self:_navState()
+    local btnH  = FT.py(20)
+    local glyph = {0.92, 0.95, 0.99, 0.95}
+    local hbY   = barY + (barH - btnH) / 2
+
+    -- HOME — a little house
+    local hbW = FT.px(34)
+    local hbX = sx + FT.px(6)
+    r:rect(hbX, hbY, hbW, btnH, dimmed({1,1,1,0.08}, homeOn))
+    local cx           = hbX + hbW / 2
+    local bodyW, bodyH = FT.px(13), FT.py(7)
+    local roofW, roofH = FT.px(18), FT.py(6)
+    local houseBottom  = hbY + (btnH - (bodyH + roofH)) / 2
+    r:rect(cx - bodyW / 2, houseBottom, bodyW, bodyH, dimmed(glyph, homeOn))                                      -- body
+    r:rect(cx - FT.px(2), houseBottom, FT.px(4), FT.py(4.5),
+           dimmed({accent[1], accent[2], accent[3], 1}, homeOn))                                                  -- door
+    drawTriUp(r, cx, houseBottom + bodyH, roofW, roofH, dimmed(glyph, homeOn))                                    -- roof
+    self._homeBtn = { x = hbX, y = barY, w = hbW, h = barH, enabled = homeOn }
+
+    -- BACK — a left-pointing arrow
+    local bbW = FT.px(30)
+    local bbX = hbX + hbW + FT.px(6)
+    r:rect(bbX, hbY, bbW, btnH, dimmed({1,1,1,0.06}, backOn))
+    local acy = hbY + btnH / 2
+    local headW, headH, shaftH = FT.px(7), FT.py(12), FT.py(3)
+    local tipX = bbX + FT.px(8)
+    drawTriLeft(r, tipX, acy, headW, headH, dimmed(glyph, backOn))                          -- arrowhead
+    r:rect(tipX + headW * 0.5, acy - shaftH / 2, FT.px(10), shaftH, dimmed(glyph, backOn))  -- shaft
+    self._backBtn = { x = bbX, y = barY, w = bbW, h = barH, enabled = backOn }
+
+    -- STAR - opens / toggles the favourites page. Always available.
+    local sbW = FT.px(30)
+    local sbX = bbX + bbW + FT.px(6)
+    self:_drawStarGlyph(sbX, hbY, sbW, btnH, starActive == true)
+    self._starBtn = { x = sbX, y = barY, w = sbW, h = barH, enabled = true }
+
+    return sbX + sbW
+end
+
 function FarmTabletUI:_drawAppView()
     local L = FT.LAYOUT
     local r = self.r
@@ -1078,39 +1265,8 @@ function FarmTabletUI:_drawAppView()
     -- star (Favourites). Home jumps to the springboard; Back steps up one
     -- level (sub-page → app root → springboard); the star opens the
     -- favourites page. Glyphs are built from rects (no triangle primitive).
-    local btnH  = FT.py(20)
-    local glyph = {0.92, 0.95, 0.99, 0.95}
-
-    -- HOME — a little house
-    local hbW = FT.px(34)
-    local hbX = sx + FT.px(6)
-    local hbY = barY + (appbarH - btnH) / 2
-    r:rect(hbX, hbY, hbW, btnH, {1,1,1,0.08})
-    local cx           = hbX + hbW / 2
-    local bodyW, bodyH = FT.px(13), FT.py(7)
-    local roofW, roofH = FT.px(18), FT.py(6)
-    local houseBottom  = hbY + (btnH - (bodyH + roofH)) / 2
-    r:rect(cx - bodyW / 2, houseBottom, bodyW, bodyH, glyph)                                       -- body
-    r:rect(cx - FT.px(2), houseBottom, FT.px(4), FT.py(4.5), {accent[1], accent[2], accent[3], 1}) -- door
-    drawTriUp(r, cx, houseBottom + bodyH, roofW, roofH, glyph)                                     -- roof
-    self._homeBtn = { x = hbX, y = barY, w = hbW, h = appbarH }
-
-    -- BACK — a left-pointing arrow
-    local bbW = FT.px(30)
-    local bbX = hbX + hbW + FT.px(6)
-    r:rect(bbX, hbY, bbW, btnH, {1,1,1,0.06})
-    local acy = hbY + btnH / 2
-    local headW, headH, shaftH = FT.px(7), FT.py(12), FT.py(3)
-    local tipX = bbX + FT.px(8)
-    drawTriLeft(r, tipX, acy, headW, headH, glyph)                              -- arrowhead
-    r:rect(tipX + headW * 0.5, acy - shaftH / 2, FT.px(10), shaftH, glyph)      -- shaft
-    self._backBtn = { x = bbX, y = barY, w = bbW, h = appbarH }
-
-    -- STAR — opens the favourites page
     local sbW = FT.px(30)
-    local sbX = bbX + bbW + FT.px(6)
-    self:_drawStarGlyph(sbX, hbY, sbW, btnH, false)
-    self._starBtn = { x = sbX, y = barY, w = sbW, h = appbarH }
+    local sbX = self:_drawNavCluster(sx, barY, appbarH, accent, false) - sbW
 
     -- App icon (small) + title (centre-left)
     local app = self.system.registry:get(self.system.currentApp)
@@ -1408,6 +1564,12 @@ function FarmTabletUI:draw()
 
     -- 6. Edit-mode chrome
     self:_drawEditOverlay()
+
+    -- BUILD 15:39 (PB-03). A full frame reached the screen, so the tablet is
+    -- genuinely painted and is now allowed to claim input and quieten the HUD.
+    -- update() takes the claim; setting the flag here is what makes "open but
+    -- nothing painted" incapable of muting the world.
+    self._paintedOnce = true
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -2403,7 +2565,12 @@ function FarmTabletUI:_updateBatteryCharging(dt)
     if pct >= self:_getBatteryMinStartLevel() and self._batteryChargeNotifyUsable ~= true then
         self._batteryChargeNotifyUsable = true
         self._batteryEmpty = false
-        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charged_usable", "Tablet ausreichend geladen. Mit T wieder einschalten.", true)
+        -- BUILD 15:39 (PB-12). The key name is no longer baked into the string:
+        -- the l10n value carries a %s and we fill it from the live binding, so
+        -- this line stays true if the player rebinds the action.
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku",
+            "ft_battery_charged_usable", "Tablet ausreichend geladen. Mit %s wieder einschalten.",
+            true, self:_keybindLabel())
     end
 
     if pct >= 100 then
@@ -2429,6 +2596,21 @@ function FarmTabletUI:_updateBatteryCharging(dt)
 end
 
 function FarmTabletUI:update(dt)
+    -- BUILD 15:39 (PB-03 / PB-10). Runs before every early return below so the
+    -- claim can never outlive the tablet: this flushes a deferred context revert
+    -- and force-releases if `isOpen` went false down any path.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.update(self)
+        -- BUILD 06:33. Backstop only. The claim is taken in `_openTabletBody`
+        -- before the first paint; this re-takes it if that call did not land
+        -- (an older save path, or a claim refused while `g_inputBinding` was
+        -- still coming up). The `_paintedOnce` condition is gone on purpose: it
+        -- was the window in which MENU was still live over a painted tablet.
+        if self.isOpen and not FarmTabletModal.isClaimed() then
+            FarmTabletModal.claim(self)
+        end
+    end
+
     -- Das Empfangssystem muss auch laufen, wenn das Tablet weggepackt ist.
     -- So koennen Netzausfaelle per vorhandener Blinkanzeige gemeldet werden.
     local signalChanged = false
@@ -2671,6 +2853,14 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── Springboard icon press / release (tactile launch) ──
     if self.uiState == "home" then
         if isDown and btn == 1 then
+            -- BUILD 15:39 (PB-02). The grid carries the same Home/Back cluster
+            -- as the app bar. At the grid root both are dimmed and inert; off
+            -- root (favourites page, or page 2+) they step exactly one level.
+            if hitInert(self._homeBtn, px, py) or hitInert(self._backBtn, px, py) then
+                return true
+            end
+            if hitLive(self._homeBtn, px, py) then self:goHome(); return true end
+            if hitLive(self._backBtn, px, py) then self:goBack(); return true end
             -- Star toggle: springboard ↔ favourites page
             if hit(self._homeStarBtn, px, py) then
                 self:toggleFavoritesMode(); return true
@@ -2745,9 +2935,14 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── App view ──
     if self.uiState == "app" then
         if isDown and btn == 1 then
-            if hit(self._homeBtn, px, py) then self:goHome(); return true end
-            if hit(self._backBtn, px, py) then self:goBack(); return true end
-            if hit(self._starBtn, px, py) then self:openFavorites(); return true end
+            -- Inert first: a dimmed Home/Back swallows the click and does
+            -- nothing at all (PB-02, no collapse strip, no snap-back).
+            if hitInert(self._homeBtn, px, py) or hitInert(self._backBtn, px, py) then
+                return true
+            end
+            if hitLive(self._homeBtn, px, py) then self:goHome(); return true end
+            if hitLive(self._backBtn, px, py) then self:goBack(); return true end
+            if hitLive(self._starBtn, px, py) then self:openFavorites(); return true end
 
             for _, cb in ipairs(self._contentBtns) do
                 if not cb._isText and hit(cb, px, py) then

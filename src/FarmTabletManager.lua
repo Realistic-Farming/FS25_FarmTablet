@@ -3,7 +3,7 @@
 -- Top-level coordinator
 -- =========================================================
 ---@class FarmTabletManager
-FarmTabletManager = {}
+FarmTabletManager = FarmTabletManager or {}
 local FarmTabletManager_mt = Class(FarmTabletManager)
 
 function FarmTabletManager.new(mission, modDirectory, modName)

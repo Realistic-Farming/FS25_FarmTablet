@@ -23,7 +23,7 @@
 -- App IDs are always the framework's string IDs (e.g. "worker_costs", "dashboard"),
 -- never integers or pseudo-URLs.
 -- =========================================================
-FarmTabletFocus = {}
+FarmTabletFocus = FarmTabletFocus or {}
 
 -- Shared state table, reused for every broadcast (no per-emit allocation).
 FarmTabletFocus._state = { isVisible = false, appId = nil }
