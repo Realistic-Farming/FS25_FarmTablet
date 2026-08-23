@@ -183,6 +183,29 @@ end
 Mission00.load                  = Utils.prependedFunction(Mission00.load, load)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, loadedMission)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, wrapPlayerInput)
+
+-- ---------------------------------------------------------
+-- Realistic Farming Control Center: publish a runnable delegate.
+-- Reached through g_currentMission because that is the only channel that
+-- carries live between mod environments. Registered from
+-- loadMission00Finished, by which point SettingsHub has published the registry
+-- during its own Mission00.load.
+-- ---------------------------------------------------------
+local function registerControlCenterActions()
+    local registry = g_currentMission ~= nil and g_currentMission.rfActionRegistry or nil
+    if registry == nil or farmTabletManager == nil then return end
+
+    registry.registerAction({
+        action = "FT_TOGGLE_TABLET",
+        button = "Open",
+        -- The tablet is a fullscreen surface, so the Control Center steps aside.
+        closeFirst = true,
+        run        = function() farmTabletManager:toggleTablet() end,
+    })
+end
+
+Mission00.loadMission00Finished = Utils.appendedFunction(
+    Mission00.loadMission00Finished, registerControlCenterActions)
 FSBaseMission.delete            = Utils.appendedFunction(FSBaseMission.delete, unload)
 
 FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mission, dt)
