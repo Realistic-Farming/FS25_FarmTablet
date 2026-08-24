@@ -279,10 +279,93 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     end
 
     y = self:drawSection(y, "LIVESTOCK")
-    self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-        "not available - waiting on DairyCore organic feed API",
-        RenderText.ALIGN_LEFT, FT.C.MUTED)
-    y = y - FT.py(22)
+    local dcMgr = (g_currentMission and g_currentMission.dairyCoreManager)
+        or getfenv(0)["g_dairyCoreManager"]
+    if dcMgr == nil then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "not available - install DairyCore",
+            RenderText.ALIGN_LEFT, FT.C.MUTED)
+        y = y - FT.py(22)
+    else
+        local barnRows = {}
+        if type(dcMgr.getBarnRows) == "function" then
+            local ok, result = pcall(function() return dcMgr:getBarnRows() end)
+            if ok and type(result) == "table" then barnRows = result end
+        end
+        local farmBarns = {}
+        for _, row in ipairs(barnRows) do
+            if row.farmId == farmId then farmBarns[#farmBarns + 1] = row end
+        end
+
+        if #farmBarns == 0 then
+            self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+                "No dairy barns on this farm.",
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            y = y - FT.py(22)
+        else
+            local fp = dcMgr.feedProvenance
+            local farmOrgFrac = 0
+            if fp ~= nil and type(fp.organicFeedFraction) == "function" then
+                local ok2, frac = pcall(function() return fp:organicFeedFraction(farmId) end)
+                if ok2 and type(frac) == "number" then farmOrgFrac = frac end
+            end
+
+            local orgPct = math.floor(farmOrgFrac * 100 + 0.5)
+            local orgCol = orgPct >= 80 and FT.C.POSITIVE
+                or orgPct >= 40 and FT.C.WARNING or FT.C.TEXT_DIM
+            self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
+                "Farm organic feed share", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            self.r:appText(x + cw, y - FT.py(2), FT.FONT.TINY,
+                string.format("%d%%", orgPct), RenderText.ALIGN_RIGHT, orgCol)
+            y = y - FT.py(14)
+
+            for _, barn in ipairs(farmBarns) do
+                local health = math.floor(tonumber(barn.herdHealth) or 0)
+                local hCol = health >= 85 and FT.C.POSITIVE
+                    or health >= 60 and FT.C.TEXT_NORMAL
+                    or health >= 35 and FT.C.WARNING or FT.C.NEGATIVE
+                local myc = tonumber(barn.mycotoxin) or 0
+                local feedFlag = barn.feedDiseaseFlag == true
+
+                self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
+                    string.format("Barn %s", tostring(barn.barnId)),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                y = y - FT.py(14)
+
+                self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                    "Herd health", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                    string.format("%d", health), RenderText.ALIGN_RIGHT, hCol)
+                y = y - FT.py(12)
+
+                if myc > 0 then
+                    self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                        "Mycotoxin penalty", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                        string.format("-%d", myc), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
+                    y = y - FT.py(12)
+                end
+
+                if feedFlag then
+                    local feedLabel = barn.feedDiseaseCropName or "Elevated risk"
+                    self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                        "Feed disease", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                        tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
+                    y = y - FT.py(12)
+                end
+                y = y - FT.py(4)
+            end
+
+            if orgPct < 80 then
+                self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                    "Tip: certify more feed fields organic to raise the share above 80%.",
+                    RenderText.ALIGN_LEFT, FT.C.MUTED)
+                y = y - FT.py(14)
+            end
+        end
+        y = y - FT.py(6)
+    end
 
     y = self:drawSection(y, "MARKET")
     self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
