@@ -367,6 +367,70 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         y = y - FT.py(6)
     end
 
+    ------------------------------------------------------------------
+    -- TRACEABILITY (read-only chain: field -> storage -> sale)
+    ------------------------------------------------------------------
+    y = self:drawRule(y, 0.3)
+    y = self:drawSection(y, "TRACEABILITY")
+    if organic == nil then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "not available - organic certification not loaded",
+            RenderText.ALIGN_LEFT, FT.C.MUTED)
+        y = y - FT.py(22)
+    elseif #fields == 0 then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            "No owned fields.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        y = y - FT.py(22)
+    else
+        self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
+            "FIELD", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        self.r:appText(x + cw * 0.35, y - FT.py(2), FT.FONT.TINY,
+            "CROP", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        self.r:appText(x + cw, y - FT.py(2), FT.FONT.TINY,
+            "STATUS", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+        y = y - FT.py(12)
+
+        for _, field in ipairs(fields) do
+            local st = _pcall(function() return organic:getFieldOrganicState(field.id) end)
+            local key = _stateKey(st)
+            local col = STATE_COLOR[key] or FT.C.MUTED
+            local info = _pcall(function() return soil:getFieldInfo(field.id) end)
+            local crop = (info and tostring(info.lastCrop)) or "-"
+
+            self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                string.format("#%s", tostring(field.id)),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + cw * 0.35, y - FT.py(1), FT.FONT.TINY,
+                crop, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                STATE_LABEL[key] or "?", RenderText.ALIGN_RIGHT, col)
+            y = y - FT.py(12)
+        end
+        y = y - FT.py(4)
+
+        local dcMgrTrace = (g_currentMission and g_currentMission.dairyCoreManager)
+            or getfenv(0)["g_dairyCoreManager"]
+        local fpTrace = dcMgrTrace and dcMgrTrace.feedProvenance
+        if fpTrace and type(fpTrace.organicFeedFraction) == "function" then
+            local okF, frac = pcall(function() return fpTrace:organicFeedFraction(farmId) end)
+            if okF and type(frac) == "number" then
+                local pct = math.floor(frac * 100 + 0.5)
+                local fCol = pct >= 80 and FT.C.POSITIVE
+                    or pct >= 40 and FT.C.WARNING or FT.C.TEXT_DIM
+                self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
+                    "Storage organic fraction", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                self.r:appText(x + cw, y - FT.py(2), FT.FONT.TINY,
+                    string.format("%d%%", pct), RenderText.ALIGN_RIGHT, fCol)
+                y = y - FT.py(14)
+            end
+        end
+
+        self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
+            "Sale premium: pending MDM contract",
+            RenderText.ALIGN_LEFT, FT.C.MUTED)
+        y = y - FT.py(14)
+    end
+
     y = self:drawSection(y, "MARKET")
     self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
         "not available - waiting on organic premium / MDM contract",
