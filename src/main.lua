@@ -19,6 +19,7 @@ source(modDirectory .. "src/core/FarmTabletFocus.lua")
 source(modDirectory .. "src/core/FarmTabletModal.lua")
 source(modDirectory .. "src/core/AppRegistry.lua")
 source(modDirectory .. "src/events/FarmTabletForceRepairEvent.lua")
+source(modDirectory .. "src/events/FarmAdminActionEvent.lua")
 
 -- Settings
 source(modDirectory .. "src/settings/SettingsManager.lua")

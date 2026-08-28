@@ -32,9 +32,11 @@ local function fa_getBalance()
     return (ok and farm and farm:getBalance()) or 0
 end
 
-local function fa_addMoney(amount)
-    if not fa_isServer() then return end
-    local farmId = fa_getFarmId()
+-- Server-side mutations. These now run ONLY on the server - either called
+-- directly when the local player IS the server (host / SP), or from
+-- FarmAdminActionEvent after the admin check. The target farm is passed in
+-- because a dedicated server has no g_localPlayer to read it from.
+local function fa_addMoney(amount, farmId)
     pcall(function()
         local farm = g_farmManager:getFarmById(farmId)
         if farm then
@@ -52,14 +54,12 @@ local function fa_getScale()
 end
 
 local function fa_setScale(scale)
-    if not fa_isServer() then return end
     if g_currentMission then
         pcall(function() g_currentMission:setTimeScale(scale) end)
     end
 end
 
 local function fa_skipToHour(hour)
-    if not fa_isServer() then return end
     local env = g_currentMission and g_currentMission.environment
     if not env then return end
     local dayTimeMs    = math.floor(hour * 1000 * 60 * 60)
@@ -76,11 +76,10 @@ local function fa_skipToHour(hour)
     end)
 end
 
-local function fa_getVehicles()
+local function fa_getVehicles(farmId)
     if not g_currentMission or not g_currentMission.vehicleSystem then
         return {}
     end
-    local farmId = fa_getFarmId()
     local out = {}
     for _, v in ipairs(g_currentMission.vehicleSystem.vehicles or {}) do
         if v.getOwnerFarmId and v:getOwnerFarmId() == farmId then
@@ -90,19 +89,16 @@ local function fa_getVehicles()
     return out
 end
 
-local function fa_repairAll()
-    if not fa_isServer() then return end
-    for _, v in ipairs(fa_getVehicles()) do
+local function fa_repairAll(farmId)
+    for _, v in ipairs(fa_getVehicles(farmId)) do
         if v.spec_wearable then
             pcall(function() v:setDamageAmount(0, true) end)
         end
     end
 end
 
-local function fa_fillAllFuel()
-    if not fa_isServer() then return end
-    local farmId = fa_getFarmId()
-    for _, v in ipairs(fa_getVehicles()) do
+local function fa_fillAllFuel(farmId)
+    for _, v in ipairs(fa_getVehicles(farmId)) do
         local spec = v.spec_motorized
         if spec and spec.fuelFillUnitIndex and spec.fuelFillType then
             pcall(function()
@@ -146,6 +142,48 @@ local function fa_formatMoney(amount)
     return string.format("$%d", math.floor(amount))
 end
 
+-- ── Admin action routing (server authority + dedicated-server admin path) ──
+
+-- Shared action ids and the single server-side apply entry point. Exposed as a
+-- global (same-mod scope) so FarmAdminActionEvent can drive it on the server.
+FarmAdminActions = FarmAdminActions or {}
+FarmAdminActions.MONEY  = 1
+FarmAdminActions.SCALE  = 2
+FarmAdminActions.SKIP   = 3
+FarmAdminActions.REPAIR = 4
+FarmAdminActions.FUEL   = 5
+
+-- Runs on the server only (host / SP directly, or from FarmAdminActionEvent
+-- after the admin check). farmId is explicit because a dedicated server has no
+-- g_localPlayer to read it from.
+function FarmAdminActions.applyServer(actionId, param, farmId)
+    if     actionId == FarmAdminActions.MONEY  then fa_addMoney(param, farmId)
+    elseif actionId == FarmAdminActions.SCALE  then fa_setScale(param)
+    elseif actionId == FarmAdminActions.SKIP   then fa_skipToHour(param)
+    elseif actionId == FarmAdminActions.REPAIR then fa_repairAll(farmId)
+    elseif actionId == FarmAdminActions.FUEL   then fa_fillAllFuel(farmId)
+    end
+end
+
+-- The local player may drive these controls if it is the server (host / SP) or
+-- an authenticated admin (master user) on a client.
+local function fa_canUse()
+    return g_currentMission ~= nil
+        and (g_currentMission:getIsServer() or g_currentMission.isMasterUser == true)
+end
+
+-- Route a control press: apply directly when we are the server, otherwise send
+-- an admin-authorised request to the server (the dedicated-server path).
+local function fa_dispatch(actionId, param)
+    local farmId = fa_getFarmId()
+    if fa_isServer() then
+        FarmAdminActions.applyServer(actionId, param, farmId)
+    elseif g_client ~= nil and FarmAdminActionEvent ~= nil then
+        g_client:getServerConnection():sendEvent(
+            FarmAdminActionEvent.new(actionId, param, farmId))
+    end
+end
+
 -- ── Drawer ────────────────────────────────────────────────
 
 FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
@@ -167,34 +205,35 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
                   "FILL FUEL  - fills fuel (and AdBlue) to max\n" ..
                   "             on all your motorized vehicles." },
         { title = "MULTIPLAYER",
-          body  = "Host / listen-server only today. Admin access from\n" ..
-                  "pure clients is a separate tracked issue." },
+          body  = "Usable by the host, and by a server admin (master\n" ..
+                  "user) on a dedicated server. Changes run on the server." },
     }) then return end
 
-    -- In multiplayer, only the host/listen-server can use these controls.
-    -- Show a clear notice to clients so the silent no-ops aren't confusing.
-    local isServer = fa_isServer()
+    -- Time / money / vehicle changes are server-authoritative. The host (and SP)
+    -- applies them locally; an admin (master user) on a client routes them to the
+    -- server via FarmAdminActionEvent. Everyone else gets a clear notice (#139).
+    local canUse   = fa_canUse()
 
     local balance  = fa_getBalance()
     local curScale = fa_getScale()
-    local vehicles = fa_getVehicles()
+    local vehicles = fa_getVehicles(fa_getFarmId())
     local startY   = self:drawAppHeader("Farm Admin",
-        isServer and fa_formatMoney(balance) or "Host Only")
+        canUse and fa_formatMoney(balance) or "Admin only")
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
     local BTN_H   = FT.py(22)
     local GAP     = FT.py(6)
 
-    -- Show notice and bail out for multiplayer clients
-    if not isServer then
+    -- Show notice and bail out for players who are neither host nor admin.
+    if not canUse then
         self.r:appText(x + cw / 2, y - FT.py(14), FT.FONT.NORMAL,
-            "Host / listen-server only", RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            "Host or server admin only", RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self.r:appText(x + cw / 2, y - FT.py(30), FT.FONT.SMALL,
-            "These controls affect all players and",
+            "These controls affect all players. Log in as",
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self.r:appText(x + cw / 2, y - FT.py(43), FT.FONT.SMALL,
-            "must be run by the session host.",
+            "a server admin to use them.",
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self:setContentHeight(FT.py(60))
         return
@@ -216,7 +255,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local bx  = x + (i - 1) * (bw4 + gap4)
         local btn = self.r:button(bx, y - BTN_H, bw4, BTN_H,
             am.label, FT.C.BTN_PRIMARY, {
-            onClick = function() fa_addMoney(am.val) end
+            onClick = function() fa_dispatch(FarmAdminActions.MONEY, am.val) end
         })
         table.insert(self._contentBtns, btn)
     end
@@ -244,7 +283,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local active = math.abs(curScale - sc.val) < 0.01
         local btn    = self.r:button(bx, y - BTN_H, bw, BTN_H, sc.label,
             active and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL, {
-            onClick = function() fa_setScale(sc.val) end
+            onClick = function() fa_dispatch(FarmAdminActions.SCALE, sc.val) end
         })
         table.insert(self._contentBtns, btn)
     end
@@ -270,7 +309,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local by  = y - row * (BTN_H + GAP) - BTN_H
         local btn = self.r:button(bx, by, halfW, BTN_H, t.label,
             FT.C.BTN_NEUTRAL, {
-            onClick = function() fa_skipToHour(t.h) end
+            onClick = function() fa_dispatch(FarmAdminActions.SKIP, t.h) end
         })
         table.insert(self._contentBtns, btn)
     end
@@ -286,13 +325,13 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
 
     local btnRepair = self.r:button(x, y - BTN_H, halfW, BTN_H,
         "REPAIR ALL", FT.C.BTN_NEUTRAL, {
-        onClick = function() fa_repairAll() end
+        onClick = function() fa_dispatch(FarmAdminActions.REPAIR, 0) end
     })
     table.insert(self._contentBtns, btnRepair)
 
     local btnFuel = self.r:button(x + halfW + FT.px(4), y - BTN_H, halfW, BTN_H,
         "FILL FUEL", FT.C.BTN_NEUTRAL, {
-        onClick = function() fa_fillAllFuel() end
+        onClick = function() fa_dispatch(FarmAdminActions.FUEL, 0) end
     })
     table.insert(self._contentBtns, btnFuel)
     y = y - BTN_H - GAP
