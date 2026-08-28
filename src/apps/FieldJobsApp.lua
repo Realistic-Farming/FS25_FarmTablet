@@ -301,7 +301,12 @@ function _drawHomeView(self)
     local subtitle = _activeJob and "1 active job" or "no active job"
     local startY = self:drawAppHeader("Field Jobs", subtitle)
     local x, contentY, cw, _ = self:contentInner()
-    local y = startY - FT.py(14)
+    -- Purpose line (#141): players read "Start job" / "Confirm" as dispatching a
+    -- worker. Say plainly, on the screen, that this app only times and logs jobs.
+    self.r:appText(x, startY - FT.py(3), FT.FONT.TINY,
+        FJText("ft_fieldjobs_purpose", "Times and logs your jobs. It doesn't send a worker."),
+        RenderText.ALIGN_LEFT, FT.C.MUTED)
+    local y = startY - FT.py(18)
 
     -- ── Active job card ────────────────────────────────
     if _activeJob then
@@ -633,7 +638,7 @@ function _drawStartView(self)
         local color = canStart and FT.C.BTN_PRIMARY or {0.18, 0.20, 0.26, 0.50}
 
         local confirmBtn = self.r:button(x + (cw - bw) / 2, y, bw, bh,
-            "CONFIRM — START JOB",
+            FJText("ft_fieldjobs_confirm_start", "START JOB TIMER"),
             color,
             { onClick = function()
                 if not canStart then return end
