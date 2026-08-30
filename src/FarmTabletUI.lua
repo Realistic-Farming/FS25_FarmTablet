@@ -589,7 +589,8 @@ function FarmTabletUI:_openTabletBody()
     self:_startAnim("wake", 360)
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    -- The tablet opens onto the lock screen, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
 
     -- BUILD 06:33 (Vera 8b FAILFIX). Claim the world HERE, at the end of a fully
     -- successful open and before the first paint. The claim used to be taken
@@ -739,7 +740,8 @@ function FarmTabletUI:unlock()
     self:_rebuildScreen()
     self:_startAnim("unlock", 300)
     if self.settings.soundOnTabletToggle ~= false then self:playUISound("paging") end
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    -- Unlock lands on the home grid, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
 end
 
 function FarmTabletUI:lockNow()
@@ -778,7 +780,8 @@ function FarmTabletUI:goHome()
     local rect = self._appCellRects[prev] or self:_screenCenterSquare()
     self:_startAnim("home", 240, { id = prev, rect = rect })
     self:playUISound("back")
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, prev) end
+    -- Home shows the app grid, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
 end
 
 --- App-bar Back: step up one level. If the current app registered a back
