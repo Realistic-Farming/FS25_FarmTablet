@@ -36,3 +36,7 @@
 
 ## Deferred / parked
 - Pocket Profile: filed post-rollout, evaluate after WorkerCosts is stable.
+
+
+## 2026-08-31 (Fred): weather dial refusal made visible (issue #140)
+- [x] The World Weather chips no longer swallow the WeatherGuard result. A refused or errored change now draws a notice above the dial instead of silently doing nothing (admin-only wording for non-admins, WeatherGuard-refused wording otherwise). In-game verification pending.
