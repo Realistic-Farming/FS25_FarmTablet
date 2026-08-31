@@ -34,6 +34,14 @@ local function _wg()
     return g_currentMission and g_currentMission.weatherGuard or nil
 end
 
+-- Whether this player is allowed to change the shared world weather. The host is
+-- always (SP / listen server the hosting client IS the server on FS25); a
+-- dedicated-server client can only when logged in as a server admin (master user).
+local function _canSetWorldWeather()
+    return g_currentMission ~= nil
+        and (g_currentMission:getIsServer() or g_currentMission.isMasterUser == true)
+end
+
 FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     local AC = FT.appColor(FT.APP.WEATHER)
 
@@ -92,6 +100,17 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     end
     y = y - FT.py(24)
 
+    -- Weather-mode change feedback (#140). Shown when the last chip press was
+    -- refused (non-admin on a dedicated server, or WeatherGuard refused/errored)
+    -- so the player is never left with a silent "nothing happened".
+    if self._weatherModeNotice then
+        self.r:appRect(x - FT.px(4), y - FT.py(18), cw + FT.px(8), FT.py(16),
+            { 0.55, 0.20, 0.14, 0.90 })
+        self.r:appText(x, y - FT.py(14), FT.FONT.SMALL,
+            self._weatherModeNotice, RenderText.ALIGN_LEFT, FT.C.NEGATIVE)
+        y = y - FT.py(24)
+    end
+
     -- World Weather dial (WeatherGuard only)
     local wg = _wg()
     if wg ~= nil and type(wg.requestWeatherMode) == "function" then
@@ -117,7 +136,18 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             local btn = self.r:button(cx, y - chipH, chipW, chipH, "",
                 { 0, 0, 0, 0.01 },
                 { onClick = function()
-                    pcall(function() wg:requestWeatherMode(i) end)
+                    -- Cancel any stale notice, then apply. Do not swallow the result
+                    -- (#140): if WeatherGuard refuses or errors on a dedicated server
+                    -- the player must see why instead of watching nothing happen.
+                    self._weatherModeNotice = nil
+                    local ok, res = pcall(function() return wg:requestWeatherMode(i) end)
+                    if not (ok and res == true) then
+                        if _canSetWorldWeather() then
+                            self._weatherModeNotice = "World weather change was refused by WeatherGuard."
+                        else
+                            self._weatherModeNotice = "World weather is admin-only. Log in as a server admin to change it."
+                        end
+                    end
                     if self.system and self.system.data and self.system.data.invalidate then
                         self.system.data:invalidate()
                     end

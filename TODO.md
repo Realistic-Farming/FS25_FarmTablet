@@ -5,6 +5,8 @@
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## Bugs
+- [x] 2026-08-31: **Weather dial refusal now visible (issue #140).** The World Weather chips called `WeatherGuard:requestWeatherMode` inside a bare `pcall` and discarded the result, so on a dedicated server a refused or errored change looked like "nothing happened" with no message. The chip handler now captures the return, clears any stale notice on success, and on failure draws a notice line above the dial: admin-only wording when the player is not a host or master user, WeatherGuard-refused wording otherwise. In-game verification pending.
+
 - [x] 2026-07-30: `src/apps/ProStaffApp.lua:111` failed to COMPILE - `...` referenced from inside an anonymous function ("cannot use '...' outside of a vararg function"). Lua 5.1 does not let a nested closure see the enclosing function's vararg. The whole file was rejected, so the ProStaff app was dead in every session. `safeGet` now passes the varargs straight to `pcall` (no inner closure) and guards a missing method.
 - [ ] **ROOT CAUSE, still open: `build.py` has NO Lua 5.1 syntax gate**, which is the only reason the above reached the game. SoilFertilizer catches this class of error before it can ship (its pre-commit hook runs `luaparse` pinned to 5.1 over every source file, plus a lint pass). Port that gate here: either a `tools/test/` harness of our own, or a syntax step in `build.py` that fails the build. A compile error in one app file takes the file down silently, so this is worth more than any individual fix.
 
