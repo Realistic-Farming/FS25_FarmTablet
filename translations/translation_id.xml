@@ -2548,6 +2548,44 @@
         <text name="ft_irr_call_can_hold" text="bisa menunggu" />
         <text name="ft_irr_advisory_schedule_covers" text="jadwal mencakup" />
         <text name="ft_irr_advisory_schedule_gap" text="celah jadwal" />
+        <text name="ft_rainKey_unknown" text="tidak diketahui" />
+        <text name="ft_rainKey_mm" text="mm model" />
+        <text name="ft_rainKey_unfitted" text="tanpa sensor hujan" />
+        <text name="ft_rainKey_armed" text="sensor siap" />
+        <text name="ft_rainKey_collecting" text="mengumpulkan hujan" />
+        <text name="ft_rainKey_tripped" text="sensor aktif" />
+        <text name="ft_rainKey_inputUnavail" text="masukan sensor tidak tersedia" />
+        <text name="ft_rainKey_whyTripped" text="berhenti karena sensor hujan aktif" />
+        <text name="ft_rainKey_whyNoInput" text="cuaca tidak terbaca" />
+        <text name="ft_rainKey_whyNoSource" text="tidak ada sumber air" />
+        <text name="ft_rainKey_whyNoPress" text="tidak ada tekanan" />
+        <text name="ft_rainKey_whySchedule" text="di luar jadwal" />
+        <text name="ft_rainKey_whyMaster" text="sakelar utama irigasi mati" />
+        <text name="ft_rainKey_whyUnknown" text="alasan tidak tersedia" />
+        <text name="ft_rainKey_running" text="BERJALAN" />
+        <text name="ft_rainKey_rainPaused" text="JEDA HUJAN" />
+        <text name="ft_rainKey_off" text="mati" />
+        <text name="ft_rainKey_unknownState" text="status sensor tidak diketahui" />
+        <text name="ft_rainKey_dryResetIn" text="reset kering dalam %s" />
+        <text name="ft_rainKey_dryResetPending" text="reset setelah hujan berhenti" />
+        <text name="ft_rainKey_nextCheckIn" text="pemeriksaan jadwal berikutnya %s" />
+        <text name="ft_rainKey_nextCheck" text="siap pada pemeriksaan jadwal berikutnya" />
+        <text name="ft_rainKey_playerAction" text="perlu tindakan: periksa sumber air" />
+        <text name="ft_rainKey_collected" text="terkumpul" />
+        <text name="ft_rainKey_trip" text="ambang" />
+        <text name="ft_rainKey_notifyTitle" text="Irigasi" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s berhenti karena sensor hujan aktif" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s siap lagi pada pemeriksaan jadwal berikutnya" />
+        <text name="ft_water_header" text="SUMBER AIR" />
+        <text name="ft_water_unlimited" text="Tanpa batas" />
+        <text name="ft_water_hours" text="%.1f / %.1f j" />
+        <text name="ft_water_dry" text="Kering" />
+        <text name="ft_water_na" text="Tidak tersedia" />
+        <text name="ft_water_none" text="Tidak ada sumber air di pertanian ini." />
+        <text name="ft_water_source" text="Sumber air" />
+        <text name="ft_water_connected" text="%d terhubung" />
+        <text name="ft_water_stop_dry" text="Sumber kering" />
+        <text name="ft_water_stop_nosource" text="Tidak ada sumber" />
     </texts>
 
 </l10n>

@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="peut attendre" />
         <text name="ft_irr_advisory_schedule_covers" text="plan couvre" />
         <text name="ft_irr_advisory_schedule_gap" text="trou de plan" />
+        <text name="ft_rainKey_unknown" text="inconnu" />
+        <text name="ft_rainKey_mm" text="mm modelises" />
+        <text name="ft_rainKey_unfitted" text="pas de capteur de pluie" />
+        <text name="ft_rainKey_armed" text="capteur arme" />
+        <text name="ft_rainKey_collecting" text="collecte de pluie" />
+        <text name="ft_rainKey_tripped" text="capteur declenche" />
+        <text name="ft_rainKey_inputUnavail" text="donnees capteur indisponibles" />
+        <text name="ft_rainKey_whyTripped" text="arrete car le capteur de pluie a declenche" />
+        <text name="ft_rainKey_whyNoInput" text="meteo illisible" />
+        <text name="ft_rainKey_whyNoSource" text="pas de source d'eau" />
+        <text name="ft_rainKey_whyNoPress" text="pas de pression" />
+        <text name="ft_rainKey_whySchedule" text="hors du programme" />
+        <text name="ft_rainKey_whyMaster" text="interrupteur general d'irrigation coupe" />
+        <text name="ft_rainKey_whyUnknown" text="raison indisponible" />
+        <text name="ft_rainKey_running" text="EN MARCHE" />
+        <text name="ft_rainKey_rainPaused" text="PAUSE PLUIE" />
+        <text name="ft_rainKey_off" text="arret" />
+        <text name="ft_rainKey_unknownState" text="etat du capteur inconnu" />
+        <text name="ft_rainKey_dryResetIn" text="reinitialisation dans %s" />
+        <text name="ft_rainKey_dryResetPending" text="reinitialisation des l'arret de la pluie" />
+        <text name="ft_rainKey_nextCheckIn" text="prochain controle %s" />
+        <text name="ft_rainKey_nextCheck" text="eligible au prochain controle du programme" />
+        <text name="ft_rainKey_playerAction" text="action requise: verifier la source d'eau" />
+        <text name="ft_rainKey_collected" text="collecte" />
+        <text name="ft_rainKey_trip" text="seuil" />
+        <text name="ft_rainKey_notifyTitle" text="Irrigation" />
+        <text name="ft_rainKey_notifyPaused" text="Le pivot #%s s'est arrete car le capteur de pluie a declenche" />
+        <text name="ft_rainKey_notifyResumed" text="Le pivot #%s sera de nouveau eligible au prochain controle" />
+        <text name="ft_water_header" text="SOURCES D'EAU" />
+        <text name="ft_water_unlimited" text="Illimite" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="A sec" />
+        <text name="ft_water_na" text="Indisponible" />
+        <text name="ft_water_none" text="Aucune source d'eau sur cette ferme." />
+        <text name="ft_water_source" text="Source d'eau" />
+        <text name="ft_water_connected" text="%d connectes" />
+        <text name="ft_water_stop_dry" text="Source a sec" />
+        <text name="ft_water_stop_nosource" text="Aucune source" />
     </texts>
 
 

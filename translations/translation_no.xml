@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="kan vente" />
         <text name="ft_irr_advisory_schedule_covers" text="planen dekker" />
         <text name="ft_irr_advisory_schedule_gap" text="planhull" />
+        <text name="ft_rainKey_unknown" text="ukjent" />
+        <text name="ft_rainKey_mm" text="modellerte mm" />
+        <text name="ft_rainKey_unfitted" text="ingen regnsensor montert" />
+        <text name="ft_rainKey_armed" text="sensor aktivert" />
+        <text name="ft_rainKey_collecting" text="samler regn" />
+        <text name="ft_rainKey_tripped" text="sensor utlost" />
+        <text name="ft_rainKey_inputUnavail" text="sensordata utilgjengelig" />
+        <text name="ft_rainKey_whyTripped" text="stoppet fordi regnsensoren ble utlost" />
+        <text name="ft_rainKey_whyNoInput" text="kan ikke lese vaeret" />
+        <text name="ft_rainKey_whyNoSource" text="ingen vannkilde" />
+        <text name="ft_rainKey_whyNoPress" text="ingen trykk" />
+        <text name="ft_rainKey_whySchedule" text="utenfor planen" />
+        <text name="ft_rainKey_whyMaster" text="hovedbryter for vanning av" />
+        <text name="ft_rainKey_whyUnknown" text="arsak utilgjengelig" />
+        <text name="ft_rainKey_running" text="I DRIFT" />
+        <text name="ft_rainKey_rainPaused" text="REGNPAUSE" />
+        <text name="ft_rainKey_off" text="av" />
+        <text name="ft_rainKey_unknownState" text="sensorstatus ukjent" />
+        <text name="ft_rainKey_dryResetIn" text="torr tilbakestilling om %s" />
+        <text name="ft_rainKey_dryResetPending" text="tilbakestilling nar regnet slutter" />
+        <text name="ft_rainKey_nextCheckIn" text="neste plansjekk %s" />
+        <text name="ft_rainKey_nextCheck" text="klar ved neste plansjekk" />
+        <text name="ft_rainKey_playerAction" text="krever handling: sjekk vannkilden" />
+        <text name="ft_rainKey_collected" text="samlet" />
+        <text name="ft_rainKey_trip" text="terskel" />
+        <text name="ft_rainKey_notifyTitle" text="Vanning" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s stoppet av regnsensoren" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s er klar igjen ved neste plansjekk" />
+        <text name="ft_water_header" text="VANNKILDER" />
+        <text name="ft_water_unlimited" text="Ubegrenset" />
+        <text name="ft_water_hours" text="%.1f / %.1f t" />
+        <text name="ft_water_dry" text="Torr" />
+        <text name="ft_water_na" text="Utilgjengelig" />
+        <text name="ft_water_none" text="Ingen vannkilder pa denne garden." />
+        <text name="ft_water_source" text="Vannkilde" />
+        <text name="ft_water_connected" text="%d tilkoblet" />
+        <text name="ft_water_stop_dry" text="Kilden er torr" />
+        <text name="ft_water_stop_nosource" text="Ingen kilde" />
     </texts>
 
 

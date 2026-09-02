@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="kan vänta" />
         <text name="ft_irr_advisory_schedule_covers" text="planen täcker" />
         <text name="ft_irr_advisory_schedule_gap" text="planlucka" />
+        <text name="ft_rainKey_unknown" text="okant" />
+        <text name="ft_rainKey_mm" text="modellerade mm" />
+        <text name="ft_rainKey_unfitted" text="ingen regnsensor monterad" />
+        <text name="ft_rainKey_armed" text="sensor aktiverad" />
+        <text name="ft_rainKey_collecting" text="samlar regn" />
+        <text name="ft_rainKey_tripped" text="sensor utlost" />
+        <text name="ft_rainKey_inputUnavail" text="sensordata otillgangligt" />
+        <text name="ft_rainKey_whyTripped" text="stoppad eftersom regnsensorn utlostes" />
+        <text name="ft_rainKey_whyNoInput" text="kan inte lasa vadret" />
+        <text name="ft_rainKey_whyNoSource" text="ingen vattenkalla" />
+        <text name="ft_rainKey_whyNoPress" text="inget tryck" />
+        <text name="ft_rainKey_whySchedule" text="utanfor schemat" />
+        <text name="ft_rainKey_whyMaster" text="huvudbrytare for bevattning av" />
+        <text name="ft_rainKey_whyUnknown" text="orsak otillganglig" />
+        <text name="ft_rainKey_running" text="I DRIFT" />
+        <text name="ft_rainKey_rainPaused" text="REGNPAUS" />
+        <text name="ft_rainKey_off" text="av" />
+        <text name="ft_rainKey_unknownState" text="sensorstatus okand" />
+        <text name="ft_rainKey_dryResetIn" text="torr aterstallning om %s" />
+        <text name="ft_rainKey_dryResetPending" text="aterstallning nar regnet slutar" />
+        <text name="ft_rainKey_nextCheckIn" text="nasta schemakontroll %s" />
+        <text name="ft_rainKey_nextCheck" text="redo vid nasta schemakontroll" />
+        <text name="ft_rainKey_playerAction" text="kraver atgard: kontrollera vattenkallan" />
+        <text name="ft_rainKey_collected" text="samlat" />
+        <text name="ft_rainKey_trip" text="troskel" />
+        <text name="ft_rainKey_notifyTitle" text="Bevattning" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s stoppades av regnsensorn" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s ar redo igen vid nasta schemakontroll" />
+        <text name="ft_water_header" text="VATTENKALLOR" />
+        <text name="ft_water_unlimited" text="Obegransat" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Torr" />
+        <text name="ft_water_na" text="Otillgangligt" />
+        <text name="ft_water_none" text="Inga vattenkallor pa denna gard." />
+        <text name="ft_water_source" text="Vattenkalla" />
+        <text name="ft_water_connected" text="%d anslutna" />
+        <text name="ft_water_stop_dry" text="Kallan ar torr" />
+        <text name="ft_water_stop_nosource" text="Ingen kalla" />
     </texts>
 
 

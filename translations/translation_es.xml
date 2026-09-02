@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="puede esperar" />
         <text name="ft_irr_advisory_schedule_covers" text="el plan cubre" />
         <text name="ft_irr_advisory_schedule_gap" text="hueco de plan" />
+        <text name="ft_rainKey_unknown" text="desconocido" />
+        <text name="ft_rainKey_mm" text="mm modelados" />
+        <text name="ft_rainKey_unfitted" text="sin sensor de lluvia" />
+        <text name="ft_rainKey_armed" text="sensor armado" />
+        <text name="ft_rainKey_collecting" text="recogiendo lluvia" />
+        <text name="ft_rainKey_tripped" text="sensor activado" />
+        <text name="ft_rainKey_inputUnavail" text="entrada del sensor no disponible" />
+        <text name="ft_rainKey_whyTripped" text="detenido porque el sensor de lluvia se activo" />
+        <text name="ft_rainKey_whyNoInput" text="no se puede leer el clima" />
+        <text name="ft_rainKey_whyNoSource" text="sin fuente de agua" />
+        <text name="ft_rainKey_whyNoPress" text="sin presion" />
+        <text name="ft_rainKey_whySchedule" text="fuera del horario" />
+        <text name="ft_rainKey_whyMaster" text="interruptor general de riego apagado" />
+        <text name="ft_rainKey_whyUnknown" text="motivo no disponible" />
+        <text name="ft_rainKey_running" text="EN MARCHA" />
+        <text name="ft_rainKey_rainPaused" text="PAUSA POR LLUVIA" />
+        <text name="ft_rainKey_off" text="apagado" />
+        <text name="ft_rainKey_unknownState" text="estado del sensor desconocido" />
+        <text name="ft_rainKey_dryResetIn" text="reinicio seco en %s" />
+        <text name="ft_rainKey_dryResetPending" text="reinicio cuando pare la lluvia" />
+        <text name="ft_rainKey_nextCheckIn" text="proxima revision %s" />
+        <text name="ft_rainKey_nextCheck" text="disponible en la proxima revision del horario" />
+        <text name="ft_rainKey_playerAction" text="requiere accion: revisar la fuente de agua" />
+        <text name="ft_rainKey_collected" text="recogido" />
+        <text name="ft_rainKey_trip" text="umbral" />
+        <text name="ft_rainKey_notifyTitle" text="Riego" />
+        <text name="ft_rainKey_notifyPaused" text="El pivote #%s se detuvo porque el sensor de lluvia se activo" />
+        <text name="ft_rainKey_notifyResumed" text="El pivote #%s vuelve a estar disponible en la proxima revision" />
+        <text name="ft_water_header" text="FUENTES DE AGUA" />
+        <text name="ft_water_unlimited" text="Ilimitado" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Seca" />
+        <text name="ft_water_na" text="No disponible" />
+        <text name="ft_water_none" text="Sin fuentes de agua en esta granja." />
+        <text name="ft_water_source" text="Fuente de agua" />
+        <text name="ft_water_connected" text="%d conectados" />
+        <text name="ft_water_stop_dry" text="Fuente seca" />
+        <text name="ft_water_stop_nosource" text="Sin fuente" />
     </texts>
 
 

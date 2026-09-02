@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="voi odottaa" />
         <text name="ft_irr_advisory_schedule_covers" text="aikataulu kattaa" />
         <text name="ft_irr_advisory_schedule_gap" text="aikataulun aukko" />
+        <text name="ft_rainKey_unknown" text="tuntematon" />
+        <text name="ft_rainKey_mm" text="mallinnettua mm" />
+        <text name="ft_rainKey_unfitted" text="ei sadeanturia" />
+        <text name="ft_rainKey_armed" text="anturi valmiina" />
+        <text name="ft_rainKey_collecting" text="kerää sadetta" />
+        <text name="ft_rainKey_tripped" text="anturi lauennut" />
+        <text name="ft_rainKey_inputUnavail" text="anturitieto ei saatavilla" />
+        <text name="ft_rainKey_whyTripped" text="pysaytetty, koska sadeanturi laukesi" />
+        <text name="ft_rainKey_whyNoInput" text="saatietoa ei voi lukea" />
+        <text name="ft_rainKey_whyNoSource" text="ei vesilahdetta" />
+        <text name="ft_rainKey_whyNoPress" text="ei painetta" />
+        <text name="ft_rainKey_whySchedule" text="aikataulun ulkopuolella" />
+        <text name="ft_rainKey_whyMaster" text="kastelun paakytkin pois" />
+        <text name="ft_rainKey_whyUnknown" text="syy ei saatavilla" />
+        <text name="ft_rainKey_running" text="KAY" />
+        <text name="ft_rainKey_rainPaused" text="SADETAUKO" />
+        <text name="ft_rainKey_off" text="pois" />
+        <text name="ft_rainKey_unknownState" text="anturin tila tuntematon" />
+        <text name="ft_rainKey_dryResetIn" text="kuiva nollaus %s kuluttua" />
+        <text name="ft_rainKey_dryResetPending" text="nollaus kun sade lakkaa" />
+        <text name="ft_rainKey_nextCheckIn" text="seuraava aikataulutarkistus %s" />
+        <text name="ft_rainKey_nextCheck" text="kelpoinen seuraavassa aikataulutarkistuksessa" />
+        <text name="ft_rainKey_playerAction" text="vaatii toimia: tarkista vesilahde" />
+        <text name="ft_rainKey_collected" text="kerätty" />
+        <text name="ft_rainKey_trip" text="raja" />
+        <text name="ft_rainKey_notifyTitle" text="Kastelu" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s pysahtyi sadeanturin vuoksi" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s on taas kelpoinen seuraavassa tarkistuksessa" />
+        <text name="ft_water_header" text="VESILAHTEET" />
+        <text name="ft_water_unlimited" text="Rajaton" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Kuiva" />
+        <text name="ft_water_na" text="Ei saatavilla" />
+        <text name="ft_water_none" text="Talla tilalla ei ole vesilahteita." />
+        <text name="ft_water_source" text="Vesilahde" />
+        <text name="ft_water_connected" text="%d liitetty" />
+        <text name="ft_water_stop_dry" text="Lahde kuiva" />
+        <text name="ft_water_stop_nosource" text="Ei lahdetta" />
     </texts>
 
 
