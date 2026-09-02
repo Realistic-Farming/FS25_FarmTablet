@@ -286,6 +286,29 @@ local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     return barY - FT.py(10)
 end
 
+--- [FT-LB] Live chord for a Soil action (BUILD 22:36 hint sweep). Prefers
+--- SettingsHub's shared RfLiveBinding; falls back to the proven engine call so
+--- a SettingsHub-less install behaves identically; falls back to the default
+--- string when the action carries no binding. The help table below is rebuilt
+--- per draw, so a rebind shows the next time the page renders.
+local function _liveChord(actionName, default)
+    if RfLiveBinding ~= nil and RfLiveBinding.getChord ~= nil then
+        local c = RfLiveBinding.getChord(actionName)
+        if c then return c end
+    end
+    if g_inputDisplayManager ~= nil and InputAction ~= nil and InputAction[actionName] ~= nil then
+        local ok, help = pcall(function()
+            return g_inputDisplayManager:getControllerSymbolOverlays(InputAction[actionName], "", "", false)
+        end)
+        if ok and help and help.keys and #help.keys > 0 then
+            local parts = {}
+            for _, k in ipairs(help.keys) do parts[#parts + 1] = tostring(k) end
+            return table.concat(parts, "+")
+        end
+    end
+    return default
+end
+
 local function _truncate(str, maxLen)
     str = tostring(str or "")
     if #str <= maxLen then return str end
@@ -306,7 +329,8 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
                   "fields that need attention first rise to the top.\n" ..
                   "Left tick: green OK · yellow WATCH · red URGENT." },
         { title = "TREATMENT",
-          body  = "Prescriptions mirror the Shift+T Soil Treatment\n" ..
+          -- [FT-LB] live SF_TREATMENT chord, not a hardcoded default.
+          body  = "Prescriptions mirror the " .. _liveChord("SF_TREATMENT", "Right Shift+T") .. " Soil Treatment\n" ..
                   "dialog (product rates + protection actions).\n" ..
                   "Disease stays Unscouted until you scout the field." },
         { title = "NUTRIENT COLOURS",
