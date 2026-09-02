@@ -145,6 +145,66 @@ function FarmTabletManager:update(dt)
     if self.inputHandler then self.inputHandler:update(dt) end
     if self.system       then self.system:update(dt)      end
     if self.ui           then self.ui:update(dt)          end
+    self:updateRainKeyEdges(dt)
+end
+
+--- [SCS-046] Notify once when a pivot ENTERS or LEAVES rain pause, and never
+--- for anything else.
+---
+--- The first snapshot seen after a join is stored as a quiet baseline: a player
+--- who joins while a pivot is already paused gets no historical alarm, which is
+--- acceptance point 5. Accumulator progress and dry countdown deliberately do
+--- not notify, because they move continuously and would bury the one edge that
+--- matters. Read-only: this reads the SCS snapshot and writes nothing.
+function FarmTabletManager:updateRainKeyEdges(dt)
+    if not self.settings.showTabletNotifications then return end
+    if self.mission == nil or not self.mission:getIsClient() then return end
+
+    self._rainKeyPollMs = (self._rainKeyPollMs or 0) + (tonumber(dt) or 0)
+    if self._rainKeyPollMs < 1000 then return end
+    self._rainKeyPollMs = 0
+
+    local scs = g_currentMission ~= nil and g_currentMission.cropStressManager or nil
+    if scs == nil or type(scs.getIrrigationSystems) ~= "function" then return end
+    local ok, systems = pcall(function() return scs:getIrrigationSystems() end)
+    if not ok or type(systems) ~= "table" then return end
+
+    local seen = {}
+    local baseline = self._rainKeyPaused == nil
+    self._rainKeyPaused = self._rainKeyPaused or {}
+
+    for _, sys in ipairs(systems) do
+        local id = sys.systemId or sys.id
+        if id ~= nil and sys.activityState ~= nil then
+            local paused = (sys.activityState == "RAIN_PAUSED")
+            seen[id] = true
+            local was = self._rainKeyPaused[id]
+            if not baseline and was ~= nil and was ~= paused then
+                local title = g_i18n ~= nil and g_i18n:hasText("ft_rainKey_notifyTitle")
+                              and g_i18n:getText("ft_rainKey_notifyTitle") or "Irrigation"
+                local msg
+                if paused then
+                    local fmt = g_i18n ~= nil and g_i18n:hasText("ft_rainKey_notifyPaused")
+                                and g_i18n:getText("ft_rainKey_notifyPaused")
+                                or "Pivot #%s stopped because the rain key tripped"
+                    msg = string.format(fmt, tostring(id))
+                else
+                    local fmt = g_i18n ~= nil and g_i18n:hasText("ft_rainKey_notifyResumed")
+                                and g_i18n:getText("ft_rainKey_notifyResumed")
+                                or "Pivot #%s is eligible again at the next schedule check"
+                    msg = string.format(fmt, tostring(id))
+                end
+                self:showNotification(title, msg)
+            end
+            self._rainKeyPaused[id] = paused
+        end
+    end
+
+    -- Drop rows that no longer exist, so a sold pivot cannot fire an edge if a
+    -- later id reuse lands on the opposite state.
+    for id in pairs(self._rainKeyPaused) do
+        if not seen[id] then self._rainKeyPaused[id] = nil end
+    end
 end
 
 function FarmTabletManager:openTablet()
