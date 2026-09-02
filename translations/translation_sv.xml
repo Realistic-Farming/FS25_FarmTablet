@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d anslutna" />
         <text name="ft_water_stop_dry" text="Kallan ar torr" />
         <text name="ft_water_stop_nosource" text="Ingen kalla" />
+        <text name="ft_dairy_breed_herd" text="BESÄTTNING NU" />
+        <text name="ft_dairy_breed_milk" text="MJÖLK I TANK" />
+        <text name="ft_dairy_breed_unknown" text="okänd" />
+        <text name="ft_dairy_breed_waiting_server" text="Väntar på server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Väntar på spelarens gård" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tankrutt ej tillgänglig" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Fyllningstyp okänd" />
+        <text name="ft_dairy_breed_storage_missing" text="Ingen intern lagring" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Ögonblicksbild ogiltig" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Besättning oläslig" />
+        <text name="ft_dairy_breed_update_required" text="Uppdatering krävs" />
+        <text name="ft_dairy_breed_head" text="%d djur" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="ingen mjölk lagrad" />
+        <text name="ft_dairy_breed_source_standard" text="standardräkning" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock-räkning" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Surfplattan kan inte bevisa din gård ännu. Ladugårdskorten förblir dolda tills den kan." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Servern har inte skickat rasregistret för den här gården ännu. Ladugårdskorten förblir dolda tills dess." />
+        <text name="ft_dairy_breed_help_title" text="RASREGISTER" />
+        <text name="ft_dairy_breed_help_body" text="Besättning nu räknar mjölkdjuren i ladugården.&#10;Mjölk i tank följer den lagrade mjölken efter raserna som&#10;gav den. En ny besättning bredvid gammal mjölk är normalt.&#10;Okänd mjölk är från före registret eller kom en obevisad&#10;väg. Ingen ras bedöms här." />
     </texts>
 
 

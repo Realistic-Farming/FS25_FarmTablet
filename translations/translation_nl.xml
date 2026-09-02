@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d verbonden" />
         <text name="ft_water_stop_dry" text="Bron droog" />
         <text name="ft_water_stop_nosource" text="Geen bron" />
+        <text name="ft_dairy_breed_herd" text="KUDDE NU" />
+        <text name="ft_dairy_breed_milk" text="MELK IN TANK" />
+        <text name="ft_dairy_breed_unknown" text="onbekend" />
+        <text name="ft_dairy_breed_waiting_server" text="Wachten op server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Wachten op spelersboerderij" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tankroute niet beschikbaar" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Vultype niet herkend" />
+        <text name="ft_dairy_breed_storage_missing" text="Geen interne opslag" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Momentopname ongeldig" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Kudde niet leesbaar" />
+        <text name="ft_dairy_breed_update_required" text="Update vereist" />
+        <text name="ft_dairy_breed_head" text="%d dieren" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="geen melk opgeslagen" />
+        <text name="ft_dairy_breed_source_standard" text="standaardtelling" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock-telling" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="De tablet kan je boerderij nog niet bewijzen. Stalkaarten blijven verborgen tot dat lukt." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="De server heeft de rasregistratie van deze boerderij nog niet gestuurd. Stalkaarten blijven tot dan verborgen." />
+        <text name="ft_dairy_breed_help_title" text="RASREGISTRATIE" />
+        <text name="ft_dairy_breed_help_body" text="Kudde nu telt de melkdieren in de stal.&#10;Melk in tank volgt de opgeslagen melk per ras dat haar&#10;produceerde. Een nieuwe kudde naast oude melk is normaal.&#10;Onbekende melk dateert van voor de registratie of kwam&#10;langs een onbewezen weg. Geen ras wordt hier beoordeeld." />
     </texts>
 
 </l10n>

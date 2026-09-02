@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d tilkoblet" />
         <text name="ft_water_stop_dry" text="Kilden er torr" />
         <text name="ft_water_stop_nosource" text="Ingen kilde" />
+        <text name="ft_dairy_breed_herd" text="BESETNING NÅ" />
+        <text name="ft_dairy_breed_milk" text="MELK I TANK" />
+        <text name="ft_dairy_breed_unknown" text="ukjent" />
+        <text name="ft_dairy_breed_waiting_server" text="Venter på server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Venter på spillerens gård" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tankrute utilgjengelig" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Fylltype ikke gjenkjent" />
+        <text name="ft_dairy_breed_storage_missing" text="Ingen intern lagring" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Øyeblikksbilde ugyldig" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Besetning uleselig" />
+        <text name="ft_dairy_breed_update_required" text="Oppdatering kreves" />
+        <text name="ft_dairy_breed_head" text="%d dyr" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="ingen melk lagret" />
+        <text name="ft_dairy_breed_source_standard" text="standardtelling" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock-telling" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Nettbrettet kan ikke bevise gården din ennå. Fjøskortene forblir skjult til det kan." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Serveren har ikke sendt raseregisteret for denne gården ennå. Fjøskortene forblir skjult til da." />
+        <text name="ft_dairy_breed_help_title" text="RASEREGISTER" />
+        <text name="ft_dairy_breed_help_body" text="Besetning nå teller melkedyrene i fjøset.&#10;Melk i tank følger den lagrede melken etter rasene som&#10;ga den. En ny besetning ved siden av gammel melk er&#10;normalt. Ukjent melk er fra før registeret eller kom en&#10;ubevist vei. Ingen rase vurderes her." />
     </texts>
 
 

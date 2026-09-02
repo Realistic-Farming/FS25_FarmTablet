@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d tilsluttet" />
         <text name="ft_water_stop_dry" text="Kilden er tor" />
         <text name="ft_water_stop_nosource" text="Ingen kilde" />
+        <text name="ft_dairy_breed_herd" text="BESÆTNING NU" />
+        <text name="ft_dairy_breed_milk" text="MÆLK I TANK" />
+        <text name="ft_dairy_breed_unknown" text="ukendt" />
+        <text name="ft_dairy_breed_waiting_server" text="Venter på server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Venter på spillerens gård" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tankrute ikke tilgængelig" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Fyldtype ikke genkendt" />
+        <text name="ft_dairy_breed_storage_missing" text="Ingen intern lagring" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Øjebliksbillede ugyldigt" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Besætning ulæselig" />
+        <text name="ft_dairy_breed_update_required" text="Opdatering kræves" />
+        <text name="ft_dairy_breed_head" text="%d dyr" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="ingen mælk lagret" />
+        <text name="ft_dairy_breed_source_standard" text="standardtælling" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock-tælling" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tabletten kan endnu ikke bevise din gård. Staldkortene forbliver skjult, indtil den kan." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Serveren har endnu ikke sendt raceregistret for denne gård. Staldkortene forbliver skjult indtil da." />
+        <text name="ft_dairy_breed_help_title" text="RACEREGISTER" />
+        <text name="ft_dairy_breed_help_body" text="Besætning nu tæller malkedyrene i stalden.&#10;Mælk i tank følger den lagrede mælk efter de racer, der&#10;gav den. En ny besætning ved siden af gammel mælk er&#10;normalt. Ukendt mælk er fra før registret eller kom ad en&#10;ubevist vej. Ingen race vurderes her." />
     </texts>
 
 </l10n>

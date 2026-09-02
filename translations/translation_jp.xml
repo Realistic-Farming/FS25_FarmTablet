@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d 接続" />
         <text name="ft_water_stop_dry" text="水源が枯渇" />
         <text name="ft_water_stop_nosource" text="水源なし" />
+        <text name="ft_dairy_breed_herd" text="現在の群れ" />
+        <text name="ft_dairy_breed_milk" text="タンク内の牛乳" />
+        <text name="ft_dairy_breed_unknown" text="不明" />
+        <text name="ft_dairy_breed_waiting_server" text="サーバー待機中" />
+        <text name="ft_dairy_breed_waiting_farm" text="プレイヤー農場待機中" />
+        <text name="ft_dairy_breed_route_unavailable" text="タンク経路は利用不可" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="充填タイプ未解決" />
+        <text name="ft_dairy_breed_storage_missing" text="内部貯蔵なし" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="スナップショット無効" />
+        <text name="ft_dairy_breed_herd_unresolved" text="群れを読み取れません" />
+        <text name="ft_dairy_breed_update_required" text="更新が必要" />
+        <text name="ft_dairy_breed_head" text="%d頭" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="貯蔵牛乳なし" />
+        <text name="ft_dairy_breed_source_standard" text="標準集計" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock 集計" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="タブレットはまだあなたの農場を証明できません。証明できるまで畜舎カードは非表示です。" />
+        <text name="ft_dairy_breed_waiting_server_hint" text="サーバーはこの農場の品種記録をまだ送信していません。それまで畜舎カードは非表示です。" />
+        <text name="ft_dairy_breed_help_title" text="品種記録" />
+        <text name="ft_dairy_breed_help_body" text="現在の群れは畜舎の搾乳動物を数えます。&#10;タンク内の牛乳は貯蔵された牛乳を生産した品種ごとに&#10;追跡します。古い牛乳の横に新しい群れがいるのは正常です。&#10;不明な牛乳は記録以前のものか、証明できない経路で&#10;入ったものです。ここで品種を評価することはありません。" />
     </texts>
 
 

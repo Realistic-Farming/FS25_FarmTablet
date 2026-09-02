@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d conectados" />
         <text name="ft_water_stop_dry" text="Fuente seca" />
         <text name="ft_water_stop_nosource" text="Sin fuente" />
+        <text name="ft_dairy_breed_herd" text="REBAÑO ACTUAL" />
+        <text name="ft_dairy_breed_milk" text="LECHE EN TANQUE" />
+        <text name="ft_dairy_breed_unknown" text="desconocido" />
+        <text name="ft_dairy_breed_waiting_server" text="Esperando al servidor" />
+        <text name="ft_dairy_breed_waiting_farm" text="Esperando la granja del jugador" />
+        <text name="ft_dairy_breed_route_unavailable" text="Ruta del tanque no disponible" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Tipo de producto sin resolver" />
+        <text name="ft_dairy_breed_storage_missing" text="Sin almacenamiento interno" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Instantánea no válida" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Rebaño ilegible" />
+        <text name="ft_dairy_breed_update_required" text="Actualización requerida" />
+        <text name="ft_dairy_breed_head" text="%d cabezas" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="sin leche almacenada" />
+        <text name="ft_dairy_breed_source_standard" text="recuento estándar" />
+        <text name="ft_dairy_breed_source_rl" text="recuento Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="La tableta aún no puede probar tu granja. Las fichas de establo quedan ocultas hasta que pueda." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="El servidor aún no ha enviado los registros de razas de esta granja. Las fichas de establo quedan ocultas hasta entonces." />
+        <text name="ft_dairy_breed_help_title" text="REGISTROS DE RAZAS" />
+        <text name="ft_dairy_breed_help_body" text="Rebaño actual cuenta los animales lecheros del establo.&#10;Leche en tanque sigue la leche almacenada por las razas&#10;que la produjeron. Un rebaño nuevo junto a leche antigua&#10;es normal. La leche desconocida es anterior al registro o&#10;llegó por una vía no probada. Ninguna raza se valora aquí." />
     </texts>
 
 

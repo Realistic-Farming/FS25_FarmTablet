@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d collegati" />
         <text name="ft_water_stop_dry" text="Fonte secca" />
         <text name="ft_water_stop_nosource" text="Nessuna fonte" />
+        <text name="ft_dairy_breed_herd" text="MANDRIA ATTUALE" />
+        <text name="ft_dairy_breed_milk" text="LATTE IN CISTERNA" />
+        <text name="ft_dairy_breed_unknown" text="sconosciuto" />
+        <text name="ft_dairy_breed_waiting_server" text="In attesa del server" />
+        <text name="ft_dairy_breed_waiting_farm" text="In attesa della fattoria del giocatore" />
+        <text name="ft_dairy_breed_route_unavailable" text="Cisterna condivisa non disponibile" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Tipo di prodotto non risolto" />
+        <text name="ft_dairy_breed_storage_missing" text="Nessun deposito interno" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Istantanea non valida" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Mandria illeggibile" />
+        <text name="ft_dairy_breed_update_required" text="Aggiornamento richiesto" />
+        <text name="ft_dairy_breed_head" text="%d capi" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="nessun latte stoccato" />
+        <text name="ft_dairy_breed_source_standard" text="conteggio standard" />
+        <text name="ft_dairy_breed_source_rl" text="conteggio Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Il tablet non può ancora provare la tua fattoria. Le schede stalla restano nascoste finché non può." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Il server non ha ancora inviato i registri razze di questa fattoria. Le schede stalla restano nascoste fino ad allora." />
+        <text name="ft_dairy_breed_help_title" text="REGISTRI RAZZE" />
+        <text name="ft_dairy_breed_help_body" text="Mandria attuale conta gli animali da latte nella stalla.&#10;Latte in cisterna segue il latte stoccato per razza che&#10;lo ha prodotto. Una mandria nuova accanto a latte vecchio&#10;è normale. Il latte sconosciuto precede il registro o è&#10;arrivato per una via non provata. Nessuna razza viene&#10;valutata qui." />
     </texts>
 
 </l10n>

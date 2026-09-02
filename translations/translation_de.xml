@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d verbunden" />
         <text name="ft_water_stop_dry" text="Quelle trocken" />
         <text name="ft_water_stop_nosource" text="Keine Quelle" />
+        <text name="ft_dairy_breed_herd" text="HERDE JETZT" />
+        <text name="ft_dairy_breed_milk" text="MILCH IM TANK" />
+        <text name="ft_dairy_breed_unknown" text="unbekannt" />
+        <text name="ft_dairy_breed_waiting_server" text="Warte auf Server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Warte auf Spielerhof" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tankroute nicht verfügbar" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Fülltyp nicht auflösbar" />
+        <text name="ft_dairy_breed_storage_missing" text="Kein interner Speicher" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Momentaufnahme ungültig" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Herde nicht lesbar" />
+        <text name="ft_dairy_breed_update_required" text="Update erforderlich" />
+        <text name="ft_dairy_breed_head" text="%d Tiere" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="keine Milch gelagert" />
+        <text name="ft_dairy_breed_source_standard" text="Standardzählung" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic-Livestock-Zählung" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Das Tablet kann deinen Hof noch nicht belegen. Stallkarten bleiben verborgen, bis es das kann." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Der Server hat die Rassenaufzeichnung dieses Hofs noch nicht gesendet. Stallkarten bleiben bis dahin verborgen." />
+        <text name="ft_dairy_breed_help_title" text="RASSENAUFZEICHNUNG" />
+        <text name="ft_dairy_breed_help_body" text="Herde jetzt zählt die Milchtiere im Stall.&#10;Milch im Tank folgt der gelagerten Milch nach den&#10;Rassen, die sie erzeugt haben. Eine neue Herde neben&#10;alter Milch ist normal. Unbekannte Milch stammt von vor&#10;der Aufzeichnung oder kam auf unbelegtem Weg. Keine&#10;Rasse wird hier bewertet." />
     </texts>
 
 

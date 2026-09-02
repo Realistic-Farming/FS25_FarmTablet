@@ -2587,6 +2587,26 @@
         <text name="ft_water_connected" text="%d connected" />
         <text name="ft_water_stop_dry" text="Dry source" />
         <text name="ft_water_stop_nosource" text="No source" />
+        <text name="ft_dairy_breed_herd" text="HERD NOW" />
+        <text name="ft_dairy_breed_milk" text="MILK IN TANK" />
+        <text name="ft_dairy_breed_unknown" text="unknown" />
+        <text name="ft_dairy_breed_waiting_server" text="Waiting for server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Waiting for player farm" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tank route unavailable" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Fill type unresolved" />
+        <text name="ft_dairy_breed_storage_missing" text="No internal storage" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Snapshot invalid" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Herd unreadable" />
+        <text name="ft_dairy_breed_update_required" text="Update required" />
+        <text name="ft_dairy_breed_head" text="%d head" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="no milk stored" />
+        <text name="ft_dairy_breed_source_standard" text="standard count" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock count" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="The tablet cannot prove your farm yet. Barn cards stay hidden until it can." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="The server has not sent this farm's breed records yet. Barn cards stay hidden until it does." />
+        <text name="ft_dairy_breed_help_title" text="BREED RECORDS" />
+        <text name="ft_dairy_breed_help_body" text="Herd now counts the milking animals in the barn.&#10;Milk in tank follows the stored milk by the breeds that&#10;produced it. A new herd beside old milk is normal. Unknown&#10;milk predates the record or arrived unproven. No breed is&#10;rated better here." />
     </texts>
 
 </l10n>

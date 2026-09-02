@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d csatlakoztatva" />
         <text name="ft_water_stop_dry" text="Szaraz forras" />
         <text name="ft_water_stop_nosource" text="Nincs forras" />
+        <text name="ft_dairy_breed_herd" text="ÁLLOMÁNY MOST" />
+        <text name="ft_dairy_breed_milk" text="TEJ A TARTÁLYBAN" />
+        <text name="ft_dairy_breed_unknown" text="ismeretlen" />
+        <text name="ft_dairy_breed_waiting_server" text="Várakozás a szerverre" />
+        <text name="ft_dairy_breed_waiting_farm" text="Várakozás a játékos farmjára" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tartályútvonal nem elérhető" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Ismeretlen terméktípus" />
+        <text name="ft_dairy_breed_storage_missing" text="Nincs belső tároló" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Pillanatkép érvénytelen" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Állomány nem olvasható" />
+        <text name="ft_dairy_breed_update_required" text="Frissítés szükséges" />
+        <text name="ft_dairy_breed_head" text="%d egyed" />
+        <text name="ft_dairy_breed_litres" text="%d l" />
+        <text name="ft_dairy_breed_no_milk" text="nincs tárolt tej" />
+        <text name="ft_dairy_breed_source_standard" text="normál számlálás" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock számlálás" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="A tablet még nem tudja igazolni a farmodat. Az istállókártyák addig rejtve maradnak." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="A szerver még nem küldte el ennek a farmnak a fajta-nyilvántartását. Az istállókártyák addig rejtve maradnak." />
+        <text name="ft_dairy_breed_help_title" text="FAJTA-NYILVÁNTARTÁS" />
+        <text name="ft_dairy_breed_help_body" text="Állomány most az istállóban álló tejelő állatokat számolja.&#10;Tej a tartályban a tárolt tejet követi az azt adó fajták&#10;szerint. Új állomány régi tej mellett normális. Az&#10;ismeretlen tej a nyilvántartás előtti, vagy nem igazolt&#10;úton érkezett. Egyetlen fajtát sem értékelünk itt." />
     </texts>
 
 

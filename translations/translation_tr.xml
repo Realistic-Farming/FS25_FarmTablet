@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d bagli" />
         <text name="ft_water_stop_dry" text="Kaynak kuru" />
         <text name="ft_water_stop_nosource" text="Kaynak yok" />
+        <text name="ft_dairy_breed_herd" text="ŞU ANKI SÜRÜ" />
+        <text name="ft_dairy_breed_milk" text="TANKTAKI SÜT" />
+        <text name="ft_dairy_breed_unknown" text="bilinmiyor" />
+        <text name="ft_dairy_breed_waiting_server" text="Sunucu bekleniyor" />
+        <text name="ft_dairy_breed_waiting_farm" text="Oyuncu çiftliği bekleniyor" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tank rotası kullanılamıyor" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Ürün türü çözülemedi" />
+        <text name="ft_dairy_breed_storage_missing" text="İç depo yok" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Anlık görüntü geçersiz" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Sürü okunamıyor" />
+        <text name="ft_dairy_breed_update_required" text="Güncelleme gerekli" />
+        <text name="ft_dairy_breed_head" text="%d baş" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="depolanmış süt yok" />
+        <text name="ft_dairy_breed_source_standard" text="standart sayım" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock sayımı" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tablet çiftliğini henüz kanıtlayamıyor. Ahır kartları kanıtlayana kadar gizli kalır." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Sunucu bu çiftliğin ırk kayıtlarını henüz göndermedi. Ahır kartları o zamana kadar gizli kalır." />
+        <text name="ft_dairy_breed_help_title" text="IRK KAYITLARI" />
+        <text name="ft_dairy_breed_help_body" text="Şu anki sürü ahırdaki sağmal hayvanları sayar.&#10;Tanktaki süt, depolanan sütü onu üreten ırklara göre&#10;izler. Eski sütün yanında yeni bir sürü normaldir.&#10;Bilinmeyen süt kayıttan öncedir ya da kanıtlanmamış bir&#10;yoldan gelmiştir. Burada hiçbir ırk derecelendirilmez." />
     </texts>
 
 </l10n>

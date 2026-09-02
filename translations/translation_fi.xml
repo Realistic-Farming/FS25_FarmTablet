@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d liitetty" />
         <text name="ft_water_stop_dry" text="Lahde kuiva" />
         <text name="ft_water_stop_nosource" text="Ei lahdetta" />
+        <text name="ft_dairy_breed_herd" text="KARJA NYT" />
+        <text name="ft_dairy_breed_milk" text="MAITO SÄILIÖSSÄ" />
+        <text name="ft_dairy_breed_unknown" text="tuntematon" />
+        <text name="ft_dairy_breed_waiting_server" text="Odotetaan palvelinta" />
+        <text name="ft_dairy_breed_waiting_farm" text="Odotetaan pelaajan tilaa" />
+        <text name="ft_dairy_breed_route_unavailable" text="Säiliöreitti ei saatavilla" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Täyttötyyppiä ei tunnistettu" />
+        <text name="ft_dairy_breed_storage_missing" text="Ei sisäistä varastoa" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Tilannekuva virheellinen" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Karjaa ei voi lukea" />
+        <text name="ft_dairy_breed_update_required" text="Päivitys vaaditaan" />
+        <text name="ft_dairy_breed_head" text="%d päätä" />
+        <text name="ft_dairy_breed_litres" text="%d l" />
+        <text name="ft_dairy_breed_no_milk" text="ei varastoitua maitoa" />
+        <text name="ft_dairy_breed_source_standard" text="vakiolaskenta" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock -laskenta" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tabletti ei vielä voi todentaa tilaasi. Navettakortit pysyvät piilossa siihen asti." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Palvelin ei ole vielä lähettänyt tämän tilan rotukirjausta. Navettakortit pysyvät piilossa siihen asti." />
+        <text name="ft_dairy_breed_help_title" text="ROTUKIRJAUS" />
+        <text name="ft_dairy_breed_help_body" text="Karja nyt laskee navetan lypsyeläimet.&#10;Maito säiliössä seuraa varastoitua maitoa sen tuottaneiden&#10;rotujen mukaan. Uusi karja vanhan maidon rinnalla on&#10;normaalia. Tuntematon maito on kirjausta vanhempaa tai&#10;tuli todistamatonta reittiä. Rotuja ei arvoteta tässä." />
     </texts>
 
 

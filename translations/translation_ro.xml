@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d conectate" />
         <text name="ft_water_stop_dry" text="Sursa uscata" />
         <text name="ft_water_stop_nosource" text="Fara sursa" />
+        <text name="ft_dairy_breed_herd" text="TURMA ACUM" />
+        <text name="ft_dairy_breed_milk" text="LAPTE ÎN TANC" />
+        <text name="ft_dairy_breed_unknown" text="necunoscut" />
+        <text name="ft_dairy_breed_waiting_server" text="Se așteaptă serverul" />
+        <text name="ft_dairy_breed_waiting_farm" text="Se așteaptă ferma jucătorului" />
+        <text name="ft_dairy_breed_route_unavailable" text="Ruta tancului indisponibilă" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Tip de produs nerezolvat" />
+        <text name="ft_dairy_breed_storage_missing" text="Fără depozit intern" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Instantaneu invalid" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Turmă ilizibilă" />
+        <text name="ft_dairy_breed_update_required" text="Actualizare necesară" />
+        <text name="ft_dairy_breed_head" text="%d capete" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="fără lapte depozitat" />
+        <text name="ft_dairy_breed_source_standard" text="numărare standard" />
+        <text name="ft_dairy_breed_source_rl" text="numărare Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tableta nu poate încă dovedi ferma ta. Fișele grajdurilor rămân ascunse până poate." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Serverul nu a trimis încă registrele de rase ale acestei ferme. Fișele grajdurilor rămân ascunse până atunci." />
+        <text name="ft_dairy_breed_help_title" text="REGISTRE DE RASE" />
+        <text name="ft_dairy_breed_help_body" text="Turma acum numără animalele de lapte din grajd.&#10;Lapte în tanc urmărește laptele depozitat după rasele&#10;care l-au produs. O turmă nouă lângă lapte vechi este&#10;normal. Laptele necunoscut precede registrul sau a ajuns&#10;pe o cale nedovedită. Nicio rasă nu este evaluată aici." />
     </texts>
 
 
