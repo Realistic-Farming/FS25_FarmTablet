@@ -30,6 +30,7 @@ end
 function PlaceableTabletCharger.registerFunctions(placeableType)
     SpecializationUtil.registerFunction(placeableType, "onTabletChargerTriggerCallback", PlaceableTabletCharger.onTabletChargerTriggerCallback)
     SpecializationUtil.registerFunction(placeableType, "setTabletChargerActive", PlaceableTabletCharger.setTabletChargerActive)
+    SpecializationUtil.registerFunction(placeableType, "setChargeLight", PlaceableTabletCharger.setChargeLight)
 end
 
 function PlaceableTabletCharger.registerXMLPaths(schema, basePath)
@@ -109,22 +110,41 @@ function PlaceableTabletCharger:setTabletChargerActive(active)
     active = active == true
     spec.playerInside = active
 
-    -- Tell the tablet to top up (true) or stop (false). Nil-safe if FarmTablet has
-    -- no client UI on this peer (e.g. a dedicated server).
+    -- Register (or clear) this pad so the tablet can drive the indicator light to
+    -- match ACTUAL charging, then tell it we stepped on / off. Nil-safe on a peer
+    -- with no client tablet UI (e.g. a dedicated server).
     local bridge = g_currentMission ~= nil and g_currentMission.farmTablet or nil
-    if bridge ~= nil and bridge.setAtCharger ~= nil then
-        bridge:setAtCharger(active)
+    if bridge ~= nil then
+        if bridge.setChargerPlaceable ~= nil then
+            bridge:setChargerPlaceable(active and self or nil)
+        end
+        if bridge.setAtCharger ~= nil then
+            bridge:setAtCharger(active)
+        end
     end
 
-    -- World-side feedback: indicator glows cyan while a player is charging.
+    -- Off the instant the player leaves; while on the pad the tablet drives the
+    -- light ON only when it is genuinely topping up (never while the tablet is open).
+    if not active then
+        self:setChargeLight(false)
+    end
+end
+
+--- Driven by the tablet through g_currentMission.farmTablet:notifyChargeLight, so the
+--- world indicator glows ONLY while the battery is actually charging - not merely
+--- because a player is standing here with the tablet open.
+function PlaceableTabletCharger:setChargeLight(on)
+    local spec = self[PlaceableTabletCharger.SPEC_TABLE_NAME]
+    if spec == nil then return end
+    on = on == true
     if spec.indicatorNode ~= nil then
-        setShaderParameter(spec.indicatorNode, "lightControl", active and 20 or 0, 0, 0, 0, false)
-        if active then
+        setShaderParameter(spec.indicatorNode, "lightControl", on and 20 or 0, 0, 0, 0, false)
+        if on then
             setShaderParameter(spec.indicatorNode, "colorScale", 0.2, 0.7, 1.0, 1.0, false)
         end
     end
     if spec.indicatorLight ~= nil then
-        if active then
+        if on then
             setLightColor(spec.indicatorLight, 0.2, 0.7, 1.0)
         else
             setLightColor(spec.indicatorLight, 0, 0, 0)

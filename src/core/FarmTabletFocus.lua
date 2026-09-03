@@ -48,6 +48,10 @@ FarmTabletFocus._pending      = false
 -- battery. nil on a pure (dedicated) server that has no client UI.
 FarmTabletFocus._chargeTarget = nil
 
+-- The placeable charging pad the local player is standing on. Registered so the
+-- tablet can drive its indicator light to match ACTUAL charging. nil when off-pad.
+FarmTabletFocus._chargerPlaceable = nil
+
 local function nowMs()
     return (g_currentMission and g_currentMission.time) or 0
 end
@@ -149,6 +153,21 @@ function FarmTabletFocus:setAtCharger(isAtCharger)
     local ui = self._chargeTarget
     if ui ~= nil and ui.setAtCharger ~= nil then
         ui:setAtCharger(isAtCharger)
+    end
+end
+
+--- Register (or clear, with nil) the charging pad the local player is on, so the
+--- tablet can drive its light. Called by PlaceableTabletCharger on pad enter/leave.
+function FarmTabletFocus:setChargerPlaceable(placeable)
+    self._chargerPlaceable = placeable
+end
+
+--- Called by FarmTabletUI when its actual charging state flips; lights the current
+--- pad only while genuinely topping up (off while the tablet is open).
+function FarmTabletFocus:notifyChargeLight(isOn)
+    local p = self._chargerPlaceable
+    if p ~= nil and p.setChargeLight ~= nil then
+        p:setChargeLight(isOn == true)
     end
 end
 
