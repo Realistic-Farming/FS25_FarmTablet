@@ -39,6 +39,12 @@ function FarmTabletManager.new(mission, modDirectory, modName)
     if mission:getIsClient() then
         self.ui           = FarmTabletUI.new(self.settings, self.system, modDirectory)
         self.inputHandler = InputHandler.new(self)
+
+        -- Let the cross-mod bridge reach the battery so a placeable charging
+        -- station can call g_currentMission.farmTablet:setAtCharger(...).
+        if FarmTabletFocus and FarmTabletFocus.setChargeTarget then
+            FarmTabletFocus:setChargeTarget(self.ui)
+        end
     end
 
     -- Settings UI (pause menu injection) — client only

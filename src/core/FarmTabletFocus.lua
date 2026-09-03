@@ -43,6 +43,11 @@ FarmTabletFocus.EMIT_COOLDOWN = 250   -- ms
 FarmTabletFocus._lastEmitAt   = -100000
 FarmTabletFocus._pending      = false
 
+-- The FarmTabletUI instance that owns the battery, registered by FarmTabletManager
+-- once the UI exists. It lets the cross-mod charger API (setAtCharger) reach the
+-- battery. nil on a pure (dedicated) server that has no client UI.
+FarmTabletFocus._chargeTarget = nil
+
 local function nowMs()
     return (g_currentMission and g_currentMission.time) or 0
 end
@@ -129,6 +134,22 @@ function FarmTabletFocus:reset()
     self.appId            = nil
     self._pending         = false
     self._lastEmitAt      = -100000
+end
+
+--- Register the battery-owning FarmTabletUI. Called by FarmTabletManager on client
+--- init. Safe to pass nil (dedicated server / teardown).
+function FarmTabletFocus:setChargeTarget(ui)
+    self._chargeTarget = ui
+end
+
+--- Cross-mod charging-station hook. A placeable calls
+--- g_currentMission.farmTablet:setAtCharger(true/false) when the local player steps
+--- on / off its pad. Nil-safe on any peer that has no client-side tablet UI.
+function FarmTabletFocus:setAtCharger(isAtCharger)
+    local ui = self._chargeTarget
+    if ui ~= nil and ui.setAtCharger ~= nil then
+        ui:setAtCharger(isAtCharger)
+    end
 end
 
 getfenv(0)["FarmTabletFocus"] = FarmTabletFocus

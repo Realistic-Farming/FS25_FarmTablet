@@ -31,6 +31,23 @@
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
 
+    <!-- Tablet Charging Station: a physical placeable that recharges the tablet
+         battery when the player stands on its pad. The spec talks to the existing
+         battery system via g_currentMission.farmTablet:setAtCharger(). -->
+    <placeableSpecializations>
+        <specialization name="tabletCharger" className="PlaceableTabletCharger" filename="src/placeables/PlaceableTabletCharger.lua" />
+    </placeableSpecializations>
+
+    <placeableTypes>
+        <type name="tabletCharger" parent="simplePlaceable" filename="$dataS/scripts/placeables/Placeable.lua">
+            <specialization name="tabletCharger" />
+        </type>
+    </placeableTypes>
+
+    <storeItems>
+        <storeItem xmlFilename="placeables/tabletCharger/tabletChargingStation.xml" />
+    </storeItems>
+
     <actions>
         <!-- ONFOOT only: Wizard locked player context for this pass, no vehicle
              binding. The tablet is a full screen, not a driving control. -->

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="tabletCharger">
+    <storeData>
+        <name>Tablet Charging Station</name>
+        <functions>
+            <function>Recharges the Farm Tablet battery while you stand on the pad.</function>
+        </functions>
+        <image>placeables/tabletCharger/store.dds</image>
+        <price>5000</price>
+        <dailyUpkeep>5</dailyUpkeep>
+        <canBeSold>true</canBeSold>
+        <showInStore>true</showInStore>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>placeable</species>
+        <category>placeableMisc</category>
+        <brush>
+            <type>placeable</type>
+            <category>buildings</category>
+            <tab>tools</tab>
+        </brush>
+        <vertexBufferMemoryUsage>36864</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>7424</indexBufferMemoryUsage>
+        <textureMemoryUsage>1441792</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <filename>placeables/tabletCharger/chargingStation.i3d</filename>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true">
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>
+        <sounds>
+            <place template="smallImp" pitchScale="1.6"/>
+        </sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="5|0" widthNode="5|1" heightNode="5|2"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30">
+        <levelAreas>
+            <levelArea startNode="6|0" widthNode="6|1" heightNode="6|2" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+
+    <indoorAreas />
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+        </updateAreas>
+    </ai>
+
+    <!-- The wire: local player on this trigger -> tablet battery tops up. -->
+    <tabletCharger triggerNode="chargeTrigger1" indicatorNode="chargeFlash" indicatorLight="chargeLight" />
+
+    <hotspots>
+        <hotspot type="ELECTRICITY" linkNode="hotspotNode" teleportNode="teleportNode" />
+    </hotspots>
+
+    <i3dMappings>
+        <i3dMapping id="chargeTrigger1" node="0>1" />
+        <i3dMapping id="chargeFlash" node="0>3" />
+        <i3dMapping id="chargeLight" node="0>4" />
+        <i3dMapping id="testArea1Start" node="0>7" />
+        <i3dMapping id="testArea1End" node="0>7|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1Start" node="0>8" />
+        <i3dMapping id="tipOcclusionUpdateArea1End" node="0>8|0" />
+        <i3dMapping id="hotspotNode" node="0>9" />
+        <i3dMapping id="teleportNode" node="0>10" />
+        <i3dMapping id="tipCollision" node="0>12" />
+    </i3dMappings>
+</placeable>
