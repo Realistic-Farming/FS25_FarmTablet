@@ -43,6 +43,15 @@ FarmTabletFocus.EMIT_COOLDOWN = 250   -- ms
 FarmTabletFocus._lastEmitAt   = -100000
 FarmTabletFocus._pending      = false
 
+-- The FarmTabletUI instance that owns the battery, registered by FarmTabletManager
+-- once the UI exists. It lets the cross-mod charger API (setAtCharger) reach the
+-- battery. nil on a pure (dedicated) server that has no client UI.
+FarmTabletFocus._chargeTarget = nil
+
+-- The placeable charging pad the local player is standing on. Registered so the
+-- tablet can drive its indicator light to match ACTUAL charging. nil when off-pad.
+FarmTabletFocus._chargerPlaceable = nil
+
 local function nowMs()
     return (g_currentMission and g_currentMission.time) or 0
 end
@@ -129,6 +138,49 @@ function FarmTabletFocus:reset()
     self.appId            = nil
     self._pending         = false
     self._lastEmitAt      = -100000
+end
+
+--- Register the battery-owning FarmTabletUI. Called by FarmTabletManager on client
+--- init. Safe to pass nil (dedicated server / teardown).
+function FarmTabletFocus:setChargeTarget(ui)
+    self._chargeTarget = ui
+end
+
+--- Cross-mod charging-station hook. A placeable calls
+--- g_currentMission.farmTablet:setAtCharger(true/false) when the local player steps
+--- on / off its pad. Nil-safe on any peer that has no client-side tablet UI.
+function FarmTabletFocus:setAtCharger(isAtCharger)
+    local ui = self._chargeTarget
+    if ui ~= nil and ui.setAtCharger ~= nil then
+        ui:setAtCharger(isAtCharger)
+    end
+end
+
+--- Register (or clear, with nil) the charging pad the local player is on, so the
+--- tablet can drive its light. Called by PlaceableTabletCharger on pad enter/leave.
+function FarmTabletFocus:setChargerPlaceable(placeable)
+    self._chargerPlaceable = placeable
+end
+
+--- Called by FarmTabletUI when its actual charging state flips; lights the current
+--- pad only while genuinely topping up (off while the tablet is open).
+function FarmTabletFocus:notifyChargeLight(isOn)
+    local p = self._chargerPlaceable
+    if p ~= nil and p.setChargeLight ~= nil then
+        p:setChargeLight(isOn == true)
+    end
+end
+
+--- Distance in metres from the local player to the registered charging pad, or nil
+--- when none is registered. Lets the tablet gate charging on real proximity, so an
+--- oversized world trigger (or a missed leave event) can never keep the tablet "on
+--- the charger" and block normal battery drain.
+function FarmTabletFocus:getChargerDistance()
+    local p = self._chargerPlaceable
+    if p == nil or p.rootNode == nil then return nil end
+    if g_localPlayer == nil or g_localPlayer.rootNode == nil then return nil end
+    if calcDistanceFrom == nil then return nil end
+    return calcDistanceFrom(g_localPlayer.rootNode, p.rootNode)
 end
 
 getfenv(0)["FarmTabletFocus"] = FarmTabletFocus

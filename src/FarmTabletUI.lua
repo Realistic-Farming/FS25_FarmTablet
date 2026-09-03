@@ -178,6 +178,11 @@ function FarmTabletUI.new(settings, system, modDirectory)
     self._batteryChargeNotifyFull = false
     self._batteryEmptyOpenBlockedLastMs = nil
 
+    -- Physical charging-station support (see setAtCharger).
+    self._batteryChargeRateMs = 6000   -- ms per 1%: in-tablet self-charge default (station sets 3000)
+    self._atPhysicalCharger   = false  -- true while the local player stands on a charging-station pad
+    self._chargeLightState    = false  -- last honest station-light state sent to the placeable
+
     self._signalBars = 4
     self._signalLabel = "Realistic Farming Mobile"
     self._signalState = "ok"
@@ -1050,7 +1055,14 @@ function FarmTabletUI:_drawStatusBar()
     local bc  = (lvl > 0.4) and {0.35,0.85,0.45,0.95}
               or (lvl > 0.15) and {1.0,0.72,0.1,0.95}
               or {0.95,0.3,0.3,0.95}
+    if self._batteryCharging then
+        bc = {0.30, 0.80, 1.00, 0.98}   -- charging: cyan overrides the level colour
+    end
     r:rect(batX + FT.px(1.5), batY + FT.py(1.5), (batW - FT.px(3)) * lvl, batH - FT.py(3), bc)
+    if self._batteryCharging then
+        -- charging bolt: a bright centred tick over the cell
+        r:rect(batX + batW*0.5 - FT.px(1), batY + FT.py(1), FT.px(2), batH - FT.py(2), {1,1,1,0.95})
+    end
 
     -- Local mobile signal bars (0-4). Keep enough room for battery percent text.
     local wfX = batX - FT.px(52)
@@ -2316,6 +2328,78 @@ function FarmTabletUI:_onMouseBatteryEmpty(px, py, isDown, isUp, btn)
     return true
 end
 
+--- Physical charging-station hook. A placeable calls this via
+--- g_currentMission.farmTablet:setAtCharger(bool) when the LOCAL on-foot player
+--- steps on / off its pad. It tops up from the CURRENT battery level (no dead-
+--- battery semantics) and only tops up while the tablet is stowed — per design,
+--- an open tablet is "in use" and does not charge. The battery is local flavour,
+--- so this is purely client-side; there is no network event.
+function FarmTabletUI:setAtCharger(isAtCharger)
+    isAtCharger = isAtCharger == true
+    if isAtCharger == self._atPhysicalCharger then return end
+    self._atPhysicalCharger = isAtCharger
+
+    -- One-time heads-up on pad-enter, but only when it will actually charge (stowed,
+    -- not empty-self-charging, below full). If the tablet is open, nothing charges
+    -- until it is stowed, so no toast fires.
+    if isAtCharger and not self._batteryEmpty and (self._battery or 0) < 100 and not self.isOpen then
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charging", "Tablet charging ...", true)
+    end
+
+    self:_evalPhysicalCharge()
+end
+
+--- Start/stop the physical-charger top-up so it runs ONLY while the tablet is stowed
+--- (design: no charge while open) and below 100%. Called on pad enter/leave AND every
+--- update tick, so opening or closing the tablet flips it live. Also drives the world
+--- station light through the bridge, so the light is honest: lit only while genuinely
+--- topping up, never merely because the player is standing on the pad.
+function FarmTabletUI:_evalPhysicalCharge()
+    if self._batteryEmpty then return end   -- the empty-state self-charge owns the state
+
+    -- Effective "at charger": the world trigger flags the pad AND the local player is
+    -- genuinely close. The distance gate makes an oversized EV-style trigger (or a
+    -- missed leave event) safe - without it the tablet would keep topping up and never
+    -- drain while the player is merely somewhere near the station.
+    local atCharger = self._atPhysicalCharger == true
+    if atCharger and FarmTabletFocus and FarmTabletFocus.getChargerDistance then
+        local d = FarmTabletFocus:getChargerDistance()
+        if d ~= nil and d > 4.0 then atCharger = false end
+    end
+
+    if not atCharger and not self._batteryCharging then
+        if self._chargeLightState then
+            self._chargeLightState = false
+            if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then FarmTabletFocus:notifyChargeLight(false) end
+        end
+        return
+    end
+
+    local shouldCharge = atCharger and (not self.isOpen) and (self._battery or 0) < 100
+    if shouldCharge and not self._batteryCharging then
+        self._batteryChargeRateMs       = 3000
+        self._batteryCharging           = true
+        self._batteryChargeTimer        = 0
+        self._batteryChargeLastMs       = self:_getBatteryRealTimeMs()
+        self._batteryChargeStartLevel   = ftClampBattery(self._battery or 0)
+        self._batteryChargeNotifyUsable = true
+        self._batteryChargeNotifyFull   = false
+    elseif (not shouldCharge) and self._batteryCharging then
+        -- Paused (tablet opened), left the pad, or reached 100%: keep the % gained.
+        self._batteryCharging     = false
+        self._batteryChargeRateMs = 6000
+        self:_persistBattery(true)
+    end
+
+    local lightOn = (self._batteryCharging == true) and (atCharger == true)
+    if lightOn ~= self._chargeLightState then
+        self._chargeLightState = lightOn
+        if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then
+            FarmTabletFocus:notifyChargeLight(lightOn)
+        end
+    end
+end
+
 function FarmTabletUI:_getWorldMinuteOfDay()
     -- WICHTIG: Diese Zeit ist nur fuer interne Timer des Netzsystems.
     -- Sie darf NICHT aus dem DataProvider kommen, weil der Provider bei
@@ -2555,7 +2639,7 @@ function FarmTabletUI:_updateBatteryCharging(dt)
     -- Ladegerät: 1% alle 6 Sekunden Echtzeit, also ca. 10 Minuten von 0 auf 100.
     local oldPct = math.floor(self._battery or 0)
     local startLevel = tonumber(self._batteryChargeStartLevel) or 0
-    local gained = math.floor((self._batteryChargeTimer or 0) / 6000)
+    local gained = math.floor((self._batteryChargeTimer or 0) / (self._batteryChargeRateMs or 6000))
     self._battery = math.min(100, math.max(oldPct, math.floor(startLevel + gained)))
     local pct = math.floor(self._battery or 0)
 
@@ -2634,6 +2718,10 @@ function FarmTabletUI:update(dt)
         end
     end
 
+    -- Physical charging-station: (re)evaluate every frame so opening/closing the
+    -- tablet pauses/resumes the top-up and keeps the station light honest.
+    self:_evalPhysicalCharge()
+
     if not self.isOpen then
         if self._batteryCharging then
             self:_updateBatteryCharging(dt)
@@ -2678,8 +2766,13 @@ function FarmTabletUI:update(dt)
     end
 
     if self._batteryCharging then
-        self:_updateBatteryCharging(dt)
-        return
+        -- Empty-state self-charge continues while the tablet is open; a physical
+        -- charging-station top-up pauses here (design: no charge while in use) and
+        -- resumes from the closed-branch tick once the tablet is stowed again.
+        if self._batteryEmpty then
+            self:_updateBatteryCharging(dt)
+            return
+        end
     else
         local batteryChanged = self:_updateBatterySystem(dt)
         if batteryChanged and (self._battery or 0) <= 0 then
