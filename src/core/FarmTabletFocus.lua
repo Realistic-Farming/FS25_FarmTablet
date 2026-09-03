@@ -171,4 +171,16 @@ function FarmTabletFocus:notifyChargeLight(isOn)
     end
 end
 
+--- Distance in metres from the local player to the registered charging pad, or nil
+--- when none is registered. Lets the tablet gate charging on real proximity, so an
+--- oversized world trigger (or a missed leave event) can never keep the tablet "on
+--- the charger" and block normal battery drain.
+function FarmTabletFocus:getChargerDistance()
+    local p = self._chargerPlaceable
+    if p == nil or p.rootNode == nil then return nil end
+    if g_localPlayer == nil or g_localPlayer.rootNode == nil then return nil end
+    if calcDistanceFrom == nil then return nil end
+    return calcDistanceFrom(g_localPlayer.rootNode, p.rootNode)
+end
+
 getfenv(0)["FarmTabletFocus"] = FarmTabletFocus

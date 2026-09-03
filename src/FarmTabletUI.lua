@@ -2357,7 +2357,17 @@ end
 function FarmTabletUI:_evalPhysicalCharge()
     if self._batteryEmpty then return end   -- the empty-state self-charge owns the state
 
-    if not self._atPhysicalCharger and not self._batteryCharging then
+    -- Effective "at charger": the world trigger flags the pad AND the local player is
+    -- genuinely close. The distance gate makes an oversized EV-style trigger (or a
+    -- missed leave event) safe - without it the tablet would keep topping up and never
+    -- drain while the player is merely somewhere near the station.
+    local atCharger = self._atPhysicalCharger == true
+    if atCharger and FarmTabletFocus and FarmTabletFocus.getChargerDistance then
+        local d = FarmTabletFocus:getChargerDistance()
+        if d ~= nil and d > 4.0 then atCharger = false end
+    end
+
+    if not atCharger and not self._batteryCharging then
         if self._chargeLightState then
             self._chargeLightState = false
             if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then FarmTabletFocus:notifyChargeLight(false) end
@@ -2365,7 +2375,7 @@ function FarmTabletUI:_evalPhysicalCharge()
         return
     end
 
-    local shouldCharge = self._atPhysicalCharger and (not self.isOpen) and (self._battery or 0) < 100
+    local shouldCharge = atCharger and (not self.isOpen) and (self._battery or 0) < 100
     if shouldCharge and not self._batteryCharging then
         self._batteryChargeRateMs       = 3000
         self._batteryCharging           = true
@@ -2381,7 +2391,7 @@ function FarmTabletUI:_evalPhysicalCharge()
         self:_persistBattery(true)
     end
 
-    local lightOn = (self._batteryCharging == true) and (self._atPhysicalCharger == true)
+    local lightOn = (self._batteryCharging == true) and (atCharger == true)
     if lightOn ~= self._chargeLightState then
         self._chargeLightState = lightOn
         if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then
