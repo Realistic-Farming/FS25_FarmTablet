@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d ket noi" />
         <text name="ft_water_stop_dry" text="Nguon can" />
         <text name="ft_water_stop_nosource" text="Khong co nguon" />
+        <text name="ft_dairy_breed_herd" text="ĐÀN HIỆN TẠI" />
+        <text name="ft_dairy_breed_milk" text="SỮA TRONG BỒN" />
+        <text name="ft_dairy_breed_unknown" text="không rõ" />
+        <text name="ft_dairy_breed_waiting_server" text="Đang chờ máy chủ" />
+        <text name="ft_dairy_breed_waiting_farm" text="Đang chờ nông trại người chơi" />
+        <text name="ft_dairy_breed_route_unavailable" text="Tuyến bồn không khả dụng" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Không nhận ra loại sản phẩm" />
+        <text name="ft_dairy_breed_storage_missing" text="Không có kho nội bộ" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Ảnh chụp không hợp lệ" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Không đọc được đàn" />
+        <text name="ft_dairy_breed_update_required" text="Cần cập nhật" />
+        <text name="ft_dairy_breed_head" text="%d con" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="không có sữa lưu" />
+        <text name="ft_dairy_breed_source_standard" text="đếm tiêu chuẩn" />
+        <text name="ft_dairy_breed_source_rl" text="đếm Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Máy tính bảng chưa xác minh được nông trại của bạn. Thẻ chuồng sẽ ẩn cho đến khi xác minh được." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Máy chủ chưa gửi hồ sơ giống của nông trại này. Thẻ chuồng sẽ ẩn cho đến khi nhận được." />
+        <text name="ft_dairy_breed_help_title" text="HỒ SƠ GIỐNG" />
+        <text name="ft_dairy_breed_help_body" text="Đàn hiện tại đếm các con vật cho sữa trong chuồng.&#10;Sữa trong bồn theo dõi sữa đã lưu theo giống đã tạo ra&#10;nó. Đàn mới bên cạnh sữa cũ là bình thường. Sữa không rõ&#10;có từ trước khi ghi nhận hoặc vào theo đường không chứng&#10;minh được. Không giống nào được đánh giá ở đây." />
     </texts>
 
 

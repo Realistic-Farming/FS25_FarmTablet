@@ -2586,6 +2586,26 @@
         <text name="ft_water_connected" text="%d terhubung" />
         <text name="ft_water_stop_dry" text="Sumber kering" />
         <text name="ft_water_stop_nosource" text="Tidak ada sumber" />
+        <text name="ft_dairy_breed_herd" text="KAWANAN SAAT INI" />
+        <text name="ft_dairy_breed_milk" text="SUSU DI TANGKI" />
+        <text name="ft_dairy_breed_unknown" text="tidak diketahui" />
+        <text name="ft_dairy_breed_waiting_server" text="Menunggu server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Menunggu peternakan pemain" />
+        <text name="ft_dairy_breed_route_unavailable" text="Rute tangki tidak tersedia" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Jenis isi tidak dikenali" />
+        <text name="ft_dairy_breed_storage_missing" text="Tidak ada penyimpanan internal" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Snapshot tidak valid" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Kawanan tidak terbaca" />
+        <text name="ft_dairy_breed_update_required" text="Perlu pembaruan" />
+        <text name="ft_dairy_breed_head" text="%d ekor" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="tidak ada susu tersimpan" />
+        <text name="ft_dairy_breed_source_standard" text="hitungan standar" />
+        <text name="ft_dairy_breed_source_rl" text="hitungan Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tablet belum bisa membuktikan peternakan Anda. Kartu kandang tetap tersembunyi sampai bisa." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Server belum mengirim catatan ras peternakan ini. Kartu kandang tetap tersembunyi sampai terkirim." />
+        <text name="ft_dairy_breed_help_title" text="CATATAN RAS" />
+        <text name="ft_dairy_breed_help_body" text="Kawanan saat ini menghitung hewan perah di kandang.&#10;Susu di tangki mengikuti susu yang tersimpan menurut ras&#10;yang menghasilkannya. Kawanan baru di samping susu lama&#10;itu normal. Susu tidak diketahui berasal dari sebelum&#10;pencatatan atau masuk lewat jalur yang tidak terbukti.&#10;Tidak ada ras yang dinilai di sini." />
     </texts>
 
 </l10n>

@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="已連接 %d" />
         <text name="ft_water_stop_dry" text="水源乾涸" />
         <text name="ft_water_stop_nosource" text="沒有水源" />
+        <text name="ft_dairy_breed_herd" text="目前畜群" />
+        <text name="ft_dairy_breed_milk" text="槽內牛奶" />
+        <text name="ft_dairy_breed_unknown" text="未知" />
+        <text name="ft_dairy_breed_waiting_server" text="等待伺服器" />
+        <text name="ft_dairy_breed_waiting_farm" text="等待玩家農場" />
+        <text name="ft_dairy_breed_route_unavailable" text="儲槽路線無法使用" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="填充類型無法解析" />
+        <text name="ft_dairy_breed_storage_missing" text="無內部儲存" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="快照無效" />
+        <text name="ft_dairy_breed_herd_unresolved" text="無法讀取畜群" />
+        <text name="ft_dairy_breed_update_required" text="需要更新" />
+        <text name="ft_dairy_breed_head" text="%d頭" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="無儲存牛奶" />
+        <text name="ft_dairy_breed_source_standard" text="標準計數" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock 計數" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="平板尚無法證明你的農場。在證明之前, 牛舍卡片保持隱藏。" />
+        <text name="ft_dairy_breed_waiting_server_hint" text="伺服器尚未傳送這座農場的品種記錄。在此之前, 牛舍卡片保持隱藏。" />
+        <text name="ft_dairy_breed_help_title" text="品種記錄" />
+        <text name="ft_dairy_breed_help_body" text="目前畜群計算牛舍裡的泌乳動物。&#10;槽內牛奶依生產牠的品種追蹤已儲存的牛奶。&#10;舊牛奶旁出現新畜群是正常的。未知牛奶早於記錄,&#10;或經由無法證明的途徑進入。這裡不評價任何品種。" />
     </texts>
 
 

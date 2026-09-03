@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d підключено" />
         <text name="ft_water_stop_dry" text="Джерело сухе" />
         <text name="ft_water_stop_nosource" text="Немає джерела" />
+        <text name="ft_dairy_breed_herd" text="СТАДО ЗАРАЗ" />
+        <text name="ft_dairy_breed_milk" text="МОЛОКО В ТАНКУ" />
+        <text name="ft_dairy_breed_unknown" text="невідомо" />
+        <text name="ft_dairy_breed_waiting_server" text="Очікування сервера" />
+        <text name="ft_dairy_breed_waiting_farm" text="Очікування ферми гравця" />
+        <text name="ft_dairy_breed_route_unavailable" text="Маршрут танка недоступний" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Тип продукту не розпізнано" />
+        <text name="ft_dairy_breed_storage_missing" text="Немає внутрішнього сховища" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Знімок недійсний" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Стадо не читається" />
+        <text name="ft_dairy_breed_update_required" text="Потрібне оновлення" />
+        <text name="ft_dairy_breed_head" text="%d гол." />
+        <text name="ft_dairy_breed_litres" text="%d л" />
+        <text name="ft_dairy_breed_no_milk" text="молока немає" />
+        <text name="ft_dairy_breed_source_standard" text="стандартний підрахунок" />
+        <text name="ft_dairy_breed_source_rl" text="підрахунок Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Планшет поки не може підтвердити вашу ферму. Картки хлівів приховані, доки не зможе." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Сервер ще не надіслав записи порід цієї ферми. Картки хлівів приховані до того часу." />
+        <text name="ft_dairy_breed_help_title" text="ЗАПИСИ ПОРІД" />
+        <text name="ft_dairy_breed_help_body" text="Стадо зараз рахує дійних тварин у хліві.&#10;Молоко в танку слідує за збереженим молоком за породами,&#10;які його дали. Нове стадо поруч зі старим молоком - це&#10;нормально. Невідоме молоко було до запису або надійшло&#10;неперевіреним шляхом. Породи тут не оцінюються." />
     </texts>
 
 

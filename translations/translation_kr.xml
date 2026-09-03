@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d개 연결됨" />
         <text name="ft_water_stop_dry" text="수원 고갈" />
         <text name="ft_water_stop_nosource" text="수원 없음" />
+        <text name="ft_dairy_breed_herd" text="현재 무리" />
+        <text name="ft_dairy_breed_milk" text="탱크의 우유" />
+        <text name="ft_dairy_breed_unknown" text="알 수 없음" />
+        <text name="ft_dairy_breed_waiting_server" text="서버 대기 중" />
+        <text name="ft_dairy_breed_waiting_farm" text="플레이어 농장 대기 중" />
+        <text name="ft_dairy_breed_route_unavailable" text="탱크 경로 사용 불가" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="채움 유형 미확인" />
+        <text name="ft_dairy_breed_storage_missing" text="내부 저장소 없음" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="스냅샷 무효" />
+        <text name="ft_dairy_breed_herd_unresolved" text="무리를 읽을 수 없음" />
+        <text name="ft_dairy_breed_update_required" text="업데이트 필요" />
+        <text name="ft_dairy_breed_head" text="%d마리" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="저장된 우유 없음" />
+        <text name="ft_dairy_breed_source_standard" text="표준 집계" />
+        <text name="ft_dairy_breed_source_rl" text="Realistic Livestock 집계" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="태블릿이 아직 농장을 확인할 수 없습니다. 확인될 때까지 축사 카드는 숨겨집니다." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="서버가 아직 이 농장의 품종 기록을 보내지 않았습니다. 그때까지 축사 카드는 숨겨집니다." />
+        <text name="ft_dairy_breed_help_title" text="품종 기록" />
+        <text name="ft_dairy_breed_help_body" text="현재 무리는 축사의 착유 동물을 셉니다.&#10;탱크의 우유는 저장된 우유를 생산한 품종별로&#10;따라갑니다. 오래된 우유 옆의 새 무리는 정상입니다.&#10;알 수 없는 우유는 기록 이전 것이거나 증명되지 않은&#10;경로로 들어온 것입니다. 여기서 품종을 평가하지 않습니다." />
     </texts>
 
 

@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d pripojeno" />
         <text name="ft_water_stop_dry" text="Zdroj vyschl" />
         <text name="ft_water_stop_nosource" text="Zadny zdroj" />
+        <text name="ft_dairy_breed_herd" text="STÁDO NYNÍ" />
+        <text name="ft_dairy_breed_milk" text="MLÉKO V NÁDRŽI" />
+        <text name="ft_dairy_breed_unknown" text="neznámé" />
+        <text name="ft_dairy_breed_waiting_server" text="Čekání na server" />
+        <text name="ft_dairy_breed_waiting_farm" text="Čekání na farmu hráče" />
+        <text name="ft_dairy_breed_route_unavailable" text="Trasa nádrže nedostupná" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Typ produktu nerozpoznán" />
+        <text name="ft_dairy_breed_storage_missing" text="Chybí vnitřní sklad" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Snímek neplatný" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Stádo nečitelné" />
+        <text name="ft_dairy_breed_update_required" text="Vyžadována aktualizace" />
+        <text name="ft_dairy_breed_head" text="%d ks" />
+        <text name="ft_dairy_breed_litres" text="%d l" />
+        <text name="ft_dairy_breed_no_milk" text="žádné mléko" />
+        <text name="ft_dairy_breed_source_standard" text="standardní počítání" />
+        <text name="ft_dairy_breed_source_rl" text="počítání Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tablet zatím nemůže prokázat vaši farmu. Karty stájí zůstávají skryté, dokud to nepůjde." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Server ještě neposlal záznamy plemen této farmy. Karty stájí zůstávají do té doby skryté." />
+        <text name="ft_dairy_breed_help_title" text="ZÁZNAMY PLEMEN" />
+        <text name="ft_dairy_breed_help_body" text="Stádo nyní počítá dojná zvířata ve stáji.&#10;Mléko v nádrži sleduje uskladněné mléko podle plemen,&#10;která ho dala. Nové stádo vedle starého mléka je normální.&#10;Neznámé mléko pochází z doby před záznamem nebo přišlo&#10;neprokázanou cestou. Žádné plemeno se zde nehodnotí." />
     </texts>
 
 

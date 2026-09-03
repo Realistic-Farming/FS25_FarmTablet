@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d conectados" />
         <text name="ft_water_stop_dry" text="Fonte seca" />
         <text name="ft_water_stop_nosource" text="Sem fonte" />
+        <text name="ft_dairy_breed_herd" text="REBANHO ATUAL" />
+        <text name="ft_dairy_breed_milk" text="LEITE NO TANQUE" />
+        <text name="ft_dairy_breed_unknown" text="desconhecido" />
+        <text name="ft_dairy_breed_waiting_server" text="Aguardando o servidor" />
+        <text name="ft_dairy_breed_waiting_farm" text="Aguardando a fazenda do jogador" />
+        <text name="ft_dairy_breed_route_unavailable" text="Rota do tanque indisponível" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Tipo de produto não resolvido" />
+        <text name="ft_dairy_breed_storage_missing" text="Sem armazenamento interno" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Instantâneo inválido" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Rebanho ilegível" />
+        <text name="ft_dairy_breed_update_required" text="Atualização necessária" />
+        <text name="ft_dairy_breed_head" text="%d cabeças" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="sem leite armazenado" />
+        <text name="ft_dairy_breed_source_standard" text="contagem padrão" />
+        <text name="ft_dairy_breed_source_rl" text="contagem Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="O tablet ainda não consegue comprovar sua fazenda. Os cartões de estábulo ficam ocultos até conseguir." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="O servidor ainda não enviou os registros de raças desta fazenda. Os cartões de estábulo ficam ocultos até lá." />
+        <text name="ft_dairy_breed_help_title" text="REGISTROS DE RAÇAS" />
+        <text name="ft_dairy_breed_help_body" text="Rebanho atual conta os animais leiteiros do estábulo.&#10;Leite no tanque segue o leite armazenado pelas raças que&#10;o produziram. Um rebanho novo ao lado de leite antigo é&#10;normal. O leite desconhecido é anterior ao registro ou&#10;chegou por um caminho não comprovado. Nenhuma raça é&#10;avaliada aqui." />
     </texts>
 
 

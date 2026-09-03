@@ -237,6 +237,20 @@ function FT_DataProvider:getPlayerFarmId()
     return 1
 end
 
+--- DC-27: the strict local-farm read. Positive number only; nil when the player
+--- object or its farm is not available yet. Never falls back to 1.
+function FT_DataProvider:getPlayerFarmIdStrict()
+    if g_localPlayer == nil then return nil end
+    local id = nil
+    if g_localPlayer.getFarmId ~= nil then
+        local ok, v = pcall(function() return g_localPlayer:getFarmId() end)
+        if ok then id = v end
+    end
+    if id == nil then id = g_localPlayer.farmId end
+    if type(id) == "number" and id > 0 then return id end
+    return nil
+end
+
 function FT_DataProvider:getBalance(farmId)
     local v = self:_cached("balance_"..farmId, 1000, function()
         if g_farmManager then

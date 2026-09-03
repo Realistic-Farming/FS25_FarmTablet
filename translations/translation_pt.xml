@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d ligados" />
         <text name="ft_water_stop_dry" text="Fonte seca" />
         <text name="ft_water_stop_nosource" text="Sem fonte" />
+        <text name="ft_dairy_breed_herd" text="REBANHO ATUAL" />
+        <text name="ft_dairy_breed_milk" text="LEITE NO TANQUE" />
+        <text name="ft_dairy_breed_unknown" text="desconhecido" />
+        <text name="ft_dairy_breed_waiting_server" text="A aguardar o servidor" />
+        <text name="ft_dairy_breed_waiting_farm" text="A aguardar a quinta do jogador" />
+        <text name="ft_dairy_breed_route_unavailable" text="Rota do tanque indisponível" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Tipo de produto não resolvido" />
+        <text name="ft_dairy_breed_storage_missing" text="Sem armazenamento interno" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Instantâneo inválido" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Rebanho ilegível" />
+        <text name="ft_dairy_breed_update_required" text="Atualização necessária" />
+        <text name="ft_dairy_breed_head" text="%d cabeças" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="sem leite armazenado" />
+        <text name="ft_dairy_breed_source_standard" text="contagem padrão" />
+        <text name="ft_dairy_breed_source_rl" text="contagem Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="O tablet ainda não consegue provar a sua quinta. As fichas de estábulo ficam ocultas até conseguir." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="O servidor ainda não enviou os registos de raças desta quinta. As fichas de estábulo ficam ocultas até lá." />
+        <text name="ft_dairy_breed_help_title" text="REGISTOS DE RAÇAS" />
+        <text name="ft_dairy_breed_help_body" text="Rebanho atual conta os animais leiteiros do estábulo.&#10;Leite no tanque segue o leite armazenado pelas raças que&#10;o produziram. Um rebanho novo ao lado de leite antigo é&#10;normal. O leite desconhecido é anterior ao registo ou&#10;chegou por um caminho não provado. Nenhuma raça é&#10;avaliada aqui." />
     </texts>
 
 

@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="%d podlaczonych" />
         <text name="ft_water_stop_dry" text="Zrodlo suche" />
         <text name="ft_water_stop_nosource" text="Brak zrodla" />
+        <text name="ft_dairy_breed_herd" text="STADO TERAZ" />
+        <text name="ft_dairy_breed_milk" text="MLEKO W ZBIORNIKU" />
+        <text name="ft_dairy_breed_unknown" text="nieznane" />
+        <text name="ft_dairy_breed_waiting_server" text="Oczekiwanie na serwer" />
+        <text name="ft_dairy_breed_waiting_farm" text="Oczekiwanie na farmę gracza" />
+        <text name="ft_dairy_breed_route_unavailable" text="Trasa zbiornika niedostępna" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Nierozpoznany typ produktu" />
+        <text name="ft_dairy_breed_storage_missing" text="Brak wewnętrznego magazynu" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Migawka nieprawidłowa" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Stado nieczytelne" />
+        <text name="ft_dairy_breed_update_required" text="Wymagana aktualizacja" />
+        <text name="ft_dairy_breed_head" text="%d szt." />
+        <text name="ft_dairy_breed_litres" text="%d l" />
+        <text name="ft_dairy_breed_no_milk" text="brak mleka w magazynie" />
+        <text name="ft_dairy_breed_source_standard" text="liczenie standardowe" />
+        <text name="ft_dairy_breed_source_rl" text="liczenie Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="Tablet nie może jeszcze potwierdzić twojej farmy. Karty obór pozostają ukryte, dopóki nie będzie mógł." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Serwer nie przesłał jeszcze rejestru ras tej farmy. Karty obór pozostają do tego czasu ukryte." />
+        <text name="ft_dairy_breed_help_title" text="REJESTR RAS" />
+        <text name="ft_dairy_breed_help_body" text="Stado teraz liczy zwierzęta mleczne w oborze.&#10;Mleko w zbiorniku śledzi zmagazynowane mleko według ras,&#10;które je dały. Nowe stado obok starego mleka to normalne.&#10;Nieznane mleko pochodzi sprzed rejestru lub trafiło tu&#10;niepotwierdzoną drogą. Żadna rasa nie jest tu oceniana." />
     </texts>
 
 

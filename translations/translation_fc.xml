@@ -2585,6 +2585,26 @@
         <text name="ft_water_connected" text="已连接 %d" />
         <text name="ft_water_stop_dry" text="水源干涸" />
         <text name="ft_water_stop_nosource" text="没有水源" />
+        <text name="ft_dairy_breed_herd" text="TROUPEAU ACTUEL" />
+        <text name="ft_dairy_breed_milk" text="LAIT AU RÉSERVOIR" />
+        <text name="ft_dairy_breed_unknown" text="inconnu" />
+        <text name="ft_dairy_breed_waiting_server" text="En attente du serveur" />
+        <text name="ft_dairy_breed_waiting_farm" text="En attente de la ferme du joueur" />
+        <text name="ft_dairy_breed_route_unavailable" text="Réservoir partagé indisponible" />
+        <text name="ft_dairy_breed_filltype_unresolved" text="Type de produit non résolu" />
+        <text name="ft_dairy_breed_storage_missing" text="Aucun stockage interne" />
+        <text name="ft_dairy_breed_snapshot_invalid" text="Instantané invalide" />
+        <text name="ft_dairy_breed_herd_unresolved" text="Troupeau illisible" />
+        <text name="ft_dairy_breed_update_required" text="Mise à jour requise" />
+        <text name="ft_dairy_breed_head" text="%d têtes" />
+        <text name="ft_dairy_breed_litres" text="%d L" />
+        <text name="ft_dairy_breed_no_milk" text="aucun lait stocké" />
+        <text name="ft_dairy_breed_source_standard" text="comptage standard" />
+        <text name="ft_dairy_breed_source_rl" text="comptage Realistic Livestock" />
+        <text name="ft_dairy_breed_waiting_farm_hint" text="La tablette ne peut pas encore prouver votre ferme. Les fiches d'étable restent masquées jusque-là." />
+        <text name="ft_dairy_breed_waiting_server_hint" text="Le serveur n'a pas encore envoyé les registres de races de cette ferme. Les fiches d'étable restent masquées jusque-là." />
+        <text name="ft_dairy_breed_help_title" text="REGISTRES DE RACES" />
+        <text name="ft_dairy_breed_help_body" text="Troupeau actuel compte les animaux laitiers de l'étable.&#10;Lait au réservoir suit le lait stocké selon les races qui l'ont&#10;produit. Un nouveau troupeau à côté d'un lait ancien est&#10;normal. Le lait inconnu précède le registre ou est arrivé&#10;par un chemin non prouvé. Aucune race n'est notée ici." />
     </texts>
 
 
