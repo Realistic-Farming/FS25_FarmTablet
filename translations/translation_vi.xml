@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="có thể chờ" />
         <text name="ft_irr_advisory_schedule_covers" text="lịch bao phủ" />
         <text name="ft_irr_advisory_schedule_gap" text="lỗ hổng lịch" />
+        <text name="ft_rainKey_unknown" text="không rõ" />
+        <text name="ft_rainKey_mm" text="mm mô phỏng" />
+        <text name="ft_rainKey_unfitted" text="chưa lắp cảm biến mưa" />
+        <text name="ft_rainKey_armed" text="cảm biến sẵn sàng" />
+        <text name="ft_rainKey_collecting" text="đang thu nước mưa" />
+        <text name="ft_rainKey_tripped" text="cảm biến đã kích hoạt" />
+        <text name="ft_rainKey_inputUnavail" text="không đọc được cảm biến" />
+        <text name="ft_rainKey_whyTripped" text="dừng vì cảm biến mưa đã kích hoạt" />
+        <text name="ft_rainKey_whyNoInput" text="không đọc được thời tiết" />
+        <text name="ft_rainKey_whyNoSource" text="không có nguồn nước" />
+        <text name="ft_rainKey_whyNoPress" text="không có áp lực" />
+        <text name="ft_rainKey_whySchedule" text="ngoài lịch trình" />
+        <text name="ft_rainKey_whyMaster" text="công tắc tưới chính đang tắt" />
+        <text name="ft_rainKey_whyUnknown" text="không rõ lý do" />
+        <text name="ft_rainKey_running" text="ĐANG CHẠY" />
+        <text name="ft_rainKey_rainPaused" text="TẠM DỪNG DO MƯA" />
+        <text name="ft_rainKey_off" text="tắt" />
+        <text name="ft_rainKey_unknownState" text="không rõ trạng thái cảm biến" />
+        <text name="ft_rainKey_dryResetIn" text="đặt lại khô sau %s" />
+        <text name="ft_rainKey_dryResetPending" text="đặt lại khi tạnh mưa" />
+        <text name="ft_rainKey_nextCheckIn" text="lần kiểm tra lịch kế tiếp %s" />
+        <text name="ft_rainKey_nextCheck" text="đủ điều kiện ở lần kiểm tra lịch kế tiếp" />
+        <text name="ft_rainKey_playerAction" text="cần xử lý: kiểm tra nguồn nước" />
+        <text name="ft_rainKey_collected" text="đã thu" />
+        <text name="ft_rainKey_trip" text="ngưỡng" />
+        <text name="ft_rainKey_notifyTitle" text="Tưới tiêu" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s đã dừng vì cảm biến mưa" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s sẽ hoạt động lại ở lần kiểm tra lịch kế tiếp" />
+        <text name="ft_water_header" text="NGUON NUOC" />
+        <text name="ft_water_unlimited" text="Khong gioi han" />
+        <text name="ft_water_hours" text="%.1f / %.1f gio" />
+        <text name="ft_water_dry" text="Can" />
+        <text name="ft_water_na" text="Khong co san" />
+        <text name="ft_water_none" text="Nong trai nay khong co nguon nuoc." />
+        <text name="ft_water_source" text="Nguon nuoc" />
+        <text name="ft_water_connected" text="%d ket noi" />
+        <text name="ft_water_stop_dry" text="Nguon can" />
+        <text name="ft_water_stop_nosource" text="Khong co nguon" />
     </texts>
 
 

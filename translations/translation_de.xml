@@ -2548,6 +2548,44 @@
         <text name="ft_irr_call_can_hold" text="kann halten" />
         <text name="ft_irr_advisory_schedule_covers" text="Plan abgedeckt" />
         <text name="ft_irr_advisory_schedule_gap" text="Planlücke" />
+        <text name="ft_rainKey_unknown" text="unbekannt" />
+        <text name="ft_rainKey_mm" text="mm modelliert" />
+        <text name="ft_rainKey_unfitted" text="kein Regensensor verbaut" />
+        <text name="ft_rainKey_armed" text="Regensensor scharf" />
+        <text name="ft_rainKey_collecting" text="sammelt Regen" />
+        <text name="ft_rainKey_tripped" text="Regensensor ausgeloest" />
+        <text name="ft_rainKey_inputUnavail" text="Sensordaten nicht verfuegbar" />
+        <text name="ft_rainKey_whyTripped" text="gestoppt, weil der Regensensor ausgeloest hat" />
+        <text name="ft_rainKey_whyNoInput" text="Wetter nicht lesbar" />
+        <text name="ft_rainKey_whyNoSource" text="keine Wasserquelle" />
+        <text name="ft_rainKey_whyNoPress" text="kein Druck" />
+        <text name="ft_rainKey_whySchedule" text="ausserhalb des Zeitplans" />
+        <text name="ft_rainKey_whyMaster" text="Bewaesserung-Hauptschalter aus" />
+        <text name="ft_rainKey_whyUnknown" text="Grund nicht verfuegbar" />
+        <text name="ft_rainKey_running" text="LAEUFT" />
+        <text name="ft_rainKey_rainPaused" text="REGENPAUSE" />
+        <text name="ft_rainKey_off" text="aus" />
+        <text name="ft_rainKey_unknownState" text="Sensorstatus unbekannt" />
+        <text name="ft_rainKey_dryResetIn" text="Trockenreset in %s" />
+        <text name="ft_rainKey_dryResetPending" text="Trockenreset, sobald der Regen aufhoert" />
+        <text name="ft_rainKey_nextCheckIn" text="naechste Zeitplanpruefung %s" />
+        <text name="ft_rainKey_nextCheck" text="beim naechsten Zeitplan wieder bereit" />
+        <text name="ft_rainKey_playerAction" text="Aktion noetig: Wasserquelle pruefen" />
+        <text name="ft_rainKey_collected" text="gesammelt" />
+        <text name="ft_rainKey_trip" text="Schwelle" />
+        <text name="ft_rainKey_notifyTitle" text="Bewaesserung" />
+        <text name="ft_rainKey_notifyPaused" text="Kreisberegner #%s wurde vom Regensensor gestoppt" />
+        <text name="ft_rainKey_notifyResumed" text="Kreisberegner #%s ist bei der naechsten Zeitplanpruefung wieder bereit" />
+        <text name="ft_water_header" text="WASSERQUELLEN" />
+        <text name="ft_water_unlimited" text="Unbegrenzt" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Trocken" />
+        <text name="ft_water_na" text="Nicht verfuegbar" />
+        <text name="ft_water_none" text="Keine Wasserquellen auf diesem Hof." />
+        <text name="ft_water_source" text="Wasserquelle" />
+        <text name="ft_water_connected" text="%d verbunden" />
+        <text name="ft_water_stop_dry" text="Quelle trocken" />
+        <text name="ft_water_stop_nosource" text="Keine Quelle" />
     </texts>
 
 

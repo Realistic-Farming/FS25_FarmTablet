@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="기다릴 수 있음" />
         <text name="ft_irr_advisory_schedule_covers" text="일정이 충당" />
         <text name="ft_irr_advisory_schedule_gap" text="일정 공백" />
+        <text name="ft_rainKey_unknown" text="알 수 없음" />
+        <text name="ft_rainKey_mm" text="모델링 mm" />
+        <text name="ft_rainKey_unfitted" text="레인 센서 미장착" />
+        <text name="ft_rainKey_armed" text="센서 준비됨" />
+        <text name="ft_rainKey_collecting" text="강우 수집 중" />
+        <text name="ft_rainKey_tripped" text="센서 작동됨" />
+        <text name="ft_rainKey_inputUnavail" text="센서 입력 없음" />
+        <text name="ft_rainKey_whyTripped" text="레인 센서가 작동하여 정지됨" />
+        <text name="ft_rainKey_whyNoInput" text="날씨를 읽을 수 없음" />
+        <text name="ft_rainKey_whyNoSource" text="수원 없음" />
+        <text name="ft_rainKey_whyNoPress" text="압력 없음" />
+        <text name="ft_rainKey_whySchedule" text="일정 시간 외" />
+        <text name="ft_rainKey_whyMaster" text="관개 메인 스위치 꺼짐" />
+        <text name="ft_rainKey_whyUnknown" text="사유 없음" />
+        <text name="ft_rainKey_running" text="작동 중" />
+        <text name="ft_rainKey_rainPaused" text="강우 일시정지" />
+        <text name="ft_rainKey_off" text="꺼짐" />
+        <text name="ft_rainKey_unknownState" text="센서 상태 알 수 없음" />
+        <text name="ft_rainKey_dryResetIn" text="%s 후 건조 초기화" />
+        <text name="ft_rainKey_dryResetPending" text="비가 그치면 초기화" />
+        <text name="ft_rainKey_nextCheckIn" text="다음 일정 확인 %s" />
+        <text name="ft_rainKey_nextCheck" text="다음 일정 확인 시 가능" />
+        <text name="ft_rainKey_playerAction" text="조치 필요: 수원을 확인하세요" />
+        <text name="ft_rainKey_collected" text="수집량" />
+        <text name="ft_rainKey_trip" text="기준값" />
+        <text name="ft_rainKey_notifyTitle" text="관개" />
+        <text name="ft_rainKey_notifyPaused" text="피벗 #%s이(가) 레인 센서로 정지했습니다" />
+        <text name="ft_rainKey_notifyResumed" text="피벗 #%s은(는) 다음 일정 확인 시 다시 가능합니다" />
+        <text name="ft_water_header" text="수원" />
+        <text name="ft_water_unlimited" text="무제한" />
+        <text name="ft_water_hours" text="%.1f / %.1f 시간" />
+        <text name="ft_water_dry" text="고갈" />
+        <text name="ft_water_na" text="사용 불가" />
+        <text name="ft_water_none" text="이 농장에 수원이 없습니다." />
+        <text name="ft_water_source" text="수원" />
+        <text name="ft_water_connected" text="%d개 연결됨" />
+        <text name="ft_water_stop_dry" text="수원 고갈" />
+        <text name="ft_water_stop_nosource" text="수원 없음" />
     </texts>
 
 

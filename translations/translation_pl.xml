@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="może poczekać" />
         <text name="ft_irr_advisory_schedule_covers" text="plan pokrywa" />
         <text name="ft_irr_advisory_schedule_gap" text="luka w planie" />
+        <text name="ft_rainKey_unknown" text="nieznany" />
+        <text name="ft_rainKey_mm" text="mm modelowane" />
+        <text name="ft_rainKey_unfitted" text="brak czujnika deszczu" />
+        <text name="ft_rainKey_armed" text="czujnik uzbrojony" />
+        <text name="ft_rainKey_collecting" text="zbieranie deszczu" />
+        <text name="ft_rainKey_tripped" text="czujnik zadzialal" />
+        <text name="ft_rainKey_inputUnavail" text="brak odczytu czujnika" />
+        <text name="ft_rainKey_whyTripped" text="zatrzymano, bo czujnik deszczu zadzialal" />
+        <text name="ft_rainKey_whyNoInput" text="nie mozna odczytac pogody" />
+        <text name="ft_rainKey_whyNoSource" text="brak zrodla wody" />
+        <text name="ft_rainKey_whyNoPress" text="brak cisnienia" />
+        <text name="ft_rainKey_whySchedule" text="poza harmonogramem" />
+        <text name="ft_rainKey_whyMaster" text="glowny wylacznik nawadniania wylaczony" />
+        <text name="ft_rainKey_whyUnknown" text="powod niedostepny" />
+        <text name="ft_rainKey_running" text="PRACUJE" />
+        <text name="ft_rainKey_rainPaused" text="PAUZA DESZCZOWA" />
+        <text name="ft_rainKey_off" text="wylaczony" />
+        <text name="ft_rainKey_unknownState" text="stan czujnika nieznany" />
+        <text name="ft_rainKey_dryResetIn" text="reset po %s suszy" />
+        <text name="ft_rainKey_dryResetPending" text="reset, gdy deszcz ustanie" />
+        <text name="ft_rainKey_nextCheckIn" text="nastepne sprawdzenie %s" />
+        <text name="ft_rainKey_nextCheck" text="gotowy przy nastepnym sprawdzeniu harmonogramu" />
+        <text name="ft_rainKey_playerAction" text="wymaga dzialania: sprawdz zrodlo wody" />
+        <text name="ft_rainKey_collected" text="zebrano" />
+        <text name="ft_rainKey_trip" text="prog" />
+        <text name="ft_rainKey_notifyTitle" text="Nawadnianie" />
+        <text name="ft_rainKey_notifyPaused" text="Deszczownia #%s zatrzymana przez czujnik deszczu" />
+        <text name="ft_rainKey_notifyResumed" text="Deszczownia #%s bedzie gotowa przy nastepnym sprawdzeniu" />
+        <text name="ft_water_header" text="ZRODLA WODY" />
+        <text name="ft_water_unlimited" text="Bez limitu" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Sucho" />
+        <text name="ft_water_na" text="Niedostepne" />
+        <text name="ft_water_none" text="Brak zrodel wody w tym gospodarstwie." />
+        <text name="ft_water_source" text="Zrodlo wody" />
+        <text name="ft_water_connected" text="%d podlaczonych" />
+        <text name="ft_water_stop_dry" text="Zrodlo suche" />
+        <text name="ft_water_stop_nosource" text="Brak zrodla" />
     </texts>
 
 

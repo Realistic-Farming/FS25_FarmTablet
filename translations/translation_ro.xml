@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="poate aștepta" />
         <text name="ft_irr_advisory_schedule_covers" text="planul acoperă" />
         <text name="ft_irr_advisory_schedule_gap" text="gol de plan" />
+        <text name="ft_rainKey_unknown" text="necunoscut" />
+        <text name="ft_rainKey_mm" text="mm modelati" />
+        <text name="ft_rainKey_unfitted" text="fara senzor de ploaie" />
+        <text name="ft_rainKey_armed" text="senzor armat" />
+        <text name="ft_rainKey_collecting" text="colecteaza ploaie" />
+        <text name="ft_rainKey_tripped" text="senzor declansat" />
+        <text name="ft_rainKey_inputUnavail" text="intrare senzor indisponibila" />
+        <text name="ft_rainKey_whyTripped" text="oprit deoarece senzorul de ploaie s-a declansat" />
+        <text name="ft_rainKey_whyNoInput" text="vremea nu poate fi citita" />
+        <text name="ft_rainKey_whyNoSource" text="fara sursa de apa" />
+        <text name="ft_rainKey_whyNoPress" text="fara presiune" />
+        <text name="ft_rainKey_whySchedule" text="in afara programului" />
+        <text name="ft_rainKey_whyMaster" text="intrerupatorul general de irigare este oprit" />
+        <text name="ft_rainKey_whyUnknown" text="motiv indisponibil" />
+        <text name="ft_rainKey_running" text="IN FUNCTIUNE" />
+        <text name="ft_rainKey_rainPaused" text="PAUZA DE PLOAIE" />
+        <text name="ft_rainKey_off" text="oprit" />
+        <text name="ft_rainKey_unknownState" text="stare senzor necunoscuta" />
+        <text name="ft_rainKey_dryResetIn" text="resetare uscata in %s" />
+        <text name="ft_rainKey_dryResetPending" text="resetare cand se opreste ploaia" />
+        <text name="ft_rainKey_nextCheckIn" text="urmatoarea verificare %s" />
+        <text name="ft_rainKey_nextCheck" text="eligibil la urmatoarea verificare a programului" />
+        <text name="ft_rainKey_playerAction" text="necesita actiune: verificati sursa de apa" />
+        <text name="ft_rainKey_collected" text="colectat" />
+        <text name="ft_rainKey_trip" text="prag" />
+        <text name="ft_rainKey_notifyTitle" text="Irigare" />
+        <text name="ft_rainKey_notifyPaused" text="Pivotul #%s s-a oprit din cauza senzorului de ploaie" />
+        <text name="ft_rainKey_notifyResumed" text="Pivotul #%s va fi eligibil la urmatoarea verificare" />
+        <text name="ft_water_header" text="SURSE DE APA" />
+        <text name="ft_water_unlimited" text="Nelimitat" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Uscata" />
+        <text name="ft_water_na" text="Indisponibil" />
+        <text name="ft_water_none" text="Nicio sursa de apa la aceasta ferma." />
+        <text name="ft_water_source" text="Sursa de apa" />
+        <text name="ft_water_connected" text="%d conectate" />
+        <text name="ft_water_stop_dry" text="Sursa uscata" />
+        <text name="ft_water_stop_nosource" text="Fara sursa" />
     </texts>
 
 

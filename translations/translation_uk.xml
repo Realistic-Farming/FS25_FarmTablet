@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="можна почекати" />
         <text name="ft_irr_advisory_schedule_covers" text="графік покриває" />
         <text name="ft_irr_advisory_schedule_gap" text="прогалина в графіку" />
+        <text name="ft_rainKey_unknown" text="невідомо" />
+        <text name="ft_rainKey_mm" text="мм розрахункових" />
+        <text name="ft_rainKey_unfitted" text="датчик дощу не встановлено" />
+        <text name="ft_rainKey_armed" text="датчик готовий" />
+        <text name="ft_rainKey_collecting" text="накопичення дощу" />
+        <text name="ft_rainKey_tripped" text="датчик спрацював" />
+        <text name="ft_rainKey_inputUnavail" text="дані датчика недоступні" />
+        <text name="ft_rainKey_whyTripped" text="зупинено: спрацював датчик дощу" />
+        <text name="ft_rainKey_whyNoInput" text="погода недоступна" />
+        <text name="ft_rainKey_whyNoSource" text="немає джерела води" />
+        <text name="ft_rainKey_whyNoPress" text="немає тиску" />
+        <text name="ft_rainKey_whySchedule" text="поза розкладом" />
+        <text name="ft_rainKey_whyMaster" text="головний вимикач поливу вимкнено" />
+        <text name="ft_rainKey_whyUnknown" text="причина недоступна" />
+        <text name="ft_rainKey_running" text="ПРАЦЮЄ" />
+        <text name="ft_rainKey_rainPaused" text="ПАУЗА ЧЕРЕЗ ДОЩ" />
+        <text name="ft_rainKey_off" text="вимк" />
+        <text name="ft_rainKey_unknownState" text="стан датчика невідомий" />
+        <text name="ft_rainKey_dryResetIn" text="сухе скидання через %s" />
+        <text name="ft_rainKey_dryResetPending" text="скидання після припинення дощу" />
+        <text name="ft_rainKey_nextCheckIn" text="наступна перевірка %s" />
+        <text name="ft_rainKey_nextCheck" text="буде доступний під час наступної перевірки розкладу" />
+        <text name="ft_rainKey_playerAction" text="потрібна дія: перевірте джерело води" />
+        <text name="ft_rainKey_collected" text="накопичено" />
+        <text name="ft_rainKey_trip" text="поріг" />
+        <text name="ft_rainKey_notifyTitle" text="Полив" />
+        <text name="ft_rainKey_notifyPaused" text="Дощувач #%s зупинено датчиком дощу" />
+        <text name="ft_rainKey_notifyResumed" text="Дощувач #%s знову доступний під час наступної перевірки" />
+        <text name="ft_water_header" text="ДЖЕРЕЛА ВОДИ" />
+        <text name="ft_water_unlimited" text="Без обмежень" />
+        <text name="ft_water_hours" text="%.1f / %.1f год" />
+        <text name="ft_water_dry" text="Сухе" />
+        <text name="ft_water_na" text="Недоступно" />
+        <text name="ft_water_none" text="На цій фермі немає джерел води." />
+        <text name="ft_water_source" text="Джерело води" />
+        <text name="ft_water_connected" text="%d підключено" />
+        <text name="ft_water_stop_dry" text="Джерело сухе" />
+        <text name="ft_water_stop_nosource" text="Немає джерела" />
     </texts>
 
 

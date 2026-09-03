@@ -2547,6 +2547,44 @@
         <text name="ft_irr_call_can_hold" text="várhat" />
         <text name="ft_irr_advisory_schedule_covers" text="a terv lefedi" />
         <text name="ft_irr_advisory_schedule_gap" text="tervhézag" />
+        <text name="ft_rainKey_unknown" text="ismeretlen" />
+        <text name="ft_rainKey_mm" text="modellezett mm" />
+        <text name="ft_rainKey_unfitted" text="nincs esoerzekelo" />
+        <text name="ft_rainKey_armed" text="erzekelo elesitve" />
+        <text name="ft_rainKey_collecting" text="esot gyujt" />
+        <text name="ft_rainKey_tripped" text="erzekelo jelzett" />
+        <text name="ft_rainKey_inputUnavail" text="erzekelo adata nem elerheto" />
+        <text name="ft_rainKey_whyTripped" text="leallt, mert az esoerzekelo jelzett" />
+        <text name="ft_rainKey_whyNoInput" text="az idojaras nem olvashato" />
+        <text name="ft_rainKey_whyNoSource" text="nincs vizforras" />
+        <text name="ft_rainKey_whyNoPress" text="nincs nyomas" />
+        <text name="ft_rainKey_whySchedule" text="a menetrenden kivul" />
+        <text name="ft_rainKey_whyMaster" text="az ontozes fokapcsoloja ki van kapcsolva" />
+        <text name="ft_rainKey_whyUnknown" text="az ok nem elerheto" />
+        <text name="ft_rainKey_running" text="MUKODIK" />
+        <text name="ft_rainKey_rainPaused" text="ESO MIATT SZUNETEL" />
+        <text name="ft_rainKey_off" text="ki" />
+        <text name="ft_rainKey_unknownState" text="az erzekelo allapota ismeretlen" />
+        <text name="ft_rainKey_dryResetIn" text="szaraz visszaallas %s mulva" />
+        <text name="ft_rainKey_dryResetPending" text="visszaallas, ha eláll az eso" />
+        <text name="ft_rainKey_nextCheckIn" text="kovetkezo ellenorzes %s" />
+        <text name="ft_rainKey_nextCheck" text="a kovetkezo menetrend-ellenorzeskor indulhat" />
+        <text name="ft_rainKey_playerAction" text="beavatkozas kell: ellenorizze a vizforrast" />
+        <text name="ft_rainKey_collected" text="gyujtott" />
+        <text name="ft_rainKey_trip" text="kuszob" />
+        <text name="ft_rainKey_notifyTitle" text="Ontozes" />
+        <text name="ft_rainKey_notifyPaused" text="A #%s pivot leallt az esoerzekelo miatt" />
+        <text name="ft_rainKey_notifyResumed" text="A #%s pivot a kovetkezo ellenorzeskor ujra indulhat" />
+        <text name="ft_water_header" text="VIZFORRASOK" />
+        <text name="ft_water_unlimited" text="Korlatlan" />
+        <text name="ft_water_hours" text="%.1f / %.1f o" />
+        <text name="ft_water_dry" text="Szaraz" />
+        <text name="ft_water_na" text="Nem elerheto" />
+        <text name="ft_water_none" text="Nincs vizforras ezen a farmon." />
+        <text name="ft_water_source" text="Vizforras" />
+        <text name="ft_water_connected" text="%d csatlakoztatva" />
+        <text name="ft_water_stop_dry" text="Szaraz forras" />
+        <text name="ft_water_stop_nosource" text="Nincs forras" />
     </texts>
 
 

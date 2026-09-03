@@ -2548,6 +2548,44 @@
         <text name="ft_irr_call_can_hold" text="kan wachten" />
         <text name="ft_irr_advisory_schedule_covers" text="plan dekt" />
         <text name="ft_irr_advisory_schedule_gap" text="planhiaat" />
+        <text name="ft_rainKey_unknown" text="onbekend" />
+        <text name="ft_rainKey_mm" text="mm gemodelleerd" />
+        <text name="ft_rainKey_unfitted" text="geen regensensor" />
+        <text name="ft_rainKey_armed" text="sensor scherp" />
+        <text name="ft_rainKey_collecting" text="regen verzamelen" />
+        <text name="ft_rainKey_tripped" text="sensor geactiveerd" />
+        <text name="ft_rainKey_inputUnavail" text="sensorinvoer niet beschikbaar" />
+        <text name="ft_rainKey_whyTripped" text="gestopt omdat de regensensor is geactiveerd" />
+        <text name="ft_rainKey_whyNoInput" text="weer niet leesbaar" />
+        <text name="ft_rainKey_whyNoSource" text="geen waterbron" />
+        <text name="ft_rainKey_whyNoPress" text="geen druk" />
+        <text name="ft_rainKey_whySchedule" text="buiten het schema" />
+        <text name="ft_rainKey_whyMaster" text="hoofdschakelaar irrigatie uit" />
+        <text name="ft_rainKey_whyUnknown" text="reden niet beschikbaar" />
+        <text name="ft_rainKey_running" text="ACTIEF" />
+        <text name="ft_rainKey_rainPaused" text="REGENPAUZE" />
+        <text name="ft_rainKey_off" text="uit" />
+        <text name="ft_rainKey_unknownState" text="sensorstatus onbekend" />
+        <text name="ft_rainKey_dryResetIn" text="droge reset over %s" />
+        <text name="ft_rainKey_dryResetPending" text="droge reset zodra de regen stopt" />
+        <text name="ft_rainKey_nextCheckIn" text="volgende schemacontrole %s" />
+        <text name="ft_rainKey_nextCheck" text="weer beschikbaar bij de volgende schemacontrole" />
+        <text name="ft_rainKey_playerAction" text="actie nodig: controleer de waterbron" />
+        <text name="ft_rainKey_collected" text="verzameld" />
+        <text name="ft_rainKey_trip" text="drempel" />
+        <text name="ft_rainKey_notifyTitle" text="Irrigatie" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s is gestopt door de regensensor" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s is weer beschikbaar bij de volgende schemacontrole" />
+        <text name="ft_water_header" text="WATERBRONNEN" />
+        <text name="ft_water_unlimited" text="Onbeperkt" />
+        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_dry" text="Droog" />
+        <text name="ft_water_na" text="Niet beschikbaar" />
+        <text name="ft_water_none" text="Geen waterbronnen op deze boerderij." />
+        <text name="ft_water_source" text="Waterbron" />
+        <text name="ft_water_connected" text="%d verbonden" />
+        <text name="ft_water_stop_dry" text="Bron droog" />
+        <text name="ft_water_stop_nosource" text="Geen bron" />
     </texts>
 
 </l10n>

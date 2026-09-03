@@ -2548,6 +2548,44 @@
         <text name="ft_irr_call_can_hold" text="kan vente" />
         <text name="ft_irr_advisory_schedule_covers" text="plan dækker" />
         <text name="ft_irr_advisory_schedule_gap" text="planhul" />
+        <text name="ft_rainKey_unknown" text="ukendt" />
+        <text name="ft_rainKey_mm" text="modellerede mm" />
+        <text name="ft_rainKey_unfitted" text="ingen regnsensor monteret" />
+        <text name="ft_rainKey_armed" text="sensor aktiveret" />
+        <text name="ft_rainKey_collecting" text="opsamler regn" />
+        <text name="ft_rainKey_tripped" text="sensor udlost" />
+        <text name="ft_rainKey_inputUnavail" text="sensordata utilgaengelige" />
+        <text name="ft_rainKey_whyTripped" text="stoppet fordi regnsensoren blev udlost" />
+        <text name="ft_rainKey_whyNoInput" text="kan ikke laese vejret" />
+        <text name="ft_rainKey_whyNoSource" text="ingen vandkilde" />
+        <text name="ft_rainKey_whyNoPress" text="intet tryk" />
+        <text name="ft_rainKey_whySchedule" text="uden for planen" />
+        <text name="ft_rainKey_whyMaster" text="hovedafbryder for vanding slukket" />
+        <text name="ft_rainKey_whyUnknown" text="arsag utilgaengelig" />
+        <text name="ft_rainKey_running" text="I DRIFT" />
+        <text name="ft_rainKey_rainPaused" text="REGNPAUSE" />
+        <text name="ft_rainKey_off" text="fra" />
+        <text name="ft_rainKey_unknownState" text="sensorstatus ukendt" />
+        <text name="ft_rainKey_dryResetIn" text="tor nulstilling om %s" />
+        <text name="ft_rainKey_dryResetPending" text="nulstilling nar regnen stopper" />
+        <text name="ft_rainKey_nextCheckIn" text="naeste plankontrol %s" />
+        <text name="ft_rainKey_nextCheck" text="klar ved naeste plankontrol" />
+        <text name="ft_rainKey_playerAction" text="kraever handling: kontroller vandkilden" />
+        <text name="ft_rainKey_collected" text="opsamlet" />
+        <text name="ft_rainKey_trip" text="graense" />
+        <text name="ft_rainKey_notifyTitle" text="Vanding" />
+        <text name="ft_rainKey_notifyPaused" text="Pivot #%s stoppede pa grund af regnsensoren" />
+        <text name="ft_rainKey_notifyResumed" text="Pivot #%s er klar igen ved naeste plankontrol" />
+        <text name="ft_water_header" text="VANDKILDER" />
+        <text name="ft_water_unlimited" text="Ubegraenset" />
+        <text name="ft_water_hours" text="%.1f / %.1f t" />
+        <text name="ft_water_dry" text="Tor" />
+        <text name="ft_water_na" text="Utilgaengelig" />
+        <text name="ft_water_none" text="Ingen vandkilder pa denne gard." />
+        <text name="ft_water_source" text="Vandkilde" />
+        <text name="ft_water_connected" text="%d tilsluttet" />
+        <text name="ft_water_stop_dry" text="Kilden er tor" />
+        <text name="ft_water_stop_nosource" text="Ingen kilde" />
     </texts>
 
 </l10n>
