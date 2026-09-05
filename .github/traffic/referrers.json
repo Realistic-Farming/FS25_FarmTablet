@@ -4417,26 +4417,26 @@
   "2026-09-05": [
     {
       "referrer": "github.com",
-      "count": 255,
-      "uniques": 93
+      "count": 237,
+      "uniques": 89
     },
     {
       "referrer": "Google",
-      "count": 103,
-      "uniques": 55
+      "count": 90,
+      "uniques": 50
     },
     {
       "referrer": "Bing",
-      "count": 4,
-      "uniques": 4
-    },
-    {
-      "referrer": "kingmods.net",
-      "count": 3,
-      "uniques": 2
+      "count": 6,
+      "uniques": 5
     },
     {
       "referrer": "realisticfarming.com",
+      "count": 4,
+      "uniques": 3
+    },
+    {
+      "referrer": "kingmods.net",
       "count": 3,
       "uniques": 2
     },
