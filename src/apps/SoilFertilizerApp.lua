@@ -62,7 +62,9 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
 
     local data   = self.system.data
     local farmId  = data:getPlayerFarmId()
-    local fields  = data:getOwnedFields(farmId)
+    -- BUILD 19:23: FieldSentry stays per farmland id (raw): the sleep / meadow toggles are
+    -- keyed by the real farmland, never by a GPS-outline block.
+    local fields  = data:getOwnedFields(farmId, true)
     local isAdmin = (FS.isPlayerAdmin ~= nil) and (FS.isPlayerAdmin() == true)
 
     -- Summary count (asleep = simulation disabled for any reason).

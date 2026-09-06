@@ -684,8 +684,29 @@ end
 
 -- Each Farmland links to ONE Field via farmland.field (set by FieldManager).
 -- Crop/growth state must be queried via FieldState:update(cx, cz), not from field directly.
-function FT_DataProvider:getOwnedFields(farmId)
-    return self:_cached("fields_"..farmId, 4000, function()
+--- BUILD 19:23 (George CLOSED DESIGN 19:12): the Soil list-row merge module on the mission
+--- bridge (Soil attaches it next to soilFertilityManager; getfenv(0) does not cross mods).
+--- nil when Soil is absent, and then the rows below stay per farmland id.
+local function _ftSoilMerge()
+    if g_currentMission == nil or g_currentMission.soilFertilityManager == nil then
+        return nil
+    end
+    local merge = g_currentMission.RfPdaSoilMerge
+    if type(merge) ~= "table" or type(merge.buildGroups) ~= "function" then
+        return nil
+    end
+    return merge
+end
+
+--- Owned fields. BUILD 19:23: one row per GPS-outline block (Montana 86 and 87 = one row
+--- { id = lead farmland, area = sum of member areas, memberIds = sorted ids }, crop / state /
+--- phase from the lead); every row carries memberIds, singles as { id }. raw = true keeps the
+--- per-farmland list (FieldSentry sleep / meadow toggles are per farmland id). Same 4000 ms
+--- cache, one key per mode; invalidate() drops both.
+---@param farmId number
+---@param raw boolean|nil true = per farmland id, no grouping
+function FT_DataProvider:getOwnedFields(farmId, raw)
+    return self:_cached("fields_"..farmId..(raw and "_raw" or ""), 4000, function()
         local out = {}
         if not g_farmlandManager then return out end
 
@@ -740,7 +761,47 @@ function FT_DataProvider:getOwnedFields(farmId)
         end
 
         table.sort(out, function(a, b) return a.id < b.id end)
-        return out
+        for _, f in ipairs(out) do
+            f.memberIds = { f.id }
+        end
+        if raw then
+            return out
+        end
+        local merge = _ftSoilMerge()
+        if merge == nil or #out < 2 then
+            return out
+        end
+        local byId, ids = {}, {}
+        for _, f in ipairs(out) do
+            byId[f.id] = f
+            ids[#ids + 1] = f.id
+        end
+        local ok, groups = pcall(merge.buildGroups, ids)
+        if not ok or type(groups) ~= "table" then
+            return out
+        end
+        local grouped = {}
+        for _, g in ipairs(groups) do
+            local lead = byId[g.id or g.fieldId]
+            local members = g.memberIds or { g.fieldId }
+            if lead ~= nil then
+                local row = {
+                    id = lead.id, cropName = lead.cropName, stateName = lead.stateName,
+                    stateColor = lead.stateColor, phase = lead.phase, area = 0, memberIds = {},
+                }
+                for _, mid in ipairs(members) do
+                    local m = byId[mid]
+                    if m ~= nil then
+                        row.area = row.area + (tonumber(m.area) or 0)
+                        row.memberIds[#row.memberIds + 1] = mid
+                    end
+                end
+                table.sort(row.memberIds)
+                grouped[#grouped + 1] = row
+            end
+        end
+        table.sort(grouped, function(a, b) return a.id < b.id end)
+        return grouped
     end)
 end
 
