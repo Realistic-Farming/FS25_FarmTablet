@@ -46,6 +46,10 @@ end
 
 -- ── Owned field helper ───────────────────────────────────
 
+-- BUILD 19:23 (George CLOSED DESIGN 19:12): the picker lists owned FARMLAND ids (the id space
+-- the Soil merge keys use; Field:getId() is no longer mixed in) grouped into GPS-outline
+-- blocks through the mission bridge, each entry the text the label shows ("86" or "86-87").
+-- Soil absent = one entry per farmland id. Only farmlands that carry a field are listed.
 local function notes_getOwnedFieldNums()
     local result = {}
     if not g_localPlayer or not g_farmlandManager or not g_fieldManager then
@@ -54,16 +58,38 @@ local function notes_getOwnedFieldNums()
     local farmId = g_localPlayer.farmId
     if not farmId then return result end
     local farmlandIds = g_farmlandManager:getOwnedFarmlandIdsByFarmId(farmId)
+    local ids = {}
     for _, farmlandId in ipairs(farmlandIds) do
         local field = g_fieldManager.farmlandIdFieldMapping[farmlandId]
         if field then
-            local fid = field:getId()
-            if fid then
-                table.insert(result, fid)
-            end
+            ids[#ids + 1] = farmlandId
         end
     end
-    table.sort(result)
+    table.sort(ids)
+    local merge = nil
+    if g_currentMission ~= nil and g_currentMission.soilFertilityManager ~= nil then
+        merge = g_currentMission.RfPdaSoilMerge
+    end
+    local groups = nil
+    if type(merge) == "table" and type(merge.buildGroups) == "function" and #ids > 1 then
+        local ok, built = pcall(merge.buildGroups, ids)
+        if ok and type(built) == "table" then groups = built end
+    end
+    if groups == nil then
+        for _, id in ipairs(ids) do
+            result[#result + 1] = tostring(id)
+        end
+        return result
+    end
+    for _, g in ipairs(groups) do
+        local members = g.memberIds or { g.fieldId }
+        local text = nil
+        if #members > 1 and type(merge.shortLabel) == "function" then
+            local ok, t = pcall(merge.shortLabel, members)
+            if ok and type(t) == "string" then text = t end
+        end
+        result[#result + 1] = text or tostring(g.fieldId)
+    end
     return result
 end
 
