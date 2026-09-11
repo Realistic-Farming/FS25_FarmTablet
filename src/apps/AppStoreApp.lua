@@ -12,7 +12,6 @@ local KNOWN_INTEGRATIONS = {
     { appId = FT.APP.INCOME,         label = "Income Mod",         mod = "FS25_IncomeMod"            },
     { appId = FT.APP.TAX,            label = "Tax Mod",             mod = "FS25_TaxMod"               },
     { appId = FT.APP.NPC_FAVOR,      label = "NPC Favor",           mod = "FS25_NPCFavor"             },
-    { appId = FT.APP.CROP_STRESS,    label = "Seasonal Crop Stress",mod = "FS25_SeasonalCropStress"   },
     { appId = FT.APP.SOIL_FERT,      label = "Soil Fertilizer",     mod = "FS25_SoilFertilizer"       },
     { appId = FT.APP.MARKET_DYNAMICS,label = "Market Dynamics",     mod = "FS25_MarketDynamics"       },
     { appId = FT.APP.WORKER_COSTS,   label = "Worker Costs",        mod = "FS25_WorkerCosts"          },

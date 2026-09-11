@@ -298,19 +298,12 @@ function AppRegistry:autoDetect()
         })
     end
 
-    -- Seasonal Crop Stress
-    -- Bridge: mission.cropStressManager set by SeasonalCropStress in Mission00.load
+    -- Seasonal Crop Stress bridge: mission.cropStressManager set by
+    -- SeasonalCropStress in Mission00.load. The standalone Crop Stress app was
+    -- removed (Tyson ruling 2026-09-08): the Irrigation Suite app below covers
+    -- the same data (moisture, stress, irrigation, schedules, rain keys, water),
+    -- so two apps were redundant surface. SCS engine code is untouched.
     local hasCropStress = (g_currentMission and g_currentMission.cropStressManager ~= nil)
-    if hasCropStress and not self:has(FT.APP.CROP_STRESS) then
-        Logging.info("[FarmTablet] autoDetect: Crop Stress detected")
-        self:register({
-            id = FT.APP.CROP_STRESS, group = "mods",
-            name = "ft_ui_app_crop_stress", navLabel = "CRPS",
-            icon = "crop_stress", order = 23,
-            developer = "TisonK", version = "Integrated",
-            description = "Seasonal crop stress monitor",
-        })
-    end
 
     -- Irrigation Suite (Wizard UI brief) - same SCS mission handle
     if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
