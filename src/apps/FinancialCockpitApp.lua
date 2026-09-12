@@ -470,6 +470,30 @@ function FinancialCockpit.getHistory()
     return _hist
 end
 
+-- [RSF-F130] The emergency-loan owner view (guarded; neutral when absent). IncomeMod is
+-- the sole provider; this reader never computes a competing balance or writes debt.
+--   nil                -> owner absent  => explicit NATIVE_ONLY cockpit mode
+--   { available=false }-> owner present but the view is unavailable/unready (combined
+--                         debt-dependent vitals are UNAVAILABLE, never native-only healthy)
+--   { available=true, outstanding=, nativeLoan=, readiness= }
+local function _readEmergencyLoanView()
+    local mgr = g_currentMission and g_currentMission.incomeManager
+    if mgr == nil or type(mgr.getEmergencyLoanView) ~= "function" then
+        return nil
+    end
+    local view = _pcall(function() return mgr:getEmergencyLoanView(nil) end)
+    if type(view) ~= "table" then return { available = false } end
+    local ready = view.readiness
+    local outstanding = tonumber(view.outstanding)
+    -- READY (or an un-flagged compact reply) with a numeric outstanding (incl. explicit 0)
+    -- is usable; LOADING/UNAVAILABLE or a nil outstanding is present-but-unavailable.
+    if (ready == nil or ready == "READY") and outstanding ~= nil then
+        return { available = true, outstanding = outstanding,
+                 nativeLoan = tonumber(view.nativeLoan), readiness = ready or "READY" }
+    end
+    return { available = false, readiness = ready }
+end
+
 -- ── Snapshot gather (throttled) ───────────────────────────
 
 local function _netWorth(balance, loan)
@@ -510,21 +534,45 @@ local function _buildVitals(snap)
         detail = _T("ft_fc_vital_cash_detail", "Available farm balance."),
     }
 
-    -- Leverage (live; loan confirm noted in brief)
-    local lev = _leverageRatio(balance, loan)
-    local levBand
-    if lev <= THRESH.leverageGreen then levBand = "green"
-    elseif lev <= THRESH.leverageAmber then levBand = "amber"
-    else levBand = "red" end
-    vitals[#vitals + 1] = {
-        id = "leverage",
-        label = _T("ft_fc_vital_leverage", "Leverage"),
-        band = levBand,
-        valueText = string.format("%.0f%%", lev * 100),
-        detail = string.format("%s %s",
-            _T("ft_fc_vital_leverage_detail", "Loan share of balance plus loan."),
-            _money(snap.data, loan)),
-    }
+    -- Leverage + whole-farm debt (RSF-F130: native bank loan + emergency outstanding).
+    if snap.debtBasis == "INCOMPLETE" then
+        -- Owner present but its view is unavailable: the combined figure is unknown. It
+        -- must NOT fall back to a native-only "healthy" reading.
+        vitals[#vitals + 1] = {
+            id = "leverage",
+            label = _T("ft_fc_vital_leverage", "Leverage"),
+            band = "partial",
+            valueText = _T("ft_fc_partial", "PARTIAL"),
+            detail = _T("ft_fc_vital_leverage_unavailable",
+                "Emergency-loan debt is unavailable, so combined leverage can't be shown yet."),
+        }
+    else
+        local totalDebt = snap.totalDebt or loan
+        local lev = _leverageRatio(balance, totalDebt)
+        local levBand
+        if lev <= THRESH.leverageGreen then levBand = "green"
+        elseif lev <= THRESH.leverageAmber then levBand = "amber"
+        else levBand = "red" end
+        local detail
+        if (snap.emergencyOutstanding or 0) > 0 then
+            -- Present native / emergency / total separately (emergency debt is not the bank loan).
+            detail = string.format("%s %s  ·  %s %s  ·  %s %s",
+                _T("ft_fc_debt_native", "Bank loan"), _money(snap.data, snap.nativeLoan or 0),
+                _T("ft_fc_debt_emergency", "Emergency"), _money(snap.data, snap.emergencyOutstanding or 0),
+                _T("ft_fc_debt_total", "Total debt"), _money(snap.data, totalDebt))
+        else
+            detail = string.format("%s %s",
+                _T("ft_fc_vital_leverage_detail", "Loan share of balance plus loan."),
+                _money(snap.data, totalDebt))
+        end
+        vitals[#vitals + 1] = {
+            id = "leverage",
+            label = _T("ft_fc_vital_leverage", "Leverage"),
+            band = levBand,
+            valueText = string.format("%.0f%%", lev * 100),
+            detail = detail,
+        }
+    end
 
     -- Runway: PARTIAL while any dollar-flow gap remains (fuel / dairy / RWE maturity asks
     -- keep this honest in v1 even when wages are readable).
@@ -795,7 +843,25 @@ local function _gather(self)
     local data = self.system.data
     local farmId = data:getPlayerFarmId()
     local balance = tonumber(data:getBalance(farmId)) or 0
-    local loan = tonumber(data:getLoan(farmId)) or 0
+    local loan = tonumber(data:getLoan(farmId)) or 0  -- native bank loan (DataProvider stays native-only)
+
+    -- [RSF-F130] Fold IncomeMod's emergency debt into the farm's WHOLE debt. Total debt =
+    -- native loan + emergency outstanding; leverage/net worth use the total with the
+    -- coherent owner cash snapshot. Owner absent => explicit native-only; owner present but
+    -- view unavailable => combined debt-dependent vitals unavailable (not native-only healthy).
+    local elv = _readEmergencyLoanView()
+    local nativeLoan = loan
+    local emergencyOutstanding, totalDebt, debtBasis
+    if elv == nil then
+        debtBasis, totalDebt = "NATIVE_ONLY", nativeLoan
+    elseif elv.available then
+        emergencyOutstanding = elv.outstanding or 0
+        debtBasis, totalDebt = "COMPLETE", nativeLoan + emergencyOutstanding
+    else
+        debtBasis, totalDebt = "INCOMPLETE", nil  -- combined debt unknown
+    end
+    local netWorth = (totalDebt ~= nil) and _netWorth(balance, totalDebt) or nil
+
     local tg = _timeGuard()
     local tgCtx = nil
     local tgSynced = false
@@ -815,8 +881,12 @@ local function _gather(self)
         farmId = farmId,
         farmName = data:getFarmName(farmId) or ("Farm " .. tostring(farmId)),
         balance = balance,
-        loan = loan,
-        netWorth = _netWorth(balance, loan),
+        loan = nativeLoan,                       -- native bank loan (history/display compat)
+        nativeLoan = nativeLoan,
+        emergencyOutstanding = emergencyOutstanding,
+        totalDebt = totalDebt,                   -- native + emergency, or nil when INCOMPLETE
+        debtBasis = debtBasis,                   -- NATIVE_ONLY / COMPLETE / INCOMPLETE
+        netWorth = netWorth,                     -- total-debt net worth, or nil when INCOMPLETE
         timeGuard = tg,
         tgCtx = tgCtx,
         tgSynced = tgSynced,
@@ -898,13 +968,46 @@ local function _drawHome(self, snap, AC)
     y = self:drawSection(y, _T("ft_fc_section_instruments", "INSTRUMENTS"))
     local balC = snap.balance >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
     y = self:drawRow(y, _T("ft_fc_balance", "Balance"), _money(snap.data, snap.balance), nil, balC)
+    -- Native bank loan (RSF-F130: labelled distinctly from emergency debt).
     if snap.loan > 0 then
-        y = self:drawRow(y, _T("ft_fc_loan", "Loan"), _money(snap.data, snap.loan), nil, FT.C.WARNING)
+        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, snap.loan), nil, FT.C.WARNING)
     else
-        y = self:drawRow(y, _T("ft_fc_loan", "Loan"), _money(snap.data, 0), nil, FT.C.TEXT_DIM)
+        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, 0), nil, FT.C.TEXT_DIM)
     end
-    local nwC = snap.netWorth >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-    y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _money(snap.data, snap.netWorth), nil, nwC)
+    -- Emergency loan + total debt (RSF-F130). Kept separate from the bank loan.
+    if snap.debtBasis == "COMPLETE" and (snap.emergencyOutstanding or 0) > 0 then
+        y = self:drawRow(y, _T("ft_fc_emergency_loan", "Emergency loan"),
+            _money(snap.data, snap.emergencyOutstanding), nil, FT.C.WARNING)
+        y = self:drawRow(y, _T("ft_fc_total_debt", "Total debt"),
+            _money(snap.data, snap.totalDebt), nil, FT.C.WARNING)
+    elseif snap.debtBasis == "INCOMPLETE" then
+        y = self:drawRow(y, _T("ft_fc_emergency_loan", "Emergency loan"),
+            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED)
+    end
+    -- Net worth (total-debt based); unavailable when the combined debt is unknown.
+    if snap.netWorth ~= nil then
+        local nwC = snap.netWorth >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
+        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _money(snap.data, snap.netWorth), nil, nwC)
+    else
+        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING)
+    end
+
+    -- [RSF-F130] Open IncomeMod's own report to borrow or repay. The tablet never moves
+    -- money: it yields (closes) and asks the owner to open its screen (the host report
+    -- refuses to open while another GUI is active). Shown only when the owner is present.
+    if snap.debtBasis ~= "NATIVE_ONLY" then
+        local loanBtnW = FT.px(130)
+        _pocketBtn(self, x + cw - loanBtnW, y - FT.py(2), loanBtnW, FT.py(16),
+            _T("ft_fc_open_loan", "MANAGE LOAN"), FT.C.BTN_NEUTRAL, function()
+                self:closeTablet()
+                local mgr = g_currentMission and g_currentMission.incomeManager
+                if mgr ~= nil and type(mgr.openEmergencyLoanReport) == "function" then
+                    _pcall(function() mgr:openEmergencyLoanReport() end)
+                end
+            end)
+        y = y - FT.py(20)
+    end
+
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
 
