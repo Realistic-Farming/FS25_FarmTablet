@@ -4643,5 +4643,57 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-09-14": [
+    {
+      "referrer": "github.com",
+      "count": 201,
+      "uniques": 82
+    },
+    {
+      "referrer": "Google",
+      "count": 56,
+      "uniques": 32
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 12,
+      "uniques": 7
+    },
+    {
+      "referrer": "Bing",
+      "count": 8,
+      "uniques": 5
+    },
+    {
+      "referrer": "DuckDuckGo",
+      "count": 5,
+      "uniques": 2
+    },
+    {
+      "referrer": "chatgpt.com",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "search.brave.com",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "yandex.kz",
+      "count": 2,
+      "uniques": 1
+    },
+    {
+      "referrer": "forbidden-mods.de",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
