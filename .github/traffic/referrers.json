@@ -4647,13 +4647,13 @@
   "2026-09-14": [
     {
       "referrer": "github.com",
-      "count": 201,
-      "uniques": 82
+      "count": 194,
+      "uniques": 78
     },
     {
       "referrer": "Google",
-      "count": 56,
-      "uniques": 32
+      "count": 53,
+      "uniques": 30
     },
     {
       "referrer": "realisticfarming.com",
@@ -4662,12 +4662,17 @@
     },
     {
       "referrer": "Bing",
-      "count": 8,
-      "uniques": 5
+      "count": 6,
+      "uniques": 3
     },
     {
       "referrer": "DuckDuckGo",
       "count": 5,
+      "uniques": 2
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 2,
       "uniques": 2
     },
     {
@@ -4687,11 +4692,6 @@
     },
     {
       "referrer": "forbidden-mods.de",
-      "count": 1,
-      "uniques": 1
-    },
-    {
-      "referrer": "kingmods.net",
       "count": 1,
       "uniques": 1
     }
