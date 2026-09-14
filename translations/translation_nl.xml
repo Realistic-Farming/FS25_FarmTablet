@@ -2606,6 +2606,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="De server heeft de rasregistratie van deze boerderij nog niet gestuurd. Stalkaarten blijven tot dan verborgen." />
         <text name="ft_dairy_breed_help_title" text="RASREGISTRATIE" />
         <text name="ft_dairy_breed_help_body" text="Kudde nu telt de melkdieren in de stal.&#10;Melk in tank volgt de opgeslagen melk per ras dat haar&#10;produceerde. Een nieuwe kudde naast oude melk is normaal.&#10;Onbekende melk dateert van voor de registratie of kwam&#10;langs een onbewezen weg. Geen ras wordt hier beoordeeld." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 </l10n>

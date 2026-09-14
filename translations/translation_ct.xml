@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="伺服器尚未傳送這座農場的品種記錄。在此之前, 牛舍卡片保持隱藏。" />
         <text name="ft_dairy_breed_help_title" text="品種記錄" />
         <text name="ft_dairy_breed_help_body" text="目前畜群計算牛舍裡的泌乳動物。&#10;槽內牛奶依生產牠的品種追蹤已儲存的牛奶。&#10;舊牛奶旁出現新畜群是正常的。未知牛奶早於記錄,&#10;或經由無法證明的途徑進入。這裡不評價任何品種。" />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

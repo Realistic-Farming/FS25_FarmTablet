@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Serveren har ikke sendt raseregisteret for denne gården ennå. Fjøskortene forblir skjult til da." />
         <text name="ft_dairy_breed_help_title" text="RASEREGISTER" />
         <text name="ft_dairy_breed_help_body" text="Besetning nå teller melkedyrene i fjøset.&#10;Melk i tank følger den lagrede melken etter rasene som&#10;ga den. En ny besetning ved siden av gammel melk er&#10;normalt. Ukjent melk er fra før registeret eller kom en&#10;ubevist vei. Ingen rase vurderes her." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

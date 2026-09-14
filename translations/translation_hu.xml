@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="A szerver még nem küldte el ennek a farmnak a fajta-nyilvántartását. Az istállókártyák addig rejtve maradnak." />
         <text name="ft_dairy_breed_help_title" text="FAJTA-NYILVÁNTARTÁS" />
         <text name="ft_dairy_breed_help_body" text="Állomány most az istállóban álló tejelő állatokat számolja.&#10;Tej a tartályban a tárolt tejet követi az azt adó fajták&#10;szerint. Új állomány régi tej mellett normális. Az&#10;ismeretlen tej a nyilvántartás előtti, vagy nem igazolt&#10;úton érkezett. Egyetlen fajtát sem értékelünk itt." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

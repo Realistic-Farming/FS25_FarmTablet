@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Servern har inte skickat rasregistret för den här gården ännu. Ladugårdskorten förblir dolda tills dess." />
         <text name="ft_dairy_breed_help_title" text="RASREGISTER" />
         <text name="ft_dairy_breed_help_body" text="Besättning nu räknar mjölkdjuren i ladugården.&#10;Mjölk i tank följer den lagrade mjölken efter raserna som&#10;gav den. En ny besättning bredvid gammal mjölk är normalt.&#10;Okänd mjölk är från före registret eller kom en obevisad&#10;väg. Ingen ras bedöms här." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="O servidor ainda não enviou os registos de raças desta quinta. As fichas de estábulo ficam ocultas até lá." />
         <text name="ft_dairy_breed_help_title" text="REGISTOS DE RAÇAS" />
         <text name="ft_dairy_breed_help_body" text="Rebanho atual conta os animais leiteiros do estábulo.&#10;Leite no tanque segue o leite armazenado pelas raças que&#10;o produziram. Um rebanho novo ao lado de leite antigo é&#10;normal. O leite desconhecido é anterior ao registo ou&#10;chegou por um caminho não provado. Nenhuma raça é&#10;avaliada aqui." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

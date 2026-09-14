@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Server ještě neposlal záznamy plemen této farmy. Karty stájí zůstávají do té doby skryté." />
         <text name="ft_dairy_breed_help_title" text="ZÁZNAMY PLEMEN" />
         <text name="ft_dairy_breed_help_body" text="Stádo nyní počítá dojná zvířata ve stáji.&#10;Mléko v nádrži sleduje uskladněné mléko podle plemen,&#10;která ho dala. Nové stádo vedle starého mléka je normální.&#10;Neznámé mléko pochází z doby před záznamem nebo přišlo&#10;neprokázanou cestou. Žádné plemeno se zde nehodnotí." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

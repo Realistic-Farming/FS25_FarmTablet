@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="El servidor aún no ha enviado los registros de razas de esta granja. Las tarjetas de establo quedan ocultas hasta entonces." />
         <text name="ft_dairy_breed_help_title" text="REGISTROS DE RAZAS" />
         <text name="ft_dairy_breed_help_body" text="Hato actual cuenta los animales lecheros del establo.&#10;Leche en tanque sigue la leche almacenada por las razas&#10;que la produjeron. Un hato nuevo junto a leche vieja es&#10;normal. La leche desconocida es anterior al registro o&#10;llegó por una vía no comprobada. Ninguna raza se califica aquí." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Serverul nu a trimis încă registrele de rase ale acestei ferme. Fișele grajdurilor rămân ascunse până atunci." />
         <text name="ft_dairy_breed_help_title" text="REGISTRE DE RASE" />
         <text name="ft_dairy_breed_help_body" text="Turma acum numără animalele de lapte din grajd.&#10;Lapte în tanc urmărește laptele depozitat după rasele&#10;care l-au produs. O turmă nouă lângă lapte vechi este&#10;normal. Laptele necunoscut precede registrul sau a ajuns&#10;pe o cale nedovedită. Nicio rasă nu este evaluată aici." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

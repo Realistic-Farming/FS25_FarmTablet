@@ -2606,6 +2606,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Server belum mengirim catatan ras peternakan ini. Kartu kandang tetap tersembunyi sampai terkirim." />
         <text name="ft_dairy_breed_help_title" text="CATATAN RAS" />
         <text name="ft_dairy_breed_help_body" text="Kawanan saat ini menghitung hewan perah di kandang.&#10;Susu di tangki mengikuti susu yang tersimpan menurut ras&#10;yang menghasilkannya. Kawanan baru di samping susu lama&#10;itu normal. Susu tidak diketahui berasal dari sebelum&#10;pencatatan atau masuk lewat jalur yang tidak terbukti.&#10;Tidak ada ras yang dinilai di sini." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 </l10n>

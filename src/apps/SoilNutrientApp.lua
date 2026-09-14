@@ -515,13 +515,13 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             local pVal = info.phosphorus and info.phosphorus.value or 0
             local kVal = info.potassium and info.potassium.value or 0
             y = _drawMetricBar(self, innerX, y, innerW, "N",
-                string.format("%d / %d ppm", ppmVal(nVal, ppm.N), ppmVal(tN, ppm.N)),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(nVal, ppm.N), ppmVal(tN, ppm.N)),
                 nVal / math.max(tN, 1), _statusColor(info.nitrogen and info.nitrogen.status))
             y = _drawMetricBar(self, innerX, y, innerW, "P",
-                string.format("%d / %d ppm", ppmVal(pVal, ppm.P), ppmVal(tP, ppm.P)),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(pVal, ppm.P), ppmVal(tP, ppm.P)),
                 pVal / math.max(tP, 1), _statusColor(info.phosphorus and info.phosphorus.status))
             y = _drawMetricBar(self, innerX, y, innerW, "K",
-                string.format("%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
                 kVal / math.max(tK, 1), _statusColor(info.potassium and info.potassium.status))
 
             local ph = info.pH or 7.0

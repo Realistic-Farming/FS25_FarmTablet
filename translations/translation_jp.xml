@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="サーバーはこの農場の品種記録をまだ送信していません。それまで畜舎カードは非表示です。" />
         <text name="ft_dairy_breed_help_title" text="品種記録" />
         <text name="ft_dairy_breed_help_body" text="現在の群れは畜舎の搾乳動物を数えます。&#10;タンク内の牛乳は貯蔵された牛乳を生産した品種ごとに&#10;追跡します。古い牛乳の横に新しい群れがいるのは正常です。&#10;不明な牛乳は記録以前のものか、証明できない経路で&#10;入ったものです。ここで品種を評価することはありません。" />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 
