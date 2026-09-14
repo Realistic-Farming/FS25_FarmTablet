@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Le serveur n'a pas encore envoyé les registres de races de cette ferme. Les fiches d'étable restent masquées jusque-là." />
         <text name="ft_dairy_breed_help_title" text="REGISTRES DE RACES" />
         <text name="ft_dairy_breed_help_body" text="Troupeau actuel compte les animaux laitiers de l'étable.&#10;Lait en cuve suit le lait stocké selon les races qui l'ont&#10;produit. Un nouveau troupeau à côté d'un lait ancien est&#10;normal. Le lait inconnu précède le registre ou est arrivé&#10;par un chemin non prouvé. Aucune race n'est notée ici." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

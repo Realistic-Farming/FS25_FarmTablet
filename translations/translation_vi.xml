@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Máy chủ chưa gửi hồ sơ giống của nông trại này. Thẻ chuồng sẽ ẩn cho đến khi nhận được." />
         <text name="ft_dairy_breed_help_title" text="HỒ SƠ GIỐNG" />
         <text name="ft_dairy_breed_help_body" text="Đàn hiện tại đếm các con vật cho sữa trong chuồng.&#10;Sữa trong bồn theo dõi sữa đã lưu theo giống đã tạo ra&#10;nó. Đàn mới bên cạnh sữa cũ là bình thường. Sữa không rõ&#10;có từ trước khi ghi nhận hoặc vào theo đường không chứng&#10;minh được. Không giống nào được đánh giá ở đây." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

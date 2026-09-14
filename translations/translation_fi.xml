@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Palvelin ei ole vielä lähettänyt tämän tilan rotukirjausta. Navettakortit pysyvät piilossa siihen asti." />
         <text name="ft_dairy_breed_help_title" text="ROTUKIRJAUS" />
         <text name="ft_dairy_breed_help_body" text="Karja nyt laskee navetan lypsyeläimet.&#10;Maito säiliössä seuraa varastoitua maitoa sen tuottaneiden&#10;rotujen mukaan. Uusi karja vanhan maidon rinnalla on&#10;normaalia. Tuntematon maito on kirjausta vanhempaa tai&#10;tuli todistamatonta reittiä. Rotuja ei arvoteta tässä." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

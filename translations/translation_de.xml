@@ -2606,6 +2606,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Der Server hat die Rassenaufzeichnung dieses Hofs noch nicht gesendet. Stallkarten bleiben bis dahin verborgen." />
         <text name="ft_dairy_breed_help_title" text="RASSENAUFZEICHNUNG" />
         <text name="ft_dairy_breed_help_body" text="Herde jetzt zählt die Milchtiere im Stall.&#10;Milch im Tank folgt der gelagerten Milch nach den&#10;Rassen, die sie erzeugt haben. Eine neue Herde neben&#10;alter Milch ist normal. Unbekannte Milch stammt von vor&#10;der Aufzeichnung oder kam auf unbelegtem Weg. Keine&#10;Rasse wird hier bewertet." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 

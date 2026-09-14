@@ -2606,6 +2606,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Sunucu bu çiftliğin ırk kayıtlarını henüz göndermedi. Ahır kartları o zamana kadar gizli kalır." />
         <text name="ft_dairy_breed_help_title" text="IRK KAYITLARI" />
         <text name="ft_dairy_breed_help_body" text="Şu anki sürü ahırdaki sağmal hayvanları sayar.&#10;Tanktaki süt, depolanan sütü onu üreten ırklara göre&#10;izler. Eski sütün yanında yeni bir sürü normaldir.&#10;Bilinmeyen süt kayıttan öncedir ya da kanıtlanmamış bir&#10;yoldan gelmiştir. Burada hiçbir ırk derecelendirilmez." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 </l10n>

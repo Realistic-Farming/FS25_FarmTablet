@@ -2606,6 +2606,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Il server non ha ancora inviato i registri razze di questa fattoria. Le schede stalla restano nascoste fino ad allora." />
         <text name="ft_dairy_breed_help_title" text="REGISTRI RAZZE" />
         <text name="ft_dairy_breed_help_body" text="Mandria attuale conta gli animali da latte nella stalla.&#10;Latte in cisterna segue il latte stoccato per razza che&#10;lo ha prodotto. Una mandria nuova accanto a latte vecchio&#10;è normale. Il latte sconosciuto precede il registro o è&#10;arrivato per una via non provata. Nessuna razza viene&#10;valutata qui." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 </l10n>

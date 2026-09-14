@@ -2605,6 +2605,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Serwer nie przesłał jeszcze rejestru ras tej farmy. Karty obór pozostają do tego czasu ukryte." />
         <text name="ft_dairy_breed_help_title" text="REJESTR RAS" />
         <text name="ft_dairy_breed_help_body" text="Stado teraz liczy zwierzęta mleczne w oborze.&#10;Mleko w zbiorniku śledzi zmagazynowane mleko według ras,&#10;które je dały. Nowe stado obok starego mleka to normalne.&#10;Nieznane mleko pochodzi sprzed rejestru lub trafiło tu&#10;niepotwierdzoną drogą. Żadna rasa nie jest tu oceniana." />
+        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
 
