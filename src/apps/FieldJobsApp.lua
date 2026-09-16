@@ -32,9 +32,11 @@ end
 --- A localized MULTI-LINE string.
 ---
 --- drawHelpPage splits a body on real newline characters and does not wrap
---- (FarmTabletUI.lua:3150). The engine stores a locale value exactly as written
---- and performs no escape processing on it (I18N:getText returns self.texts[name]
---- verbatim), so a "\n" written in a translation file arrives here as the two
+--- (FarmTabletUI.lua:3151). The engine never expands an escape in a locale
+--- value, and the LOAD path is the half that proves it: I18N:loadEntriesFromXML
+--- at I18N.lua:99 performs exactly ONE transformation on a loaded string,
+--- string.gsub(text, CR-LF, LF), which is line-ending normalisation and nothing
+--- else. I18N:getText at :175-187 is then a bare table lookup. So a "\n" written in a translation file arrives here as the two
 --- characters backslash and n, not as a line break. Nothing else in these 26
 --- files uses one, so this is the first.
 ---
