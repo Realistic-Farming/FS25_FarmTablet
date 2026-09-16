@@ -326,9 +326,9 @@ FarmTabletUI:registerDrawer("field_jobs", function(self)
         { title = FJText("ft_fieldjobs_help_nav_title", "GETTING BACK"),
           body  = FJLines("ft_fieldjobs_help_nav_body",
                     "This help closes with its own Back button.\n"..
-                    "The app bar Back is a different route and leaves\n"..
-                    "Field Jobs entirely.\n"..
-                    "New Job and History each have a Back to Home.") },
+                    "From New Job or History, Back returns to Field\n"..
+                    "Jobs Home, app bar or on-screen alike.\n"..
+                    "From Home, Back leaves Field Jobs.") },
     }) then return end
 
     -- ── Route to sub-views ──────────────────────────────
@@ -599,6 +599,15 @@ function _drawStartView(self)
         else
             -- Was a bare em dash, which tells a player nothing and reads as a
             -- rendering fault rather than as "there is no field here".
+            --
+            -- WHEN THIS BRANCH ACTUALLY FIRES, because it is easy to mistake for
+            -- the empty-farm case and I did: a farm with NO fields is caught above
+            -- by `#fields == 0` and shows "You don't own any fields." This is the
+            -- other thing entirely, #fields > 0 but fields[_selFieldIdx] resolving
+            -- to nil, which is a data gap rather than a farm state. Note that
+            -- canStart is (#fields > 0), so the confirm button is ENABLED here.
+            -- So the string must stay a neutral signal and must NOT advise buying
+            -- land: the player already owns some.
             label = FJText("ft_fieldjobs_no_field", "No field")
         end
 
