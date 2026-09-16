@@ -10,6 +10,46 @@ local function FJText(key, fallback)
     return fallback or tostring(key or "")
 end
 
+--- A localized string that carries placeholders, interpolated AFTER the lookup.
+--- A bare FJText lookup returns the template with its %s and %d intact, so a
+--- caller that forgets to format draws a raw template at the player.
+---
+--- The pcall is not defensive padding. These templates are translated into 26
+--- locale files by hand, and a translator who drops a %s, adds one, or swaps %d
+--- for %s produces a string.format error inside a draw call, which is a crash in
+--- the middle of a frame rather than a wrong word. When a locale's arity does not
+--- match what the caller supplied, this falls back to the English template and
+--- formats that instead, so the worst case is one line in English.
+local function FJFormat(key, fallbackFmt, ...)
+    local template = FJText(key, fallbackFmt)
+    local ok, out = pcall(string.format, template, ...)
+    if ok then return out end
+    local okFallback, fallbackOut = pcall(string.format, fallbackFmt, ...)
+    if okFallback then return fallbackOut end
+    return fallbackFmt
+end
+
+--- A localized MULTI-LINE string.
+---
+--- drawHelpPage splits a body on real newline characters and does not wrap
+--- (FarmTabletUI.lua:3151). The engine never expands an escape in a locale
+--- value, and the LOAD path is the half that proves it: I18N:loadEntriesFromXML
+--- at I18N.lua:99 performs exactly ONE transformation on a loaded string,
+--- string.gsub(text, CR-LF, LF), which is line-ending normalisation and nothing
+--- else. I18N:getText at :175-187 is then a bare table lookup. So a "\n" written in a translation file arrives here as the two
+--- characters backslash and n, not as a line break. Nothing else in these 26
+--- files uses one, so this is the first.
+---
+--- Rather than mint one key per LINE, which would have turned four help bodies
+--- into thirteen keys across 26 files, a body is one key whose translation uses
+--- "\n" between lines and this converts them. A translator sees one coherent
+--- paragraph, and the English fallbacks below can keep real newlines because the
+--- conversion is a no-op on them.
+local function FJLines(key, fallbackFmt, ...)
+    local out = FJFormat(key, fallbackFmt, ...)
+    return (out:gsub("\\n", "\n"))
+end
+
 -- ── Module state ──────────────────────────────────────────
 
 local _activeJob   = nil   -- { fieldId, fieldName, vehicleName, taskType, startTime, startDay }
@@ -262,23 +302,35 @@ FarmTabletUI:registerDrawer("field_jobs", function(self)
     AC = FT.appColor("field_jobs")
 
     -- ── Help page ───────────────────────────────────────
+    -- Help names the REAL controls and says which screen each one is on, and
+    -- every button name is resolved through the key that owns it rather than
+    -- retyped. A second English copy of a label drifts the first time the label
+    -- changes, and then help confidently points at a control that is not there.
     if self:drawHelpPage("_fieldJobsHelp", "field_jobs", "Field Jobs", AC, {
-        { title = "STARTING A JOB",
-          body  = "Tap START JOB, pick a field, your vehicle, and the\n"..
-                  "type of work. Hit Confirm to begin timing.\n"..
-                  "The active job badge shows on the Home screen." },
-        { title = "FINISHING A JOB",
-          body  = "Tap FINISH on the Home screen when you are done.\n"..
-                  "Duration is calculated in in-game time and the\n"..
-                  "record is saved to the History list." },
+        { title = FJText("ft_fieldjobs_help_start_title", "STARTING A JOB"),
+          body  = FJLines("ft_fieldjobs_help_start_body",
+                    "Home screen: tap %s.\n"..
+                    "New Job screen: pick field, vehicle and task,\n"..
+                    "then tap %s to begin timing.",
+                    FJText("ft_fieldjobs_start_job", "Start job"), FJText("ft_fieldjobs_confirm_start", "START JOB TIMER")) },
+        { title = FJText("ft_fieldjobs_help_finish_title", "FINISHING A JOB"),
+          body  = FJLines("ft_fieldjobs_help_finish_body",
+                    "Home screen: tap %s when the work is done.\n"..
+                    "While a job runs, %s stays disabled until you\n"..
+                    "finish the current one.",
+                    FJText("ft_fieldjobs_finish_job", "FINISH JOB"), FJText("ft_fieldjobs_start_job", "Start job")) },
         { title = FJText("ft_common_history", "History"),
-          body  = "Up to 30 completed jobs are stored per savegame.\n"..
-                  "Each entry shows field, vehicle, task, day started,\n"..
-                  "and how long the job took." },
-        { title = "VEHICLE LIST",
-          body  = "Only motorized vehicles owned by your farm appear.\n"..
-                  "If a vehicle is missing, check it is assigned to\n"..
-                  "your farm in the vehicle settings." },
+          body  = FJLines("ft_fieldjobs_help_history_body",
+                    "The %s button appears on the Home screen once\n"..
+                    "your first job is finished. Up to 30 jobs are kept\n"..
+                    "per savegame, newest first.",
+                    FJText("ft_common_history", "History")) },
+        { title = FJText("ft_fieldjobs_help_nav_title", "GETTING BACK"),
+          body  = FJLines("ft_fieldjobs_help_nav_body",
+                    "This help closes with its own Back button.\n"..
+                    "From New Job or History, Back returns to Field\n"..
+                    "Jobs Home, app bar or on-screen alike.\n"..
+                    "From Home, Back leaves Field Jobs.") },
     }) then return end
 
     -- ── Route to sub-views ──────────────────────────────
@@ -352,7 +404,8 @@ function _drawHomeView(self)
         -- FINISH button
         local bw = FT.px(100)
         local bh = FT.py(22)
-        local finBtn = self.r:button(x, y, bw, bh, "FINISH JOB",
+        local finBtn = self.r:button(x, y, bw, bh,
+            FJText("ft_fieldjobs_finish_job", "FINISH JOB"),
             FT.C.BTN_DANGER,
             { onClick = function()
                 _finishJob()
@@ -466,7 +519,9 @@ function _drawHomeView(self)
 
         if #_jobHistory > 4 then
             self.r:appText(x + cw / 2, minY,
-                FT.FONT.TINY, "+" .. (#_jobHistory - 4) .. " more — tap HISTORY",
+                FT.FONT.TINY,
+                FJFormat("ft_fieldjobs_history_more", "+%d more, tap %s",
+                    #_jobHistory - 4, FJText("ft_common_history", "History")),
                 RenderText.ALIGN_CENTER, FT.C.MUTED)
         end
     end
@@ -491,6 +546,27 @@ function _drawStartView(self)
             self:switchApp("field_jobs")
         end })
     table.insert(self._contentBtns, backBtn)
+
+    -- Purpose line (#141), on the START view. Home already carries this one, but
+    -- the farmer makes the decision HERE, looking at a control that says START,
+    -- and the approved restore put the explanation at the choice.
+    --
+    -- IT SITS ON THE BACK BUTTON'S OWN ROW, to its left, and that is deliberate
+    -- rather than tidy. This view ends in a confirmation that only draws while
+    -- y > contentY + FT.py(28), so every unit of height added above it eats that
+    -- margin, and a purpose line that pushed the only confirmation off screen
+    -- would be a worse bug than the one being fixed. Drawn on a row that already
+    -- exists it costs ZERO vertical space, so the gate is arithmetically
+    -- untouched. Same key as Home, so there is one sentence to translate and the
+    -- two screens cannot drift apart.
+    --
+    -- Width is the one thing a source read cannot settle: this shares a row with
+    -- a fixed-width button, so a long translation may need the smaller glyph or
+    -- a different slot. That is Wizard's layout call, not a reason to withhold
+    -- the explanation.
+    self.r:appText(x, y + backBh / 2 - FT.py(3), FT.FONT.TINY,
+        FJText("ft_fieldjobs_purpose", "Times and logs your jobs. It doesn't send a worker."),
+        RenderText.ALIGN_LEFT, FT.C.MUTED)
 
     y = y - FT.py(24)
 
@@ -518,7 +594,24 @@ function _drawStartView(self)
         local arrowH = FT.py(20)
         local selW   = cw - arrowW * 2 - FT.px(4)
         local field  = fields[_selFieldIdx]
-        local label  = field and ("Field " .. (field.id or "?") .. " — " .. _truncate(field.cropName or "Empty", 18)) or "—"
+        local label
+        if field ~= nil then
+            label = FJFormat("ft_fieldjobs_field_label", "Field %s, %s",
+                tostring(field.id or "?"), _truncate(field.cropName or "Empty", 18))
+        else
+            -- Was a bare em dash, which tells a player nothing and reads as a
+            -- rendering fault rather than as "there is no field here".
+            --
+            -- WHEN THIS BRANCH ACTUALLY FIRES, because it is easy to mistake for
+            -- the empty-farm case and I did: a farm with NO fields is caught above
+            -- by `#fields == 0` and shows "You don't own any fields." This is the
+            -- other thing entirely, #fields > 0 but fields[_selFieldIdx] resolving
+            -- to nil, which is a data gap rather than a farm state. Note that
+            -- canStart is (#fields > 0), so the confirm button is ENABLED here.
+            -- So the string must stay a neutral signal and must NOT advise buying
+            -- land: the player already owns some.
+            label = FJText("ft_fieldjobs_no_field", "No field")
+        end
 
         -- Left arrow
         local lBtn = self.r:button(x, y, arrowW, arrowH, "<", FT.C.BTN_NEUTRAL,
