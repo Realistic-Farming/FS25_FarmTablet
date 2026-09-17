@@ -21,7 +21,9 @@ MODS_DIR = Path.home() / "Documents" / "My Games" / "FarmingSimulator2025" / "mo
 
 EXCLUDE_DIRS = {".git", ".claude", ".github", "__MACOSX", "tools", ".vscode"}
 EXCLUDE_EXTS = {".sh", ".py", ".md", ".DS_Store", ".zip"}
-EXCLUDE_FILES = {".gitignore", "icon_source.png"}
+# ".git" is a FILE, not a directory, in a git worktree (it points at the main
+# clone's git dir), so EXCLUDE_DIRS alone does not keep it out of the zip.
+EXCLUDE_FILES = {".git", ".gitignore", "icon_source.png"}
 
 def lua_files():
     """Yield every .lua file that will ship in the zip, using the same exclusions
