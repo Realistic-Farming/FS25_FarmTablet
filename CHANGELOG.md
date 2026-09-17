@@ -17,6 +17,9 @@ the repo's git history and README.
 - Changelog file established (suite ruling 2026-08-22).
 - Control Center action: `FT_TOGGLE_TABLET` toggles the FarmTablet from the suite Control Center (requires SettingsHub).
 
+### Fixed
+- RSF-F245: the Irrigation Suite forecast no longer raises a "drying" alert for a field that SeasonalCropStress reports with no moisture reading. A missing reading is no longer counted as 0 percent; the dry and wet moisture alerts wait for a real reading, while the stress alert and "watering now" still show.
+
 ## [2.6.0.6] - 2026-08-23
 
 - First entry under changelog tracking.
