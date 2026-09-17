@@ -301,6 +301,24 @@ local function _moistureSplit(scs, fieldId)
     return moisture, irrShare, rainShare
 end
 
+--- RSF-F245: the forecast alert trend for one field. SeasonalCropStress answers no
+--- moisture for a field that has no current reading; that is never read as 0 (a dry
+--- alert on a field nobody measured). With no moisture number the two moisture terms
+--- are skipped; the stress term and watering-now still apply.
+---@return string trend, boolean alert
+local function _alertTrend(moisture, stress, rate)
+    local m = tonumber(moisture)
+    local s = tonumber(stress) or 0
+    if (tonumber(rate) or 0) > 0 then
+        return "trend: watering now", false
+    elseif s >= 0.55 or (m ~= nil and m <= 0.30) then
+        return "trend: drying - consider a window", true
+    elseif m ~= nil and m >= 0.75 then
+        return "trend: wet - holding may waterlog", true
+    end
+    return "trend: steady", false
+end
+
 --- SCS-009: per-field water need, the pure ranking figure.
 --- Monotone in moisture deficit and dry stress; active irrigation (rate > 0)
 --- reduces need. Returns nil when moisture is unreadable (the field does not
@@ -698,20 +716,11 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             if moisture == nil and stress == nil then
                 -- skip untracked
             else
-                local m = tonumber(moisture) or 0
-                local s = tonumber(stress) or 0
-                -- Trivial labeled trend: watering now vs dry urgency.
-                local trend
-                if rate > 0 then
-                    trend = "trend: watering now"
-                elseif s >= 0.55 or m <= 0.30 then
-                    trend = "trend: drying - consider a window"
+                -- Trivial labeled trend: watering now vs dry urgency (RSF-F245: a
+                -- missing moisture reading never counts as 0).
+                local trend, alert = _alertTrend(moisture, stress, rate)
+                if alert then
                     alerts = alerts + 1
-                elseif m >= 0.75 then
-                    trend = "trend: wet - holding may waterlog"
-                    alerts = alerts + 1
-                else
-                    trend = "trend: steady"
                 end
                 self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
                     string.format("Field #%s", tostring(fid)),
