@@ -301,10 +301,6 @@ local function _moistureSplit(scs, fieldId)
     return moisture, irrShare, rainShare
 end
 
---- SCS-009: per-field water need, the pure ranking figure.
---- Monotone in moisture deficit and dry stress; active irrigation (rate > 0)
---- reduces need. Returns nil when moisture is unreadable (the field does not
---- rank). Display-only: feeds the advisory sort, never any economic hook.
 --- RSF-F245: the forecast alert trend for one field. SeasonalCropStress answers no
 --- moisture for a field that has no current reading; that is never read as 0 (a dry
 --- alert on a field nobody measured). With no moisture number the two moisture terms
@@ -323,6 +319,10 @@ local function _alertTrend(moisture, stress, rate)
     return "trend: steady", false
 end
 
+--- SCS-009: per-field water need, the pure ranking figure.
+--- Monotone in moisture deficit and dry stress; active irrigation (rate > 0)
+--- reduces need. Returns nil when moisture is unreadable (the field does not
+--- rank). Display-only: feeds the advisory sort, never any economic hook.
 local function _waterNeed(moisture, stress, rate)
     if moisture == nil then return nil end
     local deficit = math.max(0, 1 - moisture)          -- 0 wet .. 1 dry
