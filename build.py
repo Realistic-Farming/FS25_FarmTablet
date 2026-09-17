@@ -3,6 +3,7 @@ import os
 import subprocess
 import sys
 import shutil
+import filecmp
 from pathlib import Path
 
 # ============================================================
@@ -87,15 +88,52 @@ def build_zip():
     print(f"\n  ZIP created: {ZIP_PATH}")
 
 def deploy():
+    """Install the built zip without ever removing the installed one first.
+
+    The zip this run built must open, pass its CRC check and carry modDesc.xml at
+    its root. It is copied beside the installed zip under a temporary name,
+    compared byte for byte, and only then moved over the installed one. Any
+    failure before that move leaves the installed mod exactly as it was."""
     print(f"\n  Deploying to mods folder...")
     if not MODS_DIR.exists():
         print(f"  WARNING: Mods folder not found at: {MODS_DIR}")
         sys.exit(1)
 
     dest = MODS_DIR / f"{MOD_NAME}.zip"
-    if dest.exists():
-        dest.unlink()
-    shutil.copy2(ZIP_PATH, dest)
+    staged = MODS_DIR / f"{MOD_NAME}.zip.deploying"
+
+    def refuse(reason):
+        try:
+            if staged.is_file():
+                staged.unlink()
+        except OSError:
+            pass
+        print(f"  ERROR: {reason}")
+        print("  The installed mod was NOT touched.")
+        sys.exit(1)
+
+    try:
+        with zipfile.ZipFile(ZIP_PATH) as zf:
+            if "modDesc.xml" not in zf.namelist():
+                refuse(f"{ZIP_PATH} has no modDesc.xml at its root")
+            if zf.testzip() is not None:
+                refuse(f"{ZIP_PATH} failed its CRC check")
+    except (OSError, zipfile.BadZipFile) as e:
+        refuse(f"{ZIP_PATH} is not a readable zip ({e})")
+
+    try:
+        if staged.is_file():
+            staged.unlink()
+        shutil.copy2(ZIP_PATH, staged)
+        if not filecmp.cmp(ZIP_PATH, staged, shallow=False):
+            refuse(f"the staged copy at {staged} does not match the built zip")
+    except OSError as e:
+        refuse(f"could not stage a copy at {staged} ({e})")
+
+    try:
+        os.replace(staged, dest)
+    except OSError as e:
+        refuse(f"could not replace {dest} (is the game running?) ({e})")
     print(f"  Deployed: {dest}")
 
 if __name__ == "__main__":
