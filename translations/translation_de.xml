@@ -542,7 +542,7 @@
         <text name="ft_auto_apps_loaded" text="Apps geladen" />
         <text name="ft_auto_are_below_the_original_ground_height" text="sind unter der ursprünglichen Bodenhöhe." />
         <text name="ft_auto_area" text="Fläche" />
-        <text name="ft_auto_area_2" text="Area: " />
+        <text name="ft_auto_area_2" text="Fläche: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Gesamtfläche im Besitz (in Hektar)&#10;" />
         <text name="ft_auto_at" text=" auf " />
         <text name="ft_auto_attached" text="Angehängt" />
@@ -626,7 +626,7 @@
         <text name="ft_auto_chore_bumped_version_to_2_2_0_0" text="Chore: Bumped version to 2.2.0.0" />
         <text name="ft_auto_clean_animal_pens" text="Ställe reinigen" />
         <text name="ft_auto_cleanliness_percentage_for_chickens_and_sheep" text="Sauberkeit in Prozent für Hühner und Schafe.&#10;" />
-        <text name="ft_auto_clear" text="CLEAR" />
+        <text name="ft_auto_clear" text="LÖSCHEN" />
         <text name="ft_auto_clear_2" text="Entfernen" />
         <text name="ft_auto_clear_3" text="clear" />
         <text name="ft_auto_clear_all" text="ALLE ENTFERNEN" />
@@ -770,7 +770,7 @@
         <text name="ft_auto_dashboard_weather_fields_animals_workshop" text="Übersicht, Wetter, Felder, Tiere, Werkstatt" />
         <text name="ft_auto_data_refreshed" text="data_refreshed" />
         <text name="ft_auto_data_refreshes_every_3_seconds" text="Daten werden alle drei Sekunden neugeladen." />
-        <text name="ft_auto_day" text="DAY" />
+        <text name="ft_auto_day" text="TAG" />
         <text name="ft_auto_day_2" text="Tag" />
         <text name="ft_auto_day_3" text="Tag " />
         <text name="ft_auto_day_4" text="Tag +" />
@@ -829,7 +829,7 @@
         <text name="ft_auto_due_date" text="Fälligkeitsdatum" />
         <text name="ft_auto_due_in_d_day_s" text="Fällig in %d Tag%s" />
         <text name="ft_auto_due_today" text="Heute fällig" />
-        <text name="ft_auto_dur" text="DUR" />
+        <text name="ft_auto_dur" text="DAUER" />
         <text name="ft_auto_duration" text="Dauer" />
         <text name="ft_auto_duration_d_in_game_hours" text="DAUER: %d IN-GAME STUNDEN" />
         <text name="ft_auto_duration_is_calculated_in_in_game_time_and_the" text="Die DAUER wird in in-Game Zeit berechnet und die&#10;" />

@@ -33,6 +33,12 @@ MUTATIONS = [
   "the History button's English text left in place"),
  ("L8-english-copied-de", DE, lambda t: t.replace(entry(t, "ft_fieldjobs_start_job")[0], '<text name="ft_fieldjobs_start_job" text="Start job" />', 1),
   "a locale the allowlist does not name gets the English text of the allowed Danish word"),
+ ("L9-screen-label-english-copied", FR, lambda t: t.replace(entry(t, "ft_auto_new_job")[0], '<text name="ft_auto_new_job" text="New Job" />', 1),
+  "a screen label the help names is left in English"),
+ ("L10-screen-label-dropped", FR, lambda t: t.replace(entry(t, "ft_auto_back")[0], "", 1),
+  "the Back control's label is missing from a locale"),
+ ("L11-unit-rule-misused", FR, lambda t: t.replace(entry(t, "ft_auto_dur")[0], '<text name="ft_auto_dur" text="DUR" />', 1),
+  "a label that is not a unit is left in English as if it were one"),
 ]
 
 def sha(path):

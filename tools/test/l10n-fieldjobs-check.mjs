@@ -11,6 +11,10 @@
 //     with a reason (a legitimately identical word, never a copy passed off as a
 //     translation: Tyson's ruling, MAINTENANCE row 80).
 //
+// The Field Jobs screens' labels (RSF-141's "exact control names" clause, the follow-up to #166):
+// the ft_auto_* words the screens draw through FT.l10nAuto (src/core/Constants.lua), the same
+// checks; units ("h ", " ha") are the same in every language and are allowed as such.
+//
 // Usage:  node tools/test/l10n-fieldjobs-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -27,10 +31,35 @@ const KEYS = [
   "ft_fieldjobs_help_nav_title", "ft_fieldjobs_help_nav_body",
   "ft_fieldjobs_no_job", "ft_fieldjobs_start_job", "ft_fieldjobs_recent_jobs", "ft_fieldjobs_no_completed",
   "ft_fieldjobs_no_job_short", "ft_common_history",
+  // The screens' auto labels (50): the words the Field Jobs screens draw, so the help's control
+  // names match what the player sees.
+  "ft_auto_1_active_job", "ft_auto_active_3", "ft_auto_area_2", "ft_auto_at", "ft_auto_back", "ft_auto_baling",
+  "ft_auto_clear", "ft_auto_day", "ft_auto_day_3", "ft_auto_dur", "ft_auto_elapsed", "ft_auto_empty_3",
+  "ft_auto_fertilizing", "ft_auto_field_2", "ft_auto_field_4", "ft_auto_field_5", "ft_auto_field_jobs",
+  "ft_auto_finish_current_first", "ft_auto_finish_job", "ft_auto_finishing_a_job", "ft_auto_general_work",
+  "ft_auto_h_3", "ft_auto_ha", "ft_auto_harvesting", "ft_auto_history_2", "ft_auto_history_3", "ft_auto_home",
+  "ft_auto_job", "ft_auto_mowing_cutting", "ft_auto_new_job", "ft_auto_no_active_job", "ft_auto_no_completed_jobs_yet",
+  "ft_auto_no_job_running", "ft_auto_no_vehicle", "ft_auto_plowing_cultivating", "ft_auto_rolling",
+  "ft_auto_sowing_planting", "ft_auto_spraying", "ft_auto_start", "ft_auto_start_job_2", "ft_auto_start_new",
+  "ft_auto_started_day", "ft_auto_starting_a_job", "ft_auto_state", "ft_auto_stone_picking", "ft_auto_task",
+  "ft_auto_unknown", "ft_auto_vehicle", "ft_auto_vehicle_3", "ft_auto_you_don_t_own_any_fields",
 ];
+// Keys whose text is the same in every language, with the reason.
+const ALLOW_ALL = {
+  "ft_auto_h_3": "unit: h is the hour symbol everywhere",
+  "ft_auto_ha": "unit: ha is the hectare symbol everywhere",
+};
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
   "da:ft_fieldjobs_start_job": "cognate: Danish says Start job",
+  "da:ft_auto_start_job_2": "cognate: Danish says start job",
+  "da:ft_auto_start": "cognate: Danish says start",
+  "no:ft_auto_start": "cognate: Norwegian says start",
+  "pl:ft_auto_start": "cognate: Polish says start",
+  "cz:ft_auto_start": "cognate: Czech says start",
+  "nl:ft_auto_home": "cognate: Dutch names the home screen start",
+  "it:ft_auto_area_2": "cognate: Italian says Area",
+  "da:ft_auto_job": "cognate: Danish says job",
 };
 
 function entries(file) {
@@ -61,7 +90,7 @@ for (const key of KEYS) {
     const v = got[0];
     if (placeholders(v) !== placeholders(e[0])) failures.push(`${loc}: ${key} placeholders [${placeholders(v)}] differ from English [${placeholders(e[0])}]`);
     if (breaks(v) !== breaks(e[0])) failures.push(`${loc}: ${key} has ${breaks(v)} line breaks, English ${breaks(e[0])}`);
-    if (v === e[0] && !ALLOW[`${loc}:${key}`]) failures.push(`${loc}: ${key} is the English text`);
+    if (v === e[0] && !ALLOW[`${loc}:${key}`] && !ALLOW_ALL[key]) failures.push(`${loc}: ${key} is the English text`);
   }
 }
 const checked = KEYS.length * locales.length;
@@ -70,4 +99,4 @@ if (failures.length > 0) {
   console.log(`l10n-fieldjobs: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
   process.exit(1);
 }
-console.log(`l10n-fieldjobs: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical`);
+console.log(`l10n-fieldjobs: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} unit keys`);

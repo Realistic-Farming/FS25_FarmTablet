@@ -846,7 +846,7 @@
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Each row shows field ID, crop type, moisture %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
         <text name="ft_auto_edit" text="EDIT" />
-        <text name="ft_auto_elapsed" text="  Â·  Elapsed: " />
+        <text name="ft_auto_elapsed" text="  ·  Elapsed: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="EMPTY" />
         <text name="ft_auto_empty_3" text="Empty" />
@@ -1172,7 +1172,7 @@
         <text name="ft_auto_hire_tab" text="HIRE TAB" />
         <text name="ft_auto_hired_s_signing_s" text="Hired %s (signing %s)" />
         <text name="ft_auto_history" text="HISTORY" />
-        <text name="ft_auto_history_2" text="History Â· " />
+        <text name="ft_auto_history_2" text="History · " />
         <text name="ft_auto_history_3" text="history" />
         <text name="ft_auto_hof" text="hof" />
         <text name="ft_auto_home" text="home" />
