@@ -2206,6 +2206,12 @@
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Without it, use the built-in invoice system." />
         <text name="ft_auto_worker" text="Worker" />
         <text name="ft_auto_worker_2" text="worker" />
+        <text name="ft_auto_work" text="작업" />
+        <text name="ft_auto_open_offers" text="열린 제안" />
+        <text name="ft_auto_neighbours_not_available_yet" text="이웃을 아직 불러오지 못했습니다." />
+        <text name="ft_auto_last_confirmed" text="(마지막 확인 기준)" />
+        <text name="ft_auto_time_unknown" text="남은 시간 알 수 없음" />
+        <text name="ft_auto_waiting" text="대기 중" />
         <text name="ft_auto_worker_costs" text="Worker Costs" />
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
         <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />

@@ -127,6 +127,13 @@ end
 
 -- Auto-generated fallback map for hardcoded UI text -> l10n keys
 FT.AUTO_L10N = FT.AUTO_L10N or {
+    -- RSF-F357 (#168): the NPC Favor drawer's page and roster literals.
+    ["Work"] = "ft_auto_work",
+    ["Open Offers"] = "ft_auto_open_offers",
+    ["Neighbours not available yet."] = "ft_auto_neighbours_not_available_yet",
+    ["(last confirmed)"] = "ft_auto_last_confirmed",
+    ["time unknown"] = "ft_auto_time_unknown",
+    ["waiting"] = "ft_auto_waiting",
     ["%02d:%02d"] = "ft_auto_02d_02d",
     ["0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast."] = "ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast",
     ["%.0f%%"] = "ft_auto_0f",
@@ -2274,6 +2281,13 @@ function FT.py(v) return v * FT.LAYOUT.scaleY end
 
 
 FT.DE_L10N = FT.DE_L10N or {
+    -- RSF-F357 (#168): the NPC Favor drawer's page and roster literals.
+    ["ft_auto_work"] = "Arbeit",
+    ["ft_auto_open_offers"] = "Offene Angebote",
+    ["ft_auto_neighbours_not_available_yet"] = "Nachbarn noch nicht verfügbar.",
+    ["ft_auto_last_confirmed"] = "(zuletzt bestätigt)",
+    ["ft_auto_time_unknown"] = "Zeit unbekannt",
+    ["ft_auto_waiting"] = "wartet",
     ["ft_aac_care_cost"] = "Kosten Pflege",
     ["ft_aac_care_now"] = "Jetzt versorgen",
     ["ft_aac_food"] = "Futter",
