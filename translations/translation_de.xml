@@ -2206,6 +2206,12 @@
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Ohne dies nutze das integrierte Rechnungssystem." />
         <text name="ft_auto_worker" text="Arbeiter" />
         <text name="ft_auto_worker_2" text="Arbeiter" />
+        <text name="ft_auto_work" text="Arbeit" />
+        <text name="ft_auto_open_offers" text="Offene Angebote" />
+        <text name="ft_auto_neighbours_not_available_yet" text="Nachbarn noch nicht verfügbar." />
+        <text name="ft_auto_last_confirmed" text="(zuletzt bestätigt)" />
+        <text name="ft_auto_time_unknown" text="Zeit unbekannt" />
+        <text name="ft_auto_waiting" text="wartet" />
         <text name="ft_auto_worker_costs" text="Arbeiterkosten" />
         <text name="ft_auto_worker_costs_2" text="arbeiterkosten" />
         <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs ist nicht installiert." />

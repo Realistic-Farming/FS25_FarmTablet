@@ -203,12 +203,27 @@ local function npcWorkWatch(self, npcSys, on)
     end
 end
 
--- The release: every frame, a watch outlives neither the app nor the tablet.
+--- The release: a watch outlives neither the app nor the tablet nor the tablet's
+--- enabled setting. Let go when the app is not the one shown, the tablet is
+--- closed, or the tablet is disabled.
+function FarmTabletUI:npcWorkReleaseIfHidden(disabled)
+    if not self._npcWorkWatching then return end
+    if disabled or not self.isOpen or self.system == nil or self.system.currentApp ~= FT.APP.NPC_FAVOR then
+        npcWorkWatch(self, nil, false)
+    end
+end
+
 -- Prepended, so the release runs ahead of the frame's own work and never
 -- depends on it (the engine's Utils.prependedFunction, Utils.lua:387).
 FarmTabletUI.update = Utils.prependedFunction(FarmTabletUI.update, function(self, dt)
-    if self._npcWorkWatching and (not self.isOpen or self.system == nil or self.system.currentApp ~= FT.APP.NPC_FAVOR) then
-        npcWorkWatch(self, nil, false)
+    self:npcWorkReleaseIfHidden(false)
+end)
+-- The manager returns before ui:update while the tablet is disabled
+-- (FarmTabletManager.lua, the settings.enabled return), so the disabled case
+-- is released here, ahead of that return.
+FarmTabletManager.update = Utils.prependedFunction(FarmTabletManager.update, function(self, dt)
+    if self.ui ~= nil and self.settings ~= nil and not self.settings.enabled and self.ui.npcWorkReleaseIfHidden ~= nil then
+        self.ui:npcWorkReleaseIfHidden(true)
     end
 end)
 
@@ -217,6 +232,7 @@ local function drawNpcWork(self, npcSys, y, minY)
     local ok, view = pcall(npcSys.getPersonalWorkView, npcSys)
     if not ok or type(view) ~= "table" or (view.state ~= "CURRENT" and view.state ~= "LAST_CONFIRMED") then
         y = self:drawRow(y, "Work", "unavailable", nil, FT.C.TEXT_DIM)
+        y = self:drawRow(y, "Total Earned", "unavailable", nil, FT.C.TEXT_DIM)
         return y
     end
     local active, offers, rows = 0, 0, {}
@@ -228,14 +244,20 @@ local function drawNpcWork(self, npcSys, y, minY)
             offers = offers + 1
         end
     end
-    local note = (view.state == "LAST_CONFIRMED") and "  (last confirmed)" or ""
-    y = self:drawRow(y, "Active Favors", tostring(active) .. note)
+    -- Every literal here is its own mapped text (FT.AUTO_L10N, the ft_auto_* keys):
+    -- the last-confirmed note is a line of its own, never appended to a value.
+    y = self:drawRow(y, "Active Favors", tostring(active))
+    if view.state == "LAST_CONFIRMED" then
+        y = self:drawRow(y, "(last confirmed)", "", FT.C.TEXT_DIM)
+    end
     y = self:drawRow(y, "Open Offers", tostring(offers))
     if view.completedKnown then
         y = self:drawRow(y, "Completed", tostring(view.completedCount or 0))
     else
         y = self:drawRow(y, "Completed", "unavailable", nil, FT.C.TEXT_DIM)
     end
+    -- The host supplies no earnings summary: unavailable, never a raw figure.
+    y = self:drawRow(y, "Total Earned", "unavailable", nil, FT.C.TEXT_DIM)
     if #rows > 0 then
         y = y - FT.py(4)
         y = self:drawRule(y, 0.2)
@@ -248,13 +270,13 @@ local function drawNpcWork(self, npcSys, y, minY)
                               or progress >= 33 and FT.C.WARNING or FT.C.TEXT_DIM
                 local left = FT_Renderer.truncate(
                     (f.npcName or "?") .. "  " .. (f.description or f.type or ""), 28)
-                local right
                 if f.timeKnown then
-                    right = string.format("%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000))
+                    y = self:drawRow(y, left, string.format("%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000)), nil, pctColor)
                 else
-                    right = string.format("%d%%  time unknown", progress)
+                    -- The unknown time is its own mapped literal beside the progress.
+                    y = self:drawRow(y, left, string.format("%d%%", progress), nil, pctColor)
+                    y = self:drawRow(y, "time unknown", "", FT.C.TEXT_DIM)
                 end
-                y = self:drawRow(y, left, right, nil, pctColor)
             end
         end
     end
@@ -401,9 +423,11 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                 if y <= minY + FT.py(16) then break end
                 local nm = tostring(r.name or "Unknown")
                 if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+                -- The name on the left, the tag as its own mapped literal on the right
+                -- (where a live person's score sits), never composed into one string.
                 local tag = (r.kind == "PRESENCE") and "worker" or "waiting"
-                self.r:appText(x, y, FT.FONT.SMALL,
-                    nm .. "  [" .. tag .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                self.r:appText(x, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                self.r:appText(x + cw, y, FT.FONT.SMALL, tag, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
                 y = y - FT.py(14)
             end
         end

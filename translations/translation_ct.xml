@@ -2206,6 +2206,12 @@
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Without it, use the built-in invoice system." />
         <text name="ft_auto_worker" text="Worker" />
         <text name="ft_auto_worker_2" text="worker" />
+        <text name="ft_auto_work" text="工作" />
+        <text name="ft_auto_open_offers" text="開放的委託" />
+        <text name="ft_auto_neighbours_not_available_yet" text="鄰居尚未就緒。" />
+        <text name="ft_auto_last_confirmed" text="（最後確認）" />
+        <text name="ft_auto_time_unknown" text="時間未知" />
+        <text name="ft_auto_waiting" text="等待中" />
         <text name="ft_auto_worker_costs" text="Worker Costs" />
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
         <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />
