@@ -13,6 +13,9 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+### Fixed
+- **The Dairy Core app's title on the tablet in every language.** The `ft_ui_app_dairycore` key existed only in the English file, so the app's label read English in the other 25 languages; it is now declared in all 26, as the mod's own name, like Dairy, App Store and ProStaff Co-Op. Nothing to configure.
+
 ### Added
 - Changelog file established (suite ruling 2026-08-22).
 - Control Center action: `FT_TOGGLE_TABLET` toggles the FarmTablet from the suite Control Center (requires SettingsHub).

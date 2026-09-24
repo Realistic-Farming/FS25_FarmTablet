@@ -43,11 +43,14 @@ const KEYS = [
   "ft_auto_sowing_planting", "ft_auto_spraying", "ft_auto_start", "ft_auto_start_job_2", "ft_auto_start_new",
   "ft_auto_started_day", "ft_auto_starting_a_job", "ft_auto_state", "ft_auto_stone_picking", "ft_auto_task",
   "ft_auto_unknown", "ft_auto_vehicle", "ft_auto_vehicle_3", "ft_auto_you_don_t_own_any_fields",
+  // MAINTENANCE row 95: the DairyCore app's title, English-only in 25 locales until 2026-09-24.
+  "ft_ui_app_dairycore",
 ];
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
   "ft_auto_h_3": "unit: h is the hour symbol everywhere",
   "ft_auto_ha": "unit: ha is the hectare symbol everywhere",
+  "ft_ui_app_dairycore": "a mod's own name: the DairyCore app is titled Dairy Core in every language, as Dairy, App Store and ProStaff Co-Op are",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
