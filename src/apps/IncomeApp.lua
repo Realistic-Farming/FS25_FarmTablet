@@ -169,6 +169,98 @@ end)
 
 
 -- ── NPC FAVOR ─────────────────────────────────────────────
+-- RSF-F357 section 9b: the tablet is one more reader of the owner's shared work
+-- page. With the repaired host (its adapters present) the work and count block
+-- is that copied page for this farm: the tablet registers interest while the
+-- NPC app is shown (the host's one adapter polls for every reader) and lets go
+-- the moment the app is left or the tablet closes, so no poll outlives the
+-- screen. A page that has not arrived, or is older than two refresh intervals,
+-- says so instead of claiming a zero. Nothing here touches the host's favour
+-- model; the page and the roster view are copies. An older host keeps the
+-- established compatibility read below.
+local function npcHostRepaired(npcSys)
+    return type(npcSys) == "table"
+        and type(npcSys.getPersonalWorkView) == "function"
+        and type(npcSys.requestPersonalWorkView) == "function"
+        and type(npcSys.watchPersonalWork) == "function"
+end
+
+local function npcWorkWatch(self, npcSys, on)
+    if on then
+        if self._npcWorkWatching then return end
+        self._npcWorkWatching = true
+        self._npcWorkHost = npcSys
+        pcall(npcSys.watchPersonalWork, npcSys, true)
+        -- Refresh on opening the screen; the adapter refuses a second outstanding request itself.
+        pcall(npcSys.requestPersonalWorkView, npcSys, "")
+    elseif self._npcWorkWatching then
+        self._npcWorkWatching = false
+        local host = self._npcWorkHost
+        self._npcWorkHost = nil
+        if type(host) == "table" and type(host.watchPersonalWork) == "function" then
+            pcall(host.watchPersonalWork, host, false)
+        end
+    end
+end
+
+-- The release: every frame, a watch outlives neither the app nor the tablet.
+-- Prepended, so the release runs ahead of the frame's own work and never
+-- depends on it (the engine's Utils.prependedFunction, Utils.lua:387).
+FarmTabletUI.update = Utils.prependedFunction(FarmTabletUI.update, function(self, dt)
+    if self._npcWorkWatching and (not self.isOpen or self.system == nil or self.system.currentApp ~= FT.APP.NPC_FAVOR) then
+        npcWorkWatch(self, nil, false)
+    end
+end)
+
+local function drawNpcWork(self, npcSys, y, minY)
+    npcWorkWatch(self, npcSys, true)
+    local ok, view = pcall(npcSys.getPersonalWorkView, npcSys)
+    if not ok or type(view) ~= "table" or (view.state ~= "CURRENT" and view.state ~= "LAST_CONFIRMED") then
+        y = self:drawRow(y, "Work", "unavailable", nil, FT.C.TEXT_DIM)
+        return y
+    end
+    local active, offers, rows = 0, 0, {}
+    for _, r in ipairs(view.rows or {}) do
+        if r.status == "active" or r.status == "in_progress" then
+            active = active + 1
+            rows[#rows + 1] = r
+        elseif r.status == "pending" then
+            offers = offers + 1
+        end
+    end
+    local note = (view.state == "LAST_CONFIRMED") and "  (last confirmed)" or ""
+    y = self:drawRow(y, "Active Favors", tostring(active) .. note)
+    y = self:drawRow(y, "Open Offers", tostring(offers))
+    if view.completedKnown then
+        y = self:drawRow(y, "Completed", tostring(view.completedCount or 0))
+    else
+        y = self:drawRow(y, "Completed", "unavailable", nil, FT.C.TEXT_DIM)
+    end
+    if #rows > 0 then
+        y = y - FT.py(4)
+        y = self:drawRule(y, 0.2)
+        y = self:drawSection(y, "ACTIVE")
+        for i = 1, math.min(3, #rows) do
+            local f = rows[i]
+            if y > minY + FT.py(16) then
+                local progress = math.floor(f.progress or 0)
+                local pctColor = progress >= 66 and FT.C.POSITIVE
+                              or progress >= 33 and FT.C.WARNING or FT.C.TEXT_DIM
+                local left = FT_Renderer.truncate(
+                    (f.npcName or "?") .. "  " .. (f.description or f.type or ""), 28)
+                local right
+                if f.timeKnown then
+                    right = string.format("%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000))
+                else
+                    right = string.format("%d%%  time unknown", progress)
+                end
+                y = self:drawRow(y, left, right, nil, pctColor)
+            end
+        end
+    end
+    return y
+end
+
 FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
     local AC = FT.appColor(FT.APP.NPC_FAVOR)
 
@@ -229,7 +321,11 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
     y = self:drawBar(y, townRep, 100, repColor)
     y = y - FT.py(8)
 
-    if favorSys then
+    if npcHostRepaired(npcSys) then
+        y = self:drawRule(y, 0.3)
+        y = self:drawSection(y, "FAVORS")
+        y = drawNpcWork(self, npcSys, y, minY)
+    elseif favorSys then
         local active = favorSys.activeFavors or {}
         local stats  = favorSys.stats or {}
         y = self:drawRule(y, 0.3)
@@ -262,12 +358,61 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
 
     y = y - FT.py(4)
     y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "RELATIONSHIPS  (" .. #npcs .. ")")
 
-    if #npcs == 0 then
+    -- RSF-F357 section 9a: the public roster view when the host publishes it.
+    -- Trust and a bar only for a live person; a waiting person or an observed
+    -- worker is listed by name with no number (never a zero). An older host
+    -- keeps the compatibility read of its live list.
+    local roster = nil
+    if type(npcSys.getNeighbourRosterView) == "function" then
+        local okR, v = pcall(npcSys.getNeighbourRosterView, npcSys)
+        if okR and type(v) == "table" and type(v.rows) == "table" then roster = v end
+    end
+    if roster ~= nil then
+        local live, others = {}, {}
+        for _, r in ipairs(roster.rows) do
+            if r.kind == "LIVE" and type(r.trust) == "number" then live[#live + 1] = r else others[#others + 1] = r end
+        end
+        table.sort(live, function(a, b) return a.trust > b.trust end)
+        y = self:drawSection(y, "RELATIONSHIPS  (" .. #live .. ")")
+        if roster.personLoadState ~= "READY" or roster.snapshotState == "UNAVAILABLE" then
+            self.r:appText(x, y - FT.py(10), FT.FONT.SMALL,
+                "Neighbours not available yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        elseif #live == 0 and #others == 0 then
+            self.r:appText(x, y - FT.py(10), FT.FONT.SMALL,
+                "No NPCs spawned yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        else
+            for _, r in ipairs(live) do
+                if y <= minY + FT.py(16) then break end
+                local rel      = math.floor(math.min(math.max(r.trust, 0), 100))
+                local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
+                local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"
+                local nm       = tostring(r.name or "Unknown")
+                if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+                self.r:appText(x, y, FT.FONT.SMALL,
+                    nm .. "  [" .. (r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                self.r:appText(x + cw, y, FT.FONT.SMALL,
+                    rel .. "  " .. relLabel, RenderText.ALIGN_RIGHT, relColor)
+                y = y - FT.py(14)
+                y = self:drawBar(y, rel, 100, relColor)
+                y = y - FT.py(4)
+            end
+            for _, r in ipairs(others) do
+                if y <= minY + FT.py(16) then break end
+                local nm = tostring(r.name or "Unknown")
+                if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+                local tag = (r.kind == "PRESENCE") and "worker" or "waiting"
+                self.r:appText(x, y, FT.FONT.SMALL,
+                    nm .. "  [" .. tag .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                y = y - FT.py(14)
+            end
+        end
+    elseif #npcs == 0 then
+        y = self:drawSection(y, "RELATIONSHIPS  (" .. #npcs .. ")")
         self.r:appText(x, y - FT.py(10), FT.FONT.SMALL,
             "No NPCs spawned yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     else
+        y = self:drawSection(y, "RELATIONSHIPS  (" .. #npcs .. ")")
         local sorted = {}
         for _, npc in ipairs(npcs) do
             if npc and npc.isActive ~= false then table.insert(sorted, npc) end
