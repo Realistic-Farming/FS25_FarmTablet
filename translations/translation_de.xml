@@ -576,7 +576,7 @@
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="Höchstpreis pro 1.000 Liter" />
         <text name="ft_auto_between_25_and_75_of_the_listing_window" text="zwischen 25% und 75% aufgezeichneten Zeitraums.&#10;" />
         <text name="ft_auto_boolean" text="boolean" />
-        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="Ausfälle — reparieren bevore 80% erreicht werden." />
+        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="Ausfälle - reparieren bevore 80% erreicht werden." />
         <text name="ft_auto_browse_and_manage_installed_apps" text="Installierte Apps durchsuchen und verwalten" />
         <text name="ft_auto_bucket" text="Ladevolumen" />
         <text name="ft_auto_bucket_fill_level_and_material_type_as_a_bar" text="Füllvolumen und Art des Material als Leiste.&#10;" />
@@ -809,7 +809,7 @@
         <text name="ft_auto_display_damage_s" text="DISPLAYSCHADEN: %s" />
         <text name="ft_auto_display_in_stock_duration_approx_1_in_game_hour" text="Ersatzteil auf Lager - Dauer für den Austausch: vorraussichtlich 1 in-game Stunde" />
         <text name="ft_auto_display_ordered_duration_approx_1_in_game_day" text="Ersatzteil bestellt - Dauer für den Austausch: vorraussichtlich 1 in-game Tag" />
-        <text name="ft_auto_display_position_scale" text="ANZEIGE — POSITION &amp; SKALIERUNG" />
+        <text name="ft_auto_display_position_scale" text="ANZEIGE - POSITION &amp; SKALIERUNG" />
         <text name="ft_auto_displays_fs25_marketdynamics_status" text="Anzeige FS25_MarktDynamics status:&#10;" />
         <text name="ft_auto_displays_fs25_randomworldevents_status" text="Anzeige FS25_RandomWorldEvents status:&#10;" />
         <text name="ft_auto_displays_fs25_workercosts_status" text="Anzeige FS25_WorkerCosts status:&#10;" />
@@ -932,7 +932,7 @@
         <text name="ft_auto_farmtablet_2" text="[FarmTablet] " />
         <text name="ft_auto_farmtablet_autodetect_animalautocare_detected" text="[FarmTablet] autoDetect: AnimalAutoCare erkannt" />
         <text name="ft_auto_farmtablet_autodetect_animalvetsystem_detected" text="[FarmTablet] autoDetect: AnimalVetSystem erkannt" />
-        <text name="ft_auto_farmtablet_autodetect_complete_d_apps_registered" text="[FarmTablet] autoDetect complete — %d Apps registriert" />
+        <text name="ft_auto_farmtablet_autodetect_complete_d_apps_registered" text="[FarmTablet] autoDetect complete - %d Apps registriert" />
         <text name="ft_auto_farmtablet_autodetect_crop_stress_detected" text="[FarmTablet] autoDetect: FS25_SeasonalCropStress erkannt" />
         <text name="ft_auto_farmtablet_autodetect_factoryweekschedule_detected" text="[FarmTablet] autoDetect: FS25_FactoryWeekSchedule erkannt" />
         <text name="ft_auto_farmtablet_autodetect_fieldsentry_detected" text="[FarmTablet] autoDetect: FieldSentry erkannt" />
@@ -956,7 +956,7 @@
         <text name="ft_auto_farmtablet_invoicemanager_loaded_d_invoices" text="[FarmTablet/InvoiceManager] %d Rechnungen geladen" />
         <text name="ft_auto_farmtablet_invoicemanager_max_invoice_limit_reached_d" text="[FarmTablet/InvoiceManager] Maximale Rechnungsanzahl erreicht (%d)" />
         <text name="ft_auto_farmtablet_invoicemanager_saved_d_invoices" text="[FarmTablet/InvoiceManager] %d Rechnungen gespeichert" />
-        <text name="ft_auto_farmtablet_renderer_skipped_nil_text_entry_text_s_x_s_y" text="FarmTablet Renderer: skipped nil text entry — text=%s x=%s y=%s" />
+        <text name="ft_auto_farmtablet_renderer_skipped_nil_text_entry_text_s_x_s_y" text="FarmTablet Renderer: skipped nil text entry - text=%s x=%s y=%s" />
         <text name="ft_auto_farmtablet_system" text="[FarmTablet System] " />
         <text name="ft_auto_farmtablet_ui" text="[FarmTablet UI] " />
         <text name="ft_auto_farmtablet_v" text="FarmTablet v" />
@@ -1407,7 +1407,7 @@
         <text name="ft_auto_new_added_ukrainian_translation" text="Neu: Ukrainische Übersetzung hinzugefügt" />
         <text name="ft_auto_new_apps_open_full_screen_with_a_home_back_bar_redesign" text="Neu: Apps öffnen sich nun im Vollbildmodus mit einer Startseiten-Leiste; Überarbeiteter 3D frame, Bildschirmglanz und Hintergrundbild" />
         <text name="ft_auto_new_back_now_steps_up_one_level_leaves_a_sub_page_first" text="Neu: Zurück geht nun eine Seite zurück (Unterseite werden vorher verlassen) anstatt direkt auf die Startseite zurückzukehren" />
-        <text name="ft_auto_new_clearer_app_bar_buttons_a_little_house_for_home_and" text="Neu: clearer app-bar buttons — a little house for Home and a real left arrow for Back" />
+        <text name="ft_auto_new_clearer_app_bar_buttons_a_little_house_for_home_and" text="Neu: clearer app-bar buttons - a little house for Home and a real left arrow for Back" />
         <text name="ft_auto_new_custom_home_background_drop_a_png_in_your_savegame" text="Neu: benutzerdefinierter Hintergrund auf der Startseite - füge eine PNG-Datei in den Ordner FTBackground in deinem Spielstand ein und wähle es in den Einstellungen aus" />
         <text name="ft_auto_new_customise_the_app_icon_labels_in_settings_show_or_h" text="Neu: bearbeite die App-Icon Labels in den Einstellungen - zeige oder verstecke sie und ändere ihre Größe oder Farbe" />
         <text name="ft_auto_new_farm_admin_money_time_repair_all_fill_all_fuel" text="Neu: Farm Admin - Geld verwalten, Uhrzeit einstellen, alle Fahrzeuge reparieren, alle Fahrzeuge vollanken" />
@@ -1716,7 +1716,7 @@
         <text name="ft_auto_repair" text="REPARIEREN" />
         <text name="ft_auto_repair_2" text="reparieren" />
         <text name="ft_auto_repair_all" text="ALLE REPARIEREN" />
-        <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="ALLE REPARIEREN — setzte den Schaden all deiner Fahrzeuge zurück.&#10;" />
+        <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="ALLE REPARIEREN - setzte den Schaden all deiner Fahrzeuge zurück.&#10;" />
         <text name="ft_auto_repair_button" text="REPARATUR KNOPF" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Reperatur abgeschlossen. Dein Tablet kann wieder genutzt werden." />
         <text name="ft_auto_repair_vehicle" text="FAHRZEUG REPARIEREN" />
@@ -1780,7 +1780,7 @@
         <text name="ft_auto_season" text="Jahreszeit" />
         <text name="ft_auto_season_2" text="Jahreszeit" />
         <text name="ft_auto_season_day_time_weather" text="Jahreszeit / Tag / Zeit / Wetter" />
-        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod — blank in base game.&#10;" />
+        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod - blank in base game.&#10;" />
         <text name="ft_auto_seasonal" text="Jährlich" />
         <text name="ft_auto_seasonal_crop_stress" text="SeasonalCropStress" />
         <text name="ft_auto_seasonal_crop_stress_monitor" text="SeasonalCropStress Bestandsmonitor" />
@@ -2282,7 +2282,7 @@
         <text name="ft_animals_help_water_title" text="WASSERBALKEN" />
         <text name="ft_animals_help_water_body" text="Prozentualer Füllstand des Wassertrogs.&#10;Gleiche Farbschwellen wie beim Futter.&#10;Tiere ohne Wasser verlieren schnell Produktivität." />
         <text name="ft_animals_help_straw_title" text="STROH-/SAUBERKEITSBALKEN" />
-        <text name="ft_animals_help_straw_body" text="Zeigt die Sauberkeit des Stalls — Strohstand bei Schweinen und Kühen,&#10;Sauberkeit bei Hühnern und Schafen.&#10;Geringe Sauberkeit reduziert Ertrag und Tierwohl." />
+        <text name="ft_animals_help_straw_body" text="Zeigt die Sauberkeit des Stalls - Strohstand bei Schweinen und Kühen,&#10;Sauberkeit bei Hühnern und Schafen.&#10;Geringe Sauberkeit reduziert Ertrag und Tierwohl." />
         <text name="ft_animals_help_productivity_title" text="PRODUKTIVITÄT" />
         <text name="ft_animals_help_productivity_body" text="Die gesamte Tierproduktivität hängt von Futter, Wasser&#10;und Sauberkeit ab. Halte alle drei Balken grün,&#10;um Milch, Eier, Wolle und Mist zu maximieren." />
         <text name="ft_animals_no_pens" text="Keine Tierställe im Besitz." />
