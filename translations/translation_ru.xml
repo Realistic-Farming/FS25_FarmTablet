@@ -432,7 +432,7 @@
         <text name="ft_auto_active_financing" text="Active Financing" />
         <text name="ft_auto_active_illnesses" text="Active Illnesses" />
         <text name="ft_auto_active_loans_and_leases_arranged_through_usedplus" text="Active loans and leases arranged through UsedPlus.&#10;" />
-        <text name="ft_auto_active_mods_show_in_full_colour_with_an_open_button" text="Active mods show in full colour with an OPEN button.&#10;" />
+        <text name="ft_auto_active_mods_show_in_full_colour_with_an_open_button" text="Активные моды показаны в цвете с кнопкой ОТКРЫТЬ.&#10;" />
         <text name="ft_auto_active_s" text="Active: %s." />
         <text name="ft_auto_active_sale_listings" text="ACTIVE SALE LISTINGS" />
         <text name="ft_auto_active_simulated_normally" text="ACTIVE = simulated normally.&#10;" />
@@ -475,7 +475,7 @@
         <text name="ft_auto_all_apps_rewritten_with_new_drawer_pattern" text="All apps rewritten with new drawer pattern" />
         <text name="ft_auto_all_done" text="Всё готово!" />
         <text name="ft_auto_all_four_nutrients_should_be_green_for_optimal_yield" text="All four nutrients should be green for optimal yield.&#10;" />
-        <text name="ft_auto_all_known_companion_mod_integrations_are_listed_here" text="All known companion mod integrations are listed here.&#10;" />
+        <text name="ft_auto_all_known_companion_mod_integrations_are_listed_here" text="Здесь перечислены все известные интеграции модов.&#10;" />
         <text name="ft_auto_all_owned_fields_with_crop_and_growth_state" text="Все поля с культурой и ростом" />
         <text name="ft_auto_all_owned_vehicles_fuel_wear_operating_hours" text="Вся техника: топливо, износ и моточасы" />
         <text name="ft_auto_always_active" text="(always active)" />
@@ -507,7 +507,7 @@
         <text name="ft_auto_animal_pens_with_per_metric_color_bars" text="Animal pens with per-metric color bars" />
         <text name="ft_auto_animal_vet_system" text="animal_vet_system" />
         <text name="ft_auto_animalautocare" text="Автоуход" />
-        <text name="ft_auto_animalautocare_status_and_safe_care_trigger" text="AnimalAutoCare status and safe care trigger" />
+        <text name="ft_auto_animalautocare_status_and_safe_care_trigger" text="AnimalAutoCare: статус и уход" />
         <text name="ft_auto_animalautocare_was_not_detected" text="AnimalAutoCare was not detected." />
         <text name="ft_auto_animals" text="Животные" />
         <text name="ft_auto_animals_2" text="animals" />
@@ -515,7 +515,7 @@
         <text name="ft_auto_animals_number_of_animal_pens_on_your_farm" text="Animals: number of animal pens on your farm.&#10;" />
         <text name="ft_auto_animals_without_water_lose_productivity_quickly" text="Animals without water lose productivity quickly." />
         <text name="ft_auto_animalvetsystem" text="AnimalVetSystem" />
-        <text name="ft_auto_animalvetsystem_illness_and_treatment_monitor" text="AnimalVetSystem illness and treatment monitor" />
+        <text name="ft_auto_animalvetsystem_illness_and_treatment_monitor" text="AnimalVetSystem: болезни и лечение" />
         <text name="ft_auto_animalvetsystem_was_not_detected" text="AnimalVetSystem was not detected." />
         <text name="ft_auto_any_field" text="Any field" />
         <text name="ft_auto_any_placeable_with_bulk_storage_you_own" text="Any placeable with bulk storage you own:&#10;" />
@@ -592,7 +592,7 @@
         <text name="ft_auto_buildings" text=" buildings" />
         <text name="ft_auto_built_in" text="ВСТРОЕННЫЕ" />
         <text name="ft_auto_built_in_2" text="Встроено" />
-        <text name="ft_auto_built_in_apps_show_built_in_as_their_version" text="Built-in apps show 'Built-in' as their version.&#10;" />
+        <text name="ft_auto_built_in_apps_show_built_in_as_their_version" text="У встроенных приложений в версии указано 'Встроено'.&#10;" />
         <text name="ft_auto_bullet_points_below_list_individual_changes" text="Bullet points below list individual changes." />
         <text name="ft_auto_busy" text="Busy" />
         <text name="ft_auto_buy_equipment" text="Buy equipment" />
@@ -635,7 +635,7 @@
         <text name="ft_auto_clear_d_completed" text="CLEAR %d COMPLETED" />
         <text name="ft_auto_clears_all_load_history_and_resets_the_session_totals" text="Clears all load history and resets the session totals&#10;" />
         <text name="ft_auto_click" text="click" />
-        <text name="ft_auto_click_open_on_any_app_row_to_switch_to_it_directly" text="Click OPEN on any app row to switch to it directly.&#10;" />
+        <text name="ft_auto_click_open_on_any_app_row_to_switch_to_it_directly" text="Нажмите ОТКРЫТЬ в строке приложения, чтобы сразу перейти.&#10;" />
         <text name="ft_auto_click_select_on_a_vehicle_to_pin_its_diagnostics_in" text="Click SELECT on a vehicle to pin its diagnostics in&#10;" />
         <text name="ft_auto_click_select_on_any_field_row_to_open_its_detailed" text="Click SELECT on any field row to open its detailed&#10;" />
         <text name="ft_auto_click_the_button_to_cycle_through_available_options" text="Click the button to cycle through available options.&#10;" />
@@ -795,7 +795,7 @@
         <text name="ft_auto_dig" text="DIG" />
         <text name="ft_auto_digging" text="Копать" />
         <text name="ft_auto_digging_2" text="digging" />
-        <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Dimmed rows are supported but not currently installed.&#10;" />
+        <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Затенённые строки поддерживаются, но сейчас не установлены.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="DISABLED" />
@@ -891,7 +891,7 @@
         <text name="ft_auto_factory" text="Завод" />
         <text name="ft_auto_factory_week_schedule" text="factory_week_schedule" />
         <text name="ft_auto_factoryweekschedule" text="FactoryWeekSchedule" />
-        <text name="ft_auto_factoryweekschedule_overview_with_workers_events_and_fi" text="FactoryWeekSchedule overview with workers, events and fire state" />
+        <text name="ft_auto_factoryweekschedule_overview_with_workers_events_and_fi" text="FactoryWeekSchedule: рабочие, события, пожар" />
         <text name="ft_auto_factoryweekschedule_was_not_detected" text="FactoryWeekSchedule was not detected." />
         <text name="ft_auto_fair" text="Fair" />
         <text name="ft_auto_false" text="false" />
@@ -1001,7 +1001,7 @@
         <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Fields: land you own with a crop growing.&#10;" />
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="FieldSentry decides which fields the soil simulation runs&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="FieldSentry is not available." />
-        <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - per-field soil-sim status, sleep and meadow toggles" />
+        <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - почва по полям, сон и луг" />
         <text name="ft_auto_fill" text="Fill" />
         <text name="ft_auto_fill_fuel" text="ЗАПРАВИТЬ" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
         <text name="ft_auto_fin" text="FIN" />
-        <text name="ft_auto_finance" text="FINANCE" />
+        <text name="ft_auto_finance" text="ФИНАНСЫ" />
         <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
         <text name="ft_auto_finances" text="ФИНАНСЫ" />
         <text name="ft_auto_finish_current_first" text="сначала завершите текущую" />
@@ -1136,7 +1136,7 @@
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
         <text name="ft_auto_ground_level" text="Уровень земли" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
-        <text name="ft_auto_grouped_into_built_in_farming_and" text="grouped into Built-in, Farming, and&#10;" />
+        <text name="ft_auto_grouped_into_built_in_farming_and" text="по категориям: Встроенные, Ферма и&#10;" />
         <text name="ft_auto_grow" text="GROW" />
         <text name="ft_auto_growing" text="Growing" />
         <text name="ft_auto_growing_2" text="growing" />
@@ -1216,9 +1216,9 @@
         <text name="ft_auto_income_2" text="income" />
         <text name="ft_auto_income_and_expenses_tracked_since_this_session_started" text="Income and expenses tracked since this session started&#10;" />
         <text name="ft_auto_income_expenses_net_p_l" text="INCOME / EXPENSES / NET P/L" />
-        <text name="ft_auto_income_mod" text="Income Mod" />
+        <text name="ft_auto_income_mod" text="Мод дохода" />
         <text name="ft_auto_income_mod_2" text="income_mod" />
-        <text name="ft_auto_income_mod_controls_and_statistics" text="Income Mod controls and statistics" />
+        <text name="ft_auto_income_mod_controls_and_statistics" text="Управление и статистика мода дохода" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
         <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Income: money earned. Expenses: money spent.&#10;" />
@@ -1242,7 +1242,7 @@
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
-        <text name="ft_auto_integrated" text="Integrated" />
+        <text name="ft_auto_integrated" text="Интеграция" />
         <text name="ft_auto_integrates_with_fs25_seasonalcropstress_to_display" text="Integrates with FS25_SeasonalCropStress to display&#10;" />
         <text name="ft_auto_integrates_with_fs25_soilfertilizer_to_display" text="Integrates with FS25_SoilFertilizer to display&#10;" />
         <text name="ft_auto_integration" text="Integration" />
@@ -1257,10 +1257,10 @@
         <text name="ft_auto_inventory" text="СКЛАД" />
         <text name="ft_auto_invoice" text="invoice" />
         <text name="ft_auto_invoice_tracker" text="INVOICE TRACKER" />
-        <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Invoice tracker - built-in + RoleplayPhone integration" />
+        <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Счета - встроено + RoleplayPhone" />
         <text name="ft_auto_invoices" text="Счета" />
         <text name="ft_auto_invoices_created_on_the_phone_appear_here" text="invoices created on the phone appear here&#10;" />
-        <text name="ft_auto_invoices_phone" text="Invoices / Phone" />
+        <text name="ft_auto_invoices_phone" text="Счета / Телефон" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
         <text name="ft_auto_items" text="ПРЕДМЕТЫ" />
@@ -1291,7 +1291,7 @@
         <text name="ft_auto_light" text="Light" />
         <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Lists all crops currently stored across your owned silos.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Lists every active NPC with their relationship score&#10;" />
-        <text name="ft_auto_lists_every_app_registered_with_the_farm_tablet" text="Lists every app registered with the Farm Tablet,&#10;" />
+        <text name="ft_auto_lists_every_app_registered_with_the_farm_tablet" text="Показывает все приложения, зарегистрированные в Farm Tablet,&#10;" />
         <text name="ft_auto_lists_every_selling_station_and_its_current_price_for" text="Lists every selling station and its current price for&#10;" />
         <text name="ft_auto_lists_the_8_most_recent_dump_cycles_with_material" text="Lists the 8 most recent dump cycles with material&#10;" />
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Lists the fill types the building consumes and produces.&#10;" />
@@ -1330,10 +1330,10 @@
         <text name="ft_auto_market_dynamics" text="Динамика рынка" />
         <text name="ft_auto_market_dynamics_2" text="market_dynamics" />
         <text name="ft_auto_market_dynamics_is_not_installed" text="Market Dynamics is not installed." />
-        <text name="ft_auto_market_prices_and_dynamic_events" text="Market prices and dynamic events" />
+        <text name="ft_auto_market_prices_and_dynamic_events" text="Рыночные цены и события" />
         <text name="ft_auto_marketplace" text="Marketplace" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
-        <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="matching mod is loaded in your savegame." />
+        <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="нужный мод будет загружен в ваше сохранение." />
         <text name="ft_auto_material" text="MATERIAL" />
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
@@ -1350,7 +1350,7 @@
         <text name="ft_auto_mild" text="Mild" />
         <text name="ft_auto_mission" text="Mission" />
         <text name="ft_auto_mkt" text="MKT" />
-        <text name="ft_auto_mod_integration_categories" text="Mod Integration categories." />
+        <text name="ft_auto_mod_integration_categories" text="Интеграции модов." />
         <text name="ft_auto_mod_integrations" text="ИНТЕГРАЦИИ МОДОВ" />
         <text name="ft_auto_mod_not_installed" text="mod not installed" />
         <text name="ft_auto_moderate" text="Moderate" />
@@ -1471,7 +1471,7 @@
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Данных о ценах продажи нет" />
-        <text name="ft_auto_no_setup_needed_apps_appear_automatically_when_the" text="No setup needed - apps appear automatically when the&#10;" />
+        <text name="ft_auto_no_setup_needed_apps_appear_automatically_when_the" text="Настройка не нужна - приложения появятся сами, когда&#10;" />
         <text name="ft_auto_no_setup_required_just_start_working" text="No setup required - just start working." />
         <text name="ft_auto_no_sick_animal_pens_reported" text="No sick animal pens reported." />
         <text name="ft_auto_no_signal" text="No signal" />
@@ -1508,9 +1508,9 @@
         <text name="ft_auto_npc_favor" text="Репутация NPC" />
         <text name="ft_auto_npc_favor_2" text="npc_favor" />
         <text name="ft_auto_npc_favor_mod_not_detected" text="NPC Favor mod not detected." />
-        <text name="ft_auto_npc_favor_tracker" text="NPC favor tracker" />
+        <text name="ft_auto_npc_favor_tracker" text="Отслеживание услуг NPC" />
         <text name="ft_auto_number" text="number" />
-        <text name="ft_auto_number_and_developer_name" text="number and developer name." />
+        <text name="ft_auto_number_and_developer_name" text="номер версии и имя разработчика." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
         <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_only_shown_when_a_workshop_placeable_is_on_your_farm" text="Only shown when a workshop placeable is on your farm&#10;" />
         <text name="ft_auto_open" text="ОТКРЫТЬ" />
         <text name="ft_auto_open_2" text="Открыть" />
-        <text name="ft_auto_open_button" text="OPEN BUTTON" />
+        <text name="ft_auto_open_button" text="КНОПКА ОТКРЫТЬ" />
         <text name="ft_auto_open_key" text="Open key" />
         <text name="ft_auto_open_key_s" text="Open Key: %s&#10;" />
         <text name="ft_auto_open_notices" text="Open Notices" />
@@ -1681,7 +1681,7 @@
         <text name="ft_auto_random_world_events" text="Случайные события" />
         <text name="ft_auto_random_world_events_2" text="random_world_events" />
         <text name="ft_auto_random_world_events_is_not_installed" text="Random World Events is not installed." />
-        <text name="ft_auto_random_world_events_tracker" text="Random world events tracker" />
+        <text name="ft_auto_random_world_events_tracker" text="Отслеживание случайных событий" />
         <text name="ft_auto_rare" text="Rare" />
         <text name="ft_auto_rare_2" text="rare" />
         <text name="ft_auto_ready" text="ГОТОВО" />
@@ -1691,7 +1691,7 @@
         <text name="ft_auto_realistic_farming" text="realistic_farming" />
         <text name="ft_auto_realistic_farming_mobile" text="Realistic Farming Mobile" />
         <text name="ft_auto_realisticdealer" text="RealisticDealer" />
-        <text name="ft_auto_realisticdealer_financing_installments_and_repossession" text="RealisticDealer financing, installments and repossession status" />
+        <text name="ft_auto_realisticdealer_financing_installments_and_repossession" text="RealisticDealer: кредиты, выплаты, изъятие" />
         <text name="ft_auto_realisticdealer_was_not_detected" text="RealisticDealer was not detected." />
         <text name="ft_auto_receivable" text="К ПОЛУЧЕНИЮ" />
         <text name="ft_auto_recent_jobs" text="Последние работы" />
@@ -1860,7 +1860,7 @@
         <text name="ft_auto_soil_fertilizer" text="Удобрение почвы" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
         <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
-        <text name="ft_auto_soil_fertilizer_status" text="Soil fertilizer status" />
+        <text name="ft_auto_soil_fertilizer_status" text="Состояние почвы и удобрения" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
         <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
@@ -1995,7 +1995,7 @@
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
         <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
-        <text name="ft_auto_tax_mod_status_and_toggle" text="Tax Mod status and toggle" />
+        <text name="ft_auto_tax_mod_status_and_toggle" text="Состояние и переключатель налогового мода" />
         <text name="ft_auto_tax_rate" text="TAX RATE" />
         <text name="ft_auto_tax_rate_2" text="Tax Rate" />
         <text name="ft_auto_telehandler" text="telehandler" />
@@ -2009,7 +2009,7 @@
         <text name="ft_auto_the_current_difficulty_setting" text="the current difficulty setting." />
         <text name="ft_auto_the_currently_active_event_frequency" text="the currently active event, frequency,&#10;" />
         <text name="ft_auto_the_digging_app_refreshes_automatically_every_500ms" text="The digging app refreshes automatically every 500ms&#10;" />
-        <text name="ft_auto_the_left_sidebar_at_any_time" text="the left sidebar at any time." />
+        <text name="ft_auto_the_left_sidebar_at_any_time" text="левой боковой панели." />
         <text name="ft_auto_the_mod_adds_configurable_periodic_income_payments" text="The mod adds configurable periodic income payments&#10;" />
         <text name="ft_auto_the_mod_deducts_periodic_tax_from_your_balance" text="The mod deducts periodic tax from your balance&#10;" />
         <text name="ft_auto_the_money_added_to_your_balance_per_payment_cycle" text="The money added to your balance per payment cycle.&#10;" />
@@ -2027,9 +2027,9 @@
         <text name="ft_auto_then_add_to_add_it_to_the_list" text="then + ADD to add it to the list.&#10;" />
         <text name="ft_auto_then_click_home_background_to_cycle_through_them" text="then click HOME BACKGROUND to cycle through them." />
         <text name="ft_auto_these_controls_affect_all_players_and" text="These controls affect all players and" />
-        <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Third-party companion apps show their own version&#10;" />
+        <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Приложения-компаньоны сторонних авторов показывают свой&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
-        <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="This is a shortcut - you can also click the icon in&#10;" />
+        <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Это ярлык - также можно в любой момент нажать значок на&#10;" />
         <text name="ft_auto_this_month" text="THIS MONTH" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="tier, and how far through the listing period you are." />
@@ -2105,7 +2105,7 @@
         <text name="ft_auto_used" text="USED" />
         <text name="ft_auto_used_plus" text="used_plus" />
         <text name="ft_auto_usedplus" text="UsedPlus" />
-        <text name="ft_auto_usedplus_active_sale_listings_and_finance_deals" text="UsedPlus - active sale listings and finance deals" />
+        <text name="ft_auto_usedplus_active_sale_listings_and_finance_deals" text="UsedPlus - объявления и финансирование" />
         <text name="ft_auto_usedplus_is_not_installed" text="UsedPlus is not installed." />
         <text name="ft_auto_v2" text="v2" />
         <text name="ft_auto_values_update_live_as_you_walk_around" text="Values update live as you walk around." />
@@ -2127,7 +2127,7 @@
         <text name="ft_auto_vehicles_nearby" text=" vehicles nearby" />
         <text name="ft_auto_vehicles_you_have_listed_for_sale_through_a_usedplus" text="Vehicles you have listed for sale through a UsedPlus&#10;" />
         <text name="ft_auto_version" text="Версия" />
-        <text name="ft_auto_version_developer" text="VERSION / DEVELOPER" />
+        <text name="ft_auto_version_developer" text="ВЕРСИЯ / РАЗРАБОТЧИК" />
         <text name="ft_auto_version_entries" text="VERSION ENTRIES" />
         <text name="ft_auto_vet" text="VET" />
         <text name="ft_auto_vet_2" text="Vet" />
@@ -2178,7 +2178,7 @@
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Welcome! Tap an app to begin." />
         <text name="ft_auto_what_counts_as_a_silo" text="WHAT COUNTS AS A SILO?" />
-        <text name="ft_auto_what_is_the_app_store" text="WHAT IS THE APP STORE" />
+        <text name="ft_auto_what_is_the_app_store" text="ЧТО ТАКОЕ МАГАЗИН ПРИЛОЖЕНИЙ" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
         <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
@@ -2216,7 +2216,7 @@
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
         <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />
         <text name="ft_auto_worker_to_the_vehicle_you_re_driving_or_fire" text="worker to the vehicle you're driving, or FIRE&#10;" />
-        <text name="ft_auto_worker_wages_and_cost_breakdown" text="Worker wages and cost breakdown" />
+        <text name="ft_auto_worker_wages_and_cost_breakdown" text="Зарплаты рабочих и расходы" />
         <text name="ft_auto_workers" text="Workers" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
@@ -2299,6 +2299,20 @@
         <text name="ft_settings_title" text="Настройки" />
         <text name="ft_help_common_title" text="Help" />
         <text name="ft_help_back" text="&lt; BACK" />
+        <text name="ft_appstore_installed_count" text="Установлено: %d" />
+        <text name="ft_appstore_install_to_enable" text="Установите %s, чтобы включить" />
+        <text name="ft_auto_terrain_depth_readout_and_bucket_load_counter" text="Глубина грунта и счётчик ковшей" />
+        <text name="ft_auto_admin_controls_money_time_scale_skip_time_repair_fuel" text="Админ: деньги, время, ремонт и топливо" />
+        <text name="ft_auto_overview_of_every_ecosystem_setting_registered_with_the" text="Все настройки экосистемы в Settings Hub" />
+        <text name="ft_auto_whole_farm_financial_health_instruments_history_and_pro" text="Финансы фермы: история и прогноз" />
+        <text name="ft_auto_farm_wide_irrigation_operations_trend_and_usage" text="Полив фермы: работа и расход" />
+        <text name="ft_auto_farm_wide_crop_rotation_standing_and_next_crop_compare" text="Севооборот и выбор культуры" />
+        <text name="ft_auto_organic_certification_and_practice_advice" text="Органическая сертификация и советы" />
+        <text name="ft_auto_workercosts_personnel_hire_fire_assign_payroll" text="Персонал WorkerCosts: найм, зарплата" />
+        <text name="ft_auto_pro_staff_co_op_membership_level_and_investment" text="Уровень и вклад в Pro-Staff Co-Op" />
+        <text name="ft_auto_co_op_progression_level_benefits_and_investment_status" text="Кооператив: уровень и вклад" />
+        <text name="ft_auto_dairycore_per_barn_herd_health_quality_and_spoilage" text="DairyCore: здоровье стада, качество" />
+        <text name="ft_auto_dairy" text="Молочная ферма" />
         <text name="ft_scroll_label" text="scroll" />
         <text name="ft_help_settings_display_title" text="DISPLAY - POSITION &amp; SIZE" />
         <text name="ft_help_settings_display_body" text="Shows tablet position and size. Use edit mode to move or resize it." />
