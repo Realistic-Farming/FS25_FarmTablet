@@ -25,13 +25,14 @@
         <text name="ft_ui_app_store" text="Магазин приложений" />
         <text name="ft_ui_app_updates" text="Обновления" />
         <text name="ft_ui_app_settings" text="Настройки" />
-        <text name="ft_ui_app_system_settings" text="System Settings" />
+        <text name="ft_ui_app_system_settings" text="Системные настройки" />
         <text name="ft_ui_app_workshop" text="Мастерская" />
         <text name="ft_ui_app_field_status" text="Полевой менеджер" />
-        <text name="ft_ui_app_field_sentry" text="Field Sentry" />
-        <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
-        <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
-        <text name="ft_ui_app_financial_cockpit" text="Financial Cockpit" />
+        <text name="ft_ui_app_field_sentry" text="Страж полей" />
+        <text name="ft_ui_app_rotation_planner" text="Планировщик севооборота" />
+        <text name="ft_ui_app_organic" text="Органика" />
+        <text name="ft_ui_app_irrigation_suite" text="Система полива" />
+        <text name="ft_ui_app_financial_cockpit" text="Финансовая панель" />
         <text name="ft_fc_health" text="FARM HEALTH" />
         <text name="ft_fc_band_green" text="Healthy" />
         <text name="ft_fc_band_amber" text="Watch" />
@@ -133,9 +134,9 @@
         <text name="ft_ui_app_soil_fertilizer" text="Удобрения для почвы" />
         <text name="ft_ui_app_market_dynamics" text="Динамика рынка" />
         <text name="ft_ui_app_worker_costs" text="Расходы рабочих" />
-        <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_personnel" text="Персонал" />
         <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
-        <text name="ft_ui_app_random_world_events" text="Random Events" />
+        <text name="ft_ui_app_random_world_events" text="Случайные события" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
         <text name="ft_ui_app_roleplay_phone" text="Счета" />
         <text name="ft_ui_app_storage" text="Склад" />
@@ -147,6 +148,12 @@
         <text name="ft_ui_app_fleet_manager" text="Управление техникой" />
         <text name="ft_ui_app_production_buildings" text="Производство" />
         <text name="ft_ui_app_farm_stats" text="Статистика фермы" />
+        <text name="ft_ui_short_financial_cockpit" text="Финансы" />
+        <text name="ft_ui_short_hotspot_manager" text="Метки" />
+        <text name="ft_ui_short_fleet_manager" text="Техника" />
+        <text name="ft_ui_short_irrigation_suite" text="Полив" />
+        <text name="ft_ui_short_soil_fertilizer" text="Почва" />
+        <text name="ft_ui_short_field_sentry" text="Страж полей" />
         <text name="ft_ui_app_field_jobs" text="Полевые работы" />
         <text name="ft_help_cat_start" text="Начиная" />
         <text name="ft_help_cat_apps" text="Фермерские приложения" />
@@ -817,7 +824,7 @@
         <text name="ft_auto_displays_the_status_of_fs25_taxmod" text="Displays the status of FS25_TaxMod.&#10;" />
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Docs / Releases:" />
-        <text name="ft_auto_done" text="DONE" />
+        <text name="ft_auto_done" text="ГОТОВО" />
         <text name="ft_auto_done_collect_reward" text="DONE - COLLECT REWARD" />
         <text name="ft_auto_done_mark_a_task_as_completed" text="DONE - mark a task as completed (■)&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Download the latest version from the mod page on&#10;" />
@@ -969,7 +976,7 @@
         <text name="ft_auto_fatigue_pricier_net_out_across_the_crew" text="fatigue (pricier) net out across the crew." />
         <text name="ft_auto_favorites" text="favorites" />
         <text name="ft_auto_favors" text="FAVORS" />
-        <text name="ft_auto_favourites" text="Favourites" />
+        <text name="ft_auto_favourites" text="Избранное" />
         <text name="ft_auto_favourites_2" text="favourites" />
         <text name="ft_auto_fbm" text="fbm" />
         <text name="ft_auto_feed_animals" text="Feed animals" />
@@ -1375,7 +1382,7 @@
         <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
-        <text name="ft_auto_my_farm" text="My Farm" />
+        <text name="ft_auto_my_farm" text="Моя ферма" />
         <text name="ft_auto_n_a" text="N/A" />
         <text name="ft_auto_name" text="Name" />
         <text name="ft_auto_name_2" text="name" />
@@ -1460,7 +1467,7 @@
         <text name="ft_auto_no_event" text="Нет событий" />
         <text name="ft_auto_no_event_currently_active" text="No event currently active." />
         <text name="ft_auto_no_factories_are_in_the_factoryweekschedule_hud_cache_y" text="No factories are in the FactoryWeekSchedule HUD cache yet." />
-        <text name="ft_auto_no_favourites_yet" text="No favourites yet" />
+        <text name="ft_auto_no_favourites_yet" text="Избранного пока нет" />
         <text name="ft_auto_no_fields_owned" text="No fields owned" />
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="Счетов пока нет." />
@@ -1977,8 +1984,8 @@
         <text name="ft_auto_tabletshowsettings_show_current_settings" text="TabletShowSettings - Show current settings&#10;" />
         <text name="ft_auto_tablettoggle" text="TabletToggle" />
         <text name="ft_auto_tablettoggle_toggle_tablet" text="TabletToggle - Toggle tablet&#10;" />
-        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Tap an app to add or remove it from favourites" />
-        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Tap EDIT, then pick your apps" />
+        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Нажмите на приложение, чтобы добавить его в избранное или убрать" />
+        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Нажмите ИЗМЕНИТЬ, затем выберите приложения" />
         <text name="ft_auto_tap_edit_to_add_widgets" text="Tap EDIT to add widgets." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
@@ -2669,6 +2676,4 @@
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
-
-        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

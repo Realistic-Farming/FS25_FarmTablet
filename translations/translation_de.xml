@@ -22,7 +22,7 @@
         <text name="ft_ui_debug_long" text="Aktiviert den Debug-Log in der Konsole" />
         <text name="ft_ui_reset" text="Tablet-Einstellungen zurücksetzen" />
         <text name="ft_ui_app_dashboard" text="Übersicht" />
-        <text name="ft_ui_app_store" text="App Store" />
+        <text name="ft_ui_app_store" text="App-Store" />
         <text name="ft_ui_app_updates" text="Aktualisierungen" />
         <text name="ft_ui_app_settings" text="Einstellungen" />
         <text name="ft_ui_app_system_settings" text="Globale Einstellungen" />
@@ -30,6 +30,7 @@
         <text name="ft_ui_app_field_status" text="Feldübersicht" />
         <text name="ft_ui_app_field_sentry" text="Feldmonitor" />
         <text name="ft_ui_app_rotation_planner" text="Fruchtfolge" />
+        <text name="ft_ui_app_organic" text="Bio" />
         <text name="ft_ui_app_irrigation_suite" text="Bewässerung" />
         <text name="ft_ui_app_financial_cockpit" text="Finanzen" />
         <text name="ft_fc_health" text="Bilanz" />
@@ -127,7 +128,7 @@
         <text name="ft_ui_app_bucket_tracker" text="Ladungsübersicht" />
         <text name="ft_ui_app_excavator" text="Bagger" />
         <text name="ft_ui_app_income_mod" text="Finanzen" />
-        <text name="ft_ui_app_tax_mod" text="Eichelhäher" />
+        <text name="ft_ui_app_tax_mod" text="Steuern" />
         <text name="ft_ui_app_npc_favor" text="Nachbarschaftshilfe" />
         <text name="ft_ui_app_crop_stress" text="Bestandspflege" />
         <text name="ft_ui_app_soil_fertilizer" text="Düngung" />
@@ -147,7 +148,12 @@
         <text name="ft_ui_app_fleet_manager" text="Fuhrpark" />
         <text name="ft_ui_app_production_buildings" text="Produktionsverwaltung" />
         <text name="ft_ui_app_farm_stats" text="Statistik" />
-        <text name="ft_ui_app_dairycore" text="Milchkern" />
+        <text name="ft_ui_short_financial_cockpit" text="Finanzen" />
+        <text name="ft_ui_short_hotspot_manager" text="Orte" />
+        <text name="ft_ui_short_fleet_manager" text="Fuhrpark" />
+        <text name="ft_ui_short_irrigation_suite" text="Bewässerung" />
+        <text name="ft_ui_short_soil_fertilizer" text="Boden" />
+        <text name="ft_ui_short_field_sentry" text="Feldwächter" />
         <text name="ft_ui_app_field_jobs" text="Aufgaben" />
         <text name="ft_ui_app_animal_auto_care" text="Automatische Tierpflege" />
         <text name="ft_ui_app_animal_vet_system" text="Tierarzt" />
@@ -818,7 +824,7 @@
         <text name="ft_auto_displays_the_status_of_fs25_taxmod" text="zeigt den aktuellen Status der FS25_TaxMod.&#10;" />
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Dokumentation (Release):" />
-        <text name="ft_auto_done" text="DONE" />
+        <text name="ft_auto_done" text="FERTIG" />
         <text name="ft_auto_done_collect_reward" text="Erledigt - Belohnung einsammeln" />
         <text name="ft_auto_done_mark_a_task_as_completed" text="Erledigt - Markiere die Aufgabe als erledigt&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Lade die aktuellste Version der Mod von der Modding-Seite&#10;" />
@@ -844,7 +850,7 @@
         <text name="ft_auto_each_favor_shows_npc_name_description_completion" text="Jeder Gefallen zeigt den Namen des NPC, eine Beschreibung und den Fortschritt&#10;" />
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Jede Zeile zeigt die ID des Felds, die angebaute Kultur, die Feuchtigkeit in %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
-        <text name="ft_auto_edit" text="EDIT" />
+        <text name="ft_auto_edit" text="BEARBEITEN" />
         <text name="ft_auto_elapsed" text="  ·  Vergangen: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="LEER" />
@@ -2629,6 +2635,4 @@
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
-
-        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

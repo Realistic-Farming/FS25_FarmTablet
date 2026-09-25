@@ -149,6 +149,12 @@
         <text name="ft_ui_app_fleet_manager" text="Fleet Manager" />
         <text name="ft_ui_app_production_buildings" text="Production" />
         <text name="ft_ui_app_farm_stats" text="Farm Stats" />
+        <text name="ft_ui_short_financial_cockpit" text="Finances" />
+        <text name="ft_ui_short_hotspot_manager" text="Hotspots" />
+        <text name="ft_ui_short_fleet_manager" text="Fleet" />
+        <text name="ft_ui_short_irrigation_suite" text="Irrigation" />
+        <text name="ft_ui_short_soil_fertilizer" text="Soil" />
+        <text name="ft_ui_short_field_sentry" text="Field Sentinel" />
         <text name="ft_ui_app_dairycore" text="Dairy Core" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Animal Vet" />
