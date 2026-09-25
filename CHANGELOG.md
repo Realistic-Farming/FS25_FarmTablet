@@ -14,6 +14,7 @@ the repo's git history and README.
 ## [Unreleased]
 
 ### Fixed
+- **The Dairy app's title is translated in every language (MAINTENANCE row 95).** It read the English "Dairy" in all 25 other languages; each now names dairy farming in its own words, for example Milchvieh, Élevage laitier and 酪農.
 - **The NPC Favor app shows your farm's own favours from the host, or says it cannot yet (RSF-F357, the tablet drawer).** With an NPC Favor host that has saved neighbours, the Favors block is the host's copied page for your farm (your accepted work, the open offers, the completed count), refreshed while the app is shown and released when you leave it or close the tablet; a page that has not arrived, or is older than two refresh intervals, says so instead of showing zero, and a remaining time the host does not know reads as unknown rather than 0h. The Relationships block reads the host's public roster: a neighbour who is waiting or a hired worker is listed by name with no score. An older NPC Favor keeps the previous display. Nothing to configure.
 
 ### Added
