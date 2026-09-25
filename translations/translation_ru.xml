@@ -265,14 +265,14 @@
         <text name="ft_rd_notices_line" text="Уведомления: %d" />
         <text name="ft_rd_server_note" text="Изъятие техники по-прежнему проходит через RealisticDealer на стороне сервера." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
-        <text name="ft_network_title" text="Network" />
+        <text name="ft_network_title" text="Сеть" />
         <text name="ft_network_choose_provider" text="Выберите оператора" />
         <text name="ft_network_choose_hint" text="Выберите оператора и активируйте его." />
         <text name="ft_network_activate" text="АКТИВИРОВАТЬ" />
-        <text name="ft_network_provider_active" text="Active: %s" />
-        <text name="ft_network_outage_short" text="Outage" />
-        <text name="ft_network_no_signal_short" text="No signal" />
-        <text name="ft_network_weak_short" text="Weak" />
+        <text name="ft_network_provider_active" text="Активен: %s" />
+        <text name="ft_network_outage_short" text="Сбой" />
+        <text name="ft_network_no_signal_short" text="Нет сигнала" />
+        <text name="ft_network_weak_short" text="Слабый" />
         <text name="ft_network_recovered" text="%s: сигнал восстановлен." />
         <text name="ft_network_outage_msg" text="%s: сбой сети, около 2 игровых часов." />
         <text name="ft_network_no_signal_msg" text="%s: здесь нет сигнала." />
@@ -284,35 +284,35 @@
         <text name="ft_common_rare" text="Rare" />
         <text name="ft_common_normal" text="Normal" />
         <text name="ft_common_frequent" text="Frequent" />
-        <text name="ft_common_close" text="CLOSE" />
-        <text name="ft_network_fee_format" text="Base fee: %s €/day" />
-        <text name="ft_network_fee_deducted" text="Base fee deducted: %d €" />
+        <text name="ft_common_close" text="ЗАКРЫТЬ" />
+        <text name="ft_network_fee_format" text="Базовая плата: %s €/день" />
+        <text name="ft_network_fee_deducted" text="Списана базовая плата: %d €" />
         <text name="ft_network_provider_changed" text="Provider changed: %s." />
         <text name="ft_network_outages_changed" text="Outages: %s." />
-        <text name="ft_network_outage_label" text="Network outage" />
-        <text name="ft_network_no_signal_label" text="No signal" />
-        <text name="ft_network_weak_signal_label" text="Weak signal" />
+        <text name="ft_network_outage_label" text="Сбой сети" />
+        <text name="ft_network_no_signal_label" text="Нет сигнала" />
+        <text name="ft_network_weak_signal_label" text="Слабый сигнал" />
         <text name="ft_network_medium_short" text="Средний" />
         <text name="ft_network_good_short" text="Good" />
         <text name="ft_network_excellent_short" text="Excellent" />
-        <text name="ft_network_outage_recovered" text="Network outage fixed. Data is updating." />
-        <text name="ft_network_outage_detected" text="Network outage detected. Estimated duration: approx. %d in-game hours." />
-        <text name="ft_network_no_reception_here" text="No reception at this location." />
-        <text name="ft_network_weak_reception" text="Weak reception." />
-        <text name="ft_network_data_frozen" text="%s - data frozen" />
-        <text name="ft_repair_service_title" text="Tablet Service" />
-        <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
-        <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
-        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
-        <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
-        <text name="ft_repair_title" text="DISPLAY DAMAGE" />
-        <text name="ft_repair_subtitle" text="Display damage from a drop" />
-        <text name="ft_repair_in_progress" text="Tablet in repair" />
-        <text name="ft_repair_notify_done" text="We will notify you when the repair is finished." />
-        <text name="ft_repair_stock_available" text="Display in stock - duration: approx. 1 in-game hour" />
-        <text name="ft_repair_stock_ordered" text="Display ordered - duration: approx. 1 in-game day" />
-        <text name="ft_repair_remaining" text="Remaining: %s" />
-        <text name="ft_repair_remaining_day_format" text="%d day %02d:%02d" />
+        <text name="ft_network_outage_recovered" text="Сбой сети устранён. Данные обновляются." />
+        <text name="ft_network_outage_detected" text="Обнаружен сбой сети. Примерная длительность: около %d игровых часов." />
+        <text name="ft_network_no_reception_here" text="В этом месте нет приёма." />
+        <text name="ft_network_weak_reception" text="Слабый приём." />
+        <text name="ft_network_data_frozen" text="%s - данные заморожены" />
+        <text name="ft_repair_service_title" text="Сервис планшета" />
+        <text name="ft_repair_started_msg" text="Экран повреждён при падении. Планшет ремонтируется." />
+        <text name="ft_repair_done_msg" text="Ремонт завершён. Планшет снова готов к работе." />
+        <text name="ft_repair_force_done_msg" text="Принудительный ремонт завершён. Списана плата за ремонт: %d." />
+        <text name="ft_repair_open_blocked_msg" text="Планшет в ремонте. Мы сообщим, когда его доставят обратно." />
+        <text name="ft_repair_title" text="ПОВРЕЖДЕНИЕ ЭКРАНА" />
+        <text name="ft_repair_subtitle" text="Экран повреждён при падении" />
+        <text name="ft_repair_in_progress" text="Планшет в ремонте" />
+        <text name="ft_repair_notify_done" text="Мы сообщим, когда ремонт будет завершён." />
+        <text name="ft_repair_stock_available" text="Экран есть на складе - срок: около 1 игрового часа" />
+        <text name="ft_repair_stock_ordered" text="Экран заказан - срок: около 1 игрового дня" />
+        <text name="ft_repair_remaining" text="Осталось: %s" />
+        <text name="ft_repair_remaining_day_format" text="%d д. %02d:%02d" />
         <text name="ft_settings_provider" text="Оператор" />
         <text name="ft_settings_base_fee" text="Плата" />
         <text name="ft_settings_fee_per_day" text="%d €/day" />
@@ -523,7 +523,7 @@
         <text name="ft_auto_app" text="App" />
         <text name="ft_auto_app_2" text="app" />
         <text name="ft_auto_app_cannot_be_undone" text="app. Cannot be undone." />
-        <text name="ft_auto_app_error" text="App Error" />
+        <text name="ft_auto_app_error" text="Ошибка приложения" />
         <text name="ft_auto_app_labels" text="Подписи приложений" />
         <text name="ft_auto_app_registered" text="app_registered" />
         <text name="ft_auto_app_select_sound_click_when_switching_sidebar_apps" text="App Select Sound: click when switching sidebar apps.&#10;" />
@@ -1273,7 +1273,7 @@
         <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="just on meadow rules. Independent of the sleep state." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Keep track of farm tasks.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="KEEPING UP TO DATE" />
-        <text name="ft_auto_kein_netz" text="KEIN NETZ" />
+        <text name="ft_auto_kein_netz" text="НЕТ СЕТИ" />
         <text name="ft_auto_label_color" text="LABEL COLOR: " />
         <text name="ft_auto_label_size" text="LABEL SIZE: " />
         <text name="ft_auto_land_lease" text="Land Lease" />
@@ -1982,7 +1982,7 @@
         <text name="ft_auto_tap_edit_to_add_widgets" text="Tap EDIT to add widgets." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
-        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Tap HOME to return to the app grid." />
+        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Нажмите ГЛАВНАЯ, чтобы вернуться к списку приложений." />
         <text name="ft_auto_tap_new_to_open_the_creation_form" text="Tap + NEW to open the creation form.&#10;" />
         <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tap ON/OFF to show or hide each widget." />
         <text name="ft_auto_tap_start_job_pick_a_field_your_vehicle_and_the" text="Tap START JOB, pick a field, your vehicle, and the&#10;" />
@@ -2176,7 +2176,7 @@
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
         <text name="ft_auto_weight" text="ВЕС" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
-        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Welcome! Tap an app to begin." />
+        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Добро пожаловать! Нажмите на приложение, чтобы начать." />
         <text name="ft_auto_what_counts_as_a_silo" text="WHAT COUNTS AS A SILO?" />
         <text name="ft_auto_what_is_the_app_store" text="WHAT IS THE APP STORE" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
@@ -2297,9 +2297,9 @@
         <text name="ft_count_silo" text="%d силос" />
         <text name="ft_count_silos" text="%d силосов" />
         <text name="ft_settings_title" text="Настройки" />
-        <text name="ft_help_common_title" text="Help" />
-        <text name="ft_help_back" text="&lt; BACK" />
-        <text name="ft_scroll_label" text="scroll" />
+        <text name="ft_help_common_title" text="Справка" />
+        <text name="ft_help_back" text="&lt; НАЗАД" />
+        <text name="ft_scroll_label" text="прокрутка" />
         <text name="ft_help_settings_display_title" text="DISPLAY - POSITION &amp; SIZE" />
         <text name="ft_help_settings_display_body" text="Shows tablet position and size. Use edit mode to move or resize it." />
         <text name="ft_help_settings_edit_title" text="EDIT MODE" />
