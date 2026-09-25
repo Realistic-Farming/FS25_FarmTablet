@@ -442,7 +442,7 @@
         <text name="ft_auto_active_mods_show_in_full_colour_with_an_open_button" text="Активні моди показано в кольорі з кнопкою ВІДКРИТИ.&#10;" />
         <text name="ft_auto_active_s" text="Active: %s." />
         <text name="ft_auto_active_sale_listings" text="ACTIVE SALE LISTINGS" />
-        <text name="ft_auto_active_simulated_normally" text="ACTIVE = simulated normally.&#10;" />
+        <text name="ft_auto_active_simulated_normally" text="АКТИВНЕ = симулюється як зазвичай.&#10;" />
         <text name="ft_auto_active_stalled" text="ACTIVE / STALLED" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
         <text name="ft_auto_active_workers" text="Active Workers" />
@@ -461,7 +461,7 @@
         <text name="ft_auto_adds_funds_to_your_farm_account" text="Adds funds to your farm account.&#10;" />
         <text name="ft_auto_adjusted_in_the_market_dynamics_mod_settings" text="adjusted in the Market Dynamics mod settings." />
         <text name="ft_auto_adm" text="ADM" />
-        <text name="ft_auto_admin" text="Admin" />
+        <text name="ft_auto_admin" text="Адмін" />
         <text name="ft_auto_admin_2" text="admin" />
         <text name="ft_auto_admin_controls_money_time_vehicle_repair_fuel" text="Admin controls: money, time, vehicle repair/fuel" />
         <text name="ft_auto_advances_to_tomorrow_if_time_has_passed_today" text="Advances to tomorrow if time has passed today." />
@@ -499,7 +499,7 @@
         <text name="ft_auto_and_fatigue_sort_and_filter_the_list_pin_a" text="and fatigue. Sort and filter the list. PIN a&#10;" />
         <text name="ft_auto_and_how_long_the_job_took" text="and how long the job took." />
         <text name="ft_auto_and_is_currently_working_on" text="and is currently working on.&#10;" />
-        <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="and is independent of contract/decorative states." />
+        <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="і не залежить від контрактного чи декоративного стану." />
         <text name="ft_auto_and_liquid_manure_tanks" text="and liquid manure tanks." />
         <text name="ft_auto_and_returns_a_configurable_percentage_as_a_rebate" text="and returns a configurable percentage as a rebate." />
         <text name="ft_auto_and_the_selected_vehicle_has_more_than_2_wear" text="and the selected vehicle has more than 2% wear.&#10;" />
@@ -790,7 +790,7 @@
         <text name="ft_auto_debug_mode_off" text="DEBUG MODE: OFF" />
         <text name="ft_auto_debug_mode_on" text="DEBUG MODE: ON" />
         <text name="ft_auto_debug_mode_s" text="Debug Mode: %s&#10;" />
-        <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="DECO   = decorative / fake field (auto-detected)." />
+        <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="ДЕКОР  = декоративне / несправжнє поле (визначається автоматично)." />
         <text name="ft_auto_deep_space" text="Deep Space" />
         <text name="ft_auto_deep_space_ocean_blue_forest_green" text="Deep Space, Ocean Blue, Forest Green,&#10;" />
         <text name="ft_auto_default" text="DEFAULT" />
@@ -994,7 +994,7 @@
         <text name="ft_auto_field_maintenance" text="Field maintenance" />
         <text name="ft_auto_field_manager" text="Field Manager" />
         <text name="ft_auto_field_mgr" text="Field Mgr" />
-        <text name="ft_auto_field_sentry" text="Field Sentry" />
+        <text name="ft_auto_field_sentry" text="Вартовий полів" />
         <text name="ft_auto_field_sentry_2" text="field_sentry" />
         <text name="ft_auto_field_status" text="field_status" />
         <text name="ft_auto_field_work" text="Field Work" />
@@ -1006,8 +1006,8 @@
         <text name="ft_auto_fields_5" text="fields_" />
         <text name="ft_auto_fields_count_of_fields_your_farm_owns_with_crop_or_empt" text="Fields: count of fields your farm owns (with crop or empty).&#10;" />
         <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Поля: ваша земля, на якій росте культура.&#10;" />
-        <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="FieldSentry decides which fields the soil simulation runs&#10;" />
-        <text name="ft_auto_fieldsentry_is_not_available" text="FieldSentry is not available." />
+        <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Вартовий полів вирішує, на яких полях працює симуляція&#10;" />
+        <text name="ft_auto_fieldsentry_is_not_available" text="Вартовий полів недоступний." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - ґрунт по полях, сон і луг" />
         <text name="ft_auto_fill" text="Fill" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
@@ -1060,7 +1060,7 @@
         <text name="ft_auto_food_bar" text="FOOD BAR" />
         <text name="ft_auto_food_d" text="FOOD  %d%%" />
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="for confirmation. Press it again within 4 seconds&#10;" />
-        <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Force a field to sleep (or wake it). Your choice persists&#10;" />
+        <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Приспіть поле (або розбудіть його). Ваш вибір зберігається&#10;" />
         <text name="ft_auto_forecast" text="FORECAST" />
         <text name="ft_auto_forest_green" text="Forest Green" />
         <text name="ft_auto_fork" text="fork" />
@@ -1277,7 +1277,7 @@
         <text name="ft_auto_jobs_2" text="jobs" />
         <text name="ft_auto_jobs_completed_and_current_fatigue_bar" text="jobs completed, and current fatigue bar.&#10;" />
         <text name="ft_auto_jumps_the_clock_to_a_preset_time_of_day" text="Jumps the clock to a preset time of day.&#10;" />
-        <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="just on meadow rules. Independent of the sleep state." />
+        <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="але за правилами луки. Не залежить від стану сну." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Keep track of farm tasks.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="KEEPING UP TO DATE" />
         <text name="ft_auto_kein_netz" text="НЕМАЄ МЕРЕЖІ" />
@@ -1290,7 +1290,7 @@
         <text name="ft_auto_last_action" text="LAST ACTION" />
         <text name="ft_auto_last_crop" text="Last Crop" />
         <text name="ft_auto_launch" text="launch" />
-        <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="leave NPC-contracted or decorative land alone." />
+        <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="і не чіпати землі за контрактами NPC та декоративні ділянки." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
         <text name="ft_auto_level" text="Level" />
         <text name="ft_auto_level_2" text="level" />
@@ -1331,8 +1331,8 @@
         <text name="ft_auto_manage_via_roleplayphone_app" text="Manage via RoleplayPhone app" />
         <text name="ft_auto_manage_your_pro_staff_roster_review_hire" text="Manage your Pro-Staff roster: review, hire,&#10;" />
         <text name="ft_auto_management_menu_to_turn_them_on" text="management menu to turn them on)." />
-        <text name="ft_auto_manual_you_put_it_to_sleep" text="MANUAL = you put it to sleep.&#10;" />
-        <text name="ft_auto_mark_a_field_as_permanent_grassland_it_still_simulates" text="Mark a field as permanent grassland. It still simulates,&#10;" />
+        <text name="ft_auto_manual_you_put_it_to_sleep" text="ВРУЧНУ = ви приспали його самі.&#10;" />
+        <text name="ft_auto_mark_a_field_as_permanent_grassland_it_still_simulates" text="Позначте поле як постійну луку. Воно й далі симулюється,&#10;" />
         <text name="ft_auto_market" text="market" />
         <text name="ft_auto_market_dynamics" text="Динаміка ринку" />
         <text name="ft_auto_market_dynamics_2" text="market_dynamics" />
@@ -1345,9 +1345,11 @@
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
-        <text name="ft_auto_meadow" text="MEADOW" />
+        <text name="ft_auto_meadow" text="ЛУКА" />
+        <text name="ft_fieldsentry_count" text="Полів: %d  ·  сплять: %d" />
+        <text name="ft_fieldsentry_meadow_tag" text="лука" />
         <text name="ft_auto_meadow_2" text="meadow" />
-        <text name="ft_auto_meadow_toggle" text="MEADOW TOGGLE" />
+        <text name="ft_auto_meadow_toggle" text="ПЕРЕМИКАЧ ЛУКИ" />
         <text name="ft_auto_medium" text="MEDIUM" />
         <text name="ft_auto_medium_2" text="Medium" />
         <text name="ft_auto_medium_3" text="medium" />
@@ -1379,7 +1381,7 @@
         <text name="ft_auto_mowing_cutting" text="Косіння / Зрізання" />
         <text name="ft_auto_multi" text="^multi" />
         <text name="ft_auto_multi_day_outlook_day_1_through_day_5" text="Multi-day outlook - Day +1 through Day +5.&#10;" />
-        <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
+        <text name="ft_auto_multiplayer" text="МУЛЬТИПЛЕЄР" />
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Моя ферма" />
@@ -1511,7 +1513,7 @@
         <text name="ft_auto_now" text="now" />
         <text name="ft_auto_npc" text="NPC" />
         <text name="ft_auto_npc_2" text="npc" />
-        <text name="ft_auto_npc_asleep_under_an_ai_npc_contract" text="NPC    = asleep under an AI/NPC contract.&#10;" />
+        <text name="ft_auto_npc_asleep_under_an_ai_npc_contract" text="NPC    = спить за контрактом ШІ/NPC.&#10;" />
         <text name="ft_auto_npc_favor" text="Послуги NPC" />
         <text name="ft_auto_npc_favor_2" text="npc_favor" />
         <text name="ft_auto_npc_favor_mod_not_detected" text="NPC Favor mod not detected." />
@@ -1537,7 +1539,7 @@
         <text name="ft_auto_on" text="УВІМК." />
         <text name="ft_auto_on_2" text="On" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
-        <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="on. Sleeping fields are skipped to save performance and to&#10;" />
+        <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="ґрунту. Сплячі поля пропускаються, щоб берегти продуктивність&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
         <text name="ft_auto_only_motorized_vehicles_owned_by_your_farm_appear" text="Only motorized vehicles owned by your farm appear.&#10;" />
         <text name="ft_auto_only_shown_when_2_stations_buy_that_crop" text="Only shown when 2+ stations buy that crop." />
@@ -1855,8 +1857,8 @@
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="SKIP TO" />
         <text name="ft_auto_slate_grey" text="Slate Grey" />
-        <text name="ft_auto_sleep" text="SLEEP" />
-        <text name="ft_auto_sleep_toggle" text="SLEEP TOGGLE" />
+        <text name="ft_auto_sleep" text="СОН" />
+        <text name="ft_auto_sleep_toggle" text="ПЕРЕМИКАЧ СНУ" />
         <text name="ft_auto_slide_to_unlock" text="slide to unlock" />
         <text name="ft_auto_small" text="SMALL" />
         <text name="ft_auto_snow" text="Snow" />
@@ -1909,7 +1911,7 @@
         <text name="ft_auto_stated_tax_rate" text="stated tax rate." />
         <text name="ft_auto_stations_are_sorted_best_price_first" text="Stations are sorted best-price first.&#10;" />
         <text name="ft_auto_stats" text="stats" />
-        <text name="ft_auto_status" text="STATUS" />
+        <text name="ft_auto_status" text="СТАН" />
         <text name="ft_auto_status_2" text="Status" />
         <text name="ft_auto_status_3" text="^Status:" />
         <text name="ft_auto_status_4" text="status" />
@@ -2061,7 +2063,7 @@
         <text name="ft_auto_todo_list_d_pending_d_done" text="TODO LIST  (%d pending · %d done)" />
         <text name="ft_auto_todos_are_saved_automatically_per_savegame" text="Todos are saved automatically per savegame." />
         <text name="ft_auto_toggle_tablet" text="Toggle tablet" />
-        <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Toggles are admin-only and validated by the host. Clients&#10;" />
+        <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Перемикачі доступні лише адміну й перевіряються хостом. Гравці&#10;" />
         <text name="ft_auto_toggles_the_mod_on_or_off_without_uninstalling_it" text="Toggles the mod on or off without uninstalling it.&#10;" />
         <text name="ft_auto_tool" text="Tool" />
         <text name="ft_auto_top_of_the_app_shows_total_receivable_green" text="Top of the app shows total receivable (green)&#10;" />
@@ -2096,7 +2098,7 @@
         <text name="ft_auto_up_to_30_completed_jobs_are_stored_per_savegame" text="Up to 30 completed jobs are stored per savegame.&#10;" />
         <text name="ft_auto_up_to_6_vehicles_are_shown_at_a_time" text="Up to 6 vehicles are shown at a time." />
         <text name="ft_auto_upd" text="UPD" />
-        <text name="ft_auto_update_fs25_soilfertilizer_to_a_build_that_ships_the_br" text="Update FS25_SoilFertilizer to a build that ships the bridge." />
+        <text name="ft_auto_update_fs25_soilfertilizer_to_a_build_that_ships_the_br" text="Оновіть FS25_SoilFertilizer до версії з мостом." />
         <text name="ft_auto_updates" text="Updates" />
         <text name="ft_auto_updates_2" text="updates" />
         <text name="ft_auto_updates_live_while_you_work" text="Updates live while you work." />
@@ -2140,7 +2142,7 @@
         <text name="ft_auto_vet_2" text="Vet" />
         <text name="ft_auto_veterinarian" text="Veterinarian" />
         <text name="ft_auto_view_and_remove_map_hotspots" text="Перегляд і видалення міток мапи" />
-        <text name="ft_auto_view_only_admin_needed" text="View only (admin needed)" />
+        <text name="ft_auto_view_only_admin_needed" text="Лише перегляд (потрібен адмін)" />
         <text name="ft_auto_visible" text="Visible" />
         <text name="ft_auto_visible_2" text="visible" />
         <text name="ft_auto_visit_npc_on_map_to_collect_reward" text="Visit NPC on map to collect reward" />
@@ -2154,7 +2156,7 @@
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
         <text name="ft_auto_wages_accrued" text="Wages Accrued" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
-        <text name="ft_auto_wake" text="WAKE" />
+        <text name="ft_auto_wake" text="РОЗБУДИТИ" />
         <text name="ft_auto_wake_2" text="wake" />
         <text name="ft_auto_walk_closer_to_a_machine_to_see_it_in_the_list" text="Walk closer to a machine to see it in the list.&#10;" />
         <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="Walk closer to a vehicle to inspect it." />
@@ -2190,7 +2192,7 @@
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
         <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
-        <text name="ft_auto_what_this_is" text="WHAT THIS IS" />
+        <text name="ft_auto_what_this_is" text="ЩО ЦЕ" />
         <text name="ft_auto_wheat" text="WHEAT" />
         <text name="ft_auto_wheelloader" text="wheelloader" />
         <text name="ft_auto_when_an_event_is_running_fire_flood_drought" text="When an event is running (fire, flood, drought,&#10;" />
@@ -2209,7 +2211,7 @@
         <text name="ft_auto_winter" text="Зима" />
         <text name="ft_auto_withered" text="Withered" />
         <text name="ft_auto_withered_2" text="withered" />
-        <text name="ft_auto_without_admin_see_the_list_read_only" text="without admin see the list read-only." />
+        <text name="ft_auto_without_admin_see_the_list_read_only" text="без прав адміна бачать список лише для читання." />
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Without it, use the built-in invoice system." />
         <text name="ft_auto_worker" text="Worker" />
         <text name="ft_auto_worker_2" text="worker" />
@@ -2247,7 +2249,7 @@
         <text name="ft_auto_yes_2" text="Yes" />
         <text name="ft_auto_you_can_remove_individual_entries_or_clear_all" text="You can remove individual entries or clear all.&#10;&#10;" />
         <text name="ft_auto_you_don_t_own_any_fields" text="У вас немає полів." />
-        <text name="ft_auto_you_don_t_own_any_fields_yet" text="You don't own any fields yet." />
+        <text name="ft_auto_you_don_t_own_any_fields_yet" text="У вас поки що немає полів." />
         <text name="ft_auto_your_farm_in_the_vehicle_settings" text="your farm in the vehicle settings." />
         <text name="ft_auto_your_farm_s_total_available_money" text="Усі доступні гроші вашої ферми.&#10;" />
         <text name="ft_auto_your_farm_s_usedplus_credit_rating" text="Your farm's UsedPlus credit rating.&#10;" />

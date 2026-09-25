@@ -1347,6 +1347,8 @@
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
         <text name="ft_auto_meadow" text="MEADOW" />
+        <text name="ft_fieldsentry_count" text="%d fields  ·  %d asleep" />
+        <text name="ft_fieldsentry_meadow_tag" text="meadow" />
         <text name="ft_auto_meadow_2" text="meadow" />
         <text name="ft_auto_meadow_toggle" text="MEADOW TOGGLE" />
         <text name="ft_auto_medium" text="MEDIUM" />
