@@ -30,7 +30,7 @@
 //       g_languageShort, languageShort or currentLanguage;
 //   L1  a key drawn as an actionRow title, value, hint or button fits that row's cut (short() at
 //       42, 44, 66 and 24) in characters, in all 26 files, so no translation is cut mid-word.
-//       short() counts bytes until row 138 lands; L1 is the character limit that fix keeps.
+//       short() counts characters since row 138 (#176), so a text within its cut is never cut.
 //
 // Usage:  node tools/test/l10n-settings-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
