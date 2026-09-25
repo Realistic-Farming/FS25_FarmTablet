@@ -25,13 +25,14 @@
         <text name="ft_ui_app_store" text="Tienda de aplicaciones" />
         <text name="ft_ui_app_updates" text="Actualizaciones" />
         <text name="ft_ui_app_settings" text="Ajustes" />
-        <text name="ft_ui_app_system_settings" text="System Settings" />
+        <text name="ft_ui_app_system_settings" text="Ajustes del sistema" />
         <text name="ft_ui_app_workshop" text="Taller" />
         <text name="ft_ui_app_field_status" text="Gerente de campo" />
-        <text name="ft_ui_app_field_sentry" text="Field Sentry" />
-        <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
-        <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
-        <text name="ft_ui_app_financial_cockpit" text="Financial Cockpit" />
+        <text name="ft_ui_app_field_sentry" text="Centinela de campo" />
+        <text name="ft_ui_app_rotation_planner" text="Planificador de rotación" />
+        <text name="ft_ui_app_organic" text="Orgánico" />
+        <text name="ft_ui_app_irrigation_suite" text="Suite de riego" />
+        <text name="ft_ui_app_financial_cockpit" text="Panel financiero" />
         <text name="ft_fc_health" text="FARM HEALTH" />
         <text name="ft_fc_band_green" text="Healthy" />
         <text name="ft_fc_band_amber" text="Watch" />
@@ -131,22 +132,28 @@
         <text name="ft_ui_app_npc_favor" text="Favor del PNJ" />
         <text name="ft_ui_app_crop_stress" text="Estrés de los cultivos" />
         <text name="ft_ui_app_soil_fertilizer" text="Fertilizante del suelo" />
-        <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
-        <text name="ft_ui_app_worker_costs" text="Worker Costs" />
-        <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_market_dynamics" text="Dinámica del mercado" />
+        <text name="ft_ui_app_worker_costs" text="Costos de trabajadores" />
+        <text name="ft_ui_app_personnel" text="Personal" />
         <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
-        <text name="ft_ui_app_random_world_events" text="Random Events" />
+        <text name="ft_ui_app_random_world_events" text="Eventos aleatorios" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
-        <text name="ft_ui_app_roleplay_phone" text="Invoices" />
-        <text name="ft_ui_app_storage" text="Storage" />
+        <text name="ft_ui_app_roleplay_phone" text="Facturas" />
+        <text name="ft_ui_app_storage" text="Almacén" />
         <text name="ft_ui_app_time_controls" text="Time Controls" />
-        <text name="ft_ui_app_hotspot_manager" text="Hotspot Manager" />
-        <text name="ft_ui_app_notes" text="Notes" />
-        <text name="ft_ui_app_farm_admin" text="Farm Admin" />
+        <text name="ft_ui_app_hotspot_manager" text="Gestor de puntos" />
+        <text name="ft_ui_app_notes" text="Notas" />
+        <text name="ft_ui_app_farm_admin" text="Administración de granja" />
         <text name="ft_ui_app_contracts" text="Contratos" />
-        <text name="ft_ui_app_fleet_manager" text="Fleet Manager" />
-        <text name="ft_ui_app_production_buildings" text="Production" />
-        <text name="ft_ui_app_farm_stats" text="Farm Stats" />
+        <text name="ft_ui_app_fleet_manager" text="Gestor de flota" />
+        <text name="ft_ui_app_production_buildings" text="Producción" />
+        <text name="ft_ui_app_farm_stats" text="Estadísticas de granja" />
+        <text name="ft_ui_short_financial_cockpit" text="Finanzas" />
+        <text name="ft_ui_short_hotspot_manager" text="Puntos" />
+        <text name="ft_ui_short_fleet_manager" text="Flota" />
+        <text name="ft_ui_short_irrigation_suite" text="Riego" />
+        <text name="ft_ui_short_soil_fertilizer" text="Suelo" />
+        <text name="ft_ui_short_field_sentry" text="Centinela" />
         <text name="ft_ui_app_field_jobs" text="Trabajos en el Campo" />
         <text name="ft_help_cat_start" text="Empezando" />
         <text name="ft_help_cat_apps" text="Aplicaciones agrícolas" />
@@ -197,7 +204,7 @@
         <text name="ft_help_s2_console_title" text="Comandos disponibles" />
         <text name="ft_ui_app_animal_auto_care" text="AnimalAutoCare" />
         <text name="ft_ui_app_animal_vet_system" text="Veterinario" />
-        <text name="ft_ui_app_factory_week_schedule" text="Semana fabrica" />
+        <text name="ft_ui_app_factory_week_schedule" text="Semana de la fábrica" />
         <text name="ft_ui_app_realistic_dealer" text="RealisticDealer" />
         <text name="ft_desc_app_animal_auto_care" text="Estado de AnimalAutoCare y activador de cuidado seguro" />
         <text name="ft_desc_app_animal_vet_system" text="Monitor de enfermedades y tratamientos de AnimalVetSystem" />
@@ -331,7 +338,7 @@
         <text name="ft_settings_display_damage_hint" text="Off / Rare / Normal / Frequent | Default: Off" />
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
-        <text name="ft_lockscreen_slide_to_unlock" text="slide to unlock" />
+        <text name="ft_lockscreen_slide_to_unlock" text="desliza para desbloquear" />
         <text name="ft_fields_count" text="%d fields" />
         <text name="ft_fields_none" text="You don't own any fields yet." />
         <text name="ft_fields_none_hint" text="Purchase land to start farming." />
@@ -550,7 +557,7 @@
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
         <text name="ft_auto_automatically_via_its_public_api" text="automatically via its public API.&#10;" />
-        <text name="ft_auto_autumn" text="Autumn" />
+        <text name="ft_auto_autumn" text="Otoño" />
         <text name="ft_auto_available" text="Available" />
         <text name="ft_auto_back" text="&lt; ATRÁS" />
         <text name="ft_auto_back_2" text="back" />
@@ -817,7 +824,7 @@
         <text name="ft_auto_displays_the_status_of_fs25_taxmod" text="Displays the status of FS25_TaxMod.&#10;" />
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Docs / Releases:" />
-        <text name="ft_auto_done" text="DONE" />
+        <text name="ft_auto_done" text="LISTO" />
         <text name="ft_auto_done_collect_reward" text="DONE - COLLECT REWARD" />
         <text name="ft_auto_done_mark_a_task_as_completed" text="DONE - mark a task as completed (■)&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Download the latest version from the mod page on&#10;" />
@@ -843,7 +850,7 @@
         <text name="ft_auto_each_favor_shows_npc_name_description_completion" text="Each favor shows NPC name, description, completion&#10;" />
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Each row shows field ID, crop type, moisture %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
-        <text name="ft_auto_edit" text="EDIT" />
+        <text name="ft_auto_edit" text="EDITAR" />
         <text name="ft_auto_elapsed" text="  ·  Transcurrido: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="EMPTY" />
@@ -969,7 +976,7 @@
         <text name="ft_auto_fatigue_pricier_net_out_across_the_crew" text="fatigue (pricier) net out across the crew." />
         <text name="ft_auto_favorites" text="favorites" />
         <text name="ft_auto_favors" text="FAVORS" />
-        <text name="ft_auto_favourites" text="Favourites" />
+        <text name="ft_auto_favourites" text="Favoritos" />
         <text name="ft_auto_favourites_2" text="favourites" />
         <text name="ft_auto_fbm" text="fbm" />
         <text name="ft_auto_feed_animals" text="Feed animals" />
@@ -994,7 +1001,7 @@
         <text name="ft_auto_fieldcount" text="fieldcount_" />
         <text name="ft_auto_fields" text="FIELDS" />
         <text name="ft_auto_fields_2" text="FIELDS  (" />
-        <text name="ft_auto_fields_3" text="Fields" />
+        <text name="ft_auto_fields_3" text="Campos" />
         <text name="ft_auto_fields_4" text="fields" />
         <text name="ft_auto_fields_5" text="fields_" />
         <text name="ft_auto_fields_count_of_fields_your_farm_owns_with_crop_or_empt" text="Fields: count of fields your farm owns (with crop or empty).&#10;" />
@@ -1375,7 +1382,7 @@
         <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
-        <text name="ft_auto_my_farm" text="My Farm" />
+        <text name="ft_auto_my_farm" text="Mi granja" />
         <text name="ft_auto_n_a" text="N/A" />
         <text name="ft_auto_name" text="Name" />
         <text name="ft_auto_name_2" text="name" />
@@ -1460,7 +1467,7 @@
         <text name="ft_auto_no_event" text="No event" />
         <text name="ft_auto_no_event_currently_active" text="No event currently active." />
         <text name="ft_auto_no_factories_are_in_the_factoryweekschedule_hud_cache_y" text="No factories are in the FactoryWeekSchedule HUD cache yet." />
-        <text name="ft_auto_no_favourites_yet" text="No favourites yet" />
+        <text name="ft_auto_no_favourites_yet" text="Aún no hay favoritos" />
         <text name="ft_auto_no_fields_owned" text="No fields owned" />
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
@@ -1879,7 +1886,7 @@
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Pulverización" />
-        <text name="ft_auto_spring" text="Spring" />
+        <text name="ft_auto_spring" text="Primavera" />
         <text name="ft_auto_springboard" text="springboard" />
         <text name="ft_auto_square_brackets_next_to_their_name" text="square brackets next to their name." />
         <text name="ft_auto_staff" text="STAFF" />
@@ -1930,7 +1937,7 @@
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
         <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
-        <text name="ft_auto_summer" text="Summer" />
+        <text name="ft_auto_summer" text="Verano" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
@@ -1977,8 +1984,8 @@
         <text name="ft_auto_tabletshowsettings_show_current_settings" text="TabletShowSettings - Show current settings&#10;" />
         <text name="ft_auto_tablettoggle" text="TabletToggle" />
         <text name="ft_auto_tablettoggle_toggle_tablet" text="TabletToggle - Toggle tablet&#10;" />
-        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Tap an app to add or remove it from favourites" />
-        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Tap EDIT, then pick your apps" />
+        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Toca una aplicación para agregarla a favoritos o quitarla" />
+        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Toca EDITAR y elige tus aplicaciones" />
         <text name="ft_auto_tap_edit_to_add_widgets" text="Toca EDITAR para agregar widgets." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
@@ -2199,7 +2206,7 @@
         <text name="ft_auto_wind" text="WIND" />
         <text name="ft_auto_wind_speed" text="Wind Speed" />
         <text name="ft_auto_wind_speed_in_km_h_and_compass_direction" text="Wind speed in km/h and compass direction.&#10;" />
-        <text name="ft_auto_winter" text="Winter" />
+        <text name="ft_auto_winter" text="Invierno" />
         <text name="ft_auto_withered" text="Withered" />
         <text name="ft_auto_withered_2" text="withered" />
         <text name="ft_auto_without_admin_see_the_list_read_only" text="without admin see the list read-only." />
@@ -2247,7 +2254,7 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
-        <text name="ft_lockscreen_date_day" text="%s  -  Day %d" />
+        <text name="ft_lockscreen_date_day" text="%s  -  Día %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
         <text name="ft_count_pen" text="%d pen" />
@@ -2641,6 +2648,4 @@
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
-
-        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>

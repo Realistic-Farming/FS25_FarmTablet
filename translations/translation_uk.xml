@@ -22,16 +22,17 @@
         <text name="ft_ui_debug_long" text="Увімкнути журнал налагодження на консолі" />
         <text name="ft_ui_reset" text="Скидання налаштувань планшета" />
         <text name="ft_ui_app_dashboard" text="Приладова панель" />
-        <text name="ft_ui_app_store" text="App Store" />
+        <text name="ft_ui_app_store" text="Магазин застосунків" />
         <text name="ft_ui_app_updates" text="Оновлення" />
         <text name="ft_ui_app_settings" text="Налаштування" />
-        <text name="ft_ui_app_system_settings" text="System Settings" />
+        <text name="ft_ui_app_system_settings" text="Системні налаштування" />
         <text name="ft_ui_app_workshop" text="Майстерня" />
         <text name="ft_ui_app_field_status" text="Польовий менеджер" />
-        <text name="ft_ui_app_field_sentry" text="Field Sentry" />
-        <text name="ft_ui_app_rotation_planner" text="Rotation Planner" />
-        <text name="ft_ui_app_irrigation_suite" text="Irrigation Suite" />
-        <text name="ft_ui_app_financial_cockpit" text="Financial Cockpit" />
+        <text name="ft_ui_app_field_sentry" text="Вартовий полів" />
+        <text name="ft_ui_app_rotation_planner" text="Планувальник сівозміни" />
+        <text name="ft_ui_app_organic" text="Органіка" />
+        <text name="ft_ui_app_irrigation_suite" text="Система поливу" />
+        <text name="ft_ui_app_financial_cockpit" text="Фінансова панель" />
         <text name="ft_fc_health" text="FARM HEALTH" />
         <text name="ft_fc_band_green" text="Healthy" />
         <text name="ft_fc_band_amber" text="Watch" />
@@ -131,23 +132,29 @@
         <text name="ft_ui_app_npc_favor" text="NPC Фавор" />
         <text name="ft_ui_app_crop_stress" text="Стрес культури" />
         <text name="ft_ui_app_soil_fertilizer" text="Добриво ґрунту" />
-        <text name="ft_ui_app_market_dynamics" text="Market Dynamics" />
-        <text name="ft_ui_app_worker_costs" text="Worker Costs" />
-        <text name="ft_ui_app_personnel" text="Personnel" />
+        <text name="ft_ui_app_market_dynamics" text="Динаміка ринку" />
+        <text name="ft_ui_app_worker_costs" text="Витрати на працівників" />
+        <text name="ft_ui_app_personnel" text="Персонал" />
         <text name="ft_ui_app_prostaff" text="ProStaff Co-Op" />
-        <text name="ft_ui_app_random_world_events" text="Random Events" />
+        <text name="ft_ui_app_random_world_events" text="Випадкові події" />
         <text name="ft_ui_app_used_plus" text="UsedPlus" />
-        <text name="ft_ui_app_roleplay_phone" text="Invoices" />
-        <text name="ft_ui_app_storage" text="Storage" />
+        <text name="ft_ui_app_roleplay_phone" text="Рахунки" />
+        <text name="ft_ui_app_storage" text="Склад" />
         <text name="ft_ui_app_time_controls" text="Time Controls" />
-        <text name="ft_ui_app_hotspot_manager" text="Hotspot Manager" />
-        <text name="ft_ui_app_notes" text="Notes" />
-        <text name="ft_ui_app_farm_admin" text="Farm Admin" />
-        <text name="ft_ui_app_contracts" text="Kontrakty" />
-        <text name="ft_ui_app_fleet_manager" text="Fleet Manager" />
-        <text name="ft_ui_app_production_buildings" text="Production" />
-        <text name="ft_ui_app_farm_stats" text="Farm Stats" />
-        <text name="ft_ui_app_field_jobs" text="Polovi Roboty" />
+        <text name="ft_ui_app_hotspot_manager" text="Менеджер міток" />
+        <text name="ft_ui_app_notes" text="Нотатки" />
+        <text name="ft_ui_app_farm_admin" text="Адміністрування ферми" />
+        <text name="ft_ui_app_contracts" text="Контракти" />
+        <text name="ft_ui_app_fleet_manager" text="Керування технікою" />
+        <text name="ft_ui_app_production_buildings" text="Виробництво" />
+        <text name="ft_ui_app_farm_stats" text="Статистика ферми" />
+        <text name="ft_ui_short_financial_cockpit" text="Фінанси" />
+        <text name="ft_ui_short_hotspot_manager" text="Мітки" />
+        <text name="ft_ui_short_fleet_manager" text="Техніка" />
+        <text name="ft_ui_short_irrigation_suite" text="Полив" />
+        <text name="ft_ui_short_soil_fertilizer" text="Ґрунт" />
+        <text name="ft_ui_short_field_sentry" text="Вартовий" />
+        <text name="ft_ui_app_field_jobs" text="Польові роботи" />
         <text name="ft_help_cat_start" text="Початок роботи" />
         <text name="ft_help_cat_apps" text="Фермерські програми" />
         <text name="ft_help_cat_mods" text="Супутні моди" />
@@ -331,7 +338,7 @@
         <text name="ft_settings_display_damage_hint" text="Off / Rare / Normal / Frequent | Default: Off" />
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
-        <text name="ft_lockscreen_slide_to_unlock" text="slide to unlock" />
+        <text name="ft_lockscreen_slide_to_unlock" text="проведіть, щоб розблокувати" />
         <text name="ft_fields_count" text="%d fields" />
         <text name="ft_fields_none" text="You don't own any fields yet." />
         <text name="ft_fields_none_hint" text="Purchase land to start farming." />
@@ -550,7 +557,7 @@
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
         <text name="ft_auto_automatically_via_its_public_api" text="automatically via its public API.&#10;" />
-        <text name="ft_auto_autumn" text="Autumn" />
+        <text name="ft_auto_autumn" text="Осінь" />
         <text name="ft_auto_available" text="Available" />
         <text name="ft_auto_back" text="&lt; НАЗАД" />
         <text name="ft_auto_back_2" text="back" />
@@ -817,7 +824,7 @@
         <text name="ft_auto_displays_the_status_of_fs25_taxmod" text="Displays the status of FS25_TaxMod.&#10;" />
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Docs / Releases:" />
-        <text name="ft_auto_done" text="DONE" />
+        <text name="ft_auto_done" text="ГОТОВО" />
         <text name="ft_auto_done_collect_reward" text="DONE - COLLECT REWARD" />
         <text name="ft_auto_done_mark_a_task_as_completed" text="DONE - mark a task as completed (■)&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Download the latest version from the mod page on&#10;" />
@@ -843,7 +850,7 @@
         <text name="ft_auto_each_favor_shows_npc_name_description_completion" text="Each favor shows NPC name, description, completion&#10;" />
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Each row shows field ID, crop type, moisture %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
-        <text name="ft_auto_edit" text="EDIT" />
+        <text name="ft_auto_edit" text="ЗМІНИТИ" />
         <text name="ft_auto_elapsed" text="  ·  Минуло: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="EMPTY" />
@@ -969,7 +976,7 @@
         <text name="ft_auto_fatigue_pricier_net_out_across_the_crew" text="fatigue (pricier) net out across the crew." />
         <text name="ft_auto_favorites" text="favorites" />
         <text name="ft_auto_favors" text="FAVORS" />
-        <text name="ft_auto_favourites" text="Favourites" />
+        <text name="ft_auto_favourites" text="Вибране" />
         <text name="ft_auto_favourites_2" text="favourites" />
         <text name="ft_auto_fbm" text="fbm" />
         <text name="ft_auto_feed_animals" text="Feed animals" />
@@ -994,7 +1001,7 @@
         <text name="ft_auto_fieldcount" text="fieldcount_" />
         <text name="ft_auto_fields" text="FIELDS" />
         <text name="ft_auto_fields_2" text="FIELDS  (" />
-        <text name="ft_auto_fields_3" text="Fields" />
+        <text name="ft_auto_fields_3" text="Поля" />
         <text name="ft_auto_fields_4" text="fields" />
         <text name="ft_auto_fields_5" text="fields_" />
         <text name="ft_auto_fields_count_of_fields_your_farm_owns_with_crop_or_empt" text="Fields: count of fields your farm owns (with crop or empty).&#10;" />
@@ -1375,7 +1382,7 @@
         <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
-        <text name="ft_auto_my_farm" text="My Farm" />
+        <text name="ft_auto_my_farm" text="Моя ферма" />
         <text name="ft_auto_n_a" text="N/A" />
         <text name="ft_auto_name" text="Name" />
         <text name="ft_auto_name_2" text="name" />
@@ -1460,7 +1467,7 @@
         <text name="ft_auto_no_event" text="No event" />
         <text name="ft_auto_no_event_currently_active" text="No event currently active." />
         <text name="ft_auto_no_factories_are_in_the_factoryweekschedule_hud_cache_y" text="No factories are in the FactoryWeekSchedule HUD cache yet." />
-        <text name="ft_auto_no_favourites_yet" text="No favourites yet" />
+        <text name="ft_auto_no_favourites_yet" text="Вибраного поки немає" />
         <text name="ft_auto_no_fields_owned" text="No fields owned" />
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
@@ -1879,7 +1886,7 @@
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Обприскування" />
-        <text name="ft_auto_spring" text="Spring" />
+        <text name="ft_auto_spring" text="Весна" />
         <text name="ft_auto_springboard" text="springboard" />
         <text name="ft_auto_square_brackets_next_to_their_name" text="square brackets next to their name." />
         <text name="ft_auto_staff" text="STAFF" />
@@ -1930,7 +1937,7 @@
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
         <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
-        <text name="ft_auto_summer" text="Summer" />
+        <text name="ft_auto_summer" text="Літо" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
@@ -1977,8 +1984,8 @@
         <text name="ft_auto_tabletshowsettings_show_current_settings" text="TabletShowSettings - Show current settings&#10;" />
         <text name="ft_auto_tablettoggle" text="TabletToggle" />
         <text name="ft_auto_tablettoggle_toggle_tablet" text="TabletToggle - Toggle tablet&#10;" />
-        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Tap an app to add or remove it from favourites" />
-        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Tap EDIT, then pick your apps" />
+        <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Натисніть на застосунок, щоб додати його до вибраного або прибрати" />
+        <text name="ft_auto_tap_edit_then_pick_your_apps" text="Натисніть ЗМІНИТИ, потім виберіть застосунки" />
         <text name="ft_auto_tap_edit_to_add_widgets" text="Натисніть ЗМІНИТИ, щоб додати віджети." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
@@ -2199,7 +2206,7 @@
         <text name="ft_auto_wind" text="WIND" />
         <text name="ft_auto_wind_speed" text="Wind Speed" />
         <text name="ft_auto_wind_speed_in_km_h_and_compass_direction" text="Wind speed in km/h and compass direction.&#10;" />
-        <text name="ft_auto_winter" text="Winter" />
+        <text name="ft_auto_winter" text="Зима" />
         <text name="ft_auto_withered" text="Withered" />
         <text name="ft_auto_withered_2" text="withered" />
         <text name="ft_auto_without_admin_see_the_list_read_only" text="without admin see the list read-only." />
@@ -2247,7 +2254,7 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
-        <text name="ft_lockscreen_date_day" text="%s  -  Day %d" />
+        <text name="ft_lockscreen_date_day" text="%s  -  День %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
         <text name="ft_count_pen" text="%d pen" />
@@ -2641,6 +2648,4 @@
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
-
-        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>
