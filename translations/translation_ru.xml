@@ -288,9 +288,9 @@
         <text name="ft_battery_charging" text="Зарядка планшета..." />
         <text name="ft_battery_charge_hint" text="Зарядите немного, чтобы продолжить." />
         <text name="ft_battery_charge" text="ЗАРЯДИТЬ" />
-        <text name="ft_common_rare" text="Rare" />
-        <text name="ft_common_normal" text="Normal" />
-        <text name="ft_common_frequent" text="Frequent" />
+        <text name="ft_common_rare" text="Редко" />
+        <text name="ft_common_normal" text="Обычно" />
+        <text name="ft_common_frequent" text="Часто" />
         <text name="ft_common_close" text="ЗАКРЫТЬ" />
         <text name="ft_network_fee_format" text="Базовая плата: %s €/день" />
         <text name="ft_network_fee_deducted" text="Списана базовая плата: %d €" />
@@ -1062,7 +1062,7 @@
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="for confirmation. Press it again within 4 seconds&#10;" />
         <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Усыпите поле (или разбудите его). Ваш выбор сохраняется&#10;" />
         <text name="ft_auto_forecast" text="ПРОГНОЗ" />
-        <text name="ft_auto_forest_green" text="Forest Green" />
+        <text name="ft_auto_forest_green" text="Лесной зелёный" />
         <text name="ft_auto_fork" text="fork" />
         <text name="ft_auto_frame" text="frame" />
         <text name="ft_auto_freezing" text="Freezing" />
@@ -1354,7 +1354,7 @@
         <text name="ft_auto_medium_2" text="Средний" />
         <text name="ft_auto_medium_3" text="medium" />
         <text name="ft_auto_midnight" text="ПОЛНОЧЬ" />
-        <text name="ft_auto_midnight_purple" text="Midnight Purple" />
+        <text name="ft_auto_midnight_purple" text="Полночный фиолетовый" />
         <text name="ft_auto_midnight_purple_warm_dark_slate_grey" text="Midnight Purple, Warm Dark, Slate Grey." />
         <text name="ft_auto_mild" text="Mild" />
         <text name="ft_auto_mission" text="Mission" />
@@ -1525,7 +1525,7 @@
         <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
-        <text name="ft_auto_ocean_blue" text="Ocean Blue" />
+        <text name="ft_auto_ocean_blue" text="Океанский синий" />
         <text name="ft_auto_off" text="ВЫКЛ." />
         <text name="ft_auto_off_2" text="Выкл." />
         <text name="ft_auto_off_3" text="off" />
@@ -1856,7 +1856,7 @@
         <text name="ft_auto_single_station_no_comparison_available" text="Одна станция - сравнение недоступно" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="ПЕРЕЙТИ К" />
-        <text name="ft_auto_slate_grey" text="Slate Grey" />
+        <text name="ft_auto_slate_grey" text="Сланцевый серый" />
         <text name="ft_auto_sleep" text="СОН" />
         <text name="ft_auto_sleep_toggle" text="ПЕРЕКЛЮЧАТЕЛЬ СНА" />
         <text name="ft_auto_slide_to_unlock" text="сдвиньте для разблокировки" />
@@ -2164,7 +2164,7 @@
         <text name="ft_auto_wall" text="wall" />
         <text name="ft_auto_warm" text="Тепло" />
         <text name="ft_auto_warm_32_hot_32" text="Warm (&lt;32)  Hot (32+)." />
-        <text name="ft_auto_warm_dark" text="Warm Dark" />
+        <text name="ft_auto_warm_dark" text="Тёплый тёмный" />
         <text name="ft_auto_water" text="ВОДА" />
         <text name="ft_auto_water_bar" text="WATER BAR" />
         <text name="ft_auto_water_crops" text="Water crops" />
@@ -2385,7 +2385,7 @@
         <text name="ft_settings_provider_button" text="Change provider" />
         <text name="ft_settings_hint_provider" text="Click to change provider" />
         <text name="ft_settings_outage_button" text="Outage: %s" />
-        <text name="ft_settings_hint_frequency" text="Off / Rare / Normal / Often" />
+        <text name="ft_settings_hint_frequency" text="Выкл. / Редко / Обычно / Часто" />
         <text name="ft_settings_hint_duration" text="Duration: 1 / 2 / 3 / 4 hours" />
         <text name="ft_settings_display_button" text="Display: %s" />
         <text name="ft_settings_hint_display_damage" text="Off / Rare / Normal / Often | Default: Off" />
@@ -2419,12 +2419,12 @@
         <text name="ft_settings_hint_home_image" text="Используйте PNG-файлы из папки FTBackground." />
         <text name="ft_settings_app_labels" text="Подписи приложений" />
         <text name="ft_settings_text_size_title" text="Размер текста" />
-        <text name="ft_settings_content_font_title" text="Content text size" />
-        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger is easier to read on big screens." />
-        <text name="ft_font_scale_small" text="Small (0.8x)" />
-        <text name="ft_font_scale_normal" text="Normal (1.0x)" />
-        <text name="ft_font_scale_large" text="Large (1.25x)" />
-        <text name="ft_font_scale_huge" text="Huge (1.5x)" />
+        <text name="ft_settings_content_font_title" text="Размер текста в приложениях" />
+        <text name="ft_settings_hint_content_font" text="Размер текста в приложениях. Крупный удобнее на больших экранах." />
+        <text name="ft_font_scale_small" text="Мелкий (0.8x)" />
+        <text name="ft_font_scale_normal" text="Обычный (1.0x)" />
+        <text name="ft_font_scale_large" text="Крупный (1.25x)" />
+        <text name="ft_font_scale_huge" text="Огромный (1.5x)" />
         <text name="ft_settings_hint_text_size2" text="Размер подписей приложений." />
         <text name="ft_settings_text_color_title" text="Цвет текста" />
         <text name="ft_settings_hint_text_color2" text="Цвет подписей приложений." />

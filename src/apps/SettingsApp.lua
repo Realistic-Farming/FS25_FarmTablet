@@ -13,102 +13,16 @@ local function playClickSound(settings)
     end
 end
 
-local function ftSettingsIsGerman()
-    local lang = ""
-    if g_languageShort ~= nil then lang = tostring(g_languageShort) end
-    if (lang == "" or lang == "nil") and g_i18n ~= nil then
-        lang = tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or "")
-    end
-    lang = string.lower(lang)
-    return lang == "de" or lang == "ger" or lang == "deutsch" or lang:sub(1,2) == "de"
-end
-
-local FT_SETTINGS_DE = {
-    ft_settings_battery_drain = "Akkuverbrauch",
-    ft_settings_hint_battery_drain = "Legt fest, ob der Tablet-Akku mit der Zeit leer wird.",
-    ft_settings_scroll_help = "Mausrad über diesem Fenster scrollt die Einstellungen.",
-    ft_settings_console_help = "Befehl „tablet“ zeigt Konsolenbefehle.",
-    ft_settings_all_settings = "Alle Einstellungen",
-    ft_settings_default_values = "Standardwerte",
-    ft_settings_hint_reset_all = "Setzt alle Tablet-Einstellungen zurück.",
-    ft_settings_reset_all = "Alles zurücksetzen",
-    ft_settings_apps_loaded = "Apps geladen",
-    ft_settings_open_key = "Öffnen-Taste",
-    ft_common_author = "Autor",
-    ft_common_version = "Version",
-    ft_settings_general = "Allgemein",
-    ft_settings_notifications = "Meldungen",
-    ft_settings_hint_notifications2 = "Tablet-Meldungen beim Laden und bei Ereignissen.",
-    ft_settings_start_app_title = "Start-App",
-    ft_settings_hint_start_app2 = "Diese App öffnet zuerst nach dem Entsperren.",
-    ft_settings_debug_mode = "Debug-Modus",
-    ft_settings_hint_debug2 = "Schreibt zusätzliche Diagnosemeldungen in die Log.",
-    ft_settings_network_repair = "Netzwerk und Reparatur",
-    ft_settings_provider = "Anbieter",
-    ft_settings_daily_fee = "Grundgebühr",
-    ft_settings_reception = "Empfang",
-    ft_settings_network_outages = "Netzstörungen",
-    ft_settings_outage_duration = "Störungsdauer",
-    ft_settings_display_damage = "Displayschaden",
-    ft_settings_provider_selection = "Anbieterauswahl",
-    ft_settings_hint_provider_select = "Öffnet die Anbieterauswahl.",
-    ft_common_toggle = "Umschalten",
-    ft_common_switch = "Wechseln",
-    ft_common_change = "Ändern",
-    ft_common_open = "Öffnen",
-    ft_common_open_list = "Liste öffnen",
-    ft_common_on = "An",
-    ft_common_off = "Aus",
-    ft_common_reset = "Zurücksetzen",
-    ft_common_default = "Standard",
-
-    ft_battery_mode_off = "Aus",
-    ft_battery_mode_open = "Nur geöffnet",
-    ft_battery_mode_standby = "Immer (auch im Standby)",
-    ft_settings_hint_battery_drain_mode = "Legt fest, wann der Tablet-Akku verbraucht wird.",
-    ft_settings_battery_profile = "Akkuprofil",
-    ft_settings_hint_battery_profile = "Niedrig, normal, hoch oder eigene Werte.",
-    ft_battery_profile_low = "Niedrig",
-    ft_battery_profile_normal = "Normal",
-    ft_battery_profile_high = "Hoch",
-    ft_battery_profile_custom = "Benutzerdefiniert",
-    ft_settings_battery_open_rate = "Verbrauch geöffnet",
-    ft_settings_hint_battery_open_rate = "Akkuverbrauch, wenn das Tablet geöffnet ist.",
-    ft_settings_battery_standby_rate = "Verbrauch Standby",
-    ft_settings_hint_battery_standby_rate = "Akkuverbrauch, wenn das Tablet geschlossen ist.",
-    ft_battery_rate_minutes = "1 %% / %d Min.",
-    ft_settings_appearance = "Darstellung",
-    ft_settings_background_color = "Hintergrundfarbe",
-    ft_settings_hint_screen_color2 = "Ändert die Bildschirmfarbe des Tablets.",
-    ft_settings_home_image = "Home-Bild",
-    ft_settings_hint_home_image = "Eigene PNG-Dateien aus dem Ordner FTBackground nutzen.",
-    ft_settings_app_labels = "App-Beschriftungen",
-    ft_settings_hint_app_labels = "Text unter den App-Symbolen anzeigen.",
-    ft_settings_text_size = "Textgröße",
-    ft_settings_hint_text_size = "Größe der App-Beschriftungen.",
-    ft_settings_text_color = "Textfarbe",
-    ft_settings_hint_text_color = "Farbe der App-Beschriftungen.",
-    ft_settings_sound = "Ton",
-    ft_settings_sound_effects = "Töne",
-    ft_settings_hint_sound_effects = "Hauptschalter für alle Tablet-Töne.",
-    ft_settings_app_sound = "App-Ton",
-    ft_settings_hint_app_sound = "Ton beim Wechseln von Apps.",
-    ft_settings_help_sound = "Hilfe-Ton",
-    ft_settings_hint_help_sound = "Ton beim Öffnen und Schließen der Hilfe.",
-    ft_settings_tablet_sound = "Tablet-Ton",
-    ft_settings_hint_tablet_sound = "Ton beim Öffnen und Schließen mit T.",
-}
-
+-- The locale file wins (MAINTENANCE row 136), through the tablet's one lookup, FT.l10n
+-- (Constants.lua). These helpers used to ask the globals ftUiText and ftUiFormat, which never
+-- existed: FarmTabletUI.lua defines both as locals, so every row read its English fallback.
 local function ftSafeText(key, fallback)
-    if ftSettingsIsGerman() and key ~= nil and FT_SETTINGS_DE[tostring(key)] ~= nil then
-        return FT_SETTINGS_DE[tostring(key)]
-    end
-    if ftUiText ~= nil then return ftUiText(key, fallback) end
+    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, fallback) end
     return fallback
 end
 
 local function ftSafeFormat(key, fallback, ...)
-    if ftUiFormat ~= nil then return ftUiFormat(key, fallback, ...) end
+    if FT ~= nil and FT.l10nFormat ~= nil then return FT.l10nFormat(key, fallback, ...) end
     return string.format(fallback, ...)
 end
 
@@ -272,7 +186,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local curFontScale = s.contentFontScale or 1.0
     local fsIdx = 2
     for i, v in ipairs(FONT_SCALES) do if math.abs(v - curFontScale) < 0.01 then fsIdx = i; break end end
-    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger is easier to read on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger reads better on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         s.contentFontScale = FONT_SCALES[(fsIdx % #FONT_SCALES) + 1]
         s:save()
@@ -415,7 +329,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     local outageFreq = (self._getSignalOutageFrequencyLabel ~= nil and self:_getSignalOutageFrequencyLabel()) or ftSafeText("ft_common_off", "Off")
     local outageDuration = tonumber(self._signalOutageDurationHours) or 2
-    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Often"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Frequent"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s); if self._cycleSignalOutageFrequency ~= nil then self:_cycleSignalOutageFrequency() end; refresh(self)
     end)
     actionRow(ftSafeText("ft_settings_outage_duration", "Outage duration"), ftSafeFormat("ft_duration_hours_short", "%d hrs", math.floor(outageDuration)), ftSafeText("ft_settings_hint_outage_duration", "Duration in ingame hours."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()

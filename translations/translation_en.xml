@@ -2386,7 +2386,7 @@
         <text name="ft_settings_provider_button" text="Change provider" />
         <text name="ft_settings_hint_provider" text="Click to change provider" />
         <text name="ft_settings_outage_button" text="Outage: %s" />
-        <text name="ft_settings_hint_frequency" text="Off / Rare / Normal / Often" />
+        <text name="ft_settings_hint_frequency" text="Off / Rare / Normal / Frequent" />
         <text name="ft_settings_hint_duration" text="Duration: 1 / 2 / 3 / 4 hours" />
         <text name="ft_settings_display_button" text="Display: %s" />
         <text name="ft_settings_hint_display_damage" text="Off / Rare / Normal / Often | Default: Off" />
@@ -2421,7 +2421,7 @@
         <text name="ft_settings_app_labels" text="App labels" />
         <text name="ft_settings_text_size_title" text="Text size" />
         <text name="ft_settings_content_font_title" text="Content text size" />
-        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger is easier to read on big screens." />
+        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger reads better on big screens." />
         <text name="ft_font_scale_small" text="Small (0.8x)" />
         <text name="ft_font_scale_normal" text="Normal (1.0x)" />
         <text name="ft_font_scale_large" text="Large (1.25x)" />
