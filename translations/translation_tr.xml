@@ -266,54 +266,54 @@
         <text name="ft_rd_notices_line" text="Bildirimler: %d" />
         <text name="ft_rd_server_note" text="Arac hacizleri hala sunucu tarafinda RealisticDealer uzerinden yurutulur." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
-        <text name="ft_network_title" text="Network" />
-        <text name="ft_network_choose_provider" text="Choose network provider" />
-        <text name="ft_network_choose_hint" text="Select a provider and activate it." />
-        <text name="ft_network_activate" text="ACTIVATE" />
-        <text name="ft_network_provider_active" text="Active: %s" />
-        <text name="ft_network_outage_short" text="Outage" />
-        <text name="ft_network_no_signal_short" text="No signal" />
-        <text name="ft_network_weak_short" text="Weak" />
+        <text name="ft_network_title" text="Ağ" />
+        <text name="ft_network_choose_provider" text="Ağ sağlayıcısını seç" />
+        <text name="ft_network_choose_hint" text="Bir sağlayıcı seç ve etkinleştir." />
+        <text name="ft_network_activate" text="ETKİNLEŞTİR" />
+        <text name="ft_network_provider_active" text="Etkin: %s" />
+        <text name="ft_network_outage_short" text="Kesinti" />
+        <text name="ft_network_no_signal_short" text="Sinyal yok" />
+        <text name="ft_network_weak_short" text="Zayıf" />
         <text name="ft_network_recovered" text="%s: sinyal geri geldi." />
         <text name="ft_network_outage_msg" text="%s: sebeke kesintisi, yaklasik 2 oyun saati." />
         <text name="ft_network_no_signal_msg" text="%s: burada sinyal yok." />
         <text name="ft_network_weak_msg" text="%s: zayif sinyal." />
         <text name="ft_battery_empty" text="Tablet pili bitti" />
-        <text name="ft_battery_charging" text="Tablet sarj oluyor..." />
-        <text name="ft_battery_charge_hint" text="Devam etmek icin kisa sure sarj edin." />
-        <text name="ft_battery_charge" text="SARJ ET" />
+        <text name="ft_battery_charging" text="Tablet şarj oluyor..." />
+        <text name="ft_battery_charge_hint" text="Devam etmek için kısa süre şarj edin." />
+        <text name="ft_battery_charge" text="ŞARJ ET" />
         <text name="ft_common_rare" text="Rare" />
         <text name="ft_common_normal" text="Normal" />
         <text name="ft_common_frequent" text="Frequent" />
-        <text name="ft_common_close" text="CLOSE" />
-        <text name="ft_network_fee_format" text="Base fee: %s €/day" />
-        <text name="ft_network_fee_deducted" text="Base fee deducted: %d €" />
+        <text name="ft_common_close" text="KAPAT" />
+        <text name="ft_network_fee_format" text="Temel ücret: %s €/gün" />
+        <text name="ft_network_fee_deducted" text="Temel ücret kesildi: %d €" />
         <text name="ft_network_provider_changed" text="Provider changed: %s." />
         <text name="ft_network_outages_changed" text="Outages: %s." />
-        <text name="ft_network_outage_label" text="Network outage" />
-        <text name="ft_network_no_signal_label" text="No signal" />
-        <text name="ft_network_weak_signal_label" text="Weak signal" />
+        <text name="ft_network_outage_label" text="Ağ kesintisi" />
+        <text name="ft_network_no_signal_label" text="Sinyal yok" />
+        <text name="ft_network_weak_signal_label" text="Zayıf sinyal" />
         <text name="ft_network_medium_short" text="Medium" />
         <text name="ft_network_good_short" text="Good" />
         <text name="ft_network_excellent_short" text="Excellent" />
-        <text name="ft_network_outage_recovered" text="Network outage fixed. Data is updating." />
-        <text name="ft_network_outage_detected" text="Network outage detected. Estimated duration: approx. %d in-game hours." />
-        <text name="ft_network_no_reception_here" text="No reception at this location." />
-        <text name="ft_network_weak_reception" text="Weak reception." />
-        <text name="ft_network_data_frozen" text="%s - data frozen" />
-        <text name="ft_repair_service_title" text="Tablet Service" />
-        <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
-        <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
-        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
-        <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
-        <text name="ft_repair_title" text="DISPLAY DAMAGE" />
-        <text name="ft_repair_subtitle" text="Display damage from a drop" />
-        <text name="ft_repair_in_progress" text="Tablet in repair" />
-        <text name="ft_repair_notify_done" text="We will notify you when the repair is finished." />
-        <text name="ft_repair_stock_available" text="Display in stock - duration: approx. 1 in-game hour" />
-        <text name="ft_repair_stock_ordered" text="Display ordered - duration: approx. 1 in-game day" />
-        <text name="ft_repair_remaining" text="Remaining: %s" />
-        <text name="ft_repair_remaining_day_format" text="%d day %02d:%02d" />
+        <text name="ft_network_outage_recovered" text="Ağ kesintisi giderildi. Veriler güncelleniyor." />
+        <text name="ft_network_outage_detected" text="Ağ kesintisi algılandı. Tahmini süre: yaklaşık %d oyun saati." />
+        <text name="ft_network_no_reception_here" text="Bu konumda çekim yok." />
+        <text name="ft_network_weak_reception" text="Zayıf çekim." />
+        <text name="ft_network_data_frozen" text="%s - veriler donduruldu" />
+        <text name="ft_repair_service_title" text="Tablet Servisi" />
+        <text name="ft_repair_started_msg" text="Düşme nedeniyle ekran hasar gördü. Tablet onarılıyor." />
+        <text name="ft_repair_done_msg" text="Onarım tamamlandı. Tablet yeniden kullanıma hazır." />
+        <text name="ft_repair_force_done_msg" text="Zorunlu onarım tamamlandı. Tahsil edilen onarım ücreti: %d." />
+        <text name="ft_repair_open_blocked_msg" text="Tablet onarımda. Yeniden teslim edildiğinde sana haber vereceğiz." />
+        <text name="ft_repair_title" text="EKRAN HASARI" />
+        <text name="ft_repair_subtitle" text="Düşmeden kaynaklanan ekran hasarı" />
+        <text name="ft_repair_in_progress" text="Tablet onarımda" />
+        <text name="ft_repair_notify_done" text="Onarım bittiğinde sana haber vereceğiz." />
+        <text name="ft_repair_stock_available" text="Ekran stokta - süre: yaklaşık 1 oyun saati" />
+        <text name="ft_repair_stock_ordered" text="Ekran sipariş edildi - süre: yaklaşık 1 oyun günü" />
+        <text name="ft_repair_remaining" text="Kalan: %s" />
+        <text name="ft_repair_remaining_day_format" text="%d gün %02d:%02d" />
         <text name="ft_settings_provider" text="Provider" />
         <text name="ft_settings_base_fee" text="Base fee" />
         <text name="ft_settings_fee_per_day" text="%d €/day" />
@@ -524,7 +524,7 @@
         <text name="ft_auto_app" text="App" />
         <text name="ft_auto_app_2" text="app" />
         <text name="ft_auto_app_cannot_be_undone" text="app. Cannot be undone." />
-        <text name="ft_auto_app_error" text="App Error" />
+        <text name="ft_auto_app_error" text="Uygulama Hatası" />
         <text name="ft_auto_app_labels" text="APP LABELS: " />
         <text name="ft_auto_app_registered" text="app_registered" />
         <text name="ft_auto_app_select_sound_click_when_switching_sidebar_apps" text="App Select Sound: click when switching sidebar apps.&#10;" />
@@ -1274,7 +1274,7 @@
         <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="just on meadow rules. Independent of the sleep state." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Keep track of farm tasks.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="KEEPING UP TO DATE" />
-        <text name="ft_auto_kein_netz" text="KEIN NETZ" />
+        <text name="ft_auto_kein_netz" text="AĞ YOK" />
         <text name="ft_auto_label_color" text="LABEL COLOR: " />
         <text name="ft_auto_label_size" text="LABEL SIZE: " />
         <text name="ft_auto_land_lease" text="Land Lease" />
@@ -1983,7 +1983,7 @@
         <text name="ft_auto_tap_edit_to_add_widgets" text="Tap EDIT to add widgets." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
-        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Tap HOME to return to the app grid." />
+        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Uygulama ızgarasına dönmek için ANA EKRAN'a dokun." />
         <text name="ft_auto_tap_new_to_open_the_creation_form" text="Tap + NEW to open the creation form.&#10;" />
         <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tap ON/OFF to show or hide each widget." />
         <text name="ft_auto_tap_start_job_pick_a_field_your_vehicle_and_the" text="Tap START JOB, pick a field, your vehicle, and the&#10;" />
@@ -2177,7 +2177,7 @@
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
         <text name="ft_auto_weight" text="WEIGHT" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
-        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Welcome! Tap an app to begin." />
+        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Hoş geldin! Başlamak için bir uygulamaya dokun." />
         <text name="ft_auto_what_counts_as_a_silo" text="WHAT COUNTS AS A SILO?" />
         <text name="ft_auto_what_is_the_app_store" text="WHAT IS THE APP STORE" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
@@ -2298,9 +2298,9 @@
         <text name="ft_count_silo" text="%d silo" />
         <text name="ft_count_silos" text="%d silos" />
         <text name="ft_settings_title" text="Settings" />
-        <text name="ft_help_common_title" text="Help" />
-        <text name="ft_help_back" text="&lt; BACK" />
-        <text name="ft_scroll_label" text="scroll" />
+        <text name="ft_help_common_title" text="Yardım" />
+        <text name="ft_help_back" text="&lt; GERİ" />
+        <text name="ft_scroll_label" text="kaydır" />
         <text name="ft_help_settings_display_title" text="DISPLAY - POSITION &amp; SIZE" />
         <text name="ft_help_settings_display_body" text="Shows tablet position and size. Use edit mode to move or resize it." />
         <text name="ft_help_settings_edit_title" text="EDIT MODE" />
@@ -2546,11 +2546,11 @@
         <text name="ft_settings_battery_standby_rate" text="Standby drain" />
         <text name="ft_settings_hint_battery_standby_rate" text="Battery use while the tablet is closed." />
         <text name="ft_battery_rate_minutes" text="1%% / %d min" />
-        <text name="ft_battery_service_title" text="Tablet battery" />
-        <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
-        <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
-        <text name="ft_battery_charged_full" text="Tablet fully charged." />
+        <text name="ft_battery_service_title" text="Tablet pili" />
+        <text name="ft_battery_empty_auto_charge" text="Tablet pili bitti. Tablet şarj cihazında." />
+        <text name="ft_battery_charging_locked" text="Tablet şarjda. %15'ten itibaren açılabilir." />
+        <text name="ft_battery_charged_usable" text="Tablet yeterince şarj oldu. Açmak için %s tuşuna bas." />
+        <text name="ft_battery_charged_full" text="Tablet tamamen şarj oldu." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />
         <text name="ft_weather_mode_normal" text="Normal" />
