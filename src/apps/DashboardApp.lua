@@ -86,7 +86,7 @@ FarmTabletUI:registerDrawer(FT.APP.DASHBOARD, function(self)
           body  = "Count of accepted contracts currently in progress.\n" ..
                   "Open the Contracts app for details and deadlines." },
         { title = "SEASON / DAY / TIME / WEATHER",
-          body  = "Season requires the Seasons mod — blank in base game.\n" ..
+          body  = "Season requires the Seasons mod - blank in base game.\n" ..
                   "Day and time show the in-game clock (24h)." },
         { title = "CUSTOMISING WIDGETS",
           body  = "Tap the small EDIT button (top-right of the dashboard)\n" ..
