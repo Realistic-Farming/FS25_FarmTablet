@@ -35,12 +35,15 @@ INDEPENDENT OF THE REPAIR. Besides the per-character test, every line is also
 tested against plain cp1252 and plain latin-1, and --fix counts lines ATTEMPTED
 against lines WRITTEN and re-reads the files from disk before it reports.
 
-EM DASHES. The decode restores spaced em dashes (U+2014 with a space on each side),
-and --fix writes " - " in their place, because the office does not ship em dashes;
-a repaired line that would still hold one counts as a GAP. Unlike SeasonalCropStress,
-the 20 clean files here already carry em dashes as ordinary text. Those lines are not
-double-encoded and this check does not touch them, so the report prints their count
-for information and does not fail on it.
+EM DASHES. The office does not ship em dashes, so any em dash in any translation
+file is a finding (MAINTENANCE row 131, Tyson's call 2026-09-25). #171 left the 20
+files it did not repair holding 1322 as ordinary text and printed that count as
+information; from row 131 on, the count fails the check again. --fix writes every
+spaced em dash (U+2014 with a space on each side) as " - ", both in a line it
+decodes and in an ordinary line, and a repaired line that would still hold one
+counts as a GAP. An em dash that is not spaced (Chinese punctuation writes a doubled
+dash with no spaces) is NOT rewritten: it needs a reader's choice of punctuation,
+so it stays a finding until someone edits it by hand.
 """
 import glob
 import io
@@ -108,6 +111,7 @@ def report():
     em = elements = reached = 0
     unreached = []
     per_file = []
+    em_per_file = []
     if not files():
         unreached.append(("translations/translation_*.xml", 0, 0))
     for p in files():
@@ -117,7 +121,7 @@ def report():
         reached += v
         if e != v or e == 0:
             unreached.append((p, e, v))
-        n = 0
+        n = file_em = 0
         for line in lines_of(p):
             hit = False
             for name, codec in (("per-character", None), ("cp1252", "cp1252"), ("latin-1", "latin-1")):
@@ -125,9 +129,12 @@ def report():
                     bad[name] += 1
                     hit = True
             n += hit
-            em += line.count(EM)
+            file_em += line.count(EM)
         if n:
             per_file.append((p, n))
+        if file_em:
+            em_per_file.append((p, file_em))
+        em += file_em
     total = sum(n for _, n in per_file)
     print("files scanned        : %d" % len(files()))
     print("l10n elements reached: %d of %d" % (reached, elements))
@@ -137,19 +144,23 @@ def report():
           % (total, bad["per-character"], bad["cp1252"], bad["latin-1"]))
     for p, n in per_file:
         print("  %-3s %d" % (p.split("_")[-1][:-4], n))
-    print("em dashes            : %d (existing text; information, not a finding)" % em)
-    return total + len(unreached)
+    print("em dashes            : %d (a finding: the office does not ship em dashes)" % em)
+    for p, n in em_per_file:
+        print("  %-3s %d" % (p.split("_")[-1][:-4], n))
+    return total + len(unreached) + em
 
 
 def fix():
-    attempted = written = dashes = 0
+    attempted = written = dashes = plain = 0
     for p in files():
         lines = lines_of(p)
         out = []
         for line in lines:
             fixed = redecode(line)
             if fixed is None:
-                out.append(line)
+                # Not double-encoded: a spaced em dash here is ordinary text (row 131).
+                plain += line.count(SPACED_EM)
+                out.append(line.replace(SPACED_EM, " - "))
                 continue
             attempted += 1
             dashes += fixed.count(SPACED_EM)
@@ -159,7 +170,8 @@ def fix():
             out.append(fixed)
         if out != lines:
             io.open(p, "wb").write("".join(out).encode("utf-8"))
-    print("attempted %d, written %d, spaced em dashes written as a hyphen: %d" % (attempted, written, dashes))
+    print("attempted %d, written %d, spaced em dashes written as a hyphen: %d in decoded lines, %d in ordinary lines"
+          % (attempted, written, dashes, plain))
     if attempted != written:
         print("GAP: %d line(s) attempted but not written clean" % (attempted - written))
     return attempted - written
