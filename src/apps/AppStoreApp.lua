@@ -35,13 +35,13 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
                   "Mod Integration categories." },
         { title = "OPEN BUTTON",
           body  = "Click OPEN on any app row to switch to it directly.\n" ..
-                  "This is a shortcut — you can also click the icon in\n" ..
+                  "This is a shortcut - you can also click the icon in\n" ..
                   "the left sidebar at any time." },
         { title = "MOD INTEGRATIONS",
           body  = "All known companion mod integrations are listed here.\n" ..
                   "Active mods show in full colour with an OPEN button.\n" ..
                   "Dimmed rows are supported but not currently installed.\n" ..
-                  "No setup needed — apps appear automatically when the\n" ..
+                  "No setup needed - apps appear automatically when the\n" ..
                   "matching mod is loaded in your savegame." },
         { title = "VERSION / DEVELOPER",
           body  = "Built-in apps show 'Built-in' as their version.\n" ..
@@ -51,7 +51,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
 
     local apps    = self.system.registry:getAll()
     local scrollY = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader(FT.l10nAuto("App Store"), tostring(#apps) .. " " .. FT.l10nAuto("installed"))
+    local afterHdr = self:drawAppHeader(FT.l10nAuto("App Store"), FT.l10nFormat("ft_appstore_installed_count", "%d installed", #apps))
     local x, contentY, cw, _ = self:contentInner()
     local y = afterHdr - FT.py(8) + scrollY
 
@@ -117,7 +117,7 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     -- Description / hint
     local desc
     if dimmed and known then
-        desc = "Install " .. known.mod .. " to enable"
+        desc = FT.l10nFormat("ft_appstore_install_to_enable", "Install %s to enable", known.mod)
     elseif app then
         desc = (app.descriptionKey and g_i18n and g_i18n:hasText(app.descriptionKey) and g_i18n:getText(app.descriptionKey))
             or app.description

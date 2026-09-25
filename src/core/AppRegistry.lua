@@ -56,7 +56,7 @@ AppRegistry.BUILTIN_APPS = {
         name = "ft_ui_app_animals",    navLabel = "ANI",
         icon = "animals",           order = 12,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Animal pens — food, water, cleanliness",
+        description = "Animal pens - food, water, cleanliness",
     },
     {
         id = FT.APP.WORKSHOP,   group = "farm",
@@ -107,28 +107,28 @@ AppRegistry.BUILTIN_APPS = {
         name = "ft_ui_app_field_jobs", navLabel = "JOBS",
         icon = "jobs",              order = 21,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Log field work sessions — field, vehicle, task, duration",
+        description = "Log field work sessions - field, vehicle, task, duration",
     },
     {
         id = FT.APP.CONTRACTS,  group = "farm",
         name = "ft_ui_app_contracts",  navLabel = "CON",
         icon = "contracts",         order = 22,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Active contracts — completion, reward, time remaining",
+        description = "Active contracts - completion, reward, time remaining",
     },
     {
         id = FT.APP.FLEET,      group = "farm",
         name = "ft_ui_app_fleet_manager", navLabel = "FLEET",
         icon = "fleet",             order = 23,
         developer = "FarmTablet",   version = "Built-in",
-        description = "All owned vehicles — fuel, wear, operating hours",
+        description = "All owned vehicles - fuel, wear, operating hours",
     },
     {
         id = FT.APP.PRODUCTION, group = "farm",
         name = "ft_ui_app_production_buildings", navLabel = "PROD",
         icon = "production",        order = 24,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Production building chains — inputs, outputs, active status",
+        description = "Production building chains - inputs, outputs, active status",
     },
     {
         id = FT.APP.FARM_STATS, group = "farm",
@@ -342,7 +342,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_field_sentry", navLabel = "SENTRY",
             icon = "soil", order = 24.5,
             developer = "TisonK", version = "Integrated",
-            description = "FieldSentry — per-field soil-sim status, sleep and meadow toggles",
+            description = "FieldSentry - per-field soil-sim status, sleep and meadow toggles",
         })
     end
 
@@ -468,7 +468,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_used_plus", navLabel = "USED",
             icon = "used_plus", order = 28,
             developer = "TisonK", version = "Integrated",
-            description = "UsedPlus — active sale listings and finance deals",
+            description = "UsedPlus - active sale listings and finance deals",
         })
     end
 
@@ -483,7 +483,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_roleplay_phone", navLabel = "INV",
             icon = "invoice", order = 29,
             developer = "TisonK", version = "Integrated",
-            description = "Invoice tracker — built-in + RoleplayPhone integration",
+            description = "Invoice tracker - built-in + RoleplayPhone integration",
         })
     end
 
