@@ -224,7 +224,7 @@
         <text name="ft_rd_installment_line" text="Raten: %d/%d" />
         <text name="ft_rd_notices_line" text="Mahnungen: %d" />
         <text name="ft_rd_server_note" text="Fahrzeug-Rücknahmen laufen weiterhin serverseitig über RealisticDealer." />
-        <text name="ft_network_default_provider" text="ReFaR Mobile" />
+        <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Netzwerk" />
         <text name="ft_network_choose_provider" text="Netzanbieter wählen" />
         <text name="ft_network_choose_hint" text="Anbieter wählen und aktivieren." />
