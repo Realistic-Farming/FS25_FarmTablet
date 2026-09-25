@@ -2307,6 +2307,20 @@
         <text name="ft_settings_title" text="Settings" />
         <text name="ft_help_common_title" text="Help" />
         <text name="ft_help_back" text="&lt; BACK" />
+        <text name="ft_appstore_installed_count" text="%d installed" />
+        <text name="ft_appstore_install_to_enable" text="Install %s to enable" />
+        <text name="ft_auto_terrain_depth_readout_and_bucket_load_counter" text="Terrain depth readout and bucket load counter" />
+        <text name="ft_auto_admin_controls_money_time_scale_skip_time_repair_fuel" text="Admin controls: money, time scale, skip time, repair/fuel" />
+        <text name="ft_auto_overview_of_every_ecosystem_setting_registered_with_the" text="Overview of every ecosystem setting registered with the Settings Hub" />
+        <text name="ft_auto_whole_farm_financial_health_instruments_history_and_pro" text="Whole-farm financial health, instruments, history and projection" />
+        <text name="ft_auto_farm_wide_irrigation_operations_trend_and_usage" text="Farm-wide irrigation operations, trend, and usage" />
+        <text name="ft_auto_farm_wide_crop_rotation_standing_and_next_crop_compare" text="Farm-wide crop rotation standing and next-crop compare" />
+        <text name="ft_auto_organic_certification_and_practice_advice" text="Organic certification and practice advice" />
+        <text name="ft_auto_workercosts_personnel_hire_fire_assign_payroll" text="WorkerCosts personnel - hire, fire, assign, payroll" />
+        <text name="ft_auto_pro_staff_co_op_membership_level_and_investment" text="Pro-Staff Co-Op membership level and investment" />
+        <text name="ft_auto_co_op_progression_level_benefits_and_investment_status" text="Co-Op progression -- level, benefits, and investment status" />
+        <text name="ft_auto_dairycore_per_barn_herd_health_quality_and_spoilage" text="DairyCore per-barn herd health, quality, and spoilage" />
+        <text name="ft_auto_dairy" text="Dairy" />
         <text name="ft_scroll_label" text="scroll" />
         <text name="ft_help_settings_display_title" text="DISPLAY - POSITION &amp; SIZE" />
         <text name="ft_help_settings_display_body" text="Shows tablet position and size. Use edit mode to move or resize it." />

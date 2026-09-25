@@ -597,7 +597,7 @@
         <text name="ft_auto_building_list" text="Gebäude Liste" />
         <text name="ft_auto_building_relationships" text="Zusammenhänge zwischen Gebäuden" />
         <text name="ft_auto_buildings" text=" Gebäude" />
-        <text name="ft_auto_built_in" text="BUILT-IN" />
+        <text name="ft_auto_built_in" text="INTEGRIERT" />
         <text name="ft_auto_built_in_2" text="Integriert" />
         <text name="ft_auto_built_in_apps_show_built_in_as_their_version" text="Integrierte Apps werden in der Version 'Integriert' angezeigt.&#10;" />
         <text name="ft_auto_bullet_points_below_list_individual_changes" text="Die folgenden Stichpunkte zeigen die Veränderungen." />
@@ -933,7 +933,7 @@
         <text name="ft_auto_farm_tablet_ui_refreshed" text="Farm Tablet: UI wurde neu geladen" />
         <text name="ft_auto_farm_totals" text="HOF-GESAMT" />
         <text name="ft_auto_farmarea" text="farmarea_" />
-        <text name="ft_auto_farming" text="FARMING" />
+        <text name="ft_auto_farming" text="LANDWIRTSCHAFT" />
         <text name="ft_auto_farmland_s" text="^Farmland:%s*" />
         <text name="ft_auto_farmtablet" text="FarmTablet" />
         <text name="ft_auto_farmtablet_2" text="[FarmTablet] " />
@@ -1016,7 +1016,7 @@
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
         <text name="ft_auto_fin" text="FIN" />
-        <text name="ft_auto_finance" text="FINANCE" />
+        <text name="ft_auto_finance" text="FINANZEN" />
         <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
         <text name="ft_auto_finances" text="FINANZEN" />
         <text name="ft_auto_finish_current_first" text="schließe den aktuellen zuerst ab" />
@@ -1249,7 +1249,7 @@
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Installiere die Mod und öffne deren Hilfe-Seite für&#10;" />
         <text name="ft_auto_installed" text=" installiert" />
         <text name="ft_auto_installments_d_d" text="Installationen: %d/%d" />
-        <text name="ft_auto_integrated" text="Integrated" />
+        <text name="ft_auto_integrated" text="Eingebunden" />
         <text name="ft_auto_integrates_with_fs25_seasonalcropstress_to_display" text="Bindet die Mod FS25_SeasonalCropStress ein, um anzuzeigen&#10;" />
         <text name="ft_auto_integrates_with_fs25_soilfertilizer_to_display" text="Bindet die Mod FS25_SoilFertilizer ein, um anzuzeigen&#10;" />
         <text name="ft_auto_integration" text="Integration" />
@@ -2307,6 +2307,20 @@
         <text name="ft_settings_title" text="Einstellungen" />
         <text name="ft_help_common_title" text="Hilfe" />
         <text name="ft_help_back" text="&lt; ZURÜCK" />
+        <text name="ft_appstore_installed_count" text="%d installiert" />
+        <text name="ft_appstore_install_to_enable" text="%s installieren, um es zu aktivieren" />
+        <text name="ft_auto_terrain_depth_readout_and_bucket_load_counter" text="Geländetiefe und Schaufelladungszähler" />
+        <text name="ft_auto_admin_controls_money_time_scale_skip_time_repair_fuel" text="Admin: Geld, Zeitskalierung, Zeit überspringen, Reparatur/Kraftstoff" />
+        <text name="ft_auto_overview_of_every_ecosystem_setting_registered_with_the" text="Übersicht aller im Settings Hub registrierten Einstellungen" />
+        <text name="ft_auto_whole_farm_financial_health_instruments_history_and_pro" text="Finanzlage des Hofs, Instrumente, Verlauf und Prognose" />
+        <text name="ft_auto_farm_wide_irrigation_operations_trend_and_usage" text="Bewässerung des ganzen Hofs: Betrieb, Trend und Verbrauch" />
+        <text name="ft_auto_farm_wide_crop_rotation_standing_and_next_crop_compare" text="Fruchtfolge des Hofs und Vergleich der nächsten Kultur" />
+        <text name="ft_auto_organic_certification_and_practice_advice" text="Bio-Zertifizierung und Praxistipps" />
+        <text name="ft_auto_workercosts_personnel_hire_fire_assign_payroll" text="WorkerCosts-Personal - einstellen, entlassen, zuweisen, Lohn" />
+        <text name="ft_auto_pro_staff_co_op_membership_level_and_investment" text="Mitgliedsstufe und Investition in der Pro-Staff Co-Op" />
+        <text name="ft_auto_co_op_progression_level_benefits_and_investment_status" text="Genossenschaftsfortschritt: Stufe, Vorteile und Investition" />
+        <text name="ft_auto_dairycore_per_barn_herd_health_quality_and_spoilage" text="DairyCore: Herdengesundheit, Qualität und Verderb je Stall" />
+        <text name="ft_auto_dairy" text="Milchvieh" />
         <text name="ft_scroll_label" text="Scrollen" />
         <text name="ft_help_settings_display_title" text="ANZEIGE - POSITION &amp; GRÖSSE" />
         <text name="ft_help_settings_display_body" text="Zeigt Position und Größe des Tablets. Im Bearbeitungsmodus kannst du es verschieben oder skalieren." />
