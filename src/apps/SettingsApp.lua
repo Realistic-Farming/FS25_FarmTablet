@@ -13,13 +13,16 @@ local function playClickSound(settings)
     end
 end
 
+-- The locale file wins (MAINTENANCE row 136), through the tablet's one lookup, FT.l10n
+-- (Constants.lua). These helpers used to ask the globals ftUiText and ftUiFormat, which never
+-- existed: FarmTabletUI.lua defines both as locals, so every row read its English fallback.
 local function ftSafeText(key, fallback)
-    if ftUiText ~= nil then return ftUiText(key, fallback) end
+    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, fallback) end
     return fallback
 end
 
 local function ftSafeFormat(key, fallback, ...)
-    if ftUiFormat ~= nil then return ftUiFormat(key, fallback, ...) end
+    if FT ~= nil and FT.l10nFormat ~= nil then return FT.l10nFormat(key, fallback, ...) end
     return string.format(fallback, ...)
 end
 
@@ -183,7 +186,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local curFontScale = s.contentFontScale or 1.0
     local fsIdx = 2
     for i, v in ipairs(FONT_SCALES) do if math.abs(v - curFontScale) < 0.01 then fsIdx = i; break end end
-    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger is easier to read on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger reads better on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         s.contentFontScale = FONT_SCALES[(fsIdx % #FONT_SCALES) + 1]
         s:save()
@@ -326,7 +329,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     local outageFreq = (self._getSignalOutageFrequencyLabel ~= nil and self:_getSignalOutageFrequencyLabel()) or ftSafeText("ft_common_off", "Off")
     local outageDuration = tonumber(self._signalOutageDurationHours) or 2
-    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Often"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Frequent"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s); if self._cycleSignalOutageFrequency ~= nil then self:_cycleSignalOutageFrequency() end; refresh(self)
     end)
     actionRow(ftSafeText("ft_settings_outage_duration", "Outage duration"), ftSafeFormat("ft_duration_hours_short", "%d hrs", math.floor(outageDuration)), ftSafeText("ft_settings_hint_outage_duration", "Duration in ingame hours."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
