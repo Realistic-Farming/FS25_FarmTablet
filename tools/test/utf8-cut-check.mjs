@@ -11,14 +11,14 @@
 //   C3  FT.utf8Cut(name, n, 4) for every app name and grid short name (ft_ui_app_*, ft_ui_short_*)
 //       at the home grid's three label sizes (13, 11, 9) is valid UTF-8, at most n characters,
 //       and a prefix of the name.
-//   C4  the sweep: every byte-based cut (":sub(1," or "string.sub(x, 1,") left in the swept files
-//       (SWEEP below) is one of the named uses that never cuts drawn text.
+//   C4  the sweep: every byte-based cut (":sub(1," or "string.sub(x, 1,") left in src/ outside
+//       Constants.lua is one of the named uses below that never cuts drawn text.
 //   C5  the real call sites, run: HomeScreen.lua's appLabel and SettingsApp.lua's short() are
 //       lifted out of the real files (luaparse ranges) and run in fengari. appLabel, with a
 //       g_i18n model over each locale file, gets every app name at the grid's three label sizes;
 //       short() gets every value at the Settings rows' cuts (24, 42, 44, 66). Each result must be
 //       valid UTF-8, at most the budget in characters, and (appLabel) a prefix of the name.
-//       The named case: Russian "Мастерская" (ft_ui_app_workshop, 20 bytes) at 13.
+//       The named case: Russian "Мастерская" (ft_ui_app_workshop, 20 bytes) at the medium label size, 11 (row 138's case).
 //
 // Usage:  node tools/test/utf8-cut-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -30,8 +30,8 @@ import luaparse from "luaparse";
 const { lua, lauxlib, lualib, to_luastring } = fengari;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
-// The files C4 sweeps: the four named sites of row 138.
-const SWEEP = ["src/ui/HomeScreen.lua", "src/utils/Renderer.lua", "src/apps/AppStoreApp.lua", "src/apps/SettingsApp.lua"];
+// The files C4 sweeps: all of src/ (null), since every drawn-text cut is converted.
+const SWEEP = null;
 // Byte-based cuts that do not cut drawn text, each with its reason (C4).
 const ALLOWED_BYTE_CUTS = {
   "src/apps/AkitaTabletIntegrationsApp.lua|lang:sub(1,2)": "a language code, ASCII",
@@ -192,13 +192,13 @@ let c5 = 0;
     }
     const ru = readLocale(join(dir, "translation_ru.xml")).get("ft_ui_app_workshop");
     if (ru !== "\u041c\u0430\u0441\u0442\u0435\u0440\u0441\u043a\u0430\u044f") fail("C5", `ru ft_ui_app_workshop is ${JSON.stringify(ru)}, not the named case; update the row`);
-    // The named case, on its own line whatever else fails: the Russian Workshop name at the grid's 13.
+    // The named case, on its own line whatever else fails: the Russian Workshop name at the grid's medium size, 11 (row 138's case).
     setText("ft_ui_app_workshop", ru);
-    const named = run([{ id: "c5_named", name: "ft_ui_app_workshop" }, 13]);
+    const named = run([{ id: "c5_named", name: "ft_ui_app_workshop" }, 11]);
     setText("ft_ui_app_workshop", null);
     const namedOk = validUtf8(named) && named.toString("utf8") === ru;
-    if (!namedOk) failures.unshift(`C5 named case: ru ft_ui_app_workshop "${ru}" (${Buffer.byteLength(ru)} bytes) at the grid's 13 comes back as ${named.length} bytes${validUtf8(named) ? "" : ", cut inside a character"}`);
-    else console.log(`  C5 named case: ru "${ru}" at the grid's 13 comes back whole (${chars(ru)} characters, ${Buffer.byteLength(ru)} bytes)`);
+    if (!namedOk) failures.unshift(`C5 named case: ru ft_ui_app_workshop "${ru}" (${Buffer.byteLength(ru)} bytes) at the grid's medium 11 comes back as ${named.length} bytes${validUtf8(named) ? "" : ", cut inside a character"}`);
+    else console.log(`  C5 named case: ru "${ru}" at the grid's medium 11 comes back whole (${chars(ru)} characters, ${Buffer.byteLength(ru)} bytes)`);
   }
   if (lift("src/apps/SettingsApp.lua", ["short"])) {
     for (const f of files) {

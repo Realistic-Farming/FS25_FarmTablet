@@ -3,7 +3,8 @@
 # bar, and expects it to FAIL on a named row; the file is restored byte-identical (sha256-checked)
 # after each one. The bar must be green before any run. One bar run takes about a minute.
 # The sites: the four named in row 138 (the home grid label, FT_Renderer.truncate, the App Store
-# description, SettingsApp's short()) and the helpers they share.
+# description, SettingsApp's short()), the helpers they share, and two of the other drawn-text
+# cuts (an IncomeApp name, the FarmTabletUI notice title), which only C4 can see.
 # Usage: py -u tools/test/mutate_utf8_cut.py [id-prefix ...]
 import hashlib, os, subprocess, sys
 
@@ -12,6 +13,8 @@ CON = "src/core/Constants.lua"
 REN = "src/utils/Renderer.lua"
 HOME = "src/ui/HomeScreen.lua"
 SET = "src/apps/SettingsApp.lua"
+INC = "src/apps/IncomeApp.lua"
+UI = "src/FarmTabletUI.lua"
 STORE = "src/apps/AppStoreApp.lua"
 ELL = chr(0x2026)
 
@@ -46,6 +49,12 @@ MUTATIONS = [
     ("U8-appstore-desc-by-bytes", STORE,
      one('if FT.utf8Len(desc) > 72 then desc = FT.utf8Sub(desc, 70) .. ">" end', 'if #desc > 72 then desc = desc:sub(1, 70) .. ">" end'),
      "the App Store's description cut goes back to bytes"),
+    ("U6-one-app-site-by-bytes", INC,
+     one('if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end', 'if #nm > 16 then nm = nm:sub(1,14) .. ">" end'),
+     "one app's name cut (IncomeApp) goes back to bytes"),
+    ("U9-notice-title-by-bytes", UI,
+     one('if FT.utf8Len(tTitle) > 32 then tTitle = FT.utf8Sub(tTitle, 31) .. "." end', 'if string.len(tTitle) > 32 then tTitle = string.sub(tTitle, 1, 31) .. "." end'),
+     "the notice title's cut (FarmTabletUI) goes back to bytes"),
 ]
 
 def sha(path):

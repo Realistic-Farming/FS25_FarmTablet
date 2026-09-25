@@ -410,7 +410,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                 local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
                 local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"
                 local nm       = tostring(r.name or "Unknown")
-                if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+                if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
                 self.r:appText(x, y, FT.FONT.SMALL,
                     nm .. "  [" .. (r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
                 self.r:appText(x + cw, y, FT.FONT.SMALL,
@@ -422,7 +422,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
             for _, r in ipairs(others) do
                 if y <= minY + FT.py(16) then break end
                 local nm = tostring(r.name or "Unknown")
-                if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+                if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
                 -- The name on the left, the tag as its own mapped literal on the right
                 -- (where a live person's score sits), never composed into one string.
                 local tag = (r.kind == "PRESENCE") and "worker" or "waiting"
@@ -449,7 +449,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
             local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
             local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"
             local nm       = tostring(npc.name or "Unknown")
-            if #nm > 16 then nm = nm:sub(1,14) .. ">" end
+            if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
             self.r:appText(x, y, FT.FONT.SMALL,
                 nm .. "  [" .. (npc.role or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
             self.r:appText(x + cw, y, FT.FONT.SMALL,
@@ -588,7 +588,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
                 local fatPct   = math.floor((w.fatigue or 0) * 100)
                 local stColor  = w.working and FT.C.POSITIVE or FT.C.TEXT_DIM
                 local nm       = tostring(w.name or "Worker")
-                if #nm > 18 then nm = nm:sub(1, 16) .. ">" end
+                if FT.utf8Len(nm) > 18 then nm = FT.utf8Sub(nm, 16) .. ">" end
 
                 self.r:appText(x, y, FT.FONT.SMALL,
                     nm .. "  [" .. (w.levelName or "Novice") .. "]",

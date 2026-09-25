@@ -296,8 +296,8 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
             -- Task label
             local label = todo.text or ""
-            if string.len(label) > 28 then
-                label = string.sub(label, 1, 27) .. "…"
+            if FT.utf8Len(label) > 28 then
+                label = FT.utf8Sub(label, 27) .. "…"
             end
             self.r:appText(x + statusW + FT.px(3), y - FT.py(6),
                 FT.FONT.SMALL, label, RenderText.ALIGN_LEFT,

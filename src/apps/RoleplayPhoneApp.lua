@@ -133,7 +133,7 @@ local function drawCycler(self, y, label, value, onChange)
     local valStr = tostring(value)
     -- Keep long party / description names out of the arrow buttons.
     local maxChars = math.max(10, math.floor(valW / FT.px(6.5)))
-    if #valStr > maxChars then valStr = valStr:sub(1, math.max(1, maxChars - 1)) .. "…" end
+    if FT.utf8Len(valStr) > maxChars then valStr = FT.utf8Sub(valStr, math.max(1, maxChars - 1)) .. "…" end
     self.r:appText(valX + valW * 0.5, y + FT.py(4),
         FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
 
@@ -490,7 +490,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             local party = (inv.party and inv.party ~= "") and inv.party or "Unknown"
             local badgeReserve = FT.px(72)
             local partyMax = math.max(8, math.floor((w - badgeReserve) / FT.px(7)))
-            if #party > partyMax then party = party:sub(1, math.max(1, partyMax - 1)) .. "…" end
+            if FT.utf8Len(party) > partyMax then party = FT.utf8Sub(party, math.max(1, partyMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line1Y,
                 FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
             self.r:appText(x + w - FT.px(4), line1Y,
@@ -500,7 +500,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             local desc = inv.description or ""
             local amtReserve = FT.px(70)
             local descMax = math.max(10, math.floor((w - amtReserve) / FT.px(6)))
-            if #desc > descMax then desc = desc:sub(1, math.max(1, descMax - 1)) .. "…" end
+            if FT.utf8Len(desc) > descMax then desc = FT.utf8Sub(desc, math.max(1, descMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line2Y,
                 FT.FONT.SMALL, desc, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             self.r:appText(x + w - FT.px(4), line2Y,
