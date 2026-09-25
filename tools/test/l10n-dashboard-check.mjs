@@ -114,9 +114,18 @@ for (const loc of locales) {
 //       looks it up; and translation_en.xml carries that key. A literal named in NO_KEY is exempt,
 //       with its reason.
 //   S2  no literal drawn here holds an em dash.
+//   S3  every key a draw site resolves to is one of KEYS above, or named in OTHER_PR with the PR
+//       that carries it: a drawn literal whose key this bar never checks would read English
+//       in every language and still pass.
 {
   const FILES = ["src/apps/DashboardApp.lua"];
   const NO_KEY = {};
+  const OTHER_PR = {
+    ft_auto_edit: "the EDIT button: the home screen PR's key",
+    ft_auto_done: "the DONE button: the home screen PR's key",
+  };
+  const KEYSET = new Set(KEYS);
+  const RESOLVED = new Map();
   const { createRequire } = await import("node:module");
   const req = createRequire(join(ROOT, "tools", "test", "package.json"));
   const luaparse = req("luaparse");
@@ -155,6 +164,7 @@ for (const loc of locales) {
     if (NO_KEY[text]) return;
     const key = AUTO.get(text) || (helpLine ? AUTO.get(text + "\n") : undefined);
     if (!key) { failures.push(`S1 ${rel}:${line}: ${JSON.stringify(text)} has no FT.AUTO_L10N entry: the lookup misses and every language reads English`); return; }
+    if (!RESOLVED.has(key)) RESOLVED.set(key, `${rel}:${line}`);
     if (!EN.inside.has(key)) failures.push(`S1 ${rel}:${line}: ${JSON.stringify(text)} maps to ${key}, which translation_en.xml does not carry`);
   };
   for (const rel of FILES) {
@@ -179,6 +189,9 @@ for (const loc of locales) {
       }
       for (const k of Object.keys(n)) if (k !== "loc" && k !== "range") walk(n[k]);
     })(ast.body);
+  }
+  for (const [key, at] of RESOLVED) {
+    if (!KEYSET.has(key) && !OTHER_PR[key]) failures.push(`S3 ${at}: the drawn literal maps to ${key}, which this bar does not check: it can read English in every language`);
   }
   console.log(`  draw sites checked: ${sites} literals in ${FILES.join(", ")}`);
 }

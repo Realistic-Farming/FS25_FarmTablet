@@ -34,6 +34,9 @@ MUTATIONS = [
     ("D4-toggle-renamed", "translations/translation_fr.xml",
      one(T("<text name=\"ft_auto_on\" text=\"OUI\" />"), T("<text name=\"ft_auto_on\" text=\"ACTIF\" />")),
      "the ON toggle renamed while the hint still names OUI"),
+    ("D5-drawn-key-outside-the-bar", "src/apps/DashboardApp.lua",
+     one("drawRow(y, \"Weather\",", "drawRow(y, \"Balance\","),
+     "the app draws a mapped literal whose key the bar never checks (ft_auto_balance): S3 names it"),
 ]
 
 def sha(path):
