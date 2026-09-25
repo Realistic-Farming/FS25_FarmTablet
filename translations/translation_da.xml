@@ -785,7 +785,7 @@
         <text name="ft_auto_debug_mode_on" text="DEBUG MODE: ON" />
         <text name="ft_auto_debug_mode_s" text="Debug Mode: %s&#10;" />
         <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="DECO   = decorative / fake field (auto-detected)." />
-        <text name="ft_auto_deep_space" text="Deep Space" />
+        <text name="ft_auto_deep_space" text="Dybt rum" />
         <text name="ft_auto_deep_space_ocean_blue_forest_green" text="Deep Space, Ocean Blue, Forest Green,&#10;" />
         <text name="ft_auto_default" text="DEFAULT" />
         <text name="ft_auto_default_2" text="default" />
@@ -1056,7 +1056,7 @@
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="for confirmation. Press it again within 4 seconds&#10;" />
         <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Force a field to sleep (or wake it). Your choice persists&#10;" />
         <text name="ft_auto_forecast" text="FORECAST" />
-        <text name="ft_auto_forest_green" text="Forest Green" />
+        <text name="ft_auto_forest_green" text="Skovgrøn" />
         <text name="ft_auto_fork" text="fork" />
         <text name="ft_auto_frame" text="frame" />
         <text name="ft_auto_freezing" text="Freezing" />
@@ -1346,7 +1346,7 @@
         <text name="ft_auto_medium_2" text="Medium" />
         <text name="ft_auto_medium_3" text="medium" />
         <text name="ft_auto_midnight" text="MIDNIGHT" />
-        <text name="ft_auto_midnight_purple" text="Midnight Purple" />
+        <text name="ft_auto_midnight_purple" text="Midnatslilla" />
         <text name="ft_auto_midnight_purple_warm_dark_slate_grey" text="Midnight Purple, Warm Dark, Slate Grey." />
         <text name="ft_auto_mild" text="Mild" />
         <text name="ft_auto_mission" text="Mission" />
@@ -1517,7 +1517,7 @@
         <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
-        <text name="ft_auto_ocean_blue" text="Ocean Blue" />
+        <text name="ft_auto_ocean_blue" text="Havblå" />
         <text name="ft_auto_off" text="FRA" />
         <text name="ft_auto_off_2" text="Off" />
         <text name="ft_auto_off_3" text="off" />
@@ -1848,7 +1848,7 @@
         <text name="ft_auto_single_station_no_comparison_available" text="Single station - no comparison available" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="SKIP TO" />
-        <text name="ft_auto_slate_grey" text="Slate Grey" />
+        <text name="ft_auto_slate_grey" text="Skifergrå" />
         <text name="ft_auto_sleep" text="SLEEP" />
         <text name="ft_auto_sleep_toggle" text="SLEEP TOGGLE" />
         <text name="ft_auto_slide_to_unlock" text="slide to unlock" />
@@ -2156,7 +2156,7 @@
         <text name="ft_auto_wall" text="wall" />
         <text name="ft_auto_warm" text="Warm" />
         <text name="ft_auto_warm_32_hot_32" text="Warm (&lt;32)  Hot (32+)." />
-        <text name="ft_auto_warm_dark" text="Warm Dark" />
+        <text name="ft_auto_warm_dark" text="Varm mørk" />
         <text name="ft_auto_water" text="Water" />
         <text name="ft_auto_water_bar" text="WATER BAR" />
         <text name="ft_auto_water_crops" text="Water crops" />
