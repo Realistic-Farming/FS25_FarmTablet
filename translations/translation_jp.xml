@@ -339,32 +339,32 @@
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
         <text name="ft_lockscreen_slide_to_unlock" text="スライドでロック解除" />
-        <text name="ft_fields_count" text="%d fields" />
-        <text name="ft_fields_none" text="You don't own any fields yet." />
-        <text name="ft_fields_none_hint" text="Purchase land to start farming." />
-        <text name="ft_fields_badge_ready" text="READY" />
-        <text name="ft_fields_badge_grow" text="GROW" />
-        <text name="ft_fields_badge_empty" text="EMPTY" />
-        <text name="ft_fields_col_crop" text="CROP" />
-        <text name="ft_fields_col_state" text="STATE" />
-        <text name="ft_fields_help_summary_title" text="SUMMARY BADGES" />
-        <text name="ft_fields_help_summary_body" text="Top of the screen shows totals: READY fields that can be harvested, GROW fields with crops growing, and EMPTY fields with no active crop." />
-        <text name="ft_fields_help_columns_title" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_fields_help_columns_body" text="# = field ID.  CROP = crop type name. HA = field area in hectares. STATE = current field condition (see dot colours below)." />
-        <text name="ft_fields_help_state_colors_title" text="STATE DOT COLOURS" />
-        <text name="ft_fields_help_state_colors_body" text="Green  = Ready to harvest. Blue   = Growing normally. Yellow = Needs attention (fertilise, plough, roll, etc.). Grey   = Fallow / empty field." />
-        <text name="ft_fields_help_scrolling_title" text="SCROLLING" />
-        <text name="ft_fields_help_scrolling_body" text="If you own more fields than fit on screen the list scrolls automatically. Use the mouse wheel to scroll." />
-        <text name="ft_field_state_harvest" text="Ready" />
-        <text name="ft_field_state_withered" text="Withered" />
-        <text name="ft_field_state_seeded" text="Seeded" />
-        <text name="ft_field_state_germinated" text="Germinated" />
-        <text name="ft_field_state_ripening" text="Ripening" />
-        <text name="ft_field_state_growing" text="Growing" />
-        <text name="ft_field_state_empty" text="Empty" />
-        <text name="ft_field_crop_empty" text="Empty" />
-        <text name="ft_field_crop_unknown" text="Unknown" />
-        <text name="ft_field_state_harvested" text="Harvested" />
+        <text name="ft_fields_count" text="%d 区画" />
+        <text name="ft_fields_none" text="まだ畑を所有していません。" />
+        <text name="ft_fields_none_hint" text="土地を購入して農業を始めましょう。" />
+        <text name="ft_fields_badge_ready" text="収穫可" />
+        <text name="ft_fields_badge_grow" text="生育中" />
+        <text name="ft_fields_badge_empty" text="空き" />
+        <text name="ft_fields_col_crop" text="作物" />
+        <text name="ft_fields_col_state" text="状態" />
+        <text name="ft_fields_help_summary_title" text="集計バッジ" />
+        <text name="ft_fields_help_summary_body" text="画面上部に合計が表示されます。収穫できる畑は「収穫可」、作物が育っている畑は「生育中」、作物のない畑は「空き」です。" />
+        <text name="ft_fields_help_columns_title" text="列: # / 作物 / ha / 状態" />
+        <text name="ft_fields_help_columns_body" text="# = 畑の番号。作物 = 作物の種類。ha = 畑の面積 (ヘクタール)。状態 = 畑の現在の状態 (下の点の色を参照)。" />
+        <text name="ft_fields_help_state_colors_title" text="状態の点の色" />
+        <text name="ft_fields_help_state_colors_body" text="緑 = 収穫可能。青 = 順調に生育中。黄 = 手入れが必要 (施肥、耕起、鎮圧など)。灰 = 休閑地 / 空きの畑。" />
+        <text name="ft_fields_help_scrolling_title" text="スクロール" />
+        <text name="ft_fields_help_scrolling_body" text="画面に収まらないほど畑を持っている場合、リストはスクロールします。マウスホイールでスクロールしてください。" />
+        <text name="ft_field_state_harvest" text="収穫可" />
+        <text name="ft_field_state_withered" text="枯死" />
+        <text name="ft_field_state_seeded" text="播種済み" />
+        <text name="ft_field_state_germinated" text="発芽" />
+        <text name="ft_field_state_ripening" text="成熟中" />
+        <text name="ft_field_state_growing" text="生育中" />
+        <text name="ft_field_state_empty" text="空き" />
+        <text name="ft_field_crop_empty" text="空き" />
+        <text name="ft_field_crop_unknown" text="不明" />
+        <text name="ft_field_state_harvested" text="収穫済み" />
         <text name="ft_auto_02d_02d" text="%02d:%02d" />
         <text name="ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast" text="0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." />
         <text name="ft_auto_0f" text="%.0f%%" />
@@ -1154,7 +1154,7 @@
         <text name="ft_auto_h_left" text="h left" />
         <text name="ft_auto_ha" text=" ha" />
         <text name="ft_auto_ha_2" text="/ha" />
-        <text name="ft_auto_ha_3" text="HA" />
+        <text name="ft_auto_ha_3" text="ha" />
         <text name="ft_auto_haeufig" text="Haeufig" />
         <text name="ft_auto_haeufig_2" text="haeufig" />
         <text name="ft_auto_haeufig_3" text="häufig" />

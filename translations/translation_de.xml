@@ -349,8 +349,8 @@
         <text name="ft_fields_col_state" text="STATUS" />
         <text name="ft_fields_help_summary_title" text="ÜBERSICHT" />
         <text name="ft_fields_help_summary_body" text="Oben werden die Summen angezeigt: ERNTEREIF für Felder, die geerntet werden können, WACHSTUM für wachsende Kulturen und BRACHLAND für Felder ohne aktive Frucht." />
-        <text name="ft_fields_help_columns_title" text="SPALTEN: # / KULTUR / HEKTAR / STATUS" />
-        <text name="ft_fields_help_columns_body" text="# = Feld-ID. KULTUR = Fruchtart. HEKTAR = Feldfläche in Hektar. STATUS = aktueller Feldzustand." />
+        <text name="ft_fields_help_columns_title" text="SPALTEN: # / KULTUR / HA / STATUS" />
+        <text name="ft_fields_help_columns_body" text="# = Feld-ID. KULTUR = Fruchtart. HA = Feldfläche in Hektar. STATUS = aktueller Feldzustand." />
         <text name="ft_fields_help_state_colors_title" text="FARBEN" />
         <text name="ft_fields_help_state_colors_body" text="Grün = bereit zur Ernte. Blau = wächst normal. Gelb = benötigt Aufmerksamkeit, z.B. Düngen, Pflügen oder Walzen. Grau = abgeerntet oder brachliegende Fläche." />
         <text name="ft_fields_help_scrolling_title" text="SCROLLEN" />

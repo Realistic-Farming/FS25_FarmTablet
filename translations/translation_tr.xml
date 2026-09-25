@@ -339,32 +339,32 @@
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
         <text name="ft_lockscreen_slide_to_unlock" text="kilidi açmak için kaydır" />
-        <text name="ft_fields_count" text="%d fields" />
-        <text name="ft_fields_none" text="You don't own any fields yet." />
-        <text name="ft_fields_none_hint" text="Purchase land to start farming." />
-        <text name="ft_fields_badge_ready" text="READY" />
-        <text name="ft_fields_badge_grow" text="GROW" />
-        <text name="ft_fields_badge_empty" text="EMPTY" />
-        <text name="ft_fields_col_crop" text="CROP" />
-        <text name="ft_fields_col_state" text="STATE" />
-        <text name="ft_fields_help_summary_title" text="SUMMARY BADGES" />
-        <text name="ft_fields_help_summary_body" text="Top of the screen shows totals: READY fields that can be harvested, GROW fields with crops growing, and EMPTY fields with no active crop." />
-        <text name="ft_fields_help_columns_title" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_fields_help_columns_body" text="# = field ID.  CROP = crop type name. HA = field area in hectares. STATE = current field condition (see dot colours below)." />
-        <text name="ft_fields_help_state_colors_title" text="STATE DOT COLOURS" />
-        <text name="ft_fields_help_state_colors_body" text="Green  = Ready to harvest. Blue   = Growing normally. Yellow = Needs attention (fertilise, plough, roll, etc.). Grey   = Fallow / empty field." />
-        <text name="ft_fields_help_scrolling_title" text="SCROLLING" />
-        <text name="ft_fields_help_scrolling_body" text="If you own more fields than fit on screen the list scrolls automatically. Use the mouse wheel to scroll." />
-        <text name="ft_field_state_harvest" text="Ready" />
-        <text name="ft_field_state_withered" text="Withered" />
-        <text name="ft_field_state_seeded" text="Seeded" />
-        <text name="ft_field_state_germinated" text="Germinated" />
-        <text name="ft_field_state_ripening" text="Ripening" />
-        <text name="ft_field_state_growing" text="Growing" />
-        <text name="ft_field_state_empty" text="Empty" />
-        <text name="ft_field_crop_empty" text="Empty" />
-        <text name="ft_field_crop_unknown" text="Unknown" />
-        <text name="ft_field_state_harvested" text="Harvested" />
+        <text name="ft_fields_count" text="Tarlalar: %d" />
+        <text name="ft_fields_none" text="Henüz hiç tarlan yok." />
+        <text name="ft_fields_none_hint" text="Çiftçiliğe başlamak için arazi satın al." />
+        <text name="ft_fields_badge_ready" text="HAZIR" />
+        <text name="ft_fields_badge_grow" text="BÜYÜYOR" />
+        <text name="ft_fields_badge_empty" text="BOŞ" />
+        <text name="ft_fields_col_crop" text="EKİN" />
+        <text name="ft_fields_col_state" text="DURUM" />
+        <text name="ft_fields_help_summary_title" text="ÖZET ROZETLERİ" />
+        <text name="ft_fields_help_summary_body" text="Ekranın üstünde toplamlar görünür: HAZIR hasat edilebilecek tarlalar, BÜYÜYOR ekinleri büyüyen tarlalar ve BOŞ ekini olmayan tarlalar içindir." />
+        <text name="ft_fields_help_columns_title" text="SÜTUNLAR: # / EKİN / HA / DURUM" />
+        <text name="ft_fields_help_columns_body" text="# = tarla numarası. EKİN = ekin türü. HA = hektar cinsinden tarla alanı. DURUM = tarlanın şu anki durumu (aşağıdaki nokta renklerine bak)." />
+        <text name="ft_fields_help_state_colors_title" text="NOKTA RENKLERİ" />
+        <text name="ft_fields_help_state_colors_body" text="Yeşil = hasada hazır. Mavi = normal büyüyor. Sarı = ilgi gerekiyor (gübreleme, sürme, merdaneleme vb.). Gri = nadas / boş tarla." />
+        <text name="ft_fields_help_scrolling_title" text="KAYDIRMA" />
+        <text name="ft_fields_help_scrolling_body" text="Ekrana sığandan fazla tarlan varsa liste kayar. Kaydırmak için fare tekerleğini kullan." />
+        <text name="ft_field_state_harvest" text="Hazır" />
+        <text name="ft_field_state_withered" text="Kurudu" />
+        <text name="ft_field_state_seeded" text="Ekildi" />
+        <text name="ft_field_state_germinated" text="Filizlendi" />
+        <text name="ft_field_state_ripening" text="Olgunlaşıyor" />
+        <text name="ft_field_state_growing" text="Büyüyor" />
+        <text name="ft_field_state_empty" text="Boş" />
+        <text name="ft_field_crop_empty" text="Boş" />
+        <text name="ft_field_crop_unknown" text="Bilinmiyor" />
+        <text name="ft_field_state_harvested" text="Hasat edildi" />
         <text name="ft_auto_02d_02d" text="%02d:%02d" />
         <text name="ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast" text="0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." />
         <text name="ft_auto_0f" text="%.0f%%" />

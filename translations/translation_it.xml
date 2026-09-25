@@ -339,32 +339,32 @@
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
         <text name="ft_lockscreen_slide_to_unlock" text="scorri per sbloccare" />
-        <text name="ft_fields_count" text="%d fields" />
-        <text name="ft_fields_none" text="You don't own any fields yet." />
-        <text name="ft_fields_none_hint" text="Purchase land to start farming." />
-        <text name="ft_fields_badge_ready" text="READY" />
-        <text name="ft_fields_badge_grow" text="GROW" />
-        <text name="ft_fields_badge_empty" text="EMPTY" />
-        <text name="ft_fields_col_crop" text="CROP" />
-        <text name="ft_fields_col_state" text="STATE" />
-        <text name="ft_fields_help_summary_title" text="SUMMARY BADGES" />
-        <text name="ft_fields_help_summary_body" text="Top of the screen shows totals: READY fields that can be harvested, GROW fields with crops growing, and EMPTY fields with no active crop." />
-        <text name="ft_fields_help_columns_title" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_fields_help_columns_body" text="# = field ID.  CROP = crop type name. HA = field area in hectares. STATE = current field condition (see dot colours below)." />
-        <text name="ft_fields_help_state_colors_title" text="STATE DOT COLOURS" />
-        <text name="ft_fields_help_state_colors_body" text="Green  = Ready to harvest. Blue   = Growing normally. Yellow = Needs attention (fertilise, plough, roll, etc.). Grey   = Fallow / empty field." />
-        <text name="ft_fields_help_scrolling_title" text="SCROLLING" />
-        <text name="ft_fields_help_scrolling_body" text="If you own more fields than fit on screen the list scrolls automatically. Use the mouse wheel to scroll." />
-        <text name="ft_field_state_harvest" text="Ready" />
-        <text name="ft_field_state_withered" text="Withered" />
-        <text name="ft_field_state_seeded" text="Seeded" />
-        <text name="ft_field_state_germinated" text="Germinated" />
-        <text name="ft_field_state_ripening" text="Ripening" />
-        <text name="ft_field_state_growing" text="Growing" />
-        <text name="ft_field_state_empty" text="Empty" />
-        <text name="ft_field_crop_empty" text="Empty" />
-        <text name="ft_field_crop_unknown" text="Unknown" />
-        <text name="ft_field_state_harvested" text="Harvested" />
+        <text name="ft_fields_count" text="Campi: %d" />
+        <text name="ft_fields_none" text="Non possiedi ancora nessun campo." />
+        <text name="ft_fields_none_hint" text="Acquista terreno per iniziare a coltivare." />
+        <text name="ft_fields_badge_ready" text="PRONTO" />
+        <text name="ft_fields_badge_grow" text="CRESCE" />
+        <text name="ft_fields_badge_empty" text="VUOTO" />
+        <text name="ft_fields_col_crop" text="COLTURA" />
+        <text name="ft_fields_col_state" text="STATO" />
+        <text name="ft_fields_help_summary_title" text="INDICATORI DI RIEPILOGO" />
+        <text name="ft_fields_help_summary_body" text="In alto vengono mostrati i totali: PRONTO per i campi da raccogliere, CRESCE per le colture in crescita e VUOTO per i campi senza coltura." />
+        <text name="ft_fields_help_columns_title" text="COLONNE: # / COLTURA / HA / STATO" />
+        <text name="ft_fields_help_columns_body" text="# = numero del campo. COLTURA = tipo di coltura. HA = superficie del campo in ettari. STATO = condizione attuale del campo (vedi i colori dei punti sotto)." />
+        <text name="ft_fields_help_state_colors_title" text="COLORI DEI PUNTI" />
+        <text name="ft_fields_help_state_colors_body" text="Verde = pronto da raccogliere. Blu = crescita normale. Giallo = richiede attenzione (concimare, arare, rullare, ecc.). Grigio = maggese / campo vuoto." />
+        <text name="ft_fields_help_scrolling_title" text="SCORRIMENTO" />
+        <text name="ft_fields_help_scrolling_body" text="Se possiedi più campi di quanti ne entrino nello schermo, l'elenco scorre. Usa la rotella del mouse per scorrerlo." />
+        <text name="ft_field_state_harvest" text="Pronto" />
+        <text name="ft_field_state_withered" text="Appassito" />
+        <text name="ft_field_state_seeded" text="Seminato" />
+        <text name="ft_field_state_germinated" text="Germogliato" />
+        <text name="ft_field_state_ripening" text="Maturazione" />
+        <text name="ft_field_state_growing" text="In crescita" />
+        <text name="ft_field_state_empty" text="Vuoto" />
+        <text name="ft_field_crop_empty" text="Vuoto" />
+        <text name="ft_field_crop_unknown" text="Sconosciuto" />
+        <text name="ft_field_state_harvested" text="Raccolto" />
         <text name="ft_auto_02d_02d" text="%02d:%02d" />
         <text name="ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast" text="0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." />
         <text name="ft_auto_0f" text="%.0f%%" />
