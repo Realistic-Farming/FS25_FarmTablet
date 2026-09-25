@@ -332,32 +332,32 @@
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
         <text name="ft_lockscreen_slide_to_unlock" text="slide to unlock" />
-        <text name="ft_fields_count" text="%d fields" />
-        <text name="ft_fields_none" text="You don't own any fields yet." />
-        <text name="ft_fields_none_hint" text="Purchase land to start farming." />
-        <text name="ft_fields_badge_ready" text="READY" />
-        <text name="ft_fields_badge_grow" text="GROW" />
-        <text name="ft_fields_badge_empty" text="EMPTY" />
-        <text name="ft_fields_col_crop" text="CROP" />
-        <text name="ft_fields_col_state" text="STATE" />
-        <text name="ft_fields_help_summary_title" text="SUMMARY BADGES" />
-        <text name="ft_fields_help_summary_body" text="Top of the screen shows totals: READY fields that can be harvested, GROW fields with crops growing, and EMPTY fields with no active crop." />
-        <text name="ft_fields_help_columns_title" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_fields_help_columns_body" text="# = field ID.  CROP = crop type name. HA = field area in hectares. STATE = current field condition (see dot colours below)." />
-        <text name="ft_fields_help_state_colors_title" text="STATE DOT COLOURS" />
-        <text name="ft_fields_help_state_colors_body" text="Green  = Ready to harvest. Blue   = Growing normally. Yellow = Needs attention (fertilise, plough, roll, etc.). Grey   = Fallow / empty field." />
-        <text name="ft_fields_help_scrolling_title" text="SCROLLING" />
-        <text name="ft_fields_help_scrolling_body" text="If you own more fields than fit on screen the list scrolls automatically. Use the mouse wheel to scroll." />
-        <text name="ft_field_state_harvest" text="Ready" />
-        <text name="ft_field_state_withered" text="Withered" />
-        <text name="ft_field_state_seeded" text="Seeded" />
-        <text name="ft_field_state_germinated" text="Germinated" />
-        <text name="ft_field_state_ripening" text="Ripening" />
-        <text name="ft_field_state_growing" text="Growing" />
-        <text name="ft_field_state_empty" text="Empty" />
-        <text name="ft_field_crop_empty" text="Empty" />
-        <text name="ft_field_crop_unknown" text="Unknown" />
-        <text name="ft_field_state_harvested" text="Harvested" />
+        <text name="ft_fields_count" text="Peltoja: %d" />
+        <text name="ft_fields_none" text="Sinulla ei ole vielä peltoja." />
+        <text name="ft_fields_none_hint" text="Osta maata aloittaaksesi viljelyn." />
+        <text name="ft_fields_badge_ready" text="VALMIS" />
+        <text name="ft_fields_badge_grow" text="KASVAA" />
+        <text name="ft_fields_badge_empty" text="TYHJÄ" />
+        <text name="ft_fields_col_crop" text="KASVI" />
+        <text name="ft_fields_col_state" text="TILA" />
+        <text name="ft_fields_help_summary_title" text="YHTEENVETOMERKIT" />
+        <text name="ft_fields_help_summary_body" text="Näytön yläosassa näkyvät summat: VALMIS korjattaville pelloille, KASVAA pelloille, joilla kasvi kasvaa, ja TYHJÄ pelloille, joilla ei ole kasvia." />
+        <text name="ft_fields_help_columns_title" text="SARAKKEET: # / KASVI / HA / TILA" />
+        <text name="ft_fields_help_columns_body" text="# = pellon numero. KASVI = viljelykasvin laji. HA = pellon pinta-ala hehtaareina. TILA = pellon nykyinen tila (katso pisteiden värit alta)." />
+        <text name="ft_fields_help_state_colors_title" text="PISTEIDEN VÄRIT" />
+        <text name="ft_fields_help_state_colors_body" text="Vihreä = valmis korjattavaksi. Sininen = kasvaa normaalisti. Keltainen = vaatii huomiota (lannoitus, kyntö, jyräys jne.). Harmaa = kesanto / tyhjä pelto." />
+        <text name="ft_fields_help_scrolling_title" text="VIERITYS" />
+        <text name="ft_fields_help_scrolling_body" text="Jos sinulla on enemmän peltoja kuin näytölle mahtuu, luettelo vierii. Vieritä hiiren rullalla." />
+        <text name="ft_field_state_harvest" text="Valmis" />
+        <text name="ft_field_state_withered" text="Kuihtunut" />
+        <text name="ft_field_state_seeded" text="Kylvetty" />
+        <text name="ft_field_state_germinated" text="Itänyt" />
+        <text name="ft_field_state_ripening" text="Tuleentuu" />
+        <text name="ft_field_state_growing" text="Kasvaa" />
+        <text name="ft_field_state_empty" text="Tyhjä" />
+        <text name="ft_field_crop_empty" text="Tyhjä" />
+        <text name="ft_field_crop_unknown" text="Tuntematon" />
+        <text name="ft_field_state_harvested" text="Korjattu" />
         <text name="ft_auto_02d_02d" text="%02d:%02d" />
         <text name="ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast" text="0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." />
         <text name="ft_auto_0f" text="%.0f%%" />

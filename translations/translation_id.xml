@@ -333,32 +333,32 @@
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
         <text name="ft_settings_reopen_provider_hint" text="Opens the large provider selection window" />
         <text name="ft_lockscreen_slide_to_unlock" text="slide to unlock" />
-        <text name="ft_fields_count" text="%d fields" />
-        <text name="ft_fields_none" text="You don't own any fields yet." />
-        <text name="ft_fields_none_hint" text="Purchase land to start farming." />
-        <text name="ft_fields_badge_ready" text="READY" />
-        <text name="ft_fields_badge_grow" text="GROW" />
-        <text name="ft_fields_badge_empty" text="EMPTY" />
-        <text name="ft_fields_col_crop" text="CROP" />
-        <text name="ft_fields_col_state" text="STATE" />
-        <text name="ft_fields_help_summary_title" text="SUMMARY BADGES" />
-        <text name="ft_fields_help_summary_body" text="Top of the screen shows totals: READY fields that can be harvested, GROW fields with crops growing, and EMPTY fields with no active crop." />
-        <text name="ft_fields_help_columns_title" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_fields_help_columns_body" text="# = field ID.  CROP = crop type name. HA = field area in hectares. STATE = current field condition (see dot colours below)." />
-        <text name="ft_fields_help_state_colors_title" text="STATE DOT COLOURS" />
-        <text name="ft_fields_help_state_colors_body" text="Green  = Ready to harvest. Blue   = Growing normally. Yellow = Needs attention (fertilise, plough, roll, etc.). Grey   = Fallow / empty field." />
-        <text name="ft_fields_help_scrolling_title" text="SCROLLING" />
-        <text name="ft_fields_help_scrolling_body" text="If you own more fields than fit on screen the list scrolls automatically. Use the mouse wheel to scroll." />
-        <text name="ft_field_state_harvest" text="Ready" />
-        <text name="ft_field_state_withered" text="Withered" />
-        <text name="ft_field_state_seeded" text="Seeded" />
-        <text name="ft_field_state_germinated" text="Germinated" />
-        <text name="ft_field_state_ripening" text="Ripening" />
-        <text name="ft_field_state_growing" text="Growing" />
-        <text name="ft_field_state_empty" text="Empty" />
-        <text name="ft_field_crop_empty" text="Empty" />
-        <text name="ft_field_crop_unknown" text="Unknown" />
-        <text name="ft_field_state_harvested" text="Harvested" />
+        <text name="ft_fields_count" text="%d ladang" />
+        <text name="ft_fields_none" text="Kamu belum memiliki ladang." />
+        <text name="ft_fields_none_hint" text="Beli lahan untuk mulai bertani." />
+        <text name="ft_fields_badge_ready" text="SIAP" />
+        <text name="ft_fields_badge_grow" text="TUMBUH" />
+        <text name="ft_fields_badge_empty" text="KOSONG" />
+        <text name="ft_fields_col_crop" text="TANAMAN" />
+        <text name="ft_fields_col_state" text="STATUS" />
+        <text name="ft_fields_help_summary_title" text="LENCANA RINGKASAN" />
+        <text name="ft_fields_help_summary_body" text="Bagian atas layar menampilkan total: SIAP untuk ladang yang bisa dipanen, TUMBUH untuk ladang dengan tanaman yang sedang tumbuh, dan KOSONG untuk ladang tanpa tanaman." />
+        <text name="ft_fields_help_columns_title" text="KOLOM: # / TANAMAN / HA / STATUS" />
+        <text name="ft_fields_help_columns_body" text="# = nomor ladang. TANAMAN = jenis tanaman. HA = luas ladang dalam hektare. STATUS = kondisi ladang saat ini (lihat warna titik di bawah)." />
+        <text name="ft_fields_help_state_colors_title" text="WARNA TITIK" />
+        <text name="ft_fields_help_state_colors_body" text="Hijau = siap panen. Biru = tumbuh normal. Kuning = perlu perhatian (pupuk, bajak, gilas, dll.). Abu-abu = bera / ladang kosong." />
+        <text name="ft_fields_help_scrolling_title" text="GULIR" />
+        <text name="ft_fields_help_scrolling_body" text="Jika ladangmu lebih banyak dari yang muat di layar, daftar akan bergulir. Gunakan roda mouse untuk menggulir." />
+        <text name="ft_field_state_harvest" text="Siap" />
+        <text name="ft_field_state_withered" text="Layu" />
+        <text name="ft_field_state_seeded" text="Ditabur" />
+        <text name="ft_field_state_germinated" text="Berkecambah" />
+        <text name="ft_field_state_ripening" text="Mematang" />
+        <text name="ft_field_state_growing" text="Tumbuh" />
+        <text name="ft_field_state_empty" text="Kosong" />
+        <text name="ft_field_crop_empty" text="Kosong" />
+        <text name="ft_field_crop_unknown" text="Tak dikenal" />
+        <text name="ft_field_state_harvested" text="Dipanen" />
         <text name="ft_auto_02d_02d" text="%02d:%02d" />
         <text name="ft_auto_0_19_clear_20_39_partly_40_69_mostly_70_overcast" text="0-19% = Clear  20-39% = Partly  40-69% = Mostly  70%+ = Overcast." />
         <text name="ft_auto_0f" text="%.0f%%" />
