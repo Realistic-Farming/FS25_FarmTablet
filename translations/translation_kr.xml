@@ -144,7 +144,7 @@
         <text name="ft_ui_app_hotspot_manager" text="지점 관리" />
         <text name="ft_ui_app_notes" text="메모" />
         <text name="ft_ui_app_farm_admin" text="농장 관리" />
-        <text name="ft_ui_app_contracts" text="Gyeyak" />
+        <text name="ft_ui_app_contracts" text="계약" />
         <text name="ft_ui_app_fleet_manager" text="차량 관리" />
         <text name="ft_ui_app_production_buildings" text="생산" />
         <text name="ft_ui_app_farm_stats" text="농장 통계" />
@@ -154,7 +154,7 @@
         <text name="ft_ui_short_irrigation_suite" text="관개" />
         <text name="ft_ui_short_soil_fertilizer" text="토양" />
         <text name="ft_ui_short_field_sentry" text="밭 감시" />
-        <text name="ft_ui_app_field_jobs" text="Nongjie Jagub" />
+        <text name="ft_ui_app_field_jobs" text="밭 작업" />
         <text name="ft_help_cat_start" text="시작하기" />
         <text name="ft_help_cat_apps" text="농장 앱" />
         <text name="ft_help_cat_mods" text="컴패니언 모드" />

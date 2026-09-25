@@ -144,7 +144,7 @@
         <text name="ft_ui_app_hotspot_manager" text="Менеджер міток" />
         <text name="ft_ui_app_notes" text="Нотатки" />
         <text name="ft_ui_app_farm_admin" text="Адміністрування ферми" />
-        <text name="ft_ui_app_contracts" text="Kontrakty" />
+        <text name="ft_ui_app_contracts" text="Контракти" />
         <text name="ft_ui_app_fleet_manager" text="Керування технікою" />
         <text name="ft_ui_app_production_buildings" text="Виробництво" />
         <text name="ft_ui_app_farm_stats" text="Статистика ферми" />
@@ -154,7 +154,7 @@
         <text name="ft_ui_short_irrigation_suite" text="Полив" />
         <text name="ft_ui_short_soil_fertilizer" text="Ґрунт" />
         <text name="ft_ui_short_field_sentry" text="Вартовий" />
-        <text name="ft_ui_app_field_jobs" text="Polovi Roboty" />
+        <text name="ft_ui_app_field_jobs" text="Польові роботи" />
         <text name="ft_help_cat_start" text="Початок роботи" />
         <text name="ft_help_cat_apps" text="Фермерські програми" />
         <text name="ft_help_cat_mods" text="Супутні моди" />
