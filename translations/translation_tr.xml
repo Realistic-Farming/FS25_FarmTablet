@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="NPC sözleşmeli ya da dekoratif arazilere dokunulmaz." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Seviye" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Okyanus Mavisi" />
         <text name="ft_auto_off" text="KAPALI" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Kapalı" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="AÇIK" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Açık" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="çalışacağına karar verir. Uyuyan tarlalar performans için atlanır ve&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="SEÇ" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Toprak ve gübreleme durumu" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Toprak sistemi başlatılıyor..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="UYGULAMA MAĞAZASI NEDİR" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="BU UYGULAMA NE YAPAR" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="BU NEDİR" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Tüm çiftlikte ekim nöbetinin durumu ve bir &quot;ya olursa&quot; karşılaştırması&#10;" />
+        <text name="ft_rotation_help_what_2" text="herhangi bir tarladaki sonraki ürün için. Rakamlar Soil&#10;" />
+        <text name="ft_rotation_help_what_3" text="Fertilizer'ın kendi ekim nöbeti puanından gelir, ikinci bir modelden değil." />
+        <text name="ft_rotation_help_stand_title" text="NE DURUMDAYIM" />
+        <text name="ft_rotation_help_stand_1" text="Her sahip olunan tarla son ürünleri ve toprağın&#10;" />
+        <text name="ft_rotation_help_stand_2" text="bonusa hazır mı, iyi mi, yorgun mu olduğunu gösterir. Türler, notlar değil." />
+        <text name="ft_rotation_help_whatif_title" text="YA OLURSA" />
+        <text name="ft_rotation_help_whatif_1" text="Bir tarla seç, sonra toprak ayrıntı penceresinin kullandığı&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="aynı seçilmiş adayları oku (aynı ürün, bir baklagil,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="nötr bir tahıl), simülasyonun kendi sonuç sözcükleriyle." />
+        <text name="ft_rotation_help_degrade_title" text="DÜRÜST SINIRLAR" />
+        <text name="ft_rotation_help_degrade_1" text="Toprak verileri üçüncü bir sezonu ve bonus geri&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="sayımını yayımlayana kadar uygulama iki sezon gösterir, sayaç yok.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Geçmişi olmayan bir tarla Bilinmiyor gösterir, asla uydurmaz." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizer bulunamadı." />
+        <text name="ft_rotation_install_soil" text="FS25_SoilFertilizer'ı kur. O olmadan bu uygulama gizli kalır." />
+        <text name="ft_rotation_no_fields" text="Henüz hiç tarlan yok." />
+        <text name="ft_auto_view" text="GÖSTER" />
+        <text name="ft_rotation_no_history" text="Bu tarlada henüz ürün geçmişi yok. Karşılaştırmadan önce bir ürün yetiştir." />
+        <text name="ft_sysset_help_does_1" text="Realistic Farming modlarının Settings Hub'a kaydettiği&#10;" />
+        <text name="ft_sysset_help_does_2" text="her ayarı değiştir; ayarlar moda göre gruplanır.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Değişiklikler hemen kaydedilir ve uygulanır." />
+        <text name="ft_sysset_help_change_title" text="BİR DEĞER NASIL DEĞİŞİR" />
+        <text name="ft_sysset_help_change_1" text="Açık / Kapalı anahtarları değişir. Listeler oklarla döner.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Sayılar eksi ve artı düğmeleriyle değişir.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Ayarlarını açmak ya da kapatmak için bir modun başlığına dokun." />
+        <text name="ft_sysset_help_admin_title" text="YÖNETİCİ YA DA YEREL" />
+        <text name="ft_sysset_help_admin_1" text="Yönetici ayarlarını sunucu paylaşır ve çok oyunculu&#10;" />
+        <text name="ft_sysset_help_admin_2" text="oyunda herkes için geçerlidir, bu yüzden yalnızca sunucu sahibi ya da&#10;" />
+        <text name="ft_sysset_help_admin_3" text="bir yönetici değiştirebilir. Diğer oyuncular onları kilitli görür.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Yerel ayarlar senindir ve bu bilgisayarda kalır." />
+        <text name="ft_sysset_not_installed" text="Settings Hub kurulu değil." />
+        <text name="ft_sysset_install" text="Bu uygulamayı kullanmak için FS25_SettingsHub'ı kur." />
+        <text name="ft_sysset_none_registered" text="Henüz kayıtlı ekosistem ayarı yok." />
+        <text name="ft_sysset_appear_here" text="Realistic Farming modları yüklendikçe burada görünür." />
+        <text name="ft_sysset_admin_locked" text="yönetici - kilitli" />
+        <text name="ft_sysset_server_shared" text="sunucuyla paylaşılan" />
+        <text name="ft_prostaff_help_what_1" text="Çiftliğinin Pro-Staff Co-Op üyelik seviyesi,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="sonraki yatırımın maliyeti ve etkin etkiler.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Bu, Personel / İşçi Maliyetleri listesi değildir." />
+        <text name="ft_prostaff_help_invest_title" text="YATIRIM YAP" />
+        <text name="ft_prostaff_help_invest_1" text="SONRAKİ SEVİYEYİ SATIN AL, gösterilen tutarı sunucuda harcar;&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="bunu ProStaff'ın kendi buyLevel yolu yapar. Salt istemcilerin&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="satın almayı tamamlamak için sunucuya / NetworkSync'e ihtiyacı var." />
+        <text name="ft_prostaff_help_mods_title" text="ETKİLER" />
+        <text name="ft_prostaff_help_mods_1" text="Yalnızca mevcut seviyendeki nötr olmayan etkiler&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="listelenir (ücretler, yorgunluk, gübre, süt, bayraklar)." />
+        <text name="ft_prostaff_investment" text="Yatırım" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op bulunamadı." />
+        <text name="ft_prostaff_install" text="Bu uygulamayı kullanmak için FS25_ProStaffCoOp'u kur." />
+        <text name="ft_prostaff_membership" text="ÜYELİK" />
+        <text name="ft_prostaff_invested" text="Yatırılan" />
+        <text name="ft_prostaff_next_level_cost" text="Sonraki seviye maliyeti" />
+        <text name="ft_auto_max" text="MAKS" />
+        <text name="ft_prostaff_buy_next_level" text="SONRAKİ SEVİYEYİ SATIN AL" />
+        <text name="ft_prostaff_no_further_levels" text="Başka seviye yok." />
+        <text name="ft_prostaff_active_modifiers" text="ETKİN ETKİLER" />
+        <text name="ft_prostaff_no_active_modifiers" text="Bu seviyede henüz etkin etki yok." />
+        <text name="ft_rotation_field_count" text="Tarla: %d · toprak öngörüsüyle aynı motor" />
+        <text name="ft_rotation_whatif_field" text="Ya olursa · tarla no. %s" />
+        <text name="ft_rotation_unknown_no_history" text="Bilinmiyor · Henüz ürün geçmişi yok" />
+        <text name="ft_rotation_no_change" text="değişiklik yok" />
+        <text name="ft_prostaff_level_none" text="Yok" />
+        <text name="ft_prostaff_level_n" text="Seviye %d" />
+        <text name="ft_prostaff_mod_on" text="%s: açık" />
+        <text name="ft_prostaff_mod_wage_cost" text="Ücret maliyeti" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Yorgunluk azaltma" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Yorgunluktan toparlanma" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Genel etkinlik" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Gübre maliyeti" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Fungisit maliyeti" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Fungisit etkisi" />
+        <text name="ft_prostaff_mod_spray_cost" text="İlaçlama maliyeti" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Veteriner malzemeleri" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Süt lojistiği" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Toptan alım" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Dökme taşıma" />
+        <text name="ft_prostaff_mod_market_intel" text="Piyasa bilgisi" />
+        <text name="ft_prostaff_mod_forecast_access" text="Tahmin erişimi" />
+        <text name="ft_prostaff_mod_predictive_control" text="Öngörülü kontrol" />
+        <text name="ft_prostaff_mod_early_warning" text="Erken uyarı" />
         <text name="ft_lockscreen_date_day" text="%s  -  Gün %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

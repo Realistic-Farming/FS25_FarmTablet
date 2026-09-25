@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="並且不去動 NPC 合約地或裝飾用地。" />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="等級" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="海洋藍" />
         <text name="ft_auto_off" text="關" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="關閉" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="開" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="開啟" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="休眠的田地會被略過，以節省效能，&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="選擇" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="土壤與施肥狀態" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="土壤系統初始化中..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="什麼是應用程式商店" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="此應用程式的功能" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="這是什麼" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="全農場的輪作現況,以及「如果」比較,&#10;" />
+        <text name="ft_rotation_help_what_2" text="可比較任何田地的下一種作物。數據來自 Soil&#10;" />
+        <text name="ft_rotation_help_what_3" text="Fertilizer 本身的輪作評分,而不是第二套模型。" />
+        <text name="ft_rotation_help_stand_title" text="我的現況" />
+        <text name="ft_rotation_help_stand_1" text="每塊自有田地都會顯示近期作物,以及土壤&#10;" />
+        <text name="ft_rotation_help_stand_2" text="是否已備妥加成、正常或疲乏。是類別,不是分數。" />
+        <text name="ft_rotation_help_whatif_title" text="如果" />
+        <text name="ft_rotation_help_whatif_1" text="選擇一塊田地,即可看到與土壤田地詳情視窗&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="相同的精選候選(同一作物、一種豆科作物、&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="一種中性穀物),並以模擬本身的後果用語呈現。" />
+        <text name="ft_rotation_help_degrade_title" text="誠實的限制" />
+        <text name="ft_rotation_help_degrade_1" text="在土壤資料公布第三季與&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="加成倒數之前,此應用程式只顯示兩季,沒有計時器。&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="沒有紀錄的田地顯示「未知」,絕不憑空捏造。" />
+        <text name="ft_rotation_no_soil" text="未偵測到 Soil Fertilizer。" />
+        <text name="ft_rotation_install_soil" text="請安裝 FS25_SoilFertilizer。未安裝時此應用程式會隱藏。" />
+        <text name="ft_rotation_no_fields" text="你還沒有任何田地。" />
+        <text name="ft_auto_view" text="查看" />
+        <text name="ft_rotation_no_history" text="此田地尚無作物紀錄。比較前請先種植作物。" />
+        <text name="ft_sysset_help_does_1" text="可變更 Realistic Farming 模組在 Settings Hub&#10;" />
+        <text name="ft_sysset_help_does_2" text="註冊的任何設定,並依模組分組。&#10;" />
+        <text name="ft_sysset_help_does_3" text="變更會立即儲存並套用。" />
+        <text name="ft_sysset_help_change_title" text="如何變更數值" />
+        <text name="ft_sysset_help_change_1" text="開啟 / 關閉開關可切換。清單以箭頭切換。&#10;" />
+        <text name="ft_sysset_help_change_2" text="數字以減號和加號按鈕調整。&#10;" />
+        <text name="ft_sysset_help_change_3" text="點選模組標題即可收合或展開其設定。" />
+        <text name="ft_sysset_help_admin_title" text="管理員與本機" />
+        <text name="ft_sysset_help_admin_1" text="管理員設定由伺服器共用,並套用於多人遊戲中的&#10;" />
+        <text name="ft_sysset_help_admin_2" text="所有人,因此只有主機或管理員&#10;" />
+        <text name="ft_sysset_help_admin_3" text="能變更。其他玩家會看到它們已鎖定。&#10;" />
+        <text name="ft_sysset_help_admin_4" text="本機設定屬於你自己,並保留在這台電腦上。" />
+        <text name="ft_sysset_not_installed" text="未安裝 Settings Hub。" />
+        <text name="ft_sysset_install" text="請安裝 FS25_SettingsHub 以使用此應用程式。" />
+        <text name="ft_sysset_none_registered" text="尚未註冊任何生態系統設定。" />
+        <text name="ft_sysset_appear_here" text="Realistic Farming 模組載入後會出現在這裡。" />
+        <text name="ft_sysset_admin_locked" text="管理員 - 已鎖定" />
+        <text name="ft_sysset_server_shared" text="伺服器共用" />
+        <text name="ft_prostaff_help_what_1" text="你的農場在 Pro-Staff Co-Op 的會員等級、&#10;" />
+        <text name="ft_prostaff_help_what_2" text="下一筆投資的費用,以及生效中的效果。&#10;" />
+        <text name="ft_prostaff_help_what_3" text="這不是人事 / 工人成本的名冊。" />
+        <text name="ft_prostaff_help_invest_title" text="投資" />
+        <text name="ft_prostaff_help_invest_1" text="「購買下一等級」會在主機上支付所列費用,&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="透過 ProStaff 本身的 buyLevel 流程。純用戶端&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="需要主機 / NetworkSync 才能完成購買。" />
+        <text name="ft_prostaff_help_mods_title" text="效果" />
+        <text name="ft_prostaff_help_mods_1" text="只列出你目前等級中&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="非中性的效果(工資、疲勞、肥料、乳品、旗標)。" />
+        <text name="ft_prostaff_investment" text="投資" />
+        <text name="ft_prostaff_not_detected" text="未偵測到 Pro-Staff Co-Op。" />
+        <text name="ft_prostaff_install" text="請安裝 FS25_ProStaffCoOp 以使用此應用程式。" />
+        <text name="ft_prostaff_membership" text="會員資格" />
+        <text name="ft_prostaff_invested" text="已投資" />
+        <text name="ft_prostaff_next_level_cost" text="下一等級費用" />
+        <text name="ft_auto_max" text="最大" />
+        <text name="ft_prostaff_buy_next_level" text="購買下一等級" />
+        <text name="ft_prostaff_no_further_levels" text="沒有更多等級。" />
+        <text name="ft_prostaff_active_modifiers" text="生效中的效果" />
+        <text name="ft_prostaff_no_active_modifiers" text="此等級尚無生效中的效果。" />
+        <text name="ft_rotation_field_count" text="田地 %d 塊 · 與土壤預測同一引擎" />
+        <text name="ft_rotation_whatif_field" text="如果 · 田地 #%s" />
+        <text name="ft_rotation_unknown_no_history" text="未知 · 尚無作物紀錄" />
+        <text name="ft_rotation_no_change" text="無變化" />
+        <text name="ft_prostaff_level_none" text="無" />
+        <text name="ft_prostaff_level_n" text="等級 %d" />
+        <text name="ft_prostaff_mod_on" text="%s:開啟" />
+        <text name="ft_prostaff_mod_wage_cost" text="工資成本" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="疲勞減輕" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="疲勞恢復" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="整體效率" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="肥料成本" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="殺菌劑成本" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="殺菌劑效果" />
+        <text name="ft_prostaff_mod_spray_cost" text="噴灑成本" />
+        <text name="ft_prostaff_mod_vet_supplies" text="獸醫用品" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="乳品物流" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="大宗採購" />
+        <text name="ft_prostaff_mod_bulk_transport" text="散裝運輸" />
+        <text name="ft_prostaff_mod_market_intel" text="市場情報" />
+        <text name="ft_prostaff_mod_forecast_access" text="預報存取" />
+        <text name="ft_prostaff_mod_predictive_control" text="預測控制" />
+        <text name="ft_prostaff_mod_early_warning" text="早期預警" />
         <text name="ft_lockscreen_date_day" text="%s  -  第 %d 天" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

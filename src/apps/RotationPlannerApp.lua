@@ -59,7 +59,7 @@ local function standingLine(info)
     local RP = _rp()
     if RP ~= nil and RP.standingLine ~= nil then return RP.standingLine(info) end
     if info == nil or info.lastCrop == nil or info.lastCrop == "" then
-        return "Unknown · No crop history yet", "unknown"
+        return FT.l10n("ft_rotation_unknown_no_history", "Unknown · No crop history yet"), "unknown"
     end
     local st = info.rotationStatus or "OK"
     local kind = (st == "Bonus" and "bonus") or (st == "Fatigue" and "fatigue")
@@ -70,7 +70,7 @@ end
 local function effectText(proj)
     local RP = _rp()
     if RP ~= nil and RP.effectText ~= nil then return RP.effectText(proj) end
-    if proj == nil or proj.status == nil then return "no change" end
+    if proj == nil or proj.status == nil then return FT.l10n("ft_rotation_no_change", "no change") end
     return tostring(proj.status)
 end
 
@@ -149,7 +149,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
     end
 
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-        string.format("%d fields · same engine as soil foresight", #fields),
+        FT.l10nFormat("ft_rotation_field_count", "%d fields · same engine as soil foresight", #fields),
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     y = y - FT.py(16)
     y = self:drawRule(y, 0.4)
@@ -203,7 +203,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
     y = y - FT.py(4)
 
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-        string.format("What if · field #%s", tostring(selected or "?")),
+        FT.l10nFormat("ft_rotation_whatif_field", "What if · field #%s", tostring(selected or "?")),
         RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
     y = y - FT.py(18)
 

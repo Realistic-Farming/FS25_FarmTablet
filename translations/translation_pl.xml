@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="zostawić w spokoju ziemie z kontraktem NPC i ozdobne." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Poziom" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Błękit oceanu" />
         <text name="ft_auto_off" text="WYŁ." />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Wył." />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="WŁ." />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Wł." />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="gleby. Uśpione pola są pomijane, by oszczędzać wydajność i&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="WYBIERZ" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Stan gleby i nawożenia" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Uruchamianie systemu gleby..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="CZYM JEST SKLEP Z APLIKACJAMI" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="CO ROBI TA APLIKACJA" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="CO TO JEST" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Stan płodozmianu w całym gospodarstwie i porównanie „co jeśli”&#10;" />
+        <text name="ft_rotation_help_what_2" text="dla następnej uprawy na dowolnym polu. Liczby pochodzą z&#10;" />
+        <text name="ft_rotation_help_what_3" text="własnej oceny płodozmianu Soil Fertilizer, a nie z drugiego modelu." />
+        <text name="ft_rotation_help_stand_title" text="GDZIE JESTEM" />
+        <text name="ft_rotation_help_stand_1" text="Każde posiadane pole pokazuje ostatnie uprawy i to, czy&#10;" />
+        <text name="ft_rotation_help_stand_2" text="gleba jest gotowa na bonus, OK czy wyjałowiona. Rodzaje, nie oceny." />
+        <text name="ft_rotation_help_whatif_title" text="CO JEŚLI" />
+        <text name="ft_rotation_help_whatif_1" text="Wybierz pole i przeczytaj tych samych wybranych kandydatów,&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="których używa okno szczegółów gleby (ta sama uprawa, roślina strączkowa,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="neutralne zboże), ze słowami skutków samej symulacji." />
+        <text name="ft_rotation_help_degrade_title" text="UCZCIWE GRANICE" />
+        <text name="ft_rotation_help_degrade_1" text="Dopóki dane o glebie nie podają trzeciego sezonu i&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="odliczania bonusu, aplikacja pokazuje dwa sezony bez licznika.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Pole bez historii pokazuje Nieznane, nigdy nic zmyślonego." />
+        <text name="ft_rotation_no_soil" text="Nie wykryto Soil Fertilizer." />
+        <text name="ft_rotation_install_soil" text="Zainstaluj FS25_SoilFertilizer. Bez niego ta aplikacja jest ukryta." />
+        <text name="ft_rotation_no_fields" text="Nie masz jeszcze żadnych pól." />
+        <text name="ft_auto_view" text="POKAŻ" />
+        <text name="ft_rotation_no_history" text="To pole nie ma jeszcze historii upraw. Wyhoduj coś przed porównaniem." />
+        <text name="ft_sysset_help_does_1" text="Zmieniaj każde ustawienie, które mody Realistic Farming&#10;" />
+        <text name="ft_sysset_help_does_2" text="zarejestrowały w Settings Hub, pogrupowane według modów.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Zmiany zapisują się i działają od razu." />
+        <text name="ft_sysset_help_change_title" text="JAK ZMIENIĆ WARTOŚĆ" />
+        <text name="ft_sysset_help_change_1" text="Przełączniki Wł. / Wył. zmieniają stan. Listy przewija się strzałkami.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Liczby zmienia się przyciskami minus i plus.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Stuknij nagłówek moda, aby zwinąć lub rozwinąć jego ustawienia." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN CZY LOKALNE" />
+        <text name="ft_sysset_help_admin_1" text="Ustawienia admina są wspólne dla serwera i obowiązują&#10;" />
+        <text name="ft_sysset_help_admin_2" text="wszystkich w trybie wieloosobowym, więc zmienić je może tylko&#10;" />
+        <text name="ft_sysset_help_admin_3" text="host lub admin. Inni gracze widzą je jako zablokowane.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Ustawienia lokalne są twoje i zostają na tym komputerze." />
+        <text name="ft_sysset_not_installed" text="Settings Hub nie jest zainstalowany." />
+        <text name="ft_sysset_install" text="Zainstaluj FS25_SettingsHub, aby używać tej aplikacji." />
+        <text name="ft_sysset_none_registered" text="Nie zarejestrowano jeszcze żadnych ustawień ekosystemu." />
+        <text name="ft_sysset_appear_here" text="Mody Realistic Farming pojawiają się tu w miarę wczytywania." />
+        <text name="ft_sysset_admin_locked" text="admin - zablokowane" />
+        <text name="ft_sysset_server_shared" text="wspólne dla serwera" />
+        <text name="ft_prostaff_help_what_1" text="Poziom członkostwa twojego gospodarstwa w Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="koszt następnej inwestycji i aktywne efekty.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="To nie jest lista z Personel / Koszty pracowników." />
+        <text name="ft_prostaff_help_invest_title" text="INWESTUJ" />
+        <text name="ft_prostaff_help_invest_1" text="KUP NASTĘPNY POZIOM wydaje podany koszt na hoście&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="przez własną funkcję buyLevel ProStaff. Czyści klienci&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="potrzebują hosta / NetworkSync, by dokończyć zakup." />
+        <text name="ft_prostaff_help_mods_title" text="EFEKTY" />
+        <text name="ft_prostaff_help_mods_1" text="Wymienione są tylko nieneutralne efekty twojego&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="obecnego poziomu (płace, zmęczenie, nawozy, mleko, flagi)." />
+        <text name="ft_prostaff_investment" text="Inwestycja" />
+        <text name="ft_prostaff_not_detected" text="Nie wykryto Pro-Staff Co-Op." />
+        <text name="ft_prostaff_install" text="Zainstaluj FS25_ProStaffCoOp, aby używać tej aplikacji." />
+        <text name="ft_prostaff_membership" text="CZŁONKOSTWO" />
+        <text name="ft_prostaff_invested" text="Zainwestowano" />
+        <text name="ft_prostaff_next_level_cost" text="Koszt następnego poziomu" />
+        <text name="ft_auto_max" text="MAKS." />
+        <text name="ft_prostaff_buy_next_level" text="KUP NASTĘPNY POZIOM" />
+        <text name="ft_prostaff_no_further_levels" text="Brak kolejnych poziomów." />
+        <text name="ft_prostaff_active_modifiers" text="AKTYWNE EFEKTY" />
+        <text name="ft_prostaff_no_active_modifiers" text="Na tym poziomie nie ma jeszcze aktywnych efektów." />
+        <text name="ft_rotation_field_count" text="Pola: %d · ten sam silnik co prognoza gleby" />
+        <text name="ft_rotation_whatif_field" text="Co jeśli · pole nr %s" />
+        <text name="ft_rotation_unknown_no_history" text="Nieznane · Brak historii upraw" />
+        <text name="ft_rotation_no_change" text="bez zmian" />
+        <text name="ft_prostaff_level_none" text="Brak" />
+        <text name="ft_prostaff_level_n" text="Poziom %d" />
+        <text name="ft_prostaff_mod_on" text="%s: wł." />
+        <text name="ft_prostaff_mod_wage_cost" text="Koszt płac" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Łagodzenie zmęczenia" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Regeneracja po zmęczeniu" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Ogólna skuteczność" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Koszt nawozu" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Koszt fungicydu" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Działanie fungicydu" />
+        <text name="ft_prostaff_mod_spray_cost" text="Koszt oprysku" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Artykuły weterynaryjne" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Logistyka mleczarska" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Zakupy hurtowe" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Transport luzem" />
+        <text name="ft_prostaff_mod_market_intel" text="Wiedza rynkowa" />
+        <text name="ft_prostaff_mod_forecast_access" text="Dostęp do prognoz" />
+        <text name="ft_prostaff_mod_predictive_control" text="Sterowanie predykcyjne" />
+        <text name="ft_prostaff_mod_early_warning" text="Wczesne ostrzeganie" />
         <text name="ft_lockscreen_date_day" text="%s  -  Dzień %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

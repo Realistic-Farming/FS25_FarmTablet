@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="không động đến đất theo hợp đồng NPC hoặc đất trang trí." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Cấp" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Xanh đại dương" />
         <text name="ft_auto_off" text="TẮT" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Tắt" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="BẬT" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Bật" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="nào. Ruộng đang ngủ được bỏ qua để tiết kiệm hiệu năng và để&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="CHỌN" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Trạng thái đất và bón phân" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Hệ thống đất đang khởi động..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="CỬA HÀNG ỨNG DỤNG LÀ GÌ" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="ỨNG DỤNG NÀY LÀM GÌ" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="ĐÂY LÀ GÌ" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Tình trạng luân canh của cả trang trại và phép so sánh &quot;nếu như&quot;&#10;" />
+        <text name="ft_rotation_help_what_2" text="cho cây trồng tiếp theo trên bất kỳ cánh đồng nào. Số liệu lấy từ&#10;" />
+        <text name="ft_rotation_help_what_3" text="điểm luân canh riêng của Soil Fertilizer, không phải mô hình thứ hai." />
+        <text name="ft_rotation_help_stand_title" text="TÔI ĐANG Ở ĐÂU" />
+        <text name="ft_rotation_help_stand_1" text="Mỗi cánh đồng sở hữu cho thấy các cây trồng gần đây và liệu&#10;" />
+        <text name="ft_rotation_help_stand_2" text="đất sẵn sàng nhận thưởng, ổn hay kiệt sức. Loại, không phải điểm." />
+        <text name="ft_rotation_help_whatif_title" text="NẾU NHƯ" />
+        <text name="ft_rotation_help_whatif_1" text="Chọn một cánh đồng, rồi đọc cùng các ứng viên đã chọn&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="mà hộp thoại chi tiết đất dùng (cùng cây trồng, một cây họ đậu,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="một loại ngũ cốc trung tính), với từ ngữ hệ quả của chính mô phỏng." />
+        <text name="ft_rotation_help_degrade_title" text="GIỚI HẠN TRUNG THỰC" />
+        <text name="ft_rotation_help_degrade_1" text="Cho đến khi dữ liệu đất công bố mùa thứ ba và&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="bộ đếm ngược thưởng, ứng dụng hiển thị hai mùa và không có hẹn giờ.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Cánh đồng chưa có lịch sử hiện Không rõ, không bao giờ bịa ra." />
+        <text name="ft_rotation_no_soil" text="Không tìm thấy Soil Fertilizer." />
+        <text name="ft_rotation_install_soil" text="Hãy cài FS25_SoilFertilizer. Không có nó, ứng dụng này sẽ bị ẩn." />
+        <text name="ft_rotation_no_fields" text="Bạn chưa sở hữu cánh đồng nào." />
+        <text name="ft_auto_view" text="XEM" />
+        <text name="ft_rotation_no_history" text="Cánh đồng này chưa có lịch sử cây trồng. Hãy trồng một vụ trước khi so sánh." />
+        <text name="ft_sysset_help_does_1" text="Thay đổi mọi thiết lập mà các mod Realistic Farming&#10;" />
+        <text name="ft_sysset_help_does_2" text="đã đăng ký với Settings Hub, nhóm theo mod.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Thay đổi được lưu và áp dụng ngay." />
+        <text name="ft_sysset_help_change_title" text="CÁCH ĐỔI MỘT GIÁ TRỊ" />
+        <text name="ft_sysset_help_change_1" text="Công tắc Bật / Tắt chuyển đổi. Danh sách xoay bằng mũi tên.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Số thay đổi bằng nút trừ và cộng.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Chạm vào tiêu đề của một mod để thu gọn hoặc mở rộng thiết lập của nó." />
+        <text name="ft_sysset_help_admin_title" text="QUẢN TRỊ HAY CỤC BỘ" />
+        <text name="ft_sysset_help_admin_1" text="Thiết lập quản trị do máy chủ chia sẻ và áp dụng cho&#10;" />
+        <text name="ft_sysset_help_admin_2" text="mọi người khi chơi nhiều người, nên chỉ chủ phòng hoặc quản trị viên&#10;" />
+        <text name="ft_sysset_help_admin_3" text="mới đổi được. Người chơi khác thấy chúng bị khóa.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Thiết lập cục bộ là của riêng bạn và nằm trên máy này." />
+        <text name="ft_sysset_not_installed" text="Chưa cài Settings Hub." />
+        <text name="ft_sysset_install" text="Hãy cài FS25_SettingsHub để dùng ứng dụng này." />
+        <text name="ft_sysset_none_registered" text="Chưa có thiết lập hệ sinh thái nào được đăng ký." />
+        <text name="ft_sysset_appear_here" text="Các mod Realistic Farming hiện ở đây khi chúng tải xong." />
+        <text name="ft_sysset_admin_locked" text="quản trị - đã khóa" />
+        <text name="ft_sysset_server_shared" text="máy chủ chia sẻ" />
+        <text name="ft_prostaff_help_what_1" text="Cấp thành viên của trang trại bạn trong Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="chi phí khoản đầu tư tiếp theo và các hiệu ứng đang bật.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Đây không phải danh sách của Nhân sự / Chi phí công nhân." />
+        <text name="ft_prostaff_help_invest_title" text="ĐẦU TƯ" />
+        <text name="ft_prostaff_help_invest_1" text="MUA CẤP TIẾP THEO chi khoản phí đã ghi trên máy chủ&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="qua đường buyLevel riêng của ProStaff. Máy khách thuần&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="cần máy chủ / NetworkSync để hoàn tất giao dịch." />
+        <text name="ft_prostaff_help_mods_title" text="HIỆU ỨNG" />
+        <text name="ft_prostaff_help_mods_1" text="Chỉ các hiệu ứng không trung tính ở cấp hiện tại của bạn&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="được liệt kê (lương, mệt mỏi, phân bón, sữa, cờ)." />
+        <text name="ft_prostaff_investment" text="Đầu tư" />
+        <text name="ft_prostaff_not_detected" text="Không tìm thấy Pro-Staff Co-Op." />
+        <text name="ft_prostaff_install" text="Hãy cài FS25_ProStaffCoOp để dùng ứng dụng này." />
+        <text name="ft_prostaff_membership" text="THÀNH VIÊN" />
+        <text name="ft_prostaff_invested" text="Đã đầu tư" />
+        <text name="ft_prostaff_next_level_cost" text="Chi phí cấp tiếp theo" />
+        <text name="ft_auto_max" text="TỐI ĐA" />
+        <text name="ft_prostaff_buy_next_level" text="MUA CẤP TIẾP THEO" />
+        <text name="ft_prostaff_no_further_levels" text="Không còn cấp nào nữa." />
+        <text name="ft_prostaff_active_modifiers" text="HIỆU ỨNG ĐANG BẬT" />
+        <text name="ft_prostaff_no_active_modifiers" text="Chưa có hiệu ứng nào ở cấp này." />
+        <text name="ft_rotation_field_count" text="Cánh đồng: %d · cùng bộ máy với dự báo đất" />
+        <text name="ft_rotation_whatif_field" text="Nếu như · cánh đồng #%s" />
+        <text name="ft_rotation_unknown_no_history" text="Không rõ · Chưa có lịch sử cây trồng" />
+        <text name="ft_rotation_no_change" text="không thay đổi" />
+        <text name="ft_prostaff_level_none" text="Không có" />
+        <text name="ft_prostaff_level_n" text="Cấp %d" />
+        <text name="ft_prostaff_mod_on" text="%s: bật" />
+        <text name="ft_prostaff_mod_wage_cost" text="Chi phí lương" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Giảm mệt mỏi" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Hồi phục mệt mỏi" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Hiệu quả chung" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Giá phân bón" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Giá thuốc diệt nấm" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Tác dụng thuốc diệt nấm" />
+        <text name="ft_prostaff_mod_spray_cost" text="Chi phí phun thuốc" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Vật tư thú y" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Hậu cần sữa" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Mua sỉ" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Vận chuyển hàng rời" />
+        <text name="ft_prostaff_mod_market_intel" text="Thông tin thị trường" />
+        <text name="ft_prostaff_mod_forecast_access" text="Truy cập dự báo" />
+        <text name="ft_prostaff_mod_predictive_control" text="Điều khiển dự đoán" />
+        <text name="ft_prostaff_mod_early_warning" text="Cảnh báo sớm" />
         <text name="ft_lockscreen_date_day" text="%s  -  Ngày %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

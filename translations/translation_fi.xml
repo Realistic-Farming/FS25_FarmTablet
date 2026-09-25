@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="NPC-sopimusmaat ja koristemaat jätetään rauhaan." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Taso" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Merensininen" />
         <text name="ft_auto_off" text="POIS" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Pois" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="PÄÄLLÄ" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Päällä" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="toimii. Nukkuvat pellot ohitetaan suorituskyvyn säästämiseksi ja jotta&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="VALITSE" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Maaperän ja lannoituksen tila" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Maaperäjärjestelmä käynnistyy..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="MIKÄ ON SOVELLUSKAUPPA" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="MITÄ TÄMÄ SOVELLUS TEKEE" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="MIKÄ TÄMÄ ON" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Koko tilan viljelykierron tila ja entä jos -vertailu&#10;" />
+        <text name="ft_rotation_help_what_2" text="seuraavalle kasville millä tahansa pellolla. Luvut tulevat&#10;" />
+        <text name="ft_rotation_help_what_3" text="Soil Fertilizerin omasta kiertopisteytyksestä, eivät toisesta mallista." />
+        <text name="ft_rotation_help_stand_title" text="MISSÄ OLEN" />
+        <text name="ft_rotation_help_stand_1" text="Jokainen oma pelto näyttää viimeisimmät kasvit ja sen, onko&#10;" />
+        <text name="ft_rotation_help_stand_2" text="maa valmis bonukseen, OK vai uupunut. Lajeja, ei arvosanoja." />
+        <text name="ft_rotation_help_whatif_title" text="ENTÄ JOS" />
+        <text name="ft_rotation_help_whatif_1" text="Valitse pelto ja lue samat valikoidut ehdokkaat,&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="joita maaperän tietoikkuna käyttää (sama kasvi, palkokasvi,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="neutraali vilja), simulaation omin seurausta kuvaavin sanoin." />
+        <text name="ft_rotation_help_degrade_title" text="REHELLISET RAJAT" />
+        <text name="ft_rotation_help_degrade_1" text="Kunnes maaperätiedot julkaisevat kolmannen kauden ja&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="bonuksen lähtölaskennan, sovellus näyttää kaksi kautta ilman ajastinta.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Pelto ilman historiaa näyttää Tuntematon, ei koskaan keksittyä." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizeria ei löytynyt." />
+        <text name="ft_rotation_install_soil" text="Asenna FS25_SoilFertilizer. Ilman sitä sovellus pysyy piilossa." />
+        <text name="ft_rotation_no_fields" text="Sinulla ei ole vielä peltoja." />
+        <text name="ft_auto_view" text="NÄYTÄ" />
+        <text name="ft_rotation_no_history" text="Tällä pellolla ei ole vielä viljelyhistoriaa. Kasvata jotain ennen vertailua." />
+        <text name="ft_sysset_help_does_1" text="Muuta mitä tahansa asetusta, jonka Realistic Farming -modit ovat&#10;" />
+        <text name="ft_sysset_help_does_2" text="rekisteröineet Settings Hubiin, modeittain ryhmiteltynä.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Muutokset tallentuvat ja tulevat voimaan heti." />
+        <text name="ft_sysset_help_change_title" text="ARVON MUUTTAMINEN" />
+        <text name="ft_sysset_help_change_1" text="Päällä / Pois -kytkimet vaihtavat tilaa. Listoja selataan nuolilla.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Lukuja muutetaan miinus- ja pluspainikkeilla.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Napauta modin otsikkoa taittaaksesi sen asetukset kiinni tai auki." />
+        <text name="ft_sysset_help_admin_title" text="YLLÄPITO VAI PAIKALLINEN" />
+        <text name="ft_sysset_help_admin_1" text="Ylläpidon asetukset jakaa palvelin, ja ne koskevat&#10;" />
+        <text name="ft_sysset_help_admin_2" text="kaikkia moninpelissä, joten vain isäntä tai ylläpitäjä&#10;" />
+        <text name="ft_sysset_help_admin_3" text="voi muuttaa niitä. Muut pelaajat näkevät ne lukittuina.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Paikalliset asetukset ovat omiasi ja pysyvät tällä koneella." />
+        <text name="ft_sysset_not_installed" text="Settings Hubia ei ole asennettu." />
+        <text name="ft_sysset_install" text="Asenna FS25_SettingsHub käyttääksesi tätä sovellusta." />
+        <text name="ft_sysset_none_registered" text="Ekosysteemin asetuksia ei ole vielä rekisteröity." />
+        <text name="ft_sysset_appear_here" text="Realistic Farming -modit näkyvät täällä latautuessaan." />
+        <text name="ft_sysset_admin_locked" text="ylläpito - lukittu" />
+        <text name="ft_sysset_server_shared" text="palvelimen jakama" />
+        <text name="ft_prostaff_help_what_1" text="Tilasi jäsentaso Pro-Staff Co-Opissa,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="seuraavan sijoituksen hinta ja aktiiviset vaikutukset.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Tämä ei ole Henkilöstö / Työntekijäkulut -luettelo." />
+        <text name="ft_prostaff_help_invest_title" text="SIJOITA" />
+        <text name="ft_prostaff_help_invest_1" text="OSTA SEURAAVA TASO käyttää näytetyn summan isännällä&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="ProStaffin oman buyLevel-toiminnon kautta. Pelkät asiakkaat&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="tarvitsevat isännän / NetworkSyncin ostoksen viimeistelyyn." />
+        <text name="ft_prostaff_help_mods_title" text="VAIKUTUKSET" />
+        <text name="ft_prostaff_help_mods_1" text="Vain nykyisen tasosi ei-neutraalit vaikutukset&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="luetellaan (palkat, väsymys, lannoite, maito, liput)." />
+        <text name="ft_prostaff_investment" text="Sijoitus" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Opia ei löytynyt." />
+        <text name="ft_prostaff_install" text="Asenna FS25_ProStaffCoOp käyttääksesi tätä sovellusta." />
+        <text name="ft_prostaff_membership" text="JÄSENYYS" />
+        <text name="ft_prostaff_invested" text="Sijoitettu" />
+        <text name="ft_prostaff_next_level_cost" text="Seuraavan tason hinta" />
+        <text name="ft_auto_max" text="MAKS" />
+        <text name="ft_prostaff_buy_next_level" text="OSTA SEURAAVA TASO" />
+        <text name="ft_prostaff_no_further_levels" text="Enempää tasoja ei ole saatavilla." />
+        <text name="ft_prostaff_active_modifiers" text="AKTIIVISET VAIKUTUKSET" />
+        <text name="ft_prostaff_no_active_modifiers" text="Tällä tasolla ei vielä ole aktiivisia vaikutuksia." />
+        <text name="ft_rotation_field_count" text="Peltoja: %d · sama moottori kuin maaperän ennuste" />
+        <text name="ft_rotation_whatif_field" text="Entä jos · pelto nro %s" />
+        <text name="ft_rotation_unknown_no_history" text="Tuntematon · Ei vielä viljelyhistoriaa" />
+        <text name="ft_rotation_no_change" text="ei muutosta" />
+        <text name="ft_prostaff_level_none" text="Ei mitään" />
+        <text name="ft_prostaff_level_n" text="Taso %d" />
+        <text name="ft_prostaff_mod_on" text="%s: päällä" />
+        <text name="ft_prostaff_mod_wage_cost" text="Palkkakulut" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Väsymyksen lievitys" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Väsymyksestä palautuminen" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Kokonaistehokkuus" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Lannoitteen hinta" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Sienitorjunta-aineen hinta" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Sienitorjunta-aineen teho" />
+        <text name="ft_prostaff_mod_spray_cost" text="Ruiskutuskulut" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Eläinlääkintätarvikkeet" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Maitologistiikka" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Suurhankinnat" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Irtolastikuljetus" />
+        <text name="ft_prostaff_mod_market_intel" text="Markkinatieto" />
+        <text name="ft_prostaff_mod_forecast_access" text="Ennusteiden käyttö" />
+        <text name="ft_prostaff_mod_predictive_control" text="Ennakoiva ohjaus" />
+        <text name="ft_prostaff_mod_early_warning" text="Varhainen varoitus" />
         <text name="ft_lockscreen_date_day" text="%s  -  Päivä %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

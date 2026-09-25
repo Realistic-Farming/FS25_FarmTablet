@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="lade NPC-kontraktjord og dekorativ jord være i fred." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Niveau" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Havblå" />
         <text name="ft_auto_off" text="FRA" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Fra" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="TIL" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Til" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="på. Sovende marker springes over for at spare ydelse og for at&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="VÆLG" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Jord- og gødningsstatus" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Jordsystemet starter..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="HVAD ER APPBUTIKKEN" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="HVAD DENNE APP GØR" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="HVAD DET ER" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Sædskiftets stand på hele gården og en hvad-hvis-sammenligning&#10;" />
+        <text name="ft_rotation_help_what_2" text="for den næste afgrøde på enhver mark. Tallene kommer fra&#10;" />
+        <text name="ft_rotation_help_what_3" text="Soil Fertilizers egen sædskiftescore, ikke fra en anden model." />
+        <text name="ft_rotation_help_stand_title" text="HVOR STÅR JEG" />
+        <text name="ft_rotation_help_stand_1" text="Hver ejet mark viser de seneste afgrøder, og om&#10;" />
+        <text name="ft_rotation_help_stand_2" text="jorden er klar til bonus, OK eller udpint. Typer, ikke karakterer." />
+        <text name="ft_rotation_help_whatif_title" text="HVAD HVIS" />
+        <text name="ft_rotation_help_whatif_1" text="Vælg en mark og læs de samme udvalgte kandidater,&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="som jordens detaljevindue bruger (samme afgrøde, en bælgplante,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="en neutral kornsort), med simulationens egne konsekvensord." />
+        <text name="ft_rotation_help_degrade_title" text="ÆRLIGE GRÆNSER" />
+        <text name="ft_rotation_help_degrade_1" text="Indtil jorddataene udgiver en tredje sæson og en&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="bonusnedtælling, viser appen to sæsoner og ingen timer.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="En mark uden historik viser Ukendt, aldrig noget opdigtet." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizer ikke fundet." />
+        <text name="ft_rotation_install_soil" text="Installer FS25_SoilFertilizer. Uden den forbliver denne app skjult." />
+        <text name="ft_rotation_no_fields" text="Du ejer endnu ingen marker." />
+        <text name="ft_auto_view" text="VIS" />
+        <text name="ft_rotation_no_history" text="Ingen afgrødehistorik på denne mark endnu. Dyrk en afgrøde, før du sammenligner." />
+        <text name="ft_sysset_help_does_1" text="Skift enhver indstilling, som Realistic Farming-mods har&#10;" />
+        <text name="ft_sysset_help_does_2" text="registreret i Settings Hub, grupperet efter mod.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Ændringer gemmes og træder i kraft med det samme." />
+        <text name="ft_sysset_help_change_title" text="SÅDAN ÆNDRER DU EN VÆRDI" />
+        <text name="ft_sysset_help_change_1" text="Til / Fra-kontakter skifter. Lister bladres med pilene.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Tal ændres med minus- og plusknapperne.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Tryk på en mods overskrift for at folde dens indstillinger ind eller ud." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN ELLER LOKAL" />
+        <text name="ft_sysset_help_admin_1" text="Admin-indstillinger deles af serveren og gælder for&#10;" />
+        <text name="ft_sysset_help_admin_2" text="alle i multiplayer, så kun værten eller en admin&#10;" />
+        <text name="ft_sysset_help_admin_3" text="kan ændre dem. Andre spillere ser dem låst.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Lokale indstillinger er dine egne og bliver på denne maskine." />
+        <text name="ft_sysset_not_installed" text="Settings Hub er ikke installeret." />
+        <text name="ft_sysset_install" text="Installer FS25_SettingsHub for at bruge denne app." />
+        <text name="ft_sysset_none_registered" text="Ingen økosystemindstillinger registreret endnu." />
+        <text name="ft_sysset_appear_here" text="Realistic Farming-mods vises her, efterhånden som de indlæses." />
+        <text name="ft_sysset_admin_locked" text="admin - låst" />
+        <text name="ft_sysset_server_shared" text="delt af serveren" />
+        <text name="ft_prostaff_help_what_1" text="Din gårds medlemsniveau i Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="prisen på næste investering og aktive effekter.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Dette er ikke listen i Personale / Arbejderomkostninger." />
+        <text name="ft_prostaff_help_invest_title" text="INVESTER" />
+        <text name="ft_prostaff_help_invest_1" text="KØB NÆSTE NIVEAU bruger den viste pris på værten&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="via ProStaffs egen buyLevel-funktion. Rene klienter&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="har brug for værten / NetworkSync for at fuldføre købet." />
+        <text name="ft_prostaff_help_mods_title" text="EFFEKTER" />
+        <text name="ft_prostaff_help_mods_1" text="Kun ikke-neutrale effekter på dit nuværende niveau&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="vises (lønninger, træthed, gødning, mejeri, flag)." />
+        <text name="ft_prostaff_investment" text="Investering" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op ikke fundet." />
+        <text name="ft_prostaff_install" text="Installer FS25_ProStaffCoOp for at bruge denne app." />
+        <text name="ft_prostaff_membership" text="MEDLEMSKAB" />
+        <text name="ft_prostaff_invested" text="Investeret" />
+        <text name="ft_prostaff_next_level_cost" text="Pris for næste niveau" />
+        <text name="ft_auto_max" text="MAKS" />
+        <text name="ft_prostaff_buy_next_level" text="KØB NÆSTE NIVEAU" />
+        <text name="ft_prostaff_no_further_levels" text="Ingen flere niveauer tilgængelige." />
+        <text name="ft_prostaff_active_modifiers" text="AKTIVE EFFEKTER" />
+        <text name="ft_prostaff_no_active_modifiers" text="Ingen aktive effekter på dette niveau endnu." />
+        <text name="ft_rotation_field_count" text="Marker: %d · samme motor som jordprognosen" />
+        <text name="ft_rotation_whatif_field" text="Hvad hvis · mark nr. %s" />
+        <text name="ft_rotation_unknown_no_history" text="Ukendt · Ingen afgrødehistorik endnu" />
+        <text name="ft_rotation_no_change" text="ingen ændring" />
+        <text name="ft_prostaff_level_none" text="Ingen" />
+        <text name="ft_prostaff_level_n" text="Niveau %d" />
+        <text name="ft_prostaff_mod_on" text="%s: til" />
+        <text name="ft_prostaff_mod_wage_cost" text="Lønomkostninger" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Mindre træthed" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Restitution fra træthed" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Samlet effektivitet" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Gødningspris" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Fungicidpris" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Fungicidvirkning" />
+        <text name="ft_prostaff_mod_spray_cost" text="Sprøjteomkostninger" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Dyrlægeartikler" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Mejerilogistik" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Storindkøb" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Bulktransport" />
+        <text name="ft_prostaff_mod_market_intel" text="Markedsindsigt" />
+        <text name="ft_prostaff_mod_forecast_access" text="Adgang til prognoser" />
+        <text name="ft_prostaff_mod_predictive_control" text="Forudseende styring" />
+        <text name="ft_prostaff_mod_early_warning" text="Tidlig advarsel" />
         <text name="ft_lockscreen_date_day" text="%s  -  Dag %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

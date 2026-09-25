@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="membiarkan lahan kontrak NPC atau lahan dekoratif." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Tingkat" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Biru Samudra" />
         <text name="ft_auto_off" text="MATI" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Nonaktif" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="NYALA" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Aktif" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="berjalan. Ladang yang tidur dilewati untuk menghemat performa dan&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="PILIH" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Status tanah dan pemupukan" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Sistem tanah sedang dimulai..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="APA ITU TOKO APLIKASI" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="APA FUNGSI APLIKASI INI" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="APA INI" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="Keadaan rotasi tanaman seluruh pertanian dan perbandingan &quot;bagaimana jika&quot;&#10;" />
+        <text name="ft_rotation_help_what_2" text="untuk tanaman berikutnya di ladang mana pun. Angkanya berasal dari&#10;" />
+        <text name="ft_rotation_help_what_3" text="skor rotasi milik Soil Fertilizer sendiri, bukan model kedua." />
+        <text name="ft_rotation_help_stand_title" text="DI MANA POSISIKU" />
+        <text name="ft_rotation_help_stand_1" text="Setiap ladang milikmu menunjukkan tanaman terakhir dan apakah&#10;" />
+        <text name="ft_rotation_help_stand_2" text="tanahnya siap bonus, OK, atau lelah. Jenis, bukan nilai." />
+        <text name="ft_rotation_help_whatif_title" text="BAGAIMANA JIKA" />
+        <text name="ft_rotation_help_whatif_1" text="Pilih ladang, lalu baca kandidat pilihan yang sama&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="yang dipakai jendela detail tanah (tanaman sama, kacang-kacangan,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="serealia netral), dengan kata-kata akibat dari simulasi itu sendiri." />
+        <text name="ft_rotation_help_degrade_title" text="BATAS YANG JUJUR" />
+        <text name="ft_rotation_help_degrade_1" text="Sampai data tanah menerbitkan musim ketiga dan&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="hitung mundur bonus, aplikasi ini menampilkan dua musim tanpa pengatur waktu.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Ladang tanpa riwayat menampilkan Tidak diketahui, tidak pernah dikarang." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizer tidak terdeteksi." />
+        <text name="ft_rotation_install_soil" text="Pasang FS25_SoilFertilizer. Tanpanya aplikasi ini tetap tersembunyi." />
+        <text name="ft_rotation_no_fields" text="Kamu belum memiliki ladang." />
+        <text name="ft_auto_view" text="LIHAT" />
+        <text name="ft_rotation_no_history" text="Belum ada riwayat tanaman di ladang ini. Tanam sesuatu sebelum membandingkan." />
+        <text name="ft_sysset_help_does_1" text="Ubah pengaturan apa pun yang didaftarkan mod Realistic Farming&#10;" />
+        <text name="ft_sysset_help_does_2" text="ke Settings Hub, dikelompokkan per mod.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Perubahan langsung disimpan dan diterapkan." />
+        <text name="ft_sysset_help_change_title" text="CARA MENGUBAH NILAI" />
+        <text name="ft_sysset_help_change_1" text="Sakelar Aktif / Nonaktif berganti. Daftar berputar dengan panah.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Angka berubah dengan tombol minus dan plus.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Ketuk judul mod untuk melipat atau membuka pengaturannya." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN ATAU LOKAL" />
+        <text name="ft_sysset_help_admin_1" text="Pengaturan admin dibagikan oleh server dan berlaku untuk&#10;" />
+        <text name="ft_sysset_help_admin_2" text="semua orang dalam multipemain, jadi hanya host atau admin&#10;" />
+        <text name="ft_sysset_help_admin_3" text="yang bisa mengubahnya. Pemain lain melihatnya terkunci.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Pengaturan lokal milikmu sendiri dan tetap di mesin ini." />
+        <text name="ft_sysset_not_installed" text="Settings Hub belum terpasang." />
+        <text name="ft_sysset_install" text="Pasang FS25_SettingsHub untuk memakai aplikasi ini." />
+        <text name="ft_sysset_none_registered" text="Belum ada pengaturan ekosistem yang terdaftar." />
+        <text name="ft_sysset_appear_here" text="Mod Realistic Farming muncul di sini saat dimuat." />
+        <text name="ft_sysset_admin_locked" text="admin - terkunci" />
+        <text name="ft_sysset_server_shared" text="dibagikan server" />
+        <text name="ft_prostaff_help_what_1" text="Tingkat keanggotaan pertanianmu di Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="biaya investasi berikutnya, dan efek yang aktif.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Ini bukan daftar dari Personel / Biaya Pekerja." />
+        <text name="ft_prostaff_help_invest_title" text="INVESTASI" />
+        <text name="ft_prostaff_help_invest_1" text="BELI TINGKAT BERIKUTNYA membelanjakan biaya tertera di host&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="lewat jalur buyLevel milik ProStaff. Klien murni&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="memerlukan host / NetworkSync untuk menyelesaikan pembelian." />
+        <text name="ft_prostaff_help_mods_title" text="EFEK" />
+        <text name="ft_prostaff_help_mods_1" text="Hanya efek tidak netral pada tingkatmu saat ini&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="yang dicantumkan (upah, kelelahan, pupuk, susu, penanda)." />
+        <text name="ft_prostaff_investment" text="Investasi" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op tidak terdeteksi." />
+        <text name="ft_prostaff_install" text="Pasang FS25_ProStaffCoOp untuk memakai aplikasi ini." />
+        <text name="ft_prostaff_membership" text="KEANGGOTAAN" />
+        <text name="ft_prostaff_invested" text="Diinvestasikan" />
+        <text name="ft_prostaff_next_level_cost" text="Biaya tingkat berikutnya" />
+        <text name="ft_auto_max" text="MAKS" />
+        <text name="ft_prostaff_buy_next_level" text="BELI TINGKAT BERIKUTNYA" />
+        <text name="ft_prostaff_no_further_levels" text="Tidak ada tingkat lagi." />
+        <text name="ft_prostaff_active_modifiers" text="EFEK AKTIF" />
+        <text name="ft_prostaff_no_active_modifiers" text="Belum ada efek aktif di tingkat ini." />
+        <text name="ft_rotation_field_count" text="Ladang: %d · mesin yang sama dengan prakiraan tanah" />
+        <text name="ft_rotation_whatif_field" text="Bagaimana jika · ladang #%s" />
+        <text name="ft_rotation_unknown_no_history" text="Tidak diketahui · Belum ada riwayat tanaman" />
+        <text name="ft_rotation_no_change" text="tidak berubah" />
+        <text name="ft_prostaff_level_none" text="Tidak ada" />
+        <text name="ft_prostaff_level_n" text="Tingkat %d" />
+        <text name="ft_prostaff_mod_on" text="%s: aktif" />
+        <text name="ft_prostaff_mod_wage_cost" text="Biaya upah" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Pengurangan kelelahan" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Pemulihan kelelahan" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Efektivitas umum" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Biaya pupuk" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Biaya fungisida" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Efek fungisida" />
+        <text name="ft_prostaff_mod_spray_cost" text="Biaya penyemprotan" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Perlengkapan dokter hewan" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Logistik susu" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Pengadaan grosir" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Angkutan curah" />
+        <text name="ft_prostaff_mod_market_intel" text="Wawasan pasar" />
+        <text name="ft_prostaff_mod_forecast_access" text="Akses prakiraan" />
+        <text name="ft_prostaff_mod_predictive_control" text="Kendali prediktif" />
+        <text name="ft_prostaff_mod_early_warning" text="Peringatan dini" />
         <text name="ft_lockscreen_date_day" text="%s  -  Hari %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

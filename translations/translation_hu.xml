@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="békén hagyja az NPC-szerződéses és a díszföldeket." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Szint" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Óceánkék" />
         <text name="ft_auto_off" text="KI" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Ki" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="BE" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Be" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="Az alvó táblákat kihagyja, hogy teljesítményt spóroljon, és&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="KIVÁLASZT" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="A talaj és a trágyázás állapota" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="A talajrendszer indul..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="MI AZ ALKALMAZÁSBOLT" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="MIT CSINÁL EZ AZ APP" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="MI EZ" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,6 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_rotation_help_what_1" text="A vetésforgó állása az egész gazdaságban és egy mi-lenne-ha összevetés&#10;" />
+        <text name="ft_rotation_help_what_2" text="a következő növényre bármely táblán. A számok a Soil&#10;" />
+        <text name="ft_rotation_help_what_3" text="Fertilizer saját vetésforgó-pontozásából jönnek, nem egy második modellből." />
+        <text name="ft_rotation_help_stand_title" text="HOL TARTOK" />
+        <text name="ft_rotation_help_stand_1" text="Minden saját tábla mutatja a legutóbbi növényeket, és hogy a&#10;" />
+        <text name="ft_rotation_help_stand_2" text="talaj bónuszra kész, rendben van vagy kifáradt. Fajták, nem osztályzatok." />
+        <text name="ft_rotation_help_whatif_title" text="MI LENNE, HA" />
+        <text name="ft_rotation_help_whatif_1" text="Válassz egy táblát, és olvasd el ugyanazokat a kiválasztott jelölteket,&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="amelyeket a talaj részletes ablaka használ (ugyanaz a növény, egy hüvelyes,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="egy semleges gabona), a szimuláció saját következményszavaival." />
+        <text name="ft_rotation_help_degrade_title" text="ŐSZINTE HATÁROK" />
+        <text name="ft_rotation_help_degrade_1" text="Amíg a talajadatok nem adnak meg harmadik évszakot és&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="bónusz-visszaszámlálást, az app két évszakot mutat, időzítő nélkül.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Az előzmény nélküli tábla Ismeretlen, sosem kitalált adat." />
+        <text name="ft_rotation_no_soil" text="A Soil Fertilizer nem található." />
+        <text name="ft_rotation_install_soil" text="Telepítsd az FS25_SoilFertilizer modot. Nélküle ez az app rejtve marad." />
+        <text name="ft_rotation_no_fields" text="Még nincs saját táblád." />
+        <text name="ft_auto_view" text="MEGNÉZ" />
+        <text name="ft_rotation_no_history" text="Ezen a táblán még nincs termesztési előzmény. Összevetés előtt termessz valamit." />
+        <text name="ft_sysset_help_does_1" text="Módosítsd bármelyik beállítást, amelyet a Realistic Farming modok&#10;" />
+        <text name="ft_sysset_help_does_2" text="a Settings Hubban regisztráltak, modonként csoportosítva.&#10;" />
+        <text name="ft_sysset_help_does_3" text="A változások azonnal mentődnek és érvényesek." />
+        <text name="ft_sysset_help_change_title" text="ÉRTÉK MÓDOSÍTÁSA" />
+        <text name="ft_sysset_help_change_1" text="A Be / Ki kapcsolók váltanak. A listák a nyilakkal lapozhatók.&#10;" />
+        <text name="ft_sysset_help_change_2" text="A számok a mínusz és plusz gombokkal változnak.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Koppints egy mod fejlécére a beállításai be- vagy kinyitásához." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN VAGY HELYI" />
+        <text name="ft_sysset_help_admin_1" text="Az admin beállításokat a szerver osztja meg, és mindenkire&#10;" />
+        <text name="ft_sysset_help_admin_2" text="érvényesek többjátékos módban, így csak a házigazda vagy egy admin&#10;" />
+        <text name="ft_sysset_help_admin_3" text="módosíthatja őket. Más játékosok zárolva látják őket.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="A helyi beállítások a sajátjaid, és ezen a gépen maradnak." />
+        <text name="ft_sysset_not_installed" text="A Settings Hub nincs telepítve." />
+        <text name="ft_sysset_install" text="Telepítsd az FS25_SettingsHub modot az app használatához." />
+        <text name="ft_sysset_none_registered" text="Még nincs regisztrált ökoszisztéma-beállítás." />
+        <text name="ft_sysset_appear_here" text="A Realistic Farming modok betöltéskor itt jelennek meg." />
+        <text name="ft_sysset_admin_locked" text="admin - zárolva" />
+        <text name="ft_sysset_server_shared" text="szerver által megosztott" />
+        <text name="ft_prostaff_help_what_1" text="A gazdaságod tagsági szintje a Pro-Staff Co-Opban,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="a következő befektetés ára és az aktív hatások.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Ez nem a Személyzet / Munkáskiadások névsora." />
+        <text name="ft_prostaff_help_invest_title" text="BEFEKTETÉS" />
+        <text name="ft_prostaff_help_invest_1" text="A KÖVETKEZŐ SZINT MEGVÉTELE a házigazdán költi el a megadott árat&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="a ProStaff saját buyLevel útján. A tiszta klienseknek&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="a házigazda / NetworkSync kell a vásárlás befejezéséhez." />
+        <text name="ft_prostaff_help_mods_title" text="HATÁSOK" />
+        <text name="ft_prostaff_help_mods_1" text="Csak a jelenlegi szinted nem semleges hatásai&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="jelennek meg (bérek, fáradtság, műtrágya, tej, jelzők)." />
+        <text name="ft_prostaff_investment" text="Befektetés" />
+        <text name="ft_prostaff_not_detected" text="A Pro-Staff Co-Op nem található." />
+        <text name="ft_prostaff_install" text="Telepítsd az FS25_ProStaffCoOp modot az app használatához." />
+        <text name="ft_prostaff_membership" text="TAGSÁG" />
+        <text name="ft_prostaff_invested" text="Befektetve" />
+        <text name="ft_prostaff_next_level_cost" text="A következő szint ára" />
+        <text name="ft_auto_max" text="MAX" />
+        <text name="ft_prostaff_buy_next_level" text="KÖVETKEZŐ SZINT MEGVÉTELE" />
+        <text name="ft_prostaff_no_further_levels" text="Nincs több elérhető szint." />
+        <text name="ft_prostaff_active_modifiers" text="AKTÍV HATÁSOK" />
+        <text name="ft_prostaff_no_active_modifiers" text="Ezen a szinten még nincs aktív hatás." />
+        <text name="ft_rotation_field_count" text="Táblák: %d · ugyanaz a motor, mint a talajelőrejelzés" />
+        <text name="ft_rotation_whatif_field" text="Mi lenne, ha · %s. tábla" />
+        <text name="ft_rotation_unknown_no_history" text="Ismeretlen · Még nincs termesztési előzmény" />
+        <text name="ft_rotation_no_change" text="nincs változás" />
+        <text name="ft_prostaff_level_none" text="Nincs" />
+        <text name="ft_prostaff_level_n" text="%d. szint" />
+        <text name="ft_prostaff_mod_on" text="%s: be" />
+        <text name="ft_prostaff_mod_wage_cost" text="Bérköltség" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Fáradtságcsökkentés" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Fáradtságból való felépülés" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Összhatékonyság" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Műtrágya ára" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Gombaölő ára" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Gombaölő hatása" />
+        <text name="ft_prostaff_mod_spray_cost" text="Permetezési költség" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Állatorvosi kellékek" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Tejlogisztika" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Nagybani beszerzés" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Ömlesztett szállítás" />
+        <text name="ft_prostaff_mod_market_intel" text="Piaci információ" />
+        <text name="ft_prostaff_mod_forecast_access" text="Előrejelzési hozzáférés" />
+        <text name="ft_prostaff_mod_predictive_control" text="Előrelátó vezérlés" />
+        <text name="ft_prostaff_mod_early_warning" text="Korai figyelmeztetés" />
         <text name="ft_lockscreen_date_day" text="%s  -  %d. nap" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
