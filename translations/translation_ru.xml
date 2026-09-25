@@ -281,9 +281,9 @@
         <text name="ft_battery_charging" text="Зарядка планшета..." />
         <text name="ft_battery_charge_hint" text="Зарядите немного, чтобы продолжить." />
         <text name="ft_battery_charge" text="ЗАРЯДИТЬ" />
-        <text name="ft_common_rare" text="Rare" />
-        <text name="ft_common_normal" text="Normal" />
-        <text name="ft_common_frequent" text="Frequent" />
+        <text name="ft_common_rare" text="Редко" />
+        <text name="ft_common_normal" text="Обычно" />
+        <text name="ft_common_frequent" text="Часто" />
         <text name="ft_common_close" text="ЗАКРЫТЬ" />
         <text name="ft_network_fee_format" text="Базовая плата: %s €/день" />
         <text name="ft_network_fee_deducted" text="Списана базовая плата: %d €" />
@@ -2362,7 +2362,7 @@
         <text name="ft_settings_provider_button" text="Change provider" />
         <text name="ft_settings_hint_provider" text="Click to change provider" />
         <text name="ft_settings_outage_button" text="Outage: %s" />
-        <text name="ft_settings_hint_frequency" text="Off / Rare / Normal / Often" />
+        <text name="ft_settings_hint_frequency" text="Выкл. / Редко / Обычно / Часто" />
         <text name="ft_settings_hint_duration" text="Duration: 1 / 2 / 3 / 4 hours" />
         <text name="ft_settings_display_button" text="Display: %s" />
         <text name="ft_settings_hint_display_damage" text="Off / Rare / Normal / Often | Default: Off" />
@@ -2396,12 +2396,12 @@
         <text name="ft_settings_hint_home_image" text="Используйте PNG-файлы из папки FTBackground." />
         <text name="ft_settings_app_labels" text="Подписи приложений" />
         <text name="ft_settings_text_size_title" text="Размер текста" />
-        <text name="ft_settings_content_font_title" text="Content text size" />
-        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger is easier to read on big screens." />
-        <text name="ft_font_scale_small" text="Small (0.8x)" />
-        <text name="ft_font_scale_normal" text="Normal (1.0x)" />
-        <text name="ft_font_scale_large" text="Large (1.25x)" />
-        <text name="ft_font_scale_huge" text="Huge (1.5x)" />
+        <text name="ft_settings_content_font_title" text="Размер текста в приложениях" />
+        <text name="ft_settings_hint_content_font" text="Размер текста в приложениях. Крупный удобнее на больших экранах." />
+        <text name="ft_font_scale_small" text="Мелкий (0.8x)" />
+        <text name="ft_font_scale_normal" text="Обычный (1.0x)" />
+        <text name="ft_font_scale_large" text="Крупный (1.25x)" />
+        <text name="ft_font_scale_huge" text="Огромный (1.5x)" />
         <text name="ft_settings_hint_text_size2" text="Размер подписей приложений." />
         <text name="ft_settings_text_color_title" text="Цвет текста" />
         <text name="ft_settings_hint_text_color2" text="Цвет подписей приложений." />

@@ -203,8 +203,8 @@
         <text name="ft_desc_app_animal_vet_system" text="AnimalVetSystem betegseg- es kezelesfigyelo" />
         <text name="ft_desc_app_factory_week_schedule" text="FactoryWeekSchedule attekintes: munkasok, esemenyek es tuz" />
         <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: finanszirozas, reszletek es elkobzasi allapot" />
-        <text name="ft_common_on" text="On" />
-        <text name="ft_common_off" text="Off" />
+        <text name="ft_common_on" text="Be" />
+        <text name="ft_common_off" text="Ki" />
         <text name="ft_common_connected" text="Csatlakozva" />
         <text name="ft_common_inactive" text="Inaktiv" />
         <text name="ft_common_status" text="ALLAPOT" />
@@ -213,7 +213,7 @@
         <text name="ft_common_available" text="Elerheto" />
         <text name="ft_common_time" text="Ido" />
         <text name="ft_common_event" text="Esemeny" />
-        <text name="ft_common_open" text="Open" />
+        <text name="ft_common_open" text="Megnyitás" />
         <text name="ft_common_closed" text="Zarva" />
         <text name="ft_common_note" text="JEGYZET" />
         <text name="ft_aac_not_detected" text="Az AnimalAutoCare nem talalhato." />
@@ -281,9 +281,9 @@
         <text name="ft_battery_charging" text="Tablet töltése..." />
         <text name="ft_battery_charge_hint" text="Töltsd egy kicsit a folytatáshoz." />
         <text name="ft_battery_charge" text="TÖLTÉS" />
-        <text name="ft_common_rare" text="Rare" />
-        <text name="ft_common_normal" text="Normal" />
-        <text name="ft_common_frequent" text="Frequent" />
+        <text name="ft_common_rare" text="Ritka" />
+        <text name="ft_common_normal" text="Normál" />
+        <text name="ft_common_frequent" text="Gyakori" />
         <text name="ft_common_close" text="BEZÁRÁS" />
         <text name="ft_network_fee_format" text="Alapdíj: %s €/nap" />
         <text name="ft_network_fee_deducted" text="Levont alapdíj: %d €" />
@@ -313,11 +313,11 @@
         <text name="ft_repair_stock_ordered" text="Kijelző megrendelve - időtartam: kb. 1 játéknap" />
         <text name="ft_repair_remaining" text="Hátralévő: %s" />
         <text name="ft_repair_remaining_day_format" text="%d nap %02d:%02d" />
-        <text name="ft_settings_provider" text="Provider" />
+        <text name="ft_settings_provider" text="Szolgáltató" />
         <text name="ft_settings_base_fee" text="Base fee" />
         <text name="ft_settings_fee_per_day" text="%d €/day" />
-        <text name="ft_settings_reception" text="Reception" />
-        <text name="ft_settings_network_outages" text="Network outages" />
+        <text name="ft_settings_reception" text="Térerő" />
+        <text name="ft_settings_network_outages" text="Hálózati kiesések" />
         <text name="ft_settings_duration" text="Duration" />
         <text name="ft_settings_ingame_hours" text="%d in-game hours" />
         <text name="ft_settings_change_provider_button" text="CHANGE PROVIDER: %s" />
@@ -326,7 +326,7 @@
         <text name="ft_settings_frequency_hint" text="Off / Rare / Normal / Frequent" />
         <text name="ft_settings_duration_button" text="Duration: %d h" />
         <text name="ft_settings_outage_duration_hint" text="Duration of a network outage: 1 / 2 / 3 / 4 hours" />
-        <text name="ft_settings_display_damage" text="Display damage" />
+        <text name="ft_settings_display_damage" text="Kijelzősérülés" />
         <text name="ft_settings_display_damage_button" text="DISPLAY DAMAGE: %s" />
         <text name="ft_settings_display_damage_hint" text="Off / Rare / Normal / Frequent | Default: Off" />
         <text name="ft_settings_reopen_provider_select" text="REOPEN INITIAL SELECTION" />
@@ -801,7 +801,7 @@
         <text name="ft_auto_disabled" text="DISABLED" />
         <text name="ft_auto_disabled_2" text="Disabled" />
         <text name="ft_auto_disabled_3" text="disabled" />
-        <text name="ft_auto_display" text="Display" />
+        <text name="ft_auto_display" text="Kijelző" />
         <text name="ft_auto_display_damage" text="DISPLAY DAMAGE" />
         <text name="ft_auto_display_damage_2" text="Display damage" />
         <text name="ft_auto_display_damage_from_a_drop" text="Display damage from a drop" />
@@ -1629,7 +1629,7 @@
         <text name="ft_auto_plowing" text="Plowing" />
         <text name="ft_auto_plowing_cultivating" text="Szántás / Talajművelés" />
         <text name="ft_auto_poor" text="Poor" />
-        <text name="ft_auto_position" text="Position" />
+        <text name="ft_auto_position" text="Helyzet" />
         <text name="ft_auto_position_2" text="Position" />
         <text name="ft_auto_potassium" text="Potassium" />
         <text name="ft_auto_ppm" text=" ppm  (" />
@@ -1769,7 +1769,7 @@
         <text name="ft_auto_s_s_2" text="%s/%s" />
         <text name="ft_auto_s_s_mo_d_mo_left" text="%s  •  %s/mo  •  %d mo left" />
         <text name="ft_auto_same_colour_thresholds_as_food" text="Same colour thresholds as food.&#10;" />
-        <text name="ft_auto_scale" text="Scale" />
+        <text name="ft_auto_scale" text="Méretarány" />
         <text name="ft_auto_scale_fixes_for_ultrawide_monitors" text="Scale fixes for ultrawide monitors" />
         <text name="ft_auto_screen_on" text="Screen-on" />
         <text name="ft_auto_scroll" text="scroll" />
@@ -1809,7 +1809,7 @@
         <text name="ft_auto_sets_how_fast_game_time_passes" text="Sets how fast game time passes.&#10;" />
         <text name="ft_auto_sets_how_fast_in_game_time_passes" text="Sets how fast in-game time passes.&#10;" />
         <text name="ft_auto_sets_the_per_hour_wage_rate_for_hired_workers" text="Sets the per-hour wage rate for hired workers.&#10;" />
-        <text name="ft_auto_settings" text="Settings" />
+        <text name="ft_auto_settings" text="Beállítások" />
         <text name="ft_auto_settings_2" text="Settings" />
         <text name="ft_auto_settings_3" text="settings" />
         <text name="ft_auto_settings_changed" text="settings_changed" />
@@ -2318,24 +2318,24 @@
         <text name="ft_help_settings_debug_body" text="Writes extra diagnostic messages to the log/console." />
         <text name="ft_help_settings_reset_title" text="RESET TO DEFAULTS" />
         <text name="ft_help_settings_reset_body" text="Restores all tablet settings to their default values." />
-        <text name="ft_settings_edit_stop" text="Stop edit" />
-        <text name="ft_settings_edit_position" text="Edit position" />
-        <text name="ft_settings_reset_position" text="Reset position" />
-        <text name="ft_settings_appearance" text="Appearance" />
+        <text name="ft_settings_edit_stop" text="Szerkesztés vége" />
+        <text name="ft_settings_edit_position" text="Helyzet szerkesztése" />
+        <text name="ft_settings_reset_position" text="Helyzet visszaállítása" />
+        <text name="ft_settings_appearance" text="Megjelenés" />
         <text name="ft_settings_background" text="Background: %s" />
         <text name="ft_settings_hint_screen_color" text="Click to change screen colour" />
         <text name="ft_settings_home_image" text="Home image: %s" />
-        <text name="ft_common_default" text="Default" />
+        <text name="ft_common_default" text="Alapértelmezett" />
         <text name="ft_settings_images_found_suffix" text=" image(s) in FTBackground | click" />
         <text name="ft_settings_background_hint" text="Put background.png in savegame/FTBackground" />
-        <text name="ft_size_small" text="Small" />
-        <text name="ft_size_medium" text="Medium" />
-        <text name="ft_size_large" text="Large" />
-        <text name="ft_color_white" text="White" />
-        <text name="ft_color_gold" text="Gold" />
-        <text name="ft_color_app" text="App colour" />
+        <text name="ft_size_small" text="Kicsi" />
+        <text name="ft_size_medium" text="Közepes" />
+        <text name="ft_size_large" text="Nagy" />
+        <text name="ft_color_white" text="Fehér" />
+        <text name="ft_color_gold" text="Arany" />
+        <text name="ft_color_app" text="App színe" />
         <text name="ft_settings_app_text" text="App text: %s" />
-        <text name="ft_settings_hint_icon_text" text="Show text below app icons" />
+        <text name="ft_settings_hint_icon_text" text="Szöveg megjelenítése az appikonok alatt" />
         <text name="ft_settings_text_size" text="Text size: %s" />
         <text name="ft_settings_hint_text_size" text="Click to change text size" />
         <text name="ft_settings_text_color" text="Text colour: %s" />
@@ -2344,13 +2344,13 @@
         <text name="ft_settings_sound_effects_off" text="Sounds: Off" />
         <text name="ft_settings_app_sound_on" text="App sound: On" />
         <text name="ft_settings_app_sound_off" text="App sound: Off" />
-        <text name="ft_settings_hint_app_sound" text="Sound when switching apps" />
+        <text name="ft_settings_hint_app_sound" text="Hang appváltáskor" />
         <text name="ft_settings_help_sound_on" text="Help sound: On" />
         <text name="ft_settings_help_sound_off" text="Help sound: Off" />
-        <text name="ft_settings_hint_help_sound" text="Sound when opening/closing help" />
+        <text name="ft_settings_hint_help_sound" text="Hang a súgó megnyitásakor/bezárásakor" />
         <text name="ft_settings_tablet_sound_on" text="Tablet sound: On" />
         <text name="ft_settings_tablet_sound_off" text="Tablet sound: Off" />
-        <text name="ft_settings_hint_tablet_sound" text="Sound when opening/closing with T" />
+        <text name="ft_settings_hint_tablet_sound" text="Hang megnyitáskor/bezáráskor a T gombbal" />
         <text name="ft_settings_notifications_on" text="Notifications: On" />
         <text name="ft_settings_notifications_off" text="Notifications: Off" />
         <text name="ft_settings_hint_notifications" text="Message when loading a savegame" />
@@ -2362,79 +2362,79 @@
         <text name="ft_settings_provider_button" text="Change provider" />
         <text name="ft_settings_hint_provider" text="Click to change provider" />
         <text name="ft_settings_outage_button" text="Outage: %s" />
-        <text name="ft_settings_hint_frequency" text="Off / Rare / Normal / Often" />
+        <text name="ft_settings_hint_frequency" text="Ki / Ritka / Normál / Gyakori" />
         <text name="ft_settings_hint_duration" text="Duration: 1 / 2 / 3 / 4 hours" />
         <text name="ft_settings_display_button" text="Display: %s" />
         <text name="ft_settings_hint_display_damage" text="Off / Rare / Normal / Often | Default: Off" />
         <text name="ft_settings_open_provider_select" text="Provider selection" />
-        <text name="ft_settings_hint_provider_select" text="Opens provider selection" />
-        <text name="ft_settings_reset_all" text="Reset all" />
-        <text name="ft_settings_help_display_title" text="DISPLAY" />
-        <text name="ft_settings_help_display_body" text="Tablet position, size, background and app labels." />
-        <text name="ft_settings_help_sound_title" text="SOUND" />
-        <text name="ft_settings_help_sound_body2" text="Switch tablet sounds on or off individually or globally." />
-        <text name="ft_settings_help_network_title" text="NETWORK" />
-        <text name="ft_settings_help_network_body" text="Provider, reception, network outages and display repairs." />
-        <text name="ft_settings_help_scroll_title" text="SCROLL" />
-        <text name="ft_settings_help_scroll_body" text="Use the mouse wheel over the tablet window to scroll settings." />
-        <text name="ft_common_active" text="Active" />
-        <text name="ft_common_reset" text="Reset" />
-        <text name="ft_common_change" text="Change" />
-        <text name="ft_common_switch" text="Switch" />
-        <text name="ft_common_turn_off" text="Turn off" />
-        <text name="ft_common_turn_on" text="Turn on" />
-        <text name="ft_common_toggle" text="Toggle" />
-        <text name="ft_common_open_list" text="Open list" />
-        <text name="ft_common_info" text="Info" />
-        <text name="ft_common_version" text="Version" />
-        <text name="ft_common_author" text="Author" />
-        <text name="ft_settings_hint_edit_position" text="Adjust tablet position and size directly on screen." />
-        <text name="ft_settings_hint_reset_position" text="Resets position, size and width." />
-        <text name="ft_settings_background_color" text="Background colour" />
-        <text name="ft_settings_hint_screen_color2" text="Changes the tablet screen colour." />
-        <text name="ft_settings_home_image_title" text="Home image" />
-        <text name="ft_settings_hint_home_image" text="Use your own PNG files from the FTBackground folder." />
-        <text name="ft_settings_app_labels" text="App labels" />
-        <text name="ft_settings_text_size_title" text="Text size" />
-        <text name="ft_settings_content_font_title" text="Content text size" />
-        <text name="ft_settings_hint_content_font" text="Size of the text inside apps. Larger is easier to read on big screens." />
-        <text name="ft_font_scale_small" text="Small (0.8x)" />
-        <text name="ft_font_scale_normal" text="Normal (1.0x)" />
-        <text name="ft_font_scale_large" text="Large (1.25x)" />
-        <text name="ft_font_scale_huge" text="Huge (1.5x)" />
-        <text name="ft_settings_hint_text_size2" text="Size of app labels." />
-        <text name="ft_settings_text_color_title" text="Text colour" />
-        <text name="ft_settings_hint_text_color2" text="Colour of app labels." />
-        <text name="ft_settings_sound_section" text="Sound" />
-        <text name="ft_settings_sounds" text="Sounds" />
-        <text name="ft_settings_hint_sounds" text="Main switch for all tablet sounds." />
-        <text name="ft_settings_app_sound" text="App sound" />
-        <text name="ft_settings_help_sound" text="Help sound" />
-        <text name="ft_settings_tablet_sound" text="Tablet sound" />
-        <text name="ft_settings_hint_notifications2" text="Tablet messages on load and events." />
-        <text name="ft_settings_general" text="General" />
-        <text name="ft_settings_notifications" text="Notifications" />
-        <text name="ft_settings_start_app_title" text="Startup app" />
-        <text name="ft_settings_hint_start_app2" text="This app opens first after unlocking." />
-        <text name="ft_settings_debug_mode" text="Debug mode" />
-        <text name="ft_settings_hint_debug2" text="Writes additional diagnostic messages to the log." />
-        <text name="ft_settings_network_repair" text="Network and repair" />
-        <text name="ft_settings_outage" text="Outage" />
-        <text name="ft_settings_daily_fee" text="Daily fee" />
-        <text name="ft_settings_hint_provider2" text="Switches to the next mobile provider." />
-        <text name="ft_settings_outage_duration" text="Outage duration" />
-        <text name="ft_duration_hours_short" text="%d hrs" />
-        <text name="ft_settings_hint_outage_duration" text="Duration in ingame hours." />
-        <text name="ft_settings_hint_display_damage2" text="Random tablet damage from falling." />
-        <text name="ft_settings_provider_selection" text="Provider selection" />
-        <text name="ft_settings_apps_loaded" text="Apps loaded" />
-        <text name="ft_settings_open_key" text="Open key" />
-        <text name="ft_settings_scroll_help" text="Mouse wheel over this window scrolls the settings." />
-        <text name="ft_settings_console_help" text="Command 'tablet' shows console commands." />
-        <text name="ft_settings_reset_section" text="Reset" />
-        <text name="ft_settings_all_settings" text="All settings" />
-        <text name="ft_settings_default_values" text="Default values" />
-        <text name="ft_settings_hint_reset_all" text="Resets all tablet settings." />
+        <text name="ft_settings_hint_provider_select" text="Megnyitja a szolgáltatóválasztót" />
+        <text name="ft_settings_reset_all" text="Összes visszaállítása" />
+        <text name="ft_settings_help_display_title" text="KIJELZŐ" />
+        <text name="ft_settings_help_display_body" text="A tablet helyzete, mérete, háttere és az appok nevei." />
+        <text name="ft_settings_help_sound_title" text="HANG" />
+        <text name="ft_settings_help_sound_body2" text="Kapcsold be vagy ki a tablet hangjait egyenként vagy egyszerre." />
+        <text name="ft_settings_help_network_title" text="HÁLÓZAT" />
+        <text name="ft_settings_help_network_body" text="Szolgáltató, térerő, hálózati kiesések és kijelzőjavítások." />
+        <text name="ft_settings_help_scroll_title" text="GÖRGETÉS" />
+        <text name="ft_settings_help_scroll_body" text="A beállítások görgetéséhez használd az egérgörgőt a tablet ablaka felett." />
+        <text name="ft_common_active" text="Aktív" />
+        <text name="ft_common_reset" text="Visszaállítás" />
+        <text name="ft_common_change" text="Módosítás" />
+        <text name="ft_common_switch" text="Váltás" />
+        <text name="ft_common_turn_off" text="Kikapcsolás" />
+        <text name="ft_common_turn_on" text="Bekapcsolás" />
+        <text name="ft_common_toggle" text="Váltás" />
+        <text name="ft_common_open_list" text="Lista megnyitása" />
+        <text name="ft_common_info" text="Infó" />
+        <text name="ft_common_version" text="Verzió" />
+        <text name="ft_common_author" text="Szerző" />
+        <text name="ft_settings_hint_edit_position" text="Állítsd a tablet helyzetét és méretét közvetlenül a képernyőn." />
+        <text name="ft_settings_hint_reset_position" text="Visszaállítja a helyzetet, a méretet és a szélességet." />
+        <text name="ft_settings_background_color" text="Háttérszín" />
+        <text name="ft_settings_hint_screen_color2" text="Megváltoztatja a tablet képernyőszínét." />
+        <text name="ft_settings_home_image_title" text="Kezdőkép" />
+        <text name="ft_settings_hint_home_image" text="Használd a saját PNG-fájljaidat az FTBackground mappából." />
+        <text name="ft_settings_app_labels" text="App-nevek" />
+        <text name="ft_settings_text_size_title" text="Szövegméret" />
+        <text name="ft_settings_content_font_title" text="Szövegméret az appokban" />
+        <text name="ft_settings_hint_content_font" text="Szöveg az appokban: nagy képernyőn a nagyobb jobban olvasható." />
+        <text name="ft_font_scale_small" text="Kicsi (0.8x)" />
+        <text name="ft_font_scale_normal" text="Normál (1.0x)" />
+        <text name="ft_font_scale_large" text="Nagy (1.25x)" />
+        <text name="ft_font_scale_huge" text="Óriási (1.5x)" />
+        <text name="ft_settings_hint_text_size2" text="Az appnevek mérete." />
+        <text name="ft_settings_text_color_title" text="Szövegszín" />
+        <text name="ft_settings_hint_text_color2" text="Az appnevek színe." />
+        <text name="ft_settings_sound_section" text="Hang" />
+        <text name="ft_settings_sounds" text="Hangok" />
+        <text name="ft_settings_hint_sounds" text="Főkapcsoló a tablet összes hangjához." />
+        <text name="ft_settings_app_sound" text="App-hang" />
+        <text name="ft_settings_help_sound" text="Súgó hangja" />
+        <text name="ft_settings_tablet_sound" text="Tablet hangja" />
+        <text name="ft_settings_hint_notifications2" text="A tablet üzenetei betöltéskor és eseményeknél." />
+        <text name="ft_settings_general" text="Általános" />
+        <text name="ft_settings_notifications" text="Értesítések" />
+        <text name="ft_settings_start_app_title" text="Indító app" />
+        <text name="ft_settings_hint_start_app2" text="Feloldás után ez az app nyílik meg először." />
+        <text name="ft_settings_debug_mode" text="Hibakereső mód" />
+        <text name="ft_settings_hint_debug2" text="További diagnosztikai üzeneteket ír a naplóba." />
+        <text name="ft_settings_network_repair" text="Hálózat és javítás" />
+        <text name="ft_settings_outage" text="Kiesés" />
+        <text name="ft_settings_daily_fee" text="Napidíj" />
+        <text name="ft_settings_hint_provider2" text="Átvált a következő mobilszolgáltatóra." />
+        <text name="ft_settings_outage_duration" text="Kiesés időtartama" />
+        <text name="ft_duration_hours_short" text="%d óra" />
+        <text name="ft_settings_hint_outage_duration" text="Időtartam játékórában." />
+        <text name="ft_settings_hint_display_damage2" text="Véletlen sérülés a tableten leejtéskor." />
+        <text name="ft_settings_provider_selection" text="Szolgáltató kiválasztása" />
+        <text name="ft_settings_apps_loaded" text="Betöltött appok" />
+        <text name="ft_settings_open_key" text="Megnyitó billentyű" />
+        <text name="ft_settings_scroll_help" text="Az egérgörgő ezen ablak felett görgeti a beállításokat." />
+        <text name="ft_settings_console_help" text="A 'tablet' parancs kiírja a konzolparancsokat." />
+        <text name="ft_settings_reset_section" text="Visszaállítás" />
+        <text name="ft_settings_all_settings" text="Minden beállítás" />
+        <text name="ft_settings_default_values" text="Alapértékek" />
+        <text name="ft_settings_hint_reset_all" text="Visszaállítja a tablet összes beállítását." />
         <text name="ft_updates_help_history_title" text="VERSION HISTORY" />
         <text name="ft_updates_help_history_body" text="Shows FarmTablet changes sorted by version." />
         <text name="ft_updates_help_structure_title" text="STRUCTURE" />
@@ -2500,13 +2500,13 @@
         <text name="ft_changelog_112_new_1" text="Soil Fertilizer, Seasonal Crop Stress and NPC Favor integration" />
         <text name="ft_changelog_112_fix_1" text="Navigation buttons no longer overflow" />
         <text name="ft_changelog_100_new_1" text="First release with dashboard, weather, fields, animals and workshop" />
-        <text name="ft_settings_scale_format" text="%.0f%% / width %.0f%%" />
-        <text name="ft_signal_very_good" text="Very good" />
-        <text name="ft_signal_good" text="Good" />
-        <text name="ft_signal_medium" text="Medium" />
-        <text name="ft_signal_weak" text="Weak" />
-        <text name="ft_signal_none" text="No signal" />
-        <text name="ft_price_per_day" text="%d €/day" />
+        <text name="ft_settings_scale_format" text="%.0f%% / szélesség %.0f%%" />
+        <text name="ft_signal_very_good" text="Nagyon jó" />
+        <text name="ft_signal_good" text="Jó" />
+        <text name="ft_signal_medium" text="Közepes" />
+        <text name="ft_signal_weak" text="Gyenge" />
+        <text name="ft_signal_none" text="Nincs jel" />
+        <text name="ft_price_per_day" text="%d €/nap" />
         <text name="ft_fleet_one_vehicle" text="1 vehicle" />
         <text name="ft_fleet_vehicles" text="vehicles" />
         <text name="ft_fleet_fuel" text="Fuel" />
@@ -2515,9 +2515,9 @@
         <text name="ft_fleet_no_vehicles" text="No vehicles owned." />
         <text name="ft_fleet_no_vehicles_hint" text="Purchase motorized vehicles to track them here." />
         <text name="ft_ai_active_short" text="HELPER" />
-        <text name="ft_settings_battery_drain" text="Battery drain" />
+        <text name="ft_settings_battery_drain" text="Akkumulátor-fogyás" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Nincs folyamatban lévő munka." /><text name="ft_fieldjobs_start_job" text="Munka indítása" /><text name="ft_fieldjobs_recent_jobs" text="Legutóbbi munkák" /><text name="ft_fieldjobs_no_completed" text="Még nincs befejezett munka." /><text name="ft_fieldjobs_no_job_short" text="nincs aktív munka" /><text name="ft_common_history" text="Előzmények" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Off" />
+    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Nincs folyamatban lévő munka." /><text name="ft_fieldjobs_start_job" text="Munka indítása" /><text name="ft_fieldjobs_recent_jobs" text="Legutóbbi munkák" /><text name="ft_fieldjobs_no_completed" text="Még nincs befejezett munka." /><text name="ft_fieldjobs_no_job_short" text="nincs aktív munka" /><text name="ft_common_history" text="Előzmények" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Ki" />
     <text name="ft_fieldjobs_confirm_start" text="MUNKAIDŐMÉRŐ INDÍTÁSA" />
     <text name="ft_fieldjobs_purpose" text="Méri és naplózza a munkáidat. Nem küld ki munkást." />
     <text name="ft_fieldjobs_finish_job" text="MUNKA BEFEJEZÉSE" />
@@ -2531,20 +2531,20 @@
     <text name="ft_fieldjobs_help_history_body" text="A(z) %s gomb a kezdőképernyőn jelenik meg, amint\naz első munkád befejeződött. Mentésenként legfeljebb 30 munka\nmarad meg, a legújabb elöl." />
     <text name="ft_fieldjobs_help_nav_title" text="VISSZALÉPÉS" />
     <text name="ft_fieldjobs_help_nav_body" text="Ez a súgó a saját Vissza gombjával zárul.\nAz Új munka vagy az Előzmények képernyőről a Vissza a Táblamunkák\nkezdőképernyőjére visz, az alkalmazássávról és a képernyőről egyaránt.\nA kezdőképernyőről a Vissza kilép a Táblamunkákból." />
-        <text name="ft_battery_mode_open" text="Only when open" />
-        <text name="ft_battery_mode_standby" text="Always incl. standby" />
-        <text name="ft_settings_hint_battery_drain_mode" text="Decides when the tablet battery drains." />
-        <text name="ft_settings_battery_profile" text="Battery profile" />
-        <text name="ft_settings_hint_battery_profile" text="Low, normal, high or custom drain speed." />
-        <text name="ft_battery_profile_low" text="Low" />
-        <text name="ft_battery_profile_normal" text="Normal" />
-        <text name="ft_battery_profile_high" text="High" />
-        <text name="ft_battery_profile_custom" text="Custom" />
-        <text name="ft_settings_battery_open_rate" text="Open drain" />
-        <text name="ft_settings_hint_battery_open_rate" text="Battery use while the tablet is open." />
-        <text name="ft_settings_battery_standby_rate" text="Standby drain" />
-        <text name="ft_settings_hint_battery_standby_rate" text="Battery use while the tablet is closed." />
-        <text name="ft_battery_rate_minutes" text="1%% / %d min" />
+        <text name="ft_battery_mode_open" text="Csak nyitva" />
+        <text name="ft_battery_mode_standby" text="Mindig, készenlétben is" />
+        <text name="ft_settings_hint_battery_drain_mode" text="Meghatározza, mikor merül a tablet akkumulátora." />
+        <text name="ft_settings_battery_profile" text="Akkuprofil" />
+        <text name="ft_settings_hint_battery_profile" text="Alacsony, normál, magas vagy egyéni merülési sebesség." />
+        <text name="ft_battery_profile_low" text="Alacsony" />
+        <text name="ft_battery_profile_normal" text="Normál" />
+        <text name="ft_battery_profile_high" text="Magas" />
+        <text name="ft_battery_profile_custom" text="Egyéni" />
+        <text name="ft_settings_battery_open_rate" text="Fogyás nyitva" />
+        <text name="ft_settings_hint_battery_open_rate" text="Akkuhasználat, amíg a tablet nyitva van." />
+        <text name="ft_settings_battery_standby_rate" text="Fogyás készenlétben" />
+        <text name="ft_settings_hint_battery_standby_rate" text="Akkuhasználat, amíg a tablet zárva van." />
+        <text name="ft_battery_rate_minutes" text="1%% / %d perc" />
         <text name="ft_battery_service_title" text="Tablet akkumulátora" />
         <text name="ft_battery_empty_auto_charge" text="A tablet akkumulátora lemerült. A tablet a töltőn van." />
         <text name="ft_battery_charging_locked" text="A tablet töltőn van. 15%-tól kapcsolható be." />
