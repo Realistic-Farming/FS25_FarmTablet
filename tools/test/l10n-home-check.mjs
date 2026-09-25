@@ -15,6 +15,12 @@
 //     off as a translation: Tyson's ruling, MAINTENANCE row 80).
 // And one control-name row: the favourites hint names the EDIT button by the button's own
 // text in that language (ft_auto_tap_edit_then_pick_your_apps contains ft_auto_edit).
+// And one script row (Bob's MAJOR on #177): in a locale written in its own script, every checked
+// value carries at least one letter of that script (CJK ideographs for cs and ct, kana or CJK for
+// jp, Hangul for kr, Cyrillic for ru and uk), unless the key is a mod's own name (ALLOW_ALL). A
+// romanised or other-language value ("Keiyaku", "Contractes") differs from English, so the rows
+// above pass it; this row fails it. cs (Simplified Chinese) is listed although FarmTablet ships no
+// translation_cs.xml, so the rule holds the day that file is added.
 //
 // Usage:  node tools/test/l10n-home-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
@@ -84,6 +90,16 @@ function entries(file) {
   }
   return { inside, outside };
 }
+// The script each locale is written in, and the letters that show it.
+const SCRIPT = {
+  cs: { name: "CJK ideograph", re: /\p{Script=Han}/u },
+  ct: { name: "CJK ideograph", re: /\p{Script=Han}/u },
+  jp: { name: "kana or CJK ideograph", re: /[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}]/u },
+  kr: { name: "Hangul letter", re: /\p{Script=Hangul}/u },
+  ru: { name: "Cyrillic letter", re: /\p{Script=Cyrillic}/u },
+  uk: { name: "Cyrillic letter", re: /\p{Script=Cyrillic}/u },
+};
+let scriptChecked = 0;
 const placeholders = (s) => (s.match(/%[sd]/g) || []).join(",");
 const breaks = (s) => (s.match(/&#10;|\\n/g) || []).length;
 
@@ -109,6 +125,10 @@ for (const loc of locales) {
     if (placeholders(v) !== placeholders(e[0])) failures.push(`${loc}: ${key} placeholders [${placeholders(v)}] differ from English [${placeholders(e[0])}]`);
     if (breaks(v) !== breaks(e[0])) failures.push(`${loc}: ${key} has ${breaks(v)} line breaks, English ${breaks(e[0])}`);
     if (v === e[0] && !ALLOW[`${loc}:${key}`] && !ALLOW_ALL[key]) failures.push(`${loc}: ${key} is the English text`);
+    if (SCRIPT[loc] && !ALLOW_ALL[key]) {
+      scriptChecked++;
+      if (!SCRIPT[loc].re.test(v)) failures.push(`${loc}: ${key} ${JSON.stringify(v)} holds no ${SCRIPT[loc].name}: it is another language, or romanised`);
+    }
   }
   const edit = (L.inside.get("ft_auto_edit") || [])[0];
   const hint = (L.inside.get("ft_auto_tap_edit_then_pick_your_apps") || [])[0];
@@ -120,4 +140,5 @@ if (failures.length > 0) {
   console.log(`l10n-home: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
   process.exit(1);
 }
-console.log(`l10n-home: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} mod names`);
+const scriptLocs = locales.filter((l) => SCRIPT[l]);
+console.log(`l10n-home: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} mod names; script rule: ${scriptChecked} values in ${scriptLocs.join(", ")} (no translation_cs.xml)`);
