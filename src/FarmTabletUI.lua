@@ -1133,8 +1133,8 @@ function FarmTabletUI:_statusBarText()
     -- Statusbar has very little room. Show a clean, readable short provider.
     if string.find(string.lower(provider), "realistic", 1, true) ~= nil then
         provider = "Realistic"
-    elseif string.len(provider) > 9 then
-        provider = string.sub(provider, 1, 9) .. "."
+    elseif FT.utf8Len(provider) > 9 then
+        provider = FT.utf8Sub(provider, 9) .. "."
     end
     -- Status rechts sauber trennen: Netz links, Akku-Prozent rechts daneben.
     -- Kein Trenner direkt vor der Zahl, damit Signal/Batterie sich nicht ueberlappen.
@@ -2490,8 +2490,8 @@ function FarmTabletUI:_drawSignalToast()
     self:_fxRect(x, y + h - FT.py(2), w, FT.py(2), {0.35,0.90,0.45,0.92})
     local tTitle = tostring(toast.title or ftUiText("ft_network_default_provider", "Realistic Farming Mobile"))
     local tMsg = tostring(toast.msg or "")
-    if string.len(tTitle) > 32 then tTitle = string.sub(tTitle, 1, 31) .. "." end
-    if string.len(tMsg) > 58 then tMsg = string.sub(tMsg, 1, 57) .. "." end
+    if FT.utf8Len(tTitle) > 32 then tTitle = FT.utf8Sub(tTitle, 31) .. "." end
+    if FT.utf8Len(tMsg) > 58 then tMsg = FT.utf8Sub(tMsg, 57) .. "." end
     r:text(x + FT.px(13), y + h - FT.py(15), titleFont, tTitle, RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1})
     r:text(x + FT.px(13), y + FT.py(11), msgFont, tMsg, RenderText.ALIGN_LEFT, {0.92,0.95,0.98,1})
 end

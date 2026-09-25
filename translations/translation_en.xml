@@ -1281,7 +1281,7 @@
         <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="just on meadow rules. Independent of the sleep state." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Keep track of farm tasks.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="KEEPING UP TO DATE" />
-        <text name="ft_auto_kein_netz" text="KEIN NETZ" />
+        <text name="ft_auto_kein_netz" text="NO NETWORK" />
         <text name="ft_auto_label_color" text="LABEL COLOR: " />
         <text name="ft_auto_label_size" text="LABEL SIZE: " />
         <text name="ft_auto_land_lease" text="Land Lease" />

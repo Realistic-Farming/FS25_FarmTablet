@@ -272,54 +272,54 @@
         <text name="ft_rd_notices_line" text="Upozorneni: %d" />
         <text name="ft_rd_server_note" text="Zabaveni vozidel stale probiha pres RealisticDealer na strane serveru." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
-        <text name="ft_network_title" text="Network" />
-        <text name="ft_network_choose_provider" text="Choose network provider" />
-        <text name="ft_network_choose_hint" text="Select a provider and activate it." />
-        <text name="ft_network_activate" text="ACTIVATE" />
-        <text name="ft_network_provider_active" text="Active: %s" />
-        <text name="ft_network_outage_short" text="Outage" />
-        <text name="ft_network_no_signal_short" text="No signal" />
-        <text name="ft_network_weak_short" text="Weak" />
+        <text name="ft_network_title" text="Síť" />
+        <text name="ft_network_choose_provider" text="Vyber operátora sítě" />
+        <text name="ft_network_choose_hint" text="Vyber operátora a aktivuj ho." />
+        <text name="ft_network_activate" text="AKTIVOVAT" />
+        <text name="ft_network_provider_active" text="Aktivní: %s" />
+        <text name="ft_network_outage_short" text="Výpadek" />
+        <text name="ft_network_no_signal_short" text="Bez signálu" />
+        <text name="ft_network_weak_short" text="Slabý" />
         <text name="ft_network_recovered" text="%s: signal obnoven." />
         <text name="ft_network_outage_msg" text="%s: vypadek site, asi 2 herni hodiny." />
         <text name="ft_network_no_signal_msg" text="%s: zde neni signal." />
         <text name="ft_network_weak_msg" text="%s: slaby signal." />
         <text name="ft_battery_empty" text="Baterie tabletu vybita" />
-        <text name="ft_battery_charging" text="Nabijeni tabletu..." />
-        <text name="ft_battery_charge_hint" text="Chvili nabijte pro pokracovani." />
-        <text name="ft_battery_charge" text="NABIT" />
+        <text name="ft_battery_charging" text="Nabíjení tabletu..." />
+        <text name="ft_battery_charge_hint" text="Chvíli nabijte pro pokračování." />
+        <text name="ft_battery_charge" text="NABÍT" />
         <text name="ft_common_rare" text="Rare" />
         <text name="ft_common_normal" text="Normal" />
         <text name="ft_common_frequent" text="Frequent" />
-        <text name="ft_common_close" text="CLOSE" />
-        <text name="ft_network_fee_format" text="Base fee: %s €/day" />
-        <text name="ft_network_fee_deducted" text="Base fee deducted: %d €" />
+        <text name="ft_common_close" text="ZAVŘÍT" />
+        <text name="ft_network_fee_format" text="Základní poplatek: %s €/den" />
+        <text name="ft_network_fee_deducted" text="Stržen základní poplatek: %d €" />
         <text name="ft_network_provider_changed" text="Provider changed: %s." />
         <text name="ft_network_outages_changed" text="Outages: %s." />
-        <text name="ft_network_outage_label" text="Network outage" />
-        <text name="ft_network_no_signal_label" text="No signal" />
-        <text name="ft_network_weak_signal_label" text="Weak signal" />
+        <text name="ft_network_outage_label" text="Výpadek sítě" />
+        <text name="ft_network_no_signal_label" text="Bez signálu" />
+        <text name="ft_network_weak_signal_label" text="Slabý signál" />
         <text name="ft_network_medium_short" text="Medium" />
         <text name="ft_network_good_short" text="Good" />
         <text name="ft_network_excellent_short" text="Excellent" />
-        <text name="ft_network_outage_recovered" text="Network outage fixed. Data is updating." />
-        <text name="ft_network_outage_detected" text="Network outage detected. Estimated duration: approx. %d in-game hours." />
-        <text name="ft_network_no_reception_here" text="No reception at this location." />
-        <text name="ft_network_weak_reception" text="Weak reception." />
-        <text name="ft_network_data_frozen" text="%s - data frozen" />
-        <text name="ft_repair_service_title" text="Tablet Service" />
-        <text name="ft_repair_started_msg" text="Display damage from a drop. Tablet is being repaired." />
-        <text name="ft_repair_done_msg" text="Repair completed. Tablet is ready to use again." />
-        <text name="ft_repair_force_done_msg" text="Forced repair complete. Repair fee charged: %d." />
-        <text name="ft_repair_open_blocked_msg" text="Tablet in repair. We will notify you when it is delivered again." />
-        <text name="ft_repair_title" text="DISPLAY DAMAGE" />
-        <text name="ft_repair_subtitle" text="Display damage from a drop" />
-        <text name="ft_repair_in_progress" text="Tablet in repair" />
-        <text name="ft_repair_notify_done" text="We will notify you when the repair is finished." />
-        <text name="ft_repair_stock_available" text="Display in stock - duration: approx. 1 in-game hour" />
-        <text name="ft_repair_stock_ordered" text="Display ordered - duration: approx. 1 in-game day" />
-        <text name="ft_repair_remaining" text="Remaining: %s" />
-        <text name="ft_repair_remaining_day_format" text="%d day %02d:%02d" />
+        <text name="ft_network_outage_recovered" text="Výpadek sítě odstraněn. Data se aktualizují." />
+        <text name="ft_network_outage_detected" text="Zjištěn výpadek sítě. Odhadovaná doba: asi %d herních hodin." />
+        <text name="ft_network_no_reception_here" text="Na tomto místě není signál." />
+        <text name="ft_network_weak_reception" text="Slabý signál." />
+        <text name="ft_network_data_frozen" text="%s - data zmrazena" />
+        <text name="ft_repair_service_title" text="Servis tabletu" />
+        <text name="ft_repair_started_msg" text="Displej se poškodil pádem. Tablet se opravuje." />
+        <text name="ft_repair_done_msg" text="Oprava dokončena. Tablet je opět připraven k použití." />
+        <text name="ft_repair_force_done_msg" text="Vynucená oprava dokončena. Účtovaný poplatek za opravu: %d." />
+        <text name="ft_repair_open_blocked_msg" text="Tablet je v opravě. Dáme ti vědět, až bude znovu doručen." />
+        <text name="ft_repair_title" text="POŠKOZENÝ DISPLEJ" />
+        <text name="ft_repair_subtitle" text="Displej poškozený pádem" />
+        <text name="ft_repair_in_progress" text="Tablet v opravě" />
+        <text name="ft_repair_notify_done" text="Až bude oprava hotová, dáme ti vědět." />
+        <text name="ft_repair_stock_available" text="Displej skladem - doba: asi 1 herní hodina" />
+        <text name="ft_repair_stock_ordered" text="Displej objednán - doba: asi 1 herní den" />
+        <text name="ft_repair_remaining" text="Zbývá: %s" />
+        <text name="ft_repair_remaining_day_format" text="%d den %02d:%02d" />
         <text name="ft_settings_provider" text="Provider" />
         <text name="ft_settings_base_fee" text="Base fee" />
         <text name="ft_settings_fee_per_day" text="%d €/day" />
@@ -425,8 +425,8 @@
         <text name="ft_auto_active_4" text="Active" />
         <text name="ft_auto_active_5" text="active" />
         <text name="ft_auto_active_at_least_one_production_chain_is_enabled_and" text="Active: at least one production chain is enabled and&#10;" />
-        <text name="ft_auto_active_contracts" text="ACTIVE CONTRACTS" />
-        <text name="ft_auto_active_contracts_2" text="Active Contracts" />
+        <text name="ft_auto_active_contracts" text="AKTIVNÍ ZAKÁZKY" />
+        <text name="ft_auto_active_contracts_2" text="Aktivní zakázky" />
         <text name="ft_auto_active_contracts_completion_reward_time_remaining" text="Active contracts - completion, reward, time remaining" />
         <text name="ft_auto_active_difficulty" text="Active  |  Difficulty: " />
         <text name="ft_auto_active_event" text="ACTIVE EVENT" />
@@ -434,8 +434,8 @@
         <text name="ft_auto_active_events_and_their_intensity_are_listed_here" text="Active events and their intensity are listed here." />
         <text name="ft_auto_active_favors" text="ACTIVE FAVORS" />
         <text name="ft_auto_active_favors_2" text="Active Favors" />
-        <text name="ft_auto_active_fields" text="Active Fields" />
-        <text name="ft_auto_active_fields_vehicles" text="ACTIVE FIELDS / VEHICLES" />
+        <text name="ft_auto_active_fields" text="Aktivní pole" />
+        <text name="ft_auto_active_fields_vehicles" text="AKTIVNÍ POLE / VOZIDLA" />
         <text name="ft_auto_active_financing" text="Active Financing" />
         <text name="ft_auto_active_illnesses" text="Active Illnesses" />
         <text name="ft_auto_active_loans_and_leases_arranged_through_usedplus" text="Active loans and leases arranged through UsedPlus.&#10;" />
@@ -530,7 +530,7 @@
         <text name="ft_auto_app" text="App" />
         <text name="ft_auto_app_2" text="app" />
         <text name="ft_auto_app_cannot_be_undone" text="app. Cannot be undone." />
-        <text name="ft_auto_app_error" text="App Error" />
+        <text name="ft_auto_app_error" text="Chyba aplikace" />
         <text name="ft_auto_app_labels" text="APP LABELS: " />
         <text name="ft_auto_app_registered" text="app_registered" />
         <text name="ft_auto_app_select_sound_click_when_switching_sidebar_apps" text="App Select Sound: click when switching sidebar apps.&#10;" />
@@ -615,7 +615,7 @@
         <text name="ft_auto_change_renamed_the_confusing_desel_button_to_unpin_work" text="Change: renamed the confusing 'DESEL' button to 'UNPIN' (Workshop and Income)" />
         <text name="ft_auto_changelog" text="Changelog" />
         <text name="ft_auto_changelog_and_update_history" text="Changelog and update history" />
-        <text name="ft_auto_changes_are_saved_automatically" text="Changes are saved automatically." />
+        <text name="ft_auto_changes_are_saved_automatically" text="Změny se ukládají automaticky." />
         <text name="ft_auto_changes_take_effect_immediately" text="Changes take effect immediately." />
         <text name="ft_auto_changes_the_screen_background_of_the_tablet" text="Changes the screen background of the tablet.&#10;" />
         <text name="ft_auto_charge" text="CHARGE" />
@@ -714,7 +714,7 @@
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
         <text name="ft_auto_cost_mode_2" text="Cost Mode" />
-        <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Count of accepted contracts currently in progress.&#10;" />
+        <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Počet přijatých zakázek, které právě běží.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
         <text name="ft_auto_credit" text="CREDIT" />
@@ -729,8 +729,8 @@
         <text name="ft_auto_cultivating" text="Cultivating" />
         <text name="ft_auto_cumulative_tax_paid_across_the_current_session" text="Cumulative tax paid across the current session.&#10;" />
         <text name="ft_auto_current_air_temperature_in_celsius_with_a_feel_label" text="Current air temperature in Celsius with a feel label:&#10;" />
-        <text name="ft_auto_current_balance" text="CURRENT BALANCE" />
-        <text name="ft_auto_current_balance_2" text="Current Balance" />
+        <text name="ft_auto_current_balance" text="AKTUÁLNÍ ZŮSTATEK" />
+        <text name="ft_auto_current_balance_2" text="Aktuální zůstatek" />
         <text name="ft_auto_current_conditions_and_forecast" text="Current conditions and forecast" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
         <text name="ft_auto_category" text="Kategorie" />
@@ -749,9 +749,9 @@
         <text name="ft_auto_custom" text="Custom" />
         <text name="ft_auto_custom_2" text="custom" />
         <text name="ft_auto_custom_set_via_console" text="Custom (set via console)" />
-        <text name="ft_auto_customising_widgets" text="CUSTOMISING WIDGETS" />
+        <text name="ft_auto_customising_widgets" text="ÚPRAVA WIDGETŮ" />
         <text name="ft_auto_customize" text="customize" />
-        <text name="ft_auto_customize_widgets" text="Customize Widgets" />
+        <text name="ft_auto_customize_widgets" text="Upravit widgety" />
         <text name="ft_auto_d" text="$%d" />
         <text name="ft_auto_d_2" text="%d%%" />
         <text name="ft_auto_d_active_cases" text="%d active cases" />
@@ -771,18 +771,18 @@
         <text name="ft_auto_d_s" text="%d%%  (%s)" />
         <text name="ft_auto_daily_once_per_in_game_day" text="Daily = once per in-game day.&#10;" />
         <text name="ft_auto_dash" text="DASH" />
-        <text name="ft_auto_dashboard" text="Dashboard" />
+        <text name="ft_auto_dashboard" text="Přehled" />
         <text name="ft_auto_dashboard_2" text="dashboard" />
         <text name="ft_auto_dashboard_weather_app_store_settings" text="dashboard,weather,app_store,settings" />
         <text name="ft_auto_dashboard_weather_fields_animals_workshop" text="Dashboard, Weather, Fields, Animals, Workshop" />
         <text name="ft_auto_data_refreshed" text="data_refreshed" />
         <text name="ft_auto_data_refreshes_every_3_seconds" text="Data refreshes every 3 seconds." />
         <text name="ft_auto_day" text="DEN" />
-        <text name="ft_auto_day_2" text="Day" />
+        <text name="ft_auto_day_2" text="Den" />
         <text name="ft_auto_day_3" text="Den " />
         <text name="ft_auto_day_4" text="Day +" />
         <text name="ft_auto_day_5" text="day" />
-        <text name="ft_auto_day_and_time_show_the_in_game_clock_24h" text="Day and time show the in-game clock (24h)." />
+        <text name="ft_auto_day_and_time_show_the_in_game_clock_24h" text="Den a čas ukazují herní hodiny (24h)." />
         <text name="ft_auto_days_since_harvest" text="Days Since Harvest" />
         <text name="ft_auto_deadwood" text="Deadwood" />
         <text name="ft_auto_deal" text="DEAL" />
@@ -887,7 +887,7 @@
         <text name="ft_auto_excavator" text="excavator" />
         <text name="ft_auto_excellent" text="Excellent" />
         <text name="ft_auto_exit_edit_mode" text="EXIT EDIT MODE" />
-        <text name="ft_auto_expenses" text="Expenses" />
+        <text name="ft_auto_expenses" text="Výdaje" />
         <text name="ft_auto_expenses_2" text="expenses" />
         <text name="ft_auto_expired" text="EXPIRED" />
         <text name="ft_auto_expiring" text=" EXPIRING" />
@@ -902,7 +902,7 @@
         <text name="ft_auto_factoryweekschedule_was_not_detected" text="FactoryWeekSchedule was not detected." />
         <text name="ft_auto_fair" text="Fair" />
         <text name="ft_auto_false" text="false" />
-        <text name="ft_auto_farm" text="FARM" />
+        <text name="ft_auto_farm" text="FARMA" />
         <text name="ft_auto_farm_2" text="Farm " />
         <text name="ft_auto_farm_admin" text="Farm Admin" />
         <text name="ft_auto_farm_admin_2" text="farm_admin" />
@@ -1005,7 +1005,7 @@
         <text name="ft_auto_fields_4" text="fields" />
         <text name="ft_auto_fields_5" text="fields_" />
         <text name="ft_auto_fields_count_of_fields_your_farm_owns_with_crop_or_empt" text="Fields: count of fields your farm owns (with crop or empty).&#10;" />
-        <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Fields: land you own with a crop growing.&#10;" />
+        <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Pole: tvé pozemky, na kterých roste plodina.&#10;" />
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="FieldSentry decides which fields the soil simulation runs&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="FieldSentry is not available." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - per-field soil-sim status, sleep and meadow toggles" />
@@ -1018,7 +1018,7 @@
         <text name="ft_auto_fin" text="FIN" />
         <text name="ft_auto_finance" text="FINANCE" />
         <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
-        <text name="ft_auto_finances" text="FINANCES" />
+        <text name="ft_auto_finances" text="FINANCE" />
         <text name="ft_auto_finish_current_first" text="nejdřív dokonči aktuální" />
         <text name="ft_auto_finish_job" text="DOKONČIT PRÁCI" />
         <text name="ft_auto_finishing_a_job" text="DOKONČENÍ PRÁCE" />
@@ -1139,7 +1139,7 @@
         <text name="ft_auto_green_50_yellow_20_red_20" text="Green &gt;= 50%  |  Yellow &gt;= 20%  |  Red &lt; 20%." />
         <text name="ft_auto_green_60_yellow_25_red_25" text="Green &gt;= 60%  |  Yellow &gt;= 25%  |  Red &lt; 25%.&#10;" />
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
-        <text name="ft_auto_green_positive_red_overdrawn" text="Green = positive, Red = overdrawn.&#10;" />
+        <text name="ft_auto_green_positive_red_overdrawn" text="Zelená = kladný, červená = přečerpaný.&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
         <text name="ft_auto_ground_level" text="Ground Level" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
@@ -1219,16 +1219,16 @@
         <text name="ft_auto_inactive" text="Inactive" />
         <text name="ft_auto_inc" text="INC" />
         <text name="ft_auto_including_position_scale_key_sounds_and_startup" text="including position, scale, key, sounds, and startup&#10;" />
-        <text name="ft_auto_income" text="Income" />
+        <text name="ft_auto_income" text="Příjmy" />
         <text name="ft_auto_income_2" text="income" />
         <text name="ft_auto_income_and_expenses_tracked_since_this_session_started" text="Income and expenses tracked since this session started&#10;" />
-        <text name="ft_auto_income_expenses_net_p_l" text="INCOME / EXPENSES / NET P/L" />
+        <text name="ft_auto_income_expenses_net_p_l" text="PŘÍJMY / VÝDAJE / ČISTÝ VÝSLEDEK" />
         <text name="ft_auto_income_mod" text="Income Mod" />
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Income Mod controls and statistics" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
         <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
-        <text name="ft_auto_income_money_earned_expenses_money_spent" text="Income: money earned. Expenses: money spent.&#10;" />
+        <text name="ft_auto_income_money_earned_expenses_money_spent" text="Příjmy: vydělané peníze. Výdaje: utracené peníze.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="INCOMING  (money owed to you)" />
         <text name="ft_auto_info" text="Info" />
@@ -1280,7 +1280,7 @@
         <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="just on meadow rules. Independent of the sleep state." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Keep track of farm tasks.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="KEEPING UP TO DATE" />
-        <text name="ft_auto_kein_netz" text="KEIN NETZ" />
+        <text name="ft_auto_kein_netz" text="ŽÁDNÁ SÍŤ" />
         <text name="ft_auto_label_color" text="LABEL COLOR: " />
         <text name="ft_auto_label_size" text="LABEL SIZE: " />
         <text name="ft_auto_land_lease" text="Land Lease" />
@@ -1310,12 +1310,12 @@
         <text name="ft_auto_loading" text="Loading" />
         <text name="ft_auto_loads" text="LOADS" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
-        <text name="ft_auto_loan" text="LOAN" />
+        <text name="ft_auto_loan" text="ÚVĚR" />
         <text name="ft_auto_loan_2" text="Loan" />
         <text name="ft_auto_loan_3" text="loan" />
         <text name="ft_auto_loan_4" text="loan_" />
-        <text name="ft_auto_loan_amount" text="Loan Amount" />
-        <text name="ft_auto_loan_amount_shown_alongside_balance_if_active" text="Loan amount shown alongside balance if active." />
+        <text name="ft_auto_loan_amount" text="Výše úvěru" />
+        <text name="ft_auto_loan_amount_shown_alongside_balance_if_active" text="Máš-li úvěr, jeho výše se ukáže vedle zůstatku." />
         <text name="ft_auto_loan_outstanding_loan_amount_0_if_debt_free" text="Loan: outstanding loan amount (0 if debt-free).&#10;" />
         <text name="ft_auto_loan_payment" text="Loan Payment" />
         <text name="ft_auto_lock" text="lock" />
@@ -1393,8 +1393,8 @@
         <text name="ft_auto_nearby_vehicles" text="NEARBY VEHICLES" />
         <text name="ft_auto_needs_fertilizer" text="Needs Fertilizer" />
         <text name="ft_auto_needs_fertilizer_flag" text="NEEDS FERTILIZER FLAG" />
-        <text name="ft_auto_net_p_l" text="Net P/L" />
-        <text name="ft_auto_net_p_l_income_minus_expenses" text="Net P/L: income minus expenses." />
+        <text name="ft_auto_net_p_l" text="Čistý výsledek" />
+        <text name="ft_auto_net_p_l_income_minus_expenses" text="Čistý výsledek: příjmy minus výdaje." />
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Net P/L = income minus expenses for the session." />
         <text name="ft_auto_net_pl" text="net_pl" />
         <text name="ft_auto_net_savings" text="Net Savings" />
@@ -1490,7 +1490,7 @@
         <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="No workshop found on this farm  (repairs disabled)" />
-        <text name="ft_auto_none" text="none" />
+        <text name="ft_auto_none" text="žádné" />
         <text name="ft_auto_none_active" text="none active" />
         <text name="ft_auto_normal" text="Normal" />
         <text name="ft_auto_normal_2" text="normal" />
@@ -1499,7 +1499,7 @@
         <text name="ft_auto_note" text="NOTE" />
         <text name="ft_auto_notes" text="Notes" />
         <text name="ft_auto_notes_2" text="notes" />
-        <text name="ft_auto_nothing_pinned" text="Nothing pinned." />
+        <text name="ft_auto_nothing_pinned" text="Nic není připnuto." />
         <text name="ft_auto_notices_d" text="Notices: %d" />
         <text name="ft_auto_notifications" text="NOTIFICATIONS" />
         <text name="ft_auto_notifications_off" text="NOTIFICATIONS: OFF" />
@@ -1524,7 +1524,7 @@
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Ocean Blue" />
-        <text name="ft_auto_off" text="OFF" />
+        <text name="ft_auto_off" text="VYP" />
         <text name="ft_auto_off_2" text="Off" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
@@ -1534,7 +1534,7 @@
         <text name="ft_auto_offline" text="offline" />
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
-        <text name="ft_auto_on" text="ON" />
+        <text name="ft_auto_on" text="ZAP" />
         <text name="ft_auto_on_2" text="On" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="on. Sleeping fields are skipped to save performance and to&#10;" />
@@ -1549,7 +1549,7 @@
         <text name="ft_auto_open_key_s" text="Open Key: %s&#10;" />
         <text name="ft_auto_open_notices" text="Open Notices" />
         <text name="ft_auto_open_tablet" text="Open tablet" />
-        <text name="ft_auto_open_the_contracts_app_for_details_and_deadlines" text="Open the Contracts app for details and deadlines." />
+        <text name="ft_auto_open_the_contracts_app_for_details_and_deadlines" text="Podrobnosti a termíny najdeš v aplikaci Zakázky." />
         <text name="ft_auto_opens_the_large_provider_selection_window" text="Opens the large provider selection window" />
         <text name="ft_auto_operating_hours" text="Operating Hours" />
         <text name="ft_auto_operating_hours_total_engine_time_in_whole_hours" text="Operating hours: total engine time in whole hours.&#10;" />
@@ -1784,10 +1784,10 @@
         <text name="ft_auto_scroll_wheel_over_this_panel_to_scroll_settings" text="Mouse wheel over this panel scrolls settings." />
         <text name="ft_auto_scrolling" text="SCROLLING" />
         <text name="ft_auto_se" text="SE" />
-        <text name="ft_auto_season" text="Season" />
+        <text name="ft_auto_season" text="Roční období" />
         <text name="ft_auto_season_2" text="season" />
-        <text name="ft_auto_season_day_time_weather" text="SEASON / DAY / TIME / WEATHER" />
-        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod - blank in base game.&#10;" />
+        <text name="ft_auto_season_day_time_weather" text="ROČNÍ OBDOBÍ / DEN / ČAS / POČASÍ" />
+        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Roční období vyžaduje mod Seasons - v základní hře prázdné.&#10;" />
         <text name="ft_auto_seasonal" text="Seasonal" />
         <text name="ft_auto_seasonal_crop_stress" text="Seasonal Crop Stress" />
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
@@ -1986,15 +1986,15 @@
         <text name="ft_auto_tablettoggle_toggle_tablet" text="TabletToggle - Toggle tablet&#10;" />
         <text name="ft_auto_tap_an_app_to_add_or_remove_it_from_favourites" text="Klepnutím na aplikaci ji přidáš do oblíbených nebo z nich odebereš" />
         <text name="ft_auto_tap_edit_then_pick_your_apps" text="Klepni na UPRAVIT a vyber své aplikace" />
-        <text name="ft_auto_tap_edit_to_add_widgets" text="Tap EDIT to add widgets." />
+        <text name="ft_auto_tap_edit_to_add_widgets" text="Klepnutím na UPRAVIT přidáš widgety." />
         <text name="ft_auto_tap_finish_on_the_home_screen_when_you_are_done" text="Tap FINISH on the Home screen when you are done.&#10;" />
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tap FIRE again to confirm - severance " />
-        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Tap HOME to return to the app grid." />
+        <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Klepni na DOMŮ a vrátíš se na mřížku aplikací." />
         <text name="ft_auto_tap_new_to_open_the_creation_form" text="Tap + NEW to open the creation form.&#10;" />
-        <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tap ON/OFF to show or hide each widget." />
+        <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Klepnutím na ZAP/VYP zobrazíš nebo skryješ widget." />
         <text name="ft_auto_tap_start_job_pick_a_field_your_vehicle_and_the" text="Tap START JOB, pick a field, your vehicle, and the&#10;" />
         <text name="ft_auto_tap_t_to_close_the_tablet_and_get_back_to_work" text="Tap T to close the tablet and get back to work!" />
-        <text name="ft_auto_tap_the_small_edit_button_top_right_of_the_dashboard" text="Tap the small EDIT button (top-right of the dashboard)&#10;" />
+        <text name="ft_auto_tap_the_small_edit_button_top_right_of_the_dashboard" text="Klepnutím na malé tlačítko UPRAVIT (vpravo nahoře)&#10;" />
         <text name="ft_auto_task" text="ÚKOL" />
         <text name="ft_auto_tax" text="TAX" />
         <text name="ft_auto_tax_2" text="tax" />
@@ -2041,7 +2041,7 @@
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="tier, and how far through the listing period you are." />
         <text name="ft_auto_time" text="TIME" />
-        <text name="ft_auto_time_2" text="Time" />
+        <text name="ft_auto_time_2" text="Čas" />
         <text name="ft_auto_time_3" text="time" />
         <text name="ft_auto_time_controls" text="Time Controls" />
         <text name="ft_auto_time_controls_2" text="time_controls" />
@@ -2054,7 +2054,7 @@
         <text name="ft_auto_to_collect" text=" to collect" />
         <text name="ft_auto_to_enable" text=" to enable" />
         <text name="ft_auto_to_remove_every_hotspot_from_the_map" text="to remove every hotspot from the map." />
-        <text name="ft_auto_to_show_or_hide_individual_data_rows" text="to show or hide individual data rows.&#10;" />
+        <text name="ft_auto_to_show_or_hide_individual_data_rows" text="zobrazíš nebo skryješ jednotlivé řádky údajů.&#10;" />
         <text name="ft_auto_to_supplement_your_farm_earnings" text="to supplement your farm earnings." />
         <text name="ft_auto_to_zero_use_at_the_start_of_a_new_job_to_track" text="to zero. Use at the start of a new job to track&#10;" />
         <text name="ft_auto_todo_list" text="TODO LIST" />
@@ -2074,7 +2074,7 @@
         <text name="ft_auto_tour" text="Tour" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
         <text name="ft_auto_town_reputation_2" text="Town Reputation: " />
-        <text name="ft_auto_tracked_from_the_current_session_since_load" text="Tracked from the current session (since load).&#10;" />
+        <text name="ft_auto_tracked_from_the_current_session_since_load" text="Počítá se od začátku relace (od načtení).&#10;" />
         <text name="ft_auto_tracks_money_you_owe_others_outgoing_and" text="Tracks money you owe others (OUTGOING) and&#10;" />
         <text name="ft_auto_trailer" text="Trailer" />
         <text name="ft_auto_transport" text="Transport" />
@@ -2126,10 +2126,10 @@
         <text name="ft_auto_vehicle_repossessions_still_run_through_realisticdealer" text="Vehicle repossessions still run through RealisticDealer server-side." />
         <text name="ft_auto_vehicles" text=" vehicles" />
         <text name="ft_auto_vehicles_2" text="VEHICLES" />
-        <text name="ft_auto_vehicles_3" text="Vehicles" />
+        <text name="ft_auto_vehicles_3" text="Vozidla" />
         <text name="ft_auto_vehicles_4" text="vehicles" />
         <text name="ft_auto_vehicles_d_owned" text="VEHICLES  ·  %d owned" />
-        <text name="ft_auto_vehicles_motorised_vehicles_owned_by_your_farm" text="Vehicles: motorised vehicles owned by your farm." />
+        <text name="ft_auto_vehicles_motorised_vehicles_owned_by_your_farm" text="Vozidla: motorová vozidla tvé farmy." />
         <text name="ft_auto_vehicles_motorized_vehicles_owned_by_your_farm" text="Vehicles: motorized vehicles owned by your farm.&#10;" />
         <text name="ft_auto_vehicles_nearby" text=" vehicles nearby" />
         <text name="ft_auto_vehicles_you_have_listed_for_sale_through_a_usedplus" text="Vehicles you have listed for sale through a UsedPlus&#10;" />
@@ -2175,7 +2175,7 @@
         <text name="ft_auto_wear" text="WEAR" />
         <text name="ft_auto_wear_2" text="Wear" />
         <text name="ft_auto_wear_bar" text="WEAR BAR" />
-        <text name="ft_auto_weather" text="Weather" />
+        <text name="ft_auto_weather" text="Počasí" />
         <text name="ft_auto_weather_2" text="weather" />
         <text name="ft_auto_weather_data_unavailable" text="Weather data unavailable." />
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
         <text name="ft_auto_weight" text="WEIGHT" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
-        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Welcome! Tap an app to begin." />
+        <text name="ft_auto_welcome_tap_an_app_to_begin" text="Vítej! Začni klepnutím na aplikaci." />
         <text name="ft_auto_what_counts_as_a_silo" text="WHAT COUNTS AS A SILO?" />
         <text name="ft_auto_what_is_the_app_store" text="WHAT IS THE APP STORE" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
@@ -2233,7 +2233,7 @@
         <text name="ft_auto_workshop" text="Workshop" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
-        <text name="ft_auto_world" text="WORLD" />
+        <text name="ft_auto_world" text="SVĚT" />
         <text name="ft_auto_world_2" text="world" />
         <text name="ft_auto_world_data" text="World data" />
         <text name="ft_auto_world_events" text="WORLD EVENTS" />
@@ -2249,7 +2249,7 @@
         <text name="ft_auto_you_don_t_own_any_fields" text="Nevlastníš žádná pole." />
         <text name="ft_auto_you_don_t_own_any_fields_yet" text="You don't own any fields yet." />
         <text name="ft_auto_your_farm_in_the_vehicle_settings" text="your farm in the vehicle settings." />
-        <text name="ft_auto_your_farm_s_total_available_money" text="Your farm's total available money.&#10;" />
+        <text name="ft_auto_your_farm_s_total_available_money" text="Všechny peníze, které má tvá farma k dispozici.&#10;" />
         <text name="ft_auto_your_farm_s_usedplus_credit_rating" text="Your farm's UsedPlus credit rating.&#10;" />
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
@@ -2304,9 +2304,9 @@
         <text name="ft_count_silo" text="%d silo" />
         <text name="ft_count_silos" text="%d silos" />
         <text name="ft_settings_title" text="Settings" />
-        <text name="ft_help_common_title" text="Help" />
-        <text name="ft_help_back" text="&lt; BACK" />
-        <text name="ft_scroll_label" text="scroll" />
+        <text name="ft_help_common_title" text="Nápověda" />
+        <text name="ft_help_back" text="&lt; ZPĚT" />
+        <text name="ft_scroll_label" text="posun" />
         <text name="ft_help_settings_display_title" text="DISPLAY - POSITION &amp; SIZE" />
         <text name="ft_help_settings_display_body" text="Shows tablet position and size. Use edit mode to move or resize it." />
         <text name="ft_help_settings_edit_title" text="EDIT MODE" />
@@ -2552,11 +2552,11 @@
         <text name="ft_settings_battery_standby_rate" text="Standby drain" />
         <text name="ft_settings_hint_battery_standby_rate" text="Battery use while the tablet is closed." />
         <text name="ft_battery_rate_minutes" text="1%% / %d min" />
-        <text name="ft_battery_service_title" text="Tablet battery" />
-        <text name="ft_battery_empty_auto_charge" text="Tablet battery empty. Tablet is on the charger." />
-        <text name="ft_battery_charging_locked" text="Tablet on charger. Can be turned on from 15%." />
-        <text name="ft_battery_charged_usable" text="Tablet charged enough. Press %s to turn it on." />
-        <text name="ft_battery_charged_full" text="Tablet fully charged." />
+        <text name="ft_battery_service_title" text="Baterie tabletu" />
+        <text name="ft_battery_empty_auto_charge" text="Baterie tabletu je vybitá. Tablet je na nabíječce." />
+        <text name="ft_battery_charging_locked" text="Tablet je na nabíječce. Zapnout ho lze od 15 %." />
+        <text name="ft_battery_charged_usable" text="Tablet je dost nabitý. Stiskni %s a zapni ho." />
+        <text name="ft_battery_charged_full" text="Tablet je plně nabitý." />
         <text name="ft_weather_mode_real" text="Real" />
         <text name="ft_weather_mode_arid" text="Arid" />
         <text name="ft_weather_mode_normal" text="Normal" />

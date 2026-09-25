@@ -98,7 +98,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         y = self:drawRule(y, 0.25)
         y = self:drawSection(y, "VEHICLE")
         local nm = (vehicle.getFullName and vehicle:getFullName()) or "Unknown"
-        if #nm > 20 then nm = nm:sub(1, 18) .. ".." end
+        if FT.utf8Len(nm) > 20 then nm = FT.utf8Sub(nm, 18) .. ".." end
         y = self:drawRow(y, "Name", nm)
         if vehicle.lastSpeed then
             y = self:drawRow(y, "Speed", string.format("%.1f km/h", math.abs(vehicle.lastSpeed) * 3600))
@@ -110,7 +110,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
                 for _, imp in ipairs(impls) do
                     if imp.object then
                         local iname = (imp.object.getFullName and imp.object:getFullName()) or "Implement"
-                        if #iname > 16 then iname = iname:sub(1, 14) .. ".." end
+                        if FT.utf8Len(iname) > 16 then iname = FT.utf8Sub(iname, 14) .. ".." end
                         table.insert(names, iname)
                         if #names >= 2 then break end
                     end
@@ -163,7 +163,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
     if bt.vehicle then
         local fi = self.system:_getBucketFillInfo(bt.vehicle)
         local nm = (bt.vehicle.getFullName and bt.vehicle:getFullName()) or "Unknown"
-        if #nm > 22 then nm = nm:sub(1, 20) .. ">" end
+        if FT.utf8Len(nm) > 22 then nm = FT.utf8Sub(nm, 20) .. ">" end
         y = self:drawSection(y, "ACTIVE BUCKET")
         y = self:drawRow(y, "Vehicle", nm)
         y = self:drawRow(y, "Fill",

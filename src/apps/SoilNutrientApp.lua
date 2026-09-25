@@ -311,8 +311,8 @@ end
 
 local function _truncate(str, maxLen)
     str = tostring(str or "")
-    if #str <= maxLen then return str end
-    return str:sub(1, math.max(1, maxLen - 1)) .. "…"
+    if FT.utf8Len(str) <= maxLen then return str end
+    return FT.utf8Sub(str, math.max(1, maxLen - 1)) .. "…"
 end
 
 FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)

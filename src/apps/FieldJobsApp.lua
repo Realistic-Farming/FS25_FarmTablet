@@ -225,7 +225,7 @@ local function _durationStr(mins)
 end
 
 local function _truncate(s, n)
-    if #s > n then return s:sub(1, n - 2) .. ".." end
+    if FT.utf8Len(s) > n then return FT.utf8Sub(s, n - 2) .. ".." end
     return s
 end
 

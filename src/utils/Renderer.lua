@@ -216,8 +216,8 @@ end
 function FT_Renderer.truncate(str, maxLen)
     str = tostring(str or "")
     maxLen = tonumber(maxLen) or 20
-    if #str <= maxLen then return str end
-    return str:sub(1, math.max(1, maxLen - 1)) .. "…"
+    if FT.utf8Len(str) <= maxLen then return str end
+    return FT.utf8Sub(str, math.max(1, maxLen - 1)) .. "…"
 end
 
 -- ── Lifecycle ─────────────────────────────────────────────

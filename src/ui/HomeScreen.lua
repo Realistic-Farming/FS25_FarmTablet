@@ -51,15 +51,9 @@ local function appLabel(app, maxChars)
 
     local name = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
                  or app.navLabel or "?"
-    if #name <= maxChars then return name end
-
-    -- Cut at the last space that still fits, so the label ends on a whole word.
-    local cut = string.sub(name, 1, maxChars)
-    local sp  = string.find(string.reverse(cut), " ")
-    if sp ~= nil and (maxChars - sp) >= 4 then
-        return string.sub(cut, 1, maxChars - sp)
-    end
-    return cut
+    -- Cut at the last space that still fits, so the label ends on a whole word; counted in
+    -- characters, never bytes (MAINTENANCE row 138).
+    return FT.utf8Cut(name, maxChars, 4)
 end
 
 local function isDockApp(id)

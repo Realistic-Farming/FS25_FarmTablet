@@ -137,7 +137,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
                 {accent[1]*0.12, accent[2]*0.12, accent[3]*0.12, 0.95})
         end
         local nm = v.name
-        if #nm > 22 then nm = nm:sub(1, 20) .. ">" end
+        if FT.utf8Len(nm) > 22 then nm = FT.utf8Sub(nm, 20) .. ">" end
         -- Same left pad as shop banner / section header text.
         self.r:appText(x + pad, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT,
             isSel and FT.C.TEXT_BRIGHT or FT.C.TEXT_NORMAL)
@@ -173,7 +173,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     y = self:drawSection(y, "DIAGNOSTICS")
 
     local fullName = (sel.getFullName and sel:getFullName()) or selData.name
-    if #fullName > 26 then fullName = fullName:sub(1, 24) .. ">" end
+    if FT.utf8Len(fullName) > 26 then fullName = FT.utf8Sub(fullName, 24) .. ">" end
     y = self:drawRow(y, "Vehicle", fullName)
 
     local fuelPct   = selData.fuelPct

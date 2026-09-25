@@ -124,8 +124,8 @@ end
 local function short(text, maxLen)
     text = tostring(text or "")
     maxLen = maxLen or 34
-    if string.len(text) <= maxLen then return text end
-    return string.sub(text, 1, maxLen - 1) .. "."
+    if FT.utf8Len(text) <= maxLen then return text end
+    return FT.utf8Sub(text, maxLen - 1) .. "."
 end
 
 FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)

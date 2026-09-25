@@ -123,7 +123,7 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
             or app.description
             or ""
         desc = FT.l10nAuto(desc)
-        if #desc > 72 then desc = desc:sub(1, 70) .. ">" end
+        if FT.utf8Len(desc) > 72 then desc = FT.utf8Sub(desc, 70) .. ">" end
     else
         desc = ""
     end

@@ -80,7 +80,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
         self.r:appRect(x + FT.px(2), y + FT.py(4), FT.px(6), FT.py(6), field.stateColor or FT.C.MUTED)
         self.r:appText(x + FT.px(12), y, FT.FONT.SMALL, tostring(field.id), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         local cropDisp = field.cropName
-        if #cropDisp > 12 then cropDisp = cropDisp:sub(1,10) .. ".." end
+        if FT.utf8Len(cropDisp) > 12 then cropDisp = FT.utf8Sub(cropDisp, 10) .. ".." end
         self.r:appText(x + FT.px(28), y, FT.FONT.SMALL, cropDisp, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
         if field.area and field.area > 0 then
             self.r:appText(x + cw * 0.6, y, FT.FONT.SMALL,
