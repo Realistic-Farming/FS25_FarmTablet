@@ -21,18 +21,18 @@ end
 
 local function _levelName(level)
     level = tonumber(level) or 0
-    if level <= 0 then return "None" end
+    if level <= 0 then return FT.l10n("ft_prostaff_level_none", "None") end
     if ProStaffConstants ~= nil and type(ProStaffConstants.LEVEL_NAMES) == "table" then
-        return ProStaffConstants.LEVEL_NAMES[level] or ("Level " .. tostring(level))
+        return ProStaffConstants.LEVEL_NAMES[level] or FT.l10nFormat("ft_prostaff_level_n", "Level %d", level)
     end
-    return "Level " .. tostring(level)
+    return FT.l10nFormat("ft_prostaff_level_n", "Level %d", level)
 end
 
 local function _modLine(label, value, neutral)
     if value == nil then return nil end
     if type(value) == "boolean" then
         if value == false then return nil end
-        return label .. ": on"
+        return FT.l10nFormat("ft_prostaff_mod_on", "%s: on", label)
     end
     local n = tonumber(value)
     if n == nil then return nil end
@@ -133,22 +133,22 @@ FarmTabletUI:registerDrawer(FT.APP.PROSTAFF, function(self)
         local line = _modLine(label, v, neutral)
         if line then mods[#mods + 1] = line end
     end
-    try("Wage cost", "getWageModifier", 1.0)
-    try("Fatigue mitigation", "getFatigueMitigation", 1.0)
-    try("Fatigue recovery", "getFatigueRecoveryBonus", 1.0)
-    try("Global effectiveness", "getGlobalEffectivenessBonus", 1.0)
-    try("Fertilizer cost", "getFertilizerDiscount", 1.0)
-    try("Fungicide cost", "getFungicideDiscount", 1.0)
-    try("Fungicide effect", "getFungicideEffectivenessBonus", 1.0)
-    try("Spray cost", "getSprayCostModifier", 1.0)
-    try("Vet supplies", "getVetSupplyDiscount", 1.0)
-    try("Dairy logistics", "getDairyLogisticsBonus", 1.0)
-    try("Bulk procurement", "getBulkProcurementBonus", 1.0)
-    try("Bulk transport", "getBulkTransportDiscount", 1.0)
-    try("Market intel", "hasMarketIntel", nil)
-    try("Forecast access", "hasForecastAccess", nil)
-    try("Predictive control", "hasPredictiveControl", nil)
-    try("Early warning", "hasEarlyWarning", nil)
+    try(FT.l10n("ft_prostaff_mod_wage_cost", "Wage cost"), "getWageModifier", 1.0)
+    try(FT.l10n("ft_prostaff_mod_fatigue_mitigation", "Fatigue mitigation"), "getFatigueMitigation", 1.0)
+    try(FT.l10n("ft_prostaff_mod_fatigue_recovery", "Fatigue recovery"), "getFatigueRecoveryBonus", 1.0)
+    try(FT.l10n("ft_prostaff_mod_global_effectiveness", "Global effectiveness"), "getGlobalEffectivenessBonus", 1.0)
+    try(FT.l10n("ft_prostaff_mod_fertilizer_cost", "Fertilizer cost"), "getFertilizerDiscount", 1.0)
+    try(FT.l10n("ft_prostaff_mod_fungicide_cost", "Fungicide cost"), "getFungicideDiscount", 1.0)
+    try(FT.l10n("ft_prostaff_mod_fungicide_effect", "Fungicide effect"), "getFungicideEffectivenessBonus", 1.0)
+    try(FT.l10n("ft_prostaff_mod_spray_cost", "Spray cost"), "getSprayCostModifier", 1.0)
+    try(FT.l10n("ft_prostaff_mod_vet_supplies", "Vet supplies"), "getVetSupplyDiscount", 1.0)
+    try(FT.l10n("ft_prostaff_mod_dairy_logistics", "Dairy logistics"), "getDairyLogisticsBonus", 1.0)
+    try(FT.l10n("ft_prostaff_mod_bulk_procurement", "Bulk procurement"), "getBulkProcurementBonus", 1.0)
+    try(FT.l10n("ft_prostaff_mod_bulk_transport", "Bulk transport"), "getBulkTransportDiscount", 1.0)
+    try(FT.l10n("ft_prostaff_mod_market_intel", "Market intel"), "hasMarketIntel", nil)
+    try(FT.l10n("ft_prostaff_mod_forecast_access", "Forecast access"), "hasForecastAccess", nil)
+    try(FT.l10n("ft_prostaff_mod_predictive_control", "Predictive control"), "hasPredictiveControl", nil)
+    try(FT.l10n("ft_prostaff_mod_early_warning", "Early warning"), "hasEarlyWarning", nil)
 
     if #mods == 0 then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
