@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="să fie lăsate în pace terenurile cu contract NPC sau decorative." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Nivel" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Albastru ocean" />
         <text name="ft_auto_off" text="NU" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Oprit" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="DA" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Pornit" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="solului. Câmpurile adormite sunt sărite, ca să se economisească performanța și&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="ALEGE" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Starea solului și a fertilizării" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Sistemul solului pornește..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="CE ESTE MAGAZINUL DE APLICAȚII" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="CE FACE ACEASTĂ APLICAȚIE" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="CE ESTE ASTA" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,87 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
-        <text name="ft_rotation_help_what_1" text="Farm-wide crop rotation standing and a what-if compare&#10;" />
-        <text name="ft_rotation_help_what_2" text="for the next crop on any field. Numbers come from Soil&#10;" />
-        <text name="ft_rotation_help_what_3" text="Fertilizer's own rotation scoring, not a second model." />
-        <text name="ft_rotation_help_stand_title" text="WHERE DO I STAND" />
-        <text name="ft_rotation_help_stand_1" text="Each owned field shows recent crops and whether the&#10;" />
-        <text name="ft_rotation_help_stand_2" text="ground is Bonus-primed, OK, or Fatigue. Kinds, not grades." />
-        <text name="ft_rotation_help_whatif_title" text="WHAT IF" />
-        <text name="ft_rotation_help_whatif_1" text="Select a field, then read the same curated candidates&#10;" />
-        <text name="ft_rotation_help_whatif_2" text="the soil field-detail dialog uses (same crop, a legume,&#10;" />
-        <text name="ft_rotation_help_whatif_3" text="a neutral cereal) with the sim's own consequence words." />
-        <text name="ft_rotation_help_degrade_title" text="HONEST DEGRADE" />
-        <text name="ft_rotation_help_degrade_1" text="Until the soil data surface publishes a third season and&#10;" />
-        <text name="ft_rotation_help_degrade_2" text="bonus countdown, this app shows two seasons and no timer.&#10;" />
-        <text name="ft_rotation_help_degrade_3" text="A field with no history reads Unknown, never invented." />
-        <text name="ft_rotation_no_soil" text="Soil Fertilizer not detected." />
-        <text name="ft_rotation_install_soil" text="Install FS25_SoilFertilizer. This app stays hidden when absent." />
-        <text name="ft_rotation_no_fields" text="You do not own any fields yet." />
-        <text name="ft_auto_view" text="VIEW" />
-        <text name="ft_rotation_no_history" text="No crop history on this field yet. Grow a crop before comparing." />
-        <text name="ft_sysset_help_does_1" text="Change any setting the Realistic Farming mods have&#10;" />
-        <text name="ft_sysset_help_does_2" text="registered with the Settings Hub, grouped by mod.&#10;" />
-        <text name="ft_sysset_help_does_3" text="Changes save and apply straight away." />
-        <text name="ft_sysset_help_change_title" text="HOW TO CHANGE A VALUE" />
-        <text name="ft_sysset_help_change_1" text="On / Off switches toggle. Lists cycle with the arrows.&#10;" />
-        <text name="ft_sysset_help_change_2" text="Numbers step with the minus and plus buttons.&#10;" />
-        <text name="ft_sysset_help_change_3" text="Tap a mod's header to fold or unfold its settings." />
-        <text name="ft_sysset_help_admin_title" text="ADMIN VS LOCAL" />
-        <text name="ft_sysset_help_admin_1" text="Admin settings are shared by the server and apply to&#10;" />
-        <text name="ft_sysset_help_admin_2" text="everyone in multiplayer, so only the host or an admin&#10;" />
-        <text name="ft_sysset_help_admin_3" text="can change them. They show locked for other players.&#10;" />
-        <text name="ft_sysset_help_admin_4" text="Local settings are your own and stay on this machine." />
-        <text name="ft_sysset_not_installed" text="Settings Hub is not installed." />
-        <text name="ft_sysset_install" text="Install FS25_SettingsHub to use this app." />
-        <text name="ft_sysset_none_registered" text="No ecosystem settings registered yet." />
-        <text name="ft_sysset_appear_here" text="Realistic Farming mods appear here as they load." />
-        <text name="ft_sysset_admin_locked" text="admin - locked" />
-        <text name="ft_sysset_server_shared" text="server-shared" />
-        <text name="ft_prostaff_help_what_1" text="Your farm's Pro-Staff Co-Op membership level,&#10;" />
-        <text name="ft_prostaff_help_what_2" text="next investment cost, and active modifiers.&#10;" />
-        <text name="ft_prostaff_help_what_3" text="This is not the Personnel / Worker Costs roster." />
-        <text name="ft_prostaff_help_invest_title" text="INVEST" />
-        <text name="ft_prostaff_help_invest_1" text="BUY NEXT LEVEL spends the listed cost on the host&#10;" />
-        <text name="ft_prostaff_help_invest_2" text="via ProStaff's own buyLevel path. Pure clients need&#10;" />
-        <text name="ft_prostaff_help_invest_3" text="the host / NetworkSync to complete the purchase." />
-        <text name="ft_prostaff_help_mods_title" text="MODIFIERS" />
-        <text name="ft_prostaff_help_mods_1" text="Only non-neutral effects at your current level are&#10;" />
-        <text name="ft_prostaff_help_mods_2" text="listed (wages, fatigue, fertilizer, dairy, flags)." />
-        <text name="ft_prostaff_investment" text="Investment" />
-        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op not detected." />
-        <text name="ft_prostaff_install" text="Install FS25_ProStaffCoOp to use this app." />
-        <text name="ft_prostaff_membership" text="MEMBERSHIP" />
-        <text name="ft_prostaff_invested" text="Invested" />
-        <text name="ft_prostaff_next_level_cost" text="Next level cost" />
+        <text name="ft_rotation_help_what_1" text="Situația rotației culturilor pe toată ferma și o comparație „ce-ar fi dacă”&#10;" />
+        <text name="ft_rotation_help_what_2" text="pentru următoarea cultură pe orice teren. Cifrele vin din&#10;" />
+        <text name="ft_rotation_help_what_3" text="scorul de rotație propriu al Soil Fertilizer, nu dintr-un al doilea model." />
+        <text name="ft_rotation_help_stand_title" text="UNDE MĂ AFLU" />
+        <text name="ft_rotation_help_stand_1" text="Fiecare teren deținut arată culturile recente și dacă&#10;" />
+        <text name="ft_rotation_help_stand_2" text="solul e pregătit de bonus, OK sau obosit. Tipuri, nu note." />
+        <text name="ft_rotation_help_whatif_title" text="CE-AR FI DACĂ" />
+        <text name="ft_rotation_help_whatif_1" text="Alege un teren și citește aceiași candidați selectați&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="din fișa de detalii a solului (aceeași cultură, o leguminoasă,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="o cereală neutră), cu cuvintele de consecință ale simulării." />
+        <text name="ft_rotation_help_degrade_title" text="LIMITE CINSTITE" />
+        <text name="ft_rotation_help_degrade_1" text="Până când datele solului publică un al treilea sezon și&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="numărătoarea bonusului, aplicația arată două sezoane, fără cronometru.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Un teren fără istoric arată Necunoscut, niciodată ceva inventat." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizer nu a fost detectat." />
+        <text name="ft_rotation_install_soil" text="Instalează FS25_SoilFertilizer. Fără el, aplicația rămâne ascunsă." />
+        <text name="ft_rotation_no_fields" text="Încă nu deții niciun teren." />
+        <text name="ft_auto_view" text="VEZI" />
+        <text name="ft_rotation_no_history" text="Încă nu există istoric de culturi pe acest teren. Cultivă ceva înainte de comparație." />
+        <text name="ft_sysset_help_does_1" text="Schimbă orice setare pe care modurile Realistic Farming&#10;" />
+        <text name="ft_sysset_help_does_2" text="au înregistrat-o în Settings Hub, grupată pe moduri.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Modificările se salvează și se aplică imediat." />
+        <text name="ft_sysset_help_change_title" text="CUM SCHIMBI O VALOARE" />
+        <text name="ft_sysset_help_change_1" text="Comutatoarele Pornit / Oprit se schimbă. Listele se parcurg cu săgețile.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Numerele se schimbă cu butoanele minus și plus.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Atinge antetul unui mod ca să-i restrângi sau extinzi setările." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN SAU LOCAL" />
+        <text name="ft_sysset_help_admin_1" text="Setările de admin sunt comune pe server și se aplică&#10;" />
+        <text name="ft_sysset_help_admin_2" text="tuturor în multiplayer, așa că doar gazda sau un admin&#10;" />
+        <text name="ft_sysset_help_admin_3" text="le poate schimba. Ceilalți jucători le văd blocate.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Setările locale sunt ale tale și rămân pe acest calculator." />
+        <text name="ft_sysset_not_installed" text="Settings Hub nu este instalat." />
+        <text name="ft_sysset_install" text="Instalează FS25_SettingsHub ca să folosești această aplicație." />
+        <text name="ft_sysset_none_registered" text="Încă nu există setări ale ecosistemului înregistrate." />
+        <text name="ft_sysset_appear_here" text="Modurile Realistic Farming apar aici pe măsură ce se încarcă." />
+        <text name="ft_sysset_admin_locked" text="admin - blocat" />
+        <text name="ft_sysset_server_shared" text="comun pe server" />
+        <text name="ft_prostaff_help_what_1" text="Nivelul de membru al fermei tale în Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="costul următoarei investiții și efectele active.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Aceasta nu este lista din Personal / Costuri muncitori." />
+        <text name="ft_prostaff_help_invest_title" text="INVESTEȘTE" />
+        <text name="ft_prostaff_help_invest_1" text="CUMPĂRĂ NIVELUL URMĂTOR cheltuie costul afișat pe gazdă&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="prin funcția buyLevel proprie ProStaff. Clienții simpli&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="au nevoie de gazdă / NetworkSync ca să finalizeze achiziția." />
+        <text name="ft_prostaff_help_mods_title" text="EFECTE" />
+        <text name="ft_prostaff_help_mods_1" text="Sunt listate doar efectele neneutre ale nivelului&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="tău actual (salarii, oboseală, îngrășământ, lapte, opțiuni)." />
+        <text name="ft_prostaff_investment" text="Investiție" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op nu a fost detectat." />
+        <text name="ft_prostaff_install" text="Instalează FS25_ProStaffCoOp ca să folosești această aplicație." />
+        <text name="ft_prostaff_membership" text="CALITATE DE MEMBRU" />
+        <text name="ft_prostaff_invested" text="Investit" />
+        <text name="ft_prostaff_next_level_cost" text="Costul nivelului următor" />
         <text name="ft_auto_max" text="MAX" />
-        <text name="ft_prostaff_buy_next_level" text="BUY NEXT LEVEL" />
-        <text name="ft_prostaff_no_further_levels" text="No further levels available." />
-        <text name="ft_prostaff_active_modifiers" text="ACTIVE MODIFIERS" />
-        <text name="ft_prostaff_no_active_modifiers" text="No active modifiers at this level yet." />
-        <text name="ft_rotation_field_count" text="%d fields · same engine as soil foresight" />
-        <text name="ft_rotation_whatif_field" text="What if · field #%s" />
-        <text name="ft_rotation_unknown_no_history" text="Unknown · No crop history yet" />
-        <text name="ft_rotation_no_change" text="no change" />
-        <text name="ft_prostaff_level_none" text="None" />
-        <text name="ft_prostaff_level_n" text="Level %d" />
-        <text name="ft_prostaff_mod_on" text="%s: on" />
-        <text name="ft_prostaff_mod_wage_cost" text="Wage cost" />
-        <text name="ft_prostaff_mod_fatigue_mitigation" text="Fatigue mitigation" />
-        <text name="ft_prostaff_mod_fatigue_recovery" text="Fatigue recovery" />
-        <text name="ft_prostaff_mod_global_effectiveness" text="Global effectiveness" />
-        <text name="ft_prostaff_mod_fertilizer_cost" text="Fertilizer cost" />
-        <text name="ft_prostaff_mod_fungicide_cost" text="Fungicide cost" />
-        <text name="ft_prostaff_mod_fungicide_effect" text="Fungicide effect" />
-        <text name="ft_prostaff_mod_spray_cost" text="Spray cost" />
-        <text name="ft_prostaff_mod_vet_supplies" text="Vet supplies" />
-        <text name="ft_prostaff_mod_dairy_logistics" text="Dairy logistics" />
-        <text name="ft_prostaff_mod_bulk_procurement" text="Bulk procurement" />
-        <text name="ft_prostaff_mod_bulk_transport" text="Bulk transport" />
-        <text name="ft_prostaff_mod_market_intel" text="Market intel" />
-        <text name="ft_prostaff_mod_forecast_access" text="Forecast access" />
-        <text name="ft_prostaff_mod_predictive_control" text="Predictive control" />
-        <text name="ft_prostaff_mod_early_warning" text="Early warning" />
+        <text name="ft_prostaff_buy_next_level" text="CUMPĂRĂ NIVELUL URMĂTOR" />
+        <text name="ft_prostaff_no_further_levels" text="Nu mai există alte niveluri." />
+        <text name="ft_prostaff_active_modifiers" text="EFECTE ACTIVE" />
+        <text name="ft_prostaff_no_active_modifiers" text="Încă nu există efecte active la acest nivel." />
+        <text name="ft_rotation_field_count" text="Terenuri: %d · același motor ca previziunea solului" />
+        <text name="ft_rotation_whatif_field" text="Ce-ar fi dacă · terenul nr. %s" />
+        <text name="ft_rotation_unknown_no_history" text="Necunoscut · Încă fără istoric de culturi" />
+        <text name="ft_rotation_no_change" text="nicio schimbare" />
+        <text name="ft_prostaff_level_none" text="Niciunul" />
+        <text name="ft_prostaff_level_n" text="Nivelul %d" />
+        <text name="ft_prostaff_mod_on" text="%s: activ" />
+        <text name="ft_prostaff_mod_wage_cost" text="Cost salarial" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Reducerea oboselii" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Refacerea după oboseală" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Eficiență generală" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Costul îngrășământului" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Costul fungicidului" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Efectul fungicidului" />
+        <text name="ft_prostaff_mod_spray_cost" text="Costul stropirii" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Materiale veterinare" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Logistica laptelui" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Achiziții en-gros" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Transport în vrac" />
+        <text name="ft_prostaff_mod_market_intel" text="Informații de piață" />
+        <text name="ft_prostaff_mod_forecast_access" text="Acces la prognoze" />
+        <text name="ft_prostaff_mod_predictive_control" text="Control predictiv" />
+        <text name="ft_prostaff_mod_early_warning" text="Avertizare timpurie" />
         <text name="ft_lockscreen_date_day" text="%s  -  Ziua %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />

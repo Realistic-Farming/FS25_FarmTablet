@@ -92,7 +92,14 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "de:ft_auto_max": "the same abbreviation: German writes MAX",
+  "fc:ft_auto_max": "the same abbreviation: French writes MAX",
+  "fr:ft_auto_max": "the same abbreviation: French writes MAX",
+  "hu:ft_auto_max": "the same abbreviation: Hungarian writes MAX",
+  "it:ft_auto_max": "the same abbreviation: Italian writes MAX",
+  "nl:ft_auto_max": "the same abbreviation: Dutch writes MAX",
+  "ro:ft_auto_max": "the same abbreviation: Romanian writes MAX",
+  "sv:ft_auto_max": "the same abbreviation: Swedish writes MAX",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").

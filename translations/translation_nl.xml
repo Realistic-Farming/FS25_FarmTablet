@@ -1292,7 +1292,7 @@
         <text name="ft_auto_launch" text="launch" />
         <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="om NPC-contractgrond en decoratieve grond met rust te laten." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
-        <text name="ft_auto_level" text="Level" />
+        <text name="ft_auto_level" text="Niveau" />
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
@@ -1527,7 +1527,7 @@
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="occur. Intensity (1-5) controls how severe&#10;" />
         <text name="ft_auto_ocean_blue" text="Oceaanblauw" />
         <text name="ft_auto_off" text="UIT" />
-        <text name="ft_auto_off_2" text="Off" />
+        <text name="ft_auto_off_2" text="Uit" />
         <text name="ft_auto_off_3" text="off" />
         <text name="ft_auto_off_rare_normal_frequent" text="Off / Rare / Normal / Frequent" />
         <text name="ft_auto_off_rare_normal_frequent_default_off" text="Off / Rare / Normal / Frequent | Default: Off" />
@@ -1537,7 +1537,7 @@
         <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Older entries scroll off the bottom of the list." />
         <text name="ft_auto_on" text="AAN" />
-        <text name="ft_auto_on_2" text="On" />
+        <text name="ft_auto_on_2" text="Aan" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="             on all your motorized vehicles." />
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="draait. Slapende velden worden overgeslagen om prestaties te sparen en&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
@@ -1795,7 +1795,7 @@
         <text name="ft_auto_seasonal_crop_stress_monitor" text="Seasonal crop stress monitor" />
         <text name="ft_auto_sectionheader" text="sectionHeader" />
         <text name="ft_auto_seeded" text="Seeded" />
-        <text name="ft_auto_select" text="SELECT" />
+        <text name="ft_auto_select" text="KIEZEN" />
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
@@ -1872,7 +1872,7 @@
         <text name="ft_auto_soil_fertilizer_status" text="Status van bodem en bemesting" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
-        <text name="ft_auto_soil_system_is_initializing" text="Soil system is initializing..." />
+        <text name="ft_auto_soil_system_is_initializing" text="Bodemsysteem wordt gestart..." />
         <text name="ft_auto_soilconstants" text="SoilConstants" />
         <text name="ft_auto_sort" text="SORT: " />
         <text name="ft_auto_sorted_by_fuel_level_emptiest_machines_appear_first" text="Sorted by fuel level - emptiest machines appear first&#10;" />
@@ -2190,7 +2190,7 @@
         <text name="ft_auto_what_is_the_app_store" text="WAT IS DE APPWINKEL" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
-        <text name="ft_auto_what_this_app_does" text="WHAT THIS APP DOES" />
+        <text name="ft_auto_what_this_app_does" text="WAT DEZE APP DOET" />
         <text name="ft_auto_what_this_app_shows" text="WHAT THIS APP SHOWS" />
         <text name="ft_auto_what_this_is" text="WAT DIT IS" />
         <text name="ft_auto_wheat" text="WHEAT" />
@@ -2256,87 +2256,87 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
-        <text name="ft_rotation_help_what_1" text="Farm-wide crop rotation standing and a what-if compare&#10;" />
-        <text name="ft_rotation_help_what_2" text="for the next crop on any field. Numbers come from Soil&#10;" />
-        <text name="ft_rotation_help_what_3" text="Fertilizer's own rotation scoring, not a second model." />
-        <text name="ft_rotation_help_stand_title" text="WHERE DO I STAND" />
-        <text name="ft_rotation_help_stand_1" text="Each owned field shows recent crops and whether the&#10;" />
-        <text name="ft_rotation_help_stand_2" text="ground is Bonus-primed, OK, or Fatigue. Kinds, not grades." />
-        <text name="ft_rotation_help_whatif_title" text="WHAT IF" />
-        <text name="ft_rotation_help_whatif_1" text="Select a field, then read the same curated candidates&#10;" />
-        <text name="ft_rotation_help_whatif_2" text="the soil field-detail dialog uses (same crop, a legume,&#10;" />
-        <text name="ft_rotation_help_whatif_3" text="a neutral cereal) with the sim's own consequence words." />
-        <text name="ft_rotation_help_degrade_title" text="HONEST DEGRADE" />
-        <text name="ft_rotation_help_degrade_1" text="Until the soil data surface publishes a third season and&#10;" />
-        <text name="ft_rotation_help_degrade_2" text="bonus countdown, this app shows two seasons and no timer.&#10;" />
-        <text name="ft_rotation_help_degrade_3" text="A field with no history reads Unknown, never invented." />
-        <text name="ft_rotation_no_soil" text="Soil Fertilizer not detected." />
-        <text name="ft_rotation_install_soil" text="Install FS25_SoilFertilizer. This app stays hidden when absent." />
-        <text name="ft_rotation_no_fields" text="You do not own any fields yet." />
-        <text name="ft_auto_view" text="VIEW" />
-        <text name="ft_rotation_no_history" text="No crop history on this field yet. Grow a crop before comparing." />
-        <text name="ft_sysset_help_does_1" text="Change any setting the Realistic Farming mods have&#10;" />
-        <text name="ft_sysset_help_does_2" text="registered with the Settings Hub, grouped by mod.&#10;" />
-        <text name="ft_sysset_help_does_3" text="Changes save and apply straight away." />
-        <text name="ft_sysset_help_change_title" text="HOW TO CHANGE A VALUE" />
-        <text name="ft_sysset_help_change_1" text="On / Off switches toggle. Lists cycle with the arrows.&#10;" />
-        <text name="ft_sysset_help_change_2" text="Numbers step with the minus and plus buttons.&#10;" />
-        <text name="ft_sysset_help_change_3" text="Tap a mod's header to fold or unfold its settings." />
-        <text name="ft_sysset_help_admin_title" text="ADMIN VS LOCAL" />
-        <text name="ft_sysset_help_admin_1" text="Admin settings are shared by the server and apply to&#10;" />
-        <text name="ft_sysset_help_admin_2" text="everyone in multiplayer, so only the host or an admin&#10;" />
-        <text name="ft_sysset_help_admin_3" text="can change them. They show locked for other players.&#10;" />
-        <text name="ft_sysset_help_admin_4" text="Local settings are your own and stay on this machine." />
-        <text name="ft_sysset_not_installed" text="Settings Hub is not installed." />
-        <text name="ft_sysset_install" text="Install FS25_SettingsHub to use this app." />
-        <text name="ft_sysset_none_registered" text="No ecosystem settings registered yet." />
-        <text name="ft_sysset_appear_here" text="Realistic Farming mods appear here as they load." />
-        <text name="ft_sysset_admin_locked" text="admin - locked" />
-        <text name="ft_sysset_server_shared" text="server-shared" />
-        <text name="ft_prostaff_help_what_1" text="Your farm's Pro-Staff Co-Op membership level,&#10;" />
-        <text name="ft_prostaff_help_what_2" text="next investment cost, and active modifiers.&#10;" />
-        <text name="ft_prostaff_help_what_3" text="This is not the Personnel / Worker Costs roster." />
-        <text name="ft_prostaff_help_invest_title" text="INVEST" />
-        <text name="ft_prostaff_help_invest_1" text="BUY NEXT LEVEL spends the listed cost on the host&#10;" />
-        <text name="ft_prostaff_help_invest_2" text="via ProStaff's own buyLevel path. Pure clients need&#10;" />
-        <text name="ft_prostaff_help_invest_3" text="the host / NetworkSync to complete the purchase." />
-        <text name="ft_prostaff_help_mods_title" text="MODIFIERS" />
-        <text name="ft_prostaff_help_mods_1" text="Only non-neutral effects at your current level are&#10;" />
-        <text name="ft_prostaff_help_mods_2" text="listed (wages, fatigue, fertilizer, dairy, flags)." />
-        <text name="ft_prostaff_investment" text="Investment" />
-        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op not detected." />
-        <text name="ft_prostaff_install" text="Install FS25_ProStaffCoOp to use this app." />
-        <text name="ft_prostaff_membership" text="MEMBERSHIP" />
-        <text name="ft_prostaff_invested" text="Invested" />
-        <text name="ft_prostaff_next_level_cost" text="Next level cost" />
+        <text name="ft_rotation_help_what_1" text="Stand van de vruchtwisseling op de hele boerderij en een wat-als-vergelijking&#10;" />
+        <text name="ft_rotation_help_what_2" text="voor het volgende gewas op elk veld. De cijfers komen uit de&#10;" />
+        <text name="ft_rotation_help_what_3" text="vruchtwisselingsscore van Soil Fertilizer, niet uit een tweede model." />
+        <text name="ft_rotation_help_stand_title" text="WAAR STA IK" />
+        <text name="ft_rotation_help_stand_1" text="Elk eigen veld toont de recente gewassen en of de&#10;" />
+        <text name="ft_rotation_help_stand_2" text="grond klaar is voor een bonus, OK of uitgeput. Soorten, geen cijfers." />
+        <text name="ft_rotation_help_whatif_title" text="WAT ALS" />
+        <text name="ft_rotation_help_whatif_1" text="Kies een veld en lees dezelfde geselecteerde kandidaten&#10;" />
+        <text name="ft_rotation_help_whatif_2" text="die het bodemdetailvenster gebruikt (hetzelfde gewas, een peulvrucht,&#10;" />
+        <text name="ft_rotation_help_whatif_3" text="een neutraal graan), met de gevolgwoorden van de simulatie zelf." />
+        <text name="ft_rotation_help_degrade_title" text="EERLIJKE GRENZEN" />
+        <text name="ft_rotation_help_degrade_1" text="Zolang de bodemgegevens geen derde seizoen en geen&#10;" />
+        <text name="ft_rotation_help_degrade_2" text="bonusaftelling publiceren, toont de app twee seizoenen zonder timer.&#10;" />
+        <text name="ft_rotation_help_degrade_3" text="Een veld zonder geschiedenis toont Onbekend, nooit iets verzonnens." />
+        <text name="ft_rotation_no_soil" text="Soil Fertilizer niet gevonden." />
+        <text name="ft_rotation_install_soil" text="Installeer FS25_SoilFertilizer. Zonder blijft deze app verborgen." />
+        <text name="ft_rotation_no_fields" text="Je bezit nog geen velden." />
+        <text name="ft_auto_view" text="BEKIJKEN" />
+        <text name="ft_rotation_no_history" text="Nog geen teeltgeschiedenis op dit veld. Teel eerst een gewas voor je vergelijkt." />
+        <text name="ft_sysset_help_does_1" text="Wijzig elke instelling die de Realistic Farming-mods&#10;" />
+        <text name="ft_sysset_help_does_2" text="bij de Settings Hub hebben geregistreerd, per mod gegroepeerd.&#10;" />
+        <text name="ft_sysset_help_does_3" text="Wijzigingen worden meteen opgeslagen en toegepast." />
+        <text name="ft_sysset_help_change_title" text="EEN WAARDE WIJZIGEN" />
+        <text name="ft_sysset_help_change_1" text="Aan / Uit-schakelaars wisselen. Lijsten blader je met de pijlen.&#10;" />
+        <text name="ft_sysset_help_change_2" text="Getallen verander je met de min- en plusknoppen.&#10;" />
+        <text name="ft_sysset_help_change_3" text="Tik op de kop van een mod om de instellingen in of uit te klappen." />
+        <text name="ft_sysset_help_admin_title" text="ADMIN OF LOKAAL" />
+        <text name="ft_sysset_help_admin_1" text="Admininstellingen deelt de server en ze gelden voor&#10;" />
+        <text name="ft_sysset_help_admin_2" text="iedereen in multiplayer, dus alleen de host of een admin&#10;" />
+        <text name="ft_sysset_help_admin_3" text="kan ze wijzigen. Andere spelers zien ze vergrendeld.&#10;" />
+        <text name="ft_sysset_help_admin_4" text="Lokale instellingen zijn van jou en blijven op deze computer." />
+        <text name="ft_sysset_not_installed" text="Settings Hub is niet geïnstalleerd." />
+        <text name="ft_sysset_install" text="Installeer FS25_SettingsHub om deze app te gebruiken." />
+        <text name="ft_sysset_none_registered" text="Nog geen instellingen van het ecosysteem geregistreerd." />
+        <text name="ft_sysset_appear_here" text="Realistic Farming-mods verschijnen hier zodra ze laden." />
+        <text name="ft_sysset_admin_locked" text="admin - vergrendeld" />
+        <text name="ft_sysset_server_shared" text="gedeeld door de server" />
+        <text name="ft_prostaff_help_what_1" text="Het lidmaatschapsniveau van je boerderij in de Pro-Staff Co-Op,&#10;" />
+        <text name="ft_prostaff_help_what_2" text="de kosten van de volgende investering en de actieve effecten.&#10;" />
+        <text name="ft_prostaff_help_what_3" text="Dit is niet de lijst van Personeel / Arbeiderskosten." />
+        <text name="ft_prostaff_help_invest_title" text="INVESTEREN" />
+        <text name="ft_prostaff_help_invest_1" text="VOLGEND NIVEAU KOPEN besteedt de getoonde kosten op de host&#10;" />
+        <text name="ft_prostaff_help_invest_2" text="via de eigen buyLevel-functie van ProStaff. Pure clients&#10;" />
+        <text name="ft_prostaff_help_invest_3" text="hebben de host / NetworkSync nodig om de aankoop af te ronden." />
+        <text name="ft_prostaff_help_mods_title" text="EFFECTEN" />
+        <text name="ft_prostaff_help_mods_1" text="Alleen niet-neutrale effecten op je huidige niveau worden&#10;" />
+        <text name="ft_prostaff_help_mods_2" text="getoond (lonen, vermoeidheid, kunstmest, zuivel, opties)." />
+        <text name="ft_prostaff_investment" text="Investering" />
+        <text name="ft_prostaff_not_detected" text="Pro-Staff Co-Op niet gevonden." />
+        <text name="ft_prostaff_install" text="Installeer FS25_ProStaffCoOp om deze app te gebruiken." />
+        <text name="ft_prostaff_membership" text="LIDMAATSCHAP" />
+        <text name="ft_prostaff_invested" text="Geïnvesteerd" />
+        <text name="ft_prostaff_next_level_cost" text="Kosten volgend niveau" />
         <text name="ft_auto_max" text="MAX" />
-        <text name="ft_prostaff_buy_next_level" text="BUY NEXT LEVEL" />
-        <text name="ft_prostaff_no_further_levels" text="No further levels available." />
-        <text name="ft_prostaff_active_modifiers" text="ACTIVE MODIFIERS" />
-        <text name="ft_prostaff_no_active_modifiers" text="No active modifiers at this level yet." />
-        <text name="ft_rotation_field_count" text="%d fields · same engine as soil foresight" />
-        <text name="ft_rotation_whatif_field" text="What if · field #%s" />
-        <text name="ft_rotation_unknown_no_history" text="Unknown · No crop history yet" />
-        <text name="ft_rotation_no_change" text="no change" />
-        <text name="ft_prostaff_level_none" text="None" />
-        <text name="ft_prostaff_level_n" text="Level %d" />
-        <text name="ft_prostaff_mod_on" text="%s: on" />
-        <text name="ft_prostaff_mod_wage_cost" text="Wage cost" />
-        <text name="ft_prostaff_mod_fatigue_mitigation" text="Fatigue mitigation" />
-        <text name="ft_prostaff_mod_fatigue_recovery" text="Fatigue recovery" />
-        <text name="ft_prostaff_mod_global_effectiveness" text="Global effectiveness" />
-        <text name="ft_prostaff_mod_fertilizer_cost" text="Fertilizer cost" />
-        <text name="ft_prostaff_mod_fungicide_cost" text="Fungicide cost" />
-        <text name="ft_prostaff_mod_fungicide_effect" text="Fungicide effect" />
-        <text name="ft_prostaff_mod_spray_cost" text="Spray cost" />
-        <text name="ft_prostaff_mod_vet_supplies" text="Vet supplies" />
-        <text name="ft_prostaff_mod_dairy_logistics" text="Dairy logistics" />
-        <text name="ft_prostaff_mod_bulk_procurement" text="Bulk procurement" />
-        <text name="ft_prostaff_mod_bulk_transport" text="Bulk transport" />
-        <text name="ft_prostaff_mod_market_intel" text="Market intel" />
-        <text name="ft_prostaff_mod_forecast_access" text="Forecast access" />
-        <text name="ft_prostaff_mod_predictive_control" text="Predictive control" />
-        <text name="ft_prostaff_mod_early_warning" text="Early warning" />
+        <text name="ft_prostaff_buy_next_level" text="VOLGEND NIVEAU KOPEN" />
+        <text name="ft_prostaff_no_further_levels" text="Geen verdere niveaus beschikbaar." />
+        <text name="ft_prostaff_active_modifiers" text="ACTIEVE EFFECTEN" />
+        <text name="ft_prostaff_no_active_modifiers" text="Nog geen actieve effecten op dit niveau." />
+        <text name="ft_rotation_field_count" text="Velden: %d · dezelfde engine als de bodemvoorspelling" />
+        <text name="ft_rotation_whatif_field" text="Wat als · veld #%s" />
+        <text name="ft_rotation_unknown_no_history" text="Onbekend · Nog geen teeltgeschiedenis" />
+        <text name="ft_rotation_no_change" text="geen verandering" />
+        <text name="ft_prostaff_level_none" text="Geen" />
+        <text name="ft_prostaff_level_n" text="Niveau %d" />
+        <text name="ft_prostaff_mod_on" text="%s: aan" />
+        <text name="ft_prostaff_mod_wage_cost" text="Loonkosten" />
+        <text name="ft_prostaff_mod_fatigue_mitigation" text="Vermoeidheidsvermindering" />
+        <text name="ft_prostaff_mod_fatigue_recovery" text="Herstel van vermoeidheid" />
+        <text name="ft_prostaff_mod_global_effectiveness" text="Algemene effectiviteit" />
+        <text name="ft_prostaff_mod_fertilizer_cost" text="Kunstmestkosten" />
+        <text name="ft_prostaff_mod_fungicide_cost" text="Fungicidekosten" />
+        <text name="ft_prostaff_mod_fungicide_effect" text="Fungicidewerking" />
+        <text name="ft_prostaff_mod_spray_cost" text="Spuitkosten" />
+        <text name="ft_prostaff_mod_vet_supplies" text="Veterinaire benodigdheden" />
+        <text name="ft_prostaff_mod_dairy_logistics" text="Zuivellogistiek" />
+        <text name="ft_prostaff_mod_bulk_procurement" text="Inkoop in bulk" />
+        <text name="ft_prostaff_mod_bulk_transport" text="Bulktransport" />
+        <text name="ft_prostaff_mod_market_intel" text="Marktinformatie" />
+        <text name="ft_prostaff_mod_forecast_access" text="Toegang tot prognoses" />
+        <text name="ft_prostaff_mod_predictive_control" text="Voorspellende sturing" />
+        <text name="ft_prostaff_mod_early_warning" text="Vroege waarschuwing" />
         <text name="ft_lockscreen_date_day" text="%s  -  Dag %d" />
         <text name="ft_dynamic_day" text="Day %d" />
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
