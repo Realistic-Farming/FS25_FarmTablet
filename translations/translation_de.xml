@@ -436,7 +436,7 @@
         <text name="ft_auto_active_mods_show_in_full_colour_with_an_open_button" text="Aktivierte Mods werden vollständig und mit einem Öffnen-Button angezeigt.&#10;" />
         <text name="ft_auto_active_s" text="Aktiv: %s." />
         <text name="ft_auto_active_sale_listings" text="Aktive Verkäufe" />
-        <text name="ft_auto_active_simulated_normally" text="Normale Simulation&#10;" />
+        <text name="ft_auto_active_simulated_normally" text="AKTIV = wird normal simuliert.&#10;" />
         <text name="ft_auto_active_stalled" text="Verzögert" />
         <text name="ft_auto_active_vehicle" text="Aktive Fahrzeuge" />
         <text name="ft_auto_active_workers" text="Aktive Mitarbeiter" />
@@ -493,7 +493,7 @@
         <text name="ft_auto_and_fatigue_sort_and_filter_the_list_pin_a" text="und Müdigkeit. Sortiere und Ffltere die Liste. Hefte eine an&#10;" />
         <text name="ft_auto_and_how_long_the_job_took" text="und wie lange der Auftrag gedauert hat." />
         <text name="ft_auto_and_is_currently_working_on" text="und arbeitet derzeit daran.&#10;" />
-        <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="und ist unabhägig vom optischen Zustand des Auftrags." />
+        <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="und hängt nicht von Vertrags- oder Dekozuständen ab." />
         <text name="ft_auto_and_liquid_manure_tanks" text="und Flüssigdüngerbehälter." />
         <text name="ft_auto_and_returns_a_configurable_percentage_as_a_rebate" text="und gibt einen konfigurierbaren Prozentsatz als Rabatt." />
         <text name="ft_auto_and_the_selected_vehicle_has_more_than_2_wear" text="und das ausgewählte Fahrzeug hat mehr als 2% Abnutzung.&#10;" />
@@ -784,7 +784,7 @@
         <text name="ft_auto_debug_mode_off" text="Debug: Aus" />
         <text name="ft_auto_debug_mode_on" text="Debug: An" />
         <text name="ft_auto_debug_mode_s" text="Debug Mode: %s&#10;" />
-        <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="DECO   = dekoratives Feld (automatisch erkannt)." />
+        <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="DEKO   = dekoratives / unechtes Feld (automatisch erkannt)." />
         <text name="ft_auto_deep_space" text="Tiefes All" />
         <text name="ft_auto_deep_space_ocean_blue_forest_green" text="Deep Space, Ocean Blue, Forest Green,&#10;" />
         <text name="ft_auto_default" text="STANDARD" />
@@ -1000,7 +1000,7 @@
         <text name="ft_auto_fields_5" text="fields_" />
         <text name="ft_auto_fields_count_of_fields_your_farm_owns_with_crop_or_empt" text="Felder: Anzahl an Feldern die deinem Hof gehören (bestellt oder brachliegend).&#10;" />
         <text name="ft_auto_fields_land_you_own_with_a_crop_growing" text="Fields: Felder in deinem Besitz, auf denen eine Kultur wächst.&#10;" />
-        <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="der Feldmonitor legt fest, auf welchen Feldern die Bodensimulation angewendet wird&#10;" />
+        <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Der Feldmonitor legt fest, auf welchen Feldern die Bodensimulation&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Feldmonitor nicht verfügbar." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="Feldmonitor - Feldspezifische Bodensimulation, Zustand und Wahl zwischen Brachfläche oder Grünland" />
         <text name="ft_auto_fill" text="Fill" />
@@ -1054,7 +1054,7 @@
         <text name="ft_auto_food_bar" text="FUTTER ANZEIGE" />
         <text name="ft_auto_food_d" text="FUTTER  %d%%" />
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="Um zu bestätigen, drücke innerhalb von 4 Sekunden erneut&#10;" />
-        <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Erzwinge ein Feld Brachzuliegen. Deine Auswahl bleibt bestehen.&#10;" />
+        <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Versetze ein Feld in Ruhe (oder wecke es). Deine Wahl bleibt bestehen&#10;" />
         <text name="ft_auto_forecast" text="FORECAST" />
         <text name="ft_auto_forest_green" text="Waldgrün" />
         <text name="ft_auto_fork" text="fork" />
@@ -1271,7 +1271,7 @@
         <text name="ft_auto_jobs_2" text="Aufträge" />
         <text name="ft_auto_jobs_completed_and_current_fatigue_bar" text="abgeschlossene Aufträge und aktuelle Müdigkeit.&#10;" />
         <text name="ft_auto_jumps_the_clock_to_a_preset_time_of_day" text="setzte die Uhrzeit auf eine voreingestellte Tageszeit.&#10;" />
-        <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="nur auf Grünland, unabhängig vom Zustand des Feldes." />
+        <text name="ft_auto_just_on_meadow_rules_independent_of_the_sleep_state" text="nur nach Grünlandregeln. Unabhängig vom Ruhezustand." />
         <text name="ft_auto_keep_track_of_farm_tasks" text="Behalte deine Aufgaben im Blick.&#10;&#10;" />
         <text name="ft_auto_keeping_up_to_date" text="AUF DEM AKTUELLEN STAND BLEIBEN" />
         <text name="ft_auto_kein_netz" text="KEIN NETZ" />
@@ -1284,7 +1284,7 @@
         <text name="ft_auto_last_action" text="LETZTE AKTION" />
         <text name="ft_auto_last_crop" text="Letzte Kultur" />
         <text name="ft_auto_launch" text="Starte" />
-        <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="Finger weg von NPC-Flächen oder dekorativen Ländereien." />
+        <text name="ft_auto_leave_npc_contracted_or_decorative_land_alone" text="NPC-Vertragsland oder Dekoflächen unberührt zu lassen." />
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="Linker Streifen: Blau = Regen, Orange = Sturm, Grau = Bewölkt,&#10;" />
         <text name="ft_auto_level" text="Level" />
         <text name="ft_auto_level_2" text="level" />
@@ -1325,8 +1325,8 @@
         <text name="ft_auto_manage_via_roleplayphone_app" text="Verwalte mit der RoleplayPhone App" />
         <text name="ft_auto_manage_your_pro_staff_roster_review_hire" text="Verwalte deine Pro-Staff Belegschaft: Überprüfen, Einstellen,&#10;" />
         <text name="ft_auto_management_menu_to_turn_them_on" text="Verwaltungsmenü um anzuschalten)." />
-        <text name="ft_auto_manual_you_put_it_to_sleep" text="MANUAL = du hast es schlafen gelegt&#10;" />
-        <text name="ft_auto_mark_a_field_as_permanent_grassland_it_still_simulates" text="Lege ein Feld als Grünland fest, es simuliert weiterhin&#10;" />
+        <text name="ft_auto_manual_you_put_it_to_sleep" text="MANUELL = von dir in Ruhe versetzt.&#10;" />
+        <text name="ft_auto_mark_a_field_as_permanent_grassland_it_still_simulates" text="Markiere ein Feld als Dauergrünland. Es wird weiter simuliert,&#10;" />
         <text name="ft_auto_market" text="Markt" />
         <text name="ft_auto_market_dynamics" text="Börse" />
         <text name="ft_auto_market_dynamics_2" text="market_dynamics" />
@@ -1340,8 +1340,10 @@
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="Stoff-Verfügbarkeit für jedes deiner Felder." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximiert die Produktion von Milch, Eiern, Wolle und Mist." />
         <text name="ft_auto_meadow" text="GRÜNLAND" />
+        <text name="ft_fieldsentry_count" text="%d Felder  ·  %d ruhend" />
+        <text name="ft_fieldsentry_meadow_tag" text="Grünland" />
         <text name="ft_auto_meadow_2" text="Grünland" />
-        <text name="ft_auto_meadow_toggle" text="Grünland Schalter" />
+        <text name="ft_auto_meadow_toggle" text="GRÜNLAND-SCHALTER" />
         <text name="ft_auto_medium" text="MITTEL" />
         <text name="ft_auto_medium_2" text="Mittel" />
         <text name="ft_auto_medium_3" text="medium" />
@@ -1373,7 +1375,7 @@
         <text name="ft_auto_mowing_cutting" text="Mähen und Schneiden" />
         <text name="ft_auto_multi" text="^multi" />
         <text name="ft_auto_multi_day_outlook_day_1_through_day_5" text="5-Tages-Vorhersage: Tag 1 bis Tag 5.&#10;" />
-        <text name="ft_auto_multiplayer" text="MULTIPLAYER" />
+        <text name="ft_auto_multiplayer" text="MEHRSPIELER" />
         <text name="ft_auto_municipality" text="Gemeinde" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="muss vom Session-Host gestartet werden." />
         <text name="ft_auto_my_farm" text="Mein Hof" />
@@ -1505,7 +1507,7 @@
         <text name="ft_auto_now" text="jetzt" />
         <text name="ft_auto_npc" text="NPC" />
         <text name="ft_auto_npc_2" text="npc" />
-        <text name="ft_auto_npc_asleep_under_an_ai_npc_contract" text="NPC schläft während eines AI-NPC-Vertrags.&#10;" />
+        <text name="ft_auto_npc_asleep_under_an_ai_npc_contract" text="NPC    = ruht unter einem KI/NPC-Vertrag.&#10;" />
         <text name="ft_auto_npc_favor" text="NPC Gefallen" />
         <text name="ft_auto_npc_favor_2" text="npc_favor" />
         <text name="ft_auto_npc_favor_mod_not_detected" text="FS25_NPCFavors nicht gefunden." />
@@ -1531,7 +1533,7 @@
         <text name="ft_auto_on" text="AN" />
         <text name="ft_auto_on_2" text="An" />
         <text name="ft_auto_on_all_your_motorized_vehicles" text="an all deinen motorisierten Fahrzeugen." />
-        <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="an. Deaktivierte Felder werden übersprungen um die Performance zu verbessern und&#10;" />
+        <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="läuft. Ruhende Felder werden übersprungen, um Leistung zu sparen und&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Nur im built-in Modus verfügbar.&#10;" />
         <text name="ft_auto_only_motorized_vehicles_owned_by_your_farm_appear" text="Nur Fahrzeuge im Besitz deines Hofes tauchen hier auf.&#10;" />
         <text name="ft_auto_only_shown_when_2_stations_buy_that_crop" text="Wird nur angezeigt wenn mindestens zwei Stationen dise Kultur kaufen." />
@@ -1849,8 +1851,8 @@
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="SPRINGEN ZU" />
         <text name="ft_auto_slate_grey" text="Schiefergrau" />
-        <text name="ft_auto_sleep" text="SLEEP" />
-        <text name="ft_auto_sleep_toggle" text="SLEEP TOGGLE" />
+        <text name="ft_auto_sleep" text="RUHE" />
+        <text name="ft_auto_sleep_toggle" text="RUHE-SCHALTER" />
         <text name="ft_auto_slide_to_unlock" text="Zum Entsperren wischen" />
         <text name="ft_auto_small" text="Klein" />
         <text name="ft_auto_snow" text="Schnee" />
@@ -2055,7 +2057,7 @@
         <text name="ft_auto_todo_list_d_pending_d_done" text="AUFGABENLISTE (%d offen · %d erledigt)" />
         <text name="ft_auto_todos_are_saved_automatically_per_savegame" text="Aufgaben werden automatisch pro Spielstand gespeichert." />
         <text name="ft_auto_toggle_tablet" text="Tablet umschalten" />
-        <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Diese Schalter können nur vom Administrator geändert werden und werden vom Host überprüft.&#10;" />
+        <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Die Schalter sind nur für Admins und werden vom Host geprüft. Spieler&#10;" />
         <text name="ft_auto_toggles_the_mod_on_or_off_without_uninstalling_it" text="Schaltet den Mod ein oder aus, ohne ihn zu deinstallieren.&#10;" />
         <text name="ft_auto_tool" text="Werkzeug" />
         <text name="ft_auto_top_of_the_app_shows_total_receivable_green" text="Oben in der App wird der gesamte Forderungsbetrag (grün) angezeigt.&#10;" />
@@ -2148,7 +2150,7 @@
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Lohnstruktur, geschätzte laufende Kosten und weitere Informationen.&#10;" />
         <text name="ft_auto_wages_accrued" text="Aufgelaufene Lohnkosten" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Warte, bis die Felder initialisiert wurden." />
-        <text name="ft_auto_wake" text="AKTIV" />
+        <text name="ft_auto_wake" text="WECKEN" />
         <text name="ft_auto_wake_2" text="Aktiv" />
         <text name="ft_auto_walk_closer_to_a_machine_to_see_it_in_the_list" text="Gehe näher an eine Maschine heran, damit sie in der Liste erscheint.&#10;" />
         <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="Gehe näher an ein Fahrzeug heran, um es zu untersuchen." />
@@ -2203,7 +2205,7 @@
         <text name="ft_auto_winter" text="Winter" />
         <text name="ft_auto_withered" text="Verwelkt" />
         <text name="ft_auto_withered_2" text="verwelkt" />
-        <text name="ft_auto_without_admin_see_the_list_read_only" text="Ohne Administratorrechte kann die Liste nur gelesen werden." />
+        <text name="ft_auto_without_admin_see_the_list_read_only" text="ohne Adminrechte sehen die Liste nur zum Lesen." />
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Ohne dies nutze das integrierte Rechnungssystem." />
         <text name="ft_auto_worker" text="Arbeiter" />
         <text name="ft_auto_worker_2" text="Arbeiter" />
