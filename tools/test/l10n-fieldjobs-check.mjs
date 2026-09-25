@@ -43,6 +43,10 @@ const KEYS = [
   "ft_auto_sowing_planting", "ft_auto_spraying", "ft_auto_start", "ft_auto_start_job_2", "ft_auto_start_new",
   "ft_auto_started_day", "ft_auto_starting_a_job", "ft_auto_state", "ft_auto_stone_picking", "ft_auto_task",
   "ft_auto_unknown", "ft_auto_vehicle", "ft_auto_vehicle_3", "ft_auto_you_don_t_own_any_fields",
+  // MAINTENANCE row 95: the Dairy app's visible title (AppRegistry.lua:498, DairyApp.lua:285 and :355),
+  // an English copy in every locale until then. Its navLabel "DAIRY" is not a key: it is drawn only as the
+  // icon monogram when the icon texture is missing (FarmTabletUI.lua:1512), and "dairy" has one (animals.dds).
+  "ft_ui_app_dairy",
 ];
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
