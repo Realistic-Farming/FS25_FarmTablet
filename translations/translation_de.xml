@@ -297,14 +297,14 @@
         <text name="ft_network_good_short" text="Gut" />
         <text name="ft_network_excellent_short" text="Sehr gut" />
         <text name="ft_network_outage_recovered" text="Netzwerkstörung behoben. Daten werden aktualisiert." />
-        <text name="ft_network_outage_detected" text="Netzwerktstörung. Dauer ca. %d Ingame-Stunden." />
+        <text name="ft_network_outage_detected" text="Netzwerkstörung. Dauer ca. %d Ingame-Stunden." />
         <text name="ft_network_no_reception_here" text="Kein Empfang." />
         <text name="ft_network_weak_reception" text="Schwacher Empfang." />
         <text name="ft_network_data_frozen" text="%s - Daten eingefroren" />
         <text name="ft_repair_service_title" text="Tablet-Service" />
         <text name="ft_repair_started_msg" text="Tablet in Reparatur." />
         <text name="ft_repair_done_msg" text="Tablet wieder einsatzbereit." />
-        <text name="ft_repair_force_done_msg" text="Erzwungene Reparatur abgeschlossen. Reparaturgebuehr berechnet: %d." />
+        <text name="ft_repair_force_done_msg" text="Erzwungene Reparatur abgeschlossen. Reparaturgebühr berechnet: %d." />
         <text name="ft_repair_open_blocked_msg" text="Tablet in Reparatur. Wir melden uns." />
         <text name="ft_repair_title" text="DISPLAYSCHADEN" />
         <text name="ft_repair_subtitle" text="Displayschaden durch einen Sturz." />
@@ -743,7 +743,7 @@
         <text name="ft_auto_custom" text="Custom" />
         <text name="ft_auto_custom_2" text="custom" />
         <text name="ft_auto_custom_set_via_console" text="Custom (setze über die Konsole)" />
-        <text name="ft_auto_customising_widgets" text="CUSTOMISING WIDGETS" />
+        <text name="ft_auto_customising_widgets" text="WIDGETS ANPASSEN" />
         <text name="ft_auto_customize" text="customize" />
         <text name="ft_auto_customize_widgets" text="Benutzerdefinierte Widgets" />
         <text name="ft_auto_d" text="$%d" />
@@ -896,7 +896,7 @@
         <text name="ft_auto_factoryweekschedule_was_not_detected" text="FactoryWeekSchedule wurde nicht erkannt." />
         <text name="ft_auto_fair" text="Fair" />
         <text name="ft_auto_false" text="Falsch" />
-        <text name="ft_auto_farm" text="FARM" />
+        <text name="ft_auto_farm" text="HOF" />
         <text name="ft_auto_farm_2" text="Farm " />
         <text name="ft_auto_farm_admin" text="Hof-Admin" />
         <text name="ft_auto_farm_admin_2" text="farm_admin" />
@@ -1012,7 +1012,7 @@
         <text name="ft_auto_fin" text="FIN" />
         <text name="ft_auto_finance" text="FINANZEN" />
         <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
-        <text name="ft_auto_finances" text="FINANCES" />
+        <text name="ft_auto_finances" text="FINANZEN" />
         <text name="ft_auto_finish_current_first" text="schließe den aktuellen zuerst ab" />
         <text name="ft_auto_finish_job" text="Auftrag abschließen" />
         <text name="ft_auto_finishing_a_job" text="Einen Auftrag abschließen" />
@@ -1781,7 +1781,7 @@
         <text name="ft_auto_season" text="Jahreszeit" />
         <text name="ft_auto_season_2" text="Jahreszeit" />
         <text name="ft_auto_season_day_time_weather" text="Jahreszeit / Tag / Zeit / Wetter" />
-        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Season requires the Seasons mod - blank in base game.&#10;" />
+        <text name="ft_auto_season_requires_the_seasons_mod_blank_in_base_game" text="Die Jahreszeit braucht den Seasons-Mod - im Grundspiel leer.&#10;" />
         <text name="ft_auto_seasonal" text="Jährlich" />
         <text name="ft_auto_seasonal_crop_stress" text="SeasonalCropStress" />
         <text name="ft_auto_seasonal_crop_stress_monitor" text="SeasonalCropStress Bestandsmonitor" />
@@ -1985,7 +1985,7 @@
         <text name="ft_auto_tap_fire_again_to_confirm_severance" text="Tippe erneut auf ENTLASSEN, um die Entlassung zu bestätigen." />
         <text name="ft_auto_tap_home_to_return_to_the_app_grid" text="Tippe auf HOME, um zum App-Raster zurückzukehren." />
         <text name="ft_auto_tap_new_to_open_the_creation_form" text="Tippe auf + NEU, um das Erstellungsformular zu öffnen.&#10;" />
-        <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tippe auf EIN/AUS, um einzelne Widgets ein- oder auszublenden." />
+        <text name="ft_auto_tap_on_off_to_show_or_hide_each_widget" text="Tippe auf AN/AUS, um einzelne Widgets ein- oder auszublenden." />
         <text name="ft_auto_tap_start_job_pick_a_field_your_vehicle_and_the" text="Tippe auf AUFTRAG STARTEN, wähle ein Feld, dein Fahrzeug und anschließend die gewünschte Aufgabe.&#10;" />
         <text name="ft_auto_tap_t_to_close_the_tablet_and_get_back_to_work" text="Drücke T, um das Tablet zu schließen und weiterzuarbeiten!" />
         <text name="ft_auto_tap_the_small_edit_button_top_right_of_the_dashboard" text="Tippe auf die kleine Schaltfläche BEARBEITEN oben rechts im Dashboard.&#10;" />
@@ -2563,7 +2563,7 @@
         <text name="ft_battery_rate_minutes" text="1 %% / %d Min." />
         <text name="ft_battery_service_title" text="Tablet-Akku" />
         <text name="ft_battery_empty_auto_charge" text="Tablet-Akku leer. Tablet wird geladen." />
-        <text name="ft_battery_charging_locked" text="Tablet wird geladen. Einschalten ab 15%% möglich." />
+        <text name="ft_battery_charging_locked" text="Tablet wird geladen. Einschalten ab 15% möglich." />
         <text name="ft_battery_charged_usable" text="Tablet ausreichend geladen. Mit %s wieder einschalten." />
         <text name="ft_battery_charged_full" text="Tablet vollständig geladen." />
         <text name="ft_weather_mode_real" text="Realistisch" />
