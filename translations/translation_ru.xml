@@ -370,7 +370,7 @@
         <text name="ft_auto_0ft" text="%.0ft" />
         <text name="ft_auto_100k" text="+$100K" />
         <text name="ft_auto_10k" text="+$10K" />
-        <text name="ft_auto_12_pm" text="12 PM" />
+        <text name="ft_auto_12_pm" text="12:00" />
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="1 активная работа" />
         <text name="ft_auto_1_building" text="1 building" />
@@ -393,8 +393,8 @@
         <text name="ft_auto_3g" text="3G" />
         <text name="ft_auto_4g" text="4G" />
         <text name="ft_auto_60_days" text="60 days" />
-        <text name="ft_auto_6_am" text="6 AM" />
-        <text name="ft_auto_6_pm" text="6 PM" />
+        <text name="ft_auto_6_am" text="6:00" />
+        <text name="ft_auto_6_pm" text="18:00" />
         <text name="ft_auto_7_days" text="7 days" />
         <text name="ft_auto_90_days" text="90 days" />
         <text name="ft_auto_a_20_return_means_you_effectively_pay_80_of_the" text="A 20% return means you effectively pay 80% of the&#10;" />
@@ -2335,7 +2335,7 @@
         <text name="ft_color_gold" text="Золотой" />
         <text name="ft_color_app" text="Цвет приложения" />
         <text name="ft_settings_app_text" text="App text: %s" />
-        <text name="ft_settings_hint_icon_text" text="Show text below app icons" />
+        <text name="ft_settings_hint_icon_text" text="Показывать подписи под иконками." />
         <text name="ft_settings_text_size" text="Text size: %s" />
         <text name="ft_settings_hint_text_size" text="Click to change text size" />
         <text name="ft_settings_text_color" text="Text colour: %s" />
