@@ -17,6 +17,15 @@
 //     reason (an own name, a word the language shares with English; never a copy passed off
 //     as a translation: Tyson's ruling, MAINTENANCE row 80).
 // Control-name row: the outage-frequency hint names the four frequency labels by their own text.
+// Palette rows (Bob's MAJOR on #181): the Background colour row draws ftAuto(bgEntry.label), a label
+// of FT.BG_PALETTE, through a variable, so no key or literal sits at the call. The bar runs the real
+// src/core/Constants.lua in fengari and reads FT.BG_PALETTE's labels from it (never a copied list):
+//   G1  the palette has entries, and every label resolves through the real FT.AUTO_L10N to a key;
+//       that key joins KEYS, so the text rows above check it in all 26 files. A palette name added
+//       later with no key, or with a key still English in a locale, fails the bar;
+//   G2  SettingsApp.lua still reads FT.BG_PALETTE and draws the label through ftAuto; if it stops,
+//       this row fails so the bar is updated rather than checking a path nothing draws.
+//   The palette keys also join the L1 row at the actionRow value cut (44).
 //
 // Draw-site rows (below the text rows), over the real src/apps/SettingsApp.lua:
 //   S1  every key SettingsApp.lua passes as a literal to ftSafeText / ftSafeFormat, and every key the
@@ -31,6 +40,12 @@
 //   L1  a key drawn as an actionRow title, value, hint or button fits that row's cut (short() at
 //       42, 44, 66 and 24) in characters, in all 26 files, so no translation is cut mid-word.
 //       short() counts characters since row 138 (#176), so a text within its cut is never cut.
+//   R1  ftSafeText and ftSafeFormat reach the locale file: every function either helper calls is one
+//       the loaded code defines (an FT member Constants.lua sets, run in fengari, or a global some
+//       src file assigns at its top level), and each helper calls at least one lookup. A call to a
+//       name nothing defines is guarded by `~= nil` and silently returns the English fallback in
+//       every language (ftUiText and ftUiFormat are locals of FarmTabletUI.lua, FarmTabletUI.lua:25
+//       and :33, so SettingsApp.lua never saw them).
 //
 // Usage:  node tools/test/l10n-settings-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
@@ -40,7 +55,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DIR = join(ROOT, "translations");
 
-const KEYS = [
+const LISTED_KEYS = [
   "ft_common_on", "ft_common_off", "ft_common_rare", "ft_common_normal", "ft_common_frequent",
   "ft_auto_settings", "ft_settings_help_display_title", "ft_settings_help_display_body",
   "ft_settings_help_sound_title", "ft_settings_help_sound_body2", "ft_settings_help_network_title",
@@ -181,6 +196,46 @@ if (locales.length !== 25) { console.log(`expected 25 non-English locale files, 
 const EN = entries(join(DIR, "translation_en.xml"));
 const ALL = { en: EN };
 const failures = [];
+
+// ---- The real Constants.lua, run in fengari: FT.AUTO_L10N and FT.BG_PALETTE's labels.
+const { createRequire } = await import("node:module");
+const req = createRequire(join(ROOT, "tools", "test", "package.json"));
+const luaparse = req("luaparse");
+const fengari = req("fengari");
+const { lua, lauxlib, lualib, to_luastring } = fengari;
+const LS = lauxlib.luaL_newstate();
+lualib.luaL_openlibs(LS);
+const cbuf = readFileSync(join(ROOT, "src", "core", "Constants.lua"));
+if (lauxlib.luaL_loadbuffer(LS, cbuf, null, to_luastring("@Constants.lua")) !== lua.LUA_OK || lua.lua_pcall(LS, 0, 0, 0) !== lua.LUA_OK) {
+  failures.push(`S0: Constants.lua did not load: ${lua.lua_tojsstring(LS, -1)}`);
+}
+const AUTO = new Map();
+lua.lua_getglobal(LS, to_luastring("FT"));
+lua.lua_getfield(LS, -1, to_luastring("AUTO_L10N"));
+lua.lua_pushnil(LS);
+while (lua.lua_next(LS, -2) !== 0) { AUTO.set(lua.lua_tojsstring(LS, -2), lua.lua_tojsstring(LS, -1)); lua.lua_pop(LS, 1); }
+lua.lua_pop(LS, 1);
+const PALETTE = [];
+lua.lua_getfield(LS, -1, to_luastring("BG_PALETTE"));
+if (lua.lua_istable(LS, -1)) {
+  const n = lua.lua_rawlen(LS, -1);
+  for (let i = 1; i <= n; i++) {
+    lua.lua_rawgeti(LS, -1, i);
+    lua.lua_getfield(LS, -1, to_luastring("label"));
+    PALETTE.push(lua.lua_type(LS, -1) === lua.LUA_TSTRING ? lua.lua_tojsstring(LS, -1) : null);
+    lua.lua_pop(LS, 2);
+  }
+}
+const PALETTE_KEYS = [];
+if (PALETTE.length === 0) failures.push("G1 Constants.lua: FT.BG_PALETTE is missing or empty, so the palette rows checked nothing");
+PALETTE.forEach((label, i) => {
+  if (label === null) { failures.push(`G1 Constants.lua: FT.BG_PALETTE[${i + 1}] has no string label`); return; }
+  const key = AUTO.get(label);
+  if (!key) failures.push(`G1 Constants.lua: the palette name ${JSON.stringify(label)} has no FT.AUTO_L10N entry: the Background colour row reads it in English in every language`);
+  else if (!PALETTE_KEYS.includes(key)) PALETTE_KEYS.push(key);
+});
+const KEYS = [...LISTED_KEYS, ...PALETTE_KEYS.filter((k) => !LISTED_KEYS.includes(k))];
+
 for (const key of KEYS) {
   const e = EN.inside.get(key);
   if (!e || e.length !== 1) { failures.push(`en: ${key} present ${e ? e.length : 0} times inside <texts>`); continue; }
@@ -212,24 +267,8 @@ for (const [outer, inner] of CONTAINS) {
 
 // ---- Draw-site rows, over the real source.
 {
-  const { createRequire } = await import("node:module");
-  const req = createRequire(join(ROOT, "tools", "test", "package.json"));
-  const luaparse = req("luaparse");
-  const fengari = req("fengari");
-  const { lua, lauxlib, lualib, to_luastring } = fengari;
   const KEYSET = new Set(KEYS);
   const NO_KEY = {};
-  const L = lauxlib.luaL_newstate();
-  lualib.luaL_openlibs(L);
-  const cbuf = readFileSync(join(ROOT, "src", "core", "Constants.lua"));
-  if (lauxlib.luaL_loadbuffer(L, cbuf, null, to_luastring("@Constants.lua")) !== lua.LUA_OK || lua.lua_pcall(L, 0, 0, 0) !== lua.LUA_OK) {
-    failures.push(`S0: Constants.lua did not load: ${lua.lua_tojsstring(L, -1)}`);
-  }
-  const AUTO = new Map();
-  lua.lua_getglobal(L, to_luastring("FT"));
-  lua.lua_getfield(L, -1, to_luastring("AUTO_L10N"));
-  lua.lua_pushnil(L);
-  while (lua.lua_next(L, -2) !== 0) { AUTO.set(lua.lua_tojsstring(L, -2), lua.lua_tojsstring(L, -1)); lua.lua_pop(L, 1); }
   const dec = (s) => Buffer.from(s, "latin1").toString("utf8");
   const fold = (n) => {
     if (!n) return null;
@@ -285,6 +324,17 @@ for (const [outer, inner] of CONTAINS) {
       n.arguments.slice(0, 4).forEach((a, i) => { for (const k of keyOf(a)) if (k) { const c = cutKeys.get(k); cutKeys.set(k, c === undefined ? ROWCUT[i] : Math.min(c, ROWCUT[i])); } });
     }
   });
+  // G2: the app still draws the palette label through ftAuto; the palette keys sit under the value cut.
+  if (!app.text.includes("FT.BG_PALETTE")) failures.push(`G2 ${APP}: no longer reads FT.BG_PALETTE; update this bar's palette rows`);
+  let paletteDrawn = 0;
+  walk(app.ast.body, (n) => {
+    if (n.type !== "CallExpression" || callName(n) !== "ftAuto") return;
+    let hasLabel = false;
+    walk(n.arguments, (c) => { if (c.type === "MemberExpression" && c.identifier.name === "label" && c.base.type === "Identifier" && c.base.name === "bgEntry") hasLabel = true; });
+    if (hasLabel) paletteDrawn++;
+  });
+  if (paletteDrawn === 0) failures.push(`G2 ${APP}: no ftAuto(...) call draws bgEntry.label; update this bar's palette rows`);
+  for (const k of PALETTE_KEYS) { const c = cutKeys.get(k); cutKeys.set(k, c === undefined ? 44 : Math.min(c, 44)); }
   // The two frequency getters the Settings screen calls (SettingsApp.lua, the network rows).
   const UI = "src/FarmTabletUI.lua";
   const ui = parse(UI);
@@ -306,6 +356,55 @@ for (const [outer, inner] of CONTAINS) {
     if (!found.has(g)) failures.push(`S1 ${UI}: FarmTabletUI:${g} not found, so its drawn keys went unchecked`);
     if (!app.text.includes(g)) failures.push(`S1 ${APP}: no longer calls ${g}; update this bar's GETTERS`);
   }
+  // R1: the text helpers reach the locale file.
+  {
+    const BUILTIN = new Set(["tostring", "tonumber", "type", "pcall", "error", "select", "unpack", "print"]);
+    const globals = new Set();
+    const { readdirSync: rd, statSync: st } = await import("node:fs");
+    const lua51 = (dir) => rd(join(ROOT, dir)).flatMap((f) => { const rel = dir + "/" + f; return st(join(ROOT, rel)).isDirectory() ? lua51(rel) : rel.endsWith(".lua") ? [rel] : []; });
+    for (const rel of lua51("src")) {
+      let ast;
+      try { ast = parse(rel).ast; } catch (e) { failures.push(`R1 ${rel}: does not parse (${e.message})`); continue; }
+      const locals = new Set();
+      for (const s of ast.body) {
+        if (s.type === "LocalStatement") for (const v of s.variables) locals.add(v.name);
+        if (s.type === "FunctionDeclaration" && s.isLocal && s.identifier) locals.add(s.identifier.name);
+        if (s.type === "FunctionDeclaration" && !s.isLocal && s.identifier && s.identifier.type === "Identifier") globals.add(s.identifier.name);
+        if (s.type === "AssignmentStatement") for (const v of s.variables) if (v.type === "Identifier" && !locals.has(v.name)) globals.add(v.name);
+      }
+    }
+    const ftFn = (name) => {
+      lua.lua_getglobal(LS, to_luastring("FT"));
+      lua.lua_getfield(LS, -1, to_luastring(name));
+      const ok = lua.lua_type(LS, -1) === lua.LUA_TFUNCTION;
+      lua.lua_pop(LS, 2);
+      return ok;
+    };
+    const appLocals = new Set();
+    for (const s of app.ast.body) {
+      if (s.type === "LocalStatement") for (const v of s.variables) appLocals.add(v.name);
+      if (s.type === "FunctionDeclaration" && s.isLocal && s.identifier) appLocals.add(s.identifier.name);
+    }
+    for (const helper of ["ftSafeText", "ftSafeFormat"]) {
+      const fn = app.ast.body.find((s) => s.type === "FunctionDeclaration" && s.isLocal && s.identifier && s.identifier.name === helper);
+      if (!fn) { failures.push(`R1 ${APP}: the local ${helper} is gone; update this bar`); continue; }
+      let lookups = 0;
+      walk(fn.body, (c) => {
+        if (c.type !== "CallExpression") return;
+        if (c.base.type === "Identifier") {
+          const name = c.base.name;
+          if (BUILTIN.has(name) || appLocals.has(name)) return;
+          if (globals.has(name)) lookups++;
+          else failures.push(`R1 ${APP}:${c.loc.start.line}: ${helper} calls ${name}, which no src file defines as a global: the call never runs and every language reads the English fallback`);
+        } else if (c.base.type === "MemberExpression" && c.base.base.type === "Identifier" && c.base.base.name === "FT") {
+          const name = c.base.identifier.name;
+          if (ftFn(name)) lookups++;
+          else failures.push(`R1 ${APP}:${c.loc.start.line}: ${helper} calls FT.${name}, which Constants.lua does not define`);
+        }
+      });
+      if (lookups === 0) failures.push(`R1 ${APP}: ${helper} calls no lookup the loaded code defines, so it always returns its English fallback`);
+    }
+  }
   // T1: no runtime language table, no language branch.
   walk(app.ast.body, (n) => {
     if (n.type === "TableKeyString" && /^ft_/.test(n.key.name) && n.value.type === "StringLiteral") {
@@ -326,7 +425,7 @@ for (const [outer, inner] of CONTAINS) {
       if (n > cut) failures.push(`L1 ${loc}: ${key} is ${n} characters, over its row's cut of ${cut}: short() ends it mid-word`);
     }
   }
-  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals; ${cutKeys.size} keys under a row cut (${cutChecks} texts measured)`);
+  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals; ${cutKeys.size} keys under a row cut (${cutChecks} texts measured); palette: ${PALETTE.length} names from Constants.lua, ${PALETTE_KEYS.length} keys, drawn at ${paletteDrawn} ftAuto call`);
 }
 
 const checked = KEYS.length * locales.length;
