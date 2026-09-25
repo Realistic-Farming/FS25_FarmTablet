@@ -79,7 +79,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
 
     -- Sub-header line: counts + admin note.
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-        string.format("%d fields  ·  %d asleep", #fields, asleep),
+        FT.l10nFormat("ft_fieldsentry_count", "%d fields  ·  %d asleep", #fields, asleep),
         RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL,
         isAdmin and "Admin" or "View only (admin needed)",
@@ -137,7 +137,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
             local reasonMax = math.max(6, math.floor((sleepX - x - FT.px(60)) / FT.px(6.5)))
             local reasonTxt = FT_Renderer.truncate(label, reasonMax)
             if isMeadow then
-                reasonTxt = FT_Renderer.truncate(reasonTxt .. " · meadow", reasonMax)
+                reasonTxt = FT_Renderer.truncate(reasonTxt .. " · " .. FT.l10n("ft_fieldsentry_meadow_tag", "meadow"), reasonMax)
             end
             self.r:appText(x + FT.px(54), y, FT.FONT.SMALL, reasonTxt, RenderText.ALIGN_LEFT, dotCol)
 
