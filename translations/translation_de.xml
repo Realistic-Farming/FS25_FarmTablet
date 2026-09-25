@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <l10n>
     <texts>
-        <text name="ft_ui_section" text="Farm Tablet" />
+        <text name="ft_ui_section" text="Bauernhof-Tablet" />
         <text name="ft_ui_welcome_title" text="Farm Tablet v2" />
         <text name="ft_ui_welcome_message" text="Tablet öffnen mit %s" />
         <text name="ft_ui_enabled_short" text="Tablet aktivieren" />
@@ -12,7 +12,7 @@
         <text name="ft_ui_notifications_long" text="Tablet-Benachrichtigungen beim Laden des Spiels anzeigen" />
         <text name="ft_ui_startupapp_short" text="Startup-App" />
         <text name="ft_ui_startupapp_long" text="Standard-App, die beim Öffnen des Tablets angezeigt wird" />
-        <text name="ft_ui_startupapp_1" text="Dashboard" />
+        <text name="ft_ui_startupapp_1" text="Übersicht" />
         <text name="ft_ui_startupapp_2" text="AppStore" />
         <text name="ft_ui_startupapp_3" text="Wetter" />
         <text name="ft_ui_startupapp_4" text="Bagger" />
@@ -21,9 +21,9 @@
         <text name="ft_ui_debug_short" text="Debug-Modus" />
         <text name="ft_ui_debug_long" text="Aktiviert den Debug-Log in der Konsole" />
         <text name="ft_ui_reset" text="Tablet-Einstellungen zurücksetzen" />
-        <text name="ft_ui_app_dashboard" text="Dashboard" />
+        <text name="ft_ui_app_dashboard" text="Übersicht" />
         <text name="ft_ui_app_store" text="App Store" />
-        <text name="ft_ui_app_updates" text="Updates" />
+        <text name="ft_ui_app_updates" text="Aktualisierungen" />
         <text name="ft_ui_app_settings" text="Einstellungen" />
         <text name="ft_ui_app_system_settings" text="Globale Einstellungen" />
         <text name="ft_ui_app_workshop" text="Werkstatt" />
@@ -147,6 +147,7 @@
         <text name="ft_ui_app_fleet_manager" text="Fuhrpark" />
         <text name="ft_ui_app_production_buildings" text="Produktionsverwaltung" />
         <text name="ft_ui_app_farm_stats" text="Statistik" />
+        <text name="ft_ui_app_dairycore" text="Milchkern" />
         <text name="ft_ui_app_field_jobs" text="Aufgaben" />
         <text name="ft_ui_app_animal_auto_care" text="Automatische Tierpflege" />
         <text name="ft_ui_app_animal_vet_system" text="Tierarzt" />
@@ -247,7 +248,7 @@
         <text name="ft_help_p2_move_text" text="Öffne die App „Einstellungen“ und drücke auf „Bearbeitungsmodus“. Im Bearbeitungsmodus kannst du das Tablet an eine beliebige Stelle verschieben. Um die Größe zu verändern kannst du an einer beliebigen Ecke ziehen. Um nur die Breite anzupassen, kannst du am linken oder rechten Rund ziehen. Rechtsklick auf eine beliebige Stelle, um den Bearbeitungsmodus zu verlassen. Position und Maßstab werden automatisch gespeichert." />
         <text name="ft_help_p2_key_title" text="Tastenbelegung zum Öffnen anpassen." />
         <text name="ft_help_a1_title" text="Dashboard und Wetter" />
-        <text name="ft_help_a1_dash_title" text="Dashboard" />
+        <text name="ft_help_a1_dash_title" text="Armaturenbrett" />
         <text name="ft_help_a1_dash_text" text="Im Dashboard findest du eine Zusammenfassung über deinen Hof. Oben findest du deinen aktuellen Kontostand, darunter Einnahmen und Ausgaben sowie den Gewinn der aktuellen Spiel-Sitzung. Die Statistiken zeigen dir, wie viele Felder und Fahrzeuge du besitzt. Im Abschnitt „Umgebung“ werden die aktuelle Jahreszeit, der Tag und die Tageszeit sowie das aktuelle Wetter angezeigt. Tippee auf das kleine Infosymbol in der unteren rechten Ecke des Dashboards, um eine detaillierte Erklärung für jeden Wert zu erhalten." />
         <text name="ft_help_a1_weather_title" text="Wetter-App" />
         <text name="ft_help_a1_weather_text" text="Die Wetter-App zeigt dir eine detaillierte mehrtägige Vorhersage mit Temperatur, Niederschlagswahrscheinlichkeit und Windstärke. Die Bedingungen sind farblich gekennzeichnet: Blau für Regen, Orange für Stürme und Weiß für klaren Himmel. Verwendest du außérdem den Crop Stress-Mod, kannst du so entscheiden, wie du deine Bewässerung einsetzt." />
@@ -722,7 +723,7 @@
         <text name="ft_auto_cultivating" text="Anbauen" />
         <text name="ft_auto_cumulative_tax_paid_across_the_current_session" text="Gesamt gezahlte Steuern während der aktuellen Spiel-Sitzung.&#10;" />
         <text name="ft_auto_current_air_temperature_in_celsius_with_a_feel_label" text="Aktuelle Lufttemperatur in °C mit gefühlter Temperatur:&#10;" />
-        <text name="ft_auto_current_balance" text="CURRENT BALANCE" />
+        <text name="ft_auto_current_balance" text="AKTUELLER KONTOSTAND" />
         <text name="ft_auto_current_balance_2" text="Aktueller Kontostand" />
         <text name="ft_auto_current_conditions_and_forecast" text="Aktuelles Wetter und Vorhersage" />
         <text name="ft_auto_current_event" text="CURRENT EVENT" />
@@ -784,7 +785,7 @@
         <text name="ft_auto_debug_mode_on" text="Debug: An" />
         <text name="ft_auto_debug_mode_s" text="Debug Mode: %s&#10;" />
         <text name="ft_auto_deco_decorative_fake_field_auto_detected" text="DECO   = dekoratives Feld (automatisch erkannt)." />
-        <text name="ft_auto_deep_space" text="Deep Space" />
+        <text name="ft_auto_deep_space" text="Tiefes All" />
         <text name="ft_auto_deep_space_ocean_blue_forest_green" text="Deep Space, Ocean Blue, Forest Green,&#10;" />
         <text name="ft_auto_default" text="STANDARD" />
         <text name="ft_auto_default_2" text="default" />
@@ -924,7 +925,7 @@
         <text name="ft_auto_farm_tablet_startup_app_changed_to_s" text="Farm Tablet: Standard-App zu: %s geändert" />
         <text name="ft_auto_farm_tablet_startup_app_set_to" text="Farm Tablet: Standard-App geändert zu: " />
         <text name="ft_auto_farm_tablet_ui_refreshed" text="Farm Tablet: UI wurde neu geladen" />
-        <text name="ft_auto_farm_totals" text="FARM TOTALS" />
+        <text name="ft_auto_farm_totals" text="HOF-GESAMT" />
         <text name="ft_auto_farmarea" text="farmarea_" />
         <text name="ft_auto_farming" text="FARMING" />
         <text name="ft_auto_farmland_s" text="^Farmland:%s*" />
@@ -1386,7 +1387,7 @@
         <text name="ft_auto_nearby_vehicles" text="FAHRZEUGE IN DER NÄHE" />
         <text name="ft_auto_needs_fertilizer" text="Muss gedüngt werden" />
         <text name="ft_auto_needs_fertilizer_flag" text="NEEDS FERTILIZER FLAG" />
-        <text name="ft_auto_net_p_l" text="Net P/L" />
+        <text name="ft_auto_net_p_l" text="Netto G/V" />
         <text name="ft_auto_net_p_l_income_minus_expenses" text="Net P/L: Einkommen abzüglich der Ausgaben." />
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Net P/L = Einkommen abzüglich der Ausgaben für die aktuelle Spiel-Sitzung." />
         <text name="ft_auto_net_pl" text="net_pl" />
@@ -1678,7 +1679,7 @@
         <text name="ft_auto_rain_4" text="rain" />
         <text name="ft_auto_rain_or_storm_intensity_shown_with_a_fill_bar" text="Intensität des Regen oder des Sturm wird mit einer Füllanzeige dargestellt.&#10;" />
         <text name="ft_auto_rainy" text="Regnerisch" />
-        <text name="ft_auto_random_world_events" text="Random World Events" />
+        <text name="ft_auto_random_world_events" text="Zufallsereignisse" />
         <text name="ft_auto_random_world_events_2" text="random_world_events" />
         <text name="ft_auto_random_world_events_is_not_installed" text="Random World Events ist nicht installiert." />
         <text name="ft_auto_random_world_events_tracker" text="Random world Ereignisse verfolgen" />
@@ -1846,7 +1847,7 @@
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(seitdem der Spielstand zuletzt geladen wurde).&#10;" />
         <text name="ft_auto_single_station_no_comparison_available" text="Nur eine Station - kein Vergleich verfügbar" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
-        <text name="ft_auto_skip_to" text="SKIP TO" />
+        <text name="ft_auto_skip_to" text="SPRINGEN ZU" />
         <text name="ft_auto_slate_grey" text="Schiefergrau" />
         <text name="ft_auto_sleep" text="SLEEP" />
         <text name="ft_auto_sleep_toggle" text="SLEEP TOGGLE" />
