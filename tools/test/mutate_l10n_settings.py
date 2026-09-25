@@ -10,7 +10,10 @@
 #     palette name with no map entry, or with a key no file carries or still English, fails; and the
 #     app must still draw the label through ftAuto;
 #   - the helper row (R1): ftSafeText must reach the locale file through a lookup the loaded code
-#     defines (FT.l10n), never through a global nothing sets (the old ftUiText).
+#     defines (FT.l10n), never through a global nothing sets (the old ftUiText);
+#   - the executed lookup (X1): the helpers, run in fengari against the real locale files, must
+#     return the file's text; X1-helper-asks-the-fallback is the case R1 cannot see (the helper calls
+#     FT.l10n, so R1 passes, but asks it for the wrong key).
 #
 # Each mutation edits one file in place, runs tools/test/l10n-settings-check.mjs and expects it to
 # FAIL on a named row; the file is restored byte-identical (sha256-checked) after each one. The bar
@@ -74,6 +77,13 @@ MUTATIONS = [
     ("R1-helper-dead-global", "src/apps/SettingsApp.lua",
      one(SAFE, "local function ftSafeText(key, fallback)\n    if ftUiText ~= nil then return ftUiText(key, fallback) end\n"),
      "ftSafeText back on ftUiText, a local of FarmTabletUI.lua: every row reads its English fallback"),
+    ("R1-format-helper-dead-global", "src/apps/SettingsApp.lua",
+     one("    if FT ~= nil and FT.l10nFormat ~= nil then return FT.l10nFormat(key, fallback, ...) end\n",
+         "    if ftUiFormat ~= nil then return ftUiFormat(key, fallback, ...) end\n"),
+     "ftSafeFormat back on ftUiFormat, a local of FarmTabletUI.lua: every formatted row reads English"),
+    ("X1-helper-asks-the-fallback", "src/apps/SettingsApp.lua",
+     one(SAFE, "local function ftSafeText(key, fallback)\n    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(fallback, fallback) end\n"),
+     "ftSafeText calls FT.l10n (so R1 passes) but looks up its fallback, not its key"),
     ("E1-english-copied", "translations/translation_fr.xml",
      one("<text name=\"ft_settings_sounds\" text=\"Sons\" />", "<text name=\"ft_settings_sounds\" text=\"Sounds\" />"),
      "a translated label replaced by the English text"),

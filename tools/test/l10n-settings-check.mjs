@@ -46,6 +46,11 @@
 //       name nothing defines is guarded by `~= nil` and silently returns the English fallback in
 //       every language (ftUiText and ftUiFormat are locals of FarmTabletUI.lua, FarmTabletUI.lua:25
 //       and :33, so SettingsApp.lua never saw them).
+//   X1  the lookup, executed: SettingsApp.lua's own ftSafeText and ftSafeFormat (cut from the real
+//       file) run in fengari beside the real Constants.lua, with g_i18n answering from the real
+//       locale file, in all 26 files. For every key the app passes them, the result must be the
+//       file's text (formatted, for ftSafeFormat), never the fallback; and FT.l10nAuto must give
+//       each palette name the file's text for its key. R1 reads the code; X1 runs it.
 //
 // Usage:  node tools/test/l10n-settings-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
@@ -278,7 +283,7 @@ for (const [outer, inner] of CONTAINS) {
   };
   const parse = (rel) => {
     const text = readFileSync(join(ROOT, rel), "latin1");
-    return { text, ast: luaparse.parse(text, { luaVersion: "5.1", encodingMode: "pseudo-latin1", locations: true }) };
+    return { text, ast: luaparse.parse(text, { luaVersion: "5.1", encodingMode: "pseudo-latin1", locations: true, ranges: true }) };
   };
   const walk = (n, visit) => {
     if (!n || typeof n !== "object") return;
@@ -405,6 +410,78 @@ for (const [outer, inner] of CONTAINS) {
       if (lookups === 0) failures.push(`R1 ${APP}: ${helper} calls no lookup the loaded code defines, so it always returns its English fallback`);
     }
   }
+  // X1: the lookup, executed against the real locale files.
+  let x1Calls = 0;
+  {
+    const textKeys = new Set(), fmtKeys = new Map();
+    walk(app.ast.body, (n) => {
+      if (n.type !== "CallExpression") return;
+      const name = callName(n), k = fold(n.arguments[0]);
+      if (k === null) return;
+      if (name === "ftSafeText") textKeys.add(k);
+      if (name === "ftSafeFormat") fmtKeys.set(k, n.arguments.length - 2);
+    });
+    const src = ["ftSafeText", "ftSafeFormat"].map((h) => {
+      const fn = app.ast.body.find((s) => s.type === "FunctionDeclaration" && s.isLocal && s.identifier && s.identifier.name === h);
+      return fn ? app.text.slice(fn.range[0], fn.range[1]) : null;
+    });
+    if (src.includes(null)) failures.push(`X1 ${APP}: ftSafeText or ftSafeFormat is gone; update this bar`);
+    else {
+      const chunk = Buffer.from(src.join("\n") + "\nX1_T, X1_F = ftSafeText, ftSafeFormat\n", "latin1");
+      const run = (buf, name) => {
+        if (lauxlib.luaL_loadbuffer(LS, buf, null, to_luastring(name)) !== lua.LUA_OK || lua.lua_pcall(LS, 0, 0, 0) !== lua.LUA_OK) {
+          const e = lua.lua_tojsstring(LS, -1); lua.lua_pop(LS, 1); return e;
+        }
+        return null;
+      };
+      let err = run(chunk, "@SettingsApp.lua helpers") || run(to_luastring(`
+        g_i18n = { texts = {} }
+        function g_i18n:hasText(k) return self.texts[k] ~= nil end
+        function g_i18n:getText(k) return self.texts[k] end
+        local SENT = "\\1fallback"
+        function X1_text(key, want) return X1_T(key, SENT) == want end
+        function X1_fmt(key, want, a, b, c)
+          local ok, w = pcall(string.format, want, a, b, c)
+          if not ok then w = want end
+          return X1_F(key, SENT .. " %s %s %s", a, b, c) == w
+        end
+        function X1_auto(label, want) return FT.l10nAuto(label) == want end
+      `), "@X1");
+      if (err) failures.push(`X1 ${APP}: the helpers did not run in fengari: ${err}`);
+      else {
+        const argsFor = (fmt) => (unesc(fmt).replace(/%%/g, "").match(/%[-+ #0]*\d*(?:\.\d+)?[sdif]/g) || []).map((p) => (p.endsWith("s") ? "x" : p.endsWith("d") || p.endsWith("i") ? 7 : 1.5));
+        const call = (fn, args) => {
+          lua.lua_getglobal(LS, to_luastring(fn));
+          for (const a of args) { if (typeof a === "number") lua.lua_pushnumber(LS, a); else lua.lua_pushstring(LS, to_luastring(a)); }
+          if (lua.lua_pcall(LS, args.length, 1, 0) !== lua.LUA_OK) { const e = lua.lua_tojsstring(LS, -1); lua.lua_pop(LS, 1); return e; }
+          const ok = lua.lua_toboolean(LS, -1); lua.lua_pop(LS, 1); return ok;
+        };
+        for (const loc of ["en", ...locales]) {
+          const map = ALL[loc].inside;
+          lua.lua_getglobal(LS, to_luastring("g_i18n"));
+          lua.lua_createtable(LS, 0, map.size);
+          for (const [k, v] of map) { lua.lua_pushstring(LS, to_luastring(unesc(v[0]))); lua.lua_setfield(LS, -2, to_luastring(k)); }
+          lua.lua_setfield(LS, -2, to_luastring("texts"));
+          lua.lua_pop(LS, 1);
+          const bad = [];
+          for (const k of textKeys) { if (!map.has(k)) continue; x1Calls++; const r = call("X1_text", [k, unesc(map.get(k)[0])]); if (r !== true) bad.push(k); }
+          for (const [k, n] of fmtKeys) {
+            if (!map.has(k)) continue; x1Calls++;
+            const want = unesc(map.get(k)[0]);
+            const args = argsFor(want).slice(0, 3);
+            while (args.length < 3) args.push("x");
+            const r = call("X1_fmt", [k, want, ...args]); if (r !== true) bad.push(k);
+          }
+          PALETTE.forEach((label) => {
+            const k = label && AUTO.get(label);
+            if (!k || !map.has(k)) return;
+            x1Calls++; const r = call("X1_auto", [label, unesc(map.get(k)[0])]); if (r !== true) bad.push(k);
+          });
+          if (bad.length) failures.push(`X1 ${loc}: ${bad.length} lookups return something other than the file's text (the fallback, for a helper that never reaches the file): ${bad.slice(0, 4).join(", ")}${bad.length > 4 ? ", ..." : ""}`);
+        }
+      }
+    }
+  }
   // T1: no runtime language table, no language branch.
   walk(app.ast.body, (n) => {
     if (n.type === "TableKeyString" && /^ft_/.test(n.key.name) && n.value.type === "StringLiteral") {
@@ -425,7 +502,7 @@ for (const [outer, inner] of CONTAINS) {
       if (n > cut) failures.push(`L1 ${loc}: ${key} is ${n} characters, over its row's cut of ${cut}: short() ends it mid-word`);
     }
   }
-  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals; ${cutKeys.size} keys under a row cut (${cutChecks} texts measured); palette: ${PALETTE.length} names from Constants.lua, ${PALETTE_KEYS.length} keys, drawn at ${paletteDrawn} ftAuto call`);
+  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals; ${cutKeys.size} keys under a row cut (${cutChecks} texts measured); palette: ${PALETTE.length} names from Constants.lua, ${PALETTE_KEYS.length} keys, drawn at ${paletteDrawn} ftAuto call; X1: ${x1Calls} lookups executed against the files`);
 }
 
 const checked = KEYS.length * locales.length;
