@@ -47,8 +47,8 @@ local function barnLabel(row)
         end
     end
     local id = tostring(barnId or "?")
-    if #id > 24 then
-        id = id:sub(1, 22) .. "..."
+    if FT.utf8Len(id) > 24 then
+        id = FT.utf8Sub(id, 22) .. "..."
     end
     return FT.l10nFormat("ft_dairy_barn_id", "Barn %s", id)
 end

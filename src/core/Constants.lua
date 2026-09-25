@@ -32,6 +32,48 @@ function FT.l10nFormat(key, fallback, ...)
     return text
 end
 
+-- Drawn text is measured and cut in characters, never in bytes (MAINTENANCE row 138). A byte cut
+-- splits a multi-byte letter (Cyrillic, Chinese, Japanese, Korean, any accented letter) and the
+-- renderer draws a broken glyph. In UTF-8 every byte that is not 10xxxxxx starts a character.
+function FT.utf8Len(s)
+    s = tostring(s or "")
+    local n = 0
+    for i = 1, #s do
+        local b = string.byte(s, i)
+        if b < 128 or b >= 192 then n = n + 1 end
+    end
+    return n
+end
+
+-- The first `count` characters of s (s itself when it is not longer).
+function FT.utf8Sub(s, count)
+    s = tostring(s or "")
+    count = math.floor(tonumber(count) or 0)
+    if count <= 0 then return "" end
+    local n = 0
+    for i = 1, #s do
+        local b = string.byte(s, i)
+        if b < 128 or b >= 192 then
+            n = n + 1
+            if n > count then return string.sub(s, 1, i - 1) end
+        end
+    end
+    return s
+end
+
+-- A label of at most maxChars characters: cut at the last space when at least minWord characters
+-- come before it (the home grid's rule), else at maxChars.
+function FT.utf8Cut(s, maxChars, minWord)
+    s = tostring(s or "")
+    if FT.utf8Len(s) <= maxChars then return s end
+    local cut = FT.utf8Sub(s, maxChars)
+    local lastSpace = string.match(cut, ".*() ")
+    if lastSpace ~= nil and FT.utf8Len(string.sub(cut, 1, lastSpace - 1)) >= (minWord or 4) then
+        return string.sub(cut, 1, lastSpace - 1)
+    end
+    return cut
+end
+
 function FT.l10nAuto(text)
     if text == nil then return "" end
     local raw = tostring(text)

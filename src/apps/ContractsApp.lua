@@ -159,7 +159,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
         local typeName   = getTypeName(mission)
         local location   = safeGet(mission, "getLocation") or "Unknown Field"
         location = location:gsub("^Farmland:%s*", "")
-        if #location > 26 then location = location:sub(1, 24) .. ".." end
+        if FT.utf8Len(location) > 26 then location = FT.utf8Sub(location, 24) .. ".." end
 
         local completion = safeGet(mission, "getCompletion") or 0
         local pct        = math.floor(completion * 100)

@@ -158,7 +158,7 @@ local function drawRoster(self, snap, bodyTop, AC)
         if visBlock(y, blockH) then
             -- Line 1: name [level] ............ [PIN/UNPIN] [FIRE]
             local nm = tostring(w.name or "Worker")
-            if #nm > 16 then nm = nm:sub(1, 14) .. ">" end
+            if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
             self.r:appText(x, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
             self.r:appText(x + FT.px(96), y, FT.FONT.TINY, "[" .. (w.levelName or "Novice") .. "]",
                 RenderText.ALIGN_LEFT, levelColor(w.level))
@@ -333,7 +333,7 @@ local function drawPayroll(self, snap, bodyTop, AC)
             local d = w.proStaffDelta or 0
             local dCol = d < 0 and FT.C.POSITIVE or (d > 0 and FT.C.NEGATIVE or FT.C.TEXT_DIM)
             local nm = tostring(w.name or "Worker")
-            if #nm > 14 then nm = nm:sub(1, 12) .. ">" end
+            if FT.utf8Len(nm) > 14 then nm = FT.utf8Sub(nm, 12) .. ">" end
             self.r:appText(x, y, FT.FONT.TINY, nm .. "  [" .. (w.levelName or "Novice") .. "]",
                 RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
             self.r:appText(x + cw, y, FT.FONT.TINY,
