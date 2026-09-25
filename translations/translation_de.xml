@@ -22,7 +22,7 @@
         <text name="ft_ui_debug_long" text="Aktiviert den Debug-Log in der Konsole" />
         <text name="ft_ui_reset" text="Tablet-Einstellungen zurücksetzen" />
         <text name="ft_ui_app_dashboard" text="Übersicht" />
-        <text name="ft_ui_app_store" text="App Store" />
+        <text name="ft_ui_app_store" text="App-Store" />
         <text name="ft_ui_app_updates" text="Aktualisierungen" />
         <text name="ft_ui_app_settings" text="Einstellungen" />
         <text name="ft_ui_app_system_settings" text="Globale Einstellungen" />
@@ -30,6 +30,7 @@
         <text name="ft_ui_app_field_status" text="Feldübersicht" />
         <text name="ft_ui_app_field_sentry" text="Feldmonitor" />
         <text name="ft_ui_app_rotation_planner" text="Fruchtfolge" />
+        <text name="ft_ui_app_organic" text="Bio" />
         <text name="ft_ui_app_irrigation_suite" text="Bewässerung" />
         <text name="ft_ui_app_financial_cockpit" text="Finanzen" />
         <text name="ft_fc_health" text="Bilanz" />
@@ -127,7 +128,7 @@
         <text name="ft_ui_app_bucket_tracker" text="Ladungsübersicht" />
         <text name="ft_ui_app_excavator" text="Bagger" />
         <text name="ft_ui_app_income_mod" text="Finanzen" />
-        <text name="ft_ui_app_tax_mod" text="Eichelhäher" />
+        <text name="ft_ui_app_tax_mod" text="Steuern" />
         <text name="ft_ui_app_npc_favor" text="Nachbarschaftshilfe" />
         <text name="ft_ui_app_crop_stress" text="Bestandspflege" />
         <text name="ft_ui_app_soil_fertilizer" text="Düngung" />
@@ -147,7 +148,12 @@
         <text name="ft_ui_app_fleet_manager" text="Fuhrpark" />
         <text name="ft_ui_app_production_buildings" text="Produktionsverwaltung" />
         <text name="ft_ui_app_farm_stats" text="Statistik" />
-        <text name="ft_ui_app_dairycore" text="Milchkern" />
+        <text name="ft_ui_short_financial_cockpit" text="Finanzen" />
+        <text name="ft_ui_short_hotspot_manager" text="Orte" />
+        <text name="ft_ui_short_fleet_manager" text="Fuhrpark" />
+        <text name="ft_ui_short_irrigation_suite" text="Bewässerung" />
+        <text name="ft_ui_short_soil_fertilizer" text="Boden" />
+        <text name="ft_ui_short_field_sentry" text="Feldwächter" />
         <text name="ft_ui_app_field_jobs" text="Aufgaben" />
         <text name="ft_ui_app_animal_auto_care" text="Automatische Tierpflege" />
         <text name="ft_ui_app_animal_vet_system" text="Tierarzt" />
@@ -591,7 +597,7 @@
         <text name="ft_auto_building_list" text="Gebäude Liste" />
         <text name="ft_auto_building_relationships" text="Zusammenhänge zwischen Gebäuden" />
         <text name="ft_auto_buildings" text=" Gebäude" />
-        <text name="ft_auto_built_in" text="BUILT-IN" />
+        <text name="ft_auto_built_in" text="INTEGRIERT" />
         <text name="ft_auto_built_in_2" text="Integriert" />
         <text name="ft_auto_built_in_apps_show_built_in_as_their_version" text="Integrierte Apps werden in der Version 'Integriert' angezeigt.&#10;" />
         <text name="ft_auto_bullet_points_below_list_individual_changes" text="Die folgenden Stichpunkte zeigen die Veränderungen." />
@@ -818,7 +824,7 @@
         <text name="ft_auto_displays_the_status_of_fs25_taxmod" text="zeigt den aktuellen Status der FS25_TaxMod.&#10;" />
         <text name="ft_auto_dn_de_dm" text="%dN / %dE / %dM" />
         <text name="ft_auto_docs_releases" text="Dokumentation (Release):" />
-        <text name="ft_auto_done" text="DONE" />
+        <text name="ft_auto_done" text="FERTIG" />
         <text name="ft_auto_done_collect_reward" text="Erledigt - Belohnung einsammeln" />
         <text name="ft_auto_done_mark_a_task_as_completed" text="Erledigt - Markiere die Aufgabe als erledigt&#10;" />
         <text name="ft_auto_download_the_latest_version_from_the_mod_page_on" text="Lade die aktuellste Version der Mod von der Modding-Seite&#10;" />
@@ -844,7 +850,7 @@
         <text name="ft_auto_each_favor_shows_npc_name_description_completion" text="Jeder Gefallen zeigt den Namen des NPC, eine Beschreibung und den Fortschritt&#10;" />
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Jede Zeile zeigt die ID des Felds, die angebaute Kultur, die Feuchtigkeit in %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
-        <text name="ft_auto_edit" text="EDIT" />
+        <text name="ft_auto_edit" text="BEARBEITEN" />
         <text name="ft_auto_elapsed" text="  ·  Vergangen: " />
         <text name="ft_auto_empty" text="  (empty)" />
         <text name="ft_auto_empty_2" text="LEER" />
@@ -927,7 +933,7 @@
         <text name="ft_auto_farm_tablet_ui_refreshed" text="Farm Tablet: UI wurde neu geladen" />
         <text name="ft_auto_farm_totals" text="HOF-GESAMT" />
         <text name="ft_auto_farmarea" text="farmarea_" />
-        <text name="ft_auto_farming" text="FARMING" />
+        <text name="ft_auto_farming" text="LANDWIRTSCHAFT" />
         <text name="ft_auto_farmland_s" text="^Farmland:%s*" />
         <text name="ft_auto_farmtablet" text="FarmTablet" />
         <text name="ft_auto_farmtablet_2" text="[FarmTablet] " />
@@ -1010,7 +1016,7 @@
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
         <text name="ft_auto_fin" text="FIN" />
-        <text name="ft_auto_finance" text="FINANCE" />
+        <text name="ft_auto_finance" text="FINANZEN" />
         <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
         <text name="ft_auto_finances" text="FINANZEN" />
         <text name="ft_auto_finish_current_first" text="schließe den aktuellen zuerst ab" />
@@ -1243,7 +1249,7 @@
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Installiere die Mod und öffne deren Hilfe-Seite für&#10;" />
         <text name="ft_auto_installed" text=" installiert" />
         <text name="ft_auto_installments_d_d" text="Installationen: %d/%d" />
-        <text name="ft_auto_integrated" text="Integrated" />
+        <text name="ft_auto_integrated" text="Eingebunden" />
         <text name="ft_auto_integrates_with_fs25_seasonalcropstress_to_display" text="Bindet die Mod FS25_SeasonalCropStress ein, um anzuzeigen&#10;" />
         <text name="ft_auto_integrates_with_fs25_soilfertilizer_to_display" text="Bindet die Mod FS25_SoilFertilizer ein, um anzuzeigen&#10;" />
         <text name="ft_auto_integration" text="Integration" />
@@ -2301,6 +2307,20 @@
         <text name="ft_settings_title" text="Einstellungen" />
         <text name="ft_help_common_title" text="Hilfe" />
         <text name="ft_help_back" text="&lt; ZURÜCK" />
+        <text name="ft_appstore_installed_count" text="%d installiert" />
+        <text name="ft_appstore_install_to_enable" text="%s installieren, um es zu aktivieren" />
+        <text name="ft_auto_terrain_depth_readout_and_bucket_load_counter" text="Geländetiefe und Schaufelladungszähler" />
+        <text name="ft_auto_admin_controls_money_time_scale_skip_time_repair_fuel" text="Admin: Geld, Zeitskalierung, Zeit überspringen, Reparatur/Kraftstoff" />
+        <text name="ft_auto_overview_of_every_ecosystem_setting_registered_with_the" text="Übersicht aller im Settings Hub registrierten Einstellungen" />
+        <text name="ft_auto_whole_farm_financial_health_instruments_history_and_pro" text="Finanzlage des Hofs, Instrumente, Verlauf und Prognose" />
+        <text name="ft_auto_farm_wide_irrigation_operations_trend_and_usage" text="Bewässerung des ganzen Hofs: Betrieb, Trend und Verbrauch" />
+        <text name="ft_auto_farm_wide_crop_rotation_standing_and_next_crop_compare" text="Fruchtfolge des Hofs und Vergleich der nächsten Kultur" />
+        <text name="ft_auto_organic_certification_and_practice_advice" text="Bio-Zertifizierung und Praxistipps" />
+        <text name="ft_auto_workercosts_personnel_hire_fire_assign_payroll" text="WorkerCosts-Personal - einstellen, entlassen, zuweisen, Lohn" />
+        <text name="ft_auto_pro_staff_co_op_membership_level_and_investment" text="Mitgliedsstufe und Investition in der Pro-Staff Co-Op" />
+        <text name="ft_auto_co_op_progression_level_benefits_and_investment_status" text="Genossenschaftsfortschritt: Stufe, Vorteile und Investition" />
+        <text name="ft_auto_dairycore_per_barn_herd_health_quality_and_spoilage" text="DairyCore: Herdengesundheit, Qualität und Verderb je Stall" />
+        <text name="ft_auto_dairy" text="Milchvieh" />
         <text name="ft_scroll_label" text="Scrollen" />
         <text name="ft_help_settings_display_title" text="ANZEIGE - POSITION &amp; GRÖSSE" />
         <text name="ft_help_settings_display_body" text="Zeigt Position und Größe des Tablets. Im Bearbeitungsmodus kannst du es verschieben oder skalieren." />
@@ -2629,6 +2649,4 @@
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
     </texts>
 
-
-        <text name="ft_ui_app_organic" text="Organic" />
 </l10n>
