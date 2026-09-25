@@ -23,7 +23,10 @@
 //       KEYS or named in OTHER_PR, and translation_en.xml carries it;
 //   S2  every literal a SOURCES file hands straight to a drawing call (DRAWFN) or holds in a drawn
 //       table field resolves through the real FT.AUTO_L10N (Constants.lua run in fengari) to one of
-//       KEYS or OTHER_PR, unless NO_KEY names it with its reason; none holds an em dash.
+//       KEYS or OTHER_PR, unless NO_KEY names it with its reason; none holds an em dash;
+//   S3  no drawing call (and no FT_Renderer.truncate, whose result is drawn) gets text built from an
+//       English literal at run time: a string.format of a worded literal, or a concatenation holding
+//       one. FT.l10nAuto looks the whole text up, so such text reads English in every language.
 //
 // Usage:  node tools/test/l10n-field-status-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
@@ -182,6 +185,22 @@ for (const loc of locales) {
     const text = readFileSync(join(ROOT, src.file), "latin1");
     const ast = luaparse.parse(text, { luaVersion: "5.1", encodingMode: "pseudo-latin1", locations: true });
     const keyFn = new Set(src.keyFns);
+    const hasWord = (s) => /[A-Za-z]{2,}/.test(s);
+    const dyn = (a, line) => {
+      if (!a) return;
+      if (a.type === "CallExpression" && a.base.type === "MemberExpression" && a.base.base && a.base.base.name === "string" && a.base.identifier.name === "format") {
+        const f = fold(a.arguments[0]);
+        if (f !== null && hasWord(f)) failures.push(`S3 ${src.file}:${line}: string.format(${JSON.stringify(f)}, ...) is drawn: the formatted text never matches a map key, so it reads English in every language`);
+        return;
+      }
+      if (a.type === "BinaryExpression" && a.operator === ".." && fold(a) === null) {
+        const lits = [];
+        (function c(x) { if (!x) return; if (x.type === "StringLiteral") lits.push(dec(x.value)); else if (x.type === "BinaryExpression" && x.operator === "..") { c(x.left); c(x.right); } })(a);
+        for (const s of lits) if (hasWord(s)) failures.push(`S3 ${src.file}:${line}: a drawn concatenation holds the English literal ${JSON.stringify(s)}, which no map can hold`);
+        return;
+      }
+      if (a.type === "LogicalExpression") { dyn(a.left, line); dyn(a.right, line); }
+    };
     const lit = (line, v, helpLine) => {
       if (v === "" || /^ft_[a-z0-9_]+$/.test(v) || /^[\s\d%.:,+\-/()'x*#]*$/.test(v)) return;
       const id = `${src.file}|${v}`;
@@ -208,11 +227,17 @@ for (const loc of locales) {
             if (!EN.inside.has(k)) failures.push(`S1 ${src.file}:${n.loc.start.line}: ${k} is drawn, and translation_en.xml does not carry it`);
           }
         } else if (src.literals && DRAWFN.has(name)) {
-          for (const a of n.arguments) {
-            const v = fold(a); if (v !== null) lit(n.loc.start.line, v, false);
-            if (a && a.type === "LogicalExpression") for (const s of [a.left, a.right]) { const w = fold(s); if (w !== null) lit(n.loc.start.line, w, false); }
-          }
+          // A literal argument, or every literal inside an `a and "X" or "Y"` choice.
+          const pick = (a) => {
+            if (!a) return;
+            const v = fold(a);
+            if (v !== null) { lit(n.loc.start.line, v, false); return; }
+            if (a.type === "LogicalExpression") { pick(a.left); pick(a.right); }
+          };
+          for (const a of n.arguments) pick(a);
+          for (const a of n.arguments) dyn(a, n.loc.start.line);
         }
+        if (src.literals && name === "truncate") dyn(n.arguments[0], n.loc.start.line);
         if (src.literals && name === "drawHelpPage") { const v = fold(n.arguments[2]); if (v !== null) lit(n.loc.start.line, v, false); }
       }
       if (src.literals && n.type === "TableKeyString" && FIELDS.has(n.key.name)) { const v = fold(n.value); if (v !== null) lit(n.loc.start.line, v, false); }
