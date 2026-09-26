@@ -3079,6 +3079,8 @@
         <text name="ft_irr_mode_operations" text="Operations" />
         <text name="ft_irr_mode_forecast" text="Forecast" />
         <text name="ft_irr_mode_usage" text="Usage" />
+        <text name="ft_irr_private_unavailable" text="Unavailable: this farm's irrigation data cannot be read." />
+        <text name="ft_irr_fitted_path" text="rain-key path, apart from scheduled service" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Tutkimaton" />
         <text name="ft_irr_soil_line" text="tiivistyminen %s   multavuus %s   tauti %s" />
         <text name="ft_irr_no_risk_reads" text="Ei vielä peltojen riskilukemia." />
+        <text name="ft_irr_private_unavailable" text="Ei saatavilla: tämän tilan kastelutietoja ei voi lukea." />
+        <text name="ft_irr_fitted_path" text="sadeanturin reitti, erillään aikataulun mukaisesta käytöstä" />
     </texts>
 
 </l10n>

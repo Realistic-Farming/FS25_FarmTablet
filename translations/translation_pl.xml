@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Niezbadane" />
         <text name="ft_irr_soil_line" text="zagęszczenie %s   próchnica %s   choroby %s" />
         <text name="ft_irr_no_risk_reads" text="Brak jeszcze odczytów ryzyka pól." />
+        <text name="ft_irr_private_unavailable" text="Niedostępne: nie można odczytać danych nawadniania tego gospodarstwa." />
+        <text name="ft_irr_fitted_path" text="ścieżka czujnika deszczu, poza pracą według harmonogramu" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Non ispezionata" />
         <text name="ft_irr_soil_line" text="compattazione %s   SO %s   malattia %s" />
         <text name="ft_irr_no_risk_reads" text="Ancora nessuna lettura di rischio dei campi." />
+        <text name="ft_irr_private_unavailable" text="Non disponibile: i dati di irrigazione di questa fattoria non sono leggibili." />
+        <text name="ft_irr_fitted_path" text="percorso del sensore di pioggia, separato dal servizio programmato" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Uundersøgt" />
         <text name="ft_irr_soil_line" text="pakning %s   OS %s   sygdom %s" />
         <text name="ft_irr_no_risk_reads" text="Endnu ingen risikoaflæsninger for marker." />
+        <text name="ft_irr_private_unavailable" text="Utilgængelig: gårdens vandingsdata kan ikke læses." />
+        <text name="ft_irr_fitted_path" text="regnsensorens vej, adskilt fra planlagt drift" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="미조사" />
         <text name="ft_irr_soil_line" text="다짐 %s   유기물 %s   병해 %s" />
         <text name="ft_irr_no_risk_reads" text="아직 필드 위험 측정값이 없습니다." />
+        <text name="ft_irr_private_unavailable" text="사용할 수 없음: 이 농장의 관개 데이터를 읽을 수 없습니다." />
+        <text name="ft_irr_fitted_path" text="강우 센서 경로, 일정 운영과 별개" />
     </texts>
 
 </l10n>

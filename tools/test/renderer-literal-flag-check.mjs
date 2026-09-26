@@ -685,7 +685,10 @@ lua(`g_currentMission.placeableSystem = E_RS.placeables; g_farmlandManager = E_R
 // the flag.
 lua(`
   HARNESS.setup = nil
-  E_IRR = { farmland = g_farmlandManager }
+  E_IRR = { farmland = g_farmlandManager, fieldManager = g_fieldManager }
+  -- IrrigationSuiteApp caches its farmland-to-field index on first use (_farmlandFieldMap), so the field manager is in
+  -- place before the suite's first draw in this bar; the SCS-023 rebind case below outlines fields 4 and 9 through it.
+  g_fieldManager = { fields = { { farmland = { id = 4 } }, { farmland = { id = 7 } }, { farmland = { id = 9 } } } }
   g_farmlandManager = { farmlands = {
     { id = 4, farmId = 1, field = { getAreaHa = function() return 2.0 end } },
     { id = 7, farmId = 1, field = { getAreaHa = function() return 3.0 end } } } }
@@ -776,6 +779,185 @@ for (const loc of ["de", "fr", "pl"]) {
   expectLit(`${loc} Irrigation lock line, level 18`, r, file(loc, "ft_irr_advisory_locked_l18"));
 }
 lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager = nil; g_farmlandManager = E_IRR.farmland`);
+
+// SCS-023 v2.2 §2a, the Irrigation Suite reader rebind: the entry-point case. Seasonal Crop Stress's own read code runs
+// here (tools/test/fixtures/scs-irrigation-3d80544.lua: the row builder, the farm filter, the source rows, the client
+// mirror and both CropStressManager getters, verbatim at 3d80544) over a two-farm world held in IrrigationManager's own
+// tables. Farm 1 owns five systems and three sources: a finite source with water shared by two systems, a finite source
+// at zero, an Unlimited source, a system with no source, and a fitted rain-key pivot (collecting) whose source is dry. Farm 2 owns
+// one system and one source. The drawer is entered through the registry and walked through its real mode buttons,
+// each view drawn fresh: on the host, farm 2's rows never draw and every source state reads as SCS sets it; on a pure
+// client the private modes read Unavailable until SCS's own applyFarmPrivateSnapshot makes the farm current; no strict
+// farm, a missing getter and a failed call read Unavailable too.
+{
+  const fixture = readFileSync(join(ROOT, "tools", "test", "fixtures", "scs-irrigation-3d80544.lua"), "utf8");
+  // The fixture is SCS's code, byte for byte: when the SCS clone is beside this repo (or SCS_CLONE names it), each
+  // block is re-read from its range at 3d80544.
+  let verbatim = "skipped (no SCS clone beside this repo; set SCS_CLONE to check)";
+  const cloneCandidates = [process.env.SCS_CLONE, join(ROOT, "..", "FS25_SeasonalCropStress")].filter(Boolean);
+  for (const clone of cloneCandidates) {
+    let isDir = false;
+    try { isDir = statSync(join(clone, ".git")).isFile() || statSync(join(clone, ".git")).isDirectory(); } catch { isDir = false; }
+    if (!isDir) continue;
+    const { execFileSync } = req("node:child_process");
+    const files = {};
+    let checked = 0;
+    for (const part of fixture.replace(/\r\n/g, "\n").split("\n-- @@ ").slice(1)) {
+      const nl = part.indexOf("\n");
+      const head = part.slice(0, nl).match(/^(\S+):(\d+)-(\d+)$/);
+      if (!head) { failures.push(`E rebind fixture: a block marker reads ${JSON.stringify(part.slice(0, nl))}`); continue; }
+      const [, path, a, b] = head;
+      const text = part.slice(nl + 1).replace(/\n+$/, "");
+      if (!files[path]) files[path] = execFileSync("git", ["-C", clone, "show", `3d80544:${path}`], { encoding: "utf8" }).replace(/\r\n/g, "\n").split("\n");
+      const want = files[path].slice(Number(a) - 1, Number(b)).join("\n");
+      checked++;
+      if (want !== text) failures.push(`E rebind fixture: ${path}:${a}-${b} differs from Seasonal Crop Stress at 3d80544`);
+    }
+    if (checked < 10) failures.push(`E rebind fixture: only ${checked} blocks read`);
+    verbatim = `${checked} blocks verbatim at 3d80544 (${clone})`;
+    break;
+  }
+  console.log(`  rebind fixture: ${verbatim}`);
+  lua(fixture);
+  lua(`
+    E_RB = { player = g_localPlayer, server = g_server, farmland = g_farmlandManager, polys = {} }
+    g_farmlandManager = { farmlands = {
+      { id = 4, farmId = 1, field = { getAreaHa = function() return 2.0 end } },
+      { id = 9, farmId = 2, field = { getAreaHa = function() return 2.0 end } } } }
+    local DAYS = { true, true, true, true, true, false, false }
+    local function sys(id, farm, t) t.id = id; t.ownerFarmId = farm; t.coveredFields = t.coveredFields or {}; t.flowRatePerHour = t.flowRatePerHour or 8
+      t.operationalCostPerHour = t.operationalCostPerHour or 20; t.rainKeyInputState = t.rainKeyInputState or "OK"; return t end
+    function E_RB.world()
+      local IM = setmetatable({ systems = {}, waterSources = {}, _clientFarmCurrent = {}, _clientFarmSystems = {},
+        _clientFarmSources = {}, costsEnabled = true }, { __index = IrrigationManager })
+      IM.systems[1] = sys(1, 1, { type = "CenterPivot", isActive = true, waterSourceId = 10, coveredFields = { 4 },
+        schedule = { startHour = 6, endHour = 18, activeDays = DAYS } })
+      IM.systems[2] = sys(2, 1, { type = "Sprinkler", isActive = false, waterSourceId = 11 })
+      IM.systems[3] = sys(3, 1, { type = "DripLine", isActive = false })
+      -- A fitted pivot on the dry source, collecting and not tripped: nothing else fills its detail line, so a source
+      -- stop drawn for it would show.
+      IM.systems[4] = sys(4, 1, { type = "RainKeyPivot", isActive = true, waterSourceId = 11, rainKeyFitted = true,
+        rainKeyTripped = false, rainKeyTripMm = 5, rainKeyAccumulatedMm = 1.2 })
+      IM.systems[6] = sys(6, 1, { type = "LinearMove", isActive = true, waterSourceId = 10 })
+      IM.systems[5] = sys(5, 2, { type = "FarmTwoPivot", isActive = true, waterSourceId = 20, coveredFields = { 9 },
+        schedule = { startHour = 20, endHour = 23, activeDays = DAYS } })
+      IM.waterSources[10] = { farmId = 1, capacity = 100, finite = true, waterRemaining = 40, hasWater = true }
+      IM.waterSources[11] = { farmId = 1, capacity = 50, finite = true, waterRemaining = 0, hasWater = false }
+      IM.waterSources[12] = { farmId = 1, capacity = 0, finite = false, hasWater = true }
+      IM.waterSources[20] = { farmId = 2, capacity = 80, finite = true, waterRemaining = 70, hasWater = true }
+      local CSM = setmetatable({ irrigationManager = IM,
+        getMoisture = function() return 0.5 end, getStress = function() return 0.2 end,
+        getIrrigationRate = function() return 0 end, isFieldIrrigated = function() return false end,
+        -- A square per field, and a record of each field the coverage outline asks for (Bob's MAJOR on #207).
+        getFieldPolygonWorld = function(self, field)
+          local id = field and field.farmland and field.farmland.id
+          E_RB.polys[#E_RB.polys + 1] = id
+          local cx = (id or 0) * 10
+          return { cx, cx + 8, cx + 8, cx }, { 0, 0, 8, 8 }, 4
+        end,
+        getCriticalAlertHint = function() return nil end,
+        getTemperature = function() return 18 end, getEvaporativeDemand = function() return 1.0 end,
+        getIrrigationCostsEnabled = function() return true end, getIrrigationSchedule = function() return nil end },
+        { __index = CropStressManager })
+      g_currentMission.cropStressManager = CSM
+      E_RB.IM, E_RB.CSM = IM, CSM
+    end
+    E_RB.world()
+    g_server = {}
+  `);
+  const drawAll = (loc) => {
+    const f = (k) => file(loc, k);
+    const ops = t.flow("irrigation_suite", [f("ft_irr_mode_operations")]);
+    const vOps = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+    const usage = t.flow("irrigation_suite", [f("ft_irr_mode_usage")]);
+    const vUse = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+    const fc = t.flow("irrigation_suite", [f("ft_irr_mode_forecast")]);
+    return { ops, usage, fc, v: [...vOps, ...vUse, ...t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`])] };
+  };
+  const hasFarm2 = (r) => r.texts.some((s) => s.includes("FarmTwoPivot") || s.includes("#20"));
+  for (const loc of ["de", "pl"]) {
+    t.setLocale(loc);
+    const f = (k) => file(loc, k);
+    // The host: current at once. Farm 1's rows only, each source state as SCS sets it.
+    lua(`E_RB.world(); g_server = {}`);
+    let d = drawAll(loc);
+    eChecks++;
+    if (d.v.length) failures.push(`E ${loc} rebind host: ${d.v.length} violation(s), first ${d.v[0][0]} ${d.v[0][1]}`);
+    for (const [what, r] of [["Operations", d.ops], ["Usage", d.usage], ["Forecast", d.fc]]) {
+      eChecks++;
+      if (hasFarm2(r)) failures.push(`E ${loc} rebind host ${what}: farm 2's system or source is drawn on farm 1's tablet`);
+    }
+    expectIn(`${loc} rebind host Operations farm 1's pivot`, d.ops.texts, "#1  CenterPivot");
+    eChecks++;
+    if (d.ops.texts.includes(f("ft_irr_no_coverage"))) failures.push(`E ${loc} rebind host: the coverage outline draws no polygon, so it cannot show a leak`);
+    expectIn(`${loc} rebind host Usage farm 1's pivot`, d.usage.texts, "#1  CenterPivot");
+    expectLit(`${loc} rebind finite source with water`, d.ops, fmt(f("ft_water_hours"), "40.0", "100.0"));
+    expectLit(`${loc} rebind finite source at zero reads Dry`, d.ops, f("ft_water_dry"));
+    expectLit(`${loc} rebind Unlimited source`, d.ops, f("ft_water_unlimited"));
+    eChecks++;
+    if (d.ops.texts.some((s) => /\/ 0\.0 /.test(s) || s.includes("0.0 / 0.0"))) failures.push(`E ${loc} rebind Unlimited source shows a capacity`);
+    expectLit(`${loc} rebind shared source counts both systems`, d.ops, fmt(f("ft_water_connected"), 2));
+    expectLit(`${loc} rebind dry-source stop reason (ordinary service)`, d.ops, `${f("ft_rainKey_unfitted")}  ·  ${f("ft_water_stop_dry")}`);
+    expectLit(`${loc} rebind no-source stop reason`, d.ops, `${f("ft_rainKey_unfitted")}  ·  ${f("ft_water_stop_nosource")}`);
+    expectLit(`${loc} rebind fitted pivot on its rain-key path`, d.ops, f("ft_irr_fitted_path"));
+    eChecks++;
+    const dryLines = d.ops.texts.filter((s) => s.includes(f("ft_water_stop_dry"))).length;
+    if (dryLines !== 1) failures.push(`E ${loc} rebind: ${dryLines} lines say the source is dry; only the ordinary sprinkler should (the fitted pivot on the same dry source is on its rain-key path)`);
+    // A pure client: Unavailable in every private mode until SCS's own apply makes the farm current.
+    lua(`E_RB.world(); g_server = nil`);
+    d = drawAll(loc);
+    for (const [what, r] of [["Operations", d.ops], ["Usage", d.usage]]) {
+      expectLit(`${loc} rebind pure client ${what} reads Unavailable`, r, f("ft_irr_private_unavailable"));
+      eChecks++;
+      if (r.texts.includes("#1  CenterPivot") || r.texts.includes(f("ft_irr_no_systems")) || r.texts.includes(f("ft_water_none")))
+        failures.push(`E ${loc} rebind pure client ${what}: a private row or an empty farm is drawn before the snapshot is current`);
+    }
+    lua(`E_RB.IM:applyFarmPrivateSnapshot(1, E_RB.IM:getIrrigationSystemsRows(1), E_RB.IM:getIrrigationWaterSources(1))`);
+    d = drawAll(loc);
+    expectIn(`${loc} rebind pure client after the snapshot: farm 1's pivot`, d.ops.texts, "#1  CenterPivot");
+    eChecks++;
+    if (hasFarm2(d.ops) || hasFarm2(d.usage)) failures.push(`E ${loc} rebind pure client after the snapshot: farm 2 is drawn`);
+    // No strict farm (no local player yet), a missing getter, a failed call: Unavailable.
+    lua(`E_RB.world(); g_server = {}; g_localPlayer = nil`);
+    d = drawAll(loc);
+    expectLit(`${loc} rebind no strict farm reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
+    eChecks++;
+    if (d.ops.texts.some((s) => s.startsWith(fmt(f("ft_irr_field_tag"), "4", "").trimEnd())) || d.fc.texts.includes(fmt(f("ft_irr_field"), "4")))
+      failures.push(`E ${loc} rebind no strict farm: farm 1's field is listed by the fallback farm id`);
+    lua(`g_localPlayer = E_RB.player; E_RB.world(); E_RB.CSM.getIrrigationWaterSources = false`);
+    d = drawAll(loc);
+    expectLit(`${loc} rebind missing source getter reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
+    lua(`E_RB.world(); E_RB.CSM.getIrrigationSystems = function() error("host failure") end`);
+    d = drawAll(loc);
+    expectLit(`${loc} rebind failed call reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
+  }
+  lua(`
+    local seen = {}
+    for _, id in ipairs(E_RB.polys) do seen[id] = true end
+    if not seen[4] then error("E rebind coverage: farm 1's covered field 4 was never outlined, so the check cannot see a leak") end
+    if seen[9] then error("E rebind coverage: farm 2's covered field 9 was outlined on farm 1's tablet") end
+  `);
+  eChecks += 2;
+  lua(`g_localPlayer = E_RB.player; g_server = E_RB.server; g_farmlandManager = E_RB.farmland; g_currentMission.cropStressManager = nil
+    g_fieldManager = E_IRR.fieldManager`);
+  // Static: the reader never reads the legacy aliases or the public no-argument list (the real host publishes both,
+  // so a world-driven row cannot fail on them).
+  const app = readFileSync(join(ROOT, "src", "apps", "IrrigationSuiteApp.lua"), "utf8").replace(/--[^\n]*/g, "");
+  for (const [re, what] of [[/\.unlimited\b/, ".unlimited"], [/\.capacity\b/, ".capacity"], [/\.connectedSystems\b/, ".connectedSystems"],
+    [/:getPlayerFarmId\(\)/, "the non-strict getPlayerFarmId()"]]) {
+    eChecks++;
+    if (re.test(app)) failures.push(`E rebind static: IrrigationSuiteApp.lua reads ${what}`);
+  }
+  // Every call to the two private getters passes the strict farm id (Bob's MAJOR: a call handed anything else, the
+  // no-argument list included, would feed another farm's rows to a mode).
+  const calls = [...app.matchAll(/getIrrigation(Systems|WaterSources)\s*\(([^)]*)\)/g)];
+  eChecks++;
+  if (calls.length < 2) failures.push(`E rebind static: ${calls.length} private getter calls found, want both`);
+  for (const m of calls) {
+    eChecks++;
+    if (m[2].trim() !== "farmId") failures.push(`E rebind static: IrrigationSuiteApp.lua calls getIrrigation${m[1]}(${m[2]}), not with the strict farm id`);
+  }
+}
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
 if (failures.length) {

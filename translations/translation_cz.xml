@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Neprozkoumáno" />
         <text name="ft_irr_soil_line" text="zhutnění %s   humus %s   choroby %s" />
         <text name="ft_irr_no_risk_reads" text="Zatím žádné údaje o rizicích polí." />
+        <text name="ft_irr_private_unavailable" text="Nedostupné: data závlahy této farmy nelze přečíst." />
+        <text name="ft_irr_fitted_path" text="cesta čidla deště, mimo plánovaný provoz" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Non inspectée" />
         <text name="ft_irr_soil_line" text="compaction %s   MO %s   maladie %s" />
         <text name="ft_irr_no_risk_reads" text="Aucun relevé de risque de parcelle pour l'instant." />
+        <text name="ft_irr_private_unavailable" text="Indisponible : les données d'irrigation de cette ferme ne sont pas lisibles." />
+        <text name="ft_irr_fitted_path" text="circuit du capteur de pluie, hors service programmé" />
     </texts>
 
 </l10n>

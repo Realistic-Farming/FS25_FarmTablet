@@ -90,6 +90,7 @@ const KEYS = [
   "ft_irr_advisory_locked_l18", "ft_irr_advisory_schedule_covers", "ft_irr_advisory_schedule_gap",
   "ft_irr_covered_gap", "ft_irr_usage_header", "ft_irr_costs_off", "ft_irr_no_systems_price", "ft_irr_usage_line",
   "ft_irr_soil_risk_header", "ft_irr_soil_na", "ft_irr_unscouted", "ft_irr_soil_line", "ft_irr_no_risk_reads",
+  "ft_irr_private_unavailable", "ft_irr_fitted_path",
 ];
 
 // Keys whose text is the same in every language, with the reason.

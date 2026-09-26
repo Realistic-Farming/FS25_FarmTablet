@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Não vistoriada" />
         <text name="ft_irr_soil_line" text="compactação %s   MO %s   doença %s" />
         <text name="ft_irr_no_risk_reads" text="Ainda sem leituras de risco dos campos." />
+        <text name="ft_irr_private_unavailable" text="Indisponível: os dados de irrigação desta fazenda não podem ser lidos." />
+        <text name="ft_irr_fitted_path" text="via do sensor de chuva, separada do serviço programado" />
     </texts>
 
 </l10n>

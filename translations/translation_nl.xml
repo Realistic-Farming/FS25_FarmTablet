@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Niet verkend" />
         <text name="ft_irr_soil_line" text="verdichting %s   OS %s   ziekte %s" />
         <text name="ft_irr_no_risk_reads" text="Nog geen risicometingen voor velden." />
+        <text name="ft_irr_private_unavailable" text="Niet beschikbaar: de beregeningsgegevens van deze boerderij zijn niet leesbaar." />
+        <text name="ft_irr_fitted_path" text="regensensorroute, los van geplande beregening" />
     </texts>
 
 </l10n>

@@ -3092,6 +3092,8 @@
         <text name="ft_irr_unscouted" text="Nicht erkundet" />
         <text name="ft_irr_soil_line" text="Verdichtung %s   OS %s   Krankheit %s" />
         <text name="ft_irr_no_risk_reads" text="Noch keine Feldrisikowerte." />
+        <text name="ft_irr_private_unavailable" text="Nicht verfügbar: Die Bewässerungsdaten dieses Hofs sind nicht lesbar." />
+        <text name="ft_irr_fitted_path" text="Regensensor-Pfad, getrennt vom geplanten Betrieb" />
     </texts>
 
 </l10n>
