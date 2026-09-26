@@ -33,36 +33,36 @@
         <text name="ft_ui_app_organic" text="Bio" />
         <text name="ft_ui_app_irrigation_suite" text="Bewässerung" />
         <text name="ft_ui_app_financial_cockpit" text="Finanzen" />
-        <text name="ft_fc_health" text="Bilanz" />
+        <text name="ft_fc_health" text="BILANZ" />
         <text name="ft_fc_band_green" text="Ausgewogen" />
         <text name="ft_fc_band_amber" text="Besorgniserregend" />
         <text name="ft_fc_band_red" text="Handlungsbedarf" />
         <text name="ft_fc_band_partial" text="Schätzung" />
         <text name="ft_fc_band_neutral" text="Neutral" />
-        <text name="ft_fc_partial" text="Teilweise" />
+        <text name="ft_fc_partial" text="TEILWEISE" />
         <text name="ft_fc_not_tracked" text="Noch nicht erfasst" />
-        <text name="ft_fc_syncing" text="Synchronisiert" />
-        <text name="ft_fc_unavailable" text="Nicht Verfügbar" />
-        <text name="ft_fc_open" text="Öffnen" />
+        <text name="ft_fc_syncing" text="Wird synchronisiert" />
+        <text name="ft_fc_unavailable" text="Nicht verfügbar" />
+        <text name="ft_fc_open" text="ÖFFNEN" />
         <text name="ft_fc_months" text="Monate" />
         <text name="ft_fc_month" text="Monat" />
         <text name="ft_fc_year" text="Jahr" />
         <text name="ft_fc_balance" text="Kontostand" />
-        <text name="ft_fc_loan" text="Kredit" />
+        <text name="ft_fc_loan" text="Bankkredit" />
         <text name="ft_fc_net_worth" text="Nettovermögen" />
         <text name="ft_fc_clock" text="Uhr" />
         <text name="ft_fc_period" text="Zeitraum" />
         <text name="ft_fc_days_per_period" text="Tage pro ausgewähltem Zeitraum" />
-        <text name="ft_fc_section_instruments" text="Werkzeuge" />
-        <text name="ft_fc_section_rhythm" text="Rhytmus" />
-        <text name="ft_fc_section_forecast" text="Finanz-Prognose" />
-        <text name="ft_fc_section_history" text="Rückblick" />
-        <text name="ft_fc_section_flows" text="Finanzströme" />
-        <text name="ft_fc_section_vitals" text="Werte" />
+        <text name="ft_fc_section_instruments" text="WERKZEUGE" />
+        <text name="ft_fc_section_rhythm" text="RHYTHMUS" />
+        <text name="ft_fc_section_forecast" text="FINANZ-PROGNOSE" />
+        <text name="ft_fc_section_history" text="RÜCKBLICK" />
+        <text name="ft_fc_section_flows" text="FINANZSTRÖME" />
+        <text name="ft_fc_section_vitals" text="WERTE" />
         <text name="ft_fc_forecast_label" text="Prognose" />
         <text name="ft_fc_forecast_month_end" text="Monatsaussicht" />
         <text name="ft_fc_forecast_remaining" text="Verbleibender Zeitraum" />
-        <text name="ft_fc_forecast_next_pay" text="Vorraussichtliche Zahlung" />
+        <text name="ft_fc_forecast_next_pay" text="Voraussichtliche Zahlung" />
         <text name="ft_fc_forecast_tax" text="Aufgelaufene Jahressteuer" />
         <text name="ft_fc_forecast_wages" text="Lohnzahlungen" />
         <text name="ft_fc_forecast_fuel" text="Verbrauchter Kraftstoff" />
@@ -75,12 +75,12 @@
         <text name="ft_fc_history_no_ledger" text="Kein StateLedger (nur aktuelle Werte)" />
         <text name="ft_fc_history_wait_detail" text="Für jeden abgeschlossenen Ingame-Monat werden Informationen zusammengefasst." />
         <text name="ft_fc_no_history_yet" text="Kein Rückblick verfügbar." />
-        <text name="ft_fc_recent_months" text="Vergangene Monate" />
-        <text name="ft_fc_yearly_rollup" text="Jahresübersicht" />
+        <text name="ft_fc_recent_months" text="VERGANGENE MONATE" />
+        <text name="ft_fc_yearly_rollup" text="JAHRESÜBERSICHT" />
         <text name="ft_fc_vital_cash" text="Kontostand" />
         <text name="ft_fc_vital_cash_detail" text="Aktueller Kontostand deines Hofs." />
         <text name="ft_fc_vital_leverage" text="Kredit" />
-        <text name="ft_fc_vital_leverage_detail" text="Anteil des Kredit am Kontostand inklusive des Kredit." />
+        <text name="ft_fc_vital_leverage_detail" text="Anteil des Kredits am Kontostand inklusive des Kredits." />
         <text name="ft_fc_vital_runway" text="Rücklagen" />
         <text name="ft_fc_vital_runway_partial" text="Ein vollständiger Kostenüberblick ist notwendig, bevor eine genaue Höhe der finanziellen Rücklagen berechnet werden kann." />
         <text name="ft_fc_vital_runway_detail" text="Kontostand geteilt durch laufende Betriebsausgaben." />
@@ -88,7 +88,7 @@
         <text name="ft_fc_vital_direction_wait" text="Es werden mindestens 2 Monate für eine sichere Aussage benötigt." />
         <text name="ft_fc_vital_direction_detail" text="Veränderung des Vermögens über die vergangenen 2 Monate." />
         <text name="ft_fc_vital_margin" text="Gewinnspanne" />
-        <text name="ft_fc_vital_margin_wait" text="Benötigt eine Monatsaufzeichnungen mit allen Finanzwerten." />
+        <text name="ft_fc_vital_margin_wait" text="Benötigt eine Monatsaufzeichnung mit allen Finanzwerten." />
         <text name="ft_fc_vital_margin_partial" text="Es gibt Lücken in den Aufzeichnungen, die Gewinnspanne ist nur eine Schätzung." />
         <text name="ft_fc_vital_trajectory" text="Vermögensentwicklung" />
         <text name="ft_fc_vital_trajectory_wait" text="Benötigt mindestens 2 Monatsaufzeichnungen." />
@@ -99,27 +99,27 @@
         <text name="ft_fc_pocket_forecast" text="Prognose" />
         <text name="ft_fc_pocket_flows" text="Finanzströme" />
         <text name="ft_fc_flow_income" text="Einkommen" />
-        <text name="ft_fc_flow_income_mode" text="Modus des Einkommen" />
+        <text name="ft_fc_flow_income_mode" text="Einkommensmodus" />
         <text name="ft_fc_flow_tax" text="Gezahlte Steuern (gesamt)" />
         <text name="ft_fc_flow_wages" text="Monatliche Lohnkosten" />
         <text name="ft_fc_flow_fuel" text="Verbrauchter Kraftstoff" />
         <text name="ft_fc_flow_dairy_income" text="Einnahmen aus Lieferverträgen (Milch)" />
-        <text name="ft_fc_flow_rwe" text="Globale Einnahmen" />
+        <text name="ft_fc_flow_rwe" text="Geld aus Weltereignissen" />
         <text name="ft_fc_signal_coop" text="Kooperationsstufe" />
-        <text name="ft_fc_signal_coop_note" text="Basisstufe. Die Nutzung der gemessenen Einsparungen ist ein Exklusiv-Vorteil von ProStaff-Mitgliedern." />
+        <text name="ft_fc_signal_coop_note" text="Nur die Stufe. Bezifferte Einsparungen folgen, sobald ProStaff seine Vorteilswerte bereitstellt." />
         <text name="ft_fc_signal_dairy" text="Milchviehanlagen" />
         <text name="ft_fc_signal_market" text="Handelsereignisse" />
         <text name="ft_fc_signal_rwe" text="Globale Ereignisse" />
-        <text name="ft_fc_dollar_flows" text="Kaptialstrom" />
-        <text name="ft_fc_signals" text="Signale" />
+        <text name="ft_fc_dollar_flows" text="KAPITALSTROM" />
+        <text name="ft_fc_signals" text="SIGNALE" />
         <text name="ft_fc_honesty" text="Ehrlichkeit" />
-        <text name="ft_fc_help_health_title" text="Bilanz" />
-        <text name="ft_fc_help_health_body" text="Herzfarbe des schlechtesten Wert im Datensatz.&#10;Grün, Gelb, Rot. Neutrale und unvollständige Werte werden nicht positiv berücksichtigt.&#10;Drücke auf ein Herz um den Wert zu sehen, der die Farbe hervorgerufen hat." />
-        <text name="ft_fc_help_history_title" text="Rückblick" />
-        <text name="ft_fc_help_history_body" text="Diese Seite zeichnet eine kompakte Monatsübersicht auf.&#10;Nur Host- und Einzelspieler in v1. Lücken verbleiben als solche." />
-        <text name="ft_fc_help_forecast_title" text="Prognose" />
-        <text name="ft_fc_help_forecast_body" text="Erstellt eine Vorhersage über die Entwicklung der Finanzen. Unvollständig, wenn Werte fehlen.&#10;Fehlende Werte und Daten werden als 'nicht erfasst' gekennzeichnet." />
-        <text name="ft_fc_help_readonly_title" text="Keine Veränderungen" />
+        <text name="ft_fc_help_health_title" text="BILANZ" />
+        <text name="ft_fc_help_health_body" text="Herzfarbe des schlechtesten Werts im Datensatz.&#10;Grün, Gelb, Rot. Neutrale und unvollständige Werte werden nicht positiv berücksichtigt.&#10;Drücke auf ein Herz, um den Wert zu sehen, der die Farbe hervorgerufen hat." />
+        <text name="ft_fc_help_history_title" text="RÜCKBLICK" />
+        <text name="ft_fc_help_history_body" text="Diese Seite zeichnet eine kompakte Monatsübersicht auf.&#10;Benötigt Time Guard als Monatsuhr. Nur Host- und&#10;Einzelspieler in v1. Lücken verbleiben als solche." />
+        <text name="ft_fc_help_forecast_title" text="PROGNOSE" />
+        <text name="ft_fc_help_forecast_body" text="Erstellt eine Vorhersage über die Entwicklung der Finanzen. Teilweise, wenn Werte fehlen.&#10;Fehlende Werte und Daten werden als 'noch nicht erfasst' gekennzeichnet." />
+        <text name="ft_fc_help_readonly_title" text="KEINE VERÄNDERUNGEN" />
         <text name="ft_fc_help_readonly_body" text="Die Finanzen-App verschiebt kein Geld und beeinflusst niemals&#10;Einkommen, Steuern, Gehälter oder andere Apps." />
         <text name="ft_ui_app_animals" text="Tiere" />
         <text name="ft_ui_app_dairy" text="Milchvieh" />
@@ -3025,6 +3025,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 Tier - ca. %d min" />
         <text name="ft_fws_state_open" text="Geöffnet" />
         <text name="ft_rd_no_finance" text="RealisticDealer-Finanzdaten sind nicht verfügbar." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Notkredit-Schulden unbekannt, daher noch kein Gesamt-Kreditanteil." />
+        <text name="ft_fc_debt_native" text="Bankkredit" />
+        <text name="ft_fc_debt_emergency" text="Notkredit" />
+        <text name="ft_fc_debt_total" text="Gesamtschulden" />
+        <text name="ft_fc_emergency_loan" text="Notkredit" />
+        <text name="ft_fc_total_debt" text="Gesamtschulden" />
+        <text name="ft_fc_open_loan" text="KREDIT VERWALTEN" />
     </texts>
 
 </l10n>

@@ -51,6 +51,18 @@ local function _T(key, fallback)
     return FT.l10n(key, fallback)
 end
 
+-- IncomeMod's pay mode name is English ("Hourly" / "Daily", Settings:getPayModeName); the tablet's words for them are
+-- the Income app's keys. Any other name is IncomeMod's own text and keeps the renderer's pass.
+local PAY_MODE_WORD = {
+    Hourly = function() return _T("ft_companion_hourly", "Hourly") end,
+    Daily  = function() return _T("ft_companion_daily", "Daily") end,
+}
+local function _payModeText(mode)
+    local w = PAY_MODE_WORD[tostring(mode)]
+    if w then return w(), true end
+    return tostring(mode), false
+end
+
 local function _pcall(fn, ...)
     local ok, a, b, c, d = pcall(fn, ...)
     if not ok then return nil end
@@ -773,7 +785,9 @@ local function _buildForecast(snap)
         lines[#lines + 1] = {
             label = _T("ft_fc_forecast_next_pay", "Next income pulse"),
             value = _money(snap.data, snap.income.amount),
-            note = snap.income.nextInfo or snap.income.mode,
+            -- IncomeMod's next-payment sentence is its own (English) text, drawn as IncomeMod gives it: the
+            -- renderer's second pass split its time ("Hour 07:00" drew as "Hour 07: 00").
+            note = snap.income.nextInfo or (snap.income.mode ~= nil and _payModeText(snap.income.mode)) or nil,
         }
     else
         lines[#lines + 1] = {
@@ -943,8 +957,9 @@ local function _drawHeart(self, x, y, w, snap, AC)
         end
     end
     if worstLabel ~= "" then
+        -- The vital's label is already the file's text (_T): drawn as it is (RSF-F166's flag).
         self.r:appText(x + w - FT.px(10), y - FT.py(18), FT.FONT.TINY,
-            FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     end
 
     _pocketBtn(self, x, y - h, w, h, "", {0, 0, 0, 0}, function()
@@ -1125,10 +1140,11 @@ local function _drawVitalPocket(self, snap, AC)
     for _, v in ipairs(snap.vitals) do
         local focus = (_vitalFocus ~= nil and v.id == _vitalFocus)
         local label = focus and ("> " .. v.label) or v.label
-        y = self:drawRow(y, label, v.valueText, nil, _bandColor(v.band))
+        -- A vital's label, value and detail are already the file's text (_T) or a figure: drawn as they are.
+        y = self:drawRow(y, label, v.valueText, nil, _bandColor(v.band), true, true)
         if focus or v.band == snap.heartBand then
             self.r:appText(x + FT.px(8), y + FT.py(2), FT.FONT.TINY,
-                v.detail or "", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                v.detail or "", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(14)
         end
     end
@@ -1219,10 +1235,11 @@ local function _drawForecastPocket(self, snap, AC)
             _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING, true, true)
     end
     for _, line in ipairs(fc.lines) do
-        y = self:drawRow(y, line.label, line.value, nil, FT.C.TEXT_NORMAL)
+        -- The forecast lines are the file's text (_T), money, or IncomeMod's own note: drawn as they are.
+        y = self:drawRow(y, line.label, line.value, nil, FT.C.TEXT_NORMAL, true, true)
         if line.note then
             self.r:appText(x + FT.px(8), y + FT.py(2), FT.FONT.TINY,
-                tostring(line.note), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                tostring(line.note), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(12)
         end
     end
@@ -1253,8 +1270,9 @@ local function _drawFlowsPocket(self, snap, AC)
         y = self:drawRow(y, _T("ft_fc_flow_income", "Income"),
             _money(snap.data, snap.income.amount or 0), nil, FT.C.POSITIVE, true, true)
         if snap.income.mode then
+            local modeText, tabletWord = _payModeText(snap.income.mode)
             y = self:drawRow(y, _T("ft_fc_flow_income_mode", "Pay mode"),
-                tostring(snap.income.mode), nil, FT.C.TEXT_DIM, true)
+                modeText, nil, FT.C.TEXT_DIM, true, tabletWord)
         end
     else
         y = self:drawRow(y, _T("ft_fc_flow_income", "Income"),

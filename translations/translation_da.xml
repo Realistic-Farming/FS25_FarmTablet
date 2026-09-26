@@ -33,94 +33,94 @@
         <text name="ft_ui_app_organic" text="Økologi" />
         <text name="ft_ui_app_irrigation_suite" text="Vandingscentral" />
         <text name="ft_ui_app_financial_cockpit" text="Økonomicockpit" />
-        <text name="ft_fc_health" text="FARM HEALTH" />
-        <text name="ft_fc_band_green" text="Healthy" />
-        <text name="ft_fc_band_amber" text="Watch" />
-        <text name="ft_fc_band_red" text="Critical" />
-        <text name="ft_fc_band_partial" text="Partial / Estimated" />
+        <text name="ft_fc_health" text="GÅRDENS SUNDHED" />
+        <text name="ft_fc_band_green" text="Sund" />
+        <text name="ft_fc_band_amber" text="Hold øje" />
+        <text name="ft_fc_band_red" text="Kritisk" />
+        <text name="ft_fc_band_partial" text="Delvis / Anslået" />
         <text name="ft_fc_band_neutral" text="Neutral" />
-        <text name="ft_fc_partial" text="PARTIAL" />
-        <text name="ft_fc_not_tracked" text="Not yet tracked" />
-        <text name="ft_fc_syncing" text="Syncing" />
-        <text name="ft_fc_unavailable" text="Unavailable" />
-        <text name="ft_fc_open" text="OPEN" />
-        <text name="ft_fc_months" text="months" />
-        <text name="ft_fc_month" text="Month" />
-        <text name="ft_fc_year" text="Year" />
-        <text name="ft_fc_balance" text="Balance" />
-        <text name="ft_fc_loan" text="Loan" />
-        <text name="ft_fc_net_worth" text="Net worth" />
-        <text name="ft_fc_clock" text="Economic clock" />
-        <text name="ft_fc_period" text="Period" />
-        <text name="ft_fc_days_per_period" text="Days / period" />
-        <text name="ft_fc_section_instruments" text="INSTRUMENTS" />
-        <text name="ft_fc_section_rhythm" text="RHYTHM" />
-        <text name="ft_fc_section_forecast" text="FORECAST" />
-        <text name="ft_fc_section_history" text="HISTORY" />
-        <text name="ft_fc_section_flows" text="FLOWS AND SIGNALS" />
-        <text name="ft_fc_section_vitals" text="VITALS" />
-        <text name="ft_fc_forecast_label" text="Projection" />
-        <text name="ft_fc_forecast_month_end" text="Month-end outlook" />
-        <text name="ft_fc_forecast_remaining" text="Period remaining" />
-        <text name="ft_fc_forecast_next_pay" text="Next income pulse" />
-        <text name="ft_fc_forecast_tax" text="Tax accumulated (annual)" />
-        <text name="ft_fc_forecast_wages" text="Wage burn (known)" />
-        <text name="ft_fc_forecast_fuel" text="Fuel spend" />
-        <text name="ft_fc_forecast_limited" text="Limited to readable flows" />
-        <text name="ft_fc_forecast_disclaimer" text="Projection only. Missing flows are not invented." />
-        <text name="ft_fc_history" text="Monthly record" />
-        <text name="ft_fc_history_host_only" text="Host-only in v1" />
-        <text name="ft_fc_history_host_only_detail" text="Monthly history is recorded on the host. Live cash and leverage still stand." />
-        <text name="ft_fc_history_dedicated" text="Unavailable on this server" />
-        <text name="ft_fc_history_no_ledger" text="No StateLedger (live vitals only)" />
-        <text name="ft_fc_history_wait_detail" text="A compact row is written each closed in-game month." />
-        <text name="ft_fc_no_history_yet" text="No history yet" />
-        <text name="ft_fc_recent_months" text="RECENT MONTHS" />
-        <text name="ft_fc_yearly_rollup" text="YEARLY ROLLUP" />
-        <text name="ft_fc_vital_cash" text="Cash position" />
-        <text name="ft_fc_vital_cash_detail" text="Available farm balance." />
-        <text name="ft_fc_vital_leverage" text="Leverage" />
-        <text name="ft_fc_vital_leverage_detail" text="Loan share of balance plus loan." />
-        <text name="ft_fc_vital_runway" text="Cash runway" />
-        <text name="ft_fc_vital_runway_partial" text="Needs a fuller cost picture before runway is confident." />
-        <text name="ft_fc_vital_runway_detail" text="Balance divided by known operating burn." />
-        <text name="ft_fc_vital_direction" text="Profit direction" />
-        <text name="ft_fc_vital_direction_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_direction_detail" text="Change in net worth across the last two closed months." />
+        <text name="ft_fc_partial" text="DELVIS" />
+        <text name="ft_fc_not_tracked" text="Endnu ikke registreret" />
+        <text name="ft_fc_syncing" text="Synkroniserer" />
+        <text name="ft_fc_unavailable" text="Ikke tilgængelig" />
+        <text name="ft_fc_open" text="ÅBN" />
+        <text name="ft_fc_months" text="måneder" />
+        <text name="ft_fc_month" text="Måned" />
+        <text name="ft_fc_year" text="År" />
+        <text name="ft_fc_balance" text="Saldo" />
+        <text name="ft_fc_loan" text="Banklån" />
+        <text name="ft_fc_net_worth" text="Nettoformue" />
+        <text name="ft_fc_clock" text="Økonomisk ur" />
+        <text name="ft_fc_period" text="Periode" />
+        <text name="ft_fc_days_per_period" text="Dage / periode" />
+        <text name="ft_fc_section_instruments" text="INSTRUMENTER" />
+        <text name="ft_fc_section_rhythm" text="RYTME" />
+        <text name="ft_fc_section_forecast" text="PROGNOSE" />
+        <text name="ft_fc_section_history" text="HISTORIK" />
+        <text name="ft_fc_section_flows" text="STRØMME OG SIGNALER" />
+        <text name="ft_fc_section_vitals" text="INDIKATORER" />
+        <text name="ft_fc_forecast_label" text="Fremskrivning" />
+        <text name="ft_fc_forecast_month_end" text="Udsigt ved månedens slutning" />
+        <text name="ft_fc_forecast_remaining" text="Resterende periode" />
+        <text name="ft_fc_forecast_next_pay" text="Næste indtægt" />
+        <text name="ft_fc_forecast_tax" text="Opsparet skat (årlig)" />
+        <text name="ft_fc_forecast_wages" text="Lønomkostninger (kendte)" />
+        <text name="ft_fc_forecast_fuel" text="Brændstofudgifter" />
+        <text name="ft_fc_forecast_limited" text="Begrænset til læsbare strømme" />
+        <text name="ft_fc_forecast_disclaimer" text="Kun en fremskrivning. Manglende strømme opdigtes ikke." />
+        <text name="ft_fc_history" text="Månedlig oversigt" />
+        <text name="ft_fc_history_host_only" text="Kun vært i v1" />
+        <text name="ft_fc_history_host_only_detail" text="Den månedlige historik registreres hos værten. Live-kasse og gearing gælder stadig." />
+        <text name="ft_fc_history_dedicated" text="Ikke tilgængelig på denne server" />
+        <text name="ft_fc_history_no_ledger" text="Ingen StateLedger (kun live-indikatorer)" />
+        <text name="ft_fc_history_wait_detail" text="Der skrives en kompakt linje for hver afsluttet måned i spillet." />
+        <text name="ft_fc_no_history_yet" text="Ingen historik endnu" />
+        <text name="ft_fc_recent_months" text="SENESTE MÅNEDER" />
+        <text name="ft_fc_yearly_rollup" text="ÅRSOVERSIGT" />
+        <text name="ft_fc_vital_cash" text="Kassebeholdning" />
+        <text name="ft_fc_vital_cash_detail" text="Gårdens disponible saldo." />
+        <text name="ft_fc_vital_leverage" text="Gearing" />
+        <text name="ft_fc_vital_leverage_detail" text="Lånets andel af saldo plus lån." />
+        <text name="ft_fc_vital_runway" text="Likviditetshorisont" />
+        <text name="ft_fc_vital_runway_partial" text="Kræver et mere komplet omkostningsbillede, før horisonten er sikker." />
+        <text name="ft_fc_vital_runway_detail" text="Saldo divideret med kendte driftsudgifter." />
+        <text name="ft_fc_vital_direction" text="Profitretning" />
+        <text name="ft_fc_vital_direction_wait" text="Kræver mindst to månedlige målinger." />
+        <text name="ft_fc_vital_direction_detail" text="Ændring i nettoformue over de sidste to afsluttede måneder." />
         <text name="ft_fc_vital_margin" text="Margin" />
-        <text name="ft_fc_vital_margin_wait" text="Needs a recorded month with flow totals." />
-        <text name="ft_fc_vital_margin_partial" text="Flow gaps remain; margin is estimated only." />
-        <text name="ft_fc_vital_trajectory" text="Net-worth trajectory" />
-        <text name="ft_fc_vital_trajectory_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_trajectory_detail" text="Net worth change over the recent recorded window." />
-        <text name="ft_fc_worst_rule" text="Heart color = worst vital that has data. Neutrals and partials do not count as healthy." />
-        <text name="ft_fc_pocket_vital" text="Health vital" />
-        <text name="ft_fc_pocket_history" text="Financial history" />
-        <text name="ft_fc_pocket_forecast" text="Forecast" />
-        <text name="ft_fc_pocket_flows" text="Flows and signals" />
-        <text name="ft_fc_flow_income" text="Income" />
-        <text name="ft_fc_flow_income_mode" text="Pay mode" />
-        <text name="ft_fc_flow_tax" text="Tax paid (total)" />
-        <text name="ft_fc_flow_wages" text="Wages (month)" />
-        <text name="ft_fc_flow_fuel" text="Fuel spend" />
-        <text name="ft_fc_flow_dairy_income" text="Dairy contract income" />
-        <text name="ft_fc_flow_rwe" text="World-event money" />
-        <text name="ft_fc_signal_coop" text="Co-Op level" />
-        <text name="ft_fc_signal_coop_note" text="Level only. Quantified savings wait on ProStaff benefit getters." />
-        <text name="ft_fc_signal_dairy" text="Dairy barns" />
-        <text name="ft_fc_signal_market" text="Market events" />
-        <text name="ft_fc_signal_rwe" text="World event" />
-        <text name="ft_fc_dollar_flows" text="DOLLAR FLOWS" />
-        <text name="ft_fc_signals" text="SIGNALS" />
-        <text name="ft_fc_honesty" text="Honesty" />
-        <text name="ft_fc_help_health_title" text="FARM HEALTH" />
-        <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
-        <text name="ft_fc_help_history_title" text="HISTORY" />
-        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
-        <text name="ft_fc_help_forecast_title" text="FORECAST" />
-        <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
-        <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
-        <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
+        <text name="ft_fc_vital_margin_wait" text="Kræver en registreret måned med strømtotaler." />
+        <text name="ft_fc_vital_margin_partial" text="Der mangler strømme; marginen er kun anslået." />
+        <text name="ft_fc_vital_trajectory" text="Nettoformuens udvikling" />
+        <text name="ft_fc_vital_trajectory_wait" text="Kræver mindst to månedlige målinger." />
+        <text name="ft_fc_vital_trajectory_detail" text="Ændring i nettoformue over den seneste registrerede periode." />
+        <text name="ft_fc_worst_rule" text="Hjertefarve = den dårligste indikator med data. Neutrale og delvise tæller ikke som sunde." />
+        <text name="ft_fc_pocket_vital" text="Sundhedsindikator" />
+        <text name="ft_fc_pocket_history" text="Økonomisk historik" />
+        <text name="ft_fc_pocket_forecast" text="Prognose" />
+        <text name="ft_fc_pocket_flows" text="Strømme og signaler" />
+        <text name="ft_fc_flow_income" text="Indkomst" />
+        <text name="ft_fc_flow_income_mode" text="Betalingsform" />
+        <text name="ft_fc_flow_tax" text="Betalt skat (i alt)" />
+        <text name="ft_fc_flow_wages" text="Løn (måned)" />
+        <text name="ft_fc_flow_fuel" text="Brændstofudgifter" />
+        <text name="ft_fc_flow_dairy_income" text="Indtægt fra mælkekontrakter" />
+        <text name="ft_fc_flow_rwe" text="Penge fra verdensbegivenheder" />
+        <text name="ft_fc_signal_coop" text="Co-Op-niveau" />
+        <text name="ft_fc_signal_coop_note" text="Kun niveauet. Kvantificerede besparelser venter på ProStaffs fordels-getters." />
+        <text name="ft_fc_signal_dairy" text="Malkestalde" />
+        <text name="ft_fc_signal_market" text="Markedsbegivenheder" />
+        <text name="ft_fc_signal_rwe" text="Verdensbegivenhed" />
+        <text name="ft_fc_dollar_flows" text="PENGESTRØMME" />
+        <text name="ft_fc_signals" text="SIGNALER" />
+        <text name="ft_fc_honesty" text="Ærlighed" />
+        <text name="ft_fc_help_health_title" text="GÅRDENS SUNDHED" />
+        <text name="ft_fc_help_health_body" text="Én hjertefarve fra den dårligste indikator med data.&#10;Grøn / gul / rød. Neutrale og delvise tæller aldrig som sunde.&#10;Tryk på hjertet for at åbne den indikator, der satte farven." />
+        <text name="ft_fc_help_history_title" text="HISTORIK" />
+        <text name="ft_fc_help_history_body" text="Denne side registrerer selv en kompakt månedslinje.&#10;Kræver Time Guard som månedsur. Kun vært /&#10;singleplayer i v1. Huller forbliver huller." />
+        <text name="ft_fc_help_forecast_title" text="PROGNOSE" />
+        <text name="ft_fc_help_forecast_body" text="Vist som en fremskrivning. DELVIS når en strøm mangler.&#10;Manglende strømme viser endnu ikke registreret, aldrig et gæt." />
+        <text name="ft_fc_help_readonly_title" text="SKRIVEBESKYTTET" />
+        <text name="ft_fc_help_readonly_body" text="Cockpittet flytter aldrig penge og genimplementerer aldrig&#10;Indkomst, Skat, Løn eller andre ejende apps." />
         <text name="ft_ui_app_animals" text="Dyr" />
         <text name="ft_ui_app_dairy" text="Malkekvæg" />
         <text name="ft_ui_app_weather" text="Vejr" />
@@ -2772,8 +2772,8 @@
         <text name="ft_usedplus_hour_left" text="%d time tilbage" />
         <text name="ft_usedplus_hours_left" text="%d timer tilbage" />
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/md.  •  %d md. tilbage" />
-        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
-        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_fc_history_no_clock" text="Kræver Time Guard" />
+        <text name="ft_fc_history_no_clock_detail" text="Installér Time Guard for at registrere den månedlige historik. Live-indikatorerne gælder stadig." />
         <text name="ft_irr_advisory_water_need" text="VANDBEHOV (rådgivning)" />
         <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="FORUDSIGELSE (rådgivning)" />
@@ -3024,6 +3024,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 dyr - cirka %d min" />
         <text name="ft_fws_state_open" text="Åben" />
         <text name="ft_rd_no_finance" text="RealisticDealers finansieringsdata er ikke tilgængelige." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Gæld fra nødlånet er ikke tilgængelig, så den samlede gearing kan endnu ikke vises." />
+        <text name="ft_fc_debt_native" text="Banklån" />
+        <text name="ft_fc_debt_emergency" text="Nødlån" />
+        <text name="ft_fc_debt_total" text="Samlet gæld" />
+        <text name="ft_fc_emergency_loan" text="Nødlån" />
+        <text name="ft_fc_total_debt" text="Samlet gæld" />
+        <text name="ft_fc_open_loan" text="ADMINISTRER LÅN" />
     </texts>
 
 </l10n>

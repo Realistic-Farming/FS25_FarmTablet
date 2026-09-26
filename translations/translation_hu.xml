@@ -33,94 +33,94 @@
         <text name="ft_ui_app_organic" text="Bio" />
         <text name="ft_ui_app_irrigation_suite" text="Öntözőcsomag" />
         <text name="ft_ui_app_financial_cockpit" text="Pénzügyi irányítópult" />
-        <text name="ft_fc_health" text="FARM HEALTH" />
-        <text name="ft_fc_band_green" text="Healthy" />
-        <text name="ft_fc_band_amber" text="Watch" />
-        <text name="ft_fc_band_red" text="Critical" />
-        <text name="ft_fc_band_partial" text="Partial / Estimated" />
-        <text name="ft_fc_band_neutral" text="Neutral" />
-        <text name="ft_fc_partial" text="PARTIAL" />
-        <text name="ft_fc_not_tracked" text="Not yet tracked" />
-        <text name="ft_fc_syncing" text="Syncing" />
-        <text name="ft_fc_unavailable" text="Unavailable" />
-        <text name="ft_fc_open" text="OPEN" />
-        <text name="ft_fc_months" text="months" />
-        <text name="ft_fc_month" text="Month" />
-        <text name="ft_fc_year" text="Year" />
-        <text name="ft_fc_balance" text="Balance" />
-        <text name="ft_fc_loan" text="Loan" />
-        <text name="ft_fc_net_worth" text="Net worth" />
-        <text name="ft_fc_clock" text="Economic clock" />
-        <text name="ft_fc_period" text="Period" />
-        <text name="ft_fc_days_per_period" text="Days / period" />
-        <text name="ft_fc_section_instruments" text="INSTRUMENTS" />
-        <text name="ft_fc_section_rhythm" text="RHYTHM" />
-        <text name="ft_fc_section_forecast" text="FORECAST" />
-        <text name="ft_fc_section_history" text="HISTORY" />
-        <text name="ft_fc_section_flows" text="FLOWS AND SIGNALS" />
-        <text name="ft_fc_section_vitals" text="VITALS" />
-        <text name="ft_fc_forecast_label" text="Projection" />
-        <text name="ft_fc_forecast_month_end" text="Month-end outlook" />
-        <text name="ft_fc_forecast_remaining" text="Period remaining" />
-        <text name="ft_fc_forecast_next_pay" text="Next income pulse" />
-        <text name="ft_fc_forecast_tax" text="Tax accumulated (annual)" />
-        <text name="ft_fc_forecast_wages" text="Wage burn (known)" />
-        <text name="ft_fc_forecast_fuel" text="Fuel spend" />
-        <text name="ft_fc_forecast_limited" text="Limited to readable flows" />
-        <text name="ft_fc_forecast_disclaimer" text="Projection only. Missing flows are not invented." />
-        <text name="ft_fc_history" text="Monthly record" />
-        <text name="ft_fc_history_host_only" text="Host-only in v1" />
-        <text name="ft_fc_history_host_only_detail" text="Monthly history is recorded on the host. Live cash and leverage still stand." />
-        <text name="ft_fc_history_dedicated" text="Unavailable on this server" />
-        <text name="ft_fc_history_no_ledger" text="No StateLedger (live vitals only)" />
-        <text name="ft_fc_history_wait_detail" text="A compact row is written each closed in-game month." />
-        <text name="ft_fc_no_history_yet" text="No history yet" />
-        <text name="ft_fc_recent_months" text="RECENT MONTHS" />
-        <text name="ft_fc_yearly_rollup" text="YEARLY ROLLUP" />
-        <text name="ft_fc_vital_cash" text="Cash position" />
-        <text name="ft_fc_vital_cash_detail" text="Available farm balance." />
-        <text name="ft_fc_vital_leverage" text="Leverage" />
-        <text name="ft_fc_vital_leverage_detail" text="Loan share of balance plus loan." />
-        <text name="ft_fc_vital_runway" text="Cash runway" />
-        <text name="ft_fc_vital_runway_partial" text="Needs a fuller cost picture before runway is confident." />
-        <text name="ft_fc_vital_runway_detail" text="Balance divided by known operating burn." />
-        <text name="ft_fc_vital_direction" text="Profit direction" />
-        <text name="ft_fc_vital_direction_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_direction_detail" text="Change in net worth across the last two closed months." />
-        <text name="ft_fc_vital_margin" text="Margin" />
-        <text name="ft_fc_vital_margin_wait" text="Needs a recorded month with flow totals." />
-        <text name="ft_fc_vital_margin_partial" text="Flow gaps remain; margin is estimated only." />
-        <text name="ft_fc_vital_trajectory" text="Net-worth trajectory" />
-        <text name="ft_fc_vital_trajectory_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_trajectory_detail" text="Net worth change over the recent recorded window." />
-        <text name="ft_fc_worst_rule" text="Heart color = worst vital that has data. Neutrals and partials do not count as healthy." />
-        <text name="ft_fc_pocket_vital" text="Health vital" />
-        <text name="ft_fc_pocket_history" text="Financial history" />
-        <text name="ft_fc_pocket_forecast" text="Forecast" />
-        <text name="ft_fc_pocket_flows" text="Flows and signals" />
-        <text name="ft_fc_flow_income" text="Income" />
-        <text name="ft_fc_flow_income_mode" text="Pay mode" />
-        <text name="ft_fc_flow_tax" text="Tax paid (total)" />
-        <text name="ft_fc_flow_wages" text="Wages (month)" />
-        <text name="ft_fc_flow_fuel" text="Fuel spend" />
-        <text name="ft_fc_flow_dairy_income" text="Dairy contract income" />
-        <text name="ft_fc_flow_rwe" text="World-event money" />
-        <text name="ft_fc_signal_coop" text="Co-Op level" />
-        <text name="ft_fc_signal_coop_note" text="Level only. Quantified savings wait on ProStaff benefit getters." />
-        <text name="ft_fc_signal_dairy" text="Dairy barns" />
-        <text name="ft_fc_signal_market" text="Market events" />
-        <text name="ft_fc_signal_rwe" text="World event" />
-        <text name="ft_fc_dollar_flows" text="DOLLAR FLOWS" />
-        <text name="ft_fc_signals" text="SIGNALS" />
-        <text name="ft_fc_honesty" text="Honesty" />
-        <text name="ft_fc_help_health_title" text="FARM HEALTH" />
-        <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
-        <text name="ft_fc_help_history_title" text="HISTORY" />
-        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
-        <text name="ft_fc_help_forecast_title" text="FORECAST" />
-        <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
-        <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
-        <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
+        <text name="ft_fc_health" text="A GAZDASÁG EGÉSZSÉGE" />
+        <text name="ft_fc_band_green" text="Egészséges" />
+        <text name="ft_fc_band_amber" text="Figyelem" />
+        <text name="ft_fc_band_red" text="Kritikus" />
+        <text name="ft_fc_band_partial" text="Részleges / Becsült" />
+        <text name="ft_fc_band_neutral" text="Semleges" />
+        <text name="ft_fc_partial" text="RÉSZLEGES" />
+        <text name="ft_fc_not_tracked" text="Még nincs követve" />
+        <text name="ft_fc_syncing" text="Szinkronizálás" />
+        <text name="ft_fc_unavailable" text="Nem érhető el" />
+        <text name="ft_fc_open" text="MEGNYITÁS" />
+        <text name="ft_fc_months" text="hónap" />
+        <text name="ft_fc_month" text="Hónap" />
+        <text name="ft_fc_year" text="Év" />
+        <text name="ft_fc_balance" text="Egyenleg" />
+        <text name="ft_fc_loan" text="Banki kölcsön" />
+        <text name="ft_fc_net_worth" text="Nettó vagyon" />
+        <text name="ft_fc_clock" text="Gazdasági óra" />
+        <text name="ft_fc_period" text="Időszak" />
+        <text name="ft_fc_days_per_period" text="Nap / időszak" />
+        <text name="ft_fc_section_instruments" text="MŰSZEREK" />
+        <text name="ft_fc_section_rhythm" text="RITMUS" />
+        <text name="ft_fc_section_forecast" text="ELŐREJELZÉS" />
+        <text name="ft_fc_section_history" text="ELŐZMÉNYEK" />
+        <text name="ft_fc_section_flows" text="PÉNZÁRAMLÁSOK ÉS JELZÉSEK" />
+        <text name="ft_fc_section_vitals" text="MUTATÓK" />
+        <text name="ft_fc_forecast_label" text="Előrevetítés" />
+        <text name="ft_fc_forecast_month_end" text="Hónap végi kilátás" />
+        <text name="ft_fc_forecast_remaining" text="Hátralévő időszak" />
+        <text name="ft_fc_forecast_next_pay" text="Következő bevétel" />
+        <text name="ft_fc_forecast_tax" text="Felhalmozott adó (éves)" />
+        <text name="ft_fc_forecast_wages" text="Bérköltség (ismert)" />
+        <text name="ft_fc_forecast_fuel" text="Üzemanyag-kiadás" />
+        <text name="ft_fc_forecast_limited" text="Olvasható pénzáramlásokra korlátozva" />
+        <text name="ft_fc_forecast_disclaimer" text="Csak előrevetítés. A hiányzó pénzáramlásokat nem találjuk ki." />
+        <text name="ft_fc_history" text="Havi nyilvántartás" />
+        <text name="ft_fc_history_host_only" text="Csak hoszt a v1-ben" />
+        <text name="ft_fc_history_host_only_detail" text="A havi előzmények a hoszton rögzülnek. Az élő készpénz és tőkeáttétel továbbra is érvényes." />
+        <text name="ft_fc_history_dedicated" text="Ezen a szerveren nem érhető el" />
+        <text name="ft_fc_history_no_ledger" text="Nincs StateLedger (csak élő mutatók)" />
+        <text name="ft_fc_history_wait_detail" text="Minden lezárt játékhónapról egy tömör sor készül." />
+        <text name="ft_fc_no_history_yet" text="Még nincsenek előzmények" />
+        <text name="ft_fc_recent_months" text="LEGUTÓBBI HÓNAPOK" />
+        <text name="ft_fc_yearly_rollup" text="ÉVES ÖSSZESÍTŐ" />
+        <text name="ft_fc_vital_cash" text="Készpénzhelyzet" />
+        <text name="ft_fc_vital_cash_detail" text="A gazdaság elérhető egyenlege." />
+        <text name="ft_fc_vital_leverage" text="Tőkeáttétel" />
+        <text name="ft_fc_vital_leverage_detail" text="A kölcsön aránya az egyenleg és a kölcsön összegében." />
+        <text name="ft_fc_vital_runway" text="Készpénz-tartalék" />
+        <text name="ft_fc_vital_runway_partial" text="Teljesebb költségkép kell, mielőtt a tartalék megbízható lesz." />
+        <text name="ft_fc_vital_runway_detail" text="Az egyenleg osztva az ismert működési költségekkel." />
+        <text name="ft_fc_vital_direction" text="Nyereség iránya" />
+        <text name="ft_fc_vital_direction_wait" text="Legalább két havi minta szükséges." />
+        <text name="ft_fc_vital_direction_detail" text="A nettó vagyon változása az utolsó két lezárt hónapban." />
+        <text name="ft_fc_vital_margin" text="Árrés" />
+        <text name="ft_fc_vital_margin_wait" text="Egy rögzített hónap szükséges a pénzáramlások összegeivel." />
+        <text name="ft_fc_vital_margin_partial" text="Hiányoznak pénzáramlások; az árrés csak becslés." />
+        <text name="ft_fc_vital_trajectory" text="Nettó vagyon alakulása" />
+        <text name="ft_fc_vital_trajectory_wait" text="Legalább két havi minta szükséges." />
+        <text name="ft_fc_vital_trajectory_detail" text="A nettó vagyon változása a legutóbbi rögzített időszakban." />
+        <text name="ft_fc_worst_rule" text="Szív színe = a legrosszabb mutató, amelyhez van adat. A semlegesek és részlegesek nem számítanak egészségesnek." />
+        <text name="ft_fc_pocket_vital" text="Egészségmutató" />
+        <text name="ft_fc_pocket_history" text="Pénzügyi előzmények" />
+        <text name="ft_fc_pocket_forecast" text="Előrejelzés" />
+        <text name="ft_fc_pocket_flows" text="Pénzáramlások és jelzések" />
+        <text name="ft_fc_flow_income" text="Bevétel" />
+        <text name="ft_fc_flow_income_mode" text="Fizetési mód" />
+        <text name="ft_fc_flow_tax" text="Befizetett adó (összesen)" />
+        <text name="ft_fc_flow_wages" text="Bérek (hónap)" />
+        <text name="ft_fc_flow_fuel" text="Üzemanyag-kiadás" />
+        <text name="ft_fc_flow_dairy_income" text="Bevétel tejszerződésekből" />
+        <text name="ft_fc_flow_rwe" text="Pénz világeseményekből" />
+        <text name="ft_fc_signal_coop" text="Co-Op szint" />
+        <text name="ft_fc_signal_coop_note" text="Csak a szint. A számszerűsített megtakarítások a ProStaff előny-getterjeire várnak." />
+        <text name="ft_fc_signal_dairy" text="Tejelő istállók" />
+        <text name="ft_fc_signal_market" text="Piaci események" />
+        <text name="ft_fc_signal_rwe" text="Világesemény" />
+        <text name="ft_fc_dollar_flows" text="PÉNZÁRAMLÁSOK" />
+        <text name="ft_fc_signals" text="JELZÉSEK" />
+        <text name="ft_fc_honesty" text="Őszinteség" />
+        <text name="ft_fc_help_health_title" text="A GAZDASÁG EGÉSZSÉGE" />
+        <text name="ft_fc_help_health_body" text="Egyetlen szívszín, a legrosszabb adatokkal rendelkező mutatóból.&#10;Zöld / sárga / piros. A semlegesek és részlegesek soha nem számítanak egészségesnek.&#10;Koppints a szívre, hogy megnyisd a színt meghatározó mutatót." />
+        <text name="ft_fc_help_history_title" text="ELŐZMÉNYEK" />
+        <text name="ft_fc_help_history_body" text="Ez az oldal maga rögzít egy tömör havi sort.&#10;A havi órához Time Guard szükséges. Csak hoszt /&#10;egyjátékos a v1-ben. A hézagok hézagok maradnak." />
+        <text name="ft_fc_help_forecast_title" text="ELŐREJELZÉS" />
+        <text name="ft_fc_help_forecast_body" text="Előrevetítésként jelölve. RÉSZLEGES, ha hiányzik egy pénzáramlás.&#10;A hiányzó pénzáramlások a még nincs követve szöveget mutatják, sosem találgatást." />
+        <text name="ft_fc_help_readonly_title" text="CSAK OLVASHATÓ" />
+        <text name="ft_fc_help_readonly_body" text="Az irányítópult soha nem mozgat pénzt, és soha nem valósítja meg újra&#10;a Bevétel, Adó, Bérek vagy más tulajdonos alkalmazások funkcióit." />
         <text name="ft_ui_app_animals" text="Állatok" />
         <text name="ft_ui_app_dairy" text="Tejtermelés" />
         <text name="ft_ui_app_weather" text="Időjárás" />
@@ -2772,8 +2772,8 @@
         <text name="ft_usedplus_hour_left" text="még %d óra" />
         <text name="ft_usedplus_hours_left" text="még %d óra" />
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/hó  •  még %d hónap" />
-        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
-        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_fc_history_no_clock" text="Time Guard szükséges" />
+        <text name="ft_fc_history_no_clock_detail" text="Telepítsd a Time Guardot a havi előzmények rögzítéséhez. Az élő mutatók továbbra is érvényesek." />
         <text name="ft_irr_advisory_water_need" text="VÍZSZÜKSÉGLET (tanácsadás)" />
         <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="ELŐREJELZÉS (tanácsadás)" />
@@ -3024,6 +3024,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 állat - kb. %d perc" />
         <text name="ft_fws_state_open" text="Nyitva" />
         <text name="ft_rd_no_finance" text="A RealisticDealer finanszírozási adatai nem érhetők el." />
+        <text name="ft_fc_vital_leverage_unavailable" text="A sürgősségi kölcsön tartozása nem érhető el, így az összesített tőkeáttétel még nem jeleníthető meg." />
+        <text name="ft_fc_debt_native" text="Banki kölcsön" />
+        <text name="ft_fc_debt_emergency" text="Sürgősségi" />
+        <text name="ft_fc_debt_total" text="Teljes tartozás" />
+        <text name="ft_fc_emergency_loan" text="Sürgősségi kölcsön" />
+        <text name="ft_fc_total_debt" text="Teljes tartozás" />
+        <text name="ft_fc_open_loan" text="KÖLCSÖN KEZELÉSE" />
     </texts>
 
 </l10n>

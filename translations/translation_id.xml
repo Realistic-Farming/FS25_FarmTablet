@@ -33,94 +33,94 @@
         <text name="ft_ui_app_organic" text="Organik" />
         <text name="ft_ui_app_irrigation_suite" text="Paket Irigasi" />
         <text name="ft_ui_app_financial_cockpit" text="Kokpit Keuangan" />
-        <text name="ft_fc_health" text="FARM HEALTH" />
-        <text name="ft_fc_band_green" text="Healthy" />
-        <text name="ft_fc_band_amber" text="Watch" />
-        <text name="ft_fc_band_red" text="Critical" />
-        <text name="ft_fc_band_partial" text="Partial / Estimated" />
-        <text name="ft_fc_band_neutral" text="Neutral" />
-        <text name="ft_fc_partial" text="PARTIAL" />
-        <text name="ft_fc_not_tracked" text="Not yet tracked" />
-        <text name="ft_fc_syncing" text="Syncing" />
-        <text name="ft_fc_unavailable" text="Unavailable" />
-        <text name="ft_fc_open" text="OPEN" />
-        <text name="ft_fc_months" text="months" />
-        <text name="ft_fc_month" text="Month" />
-        <text name="ft_fc_year" text="Year" />
-        <text name="ft_fc_balance" text="Balance" />
-        <text name="ft_fc_loan" text="Loan" />
-        <text name="ft_fc_net_worth" text="Net worth" />
-        <text name="ft_fc_clock" text="Economic clock" />
-        <text name="ft_fc_period" text="Period" />
-        <text name="ft_fc_days_per_period" text="Days / period" />
-        <text name="ft_fc_section_instruments" text="INSTRUMENTS" />
-        <text name="ft_fc_section_rhythm" text="RHYTHM" />
-        <text name="ft_fc_section_forecast" text="FORECAST" />
-        <text name="ft_fc_section_history" text="HISTORY" />
-        <text name="ft_fc_section_flows" text="FLOWS AND SIGNALS" />
-        <text name="ft_fc_section_vitals" text="VITALS" />
-        <text name="ft_fc_forecast_label" text="Projection" />
-        <text name="ft_fc_forecast_month_end" text="Month-end outlook" />
-        <text name="ft_fc_forecast_remaining" text="Period remaining" />
-        <text name="ft_fc_forecast_next_pay" text="Next income pulse" />
-        <text name="ft_fc_forecast_tax" text="Tax accumulated (annual)" />
-        <text name="ft_fc_forecast_wages" text="Wage burn (known)" />
-        <text name="ft_fc_forecast_fuel" text="Fuel spend" />
-        <text name="ft_fc_forecast_limited" text="Limited to readable flows" />
-        <text name="ft_fc_forecast_disclaimer" text="Projection only. Missing flows are not invented." />
-        <text name="ft_fc_history" text="Monthly record" />
-        <text name="ft_fc_history_host_only" text="Host-only in v1" />
-        <text name="ft_fc_history_host_only_detail" text="Monthly history is recorded on the host. Live cash and leverage still stand." />
-        <text name="ft_fc_history_dedicated" text="Unavailable on this server" />
-        <text name="ft_fc_history_no_ledger" text="No StateLedger (live vitals only)" />
-        <text name="ft_fc_history_wait_detail" text="A compact row is written each closed in-game month." />
-        <text name="ft_fc_no_history_yet" text="No history yet" />
-        <text name="ft_fc_recent_months" text="RECENT MONTHS" />
-        <text name="ft_fc_yearly_rollup" text="YEARLY ROLLUP" />
-        <text name="ft_fc_vital_cash" text="Cash position" />
-        <text name="ft_fc_vital_cash_detail" text="Available farm balance." />
-        <text name="ft_fc_vital_leverage" text="Leverage" />
-        <text name="ft_fc_vital_leverage_detail" text="Loan share of balance plus loan." />
-        <text name="ft_fc_vital_runway" text="Cash runway" />
-        <text name="ft_fc_vital_runway_partial" text="Needs a fuller cost picture before runway is confident." />
-        <text name="ft_fc_vital_runway_detail" text="Balance divided by known operating burn." />
-        <text name="ft_fc_vital_direction" text="Profit direction" />
-        <text name="ft_fc_vital_direction_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_direction_detail" text="Change in net worth across the last two closed months." />
+        <text name="ft_fc_health" text="KESEHATAN PERTANIAN" />
+        <text name="ft_fc_band_green" text="Sehat" />
+        <text name="ft_fc_band_amber" text="Waspada" />
+        <text name="ft_fc_band_red" text="Kritis" />
+        <text name="ft_fc_band_partial" text="Sebagian / Perkiraan" />
+        <text name="ft_fc_band_neutral" text="Netral" />
+        <text name="ft_fc_partial" text="SEBAGIAN" />
+        <text name="ft_fc_not_tracked" text="Belum dilacak" />
+        <text name="ft_fc_syncing" text="Menyinkronkan" />
+        <text name="ft_fc_unavailable" text="Tidak tersedia" />
+        <text name="ft_fc_open" text="BUKA" />
+        <text name="ft_fc_months" text="bulan" />
+        <text name="ft_fc_month" text="Bulan" />
+        <text name="ft_fc_year" text="Tahun" />
+        <text name="ft_fc_balance" text="Saldo" />
+        <text name="ft_fc_loan" text="Pinjaman bank" />
+        <text name="ft_fc_net_worth" text="Kekayaan bersih" />
+        <text name="ft_fc_clock" text="Jam ekonomi" />
+        <text name="ft_fc_period" text="Periode" />
+        <text name="ft_fc_days_per_period" text="Hari / periode" />
+        <text name="ft_fc_section_instruments" text="INSTRUMEN" />
+        <text name="ft_fc_section_rhythm" text="RITME" />
+        <text name="ft_fc_section_forecast" text="PRAKIRAAN" />
+        <text name="ft_fc_section_history" text="RIWAYAT" />
+        <text name="ft_fc_section_flows" text="ARUS DAN SINYAL" />
+        <text name="ft_fc_section_vitals" text="INDIKATOR" />
+        <text name="ft_fc_forecast_label" text="Proyeksi" />
+        <text name="ft_fc_forecast_month_end" text="Prospek akhir bulan" />
+        <text name="ft_fc_forecast_remaining" text="Sisa periode" />
+        <text name="ft_fc_forecast_next_pay" text="Pemasukan berikutnya" />
+        <text name="ft_fc_forecast_tax" text="Pajak terkumpul (tahunan)" />
+        <text name="ft_fc_forecast_wages" text="Beban upah (diketahui)" />
+        <text name="ft_fc_forecast_fuel" text="Belanja bahan bakar" />
+        <text name="ft_fc_forecast_limited" text="Terbatas pada arus yang terbaca" />
+        <text name="ft_fc_forecast_disclaimer" text="Hanya proyeksi. Arus yang hilang tidak dikarang." />
+        <text name="ft_fc_history" text="Catatan bulanan" />
+        <text name="ft_fc_history_host_only" text="Hanya host di v1" />
+        <text name="ft_fc_history_host_only_detail" text="Riwayat bulanan dicatat di host. Kas dan rasio utang langsung tetap berlaku." />
+        <text name="ft_fc_history_dedicated" text="Tidak tersedia di server ini" />
+        <text name="ft_fc_history_no_ledger" text="Tanpa StateLedger (hanya indikator langsung)" />
+        <text name="ft_fc_history_wait_detail" text="Satu baris ringkas ditulis setiap bulan permainan yang ditutup." />
+        <text name="ft_fc_no_history_yet" text="Belum ada riwayat" />
+        <text name="ft_fc_recent_months" text="BULAN TERAKHIR" />
+        <text name="ft_fc_yearly_rollup" text="RINGKASAN TAHUNAN" />
+        <text name="ft_fc_vital_cash" text="Posisi kas" />
+        <text name="ft_fc_vital_cash_detail" text="Saldo pertanian yang tersedia." />
+        <text name="ft_fc_vital_leverage" text="Rasio utang" />
+        <text name="ft_fc_vital_leverage_detail" text="Porsi pinjaman dari saldo ditambah pinjaman." />
+        <text name="ft_fc_vital_runway" text="Ketahanan kas" />
+        <text name="ft_fc_vital_runway_partial" text="Perlu gambaran biaya yang lebih lengkap sebelum ketahanan kas dapat dipercaya." />
+        <text name="ft_fc_vital_runway_detail" text="Saldo dibagi biaya operasional yang diketahui." />
+        <text name="ft_fc_vital_direction" text="Arah laba" />
+        <text name="ft_fc_vital_direction_wait" text="Perlu setidaknya dua sampel bulanan." />
+        <text name="ft_fc_vital_direction_detail" text="Perubahan kekayaan bersih selama dua bulan terakhir yang ditutup." />
         <text name="ft_fc_vital_margin" text="Margin" />
-        <text name="ft_fc_vital_margin_wait" text="Needs a recorded month with flow totals." />
-        <text name="ft_fc_vital_margin_partial" text="Flow gaps remain; margin is estimated only." />
-        <text name="ft_fc_vital_trajectory" text="Net-worth trajectory" />
-        <text name="ft_fc_vital_trajectory_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_trajectory_detail" text="Net worth change over the recent recorded window." />
-        <text name="ft_fc_worst_rule" text="Heart color = worst vital that has data. Neutrals and partials do not count as healthy." />
-        <text name="ft_fc_pocket_vital" text="Health vital" />
-        <text name="ft_fc_pocket_history" text="Financial history" />
-        <text name="ft_fc_pocket_forecast" text="Forecast" />
-        <text name="ft_fc_pocket_flows" text="Flows and signals" />
-        <text name="ft_fc_flow_income" text="Income" />
-        <text name="ft_fc_flow_income_mode" text="Pay mode" />
-        <text name="ft_fc_flow_tax" text="Tax paid (total)" />
-        <text name="ft_fc_flow_wages" text="Wages (month)" />
-        <text name="ft_fc_flow_fuel" text="Fuel spend" />
-        <text name="ft_fc_flow_dairy_income" text="Dairy contract income" />
-        <text name="ft_fc_flow_rwe" text="World-event money" />
-        <text name="ft_fc_signal_coop" text="Co-Op level" />
-        <text name="ft_fc_signal_coop_note" text="Level only. Quantified savings wait on ProStaff benefit getters." />
-        <text name="ft_fc_signal_dairy" text="Dairy barns" />
-        <text name="ft_fc_signal_market" text="Market events" />
-        <text name="ft_fc_signal_rwe" text="World event" />
-        <text name="ft_fc_dollar_flows" text="DOLLAR FLOWS" />
-        <text name="ft_fc_signals" text="SIGNALS" />
-        <text name="ft_fc_honesty" text="Honesty" />
-        <text name="ft_fc_help_health_title" text="FARM HEALTH" />
-        <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
-        <text name="ft_fc_help_history_title" text="HISTORY" />
-        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
-        <text name="ft_fc_help_forecast_title" text="FORECAST" />
-        <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
-        <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
-        <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
+        <text name="ft_fc_vital_margin_wait" text="Perlu satu bulan tercatat dengan total arus." />
+        <text name="ft_fc_vital_margin_partial" text="Ada arus yang hilang; margin hanya perkiraan." />
+        <text name="ft_fc_vital_trajectory" text="Lintasan kekayaan bersih" />
+        <text name="ft_fc_vital_trajectory_wait" text="Perlu setidaknya dua sampel bulanan." />
+        <text name="ft_fc_vital_trajectory_detail" text="Perubahan kekayaan bersih selama periode tercatat terakhir." />
+        <text name="ft_fc_worst_rule" text="Warna hati = indikator terburuk yang punya data. Netral dan sebagian tidak dihitung sehat." />
+        <text name="ft_fc_pocket_vital" text="Indikator kesehatan" />
+        <text name="ft_fc_pocket_history" text="Riwayat keuangan" />
+        <text name="ft_fc_pocket_forecast" text="Prakiraan" />
+        <text name="ft_fc_pocket_flows" text="Arus dan sinyal" />
+        <text name="ft_fc_flow_income" text="Pendapatan" />
+        <text name="ft_fc_flow_income_mode" text="Mode pembayaran" />
+        <text name="ft_fc_flow_tax" text="Pajak dibayar (total)" />
+        <text name="ft_fc_flow_wages" text="Upah (bulan)" />
+        <text name="ft_fc_flow_fuel" text="Belanja bahan bakar" />
+        <text name="ft_fc_flow_dairy_income" text="Pendapatan kontrak susu" />
+        <text name="ft_fc_flow_rwe" text="Uang dari peristiwa dunia" />
+        <text name="ft_fc_signal_coop" text="Level Co-Op" />
+        <text name="ft_fc_signal_coop_note" text="Hanya level. Penghematan terukur menunggu getter manfaat ProStaff." />
+        <text name="ft_fc_signal_dairy" text="Kandang sapi perah" />
+        <text name="ft_fc_signal_market" text="Peristiwa pasar" />
+        <text name="ft_fc_signal_rwe" text="Peristiwa dunia" />
+        <text name="ft_fc_dollar_flows" text="ARUS UANG" />
+        <text name="ft_fc_signals" text="SINYAL" />
+        <text name="ft_fc_honesty" text="Kejujuran" />
+        <text name="ft_fc_help_health_title" text="KESEHATAN PERTANIAN" />
+        <text name="ft_fc_help_health_body" text="Satu warna hati dari indikator terburuk yang punya data.&#10;Hijau / kuning / merah. Netral dan sebagian tidak pernah dihitung sehat.&#10;Ketuk hati untuk membuka indikator yang menentukan warnanya." />
+        <text name="ft_fc_help_history_title" text="RIWAYAT" />
+        <text name="ft_fc_help_history_body" text="Halaman ini mencatat sendiri satu baris bulanan ringkas.&#10;Perlu Time Guard untuk jam bulanan. Hanya host /&#10;pemain tunggal di v1. Celah tetap celah." />
+        <text name="ft_fc_help_forecast_title" text="PRAKIRAAN" />
+        <text name="ft_fc_help_forecast_body" text="Ditampilkan sebagai proyeksi. SEBAGIAN saat ada arus yang hilang.&#10;Arus yang hilang menampilkan belum dilacak, tidak pernah tebakan." />
+        <text name="ft_fc_help_readonly_title" text="HANYA BACA" />
+        <text name="ft_fc_help_readonly_body" text="Kokpit tidak pernah memindahkan uang dan tidak pernah mengimplementasikan ulang&#10;Pendapatan, Pajak, Upah, atau aplikasi pemilik lainnya." />
         <text name="ft_ui_app_animals" text="Hewan" />
         <text name="ft_ui_app_dairy" text="Sapi Perah" />
         <text name="ft_ui_app_weather" text="Cuaca" />
@@ -2772,8 +2772,8 @@
         <text name="ft_usedplus_hour_left" text="sisa %d jam" />
         <text name="ft_usedplus_hours_left" text="sisa %d jam" />
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/bln  •  sisa %d bln" />
-        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
-        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_fc_history_no_clock" text="Perlu Time Guard" />
+        <text name="ft_fc_history_no_clock_detail" text="Pasang Time Guard untuk mencatat riwayat bulanan. Indikator langsung tetap berlaku." />
         <text name="ft_irr_advisory_water_need" text="KEBUTUHAN AIR (saran)" />
         <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="PERKIRAAN (saran)" />
@@ -3024,6 +3024,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 hewan - sekitar %d mnt" />
         <text name="ft_fws_state_open" text="Buka" />
         <text name="ft_rd_no_finance" text="Data pembiayaan RealisticDealer tidak tersedia." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Utang pinjaman darurat tidak tersedia, jadi rasio utang gabungan belum bisa ditampilkan." />
+        <text name="ft_fc_debt_native" text="Pinjaman bank" />
+        <text name="ft_fc_debt_emergency" text="Darurat" />
+        <text name="ft_fc_debt_total" text="Total utang" />
+        <text name="ft_fc_emergency_loan" text="Pinjaman darurat" />
+        <text name="ft_fc_total_debt" text="Total utang" />
+        <text name="ft_fc_open_loan" text="KELOLA PINJAMAN" />
     </texts>
 
 </l10n>

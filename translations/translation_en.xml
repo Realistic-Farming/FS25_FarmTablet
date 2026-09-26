@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Month" />
         <text name="ft_fc_year" text="Year" />
         <text name="ft_fc_balance" text="Balance" />
-        <text name="ft_fc_loan" text="Loan" />
+        <text name="ft_fc_loan" text="Bank loan" />
         <text name="ft_fc_net_worth" text="Net worth" />
         <text name="ft_fc_clock" text="Economic clock" />
         <text name="ft_fc_period" text="Period" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="FARM HEALTH" />
         <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
         <text name="ft_fc_help_history_title" text="HISTORY" />
-        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
+        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Needs Time Guard for the month clock. Host / single-player&#10;only in v1. Gaps stay gaps." />
         <text name="ft_fc_help_forecast_title" text="FORECAST" />
         <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
         <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
@@ -3012,6 +3012,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 animal - about %d min" />
         <text name="ft_fws_state_open" text="Open" />
         <text name="ft_rd_no_finance" text="RealisticDealer's finance data is not available." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Emergency-loan debt is unavailable, so combined leverage can't be shown yet." />
+        <text name="ft_fc_debt_native" text="Bank loan" />
+        <text name="ft_fc_debt_emergency" text="Emergency" />
+        <text name="ft_fc_debt_total" text="Total debt" />
+        <text name="ft_fc_emergency_loan" text="Emergency loan" />
+        <text name="ft_fc_total_debt" text="Total debt" />
+        <text name="ft_fc_open_loan" text="MANAGE LOAN" />
     </texts>
 
 </l10n>
