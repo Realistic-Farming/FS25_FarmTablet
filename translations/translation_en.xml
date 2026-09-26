@@ -3051,7 +3051,7 @@
         <text name="ft_irr_no_systems" text="No irrigation systems registered." />
         <text name="ft_irr_idle" text="idle" />
         <text name="ft_irr_no_schedule" text="no schedule" />
-        <text name="ft_irr_system_line" text="%s  ·  fields %d  ·  flow %.2f/h" />
+        <text name="ft_irr_system_line" text="%s  ·  %d fields  ·  flow %.2f/h" />
         <text name="ft_irr_coverage_outline" text="COVERAGE OUTLINE" />
         <text name="ft_irr_moisture_split" text="FIELD MOISTURE SPLIT" />
         <text name="ft_irr_more_fields" text="… more fields omitted" />
@@ -3066,7 +3066,7 @@
         <text name="ft_irr_field" text="Field #%s" />
         <text name="ft_irr_moist_line" text="moist %s  dry-stress %s" />
         <text name="ft_irr_alerts_capped" text="Alert set capped - check SCS for more detail." />
-        <text name="ft_irr_covered_gap" text="covered %d  ·  gap %d" />
+        <text name="ft_irr_covered_gap" text="%d covered  ·  %d gap" />
         <text name="ft_irr_usage_header" text="SYSTEM USAGE (SCS CHARGING)" />
         <text name="ft_irr_costs_off" text="Irrigation costs are off in Seasonal Crop Stress." />
         <text name="ft_irr_no_systems_price" text="No systems to price." />

@@ -557,7 +557,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         _dayBits(sched.activeDays))
                 end
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format(_T("ft_irr_system_line", "%s  ·  fields %d  ·  flow %.2f/h"),
+                    string.format(_T("ft_irr_system_line", "%s  ·  %d fields  ·  flow %.2f/h"),
                         schedTxt, coverN, tonumber(sys.flowRatePerHour) or 0),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
@@ -898,7 +898,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 y = y - FT.py(14)
             else
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format(_T("ft_irr_covered_gap", "covered %d  ·  gap %d"), covered, gap),
+                    string.format(_T("ft_irr_covered_gap", "%d covered  ·  %d gap"), covered, gap),
                     RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                 y = y - FT.py(14)
             end
