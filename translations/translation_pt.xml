@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="CRÉDITO" />
         <text name="ft_auto_credit_score" text="PONTUAÇÃO DE CRÉDITO" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="CULTURA" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Instale o FS25_RandomWorldEvents para usar esta app." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Instale o FS25_SoilFertilizer para usar esta aplicação." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instale o FS25_UsedPlus para usar esta aplicação." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instale o FS25_WorkerCosts para gerir o pessoal." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Nenhum veículo com balde detetado." />
         <text name="ft_excavator_history_fmt" text="HISTÓRICO DE CARGAS  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Convencional" />
+        <text name="ft_auto_in_transition" text="Em conversão" />
+        <text name="ft_auto_certified" text="Certificado" />
+        <text name="ft_organic_practice_no_data" text="Ainda sem dados de solo para este campo." />
+        <text name="ft_organic_practice_om_low" text="MO baixa - incorpore estrume/composto ou triture a palha." />
+        <text name="ft_organic_practice_om_fair" text="MO razoável - continue com os aportes orgânicos." />
+        <text name="ft_organic_practice_om_healthy" text="MO saudável - mantenha a cobertura e os resíduos." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Cansaço de rotação após %s / %s - semeie a seguir uma leguminosa." />
+        <text name="ft_organic_practice_bonus_fmt" text="Bónus de rotação ativo (%s / %s) - proteja-o com diversidade." />
+        <text name="ft_organic_practice_rotation_fmt" text="Rotação %s (%s / %s) - mantenha uma leguminosa no ciclo." />
+        <text name="ft_organic_practice_needs_fert" text="Precisa de fertilidade - prefira fatores de produção biológicos aprovados." />
+        <text name="ft_organic_help_what_body" text="Certificação biológica e conselhos de práticas para os seus&#10;campos. Lê o Soil Fertilizer. Não guarda estado biológico." />
+        <text name="ft_organic_certification" text="CERTIFICAÇÃO" />
+        <text name="ft_organic_help_cert_body" text="Estado por campo: convencional, em conversão ou&#10;certificado, mais a contagem da conversão. ADERIR /&#10;SAIR pede ao Soil Fertilizer (lá só para admins)." />
+        <text name="ft_organic_practices" text="PRÁTICAS" />
+        <text name="ft_organic_help_practices_body" text="Conselhos de cobertura e rotação pensados para o biológico,&#10;com os mesmos dados de solo da aplicação Soil Fertilizer." />
+        <text name="ft_organic_help_later_title" text="EM BREVE" />
+        <text name="ft_organic_help_later_body" text="As secções de composto, ração biológica e prémio de mercado&#10;ficam vazias até esses sistemas disponibilizarem leitura." />
+        <text name="ft_organic_subtitle" text="Gestão" />
+        <text name="ft_organic_cert_unavailable" text="Certificação biológica indisponível nesta versão do Soil." />
+        <text name="ft_organic_no_fields_yet" text="Ainda sem campos próprios." />
+        <text name="ft_organic_field_fmt" text="Campo n.º %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d dias  (faltam %d)" />
+        <text name="ft_organic_breaches_fmt" text="Infrações: %d" />
+        <text name="ft_organic_not_in_programme" text="Fora do programa biológico" />
+        <text name="ft_organic_selected_field_fmt" text="Campo escolhido n.º %s" />
+        <text name="ft_organic_opt_in" text="ADERIR" />
+        <text name="ft_organic_opt_in_unavailable" text="Adesão indisponível" />
+        <text name="ft_organic_already_opted_in" text="Já aderiu" />
+        <text name="ft_organic_opt_out" text="SAIR" />
+        <text name="ft_organic_select_field" text="Escolha um campo para ver os conselhos." />
+        <text name="ft_organic_compost" text="COMPOSTO" />
+        <text name="ft_organic_compost_na" text="indisponível - instale o SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Nenhum lote de composto. Comece um na consola do SoilFertilizer." />
+        <text name="ft_organic_batch_ready_fmt" text="PRONTO - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="falta %d dia" />
+        <text name="ft_organic_batch_days_left_fmt" text="faltam %d dias" />
+        <text name="ft_organic_batch_safe" text="apto para biológico" />
+        <text name="ft_organic_batch_unsafe" text="não apto para biológico" />
+        <text name="ft_organic_batch_fmt" text="Lote n.º %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="PECUÁRIA" />
+        <text name="ft_organic_livestock_na" text="indisponível - instale o DairyCore" />
+        <text name="ft_organic_no_barns" text="Nenhum estábulo leiteiro nesta quinta." />
+        <text name="ft_organic_feed_share" text="Parte de ração biológica da quinta" />
+        <text name="ft_organic_barn_fmt" text="Estábulo %s" />
+        <text name="ft_organic_herd_health" text="Saúde do rebanho" />
+        <text name="ft_organic_mycotoxin" text="Penalização por micotoxinas" />
+        <text name="ft_organic_elevated_risk" text="Risco elevado" />
+        <text name="ft_organic_feed_disease" text="Doença da ração" />
+        <text name="ft_organic_feed_tip" text="Dica: certifique mais campos de forragem como biológicos para passar os 80%." />
+        <text name="ft_organic_traceability" text="RASTREABILIDADE" />
+        <text name="ft_organic_trace_na" text="indisponível - certificação biológica não carregada" />
+        <text name="ft_organic_no_fields" text="Sem campos próprios." />
+        <text name="ft_organic_storage_fraction" text="Fração biológica no armazém" />
+        <text name="ft_organic_sale_premium" text="Prémio de venda: contrato MDM pendente" />
+        <text name="ft_organic_market" text="MERCADO" />
+        <text name="ft_organic_market_na" text="indisponível - à espera do prémio biológico / contrato MDM" />
     </texts>
 
 </l10n>

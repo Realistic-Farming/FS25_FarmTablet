@@ -83,7 +83,16 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "ea:ft_organic_compost": "COMPOST is the Spanish word",
+  "es:ft_organic_compost": "COMPOST is the Spanish word",
+  "fc:ft_organic_certification": "CERTIFICATION is the French word",
+  "fc:ft_organic_compost": "COMPOST is the French word",
+  "fr:ft_organic_certification": "CERTIFICATION is the French word",
+  "fr:ft_organic_compost": "COMPOST is the French word",
+  "id:ft_organic_batch_fmt": "Batch is the Indonesian word",
+  "it:ft_organic_compost": "COMPOST is the Italian word",
+  "nl:ft_organic_compost": "COMPOST is the Dutch word",
+  "ro:ft_organic_compost": "COMPOST is the Romanian word",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").

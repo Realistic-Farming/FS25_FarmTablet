@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="信用" />
         <text name="ft_auto_credit_score" text="信用スコア" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="作物" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="このアプリを使うにはFS25_RandomWorldEventsをインストールしてください。" />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="このアプリを使うにはFS25_SoilFertilizerをインストールしてください。" />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="このアプリを使うにはFS25_UsedPlusをインストールしてください。" />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="人事を管理するにはFS25_WorkerCostsをインストールしてください。" />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="バケット付きの車両が見つかりません。" />
         <text name="ft_excavator_history_fmt" text="積載履歴  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="慣行" />
+        <text name="ft_auto_in_transition" text="転換中" />
+        <text name="ft_auto_certified" text="認証済み" />
+        <text name="ft_organic_practice_no_data" text="この畑の土壌データはまだありません。" />
+        <text name="ft_organic_practice_om_low" text="有機物が少ない - 堆肥や厩肥をすき込むか、わらを細断してください。" />
+        <text name="ft_organic_practice_om_fair" text="有機物はまずまず - 有機物の投入を続けてください。" />
+        <text name="ft_organic_practice_om_healthy" text="有機物は良好 - 被覆と作物残さを維持してください。" />
+        <text name="ft_organic_practice_fatigue_fmt" text="%s / %s の後の連作疲れ - 次はマメ科を植えてください。" />
+        <text name="ft_organic_practice_bonus_fmt" text="輪作ボーナス有効 (%s / %s) - 多様性で維持してください。" />
+        <text name="ft_organic_practice_rotation_fmt" text="輪作 %s (%s / %s) - サイクルにマメ科を入れておきましょう。" />
+        <text name="ft_organic_practice_needs_fert" text="地力が必要 - 認められた有機資材を優先してください。" />
+        <text name="ft_organic_help_what_body" text="畑の有機認証と栽培のアドバイス。&#10;Soil Fertilizerを読み取ります。有機の状態は自分では持ちません。" />
+        <text name="ft_organic_certification" text="認証" />
+        <text name="ft_organic_help_cert_body" text="畑ごとの状態：慣行、転換中、認証済み、&#10;と転換のカウントダウン。「参加」/&#10;「離脱」はSoil Fertilizerに依頼します（そちらでは管理者のみ）。" />
+        <text name="ft_organic_practices" text="栽培方法" />
+        <text name="ft_organic_help_practices_body" text="有機向けのカバークロップと輪作のヒントです。&#10;Soil Fertilizerアプリと同じ土壌データを使います。" />
+        <text name="ft_organic_help_later_title" text="今後追加" />
+        <text name="ft_organic_help_later_body" text="堆肥、有機飼料、市場プレミアムの項目は、&#10;それらのシミュレーションが読み取りを提供するまで空欄です。" />
+        <text name="ft_organic_subtitle" text="管理" />
+        <text name="ft_organic_cert_unavailable" text="このバージョンのSoilでは有機認証を利用できません。" />
+        <text name="ft_organic_no_fields_yet" text="所有している畑はまだありません。" />
+        <text name="ft_organic_field_fmt" text="畑 #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d 日  (残り %d 日)" />
+        <text name="ft_organic_breaches_fmt" text="違反：%d" />
+        <text name="ft_organic_not_in_programme" text="有機プログラムに不参加" />
+        <text name="ft_organic_selected_field_fmt" text="選択中の畑 #%s" />
+        <text name="ft_organic_opt_in" text="参加" />
+        <text name="ft_organic_opt_in_unavailable" text="参加できません" />
+        <text name="ft_organic_already_opted_in" text="参加済み" />
+        <text name="ft_organic_opt_out" text="離脱" />
+        <text name="ft_organic_select_field" text="畑を選ぶと栽培のアドバイスが表示されます。" />
+        <text name="ft_organic_compost" text="堆肥" />
+        <text name="ft_organic_compost_na" text="利用不可 - SoilFertilizerをインストールしてください" />
+        <text name="ft_organic_compost_none" text="堆肥のバッチがありません。SoilFertilizerコンソールから開始してください。" />
+        <text name="ft_organic_batch_ready_fmt" text="完成 - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="残り %d 日" />
+        <text name="ft_organic_batch_days_left_fmt" text="残り %d 日" />
+        <text name="ft_organic_batch_safe" text="有機適合" />
+        <text name="ft_organic_batch_unsafe" text="有機不適合" />
+        <text name="ft_organic_batch_fmt" text="バッチ #%d：%s  (%s)" />
+        <text name="ft_organic_livestock" text="畜産" />
+        <text name="ft_organic_livestock_na" text="利用不可 - DairyCoreをインストールしてください" />
+        <text name="ft_organic_no_barns" text="この農場には乳牛舎がありません。" />
+        <text name="ft_organic_feed_share" text="農場の有機飼料の割合" />
+        <text name="ft_organic_barn_fmt" text="牛舎 %s" />
+        <text name="ft_organic_herd_health" text="群れの健康" />
+        <text name="ft_organic_mycotoxin" text="マイコトキシンによる減点" />
+        <text name="ft_organic_elevated_risk" text="リスク上昇" />
+        <text name="ft_organic_feed_disease" text="飼料由来の病気" />
+        <text name="ft_organic_feed_tip" text="ヒント：より多くの飼料畑を有機認証すると、割合を80%より上げられます。" />
+        <text name="ft_organic_traceability" text="トレーサビリティ" />
+        <text name="ft_organic_trace_na" text="利用不可 - 有機認証が読み込まれていません" />
+        <text name="ft_organic_no_fields" text="所有している畑がありません。" />
+        <text name="ft_organic_storage_fraction" text="倉庫の有機の割合" />
+        <text name="ft_organic_sale_premium" text="販売プレミアム：MDM契約待ち" />
+        <text name="ft_organic_market" text="市場" />
+        <text name="ft_organic_market_na" text="利用不可 - 有機プレミアム / MDM契約待ち" />
     </texts>
 
 </l10n>

@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="KREDİ" />
         <text name="ft_auto_credit_score" text="KREDİ PUANI" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="ÜRÜN" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Bu uygulama için FS25_RandomWorldEvents'i kur." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Bu uygulamayı kullanmak için FS25_SoilFertilizer'ı yükle." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Bu uygulamayı kullanmak için FS25_UsedPlus'ı yükle." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Personeli yönetmek için FS25_WorkerCosts'u yükle." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Kepçeli araç bulunamadı." />
         <text name="ft_excavator_history_fmt" text="YÜK GEÇMİŞİ  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Geleneksel" />
+        <text name="ft_auto_in_transition" text="Geçiş sürecinde" />
+        <text name="ft_auto_certified" text="Sertifikalı" />
+        <text name="ft_organic_practice_no_data" text="Bu tarla için henüz toprak verisi yok." />
+        <text name="ft_organic_practice_om_low" text="OM düşük - gübre/kompost karıştır ya da samanı parçala." />
+        <text name="ft_organic_practice_om_fair" text="OM orta - organik girdiye devam et." />
+        <text name="ft_organic_practice_om_healthy" text="OM sağlıklı - örtüyü ve hasat artıklarını koru." />
+        <text name="ft_organic_practice_fatigue_fmt" text="%s / %s sonrası münavebe yorgunluğu - sırada bir baklagil ek." />
+        <text name="ft_organic_practice_bonus_fmt" text="Münavebe bonusu etkin (%s / %s) - çeşitlilikle koru." />
+        <text name="ft_organic_practice_rotation_fmt" text="Münavebe %s (%s / %s) - döngüde bir baklagil tut." />
+        <text name="ft_organic_practice_needs_fert" text="Verimlilik gerekli - onaylı organik girdileri tercih et." />
+        <text name="ft_organic_help_what_body" text="Tarlaların için organik sertifika ve uygulama&#10;tavsiyesi. Soil Fertilizer'ı okur. Kendi organik durumunu tutmaz." />
+        <text name="ft_organic_certification" text="SERTİFİKA" />
+        <text name="ft_organic_help_cert_body" text="Tarla başına durum: geleneksel, geçiş sürecinde ya da&#10;sertifikalı, artı geçiş geri sayımı. KATIL /&#10;AYRIL, Soil Fertilizer'a sorar (orada yalnızca yöneticiler)." />
+        <text name="ft_organic_practices" text="UYGULAMALAR" />
+        <text name="ft_organic_help_practices_body" text="Organiğe göre örtü bitkisi ve münavebe ipuçları,&#10;Soil Fertilizer uygulamasıyla aynı toprak verisinden." />
+        <text name="ft_organic_help_later_title" text="YAKINDA" />
+        <text name="ft_organic_help_later_body" text="Kompost, organik yem ve pazar primi bölümleri&#10;o simülasyonlar okuma sunana kadar boş kalır." />
+        <text name="ft_organic_subtitle" text="Yönetim" />
+        <text name="ft_organic_cert_unavailable" text="Bu Soil sürümünde organik sertifika yok." />
+        <text name="ft_organic_no_fields_yet" text="Henüz sahip olunan tarla yok." />
+        <text name="ft_organic_field_fmt" text="Tarla #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d gün  (%d kaldı)" />
+        <text name="ft_organic_breaches_fmt" text="İhlaller: %d" />
+        <text name="ft_organic_not_in_programme" text="Organik programda değil" />
+        <text name="ft_organic_selected_field_fmt" text="Seçili tarla #%s" />
+        <text name="ft_organic_opt_in" text="KATIL" />
+        <text name="ft_organic_opt_in_unavailable" text="Katılım yok" />
+        <text name="ft_organic_already_opted_in" text="Zaten katıldı" />
+        <text name="ft_organic_opt_out" text="AYRIL" />
+        <text name="ft_organic_select_field" text="Uygulama tavsiyesi için bir tarla seç." />
+        <text name="ft_organic_compost" text="KOMPOST" />
+        <text name="ft_organic_compost_na" text="yok - SoilFertilizer'ı yükle" />
+        <text name="ft_organic_compost_none" text="Kompost partisi yok. SoilFertilizer konsolundan bir tane başlat." />
+        <text name="ft_organic_batch_ready_fmt" text="HAZIR - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d gün kaldı" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d gün kaldı" />
+        <text name="ft_organic_batch_safe" text="organiğe uygun" />
+        <text name="ft_organic_batch_unsafe" text="organiğe uygun değil" />
+        <text name="ft_organic_batch_fmt" text="Parti #%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="HAYVANCILIK" />
+        <text name="ft_organic_livestock_na" text="yok - DairyCore'u yükle" />
+        <text name="ft_organic_no_barns" text="Bu çiftlikte süt ahırı yok." />
+        <text name="ft_organic_feed_share" text="Çiftliğin organik yem payı" />
+        <text name="ft_organic_barn_fmt" text="Ahır %s" />
+        <text name="ft_organic_herd_health" text="Sürü sağlığı" />
+        <text name="ft_organic_mycotoxin" text="Mikotoksin cezası" />
+        <text name="ft_organic_elevated_risk" text="Yüksek risk" />
+        <text name="ft_organic_feed_disease" text="Yem kaynaklı hastalık" />
+        <text name="ft_organic_feed_tip" text="İpucu: payı %80'in üstüne çıkarmak için daha çok yem tarlasını organik sertifikala." />
+        <text name="ft_organic_traceability" text="İZLENEBİLİRLİK" />
+        <text name="ft_organic_trace_na" text="yok - organik sertifika yüklenmedi" />
+        <text name="ft_organic_no_fields" text="Sahip olunan tarla yok." />
+        <text name="ft_organic_storage_fraction" text="Depodaki organik pay" />
+        <text name="ft_organic_sale_premium" text="Satış primi: MDM sözleşmesi bekleniyor" />
+        <text name="ft_organic_market" text="PAZAR" />
+        <text name="ft_organic_market_na" text="yok - organik prim / MDM sözleşmesi bekleniyor" />
     </texts>
 
 </l10n>

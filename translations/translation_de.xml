@@ -2861,6 +2861,63 @@
         <text name="ft_excavator_no_bucket" text="Kein Schaufelfahrzeug erkannt." />
         <text name="ft_excavator_history_fmt" text="LADEVERLAUF  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Konventionell" />
+        <text name="ft_auto_in_transition" text="In Umstellung" />
+        <text name="ft_auto_certified" text="Zertifiziert" />
+        <text name="ft_organic_practice_no_data" text="Noch keine Bodendaten für dieses Feld." />
+        <text name="ft_organic_practice_om_low" text="Humus niedrig - Mist/Kompost einarbeiten oder Stroh häckseln." />
+        <text name="ft_organic_practice_om_fair" text="Humus mittel - weiter organisch düngen." />
+        <text name="ft_organic_practice_om_healthy" text="Humus gut - Bodenbedeckung und Rückstände erhalten." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Fruchtfolge-Müdigkeit nach %s / %s - als Nächstes eine Leguminose säen." />
+        <text name="ft_organic_practice_bonus_fmt" text="Fruchtfolge-Bonus aktiv (%s / %s) - mit Vielfalt erhalten." />
+        <text name="ft_organic_practice_rotation_fmt" text="Fruchtfolge %s (%s / %s) - eine Leguminose in der Folge behalten." />
+        <text name="ft_organic_practice_needs_fert" text="Braucht Nährstoffe - zugelassene organische Dünger bevorzugen." />
+        <text name="ft_organic_help_what_body" text="Bio-Zertifizierung und Anbauhinweise für deine&#10;Felder. Liest Soil Fertilizer. Speichert selbst keinen Bio-Status." />
+        <text name="ft_organic_certification" text="ZERTIFIZIERUNG" />
+        <text name="ft_organic_help_cert_body" text="Status je Feld: Konventionell, In Umstellung oder&#10;Zertifiziert, dazu der Umstellungs-Countdown. TEILNEHMEN /&#10;AUSSTEIGEN fragt bei Soil Fertilizer an (dort nur für Admins)." />
+        <text name="ft_organic_practices" text="ANBAUPRAXIS" />
+        <text name="ft_organic_help_practices_body" text="Zwischenfrucht- und Fruchtfolge-Tipps für den Bio-Anbau,&#10;aus denselben Bodendaten wie die Soil-Fertilizer-App." />
+        <text name="ft_organic_help_later_title" text="KOMMT SPÄTER" />
+        <text name="ft_organic_help_later_body" text="Kompost, Bio-Futter und Marktprämie bleiben Platzhalter,&#10;bis diese Simulationen Lese-Schnittstellen bieten." />
+        <text name="ft_organic_subtitle" text="Verwaltung" />
+        <text name="ft_organic_cert_unavailable" text="Bio-Zertifizierung ist in dieser Soil-Version nicht verfügbar." />
+        <text name="ft_organic_no_fields_yet" text="Noch keine eigenen Felder." />
+        <text name="ft_organic_field_fmt" text="Feld #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d Tage  (noch %d)" />
+        <text name="ft_organic_breaches_fmt" text="Verstöße: %d" />
+        <text name="ft_organic_not_in_programme" text="Nicht im Bio-Programm" />
+        <text name="ft_organic_selected_field_fmt" text="Ausgewähltes Feld #%s" />
+        <text name="ft_organic_opt_in" text="TEILNEHMEN" />
+        <text name="ft_organic_opt_in_unavailable" text="Teilnahme nicht möglich" />
+        <text name="ft_organic_already_opted_in" text="Bereits angemeldet" />
+        <text name="ft_organic_opt_out" text="AUSSTEIGEN" />
+        <text name="ft_organic_select_field" text="Wähle ein Feld, um Anbauhinweise zu sehen." />
+        <text name="ft_organic_compost" text="KOMPOST" />
+        <text name="ft_organic_compost_na" text="nicht verfügbar - SoilFertilizer installieren" />
+        <text name="ft_organic_compost_none" text="Keine Kompostchargen. Starte eine über die SoilFertilizer-Konsole." />
+        <text name="ft_organic_batch_ready_fmt" text="FERTIG - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="noch %d Tag" />
+        <text name="ft_organic_batch_days_left_fmt" text="noch %d Tage" />
+        <text name="ft_organic_batch_safe" text="bio-tauglich" />
+        <text name="ft_organic_batch_unsafe" text="nicht bio-tauglich" />
+        <text name="ft_organic_batch_fmt" text="Charge #%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="TIERHALTUNG" />
+        <text name="ft_organic_livestock_na" text="nicht verfügbar - DairyCore installieren" />
+        <text name="ft_organic_no_barns" text="Keine Milchviehställe auf diesem Hof." />
+        <text name="ft_organic_feed_share" text="Bio-Futteranteil des Hofs" />
+        <text name="ft_organic_barn_fmt" text="Stall %s" />
+        <text name="ft_organic_herd_health" text="Herdengesundheit" />
+        <text name="ft_organic_mycotoxin" text="Mykotoxin-Abzug" />
+        <text name="ft_organic_elevated_risk" text="Erhöhtes Risiko" />
+        <text name="ft_organic_feed_disease" text="Futterkrankheit" />
+        <text name="ft_organic_feed_tip" text="Tipp: Zertifiziere mehr Futterfelder als Bio, um den Anteil über 80% zu heben." />
+        <text name="ft_organic_traceability" text="RÜCKVERFOLGUNG" />
+        <text name="ft_organic_trace_na" text="nicht verfügbar - Bio-Zertifizierung nicht geladen" />
+        <text name="ft_organic_no_fields" text="Keine eigenen Felder." />
+        <text name="ft_organic_storage_fraction" text="Bio-Anteil im Lager" />
+        <text name="ft_organic_sale_premium" text="Verkaufsprämie: MDM-Vertrag ausstehend" />
+        <text name="ft_organic_market" text="MARKT" />
+        <text name="ft_organic_market_na" text="nicht verfügbar - wartet auf Bio-Prämie / MDM-Vertrag" />
     </texts>
 
 </l10n>

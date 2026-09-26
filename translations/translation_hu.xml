@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="HITEL" />
         <text name="ft_auto_credit_score" text="HITELPONTSZÁM" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="NÖVÉNY" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Az app használatához telepítsd az FS25_RandomWorldEvents modot." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Telepítsd a FS25_SoilFertilizer modot az alkalmazás használatához." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Telepítsd az FS25_UsedPlus modot az alkalmazás használatához." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Telepítsd az FS25_WorkerCosts modot a személyzet kezeléséhez." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Nem található kanalas jármű." />
         <text name="ft_excavator_history_fmt" text="RAKOMÁNYELŐZMÉNYEK  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Hagyományos" />
+        <text name="ft_auto_in_transition" text="Átállás alatt" />
+        <text name="ft_auto_certified" text="Tanúsított" />
+        <text name="ft_organic_practice_no_data" text="Ehhez a táblához még nincs talajadat." />
+        <text name="ft_organic_practice_om_low" text="Kevés a humusz - dolgozz be trágyát/komposztot vagy aprítsd a szalmát." />
+        <text name="ft_organic_practice_om_fair" text="Közepes humusz - folytasd a szerves anyag pótlását." />
+        <text name="ft_organic_practice_om_healthy" text="Jó humusz - tartsd meg a takarást és a tarlómaradványt." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Vetésforgó-fáradás %s / %s után - következőnek vess pillangóst." />
+        <text name="ft_organic_practice_bonus_fmt" text="Vetésforgó-bónusz aktív (%s / %s) - védd a változatossággal." />
+        <text name="ft_organic_practice_rotation_fmt" text="Vetésforgó %s (%s / %s) - tarts pillangóst a forgóban." />
+        <text name="ft_organic_practice_needs_fert" text="Tápanyag kell - válassz engedélyezett bio anyagokat." />
+        <text name="ft_organic_help_what_body" text="Bio tanúsítás és gazdálkodási tanácsok a&#10;tábláidhoz. A Soil Fertilizert olvassa. Saját bio állapotot nem tárol." />
+        <text name="ft_organic_certification" text="TANÚSÍTÁS" />
+        <text name="ft_organic_help_cert_body" text="Táblánkénti állapot: hagyományos, átállás alatt vagy&#10;tanúsított, plusz az átállás visszaszámlálása. A CSATLAKOZÁS /&#10;KILÉPÉS a Soil Fertilizertől kéri (ott csak adminoknak)." />
+        <text name="ft_organic_practices" text="GYAKORLAT" />
+        <text name="ft_organic_help_practices_body" text="Bio gazdálkodáshoz igazított takarónövény- és vetésforgó-tippek,&#10;ugyanabból a talajadatból, mint a Soil Fertilizer alkalmazás." />
+        <text name="ft_organic_help_later_title" text="KÉSŐBB ÉRKEZIK" />
+        <text name="ft_organic_help_later_body" text="A komposzt, a bio takarmány és a piaci prémium szakasz&#10;helyőrző marad, amíg ezek a szimulációk nem adnak olvasást." />
+        <text name="ft_organic_subtitle" text="Kezelés" />
+        <text name="ft_organic_cert_unavailable" text="A bio tanúsítás nem érhető el ebben a Soil-verzióban." />
+        <text name="ft_organic_no_fields_yet" text="Még nincs saját tábla." />
+        <text name="ft_organic_field_fmt" text="%s. tábla" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d nap  (még %d)" />
+        <text name="ft_organic_breaches_fmt" text="Szabálysértések: %d" />
+        <text name="ft_organic_not_in_programme" text="Nincs a bio programban" />
+        <text name="ft_organic_selected_field_fmt" text="Kiválasztott tábla: %s." />
+        <text name="ft_organic_opt_in" text="CSATLAKOZÁS" />
+        <text name="ft_organic_opt_in_unavailable" text="Csatlakozás nem lehetséges" />
+        <text name="ft_organic_already_opted_in" text="Már csatlakozott" />
+        <text name="ft_organic_opt_out" text="KILÉPÉS" />
+        <text name="ft_organic_select_field" text="Válassz táblát a gazdálkodási tanácsokhoz." />
+        <text name="ft_organic_compost" text="KOMPOSZT" />
+        <text name="ft_organic_compost_na" text="nem érhető el - telepítsd a SoilFertilizert" />
+        <text name="ft_organic_compost_none" text="Nincs komposztadag. Indíts egyet a SoilFertilizer konzolból." />
+        <text name="ft_organic_batch_ready_fmt" text="KÉSZ - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="még %d nap" />
+        <text name="ft_organic_batch_days_left_fmt" text="még %d nap" />
+        <text name="ft_organic_batch_safe" text="bio-alkalmas" />
+        <text name="ft_organic_batch_unsafe" text="nem bio-alkalmas" />
+        <text name="ft_organic_batch_fmt" text="%d. adag: %s  (%s)" />
+        <text name="ft_organic_livestock" text="ÁLLATTARTÁS" />
+        <text name="ft_organic_livestock_na" text="nem érhető el - telepítsd a DairyCore-t" />
+        <text name="ft_organic_no_barns" text="Ezen a gazdaságon nincs tehénistálló." />
+        <text name="ft_organic_feed_share" text="A gazdaság bio takarmány-aránya" />
+        <text name="ft_organic_barn_fmt" text="%s. istálló" />
+        <text name="ft_organic_herd_health" text="Állomány egészsége" />
+        <text name="ft_organic_mycotoxin" text="Mikotoxin-levonás" />
+        <text name="ft_organic_elevated_risk" text="Emelt kockázat" />
+        <text name="ft_organic_feed_disease" text="Takarmány eredetű betegség" />
+        <text name="ft_organic_feed_tip" text="Tipp: tanúsíts több takarmánytáblát bióként, hogy az arány meghaladja a 80%-ot." />
+        <text name="ft_organic_traceability" text="NYOMON KÖVETÉS" />
+        <text name="ft_organic_trace_na" text="nem érhető el - a bio tanúsítás nincs betöltve" />
+        <text name="ft_organic_no_fields" text="Nincs saját tábla." />
+        <text name="ft_organic_storage_fraction" text="Bio arány a raktárban" />
+        <text name="ft_organic_sale_premium" text="Eladási prémium: MDM-szerződésre vár" />
+        <text name="ft_organic_market" text="PIAC" />
+        <text name="ft_organic_market_na" text="nem érhető el - bio prémiumra / MDM-szerződésre vár" />
     </texts>
 
 </l10n>

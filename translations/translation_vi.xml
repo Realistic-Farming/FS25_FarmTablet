@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="TÍN DỤNG" />
         <text name="ft_auto_credit_score" text="ĐIỂM TÍN DỤNG" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="CÂY TRỒNG" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Cài FS25_RandomWorldEvents để dùng ứng dụng này." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Cài FS25_SoilFertilizer để dùng ứng dụng này." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Cài FS25_UsedPlus để dùng ứng dụng này." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Cài FS25_WorkerCosts để quản lý nhân sự." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Không phát hiện xe có gầu." />
         <text name="ft_excavator_history_fmt" text="LỊCH SỬ CHUYẾN  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Thông thường" />
+        <text name="ft_auto_in_transition" text="Đang chuyển đổi" />
+        <text name="ft_auto_certified" text="Đã chứng nhận" />
+        <text name="ft_organic_practice_no_data" text="Chưa có dữ liệu đất cho cánh đồng này." />
+        <text name="ft_organic_practice_om_low" text="CHC thấp - vùi phân chuồng/phân ủ hoặc băm rơm." />
+        <text name="ft_organic_practice_om_fair" text="CHC trung bình - tiếp tục bón hữu cơ." />
+        <text name="ft_organic_practice_om_healthy" text="CHC tốt - giữ lớp phủ và tàn dư cây trồng." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Mỏi luân canh sau %s / %s - hãy trồng cây họ đậu tiếp theo." />
+        <text name="ft_organic_practice_bonus_fmt" text="Thưởng luân canh đang có (%s / %s) - giữ nó bằng sự đa dạng." />
+        <text name="ft_organic_practice_rotation_fmt" text="Luân canh %s (%s / %s) - giữ một cây họ đậu trong chu kỳ." />
+        <text name="ft_organic_practice_needs_fert" text="Cần độ phì - ưu tiên vật tư hữu cơ được phép." />
+        <text name="ft_organic_help_what_body" text="Chứng nhận hữu cơ và lời khuyên canh tác cho&#10;cánh đồng của bạn. Đọc Soil Fertilizer. Không tự lưu trạng thái hữu cơ." />
+        <text name="ft_organic_certification" text="CHỨNG NHẬN" />
+        <text name="ft_organic_help_cert_body" text="Trạng thái từng cánh đồng: thông thường, đang chuyển đổi hoặc&#10;đã chứng nhận, cùng đếm ngược chuyển đổi. THAM GIA /&#10;RÚT RA sẽ gửi yêu cầu tới Soil Fertilizer (ở đó chỉ admin)." />
+        <text name="ft_organic_practices" text="CANH TÁC" />
+        <text name="ft_organic_help_practices_body" text="Mẹo cây che phủ và luân canh dành cho hữu cơ,&#10;từ cùng dữ liệu đất với ứng dụng Soil Fertilizer." />
+        <text name="ft_organic_help_later_title" text="SẮP CÓ" />
+        <text name="ft_organic_help_later_body" text="Các mục phân ủ, thức ăn hữu cơ và phụ phí thị trường&#10;vẫn để trống đến khi các mô phỏng đó cho phép đọc." />
+        <text name="ft_organic_subtitle" text="Quản lý" />
+        <text name="ft_organic_cert_unavailable" text="Phiên bản Soil này không có chứng nhận hữu cơ." />
+        <text name="ft_organic_no_fields_yet" text="Chưa có cánh đồng nào." />
+        <text name="ft_organic_field_fmt" text="Cánh đồng số %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d ngày  (còn %d)" />
+        <text name="ft_organic_breaches_fmt" text="Vi phạm: %d" />
+        <text name="ft_organic_not_in_programme" text="Không tham gia chương trình hữu cơ" />
+        <text name="ft_organic_selected_field_fmt" text="Cánh đồng đã chọn số %s" />
+        <text name="ft_organic_opt_in" text="THAM GIA" />
+        <text name="ft_organic_opt_in_unavailable" text="Không thể tham gia" />
+        <text name="ft_organic_already_opted_in" text="Đã tham gia" />
+        <text name="ft_organic_opt_out" text="RÚT RA" />
+        <text name="ft_organic_select_field" text="Chọn một cánh đồng để xem lời khuyên." />
+        <text name="ft_organic_compost" text="PHÂN Ủ" />
+        <text name="ft_organic_compost_na" text="không có - hãy cài SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Chưa có mẻ phân ủ nào. Bắt đầu một mẻ từ bảng điều khiển SoilFertilizer." />
+        <text name="ft_organic_batch_ready_fmt" text="XONG - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="còn %d ngày" />
+        <text name="ft_organic_batch_days_left_fmt" text="còn %d ngày" />
+        <text name="ft_organic_batch_safe" text="đạt chuẩn hữu cơ" />
+        <text name="ft_organic_batch_unsafe" text="không đạt chuẩn hữu cơ" />
+        <text name="ft_organic_batch_fmt" text="Mẻ số %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="CHĂN NUÔI" />
+        <text name="ft_organic_livestock_na" text="không có - hãy cài DairyCore" />
+        <text name="ft_organic_no_barns" text="Trang trại này không có chuồng bò sữa." />
+        <text name="ft_organic_feed_share" text="Tỉ lệ thức ăn hữu cơ của trang trại" />
+        <text name="ft_organic_barn_fmt" text="Chuồng %s" />
+        <text name="ft_organic_herd_health" text="Sức khỏe đàn" />
+        <text name="ft_organic_mycotoxin" text="Phạt độc tố nấm" />
+        <text name="ft_organic_elevated_risk" text="Rủi ro cao" />
+        <text name="ft_organic_feed_disease" text="Bệnh do thức ăn" />
+        <text name="ft_organic_feed_tip" text="Mẹo: chứng nhận hữu cơ thêm cánh đồng thức ăn để tỉ lệ vượt 80%." />
+        <text name="ft_organic_traceability" text="TRUY XUẤT" />
+        <text name="ft_organic_trace_na" text="không có - chưa tải chứng nhận hữu cơ" />
+        <text name="ft_organic_no_fields" text="Không có cánh đồng nào." />
+        <text name="ft_organic_storage_fraction" text="Tỉ lệ hữu cơ trong kho" />
+        <text name="ft_organic_sale_premium" text="Phụ phí bán: đang chờ hợp đồng MDM" />
+        <text name="ft_organic_market" text="THỊ TRƯỜNG" />
+        <text name="ft_organic_market_na" text="không có - đang chờ phụ phí hữu cơ / hợp đồng MDM" />
     </texts>
 
 </l10n>

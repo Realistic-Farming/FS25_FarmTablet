@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="CREDIT" />
         <text name="ft_auto_credit_score" text="SCOR DE CREDIT" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="CULTURĂ" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Instalează FS25_RandomWorldEvents ca să folosești aplicația." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Instalează FS25_SoilFertilizer ca să folosești această aplicație." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instalează FS25_UsedPlus pentru a folosi această aplicație." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instalează FS25_WorkerCosts ca să gestionezi personalul." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Niciun vehicul cu cupă detectat." />
         <text name="ft_excavator_history_fmt" text="ISTORIC ÎNCĂRCĂTURI  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Convențional" />
+        <text name="ft_auto_in_transition" text="În conversie" />
+        <text name="ft_auto_certified" text="Certificat" />
+        <text name="ft_organic_practice_no_data" text="Încă nu sunt date despre sol pentru acest câmp." />
+        <text name="ft_organic_practice_om_low" text="MO scăzută - încorporează gunoi/compost sau toacă paiele." />
+        <text name="ft_organic_practice_om_fair" text="MO medie - continuă aporturile organice." />
+        <text name="ft_organic_practice_om_healthy" text="MO sănătoasă - păstrează acoperirea și resturile vegetale." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Oboseala rotației după %s / %s - seamănă apoi o leguminoasă." />
+        <text name="ft_organic_practice_bonus_fmt" text="Bonus de rotație activ (%s / %s) - protejează-l prin diversitate." />
+        <text name="ft_organic_practice_rotation_fmt" text="Rotație %s (%s / %s) - păstrează o leguminoasă în ciclu." />
+        <text name="ft_organic_practice_needs_fert" text="Are nevoie de fertilitate - preferă inputuri ecologice aprobate." />
+        <text name="ft_organic_help_what_body" text="Certificare ecologică și sfaturi de practică pentru&#10;câmpurile tale. Citește Soil Fertilizer. Nu păstrează stare ecologică proprie." />
+        <text name="ft_organic_certification" text="CERTIFICARE" />
+        <text name="ft_organic_help_cert_body" text="Starea fiecărui câmp: convențional, în conversie sau&#10;certificat, plus numărătoarea conversiei. ÎNSCRIE /&#10;RETRAGE cere la Soil Fertilizer (acolo doar pentru admini)." />
+        <text name="ft_organic_practices" text="PRACTICI" />
+        <text name="ft_organic_help_practices_body" text="Sfaturi de culturi de acoperire și rotație pentru ecologic,&#10;din aceleași date de sol ca aplicația Soil Fertilizer." />
+        <text name="ft_organic_help_later_title" text="ÎN CURÂND" />
+        <text name="ft_organic_help_later_body" text="Secțiunile de compost, furaj ecologic și primă de piață rămân&#10;goale până când acele simulări oferă citire." />
+        <text name="ft_organic_subtitle" text="Administrare" />
+        <text name="ft_organic_cert_unavailable" text="Certificarea ecologică nu e disponibilă în această versiune Soil." />
+        <text name="ft_organic_no_fields_yet" text="Încă nu deții câmpuri." />
+        <text name="ft_organic_field_fmt" text="Câmpul nr. %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d zile  (mai sunt %d)" />
+        <text name="ft_organic_breaches_fmt" text="Încălcări: %d" />
+        <text name="ft_organic_not_in_programme" text="În afara programului ecologic" />
+        <text name="ft_organic_selected_field_fmt" text="Câmpul ales nr. %s" />
+        <text name="ft_organic_opt_in" text="ÎNSCRIE" />
+        <text name="ft_organic_opt_in_unavailable" text="Înscriere indisponibilă" />
+        <text name="ft_organic_already_opted_in" text="Deja înscris" />
+        <text name="ft_organic_opt_out" text="RETRAGE" />
+        <text name="ft_organic_select_field" text="Alege un câmp ca să vezi sfaturile." />
+        <text name="ft_organic_compost" text="COMPOST" />
+        <text name="ft_organic_compost_na" text="indisponibil - instalează SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Nicio șarjă de compost. Pornește una din consola SoilFertilizer." />
+        <text name="ft_organic_batch_ready_fmt" text="GATA - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="mai e %d zi" />
+        <text name="ft_organic_batch_days_left_fmt" text="mai sunt %d zile" />
+        <text name="ft_organic_batch_safe" text="potrivit pentru ecologic" />
+        <text name="ft_organic_batch_unsafe" text="nepotrivit pentru ecologic" />
+        <text name="ft_organic_batch_fmt" text="Șarja nr. %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="ZOOTEHNIE" />
+        <text name="ft_organic_livestock_na" text="indisponibil - instalează DairyCore" />
+        <text name="ft_organic_no_barns" text="Nu există grajduri de lapte la această fermă." />
+        <text name="ft_organic_feed_share" text="Ponderea furajului ecologic al fermei" />
+        <text name="ft_organic_barn_fmt" text="Grajdul %s" />
+        <text name="ft_organic_herd_health" text="Sănătatea efectivului" />
+        <text name="ft_organic_mycotoxin" text="Penalizare pentru micotoxine" />
+        <text name="ft_organic_elevated_risk" text="Risc ridicat" />
+        <text name="ft_organic_feed_disease" text="Boală din furaj" />
+        <text name="ft_organic_feed_tip" text="Sfat: certifică mai multe câmpuri furajere ca ecologice ca ponderea să treacă de 80%." />
+        <text name="ft_organic_traceability" text="TRASABILITATE" />
+        <text name="ft_organic_trace_na" text="indisponibil - certificarea ecologică nu e încărcată" />
+        <text name="ft_organic_no_fields" text="Nu deții câmpuri." />
+        <text name="ft_organic_storage_fraction" text="Fracția ecologică din depozit" />
+        <text name="ft_organic_sale_premium" text="Primă de vânzare: contract MDM în așteptare" />
+        <text name="ft_organic_market" text="PIAȚĂ" />
+        <text name="ft_organic_market_na" text="indisponibil - se așteaptă prima ecologică / contractul MDM" />
     </texts>
 
 </l10n>

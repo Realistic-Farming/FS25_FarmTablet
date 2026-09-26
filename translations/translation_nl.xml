@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="KREDIET" />
         <text name="ft_auto_credit_score" text="KREDIETSCORE" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="GEWAS" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Installeer FS25_RandomWorldEvents om deze app te gebruiken." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Installeer FS25_SoilFertilizer om deze app te gebruiken." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Installeer FS25_UsedPlus om deze app te gebruiken." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Installeer FS25_WorkerCosts om personeel te beheren." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Geen voertuig met bak gevonden." />
         <text name="ft_excavator_history_fmt" text="LAADGESCHIEDENIS  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Gangbaar" />
+        <text name="ft_auto_in_transition" text="In omschakeling" />
+        <text name="ft_auto_certified" text="Gecertificeerd" />
+        <text name="ft_organic_practice_no_data" text="Nog geen bodemgegevens voor dit veld." />
+        <text name="ft_organic_practice_om_low" text="OS laag - werk mest/compost in of hak het stro." />
+        <text name="ft_organic_practice_om_fair" text="OS redelijk - blijf organisch bemesten." />
+        <text name="ft_organic_practice_om_healthy" text="OS gezond - houd bodembedekking en gewasresten aan." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Rotatiemoeheid na %s / %s - zaai hierna een vlinderbloemige." />
+        <text name="ft_organic_practice_bonus_fmt" text="Rotatiebonus actief (%s / %s) - bescherm hem met variatie." />
+        <text name="ft_organic_practice_rotation_fmt" text="Rotatie %s (%s / %s) - houd een vlinderbloemige in de cyclus." />
+        <text name="ft_organic_practice_needs_fert" text="Vruchtbaarheid nodig - kies goedgekeurde biologische middelen." />
+        <text name="ft_organic_help_what_body" text="Biologische certificering en teeltadvies voor je&#10;velden. Leest Soil Fertilizer. Bewaart zelf geen biostatus." />
+        <text name="ft_organic_certification" text="CERTIFICERING" />
+        <text name="ft_organic_help_cert_body" text="Status per veld: gangbaar, in omschakeling of&#10;gecertificeerd, plus de omschakelingsaftelling. DEELNEMEN /&#10;UITSTAPPEN vraagt het Soil Fertilizer (daar alleen voor admins)." />
+        <text name="ft_organic_practices" text="TEELTPRAKTIJK" />
+        <text name="ft_organic_help_practices_body" text="Tips over groenbemesters en vruchtwisseling voor biologisch,&#10;uit dezelfde bodemgegevens als de Soil Fertilizer-app." />
+        <text name="ft_organic_help_later_title" text="KOMT LATER" />
+        <text name="ft_organic_help_later_body" text="Compost, biologisch voer en marktpremie blijven&#10;plaatshouders tot die simulaties leesfuncties bieden." />
+        <text name="ft_organic_subtitle" text="Beheer" />
+        <text name="ft_organic_cert_unavailable" text="Biologische certificering is niet beschikbaar in deze Soil-versie." />
+        <text name="ft_organic_no_fields_yet" text="Nog geen velden in bezit." />
+        <text name="ft_organic_field_fmt" text="Veld nr. %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d dagen  (nog %d)" />
+        <text name="ft_organic_breaches_fmt" text="Overtredingen: %d" />
+        <text name="ft_organic_not_in_programme" text="Niet in het biologische programma" />
+        <text name="ft_organic_selected_field_fmt" text="Gekozen veld nr. %s" />
+        <text name="ft_organic_opt_in" text="DEELNEMEN" />
+        <text name="ft_organic_opt_in_unavailable" text="Deelnemen niet mogelijk" />
+        <text name="ft_organic_already_opted_in" text="Al aangemeld" />
+        <text name="ft_organic_opt_out" text="UITSTAPPEN" />
+        <text name="ft_organic_select_field" text="Kies een veld om teeltadvies te zien." />
+        <text name="ft_organic_compost" text="COMPOST" />
+        <text name="ft_organic_compost_na" text="niet beschikbaar - installeer SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Geen compostpartijen. Start er een via de SoilFertilizer-console." />
+        <text name="ft_organic_batch_ready_fmt" text="KLAAR - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="nog %d dag" />
+        <text name="ft_organic_batch_days_left_fmt" text="nog %d dagen" />
+        <text name="ft_organic_batch_safe" text="biogeschikt" />
+        <text name="ft_organic_batch_unsafe" text="niet biogeschikt" />
+        <text name="ft_organic_batch_fmt" text="Partij nr. %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="VEEHOUDERIJ" />
+        <text name="ft_organic_livestock_na" text="niet beschikbaar - installeer DairyCore" />
+        <text name="ft_organic_no_barns" text="Geen melkveestallen op deze boerderij." />
+        <text name="ft_organic_feed_share" text="Aandeel biologisch voer van de boerderij" />
+        <text name="ft_organic_barn_fmt" text="Stal %s" />
+        <text name="ft_organic_herd_health" text="Gezondheid van de kudde" />
+        <text name="ft_organic_mycotoxin" text="Mycotoxinestraf" />
+        <text name="ft_organic_elevated_risk" text="Verhoogd risico" />
+        <text name="ft_organic_feed_disease" text="Voerziekte" />
+        <text name="ft_organic_feed_tip" text="Tip: certificeer meer voervelden biologisch om het aandeel boven 80% te krijgen." />
+        <text name="ft_organic_traceability" text="TRACERING" />
+        <text name="ft_organic_trace_na" text="niet beschikbaar - biologische certificering niet geladen" />
+        <text name="ft_organic_no_fields" text="Geen velden in bezit." />
+        <text name="ft_organic_storage_fraction" text="Biologisch aandeel in opslag" />
+        <text name="ft_organic_sale_premium" text="Verkooppremie: MDM-contract in behandeling" />
+        <text name="ft_organic_market" text="MARKT" />
+        <text name="ft_organic_market_na" text="niet beschikbaar - wacht op biopremie / MDM-contract" />
     </texts>
 
 </l10n>

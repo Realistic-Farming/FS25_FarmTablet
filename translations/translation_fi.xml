@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="LUOTTO" />
         <text name="ft_auto_credit_score" text="LUOTTOPISTEET" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="KASVI" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Asenna FS25_RandomWorldEvents käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Asenna FS25_SoilFertilizer käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Asenna FS25_UsedPlus käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Asenna FS25_WorkerCosts hallitaksesi henkilöstöä." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Kauhallista ajoneuvoa ei löytynyt." />
         <text name="ft_excavator_history_fmt" text="KUORMAHISTORIA  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Tavanomainen" />
+        <text name="ft_auto_in_transition" text="Siirtymävaiheessa" />
+        <text name="ft_auto_certified" text="Sertifioitu" />
+        <text name="ft_organic_practice_no_data" text="Tälle pellolle ei ole vielä maaperätietoja." />
+        <text name="ft_organic_practice_om_low" text="Multavuus heikko - muokkaa lanta/komposti maahan tai silppua olki." />
+        <text name="ft_organic_practice_om_fair" text="Multavuus kohtalainen - jatka orgaanisia lisäyksiä." />
+        <text name="ft_organic_practice_om_healthy" text="Multavuus hyvä - säilytä kasvipeite ja kasvijäte." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Viljelykiertoväsymys kasvien %s / %s jälkeen - kylvä seuraavaksi palkokasvi." />
+        <text name="ft_organic_practice_bonus_fmt" text="Viljelykiertobonus voimassa (%s / %s) - suojaa sitä monipuolisuudella." />
+        <text name="ft_organic_practice_rotation_fmt" text="Viljelykierto %s (%s / %s) - pidä palkokasvi kierrossa." />
+        <text name="ft_organic_practice_needs_fert" text="Tarvitsee ravinteita - suosi hyväksyttyjä luomutuotteita." />
+        <text name="ft_organic_help_what_body" text="Luomusertifiointi ja viljelyneuvot pelloillesi.&#10;Lukee Soil Fertilizeria. Ei tallenna omaa luomutilaa." />
+        <text name="ft_organic_certification" text="SERTIFIOINTI" />
+        <text name="ft_organic_help_cert_body" text="Tila pelloittain: tavanomainen, siirtymävaiheessa tai&#10;sertifioitu, sekä siirtymän lähtölaskenta. LIITY /&#10;ERO pyytää Soil Fertilizeria (siellä vain ylläpitäjille)." />
+        <text name="ft_organic_practices" text="VILJELYKÄYTÄNNÖT" />
+        <text name="ft_organic_help_practices_body" text="Luomuun sovitettuja kerääjäkasvi- ja viljelykiertovinkkejä&#10;samoista maaperätiedoista kuin Soil Fertilizer -sovellus." />
+        <text name="ft_organic_help_later_title" text="TULOSSA MYÖHEMMIN" />
+        <text name="ft_organic_help_later_body" text="Komposti-, luomurehu- ja markkinapreemio-osiot pysyvät&#10;varaosioina, kunnes niiden simulaatiot tarjoavat lukurajapinnan." />
+        <text name="ft_organic_subtitle" text="Hallinta" />
+        <text name="ft_organic_cert_unavailable" text="Luomusertifiointi ei ole käytettävissä tässä Soil-versiossa." />
+        <text name="ft_organic_no_fields_yet" text="Ei vielä omia peltoja." />
+        <text name="ft_organic_field_fmt" text="Pelto nro %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d päivää  (%d jäljellä)" />
+        <text name="ft_organic_breaches_fmt" text="Rikkeet: %d" />
+        <text name="ft_organic_not_in_programme" text="Ei luomuohjelmassa" />
+        <text name="ft_organic_selected_field_fmt" text="Valittu pelto nro %s" />
+        <text name="ft_organic_opt_in" text="LIITY" />
+        <text name="ft_organic_opt_in_unavailable" text="Liittyminen ei mahdollista" />
+        <text name="ft_organic_already_opted_in" text="Jo liittynyt" />
+        <text name="ft_organic_opt_out" text="ERO" />
+        <text name="ft_organic_select_field" text="Valitse pelto nähdäksesi viljelyneuvot." />
+        <text name="ft_organic_compost" text="KOMPOSTI" />
+        <text name="ft_organic_compost_na" text="ei käytettävissä - asenna SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Ei kompostieriä. Aloita yksi SoilFertilizer-konsolista." />
+        <text name="ft_organic_batch_ready_fmt" text="VALMIS - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d päivä jäljellä" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d päivää jäljellä" />
+        <text name="ft_organic_batch_safe" text="luomukelpoinen" />
+        <text name="ft_organic_batch_unsafe" text="ei luomukelpoinen" />
+        <text name="ft_organic_batch_fmt" text="Erä nro %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="KOTIELÄIMET" />
+        <text name="ft_organic_livestock_na" text="ei käytettävissä - asenna DairyCore" />
+        <text name="ft_organic_no_barns" text="Tilalla ei ole lypsykarjanavetoita." />
+        <text name="ft_organic_feed_share" text="Tilan luomurehun osuus" />
+        <text name="ft_organic_barn_fmt" text="Navetta %s" />
+        <text name="ft_organic_herd_health" text="Karjan terveys" />
+        <text name="ft_organic_mycotoxin" text="Mykotoksiinirangaistus" />
+        <text name="ft_organic_elevated_risk" text="Kohonnut riski" />
+        <text name="ft_organic_feed_disease" text="Rehutauti" />
+        <text name="ft_organic_feed_tip" text="Vinkki: sertifioi useampia rehupeltoja luomuksi nostaaksesi osuuden yli 80%:n." />
+        <text name="ft_organic_traceability" text="JÄLJITETTÄVYYS" />
+        <text name="ft_organic_trace_na" text="ei käytettävissä - luomusertifiointia ei ole ladattu" />
+        <text name="ft_organic_no_fields" text="Ei omia peltoja." />
+        <text name="ft_organic_storage_fraction" text="Luomuosuus varastossa" />
+        <text name="ft_organic_sale_premium" text="Myyntipreemio: MDM-sopimus odottaa" />
+        <text name="ft_organic_market" text="MARKKINAT" />
+        <text name="ft_organic_market_na" text="ei käytettävissä - odottaa luomupreemiota / MDM-sopimusta" />
     </texts>
 
 </l10n>
