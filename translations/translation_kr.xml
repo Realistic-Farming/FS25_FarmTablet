@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="신용" />
         <text name="ft_auto_credit_score" text="신용 점수" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="작물" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="이 앱을 쓰려면 FS25_RandomWorldEvents를 설치하세요." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="이 앱을 쓰려면 FS25_SoilFertilizer를 설치하세요." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="이 앱을 쓰려면 FS25_UsedPlus를 설치하세요." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="인사를 관리하려면 FS25_WorkerCosts를 설치하세요." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="버킷 차량이 감지되지 않았습니다." />
         <text name="ft_excavator_history_fmt" text="적재 기록  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="관행" />
+        <text name="ft_auto_in_transition" text="전환 중" />
+        <text name="ft_auto_certified" text="인증됨" />
+        <text name="ft_organic_practice_no_data" text="이 밭의 토양 데이터가 아직 없습니다." />
+        <text name="ft_organic_practice_om_low" text="유기물 부족 - 퇴비/거름을 넣거나 짚을 잘게 써세요." />
+        <text name="ft_organic_practice_om_fair" text="유기물 보통 - 유기 투입을 계속하세요." />
+        <text name="ft_organic_practice_om_healthy" text="유기물 양호 - 피복과 작물 잔재를 유지하세요." />
+        <text name="ft_organic_practice_fatigue_fmt" text="%s / %s 이후 윤작 피로 - 다음에는 콩과 작물을 심으세요." />
+        <text name="ft_organic_practice_bonus_fmt" text="윤작 보너스 적용 중 (%s / %s) - 다양성으로 유지하세요." />
+        <text name="ft_organic_practice_rotation_fmt" text="윤작 %s (%s / %s) - 순환에 콩과 작물을 두세요." />
+        <text name="ft_organic_practice_needs_fert" text="지력 필요 - 승인된 유기 자재를 우선하세요." />
+        <text name="ft_organic_help_what_body" text="밭의 유기 인증과 재배 조언입니다.&#10;Soil Fertilizer를 읽습니다. 유기 상태를 따로 저장하지 않습니다." />
+        <text name="ft_organic_certification" text="인증" />
+        <text name="ft_organic_help_cert_body" text="밭별 상태: 관행, 전환 중, 인증됨,&#10;그리고 전환 카운트다운. 참여 /&#10;탈퇴는 Soil Fertilizer에 요청합니다(그곳에서는 관리자 전용)." />
+        <text name="ft_organic_practices" text="재배 방식" />
+        <text name="ft_organic_help_practices_body" text="유기 재배에 맞춘 피복 작물과 윤작 팁입니다.&#10;Soil Fertilizer 앱과 같은 토양 데이터를 씁니다." />
+        <text name="ft_organic_help_later_title" text="추후 추가" />
+        <text name="ft_organic_help_later_body" text="퇴비, 유기 사료, 시장 프리미엄 항목은&#10;해당 시뮬레이션이 읽기를 제공할 때까지 비어 있습니다." />
+        <text name="ft_organic_subtitle" text="관리" />
+        <text name="ft_organic_cert_unavailable" text="이 버전의 Soil에서는 유기 인증을 사용할 수 없습니다." />
+        <text name="ft_organic_no_fields_yet" text="아직 소유한 밭이 없습니다." />
+        <text name="ft_organic_field_fmt" text="밭 #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d일  (%d일 남음)" />
+        <text name="ft_organic_breaches_fmt" text="위반: %d" />
+        <text name="ft_organic_not_in_programme" text="유기 프로그램 미참여" />
+        <text name="ft_organic_selected_field_fmt" text="선택한 밭 #%s" />
+        <text name="ft_organic_opt_in" text="참여" />
+        <text name="ft_organic_opt_in_unavailable" text="참여 불가" />
+        <text name="ft_organic_already_opted_in" text="이미 참여함" />
+        <text name="ft_organic_opt_out" text="탈퇴" />
+        <text name="ft_organic_select_field" text="밭을 선택하면 재배 조언을 볼 수 있습니다." />
+        <text name="ft_organic_compost" text="퇴비" />
+        <text name="ft_organic_compost_na" text="사용 불가 - SoilFertilizer를 설치하세요" />
+        <text name="ft_organic_compost_none" text="퇴비 배치가 없습니다. SoilFertilizer 콘솔에서 시작하세요." />
+        <text name="ft_organic_batch_ready_fmt" text="완료 - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d일 남음" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d일 남음" />
+        <text name="ft_organic_batch_safe" text="유기 적합" />
+        <text name="ft_organic_batch_unsafe" text="유기 부적합" />
+        <text name="ft_organic_batch_fmt" text="배치 #%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="축산" />
+        <text name="ft_organic_livestock_na" text="사용 불가 - DairyCore를 설치하세요" />
+        <text name="ft_organic_no_barns" text="이 농장에는 젖소 축사가 없습니다." />
+        <text name="ft_organic_feed_share" text="농장 유기 사료 비율" />
+        <text name="ft_organic_barn_fmt" text="축사 %s" />
+        <text name="ft_organic_herd_health" text="가축 건강" />
+        <text name="ft_organic_mycotoxin" text="곰팡이 독소 감점" />
+        <text name="ft_organic_elevated_risk" text="위험 증가" />
+        <text name="ft_organic_feed_disease" text="사료 질병" />
+        <text name="ft_organic_feed_tip" text="팁: 사료 밭을 더 많이 유기 인증하면 비율을 80% 넘게 올릴 수 있습니다." />
+        <text name="ft_organic_traceability" text="추적성" />
+        <text name="ft_organic_trace_na" text="사용 불가 - 유기 인증을 불러오지 못했습니다" />
+        <text name="ft_organic_no_fields" text="소유한 밭이 없습니다." />
+        <text name="ft_organic_storage_fraction" text="창고의 유기 비율" />
+        <text name="ft_organic_sale_premium" text="판매 프리미엄: MDM 계약 대기 중" />
+        <text name="ft_organic_market" text="시장" />
+        <text name="ft_organic_market_na" text="사용 불가 - 유기 프리미엄 / MDM 계약 대기 중" />
     </texts>
 
 </l10n>

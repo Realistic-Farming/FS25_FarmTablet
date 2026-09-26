@@ -2848,6 +2848,63 @@
         <text name="ft_excavator_no_bucket" text="No bucket vehicle detected." />
         <text name="ft_excavator_history_fmt" text="LOAD HISTORY  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Conventional" />
+        <text name="ft_auto_in_transition" text="In transition" />
+        <text name="ft_auto_certified" text="Certified" />
+        <text name="ft_organic_practice_no_data" text="No soil data for this field yet." />
+        <text name="ft_organic_practice_om_low" text="OM low - plow in manure/compost or chop straw." />
+        <text name="ft_organic_practice_om_fair" text="OM fair - keep organic inputs coming." />
+        <text name="ft_organic_practice_om_healthy" text="OM healthy - maintain cover and residues." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Rotation fatigue after %s / %s - plant a legume next." />
+        <text name="ft_organic_practice_bonus_fmt" text="Rotation bonus active (%s / %s) - protect it with diversity." />
+        <text name="ft_organic_practice_rotation_fmt" text="Rotation %s (%s / %s) - keep a legume in the cycle." />
+        <text name="ft_organic_practice_needs_fert" text="Needs fertility - prefer approved organic inputs." />
+        <text name="ft_organic_help_what_body" text="Organic certification and practice advice for your&#10;fields. Reads Soil Fertilizer. Owns no organic state." />
+        <text name="ft_organic_certification" text="CERTIFICATION" />
+        <text name="ft_organic_help_cert_body" text="Per-field state: Conventional, In transition, or&#10;Certified, plus the transition countdown. OPT IN /&#10;OPT OUT asks Soil Fertilizer (admin-gated there)." />
+        <text name="ft_organic_practices" text="PRACTICES" />
+        <text name="ft_organic_help_practices_body" text="Cover-crop and rotation tips framed for organic,&#10;from the same soil data as the Soil Fertilizer app." />
+        <text name="ft_organic_help_later_title" text="COMING LATER" />
+        <text name="ft_organic_help_later_body" text="Compost, livestock feed, and market premium sections&#10;stay stubs until those sims expose read APIs." />
+        <text name="ft_organic_subtitle" text="Management" />
+        <text name="ft_organic_cert_unavailable" text="Organic certification not available on this Soil build." />
+        <text name="ft_organic_no_fields_yet" text="No owned fields yet." />
+        <text name="ft_organic_field_fmt" text="Field #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d days  (%d left)" />
+        <text name="ft_organic_breaches_fmt" text="Breaches: %d" />
+        <text name="ft_organic_not_in_programme" text="Not in the organic programme" />
+        <text name="ft_organic_selected_field_fmt" text="Selected field #%s" />
+        <text name="ft_organic_opt_in" text="OPT IN" />
+        <text name="ft_organic_opt_in_unavailable" text="Opt-in unavailable" />
+        <text name="ft_organic_already_opted_in" text="Already opted in" />
+        <text name="ft_organic_opt_out" text="OPT OUT" />
+        <text name="ft_organic_select_field" text="Select a field to see practice advice." />
+        <text name="ft_organic_compost" text="COMPOST" />
+        <text name="ft_organic_compost_na" text="not available - install SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="No compost batches. Start one from the SoilFertilizer console." />
+        <text name="ft_organic_batch_ready_fmt" text="READY - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d day left" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d days left" />
+        <text name="ft_organic_batch_safe" text="organic-safe" />
+        <text name="ft_organic_batch_unsafe" text="not organic-safe" />
+        <text name="ft_organic_batch_fmt" text="Batch #%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="LIVESTOCK" />
+        <text name="ft_organic_livestock_na" text="not available - install DairyCore" />
+        <text name="ft_organic_no_barns" text="No dairy barns on this farm." />
+        <text name="ft_organic_feed_share" text="Farm organic feed share" />
+        <text name="ft_organic_barn_fmt" text="Barn %s" />
+        <text name="ft_organic_herd_health" text="Herd health" />
+        <text name="ft_organic_mycotoxin" text="Mycotoxin penalty" />
+        <text name="ft_organic_elevated_risk" text="Elevated risk" />
+        <text name="ft_organic_feed_disease" text="Feed disease" />
+        <text name="ft_organic_feed_tip" text="Tip: certify more feed fields organic to raise the share above 80%." />
+        <text name="ft_organic_traceability" text="TRACEABILITY" />
+        <text name="ft_organic_trace_na" text="not available - organic certification not loaded" />
+        <text name="ft_organic_no_fields" text="No owned fields." />
+        <text name="ft_organic_storage_fraction" text="Storage organic fraction" />
+        <text name="ft_organic_sale_premium" text="Sale premium: pending MDM contract" />
+        <text name="ft_organic_market" text="MARKET" />
+        <text name="ft_organic_market_na" text="not available - waiting on organic premium / MDM contract" />
     </texts>
 
 </l10n>

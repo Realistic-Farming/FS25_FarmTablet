@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="KREDIT" />
         <text name="ft_auto_credit_score" text="KREDITPOÄNG" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="GRÖDA" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Installera FS25_RandomWorldEvents för att använda appen." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Installera FS25_SoilFertilizer för att använda appen." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Installera FS25_UsedPlus för att använda appen." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Installera FS25_WorkerCosts för att hantera personalen." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Inget fordon med skopa hittades." />
         <text name="ft_excavator_history_fmt" text="LASTHISTORIK  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Konventionell" />
+        <text name="ft_auto_in_transition" text="Under omställning" />
+        <text name="ft_auto_certified" text="Certifierad" />
+        <text name="ft_organic_practice_no_data" text="Inga markdata för det här fältet än." />
+        <text name="ft_organic_practice_om_low" text="Mullhalt låg - mylla ner gödsel/kompost eller hacka halmen." />
+        <text name="ft_organic_practice_om_fair" text="Mullhalt medel - fortsätt med organisk tillförsel." />
+        <text name="ft_organic_practice_om_healthy" text="Mullhalt god - behåll marktäcke och skörderester." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Växtföljdströtthet efter %s / %s - så en baljväxt härnäst." />
+        <text name="ft_organic_practice_bonus_fmt" text="Växtföljdsbonus aktiv (%s / %s) - skydda den med variation." />
+        <text name="ft_organic_practice_rotation_fmt" text="Växtföljd %s (%s / %s) - behåll en baljväxt i växtföljden." />
+        <text name="ft_organic_practice_needs_fert" text="Behöver bördighet - välj godkända ekologiska insatsmedel." />
+        <text name="ft_organic_help_what_body" text="Ekologisk certifiering och odlingsråd för dina&#10;fält. Läser Soil Fertilizer. Sparar ingen egen ekostatus." />
+        <text name="ft_organic_certification" text="CERTIFIERING" />
+        <text name="ft_organic_help_cert_body" text="Status per fält: konventionell, under omställning eller&#10;certifierad, plus nedräkningen för omställningen. ANSLUT /&#10;GÅ UR frågar Soil Fertilizer (där bara för admins)." />
+        <text name="ft_organic_practices" text="ODLINGSPRAXIS" />
+        <text name="ft_organic_help_practices_body" text="Råd om fånggrödor och växtföljd för ekologisk odling,&#10;från samma markdata som Soil Fertilizer-appen." />
+        <text name="ft_organic_help_later_title" text="KOMMER SENARE" />
+        <text name="ft_organic_help_later_body" text="Kompost, ekologiskt foder och marknadspremie förblir&#10;platshållare tills de simuleringarna erbjuder läsning." />
+        <text name="ft_organic_subtitle" text="Förvaltning" />
+        <text name="ft_organic_cert_unavailable" text="Ekologisk certifiering finns inte i den här Soil-versionen." />
+        <text name="ft_organic_no_fields_yet" text="Inga egna fält än." />
+        <text name="ft_organic_field_fmt" text="Fält nr %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d dagar  (%d kvar)" />
+        <text name="ft_organic_breaches_fmt" text="Överträdelser: %d" />
+        <text name="ft_organic_not_in_programme" text="Inte med i ekoprogrammet" />
+        <text name="ft_organic_selected_field_fmt" text="Valt fält nr %s" />
+        <text name="ft_organic_opt_in" text="ANSLUT" />
+        <text name="ft_organic_opt_in_unavailable" text="Anslutning inte möjlig" />
+        <text name="ft_organic_already_opted_in" text="Redan ansluten" />
+        <text name="ft_organic_opt_out" text="GÅ UR" />
+        <text name="ft_organic_select_field" text="Välj ett fält för att se odlingsråd." />
+        <text name="ft_organic_compost" text="KOMPOST" />
+        <text name="ft_organic_compost_na" text="inte tillgängligt - installera SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Inga kompostomgångar. Starta en från SoilFertilizer-konsolen." />
+        <text name="ft_organic_batch_ready_fmt" text="KLAR - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d dag kvar" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d dagar kvar" />
+        <text name="ft_organic_batch_safe" text="ekogodkänd" />
+        <text name="ft_organic_batch_unsafe" text="inte ekogodkänd" />
+        <text name="ft_organic_batch_fmt" text="Omgång nr %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="DJURHÅLLNING" />
+        <text name="ft_organic_livestock_na" text="inte tillgängligt - installera DairyCore" />
+        <text name="ft_organic_no_barns" text="Inga mjölkladugårdar på den här gården." />
+        <text name="ft_organic_feed_share" text="Gårdens andel ekologiskt foder" />
+        <text name="ft_organic_barn_fmt" text="Ladugård %s" />
+        <text name="ft_organic_herd_health" text="Besättningens hälsa" />
+        <text name="ft_organic_mycotoxin" text="Mykotoxinavdrag" />
+        <text name="ft_organic_elevated_risk" text="Förhöjd risk" />
+        <text name="ft_organic_feed_disease" text="Fodersjukdom" />
+        <text name="ft_organic_feed_tip" text="Tips: certifiera fler foderfält som ekologiska för att få andelen över 80%." />
+        <text name="ft_organic_traceability" text="SPÅRBARHET" />
+        <text name="ft_organic_trace_na" text="inte tillgängligt - ekologisk certifiering inte inläst" />
+        <text name="ft_organic_no_fields" text="Inga egna fält." />
+        <text name="ft_organic_storage_fraction" text="Ekologisk andel i lagret" />
+        <text name="ft_organic_sale_premium" text="Försäljningspremie: MDM-avtal väntar" />
+        <text name="ft_organic_market" text="MARKNAD" />
+        <text name="ft_organic_market_na" text="inte tillgängligt - väntar på ekopremie / MDM-avtal" />
     </texts>
 
 </l10n>

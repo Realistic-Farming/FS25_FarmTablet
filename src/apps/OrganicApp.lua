@@ -43,33 +43,33 @@ end
 local function _practiceLines(info)
     local lines = {}
     if info == nil then
-        return { "No soil data for this field yet." }
+        return { FT.l10n("ft_organic_practice_no_data", "No soil data for this field yet.") }
     end
     local om = tonumber(info.organicMatter) or 0
     if om < 3.0 then
-        lines[#lines + 1] = "OM low - plow in manure/compost or chop straw."
+        lines[#lines + 1] = FT.l10n("ft_organic_practice_om_low", "OM low - plow in manure/compost or chop straw.")
     elseif om < 4.0 then
-        lines[#lines + 1] = "OM fair - keep organic inputs coming."
+        lines[#lines + 1] = FT.l10n("ft_organic_practice_om_fair", "OM fair - keep organic inputs coming.")
     else
-        lines[#lines + 1] = "OM healthy - maintain cover and residues."
+        lines[#lines + 1] = FT.l10n("ft_organic_practice_om_healthy", "OM healthy - maintain cover and residues.")
     end
 
     local rot = tostring(info.rotationStatus or "OK")
     local last = tostring(info.lastCrop or "-")
     local last2 = tostring(info.lastCrop2 or "-")
     if rot == "Fatigue" then
-        lines[#lines + 1] = string.format(
+        lines[#lines + 1] = FT.l10nFormat("ft_organic_practice_fatigue_fmt",
             "Rotation fatigue after %s / %s - plant a legume next.", last, last2)
     elseif rot == "Bonus" then
-        lines[#lines + 1] = string.format(
+        lines[#lines + 1] = FT.l10nFormat("ft_organic_practice_bonus_fmt",
             "Rotation bonus active (%s / %s) - protect it with diversity.", last, last2)
     else
-        lines[#lines + 1] = string.format(
+        lines[#lines + 1] = FT.l10nFormat("ft_organic_practice_rotation_fmt",
             "Rotation %s (%s / %s) - keep a legume in the cycle.", rot, last, last2)
     end
 
     if info.needsFertilization then
-        lines[#lines + 1] = "Needs fertility - prefer approved organic inputs."
+        lines[#lines + 1] = FT.l10n("ft_organic_practice_needs_fert", "Needs fertility - prefer approved organic inputs.")
     end
     return lines
 end
@@ -77,23 +77,18 @@ end
 FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     local AC = FT.appColor(FT.APP.ORGANIC)
 
-    if self:drawHelpPage("_organicHelp", FT.APP.ORGANIC, "Organic", AC, {
+    if self:drawHelpPage("_organicHelp", FT.APP.ORGANIC, FT.l10n("ft_ui_app_organic", "Organic"), AC, {
         { title = "WHAT THIS IS",
-          body  = "Organic certification and practice advice for your\n" ..
-                  "fields. Reads Soil Fertilizer. Owns no organic state." },
-        { title = "CERTIFICATION",
-          body  = "Per-field state: Conventional, In transition, or\n" ..
-                  "Certified, plus the transition countdown. OPT IN /\n" ..
-                  "OPT OUT asks Soil Fertilizer (admin-gated there)." },
-        { title = "PRACTICES",
-          body  = "Cover-crop and rotation tips framed for organic,\n" ..
-                  "from the same soil data as the Soil Fertilizer app." },
-        { title = "COMING LATER",
-          body  = "Compost, livestock feed, and market premium sections\n" ..
-                  "stay stubs until those sims expose read APIs." },
+          body  = FT.l10n("ft_organic_help_what_body", "Organic certification and practice advice for your\nfields. Reads Soil Fertilizer. Owns no organic state.") },
+        { title = FT.l10n("ft_organic_certification", "CERTIFICATION"),
+          body  = FT.l10n("ft_organic_help_cert_body", "Per-field state: Conventional, In transition, or\nCertified, plus the transition countdown. OPT IN /\nOPT OUT asks Soil Fertilizer (admin-gated there).") },
+        { title = FT.l10n("ft_organic_practices", "PRACTICES"),
+          body  = FT.l10n("ft_organic_help_practices_body", "Cover-crop and rotation tips framed for organic,\nfrom the same soil data as the Soil Fertilizer app.") },
+        { title = FT.l10n("ft_organic_help_later_title", "COMING LATER"),
+          body  = FT.l10n("ft_organic_help_later_body", "Compost, livestock feed, and market premium sections\nstay stubs until those sims expose read APIs.") },
     }) then return end
 
-    local startY = self:drawAppHeader("Organic", "Management")
+    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_organic", "Organic"), FT.l10n("ft_organic_subtitle", "Management"))
     local x, cyBottom, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -118,15 +113,15 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     ------------------------------------------------------------------
     -- CERTIFICATION
     ------------------------------------------------------------------
-    y = self:drawSection(y, "CERTIFICATION")
+    y = self:drawSection(y, FT.l10n("ft_organic_certification", "CERTIFICATION"))
     if organic == nil or type(organic.getFieldOrganicState) ~= "function" then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "Organic certification not available on this Soil build.",
+            FT.l10n("ft_organic_cert_unavailable", "Organic certification not available on this Soil build."),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(22)
     elseif #fields == 0 then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "No owned fields yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            FT.l10n("ft_organic_no_fields_yet", "No owned fields yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         y = y - FT.py(22)
     else
         local selected = self.system.organicSelectedField
@@ -152,7 +147,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             end
 
             self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                string.format("Field #%s", tostring(field.id)),
+                FT.l10nFormat("ft_organic_field_fmt", "Field #%s", tostring(field.id)),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
             self.r:appText(x + cw - btnW - FT.px(8), y - FT.py(2), FT.FONT.SMALL,
                 label, RenderText.ALIGN_RIGHT, col)
@@ -163,13 +158,13 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                 local accrued = tonumber(st.daysAccrued) or 0
                 local need = tonumber(st.transitionDaysNeeded) or 0
                 local left = math.max(0, need - accrued)
-                countdown = string.format("%d / %d days  (%d left)",
+                countdown = FT.l10nFormat("ft_organic_countdown_fmt", "%d / %d days  (%d left)",
                     math.floor(accrued + 0.5), math.floor(need + 0.5), math.floor(left + 0.5))
             elseif key == "certified" then
                 local breaches = st and tonumber(st.breaches) or 0
-                countdown = string.format("Breaches: %d", breaches)
+                countdown = FT.l10nFormat("ft_organic_breaches_fmt", "Breaches: %d", breaches)
             else
-                countdown = "Not in the organic programme"
+                countdown = FT.l10n("ft_organic_not_in_programme", "Not in the organic programme")
             end
             self.r:appText(x, y - FT.py(1), FT.FONT.TINY, countdown,
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
@@ -189,7 +184,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         local selKey = _stateKey(selSt)
         y = y - FT.py(4)
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-            string.format("Selected field #%s", tostring(selected)),
+            FT.l10nFormat("ft_organic_selected_field_fmt", "Selected field #%s", tostring(selected)),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
         y = y - FT.py(16)
 
@@ -198,7 +193,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         local canIn = (selKey == "conventional")
         local canOut = (selKey == "in_transition" or selKey == "certified")
         if type(organic.requestOptIn) == "function" and canIn then
-            local bIn = self.r:button(x, y - FT.py(20), half, FT.py(20), "OPT IN",
+            local bIn = self.r:button(x, y - FT.py(20), half, FT.py(20), FT.l10n("ft_organic_opt_in", "OPT IN"),
                 FT.C.BTN_PRIMARY, {
                     onClick = function()
                         pcall(function() organic:requestOptIn(selected) end)
@@ -207,12 +202,13 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             table.insert(self._contentBtns, bIn)
         else
             self.r:appText(x, y - FT.py(8), FT.FONT.TINY,
-                canIn and "Opt-in unavailable" or "Already opted in",
+                canIn and FT.l10n("ft_organic_opt_in_unavailable", "Opt-in unavailable")
+                    or FT.l10n("ft_organic_already_opted_in", "Already opted in"),
                 RenderText.ALIGN_LEFT, FT.C.MUTED)
         end
         if type(organic.requestOptOut) == "function" and canOut then
             local bOut = self.r:button(x + half + gap, y - FT.py(20), half, FT.py(20),
-                "OPT OUT", FT.C.BTN_DANGER, {
+                FT.l10n("ft_organic_opt_out", "OPT OUT"), FT.C.BTN_DANGER, {
                     onClick = function()
                         pcall(function() organic:requestOptOut(selected) end)
                     end
@@ -226,17 +222,17 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     -- PRACTICES
     ------------------------------------------------------------------
     y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "PRACTICES")
+    y = self:drawSection(y, FT.l10n("ft_organic_practices", "PRACTICES"))
     local sel = self.system.organicSelectedField
     if sel == nil and #fields > 0 then sel = fields[1].id end
     if sel == nil then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "Select a field to see practice advice.", RenderText.ALIGN_LEFT, FT.C.MUTED)
+            FT.l10n("ft_organic_select_field", "Select a field to see practice advice."), RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(20)
     else
         local info = _pcall(function() return soil:getFieldInfo(sel) end)
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-            string.format("Field #%s", tostring(sel)),
+            FT.l10nFormat("ft_organic_field_fmt", "Field #%s", tostring(sel)),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
         y = y - FT.py(14)
         for _, line in ipairs(_practiceLines(info)) do
@@ -251,29 +247,32 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     -- STUBS
     ------------------------------------------------------------------
     y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "COMPOST")
+    y = self:drawSection(y, FT.l10n("ft_organic_compost", "COMPOST"))
     local compost = (g_currentMission ~= nil and g_currentMission.compostManager) or nil
     if compost == nil or type(compost.getBatchRows) ~= "function" then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "not available - install SoilFertilizer", RenderText.ALIGN_LEFT, FT.C.MUTED)
+            FT.l10n("ft_organic_compost_na", "not available - install SoilFertilizer"), RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(22)
     else
         local rows = _pcall(function() return compost:getBatchRows(farmId) end) or {}
         if #rows == 0 then
             self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-                "No compost batches. Start one from the SoilFertilizer console.",
+                FT.l10n("ft_organic_compost_none", "No compost batches. Start one from the SoilFertilizer console."),
                 RenderText.ALIGN_LEFT, FT.C.MUTED)
             -- Advance past the line (same step as the not-available branch) so the
             -- LIVESTOCK header does not land on top of it.
             y = y - FT.py(22)
         else
             for _, b in ipairs(rows) do
+                local days = math.floor(b.daysRemaining or 0)
                 local state = b.ready
-                    and string.format("READY - %d L", math.floor(b.outputLitres or 0))
-                    or  string.format("%d day(s) left", math.floor(b.daysRemaining or 0))
-                local tag = b.organicSafe and "organic-safe" or "not organic-safe"
+                    and FT.l10nFormat("ft_organic_batch_ready_fmt", "READY - %d L", math.floor(b.outputLitres or 0))
+                    or (days == 1 and FT.l10nFormat("ft_organic_batch_day_left_fmt", "%d day left", days)
+                        or FT.l10nFormat("ft_organic_batch_days_left_fmt", "%d days left", days))
+                local tag = b.organicSafe and FT.l10n("ft_organic_batch_safe", "organic-safe")
+                    or FT.l10n("ft_organic_batch_unsafe", "not organic-safe")
                 self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-                    string.format("Batch #%d: %s  (%s)", b.batchId, state, tag),
+                    FT.l10nFormat("ft_organic_batch_fmt", "Batch #%d: %s  (%s)", b.batchId, state, tag),
                     RenderText.ALIGN_LEFT, b.ready and FT.C.POSITIVE or FT.C.TEXT_DIM)
                 y = y - FT.py(14)
             end
@@ -281,12 +280,12 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         y = y - FT.py(8)
     end
 
-    y = self:drawSection(y, "LIVESTOCK")
+    y = self:drawSection(y, FT.l10n("ft_organic_livestock", "LIVESTOCK"))
     local dcMgr = (g_currentMission and g_currentMission.dairyCoreManager)
         or getfenv(0)["g_dairyCoreManager"]
     if dcMgr == nil then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "not available - install DairyCore",
+            FT.l10n("ft_organic_livestock_na", "not available - install DairyCore"),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(22)
     else
@@ -302,7 +301,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
 
         if #farmBarns == 0 then
             self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-                "No dairy barns on this farm.",
+                FT.l10n("ft_organic_no_barns", "No dairy barns on this farm."),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             y = y - FT.py(22)
         else
@@ -317,7 +316,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             local orgCol = orgPct >= 80 and FT.C.POSITIVE
                 or orgPct >= 40 and FT.C.WARNING or FT.C.TEXT_DIM
             self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-                "Farm organic feed share", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.l10n("ft_organic_feed_share", "Farm organic feed share"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             self.r:appText(x + cw, y - FT.py(2), FT.FONT.TINY,
                 string.format("%d%%", orgPct), RenderText.ALIGN_RIGHT, orgCol)
             y = y - FT.py(14)
@@ -331,28 +330,28 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                 local feedFlag = barn.feedDiseaseFlag == true
 
                 self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                    string.format("Barn %s", tostring(barn.barnId)),
+                    FT.l10nFormat("ft_organic_barn_fmt", "Barn %s", tostring(barn.barnId)),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
                 y = y - FT.py(14)
 
                 self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
-                    "Herd health", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    FT.l10n("ft_organic_herd_health", "Herd health"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
                     string.format("%d", health), RenderText.ALIGN_RIGHT, hCol)
                 y = y - FT.py(12)
 
                 if myc > 0 then
                     self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
-                        "Mycotoxin penalty", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                        FT.l10n("ft_organic_mycotoxin", "Mycotoxin penalty"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
                     self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
                         string.format("-%d", myc), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
                     y = y - FT.py(12)
                 end
 
                 if feedFlag then
-                    local feedLabel = barn.feedDiseaseCropName or "Elevated risk"
+                    local feedLabel = barn.feedDiseaseCropName or FT.l10n("ft_organic_elevated_risk", "Elevated risk")
                     self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
-                        "Feed disease", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                        FT.l10n("ft_organic_feed_disease", "Feed disease"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
                     self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
                         tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
                     y = y - FT.py(12)
@@ -362,7 +361,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
 
             if orgPct < 80 then
                 self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
-                    "Tip: certify more feed fields organic to raise the share above 80%.",
+                    FT.l10n("ft_organic_feed_tip", "Tip: certify more feed fields organic to raise the share above 80%."),
                     RenderText.ALIGN_LEFT, FT.C.MUTED)
                 y = y - FT.py(14)
             end
@@ -374,15 +373,15 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     -- TRACEABILITY (read-only chain: field -> storage -> sale)
     ------------------------------------------------------------------
     y = self:drawRule(y, 0.3)
-    y = self:drawSection(y, "TRACEABILITY")
+    y = self:drawSection(y, FT.l10n("ft_organic_traceability", "TRACEABILITY"))
     if organic == nil then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "not available - organic certification not loaded",
+            FT.l10n("ft_organic_trace_na", "not available - organic certification not loaded"),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(22)
     elseif #fields == 0 then
         self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-            "No owned fields.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            FT.l10n("ft_organic_no_fields", "No owned fields."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         y = y - FT.py(22)
     else
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
@@ -421,7 +420,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                 local fCol = pct >= 80 and FT.C.POSITIVE
                     or pct >= 40 and FT.C.WARNING or FT.C.TEXT_DIM
                 self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-                    "Storage organic fraction", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    FT.l10n("ft_organic_storage_fraction", "Storage organic fraction"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
                 self.r:appText(x + cw, y - FT.py(2), FT.FONT.TINY,
                     string.format("%d%%", pct), RenderText.ALIGN_RIGHT, fCol)
                 y = y - FT.py(14)
@@ -429,14 +428,14 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         end
 
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
-            "Sale premium: pending MDM contract",
+            FT.l10n("ft_organic_sale_premium", "Sale premium: pending MDM contract"),
             RenderText.ALIGN_LEFT, FT.C.MUTED)
         y = y - FT.py(14)
     end
 
-    y = self:drawSection(y, "MARKET")
+    y = self:drawSection(y, FT.l10n("ft_organic_market", "MARKET"))
     self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
-        "not available - waiting on organic premium / MDM contract",
+        FT.l10n("ft_organic_market_na", "not available - waiting on organic premium / MDM contract"),
         RenderText.ALIGN_LEFT, FT.C.MUTED)
     y = y - FT.py(22)
 

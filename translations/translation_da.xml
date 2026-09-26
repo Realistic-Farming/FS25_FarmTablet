@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="KREDIT" />
         <text name="ft_auto_credit_score" text="KREDITSCORE" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="AFGRØDE" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Installer FS25_RandomWorldEvents for at bruge denne app." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Installer FS25_SoilFertilizer for at bruge denne app." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Installer FS25_UsedPlus for at bruge denne app." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Installer FS25_WorkerCosts for at styre personalet." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Intet køretøj med skovl fundet." />
         <text name="ft_excavator_history_fmt" text="LÆSHISTORIK  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Konventionel" />
+        <text name="ft_auto_in_transition" text="Under omlægning" />
+        <text name="ft_auto_certified" text="Certificeret" />
+        <text name="ft_organic_practice_no_data" text="Ingen jorddata for denne mark endnu." />
+        <text name="ft_organic_practice_om_low" text="OS lav - nedmuld gødning/kompost eller hak halmen." />
+        <text name="ft_organic_practice_om_fair" text="OS middel - bliv ved med organisk tilførsel." />
+        <text name="ft_organic_practice_om_healthy" text="OS sund - bevar plantedække og planterester." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Sædskiftetræthed efter %s / %s - så en bælgplante næste gang." />
+        <text name="ft_organic_practice_bonus_fmt" text="Sædskiftebonus aktiv (%s / %s) - beskyt den med variation." />
+        <text name="ft_organic_practice_rotation_fmt" text="Sædskifte %s (%s / %s) - hold en bælgplante i sædskiftet." />
+        <text name="ft_organic_practice_needs_fert" text="Mangler frugtbarhed - brug godkendte økologiske midler." />
+        <text name="ft_organic_help_what_body" text="Økologisk certificering og dyrkningsråd for dine&#10;marker. Læser Soil Fertilizer. Gemmer ingen økologisk status selv." />
+        <text name="ft_organic_certification" text="CERTIFICERING" />
+        <text name="ft_organic_help_cert_body" text="Status pr. mark: konventionel, under omlægning eller&#10;certificeret, plus nedtællingen for omlægning. TILMELD /&#10;FRAMELD beder Soil Fertilizer (kun admins der)." />
+        <text name="ft_organic_practices" text="DYRKNINGSPRAKSIS" />
+        <text name="ft_organic_help_practices_body" text="Råd om efterafgrøder og sædskifte tilpasset økologi,&#10;ud fra de samme jorddata som Soil Fertilizer-appen." />
+        <text name="ft_organic_help_later_title" text="KOMMER SENERE" />
+        <text name="ft_organic_help_later_body" text="Kompost, økologisk foder og markedspræmie forbliver&#10;pladsholdere, indtil de simuleringer tilbyder læsning." />
+        <text name="ft_organic_subtitle" text="Styring" />
+        <text name="ft_organic_cert_unavailable" text="Økologisk certificering er ikke tilgængelig i denne Soil-version." />
+        <text name="ft_organic_no_fields_yet" text="Ingen egne marker endnu." />
+        <text name="ft_organic_field_fmt" text="Mark nr. %s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d dage  (%d tilbage)" />
+        <text name="ft_organic_breaches_fmt" text="Overtrædelser: %d" />
+        <text name="ft_organic_not_in_programme" text="Ikke med i det økologiske program" />
+        <text name="ft_organic_selected_field_fmt" text="Valgt mark nr. %s" />
+        <text name="ft_organic_opt_in" text="TILMELD" />
+        <text name="ft_organic_opt_in_unavailable" text="Tilmelding ikke mulig" />
+        <text name="ft_organic_already_opted_in" text="Allerede tilmeldt" />
+        <text name="ft_organic_opt_out" text="FRAMELD" />
+        <text name="ft_organic_select_field" text="Vælg en mark for at se dyrkningsråd." />
+        <text name="ft_organic_compost" text="KOMPOST" />
+        <text name="ft_organic_compost_na" text="ikke tilgængelig - installer SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Ingen kompostpartier. Start et fra SoilFertilizer-konsollen." />
+        <text name="ft_organic_batch_ready_fmt" text="KLAR - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="%d dag tilbage" />
+        <text name="ft_organic_batch_days_left_fmt" text="%d dage tilbage" />
+        <text name="ft_organic_batch_safe" text="økologisk egnet" />
+        <text name="ft_organic_batch_unsafe" text="ikke økologisk egnet" />
+        <text name="ft_organic_batch_fmt" text="Parti nr. %d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="HUSDYR" />
+        <text name="ft_organic_livestock_na" text="ikke tilgængelig - installer DairyCore" />
+        <text name="ft_organic_no_barns" text="Ingen malkekvægsstalde på denne gård." />
+        <text name="ft_organic_feed_share" text="Gårdens andel af økologisk foder" />
+        <text name="ft_organic_barn_fmt" text="Stald %s" />
+        <text name="ft_organic_herd_health" text="Besætningens sundhed" />
+        <text name="ft_organic_mycotoxin" text="Mykotoksinstraf" />
+        <text name="ft_organic_elevated_risk" text="Forhøjet risiko" />
+        <text name="ft_organic_feed_disease" text="Fodersygdom" />
+        <text name="ft_organic_feed_tip" text="Tip: certificér flere fodermarker økologisk for at løfte andelen over 80%." />
+        <text name="ft_organic_traceability" text="SPORBARHED" />
+        <text name="ft_organic_trace_na" text="ikke tilgængelig - økologisk certificering ikke indlæst" />
+        <text name="ft_organic_no_fields" text="Ingen egne marker." />
+        <text name="ft_organic_storage_fraction" text="Økologisk andel i lageret" />
+        <text name="ft_organic_sale_premium" text="Salgspræmie: MDM-kontrakt afventer" />
+        <text name="ft_organic_market" text="MARKED" />
+        <text name="ft_organic_market_na" text="ikke tilgængelig - venter på økologisk præmie / MDM-kontrakt" />
     </texts>
 
 </l10n>

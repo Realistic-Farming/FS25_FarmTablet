@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="信用" />
         <text name="ft_auto_credit_score" text="信用分數" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="作物" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="請安裝 FS25_RandomWorldEvents 以使用此應用程式。" />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="請安裝 FS25_SoilFertilizer 以使用此應用程式。" />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="請安裝 FS25_UsedPlus 以使用此應用程式。" />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="請安裝 FS25_WorkerCosts 以管理人事。" />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="未偵測到有鏟斗的車輛。" />
         <text name="ft_excavator_history_fmt" text="裝載紀錄  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f 公斤" />
+        <text name="ft_auto_conventional" text="慣行" />
+        <text name="ft_auto_in_transition" text="轉型中" />
+        <text name="ft_auto_certified" text="已認證" />
+        <text name="ft_organic_practice_no_data" text="這塊田地還沒有土壤資料。" />
+        <text name="ft_organic_practice_om_low" text="有機質偏低 - 翻入糞肥/堆肥或切碎稻草。" />
+        <text name="ft_organic_practice_om_fair" text="有機質尚可 - 持續施用有機資材。" />
+        <text name="ft_organic_practice_om_healthy" text="有機質良好 - 保持覆蓋與作物殘體。" />
+        <text name="ft_organic_practice_fatigue_fmt" text="在 %s / %s 之後輪作疲乏 - 下一季請種豆科作物。" />
+        <text name="ft_organic_practice_bonus_fmt" text="輪作加成生效中 (%s / %s) - 以多樣性維持它。" />
+        <text name="ft_organic_practice_rotation_fmt" text="輪作 %s (%s / %s) - 在循環中保留一種豆科作物。" />
+        <text name="ft_organic_practice_needs_fert" text="需要肥力 - 請優先使用核可的有機資材。" />
+        <text name="ft_organic_help_what_body" text="為你的田地提供有機認證與耕作建議。&#10;讀取 Soil Fertilizer。本身不儲存任何有機狀態。" />
+        <text name="ft_organic_certification" text="認證" />
+        <text name="ft_organic_help_cert_body" text="每塊田地的狀態：慣行、轉型中或&#10;已認證，並顯示轉型倒數。「加入」/&#10;「退出」會向 Soil Fertilizer 提出要求（該處僅限管理員）。" />
+        <text name="ft_organic_practices" text="耕作方式" />
+        <text name="ft_organic_help_practices_body" text="為有機耕作量身打造的覆蓋作物與輪作建議，&#10;資料與 Soil Fertilizer 應用程式相同。" />
+        <text name="ft_organic_help_later_title" text="即將推出" />
+        <text name="ft_organic_help_later_body" text="堆肥、有機飼料與市場溢價區塊&#10;在那些模擬提供讀取介面前會維持空白。" />
+        <text name="ft_organic_subtitle" text="管理" />
+        <text name="ft_organic_cert_unavailable" text="此版本的 Soil 不提供有機認證。" />
+        <text name="ft_organic_no_fields_yet" text="尚未擁有任何田地。" />
+        <text name="ft_organic_field_fmt" text="田地 #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d 天  (剩 %d 天)" />
+        <text name="ft_organic_breaches_fmt" text="違規：%d" />
+        <text name="ft_organic_not_in_programme" text="未參加有機計畫" />
+        <text name="ft_organic_selected_field_fmt" text="已選田地 #%s" />
+        <text name="ft_organic_opt_in" text="加入" />
+        <text name="ft_organic_opt_in_unavailable" text="無法加入" />
+        <text name="ft_organic_already_opted_in" text="已經加入" />
+        <text name="ft_organic_opt_out" text="退出" />
+        <text name="ft_organic_select_field" text="選擇田地以查看耕作建議。" />
+        <text name="ft_organic_compost" text="堆肥" />
+        <text name="ft_organic_compost_na" text="無法使用 - 請安裝 SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="沒有堆肥批次。請從 SoilFertilizer 主控台開始一批。" />
+        <text name="ft_organic_batch_ready_fmt" text="完成 - %d 公升" />
+        <text name="ft_organic_batch_day_left_fmt" text="剩 %d 天" />
+        <text name="ft_organic_batch_days_left_fmt" text="剩 %d 天" />
+        <text name="ft_organic_batch_safe" text="符合有機" />
+        <text name="ft_organic_batch_unsafe" text="不符合有機" />
+        <text name="ft_organic_batch_fmt" text="批次 #%d：%s  (%s)" />
+        <text name="ft_organic_livestock" text="畜牧" />
+        <text name="ft_organic_livestock_na" text="無法使用 - 請安裝 DairyCore" />
+        <text name="ft_organic_no_barns" text="這座農場沒有乳牛舍。" />
+        <text name="ft_organic_feed_share" text="農場有機飼料比例" />
+        <text name="ft_organic_barn_fmt" text="牛舍 %s" />
+        <text name="ft_organic_herd_health" text="牛群健康" />
+        <text name="ft_organic_mycotoxin" text="黴菌毒素扣分" />
+        <text name="ft_organic_elevated_risk" text="風險升高" />
+        <text name="ft_organic_feed_disease" text="飼料疾病" />
+        <text name="ft_organic_feed_tip" text="提示：將更多飼料田認證為有機，讓比例超過 80%。" />
+        <text name="ft_organic_traceability" text="追溯" />
+        <text name="ft_organic_trace_na" text="無法使用 - 未載入有機認證" />
+        <text name="ft_organic_no_fields" text="沒有擁有的田地。" />
+        <text name="ft_organic_storage_fraction" text="倉儲中的有機比例" />
+        <text name="ft_organic_sale_premium" text="銷售溢價：等待 MDM 合約" />
+        <text name="ft_organic_market" text="市場" />
+        <text name="ft_organic_market_na" text="無法使用 - 等待有機溢價 / MDM 合約" />
     </texts>
 
 </l10n>

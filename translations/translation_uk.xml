@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="КРЕДИТ" />
         <text name="ft_auto_credit_score" text="КРЕДИТНИЙ РЕЙТИНГ" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="КУЛЬТУРА" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Установіть FS25_RandomWorldEvents, щоб користуватися застосунком." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Установіть FS25_SoilFertilizer, щоб користуватися застосунком." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Установіть FS25_UsedPlus, щоб користуватися застосунком." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Установіть FS25_WorkerCosts, щоб керувати персоналом." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Техніку з ковшем не знайдено." />
         <text name="ft_excavator_history_fmt" text="ІСТОРІЯ ВАНТАЖІВ  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f кг" />
+        <text name="ft_auto_conventional" text="Традиційне" />
+        <text name="ft_auto_in_transition" text="На переході" />
+        <text name="ft_auto_certified" text="Сертифіковано" />
+        <text name="ft_organic_practice_no_data" text="Для цього поля ще немає даних про ґрунт." />
+        <text name="ft_organic_practice_om_low" text="Мало гумусу - загорніть гній/компост або подрібніть солому." />
+        <text name="ft_organic_practice_om_fair" text="Гумус середній - продовжуйте вносити органіку." />
+        <text name="ft_organic_practice_om_healthy" text="Гумус у нормі - зберігайте покрив і рослинні рештки." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Втома сівозміни після %s / %s - посійте далі бобові." />
+        <text name="ft_organic_practice_bonus_fmt" text="Бонус сівозміни активний (%s / %s) - бережіть його різноманіттям." />
+        <text name="ft_organic_practice_rotation_fmt" text="Сівозміна %s (%s / %s) - тримайте бобові в циклі." />
+        <text name="ft_organic_practice_needs_fert" text="Потрібна родючість - обирайте дозволені органічні засоби." />
+        <text name="ft_organic_help_what_body" text="Органічна сертифікація і поради з практик для ваших&#10;полів. Читає Soil Fertilizer. Власного органічного статусу не зберігає." />
+        <text name="ft_organic_certification" text="СЕРТИФІКАЦІЯ" />
+        <text name="ft_organic_help_cert_body" text="Статус кожного поля: традиційне, на переході або&#10;сертифіковано, плюс відлік переходу. ВСТУПИТИ /&#10;ВИЙТИ надсилає запит до Soil Fertilizer (там лише для адмінів)." />
+        <text name="ft_organic_practices" text="ПРАКТИКИ" />
+        <text name="ft_organic_help_practices_body" text="Поради щодо покривних культур і сівозміни для органіки,&#10;з тих самих даних про ґрунт, що й застосунок Soil Fertilizer." />
+        <text name="ft_organic_help_later_title" text="ПІЗНІШЕ" />
+        <text name="ft_organic_help_later_body" text="Розділи компосту, органічного корму й ринкової премії&#10;лишаються заглушками, доки ці симуляції не дадуть читання." />
+        <text name="ft_organic_subtitle" text="Керування" />
+        <text name="ft_organic_cert_unavailable" text="Органічна сертифікація недоступна в цій версії Soil." />
+        <text name="ft_organic_no_fields_yet" text="Власних полів ще немає." />
+        <text name="ft_organic_field_fmt" text="Поле №%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d дн.  (лишилося %d)" />
+        <text name="ft_organic_breaches_fmt" text="Порушення: %d" />
+        <text name="ft_organic_not_in_programme" text="Не в органічній програмі" />
+        <text name="ft_organic_selected_field_fmt" text="Вибране поле №%s" />
+        <text name="ft_organic_opt_in" text="ВСТУПИТИ" />
+        <text name="ft_organic_opt_in_unavailable" text="Вступ недоступний" />
+        <text name="ft_organic_already_opted_in" text="Уже в програмі" />
+        <text name="ft_organic_opt_out" text="ВИЙТИ" />
+        <text name="ft_organic_select_field" text="Виберіть поле, щоб побачити поради." />
+        <text name="ft_organic_compost" text="КОМПОСТ" />
+        <text name="ft_organic_compost_na" text="недоступно - установіть SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Партій компосту немає. Запустіть партію з консолі SoilFertilizer." />
+        <text name="ft_organic_batch_ready_fmt" text="ГОТОВО - %d л" />
+        <text name="ft_organic_batch_day_left_fmt" text="лишився %d день" />
+        <text name="ft_organic_batch_days_left_fmt" text="лишилося днів: %d" />
+        <text name="ft_organic_batch_safe" text="придатне для органіки" />
+        <text name="ft_organic_batch_unsafe" text="непридатне для органіки" />
+        <text name="ft_organic_batch_fmt" text="Партія №%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="ТВАРИННИЦТВО" />
+        <text name="ft_organic_livestock_na" text="недоступно - установіть DairyCore" />
+        <text name="ft_organic_no_barns" text="На цій фермі немає молочних корівників." />
+        <text name="ft_organic_feed_share" text="Частка органічного корму на фермі" />
+        <text name="ft_organic_barn_fmt" text="Корівник %s" />
+        <text name="ft_organic_herd_health" text="Здоров'я стада" />
+        <text name="ft_organic_mycotoxin" text="Штраф за мікотоксини" />
+        <text name="ft_organic_elevated_risk" text="Підвищений ризик" />
+        <text name="ft_organic_feed_disease" text="Хвороба від корму" />
+        <text name="ft_organic_feed_tip" text="Порада: сертифікуйте більше кормових полів як органічні, щоб частка перевищила 80%." />
+        <text name="ft_organic_traceability" text="ПРОСТЕЖУВАНІСТЬ" />
+        <text name="ft_organic_trace_na" text="недоступно - органічну сертифікацію не завантажено" />
+        <text name="ft_organic_no_fields" text="Власних полів немає." />
+        <text name="ft_organic_storage_fraction" text="Органічна частка на складі" />
+        <text name="ft_organic_sale_premium" text="Премія за продаж: чекає на контракт MDM" />
+        <text name="ft_organic_market" text="РИНОК" />
+        <text name="ft_organic_market_na" text="недоступно - чекає на органічну премію / контракт MDM" />
     </texts>
 
 </l10n>

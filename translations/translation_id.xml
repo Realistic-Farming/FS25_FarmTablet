@@ -720,7 +720,7 @@
         <text name="ft_auto_credit" text="KREDIT" />
         <text name="ft_auto_credit_score" text="SKOR KREDIT" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
-        <text name="ft_auto_crop" text="CROP" />
+        <text name="ft_auto_crop" text="TANAMAN" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
@@ -1241,7 +1241,7 @@
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Pasang FS25_RandomWorldEvents untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
-        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
+        <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Pasang FS25_SoilFertilizer untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Pasang FS25_UsedPlus untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Pasang FS25_WorkerCosts untuk mengelola personalia." />
@@ -2860,6 +2860,63 @@
         <text name="ft_excavator_no_bucket" text="Tidak ada kendaraan ber-bucket." />
         <text name="ft_excavator_history_fmt" text="RIWAYAT MUATAN  (%d)" />
         <text name="ft_excavator_kg_fmt" text="%.0f kg" />
+        <text name="ft_auto_conventional" text="Konvensional" />
+        <text name="ft_auto_in_transition" text="Masa peralihan" />
+        <text name="ft_auto_certified" text="Bersertifikat" />
+        <text name="ft_organic_practice_no_data" text="Belum ada data tanah untuk ladang ini." />
+        <text name="ft_organic_practice_om_low" text="BO rendah - benamkan pupuk kandang/kompos atau cacah jerami." />
+        <text name="ft_organic_practice_om_fair" text="BO sedang - teruskan asupan organik." />
+        <text name="ft_organic_practice_om_healthy" text="BO sehat - pertahankan tutupan dan sisa tanaman." />
+        <text name="ft_organic_practice_fatigue_fmt" text="Kelelahan rotasi setelah %s / %s - tanam kacang-kacangan berikutnya." />
+        <text name="ft_organic_practice_bonus_fmt" text="Bonus rotasi aktif (%s / %s) - jaga dengan keragaman." />
+        <text name="ft_organic_practice_rotation_fmt" text="Rotasi %s (%s / %s) - pertahankan kacang-kacangan dalam siklus." />
+        <text name="ft_organic_practice_needs_fert" text="Butuh kesuburan - utamakan input organik yang disetujui." />
+        <text name="ft_organic_help_what_body" text="Sertifikasi organik dan saran praktik untuk&#10;ladangmu. Membaca Soil Fertilizer. Tidak menyimpan status organik sendiri." />
+        <text name="ft_organic_certification" text="SERTIFIKASI" />
+        <text name="ft_organic_help_cert_body" text="Status per ladang: konvensional, masa peralihan, atau&#10;bersertifikat, plus hitung mundur peralihan. IKUT /&#10;KELUAR meminta ke Soil Fertilizer (di sana hanya admin)." />
+        <text name="ft_organic_practices" text="PRAKTIK" />
+        <text name="ft_organic_help_practices_body" text="Tips tanaman penutup dan rotasi untuk organik,&#10;dari data tanah yang sama dengan aplikasi Soil Fertilizer." />
+        <text name="ft_organic_help_later_title" text="SEGERA HADIR" />
+        <text name="ft_organic_help_later_body" text="Bagian kompos, pakan organik, dan premi pasar tetap&#10;kosong sampai simulasi itu menyediakan pembacaan." />
+        <text name="ft_organic_subtitle" text="Pengelolaan" />
+        <text name="ft_organic_cert_unavailable" text="Sertifikasi organik tidak tersedia di versi Soil ini." />
+        <text name="ft_organic_no_fields_yet" text="Belum punya ladang." />
+        <text name="ft_organic_field_fmt" text="Ladang #%s" />
+        <text name="ft_organic_countdown_fmt" text="%d / %d hari  (sisa %d)" />
+        <text name="ft_organic_breaches_fmt" text="Pelanggaran: %d" />
+        <text name="ft_organic_not_in_programme" text="Tidak ikut program organik" />
+        <text name="ft_organic_selected_field_fmt" text="Ladang terpilih #%s" />
+        <text name="ft_organic_opt_in" text="IKUT" />
+        <text name="ft_organic_opt_in_unavailable" text="Tidak bisa ikut" />
+        <text name="ft_organic_already_opted_in" text="Sudah ikut" />
+        <text name="ft_organic_opt_out" text="KELUAR" />
+        <text name="ft_organic_select_field" text="Pilih ladang untuk melihat saran praktik." />
+        <text name="ft_organic_compost" text="KOMPOS" />
+        <text name="ft_organic_compost_na" text="tidak tersedia - pasang SoilFertilizer" />
+        <text name="ft_organic_compost_none" text="Tidak ada batch kompos. Mulai satu dari konsol SoilFertilizer." />
+        <text name="ft_organic_batch_ready_fmt" text="SIAP - %d L" />
+        <text name="ft_organic_batch_day_left_fmt" text="sisa %d hari" />
+        <text name="ft_organic_batch_days_left_fmt" text="sisa %d hari" />
+        <text name="ft_organic_batch_safe" text="layak organik" />
+        <text name="ft_organic_batch_unsafe" text="tidak layak organik" />
+        <text name="ft_organic_batch_fmt" text="Batch #%d: %s  (%s)" />
+        <text name="ft_organic_livestock" text="PETERNAKAN" />
+        <text name="ft_organic_livestock_na" text="tidak tersedia - pasang DairyCore" />
+        <text name="ft_organic_no_barns" text="Tidak ada kandang sapi perah di pertanian ini." />
+        <text name="ft_organic_feed_share" text="Porsi pakan organik pertanian" />
+        <text name="ft_organic_barn_fmt" text="Kandang %s" />
+        <text name="ft_organic_herd_health" text="Kesehatan ternak" />
+        <text name="ft_organic_mycotoxin" text="Penalti mikotoksin" />
+        <text name="ft_organic_elevated_risk" text="Risiko tinggi" />
+        <text name="ft_organic_feed_disease" text="Penyakit pakan" />
+        <text name="ft_organic_feed_tip" text="Tips: sertifikasi lebih banyak ladang pakan sebagai organik agar porsinya di atas 80%." />
+        <text name="ft_organic_traceability" text="KETERTELUSURAN" />
+        <text name="ft_organic_trace_na" text="tidak tersedia - sertifikasi organik belum dimuat" />
+        <text name="ft_organic_no_fields" text="Tidak punya ladang." />
+        <text name="ft_organic_storage_fraction" text="Porsi organik di gudang" />
+        <text name="ft_organic_sale_premium" text="Premi penjualan: menunggu kontrak MDM" />
+        <text name="ft_organic_market" text="PASAR" />
+        <text name="ft_organic_market_na" text="tidak tersedia - menunggu premi organik / kontrak MDM" />
     </texts>
 
 </l10n>

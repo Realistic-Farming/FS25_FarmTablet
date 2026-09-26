@@ -2195,6 +2195,9 @@ FT.AUTO_L10N["BUY NEXT LEVEL"] = "ft_prostaff_buy_next_level"
 FT.AUTO_L10N["No further levels available."] = "ft_prostaff_no_further_levels"
 FT.AUTO_L10N["ACTIVE MODIFIERS"] = "ft_prostaff_active_modifiers"
 FT.AUTO_L10N["No active modifiers at this level yet."] = "ft_prostaff_no_active_modifiers"
+FT.AUTO_L10N["Conventional"] = "ft_auto_conventional"
+FT.AUTO_L10N["In transition"] = "ft_auto_in_transition"
+FT.AUTO_L10N["Certified"] = "ft_auto_certified"
 FT.AUTO_L10N["SNOW"] = "ft_auto_snow_2"
 
 
