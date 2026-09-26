@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="緊急貸款" />
         <text name="ft_fc_total_debt" text="債務總額" />
         <text name="ft_fc_open_loan" text="管理貸款" />
+        <text name="ft_irr_mode_operations" text="運作" />
+        <text name="ft_irr_mode_forecast" text="預報" />
+        <text name="ft_irr_mode_usage" text="用量" />
+        <text name="ft_irr_mins" text="%d 分鐘" />
+        <text name="ft_irr_hours" text="%.1f 小時" />
+        <text name="ft_irr_na" text="無資料" />
+        <text name="ft_irr_schedule_na" text="排程：無資料" />
+        <text name="ft_irr_day_mon" text="週一" />
+        <text name="ft_irr_day_tue" text="週二" />
+        <text name="ft_irr_day_wed" text="週三" />
+        <text name="ft_irr_day_thu" text="週四" />
+        <text name="ft_irr_day_fri" text="週五" />
+        <text name="ft_irr_day_sat" text="週六" />
+        <text name="ft_irr_day_sun" text="週日" />
+        <text name="ft_irr_no_active_days" text="無啟用日" />
+        <text name="ft_irr_every_day" text="每天" />
+        <text name="ft_irr_no_coverage" text="沒有可用的覆蓋多邊形。" />
+        <text name="ft_irr_trend_watering" text="趨勢：正在灌溉" />
+        <text name="ft_irr_trend_drying" text="趨勢：變乾 - 考慮安排灌溉時段" />
+        <text name="ft_irr_trend_wet" text="趨勢：潮濕 - 延後可能積水" />
+        <text name="ft_irr_trend_steady" text="趨勢：穩定" />
+        <text name="ft_irr_help_what_title" text="這是什麼" />
+        <text name="ft_irr_help_what_body" text="來自 Seasonal Crop Stress 的全農場灌溉概況：&#10;哪些系統在運轉、覆蓋哪裡、濕度分配、&#10;簡短趨勢，以及安裝 Soil Fertilizer 時的用量與土壤風險。&#10;唯讀鏡像，沒有第二套濕度模型。" />
+        <text name="ft_irr_help_ops_title" text="運作" />
+        <text name="ft_irr_help_ops_body" text="運轉中的系統、排程、覆蓋輪廓，以及各田地&#10;灌溉與降雨的分配，均來自 SCS 即時讀數。" />
+        <text name="ft_irr_help_forecast_title" text="預報" />
+        <text name="ft_irr_help_forecast_body" text="目前濕度與乾旱壓力，加上清楚標示的&#10;趨勢。不是模擬的未來。SCS 發布時&#10;也顯示全農場建議。" />
+        <text name="ft_irr_help_usage_title" text="用量與風險" />
+        <text name="ft_irr_help_usage_body" text="開啟成本時 SCS 每運轉小時收取的費用。&#10;有 Soil Fertilizer 時顯示壓實 / 有機質 / 病害。&#10;未勘查的病害顯示為未勘查，絕不誤報一切正常。" />
+        <text name="ft_irr_scs_not_detected" text="未偵測到 Seasonal Crop Stress。" />
+        <text name="ft_irr_scs_install" text="請安裝 FS25_SeasonalCropStress。未安裝時此應用程式會隱藏。" />
+        <text name="ft_irr_systems" text="系統" />
+        <text name="ft_irr_no_systems" text="沒有已登記的灌溉系統。" />
+        <text name="ft_irr_idle" text="閒置" />
+        <text name="ft_irr_no_schedule" text="無排程" />
+        <text name="ft_irr_system_line" text="%s  ·  田地 %d  ·  流量 %.2f/小時" />
+        <text name="ft_irr_coverage_outline" text="覆蓋輪廓" />
+        <text name="ft_irr_moisture_split" text="田地濕度分配" />
+        <text name="ft_irr_more_fields" text="… 其他田地已省略" />
+        <text name="ft_irr_watering" text="灌溉中" />
+        <text name="ft_irr_field_tag" text="田地 #%s  %s" />
+        <text name="ft_irr_split_line" text="中心軸 ~%s   天空/其他 ~%s" />
+        <text name="ft_irr_moisture_na" text="無濕度資料" />
+        <text name="ft_irr_no_moisture_reads" text="尚無有濕度讀數的自有田地。" />
+        <text name="ft_irr_farm_advisory" text="農場建議" />
+        <text name="ft_irr_trend_header" text="目前 + 標示趨勢（非預報模型）" />
+        <text name="ft_irr_air_line" text="氣溫 %s C   乾燥 x%s" />
+        <text name="ft_irr_field" text="田地 #%s" />
+        <text name="ft_irr_moist_line" text="濕度 %s  乾旱壓力 %s" />
+        <text name="ft_irr_alerts_capped" text="警示數量已達上限 - 詳情請查看 SCS。" />
+        <text name="ft_irr_covered_gap" text="已覆蓋 %d  ·  缺口 %d" />
+        <text name="ft_irr_usage_header" text="系統用量（SCS 收費）" />
+        <text name="ft_irr_costs_off" text="Seasonal Crop Stress 中的灌溉成本已關閉。" />
+        <text name="ft_irr_no_systems_price" text="沒有可計價的系統。" />
+        <text name="ft_irr_usage_line" text="%s / 運轉小時   流量 %.2f   ~%d 排程小時 / 週" />
+        <text name="ft_irr_soil_risk_header" text="土壤風險（有 Soil Fertilizer 時）" />
+        <text name="ft_irr_soil_na" text="無 Soil Fertilizer - 已隱藏風險列。" />
+        <text name="ft_irr_unscouted" text="未勘查" />
+        <text name="ft_irr_soil_line" text="壓實 %s   有機質 %s   病害 %s" />
+        <text name="ft_irr_no_risk_reads" text="尚無田地風險讀數。" />
     </texts>
 
 </l10n>

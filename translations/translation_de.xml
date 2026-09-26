@@ -2775,7 +2775,7 @@
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/Monat  •  noch %d Monate" />
         <text name="ft_fc_history_no_clock" text="Time Guard benötigt" />
         <text name="ft_fc_history_no_clock_detail" text="Installiere Time Guard, um die monatliche Historie aufzuzeichnen. Die aktuellen Werte bleiben verfügbar." />
-        <text name="ft_irr_advisory_water_need" text="BEWAESSERUNGSBEDARF (Beratung)" />
+        <text name="ft_irr_advisory_water_need" text="BEWÄSSERUNGSBEDARF (Beratung)" />
         <text name="ft_irr_advisory_locked_l7" text="Freigeschaltet mit der Pro Staff Co-Op ab Level 7" />
         <text name="ft_irr_advisory_forward_call" text="VORHERSAGE (Beratung)" />
         <text name="ft_irr_advisory_locked_l18" text="Freigeschaltet mit der Pro Staff Co-Op ab Level 18" />
@@ -2790,24 +2790,24 @@
         <text name="ft_rainKey_unfitted" text="kein Regensensor verbaut" />
         <text name="ft_rainKey_armed" text="Regensensor scharf" />
         <text name="ft_rainKey_collecting" text="sammelt Regen" />
-        <text name="ft_rainKey_tripped" text="Regensensor ausgeloest" />
-        <text name="ft_rainKey_inputUnavail" text="Sensordaten nicht verfuegbar" />
-        <text name="ft_rainKey_whyTripped" text="gestoppt, weil der Regensensor ausgeloest hat" />
+        <text name="ft_rainKey_tripped" text="Regensensor ausgelöst" />
+        <text name="ft_rainKey_inputUnavail" text="Sensordaten nicht verfügbar" />
+        <text name="ft_rainKey_whyTripped" text="gestoppt, weil der Regensensor ausgelöst hat" />
         <text name="ft_rainKey_whyNoInput" text="Wetter nicht lesbar" />
         <text name="ft_rainKey_whyNoSource" text="keine Wasserquelle" />
         <text name="ft_rainKey_whyNoPress" text="kein Druck" />
-        <text name="ft_rainKey_whySchedule" text="ausserhalb des Zeitplans" />
-        <text name="ft_rainKey_whyMaster" text="Bewaesserung-Hauptschalter aus" />
-        <text name="ft_rainKey_whyUnknown" text="Grund nicht verfuegbar" />
-        <text name="ft_rainKey_running" text="LAEUFT" />
+        <text name="ft_rainKey_whySchedule" text="außerhalb des Zeitplans" />
+        <text name="ft_rainKey_whyMaster" text="Bewässerung-Hauptschalter aus" />
+        <text name="ft_rainKey_whyUnknown" text="Grund nicht verfügbar" />
+        <text name="ft_rainKey_running" text="LÄUFT" />
         <text name="ft_rainKey_rainPaused" text="REGENPAUSE" />
         <text name="ft_rainKey_off" text="aus" />
         <text name="ft_rainKey_unknownState" text="Sensorstatus unbekannt" />
         <text name="ft_rainKey_dryResetIn" text="Trockenreset in %s" />
-        <text name="ft_rainKey_dryResetPending" text="Trockenreset, sobald der Regen aufhoert" />
-        <text name="ft_rainKey_nextCheckIn" text="naechste Zeitplanpruefung %s" />
-        <text name="ft_rainKey_nextCheck" text="beim naechsten Zeitplan wieder bereit" />
-        <text name="ft_rainKey_playerAction" text="Aktion noetig: Wasserquelle pruefen" />
+        <text name="ft_rainKey_dryResetPending" text="Trockenreset, sobald der Regen aufhört" />
+        <text name="ft_rainKey_nextCheckIn" text="nächste Zeitplanprüfung %s" />
+        <text name="ft_rainKey_nextCheck" text="beim nächsten Zeitplan wieder bereit" />
+        <text name="ft_rainKey_playerAction" text="Aktion nötig: Wasserquelle prüfen" />
         <text name="ft_rainKey_collected" text="gesammelt" />
         <text name="ft_rainKey_trip" text="Schwelle" />
         <text name="ft_rainKey_notifyTitle" text="Bewaesserung" />
@@ -2815,9 +2815,9 @@
         <text name="ft_rainKey_notifyResumed" text="Kreisberegner #%s ist bei der naechsten Zeitplanpruefung wieder bereit" />
         <text name="ft_water_header" text="WASSERQUELLEN" />
         <text name="ft_water_unlimited" text="Unbegrenzt" />
-        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_hours" text="%.1f / %.1f Std." />
         <text name="ft_water_dry" text="Trocken" />
-        <text name="ft_water_na" text="Nicht verfuegbar" />
+        <text name="ft_water_na" text="Nicht verfügbar" />
         <text name="ft_water_none" text="Keine Wasserquellen auf diesem Hof." />
         <text name="ft_water_source" text="Wasserquelle" />
         <text name="ft_water_connected" text="%d verbunden" />
@@ -3032,6 +3032,66 @@
         <text name="ft_fc_emergency_loan" text="Notkredit" />
         <text name="ft_fc_total_debt" text="Gesamtschulden" />
         <text name="ft_fc_open_loan" text="KREDIT VERWALTEN" />
+        <text name="ft_irr_mode_operations" text="Betrieb" />
+        <text name="ft_irr_mode_forecast" text="Prognose" />
+        <text name="ft_irr_mode_usage" text="Verbrauch" />
+        <text name="ft_irr_mins" text="%d Min." />
+        <text name="ft_irr_hours" text="%.1f Std." />
+        <text name="ft_irr_na" text="k. A." />
+        <text name="ft_irr_schedule_na" text="Zeitplan k. A." />
+        <text name="ft_irr_day_mon" text="Mo" />
+        <text name="ft_irr_day_tue" text="Di" />
+        <text name="ft_irr_day_wed" text="Mi" />
+        <text name="ft_irr_day_thu" text="Do" />
+        <text name="ft_irr_day_fri" text="Fr" />
+        <text name="ft_irr_day_sat" text="Sa" />
+        <text name="ft_irr_day_sun" text="So" />
+        <text name="ft_irr_no_active_days" text="keine aktiven Tage" />
+        <text name="ft_irr_every_day" text="täglich" />
+        <text name="ft_irr_no_coverage" text="Keine Abdeckungsflächen verfügbar." />
+        <text name="ft_irr_trend_watering" text="Trend: bewässert gerade" />
+        <text name="ft_irr_trend_drying" text="Trend: trocknet ab - Bewässerungsfenster planen" />
+        <text name="ft_irr_trend_wet" text="Trend: nass - Abwarten kann zu Staunässe führen" />
+        <text name="ft_irr_trend_steady" text="Trend: stabil" />
+        <text name="ft_irr_help_what_title" text="WAS DAS IST" />
+        <text name="ft_irr_help_what_body" text="Hofweites Bewässerungsbild aus Seasonal Crop Stress:&#10;welche Anlagen laufen, was sie abdecken, Feuchteaufteilung,&#10;ein kurzer Trend sowie Verbrauch und Bodenrisiko, wenn Soil Fertilizer&#10;vorhanden ist. Nur-Lese-Spiegel. Kein zweites Feuchtemodell." />
+        <text name="ft_irr_help_ops_title" text="BETRIEB" />
+        <text name="ft_irr_help_ops_body" text="Aktive Anlagen, Zeitpläne, Abdeckungsumriss und je Feld die&#10;Aufteilung Bewässerung gegen Regen aus Live-SCS-Werten." />
+        <text name="ft_irr_help_forecast_title" text="PROGNOSE" />
+        <text name="ft_irr_help_forecast_body" text="Aktuelle Feuchte und Trockenstress plus ein klar gekennzeichneter&#10;Trend. Keine simulierte Zukunft. Hofweiter Hinweis, wenn SCS&#10;einen veröffentlicht." />
+        <text name="ft_irr_help_usage_title" text="VERBRAUCH UND RISIKO" />
+        <text name="ft_irr_help_usage_body" text="Was SCS pro aktiver Stunde berechnet, wenn Kosten aktiv sind.&#10;Verdichtung / OS / Krankheit aus Soil Fertilizer, wenn vorhanden.&#10;Nicht erkundete Krankheit zeigt Nicht erkundet, nie eine falsche Entwarnung." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress nicht erkannt." />
+        <text name="ft_irr_scs_install" text="Installiere FS25_SeasonalCropStress. Ohne ihn bleibt diese App ausgeblendet." />
+        <text name="ft_irr_systems" text="ANLAGEN" />
+        <text name="ft_irr_no_systems" text="Keine Bewässerungsanlagen registriert." />
+        <text name="ft_irr_idle" text="inaktiv" />
+        <text name="ft_irr_no_schedule" text="kein Zeitplan" />
+        <text name="ft_irr_system_line" text="%s  ·  Felder %d  ·  Durchfluss %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="ABDECKUNGSUMRISS" />
+        <text name="ft_irr_moisture_split" text="FELDFEUCHTE-AUFTEILUNG" />
+        <text name="ft_irr_more_fields" text="… weitere Felder ausgelassen" />
+        <text name="ft_irr_watering" text="bewässert" />
+        <text name="ft_irr_field_tag" text="Feld #%s  %s" />
+        <text name="ft_irr_split_line" text="Anlage ~%s   Himmel/sonstige ~%s" />
+        <text name="ft_irr_moisture_na" text="Feuchte nicht verfügbar" />
+        <text name="ft_irr_no_moisture_reads" text="Noch keine eigenen Felder mit Feuchtewerten." />
+        <text name="ft_irr_farm_advisory" text="HOF-HINWEIS" />
+        <text name="ft_irr_trend_header" text="AKTUELL + GEKENNZEICHNETER TREND (kein Prognosemodell)" />
+        <text name="ft_irr_air_line" text="Luft %s C   Trocknung x%s" />
+        <text name="ft_irr_field" text="Feld #%s" />
+        <text name="ft_irr_moist_line" text="Feuchte %s  Trockenstress %s" />
+        <text name="ft_irr_alerts_capped" text="Warnliste gekürzt - mehr Details in SCS." />
+        <text name="ft_irr_covered_gap" text="abgedeckt %d  ·  Lücken %d" />
+        <text name="ft_irr_usage_header" text="ANLAGENVERBRAUCH (SCS-ABRECHNUNG)" />
+        <text name="ft_irr_costs_off" text="Bewässerungskosten sind in Seasonal Crop Stress aus." />
+        <text name="ft_irr_no_systems_price" text="Keine Anlagen zu bepreisen." />
+        <text name="ft_irr_usage_line" text="%s / aktive Stunde   Durchfluss %.2f   ~%d geplante Stunden / Woche" />
+        <text name="ft_irr_soil_risk_header" text="BODENRISIKO (wenn Soil Fertilizer vorhanden)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer nicht verfügbar - Risikozeilen ausgeblendet." />
+        <text name="ft_irr_unscouted" text="Nicht erkundet" />
+        <text name="ft_irr_soil_line" text="Verdichtung %s   OS %s   Krankheit %s" />
+        <text name="ft_irr_no_risk_reads" text="Noch keine Feldrisikowerte." />
     </texts>
 
 </l10n>

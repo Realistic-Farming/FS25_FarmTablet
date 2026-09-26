@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="緊急融資" />
         <text name="ft_fc_total_debt" text="債務合計" />
         <text name="ft_fc_open_loan" text="ローンを管理" />
+        <text name="ft_irr_mode_operations" text="運用" />
+        <text name="ft_irr_mode_forecast" text="予報" />
+        <text name="ft_irr_mode_usage" text="使用量" />
+        <text name="ft_irr_mins" text="%d 分" />
+        <text name="ft_irr_hours" text="%.1f 時間" />
+        <text name="ft_irr_na" text="なし" />
+        <text name="ft_irr_schedule_na" text="スケジュール：なし" />
+        <text name="ft_irr_day_mon" text="月" />
+        <text name="ft_irr_day_tue" text="火" />
+        <text name="ft_irr_day_wed" text="水" />
+        <text name="ft_irr_day_thu" text="木" />
+        <text name="ft_irr_day_fri" text="金" />
+        <text name="ft_irr_day_sat" text="土" />
+        <text name="ft_irr_day_sun" text="日" />
+        <text name="ft_irr_no_active_days" text="稼働日なし" />
+        <text name="ft_irr_every_day" text="毎日" />
+        <text name="ft_irr_no_coverage" text="利用できる散水範囲のポリゴンはありません。" />
+        <text name="ft_irr_trend_watering" text="傾向：散水中" />
+        <text name="ft_irr_trend_drying" text="傾向：乾燥中 - 散水の時間帯を検討" />
+        <text name="ft_irr_trend_wet" text="傾向：湿潤 - 待つと過湿の恐れ" />
+        <text name="ft_irr_trend_steady" text="傾向：安定" />
+        <text name="ft_irr_help_what_title" text="これは何か" />
+        <text name="ft_irr_help_what_body" text="Seasonal Crop Stress による農場全体の灌漑の概要：&#10;稼働中のシステム、その範囲、水分の内訳、&#10;短い傾向、Soil Fertilizer がある場合は使用量と土壌リスク。&#10;読み取り専用のミラーです。2つ目の水分モデルはありません。" />
+        <text name="ft_irr_help_ops_title" text="運用" />
+        <text name="ft_irr_help_ops_body" text="稼働中のシステム、スケジュール、範囲の輪郭、圃場ごとの&#10;灌漑と降雨の内訳を SCS のライブ値で表示します。" />
+        <text name="ft_irr_help_forecast_title" text="予報" />
+        <text name="ft_irr_help_forecast_body" text="現在の水分と干ばつストレス、そして明示された&#10;傾向です。シミュレーションした未来ではありません。SCS が公開したときは&#10;農場全体の助言も表示します。" />
+        <text name="ft_irr_help_usage_title" text="使用量とリスク" />
+        <text name="ft_irr_help_usage_body" text="コストが有効なとき SCS が稼働1時間あたりに請求する額。&#10;Soil Fertilizer がある場合は締固め / 有機物 / 病気。&#10;未調査の病気は未調査と表示し、偽りの異常なしは出しません。" />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress が見つかりません。" />
+        <text name="ft_irr_scs_install" text="FS25_SeasonalCropStress をインストールしてください。ない場合このアプリは非表示です。" />
+        <text name="ft_irr_systems" text="システム" />
+        <text name="ft_irr_no_systems" text="登録された灌漑システムはありません。" />
+        <text name="ft_irr_idle" text="待機" />
+        <text name="ft_irr_no_schedule" text="スケジュールなし" />
+        <text name="ft_irr_system_line" text="%s  ·  圃場 %d  ·  流量 %.2f/時" />
+        <text name="ft_irr_coverage_outline" text="散水範囲の輪郭" />
+        <text name="ft_irr_moisture_split" text="圃場の水分内訳" />
+        <text name="ft_irr_more_fields" text="… 他の圃場は省略" />
+        <text name="ft_irr_watering" text="散水中" />
+        <text name="ft_irr_field_tag" text="圃場 #%s  %s" />
+        <text name="ft_irr_split_line" text="ピボット ~%s   空/その他 ~%s" />
+        <text name="ft_irr_moisture_na" text="水分データなし" />
+        <text name="ft_irr_no_moisture_reads" text="水分値のある所有圃場はまだありません。" />
+        <text name="ft_irr_farm_advisory" text="農場の助言" />
+        <text name="ft_irr_trend_header" text="現在 + 明示された傾向（予報モデルではありません）" />
+        <text name="ft_irr_air_line" text="気温 %s C   乾燥 x%s" />
+        <text name="ft_irr_field" text="圃場 #%s" />
+        <text name="ft_irr_moist_line" text="水分 %s  干ばつストレス %s" />
+        <text name="ft_irr_alerts_capped" text="警告の件数が上限です - 詳細は SCS で確認してください。" />
+        <text name="ft_irr_covered_gap" text="対象 %d  ·  不足 %d" />
+        <text name="ft_irr_usage_header" text="システム使用量（SCS の請求）" />
+        <text name="ft_irr_costs_off" text="Seasonal Crop Stress で灌漑コストはオフです。" />
+        <text name="ft_irr_no_systems_price" text="価格を出すシステムがありません。" />
+        <text name="ft_irr_usage_line" text="%s / 稼働時間   流量 %.2f   ~%d 予定時間 / 週" />
+        <text name="ft_irr_soil_risk_header" text="土壌リスク（Soil Fertilizer がある場合）" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer がありません - リスク行は非表示です。" />
+        <text name="ft_irr_unscouted" text="未調査" />
+        <text name="ft_irr_soil_line" text="締固め %s   有機物 %s   病気 %s" />
+        <text name="ft_irr_no_risk_reads" text="圃場のリスク値はまだありません。" />
     </texts>
 
 </l10n>

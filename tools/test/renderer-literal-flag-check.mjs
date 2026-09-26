@@ -674,6 +674,109 @@ lua(`g_currentMission.placeableSystem = E_RS.placeables; g_farmlandManager = E_R
   g_currentMission.soilFertilityManager = E_RS.soil; local h = FarmTabletUI._appBackHandlers["field_jobs"]; if h then h() end
   g_currentMission.workerCostsManager = nil; g_currentMission.fws_weekSchedule = nil`);
 
+// Irrigation Suite (MAINTENANCE row 105, batch 17), in German, French and Polish, through the real drawer and its real
+// mode buttons, on a CropStressManager stand-in whose getters answer in SCS's own shapes (Seasonal Crop Stress
+// development 3d80544: CropStressManager.lua:1186-1336, rows from IrrigationManager:copyIrrigationSystemRow :1758,
+// water sources from IrrigationManager:getIrrigationWaterSources :1835). Two owned fields (farmlands 4 and 7): field
+// 4 dry and stressed, not watered; field 7 moist and watered. A fitted pivot tripped by rain (RAIN_PAUSED) covers
+// field 4 on a schedule; an unfitted one runs. One unlimited source and one dry. ProStaff absent (the advisory is
+// fail-open) and then present below level 7 (the lock lines). Each draw must pass FLAG and PASS, the tablet's words
+// are the file's, and the advisory's field line (IrrigationSuiteApp.lua:885, row 158's seventh site) is drawn with
+// the flag.
+lua(`
+  HARNESS.setup = nil
+  E_IRR = { farmland = g_farmlandManager }
+  g_farmlandManager = { farmlands = {
+    { id = 4, farmId = 1, field = { getAreaHa = function() return 2.0 end } },
+    { id = 7, farmId = 1, field = { getAreaHa = function() return 3.0 end } } } }
+  local DAYS = { true, true, true, true, true, false, false }
+  local PIVOT = { id = 1, type = "CenterPivot", isActive = true, coveredFields = { 4 },
+    schedule = { startHour = 6, endHour = 18, activeDays = DAYS }, flowRatePerHour = 12.5, operationalCostPerHour = 40,
+    rainKeyFitted = true, rainKeyTripMm = 5, rainKeyAccumulatedMm = 6.2, rainKeyDryElapsedMinutes = 30, weatherReadable = true,
+    rainKeyState = "TRIPPED", rainKeyTripped = true, activityState = "RAIN_PAUSED", pauseReason = "RAIN_KEY_TRIPPED",
+    nextWakeKind = "DRY_RESET", stateRevision = 3 }
+  local LINE = { id = 2, type = "DripLine", isActive = true, coveredFields = { 7 }, flowRatePerHour = 4, operationalCostPerHour = 12,
+    rainKeyFitted = false, rainKeyAccumulatedMm = 0, rainKeyDryElapsedMinutes = 0, weatherReadable = false,
+    rainKeyState = "UNFITTED", rainKeyTripped = false, activityState = "RUNNING", pauseReason = "NONE", nextWakeKind = "NONE",
+    stateRevision = 1 }
+  local function copy(r, private)
+    local o = {}
+    for k, v in pairs(r) do o[k] = v end
+    if private then
+      o.ownerFarmId = 1
+      o.waterSourceId = r.id
+      o.stopReason = (r.id == 2) and "dry_source" or nil
+    end
+    return o
+  end
+  local FIELD = { [4] = { m = 0.2, s = 0.8, r = 0 }, [7] = { m = 0.6, s = 0.1, r = 0.3 } }
+  g_currentMission.cropStressManager = {
+    getIrrigationSystems = function(self, farmId)
+      if farmId ~= nil then return { copy(PIVOT, true), copy(LINE, true) } end
+      return { copy(PIVOT, false), copy(LINE, false) }
+    end,
+    getIrrigationWaterSources = function(self, farmId) return {
+      { id = 1, ownerFarmId = 1, isUnlimited = true, hasWater = true, label = "Water source", connectedSystemIds = { 1 },
+        unlimited = true, connectedSystems = { 1 } },
+      { id = 2, ownerFarmId = 1, waterCapacity = 5000, waterRemaining = 0, isUnlimited = false, hasWater = false,
+        label = "Water source", connectedSystemIds = { 2 }, capacity = 5000, unlimited = false, connectedSystems = { 2 } } } end,
+    getIrrigationSchedule = function(self, fieldId)
+      if fieldId == 4 then return { startHour = 6, endHour = 18, activeDays = DAYS } end
+      return nil
+    end,
+    getMoisture = function(self, fieldId) return FIELD[fieldId] and FIELD[fieldId].m end,
+    getStress = function(self, fieldId) return FIELD[fieldId] and FIELD[fieldId].s end,
+    getIrrigationRate = function(self, fieldId) return FIELD[fieldId] and FIELD[fieldId].r or 0 end,
+    isFieldIrrigated = function(self, fieldId) return (FIELD[fieldId] and FIELD[fieldId].r or 0) > 0 end,
+    getFieldPolygonWorld = function() return nil end,
+    getCriticalAlertHint = function() return nil end,
+    getTemperature = function() return 24 end,
+    getEvaporativeDemand = function() return 1.4 end,
+    getIrrigationCostsEnabled = function() return true end,
+  }
+`);
+for (const loc of ["de", "fr", "pl"]) {
+  t.setLocale(loc);
+  const f = (k) => file(loc, k);
+  const clean = (what, r) => {
+    const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+    eChecks++;
+    if (r.error) failures.push(`E ${loc} Irrigation ${what}: ${r.error}`);
+    if (v.length) failures.push(`E ${loc} Irrigation ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  };
+  // Operations, the default view.
+  let r = t.draw("irrigation_suite", false); clean("Operations", r);
+  for (const k of ["ft_irr_mode_operations", "ft_irr_mode_forecast", "ft_irr_mode_usage", "ft_water_header", "ft_water_unlimited",
+    "ft_irr_systems", "ft_rainKey_rainPaused", "ft_rainKey_running"]) expectLit(`${loc} Irrigation Operations ${k}`, r, f(k));
+  expectLit(`${loc} Irrigation Operations the tablet's connected line`, r, fmt(f("ft_water_connected"), 1));
+  expectLit(`${loc} Irrigation Operations SCS's own source label keeps the pass`, r, "Water source #1", false);
+  expectLit(`${loc} Irrigation Operations ft_irr_moisture_split`, r, f("ft_irr_moisture_split"));
+  expectLit(`${loc} Irrigation Operations moisture line, field 4 idle`, r, fmt(f("ft_irr_field_tag"), "4", f("ft_irr_idle")));
+  expectLit(`${loc} Irrigation Operations moisture line, field 7 watering`, r, fmt(f("ft_irr_field_tag"), "7", f("ft_irr_watering")));
+  // Forecast, through its real button, ProStaff absent: the advisory lists both fields.
+  r = t.flow("irrigation_suite", [f("ft_irr_mode_forecast")]); clean("Forecast", r);
+  for (const k of ["ft_irr_trend_header", "ft_irr_advisory_water_need", "ft_irr_advisory_forward_call",
+    "ft_irr_call_water_today", "ft_irr_call_can_hold", "ft_irr_advisory_schedule_covers", "ft_irr_advisory_schedule_gap"])
+    expectLit(`${loc} Irrigation Forecast ${k}`, r, f(k));
+  expectLit(`${loc} Irrigation forward call, field 4 (row 158's :873 site)`, r, fmt(f("ft_irr_field_tag"), "4", f("ft_irr_call_water_today")));
+  expectLit(`${loc} Irrigation forward call, field 7`, r, fmt(f("ft_irr_field_tag"), "7", f("ft_irr_call_can_hold")));
+  // Usage, through its real button.
+  r = t.flow("irrigation_suite", [f("ft_irr_mode_usage")]); clean("Usage", r);
+  for (const k of ["ft_irr_usage_header", "ft_irr_soil_risk_header", "ft_irr_soil_na"]) expectLit(`${loc} Irrigation Usage ${k}`, r, f(k));
+}
+// ProStaff present, below level 7: the two advisories show their lock lines (Wizard's wording, the Pro Staff Co-Op).
+lua(`g_currentMission.proStaffManager = { hasForecastAccess = function() return false end, hasPredictiveControl = function() return false end }`);
+for (const loc of ["de", "fr", "pl"]) {
+  t.setLocale(loc);
+  const r = t.flow("irrigation_suite", [file(loc, "ft_irr_mode_forecast")]);
+  const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  eChecks++;
+  if (r.error || v.length) failures.push(`E ${loc} Irrigation locked advisory: ${r.error || ""}${v.length ? `${v.length} violation(s), first ${v[0][0]} ${v[0][1]}` : ""}`);
+  expectLit(`${loc} Irrigation lock line, level 7`, r, file(loc, "ft_irr_advisory_locked_l7"));
+  expectLit(`${loc} Irrigation lock line, level 18`, r, file(loc, "ft_irr_advisory_locked_l18"));
+}
+lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager = nil; g_farmlandManager = E_IRR.farmland`);
+
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
 if (failures.length) {
   for (const f of failures.slice(0, 80)) console.log("  FAIL " + f);

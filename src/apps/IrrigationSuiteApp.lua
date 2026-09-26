@@ -9,9 +9,9 @@
 
 local MODES = { "operations", "forecast", "usage" }
 local MODE_LABEL = {
-    operations = "Operations",
-    forecast   = "Forecast",
-    usage      = "Usage",
+    operations = { key = "ft_irr_mode_operations", fallback = "Operations" },
+    forecast   = { key = "ft_irr_mode_forecast",   fallback = "Forecast" },
+    usage      = { key = "ft_irr_mode_usage",      fallback = "Usage" },
 }
 
 local function _T(key, fallback)
@@ -44,36 +44,36 @@ end
 local function _mins(v)
     local n = tonumber(v)
     if n == nil or n < 0 then return nil end
-    if n < 60 then return string.format("%d min", math.floor(n + 0.5)) end
-    return string.format("%.1f h", n / 60)
+    if n < 60 then return string.format(_T("ft_irr_mins", "%d min"), math.floor(n + 0.5)) end
+    return string.format(_T("ft_irr_hours", "%.1f h"), n / 60)
 end
 
 local RAIN_KEY_STATE_TEXT = {
-    UNFITTED          = { "ft_rainKey_unfitted",     "no rain key fitted" },
-    ARMED             = { "ft_rainKey_armed",        "rain key armed" },
-    COLLECTING        = { "ft_rainKey_collecting",   "collecting rain" },
-    TRIPPED           = { "ft_rainKey_tripped",      "rain key tripped" },
-    INPUT_UNAVAILABLE = { "ft_rainKey_inputUnavail", "sensor input unavailable" },
+    UNFITTED          = { key = "ft_rainKey_unfitted",     fallback = "no rain key fitted" },
+    ARMED             = { key = "ft_rainKey_armed",        fallback = "rain key armed" },
+    COLLECTING        = { key = "ft_rainKey_collecting",   fallback = "collecting rain" },
+    TRIPPED           = { key = "ft_rainKey_tripped",      fallback = "rain key tripped" },
+    INPUT_UNAVAILABLE = { key = "ft_rainKey_inputUnavail", fallback = "sensor input unavailable" },
 }
 
 local PAUSE_REASON_TEXT = {
-    RAIN_KEY_TRIPPED     = { "ft_rainKey_whyTripped",  "stopped because the rain key tripped" },
-    INPUT_UNAVAILABLE    = { "ft_rainKey_whyNoInput",  "cannot read weather" },
-    SOURCE_UNAVAILABLE   = { "ft_rainKey_whyNoSource", "no water source" },
-    PRESSURE_UNAVAILABLE = { "ft_rainKey_whyNoPress",  "no pressure" },
-    SCHEDULE_OFF         = { "ft_rainKey_whySchedule", "outside the schedule" },
-    MASTER_DISABLED      = { "ft_rainKey_whyMaster",   "irrigation master switch off" },
+    RAIN_KEY_TRIPPED     = { key = "ft_rainKey_whyTripped",  fallback = "stopped because the rain key tripped" },
+    INPUT_UNAVAILABLE    = { key = "ft_rainKey_whyNoInput",  fallback = "cannot read weather" },
+    SOURCE_UNAVAILABLE   = { key = "ft_rainKey_whyNoSource", fallback = "no water source" },
+    PRESSURE_UNAVAILABLE = { key = "ft_rainKey_whyNoPress",  fallback = "no pressure" },
+    SCHEDULE_OFF         = { key = "ft_rainKey_whySchedule", fallback = "outside the schedule" },
+    MASTER_DISABLED      = { key = "ft_rainKey_whyMaster",   fallback = "irrigation master switch off" },
 }
 
 local ACTIVITY_TEXT = {
-    RUNNING     = { "ft_rainKey_running",    "RUNNING" },
-    RAIN_PAUSED = { "ft_rainKey_rainPaused", "RAIN PAUSED" },
-    OFF         = { "ft_rainKey_off",        "off" },
+    RUNNING     = { key = "ft_rainKey_running",    fallback = "RUNNING" },
+    RAIN_PAUSED = { key = "ft_rainKey_rainPaused", fallback = "RAIN PAUSED" },
+    OFF         = { key = "ft_rainKey_off",        fallback = "off" },
 }
 
 local function _lookup(tbl, code, fallbackKey, fallbackText)
     local row = code ~= nil and tbl[code] or nil
-    if row ~= nil then return _T(row[1], row[2]) end
+    if row ~= nil then return _T(row.key, row.fallback) end
     return _T(fallbackKey, fallbackText)
 end
 
@@ -134,12 +134,12 @@ local function _pcall(fn, ...)
 end
 
 local function _pct(v)
-    if v == nil then return "n/a" end
+    if v == nil then return _T("ft_irr_na", "n/a") end
     return string.format("%d%%", math.floor((tonumber(v) or 0) * 100 + 0.5))
 end
 
 local function _money(v)
-    if v == nil then return "n/a" end
+    if v == nil then return _T("ft_irr_na", "n/a") end
     local n = tonumber(v) or 0
     if g_i18n ~= nil and g_i18n.formatMoney ~= nil then
         return g_i18n:formatMoney(n, 0, true, true)
@@ -148,14 +148,18 @@ local function _money(v)
 end
 
 local function _dayBits(activeDays)
-    if type(activeDays) ~= "table" then return "schedule n/a" end
-    local names = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
+    if type(activeDays) ~= "table" then return _T("ft_irr_schedule_na", "schedule n/a") end
+    local names = {
+        _T("ft_irr_day_mon", "Mon"), _T("ft_irr_day_tue", "Tue"), _T("ft_irr_day_wed", "Wed"),
+        _T("ft_irr_day_thu", "Thu"), _T("ft_irr_day_fri", "Fri"), _T("ft_irr_day_sat", "Sat"),
+        _T("ft_irr_day_sun", "Sun"),
+    }
     local on = {}
     for i = 1, 7 do
         if activeDays[i] then on[#on + 1] = names[i] end
     end
-    if #on == 0 then return "no active days" end
-    if #on == 7 then return "every day" end
+    if #on == 0 then return _T("ft_irr_no_active_days", "no active days") end
+    if #on == 7 then return _T("ft_irr_every_day", "every day") end
     return table.concat(on, " ")
 end
 
@@ -248,7 +252,7 @@ local function _drawCoverageMap(self, x, y, w, h, polyCache, accent)
     self.r:appRect(x, y - h, w, h, FT.C.BG_PANEL)
     if polyCache == nil or #polyCache.entries == 0 then
         self.r:appText(x + FT.px(8), y - h * 0.5, FT.FONT.SMALL,
-            "No coverage polygons available.", RenderText.ALIGN_LEFT, FT.C.MUTED)
+            _T("ft_irr_no_coverage", "No coverage polygons available."), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         return
     end
     local spanX = math.max(1, polyCache.maxX - polyCache.minX)
@@ -310,13 +314,13 @@ local function _alertTrend(moisture, stress, rate)
     local m = tonumber(moisture)
     local s = tonumber(stress) or 0
     if (tonumber(rate) or 0) > 0 then
-        return "trend: watering now", false
+        return _T("ft_irr_trend_watering", "trend: watering now"), false
     elseif s >= 0.55 or (m ~= nil and m <= 0.30) then
-        return "trend: drying - consider a window", true
+        return _T("ft_irr_trend_drying", "trend: drying - consider a window"), true
     elseif m ~= nil and m >= 0.75 then
-        return "trend: wet - holding may waterlog", true
+        return _T("ft_irr_trend_wet", "trend: wet - holding may waterlog"), true
     end
-    return "trend: steady", false
+    return _T("ft_irr_trend_steady", "trend: steady"), false
 end
 
 --- SCS-009: per-field water need, the pure ranking figure.
@@ -347,26 +351,32 @@ end
 FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
     local AC = FT.appColor(FT.APP.IRRIGATION_SUITE)
 
-    if self:drawHelpPage("_irrigationSuiteHelp", FT.APP.IRRIGATION_SUITE, "Irrigation Suite", AC, {
-        { title = "WHAT THIS IS",
-          body  = "Farm-wide irrigation picture from Seasonal Crop Stress:\n" ..
+    local appTitle = _T("ft_ui_app_irrigation_suite", "Irrigation Suite")
+    if self:drawHelpPage("_irrigationSuiteHelp", FT.APP.IRRIGATION_SUITE, appTitle, AC, {
+        { title = _T("ft_irr_help_what_title", "WHAT THIS IS"),
+          body  = _T("ft_irr_help_what_body",
+                  "Farm-wide irrigation picture from Seasonal Crop Stress:\n" ..
                   "which systems run, what they cover, moisture split,\n" ..
                   "a short trend, and usage plus soil risk when Soil Fertilizer\n" ..
-                  "is present. Read-only mirror. No second moisture model." },
-        { title = "OPERATIONS",
-          body  = "Active systems, schedules, coverage outline, and per-field\n" ..
-                  "irrigation-versus-rain split from live SCS reads." },
-        { title = "FORECAST",
-          body  = "Current moisture and drought stress plus a clearly labeled\n" ..
+                  "is present. Read-only mirror. No second moisture model."), literalTitle = true, literalBody = true },
+        { title = _T("ft_irr_help_ops_title", "OPERATIONS"),
+          body  = _T("ft_irr_help_ops_body",
+                  "Active systems, schedules, coverage outline, and per-field\n" ..
+                  "irrigation-versus-rain split from live SCS reads."), literalTitle = true, literalBody = true },
+        { title = _T("ft_irr_help_forecast_title", "FORECAST"),
+          body  = _T("ft_irr_help_forecast_body",
+                  "Current moisture and drought stress plus a clearly labeled\n" ..
                   "trend. Not a simulated future. Farm-wide advisory when SCS\n" ..
-                  "publishes one." },
-        { title = "USAGE AND RISK",
-          body  = "What SCS is charging per active hour when costs are on.\n" ..
+                  "publishes one."), literalTitle = true, literalBody = true },
+        { title = _T("ft_irr_help_usage_title", "USAGE AND RISK"),
+          body  = _T("ft_irr_help_usage_body",
+                  "What SCS is charging per active hour when costs are on.\n" ..
                   "Compaction / OM / disease from Soil Fertilizer when present.\n" ..
-                  "Unscouted disease reads Unscouted, never a false all-clear." },
-    }) then return end
+                  "Unscouted disease reads Unscouted, never a false all-clear."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
-    local startY = self:drawAppHeader("Irrigation Suite", "", nil, true)
+    -- The app name is the file's text (_T): drawn as it is.
+    local startY = self:drawAppHeader(appTitle, "", true, true)
     local x, cyBottom, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local bottomPad = FT.py(28)
@@ -375,10 +385,10 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
     if scs == nil then
         local yMiss = startY + scrollY
         self.r:appText(x, yMiss - FT.py(12), FT.FONT.BODY,
-            "Seasonal Crop Stress not detected.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            _T("ft_irr_scs_not_detected", "Seasonal Crop Stress not detected."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, yMiss - FT.py(30), FT.FONT.SMALL,
-            "Install FS25_SeasonalCropStress. This app stays hidden when absent.",
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            _T("ft_irr_scs_install", "Install FS25_SeasonalCropStress. This app stays hidden when absent."),
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_irrigationSuiteHelp", AC)
         return
     end
@@ -394,7 +404,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         local selected = (mode == m)
         local col = selected and { AC[1], AC[2], AC[3], 0.95 } or FT.C.BTN_NEUTRAL
         local captured = m
-        local btn = self.r:button(bx, tabY, btnW, btnH, FT.l10nAuto(MODE_LABEL[m]), col, {
+        local btn = self.r:button(bx, tabY, btnW, btnH, _T(MODE_LABEL[m].key, MODE_LABEL[m].fallback), col, {
             onClick = function()
                 self.system.irrigationSuiteMode = captured
                 self._contentScrollY = 0
@@ -465,10 +475,11 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                             local dry = (src.unlimited ~= true) and (src.hasWater == false)
                             local col = dry and FT.C.TEXT_ACCENT or FT.C.TEXT
                             local label = tostring(src.label or _T("ft_water_source", "Water source"))
+                            -- The fallback label is the tablet's word; SCS's own label keeps the renderer's pass.
                             self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
                                 FT_Renderer.truncate(string.format("%s #%s",
                                     label, tostring(src.id or "?")), 22),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT)
+                                RenderText.ALIGN_LEFT, FT.C.TEXT, src.label == nil)
                             self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, hours,
                                 RenderText.ALIGN_RIGHT, col, true)
                             y = y - FT.py(14)
@@ -484,13 +495,13 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             end
         end
 
-        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, "SYSTEMS",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_systems", "SYSTEMS"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
         if #systems == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                "No irrigation systems registered.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                _T("ft_irr_no_systems", "No irrigation systems registered."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(28)
         else
             -- [SCS-046] Detailed rows are limited to the player's authorized
@@ -525,7 +536,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 else
                     -- No activityState in this snapshot: fall back to the
                     -- incumbent reading rather than inventing one.
-                    state = (sys.isActive and "RUNNING") or "idle"
+                    state = sys.isActive and _lookup(ACTIVITY_TEXT, "RUNNING", "ft_rainKey_running", "RUNNING")
+                        or _T("ft_irr_idle", "idle")
                     scol  = sys.isActive and FT.C.POSITIVE or FT.C.MUTED
                 end
                 local coverN = #(sys.coveredFields or {})
@@ -534,10 +546,10 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         tostring(sys.id or "?"), tostring(sys.type or "system")), 22),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, state,
-                    RenderText.ALIGN_RIGHT, scol)
+                    RenderText.ALIGN_RIGHT, scol, true)
                 y = y - FT.py(14)
                 local sched = sys.schedule
-                local schedTxt = "no schedule"
+                local schedTxt = _T("ft_irr_no_schedule", "no schedule")
                 if type(sched) == "table" then
                     schedTxt = string.format("%02d:00-%02d:00  %s",
                         tonumber(sched.startHour) or 0,
@@ -545,9 +557,9 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         _dayBits(sched.activeDays))
                 end
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format("%s  ·  %d fields  ·  flow %.2f/h",
+                    string.format(_T("ft_irr_system_line", "%s  ·  %d fields  ·  flow %.2f/h"),
                         schedTxt, coverN, tonumber(sys.flowRatePerHour) or 0),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
 
                 -- [SCS-046] Rain-key line. Answers, in order: is a key fitted,
@@ -598,7 +610,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         if #bits > 0 then
                             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                                 FT_Renderer.truncate(table.concat(bits, "  ·  "), 46),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                             y = y - FT.py(13)
                         end
                     else
@@ -612,8 +624,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         end
 
         y = self:drawRule(y, 0.3)
-        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, "COVERAGE OUTLINE",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_coverage_outline", "COVERAGE OUTLINE"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(14)
         local polyCache = _cacheCoveragePolys(scs, systems)
         -- Slightly shorter map so the moisture list stays inside the frame.
@@ -623,8 +635,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         y = y - mapH - FT.py(10)
 
         y = self:drawRule(y, 0.3)
-        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, "FIELD MOISTURE SPLIT",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_moisture_split", "FIELD MOISTURE SPLIT"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
         local farmId = self.system.data:getPlayerFarmId()
@@ -638,40 +650,40 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 shown = shown + 1
                 if shown > 12 then
                     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                        "… more fields omitted", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                        _T("ft_irr_more_fields", "… more fields omitted"), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                     y = y - FT.py(16)
                     break
                 end
-                local tag = irrigated and "watering" or "idle"
+                local tag = irrigated and _T("ft_irr_watering", "watering") or _T("ft_irr_idle", "idle")
                 -- Keep % and bars clear of the scrollbar / frame edge.
                 local valueX = x + cw - FT.px(10)
                 local barW = cw - FT.px(12)
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format("Field #%s  %s", tostring(fid), tag),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                    string.format(_T("ft_irr_field_tag", "Field #%s  %s"), tostring(fid), tag),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT, true)
                 self.r:appText(valueX, y - FT.py(1), FT.FONT.SMALL,
-                    moisture ~= nil and _pct(moisture) or "n/a",
-                    RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                    moisture ~= nil and _pct(moisture) or _T("ft_irr_na", "n/a"),
+                    RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
                 if moisture ~= nil then
                     local barY = y
                     self.r:progressBar(x, barY, barW, moisture, 1.0, AC)
                     y = barY - FT.py(10)
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                        string.format("pivot ~%s   sky/other ~%s",
+                        string.format(_T("ft_irr_split_line", "pivot ~%s   sky/other ~%s"),
                             _pct(irrShare), _pct(rainShare)),
-                        RenderText.ALIGN_LEFT, FT.C.MUTED)
+                        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                     y = y - FT.py(14)
                 else
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                        "moisture not available", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                        _T("ft_irr_moisture_na", "moisture not available"), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                     y = y - FT.py(14)
                 end
             end
         end
         if shown == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                "No owned fields with moisture reads yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                _T("ft_irr_no_moisture_reads", "No owned fields with moisture reads yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
         end
 
@@ -682,26 +694,26 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         local hint = _pcall(function() return scs:getCriticalAlertHint() end)
         if hint ~= nil and hint ~= "" then
             self.r:appRect(x - FT.px(2), y - FT.py(28), cw + FT.px(4), FT.py(26), FT.C.BG_CARD)
-            self.r:appText(x, y - FT.py(6), FT.FONT.SMALL, "FARM ADVISORY",
-                RenderText.ALIGN_LEFT, AC)
+            self.r:appText(x, y - FT.py(6), FT.FONT.SMALL, _T("ft_irr_farm_advisory", "FARM ADVISORY"),
+                RenderText.ALIGN_LEFT, AC, true)
             self.r:appText(x, y - FT.py(18), FT.FONT.SMALL, tostring(hint),
                 RenderText.ALIGN_LEFT, FT.C.TEXT)
             y = y - FT.py(34)
         end
 
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-            "CURRENT + LABELED TREND (not a forecast model)",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+            _T("ft_irr_trend_header", "CURRENT + LABELED TREND (not a forecast model)"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
         local temp = _pcall(function() return scs:getTemperature() end)
         local evap = _pcall(function() return scs:getEvaporativeDemand() end)
         if temp ~= nil or evap ~= nil then
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                string.format("Air %s C   drying x%s",
-                    temp ~= nil and string.format("%.1f", temp) or "n/a",
-                    evap ~= nil and string.format("%.2f", evap) or "n/a"),
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                string.format(_T("ft_irr_air_line", "Air %s C   drying x%s"),
+                    temp ~= nil and string.format("%.1f", temp) or _T("ft_irr_na", "n/a"),
+                    evap ~= nil and string.format("%.2f", evap) or _T("ft_irr_na", "n/a")),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(16)
         end
 
@@ -723,19 +735,19 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     alerts = alerts + 1
                 end
                 self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
-                    string.format("Field #%s", tostring(fid)),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                    string.format(_T("ft_irr_field", "Field #%s"), tostring(fid)),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT, true)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
-                    string.format("moist %s  dry-stress %s", _pct(moisture), _pct(stress)),
-                    RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                    string.format(_T("ft_irr_moist_line", "moist %s  dry-stress %s"), _pct(moisture), _pct(stress)),
+                    RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(13)
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, trend,
-                    RenderText.ALIGN_LEFT, FT.C.MUTED)
+                    RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                 y = y - FT.py(15)
                 if alerts >= 6 then
                     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                        "Alert set capped - check SCS for more detail.",
-                        RenderText.ALIGN_LEFT, FT.C.MUTED)
+                        _T("ft_irr_alerts_capped", "Alert set capped - check SCS for more detail."),
+                        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                     y = y - FT.py(16)
                     break
                 end
@@ -800,7 +812,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         y = y - FT.py(14)
         if not hasForecastAccess then
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                _T("ft_irr_advisory_locked_l7", "Unlocks at co-op level 7"),
+                _T("ft_irr_advisory_locked_l7", "Unlocks with Pro Staff Co-Op at level 7"),
                 RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
@@ -815,7 +827,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             for _, r in ipairs(ranked) do
                 if shownNeed >= 8 then
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                        "… more fields omitted", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                        _T("ft_irr_more_fields", "… more fields omitted"), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                     y = y - FT.py(14)
                     break
                 end
@@ -824,8 +836,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 local callCol = effNeed >= 0.75 and FT.C.WARN
                     or (effNeed >= 0.45 and FT.C.TEXT_DIM or FT.C.MUTED)
                 self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
-                    string.format("Field #%s", tostring(r.id)),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                    string.format(_T("ft_irr_field", "Field #%s"), tostring(r.id)),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT, true)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
                     _T(callKey, callFallback), RenderText.ALIGN_RIGHT, callCol, true)
                 y = y - FT.py(14)
@@ -848,7 +860,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         y = y - FT.py(14)
         if not hasPredictiveControl then
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                _T("ft_irr_advisory_locked_l18", "Unlocks at co-op level 18"),
+                _T("ft_irr_advisory_locked_l18", "Unlocks with Pro Staff Co-Op at level 18"),
                 RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
@@ -871,9 +883,9 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 local fwdTxt = hasSched and "schedule covers" or "schedule gap"
                 local fwdCol = hasSched and FT.C.POSITIVE or FT.C.WARN
                 self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
-                    string.format("Field #%s  %s", tostring(r.id),
+                    string.format(_T("ft_irr_field_tag", "Field #%s  %s"), tostring(r.id),
                         _T(callK, callF)),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT, true)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
                     _T(fwdKey, fwdTxt), RenderText.ALIGN_RIGHT, fwdCol, true)
                 y = y - FT.py(14)
@@ -886,8 +898,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 y = y - FT.py(14)
             else
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format("%d covered  ·  %d gap", covered, gap),
-                    RenderText.ALIGN_LEFT, FT.C.MUTED)
+                    string.format(_T("ft_irr_covered_gap", "%d covered  ·  %d gap"), covered, gap),
+                    RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                 y = y - FT.py(14)
             end
         end
@@ -899,18 +911,18 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         local costsOn = _pcall(function() return scs:getIrrigationCostsEnabled() end)
         if costsOn == nil then costsOn = true end
 
-        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, "SYSTEM USAGE (SCS CHARGING)",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_usage_header", "SYSTEM USAGE (SCS CHARGING)"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
         if not costsOn then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                "Irrigation costs are off in Seasonal Crop Stress.",
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                _T("ft_irr_costs_off", "Irrigation costs are off in Seasonal Crop Stress."),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
         elseif #systems == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                "No systems to price.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                _T("ft_irr_no_systems_price", "No systems to price."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
         else
             for _, sys in ipairs(systems) do
@@ -934,23 +946,23 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 y = y - FT.py(13)
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                    string.format("%s / hour active   flow %.2f   ~%d schedule hours / week",
+                    string.format(_T("ft_irr_usage_line", "%s / hour active   flow %.2f   ~%d schedule hours / week"),
                         _money(cost), flow, hours),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(16)
             end
         end
 
         y = self:drawRule(y, 0.3)
-        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, "SOIL RISK (when Soil Fertilizer present)",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_soil_risk_header", "SOIL RISK (when Soil Fertilizer present)"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
         local soil = _soilSystem()
         if soil == nil or type(soil.getFieldInfo) ~= "function" then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                "Soil Fertilizer not available - risk rows hidden.",
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                _T("ft_irr_soil_na", "Soil Fertilizer not available - risk rows hidden."),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
         else
             local farmId = self.system.data:getPlayerFarmId()
@@ -963,32 +975,32 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     n = n + 1
                     if n > 10 then
                         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                            "… more fields omitted", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                            _T("ft_irr_more_fields", "… more fields omitted"), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                         y = y - FT.py(14)
                         break
                     end
                     local disease
                     if info.shownDiseasePressure == nil then
-                        disease = "Unscouted"
+                        disease = _T("ft_irr_unscouted", "Unscouted")
                     else
                         disease = _pct(info.shownDiseasePressure)
                     end
                     self.r:appText(x, y - FT.py(1), FT.FONT.BODY,
-                        string.format("Field #%s", tostring(fid)),
-                        RenderText.ALIGN_LEFT, FT.C.TEXT)
+                        string.format(_T("ft_irr_field", "Field #%s"), tostring(fid)),
+                        RenderText.ALIGN_LEFT, FT.C.TEXT, true)
                     y = y - FT.py(13)
                     self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                        string.format("compaction %s   OM %s   disease %s",
+                        string.format(_T("ft_irr_soil_line", "compaction %s   OM %s   disease %s"),
                             _pct(info.compaction),
-                            info.organicMatter ~= nil and string.format("%.1f", info.organicMatter) or "n/a",
+                            info.organicMatter ~= nil and string.format("%.1f", info.organicMatter) or _T("ft_irr_na", "n/a"),
                             disease),
-                        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                     y = y - FT.py(15)
                 end
             end
             if n == 0 then
                 self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
-                    "No field risk reads yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    _T("ft_irr_no_risk_reads", "No field risk reads yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(24)
             end
         end

@@ -2786,42 +2786,42 @@
         <text name="ft_irr_advisory_schedule_gap" text="tervhézag" />
         <text name="ft_rainKey_unknown" text="ismeretlen" />
         <text name="ft_rainKey_mm" text="modellezett mm" />
-        <text name="ft_rainKey_unfitted" text="nincs esoerzekelo" />
-        <text name="ft_rainKey_armed" text="erzekelo elesitve" />
-        <text name="ft_rainKey_collecting" text="esot gyujt" />
-        <text name="ft_rainKey_tripped" text="erzekelo jelzett" />
-        <text name="ft_rainKey_inputUnavail" text="erzekelo adata nem elerheto" />
-        <text name="ft_rainKey_whyTripped" text="leallt, mert az esoerzekelo jelzett" />
-        <text name="ft_rainKey_whyNoInput" text="az idojaras nem olvashato" />
-        <text name="ft_rainKey_whyNoSource" text="nincs vizforras" />
-        <text name="ft_rainKey_whyNoPress" text="nincs nyomas" />
-        <text name="ft_rainKey_whySchedule" text="a menetrenden kivul" />
-        <text name="ft_rainKey_whyMaster" text="az ontozes fokapcsoloja ki van kapcsolva" />
-        <text name="ft_rainKey_whyUnknown" text="az ok nem elerheto" />
-        <text name="ft_rainKey_running" text="MUKODIK" />
-        <text name="ft_rainKey_rainPaused" text="ESO MIATT SZUNETEL" />
+        <text name="ft_rainKey_unfitted" text="nincs esőérzékelő" />
+        <text name="ft_rainKey_armed" text="érzékelő élesítve" />
+        <text name="ft_rainKey_collecting" text="esőt gyűjt" />
+        <text name="ft_rainKey_tripped" text="érzékelő jelzett" />
+        <text name="ft_rainKey_inputUnavail" text="érzékelő adata nem elérhető" />
+        <text name="ft_rainKey_whyTripped" text="leállt, mert az esőérzékelő jelzett" />
+        <text name="ft_rainKey_whyNoInput" text="az időjárás nem olvasható" />
+        <text name="ft_rainKey_whyNoSource" text="nincs vízforrás" />
+        <text name="ft_rainKey_whyNoPress" text="nincs nyomás" />
+        <text name="ft_rainKey_whySchedule" text="a menetrenden kívül" />
+        <text name="ft_rainKey_whyMaster" text="az öntözés főkapcsolója ki van kapcsolva" />
+        <text name="ft_rainKey_whyUnknown" text="az ok nem elérhető" />
+        <text name="ft_rainKey_running" text="MŰKÖDIK" />
+        <text name="ft_rainKey_rainPaused" text="ESŐ MIATT SZÜNETEL" />
         <text name="ft_rainKey_off" text="ki" />
-        <text name="ft_rainKey_unknownState" text="az erzekelo allapota ismeretlen" />
-        <text name="ft_rainKey_dryResetIn" text="szaraz visszaallas %s mulva" />
-        <text name="ft_rainKey_dryResetPending" text="visszaallas, ha eláll az eso" />
-        <text name="ft_rainKey_nextCheckIn" text="kovetkezo ellenorzes %s" />
-        <text name="ft_rainKey_nextCheck" text="a kovetkezo menetrend-ellenorzeskor indulhat" />
-        <text name="ft_rainKey_playerAction" text="beavatkozas kell: ellenorizze a vizforrast" />
-        <text name="ft_rainKey_collected" text="gyujtott" />
-        <text name="ft_rainKey_trip" text="kuszob" />
+        <text name="ft_rainKey_unknownState" text="az érzékelő állapota ismeretlen" />
+        <text name="ft_rainKey_dryResetIn" text="száraz visszaállás %s múlva" />
+        <text name="ft_rainKey_dryResetPending" text="visszaállás, ha eláll az eső" />
+        <text name="ft_rainKey_nextCheckIn" text="következő ellenőrzés %s" />
+        <text name="ft_rainKey_nextCheck" text="a következő menetrend-ellenőrzéskor indulhat" />
+        <text name="ft_rainKey_playerAction" text="beavatkozás kell: ellenőrizze a vízforrást" />
+        <text name="ft_rainKey_collected" text="gyűjtött" />
+        <text name="ft_rainKey_trip" text="küszöb" />
         <text name="ft_rainKey_notifyTitle" text="Ontozes" />
         <text name="ft_rainKey_notifyPaused" text="A #%s pivot leallt az esoerzekelo miatt" />
         <text name="ft_rainKey_notifyResumed" text="A #%s pivot a kovetkezo ellenorzeskor ujra indulhat" />
-        <text name="ft_water_header" text="VIZFORRASOK" />
-        <text name="ft_water_unlimited" text="Korlatlan" />
-        <text name="ft_water_hours" text="%.1f / %.1f o" />
-        <text name="ft_water_dry" text="Szaraz" />
-        <text name="ft_water_na" text="Nem elerheto" />
-        <text name="ft_water_none" text="Nincs vizforras ezen a farmon." />
-        <text name="ft_water_source" text="Vizforras" />
+        <text name="ft_water_header" text="VÍZFORRÁSOK" />
+        <text name="ft_water_unlimited" text="Korlátlan" />
+        <text name="ft_water_hours" text="%.1f / %.1f ó" />
+        <text name="ft_water_dry" text="Száraz" />
+        <text name="ft_water_na" text="Nem elérhető" />
+        <text name="ft_water_none" text="Nincs vízforrás ezen a farmon." />
+        <text name="ft_water_source" text="Vízforrás" />
         <text name="ft_water_connected" text="%d csatlakoztatva" />
-        <text name="ft_water_stop_dry" text="Szaraz forras" />
-        <text name="ft_water_stop_nosource" text="Nincs forras" />
+        <text name="ft_water_stop_dry" text="Száraz forrás" />
+        <text name="ft_water_stop_nosource" text="Nincs forrás" />
         <text name="ft_dairy_breed_herd" text="ÁLLOMÁNY MOST" />
         <text name="ft_dairy_breed_milk" text="TEJ A TARTÁLYBAN" />
         <text name="ft_dairy_breed_unknown" text="ismeretlen" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Sürgősségi kölcsön" />
         <text name="ft_fc_total_debt" text="Teljes tartozás" />
         <text name="ft_fc_open_loan" text="KÖLCSÖN KEZELÉSE" />
+        <text name="ft_irr_mode_operations" text="Üzem" />
+        <text name="ft_irr_mode_forecast" text="Előrejelzés" />
+        <text name="ft_irr_mode_usage" text="Fogyasztás" />
+        <text name="ft_irr_mins" text="%d perc" />
+        <text name="ft_irr_hours" text="%.1f ó" />
+        <text name="ft_irr_na" text="n. a." />
+        <text name="ft_irr_schedule_na" text="menetrend: n. a." />
+        <text name="ft_irr_day_mon" text="Hé" />
+        <text name="ft_irr_day_tue" text="Ke" />
+        <text name="ft_irr_day_wed" text="Sze" />
+        <text name="ft_irr_day_thu" text="Csü" />
+        <text name="ft_irr_day_fri" text="Pé" />
+        <text name="ft_irr_day_sat" text="Szo" />
+        <text name="ft_irr_day_sun" text="Va" />
+        <text name="ft_irr_no_active_days" text="nincs aktív nap" />
+        <text name="ft_irr_every_day" text="minden nap" />
+        <text name="ft_irr_no_coverage" text="Nincsenek elérhető lefedettségi sokszögek." />
+        <text name="ft_irr_trend_watering" text="trend: öntözés folyamatban" />
+        <text name="ft_irr_trend_drying" text="trend: szárad - fontolja meg az öntözési ablakot" />
+        <text name="ft_irr_trend_wet" text="trend: nedves - a várakozás belvizet okozhat" />
+        <text name="ft_irr_trend_steady" text="trend: stabil" />
+        <text name="ft_irr_help_what_title" text="MI EZ" />
+        <text name="ft_irr_help_what_body" text="Gazdaságszintű öntözési kép a Seasonal Crop Stressből:&#10;mely rendszerek futnak, mit fednek le, nedvességmegoszlás,&#10;rövid trend, valamint fogyasztás és talajkockázat, ha a Soil Fertilizer&#10;jelen van. Csak olvasható tükör. Nincs második nedvességmodell." />
+        <text name="ft_irr_help_ops_title" text="ÜZEM" />
+        <text name="ft_irr_help_ops_body" text="Aktív rendszerek, menetrendek, lefedettségi körvonal és táblánkénti&#10;öntözés-eső megoszlás az SCS élő adataiból." />
+        <text name="ft_irr_help_forecast_title" text="ELŐREJELZÉS" />
+        <text name="ft_irr_help_forecast_body" text="Jelenlegi nedvesség és aszálystressz, valamint egy egyértelműen jelölt&#10;trend. Nem szimulált jövő. Gazdaságszintű tanács, ha az SCS&#10;közzétesz egyet." />
+        <text name="ft_irr_help_usage_title" text="FOGYASZTÁS ÉS KOCKÁZAT" />
+        <text name="ft_irr_help_usage_body" text="Amit az SCS aktív óránként felszámít, ha a költségek be vannak kapcsolva.&#10;Tömörödés / humusz / betegség a Soil Fertilizerből, ha jelen van.&#10;A fel nem mért betegség Nincs felmérve, soha nem hamis minden rendben." />
+        <text name="ft_irr_scs_not_detected" text="A Seasonal Crop Stress nem található." />
+        <text name="ft_irr_scs_install" text="Telepítse az FS25_SeasonalCropStress modot. Nélküle ez az alkalmazás rejtve marad." />
+        <text name="ft_irr_systems" text="RENDSZEREK" />
+        <text name="ft_irr_no_systems" text="Nincs regisztrált öntözőrendszer." />
+        <text name="ft_irr_idle" text="tétlen" />
+        <text name="ft_irr_no_schedule" text="nincs menetrend" />
+        <text name="ft_irr_system_line" text="%s  ·  tábla %d  ·  átfolyás %.2f/ó" />
+        <text name="ft_irr_coverage_outline" text="LEFEDETTSÉGI KÖRVONAL" />
+        <text name="ft_irr_moisture_split" text="TÁBLÁK NEDVESSÉGMEGOSZLÁSA" />
+        <text name="ft_irr_more_fields" text="… további táblák kihagyva" />
+        <text name="ft_irr_watering" text="öntöz" />
+        <text name="ft_irr_field_tag" text="Tábla #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   ég/egyéb ~%s" />
+        <text name="ft_irr_moisture_na" text="nedvesség nem elérhető" />
+        <text name="ft_irr_no_moisture_reads" text="Még nincs saját tábla nedvességméréssel." />
+        <text name="ft_irr_farm_advisory" text="GAZDASÁGI TANÁCS" />
+        <text name="ft_irr_trend_header" text="JELENLEGI + JELÖLT TREND (nem előrejelző modell)" />
+        <text name="ft_irr_air_line" text="Levegő %s C   száradás x%s" />
+        <text name="ft_irr_field" text="Tábla #%s" />
+        <text name="ft_irr_moist_line" text="nedv. %s  aszálystressz %s" />
+        <text name="ft_irr_alerts_capped" text="A riasztások száma korlátozva - részletek az SCS-ben." />
+        <text name="ft_irr_covered_gap" text="lefedve %d  ·  hézag %d" />
+        <text name="ft_irr_usage_header" text="RENDSZERFOGYASZTÁS (SCS-DÍJAZÁS)" />
+        <text name="ft_irr_costs_off" text="Az öntözési költségek ki vannak kapcsolva a Seasonal Crop Stressben." />
+        <text name="ft_irr_no_systems_price" text="Nincs beárazható rendszer." />
+        <text name="ft_irr_usage_line" text="%s / aktív óra   átfolyás %.2f   ~%d ütemezett óra / hét" />
+        <text name="ft_irr_soil_risk_header" text="TALAJKOCKÁZAT (ha a Soil Fertilizer jelen van)" />
+        <text name="ft_irr_soil_na" text="A Soil Fertilizer nem elérhető - kockázati sorok elrejtve." />
+        <text name="ft_irr_unscouted" text="Nincs felmérve" />
+        <text name="ft_irr_soil_line" text="tömörödés %s   humusz %s   betegség %s" />
+        <text name="ft_irr_no_risk_reads" text="Még nincsenek tábla-kockázati adatok." />
     </texts>
 
 </l10n>

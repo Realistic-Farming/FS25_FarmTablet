@@ -2774,7 +2774,7 @@
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/mnd  •  %d mnd igjen" />
         <text name="ft_fc_history_no_clock" text="Krever Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Installer Time Guard for å registrere månedlig historikk. Live-indikatorene gjelder fortsatt." />
-        <text name="ft_irr_advisory_water_need" text="VANNB EHOV (rådgivning)" />
+        <text name="ft_irr_advisory_water_need" text="VANNBEHOV (rådgivning)" />
         <text name="ft_irr_advisory_locked_l7" text="Låses opp med Pro Staff-kooperativet på nivå 7" />
         <text name="ft_irr_advisory_forward_call" text="PROGNOSE (rådgivning)" />
         <text name="ft_irr_advisory_locked_l18" text="Låses opp med Pro Staff-kooperativet på nivå 18" />
@@ -2789,21 +2789,21 @@
         <text name="ft_rainKey_unfitted" text="ingen regnsensor montert" />
         <text name="ft_rainKey_armed" text="sensor aktivert" />
         <text name="ft_rainKey_collecting" text="samler regn" />
-        <text name="ft_rainKey_tripped" text="sensor utlost" />
+        <text name="ft_rainKey_tripped" text="sensor utløst" />
         <text name="ft_rainKey_inputUnavail" text="sensordata utilgjengelig" />
-        <text name="ft_rainKey_whyTripped" text="stoppet fordi regnsensoren ble utlost" />
-        <text name="ft_rainKey_whyNoInput" text="kan ikke lese vaeret" />
+        <text name="ft_rainKey_whyTripped" text="stoppet fordi regnsensoren ble utløst" />
+        <text name="ft_rainKey_whyNoInput" text="kan ikke lese været" />
         <text name="ft_rainKey_whyNoSource" text="ingen vannkilde" />
         <text name="ft_rainKey_whyNoPress" text="ingen trykk" />
         <text name="ft_rainKey_whySchedule" text="utenfor planen" />
         <text name="ft_rainKey_whyMaster" text="hovedbryter for vanning av" />
-        <text name="ft_rainKey_whyUnknown" text="arsak utilgjengelig" />
+        <text name="ft_rainKey_whyUnknown" text="årsak utilgjengelig" />
         <text name="ft_rainKey_running" text="I DRIFT" />
         <text name="ft_rainKey_rainPaused" text="REGNPAUSE" />
         <text name="ft_rainKey_off" text="av" />
         <text name="ft_rainKey_unknownState" text="sensorstatus ukjent" />
-        <text name="ft_rainKey_dryResetIn" text="torr tilbakestilling om %s" />
-        <text name="ft_rainKey_dryResetPending" text="tilbakestilling nar regnet slutter" />
+        <text name="ft_rainKey_dryResetIn" text="tørr tilbakestilling om %s" />
+        <text name="ft_rainKey_dryResetPending" text="tilbakestilling når regnet slutter" />
         <text name="ft_rainKey_nextCheckIn" text="neste plansjekk %s" />
         <text name="ft_rainKey_nextCheck" text="klar ved neste plansjekk" />
         <text name="ft_rainKey_playerAction" text="krever handling: sjekk vannkilden" />
@@ -2815,12 +2815,12 @@
         <text name="ft_water_header" text="VANNKILDER" />
         <text name="ft_water_unlimited" text="Ubegrenset" />
         <text name="ft_water_hours" text="%.1f / %.1f t" />
-        <text name="ft_water_dry" text="Torr" />
+        <text name="ft_water_dry" text="Tørr" />
         <text name="ft_water_na" text="Utilgjengelig" />
-        <text name="ft_water_none" text="Ingen vannkilder pa denne garden." />
+        <text name="ft_water_none" text="Ingen vannkilder på denne gården." />
         <text name="ft_water_source" text="Vannkilde" />
         <text name="ft_water_connected" text="%d tilkoblet" />
-        <text name="ft_water_stop_dry" text="Kilden er torr" />
+        <text name="ft_water_stop_dry" text="Kilden er tørr" />
         <text name="ft_water_stop_nosource" text="Ingen kilde" />
         <text name="ft_dairy_breed_herd" text="BESETNING NÅ" />
         <text name="ft_dairy_breed_milk" text="MELK I TANK" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Nødlån" />
         <text name="ft_fc_total_debt" text="Samlet gjeld" />
         <text name="ft_fc_open_loan" text="ADMINISTRER LÅN" />
+        <text name="ft_irr_mode_operations" text="Drift" />
+        <text name="ft_irr_mode_forecast" text="Prognose" />
+        <text name="ft_irr_mode_usage" text="Forbruk" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f t" />
+        <text name="ft_irr_na" text="i/t" />
+        <text name="ft_irr_schedule_na" text="plan i/t" />
+        <text name="ft_irr_day_mon" text="Man" />
+        <text name="ft_irr_day_tue" text="Tir" />
+        <text name="ft_irr_day_wed" text="Ons" />
+        <text name="ft_irr_day_thu" text="Tor" />
+        <text name="ft_irr_day_fri" text="Fre" />
+        <text name="ft_irr_day_sat" text="Lør" />
+        <text name="ft_irr_day_sun" text="Søn" />
+        <text name="ft_irr_no_active_days" text="ingen aktive dager" />
+        <text name="ft_irr_every_day" text="hver dag" />
+        <text name="ft_irr_no_coverage" text="Ingen dekningspolygoner tilgjengelig." />
+        <text name="ft_irr_trend_watering" text="trend: vanner nå" />
+        <text name="ft_irr_trend_drying" text="trend: tørker ut - vurder et vindu" />
+        <text name="ft_irr_trend_wet" text="trend: vått - å vente kan gi vannmettet jord" />
+        <text name="ft_irr_trend_steady" text="trend: stabil" />
+        <text name="ft_irr_help_what_title" text="HVA DETTE ER" />
+        <text name="ft_irr_help_what_body" text="Vanningsbilde for hele gården fra Seasonal Crop Stress:&#10;hvilke systemer som går, hva de dekker, fuktfordeling,&#10;en kort trend og forbruk pluss jordrisiko når Soil Fertilizer&#10;er til stede. Bare et speil. Ingen ekstra fuktmodell." />
+        <text name="ft_irr_help_ops_title" text="DRIFT" />
+        <text name="ft_irr_help_ops_body" text="Aktive systemer, planer, dekningsomriss og fordeling av vanning&#10;mot regn per åker fra direkte SCS-avlesninger." />
+        <text name="ft_irr_help_forecast_title" text="PROGNOSE" />
+        <text name="ft_irr_help_forecast_body" text="Nåværende fukt og tørkestress pluss en tydelig merket&#10;trend. Ikke en simulert fremtid. Råd for hele gården når SCS&#10;publiserer et." />
+        <text name="ft_irr_help_usage_title" text="FORBRUK OG RISIKO" />
+        <text name="ft_irr_help_usage_body" text="Hva SCS tar betalt per aktiv time når kostnader er på.&#10;Pakking / moldinnhold / sykdom fra Soil Fertilizer når den er til stede.&#10;Ukartlagt sykdom vises som Ukartlagt, aldri som et falskt alt i orden." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress ikke funnet." />
+        <text name="ft_irr_scs_install" text="Installer FS25_SeasonalCropStress. Appen forblir skjult uten den." />
+        <text name="ft_irr_systems" text="SYSTEMER" />
+        <text name="ft_irr_no_systems" text="Ingen vanningssystemer registrert." />
+        <text name="ft_irr_idle" text="inaktiv" />
+        <text name="ft_irr_no_schedule" text="ingen plan" />
+        <text name="ft_irr_system_line" text="%s  ·  åkre %d  ·  flyt %.2f/t" />
+        <text name="ft_irr_coverage_outline" text="DEKNINGSOMRISS" />
+        <text name="ft_irr_moisture_split" text="FUKTFORDELING PER ÅKER" />
+        <text name="ft_irr_more_fields" text="… flere åkre utelatt" />
+        <text name="ft_irr_watering" text="vanner" />
+        <text name="ft_irr_field_tag" text="Åker #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   himmel/annet ~%s" />
+        <text name="ft_irr_moisture_na" text="fukt ikke tilgjengelig" />
+        <text name="ft_irr_no_moisture_reads" text="Ingen egne åkre med fuktavlesninger ennå." />
+        <text name="ft_irr_farm_advisory" text="GÅRDSRÅD" />
+        <text name="ft_irr_trend_header" text="NÅ + MERKET TREND (ikke en prognosemodell)" />
+        <text name="ft_irr_air_line" text="Luft %s C   uttørking x%s" />
+        <text name="ft_irr_field" text="Åker #%s" />
+        <text name="ft_irr_moist_line" text="fukt %s  tørkestress %s" />
+        <text name="ft_irr_alerts_capped" text="Varselsettet er begrenset - se SCS for flere detaljer." />
+        <text name="ft_irr_covered_gap" text="dekket %d  ·  hull %d" />
+        <text name="ft_irr_usage_header" text="SYSTEMFORBRUK (SCS-KOSTNAD)" />
+        <text name="ft_irr_costs_off" text="Vanningskostnader er slått av i Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Ingen systemer å prise." />
+        <text name="ft_irr_usage_line" text="%s / aktiv time   flyt %.2f   ~%d plantimer / uke" />
+        <text name="ft_irr_soil_risk_header" text="JORDRISIKO (når Soil Fertilizer er til stede)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer ikke tilgjengelig - risikorader skjult." />
+        <text name="ft_irr_unscouted" text="Ukartlagt" />
+        <text name="ft_irr_soil_line" text="pakking %s   moldinnhold %s   sykdom %s" />
+        <text name="ft_irr_no_risk_reads" text="Ingen risikoavlesninger for åkre ennå." />
     </texts>
 
 </l10n>

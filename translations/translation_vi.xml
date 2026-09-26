@@ -2812,16 +2812,16 @@
         <text name="ft_rainKey_notifyTitle" text="Tưới tiêu" />
         <text name="ft_rainKey_notifyPaused" text="Pivot #%s đã dừng vì cảm biến mưa" />
         <text name="ft_rainKey_notifyResumed" text="Pivot #%s sẽ hoạt động lại ở lần kiểm tra lịch kế tiếp" />
-        <text name="ft_water_header" text="NGUON NUOC" />
-        <text name="ft_water_unlimited" text="Khong gioi han" />
-        <text name="ft_water_hours" text="%.1f / %.1f gio" />
-        <text name="ft_water_dry" text="Can" />
-        <text name="ft_water_na" text="Khong co san" />
-        <text name="ft_water_none" text="Nong trai nay khong co nguon nuoc." />
-        <text name="ft_water_source" text="Nguon nuoc" />
-        <text name="ft_water_connected" text="%d ket noi" />
-        <text name="ft_water_stop_dry" text="Nguon can" />
-        <text name="ft_water_stop_nosource" text="Khong co nguon" />
+        <text name="ft_water_header" text="NGUỒN NƯỚC" />
+        <text name="ft_water_unlimited" text="Không giới hạn" />
+        <text name="ft_water_hours" text="%.1f / %.1f giờ" />
+        <text name="ft_water_dry" text="Cạn" />
+        <text name="ft_water_na" text="Không có sẵn" />
+        <text name="ft_water_none" text="Nông trại này không có nguồn nước." />
+        <text name="ft_water_source" text="Nguồn nước" />
+        <text name="ft_water_connected" text="%d kết nối" />
+        <text name="ft_water_stop_dry" text="Nguồn cạn" />
+        <text name="ft_water_stop_nosource" text="Không có nguồn" />
         <text name="ft_dairy_breed_herd" text="ĐÀN HIỆN TẠI" />
         <text name="ft_dairy_breed_milk" text="SỮA TRONG BỒN" />
         <text name="ft_dairy_breed_unknown" text="không rõ" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Khoản vay khẩn cấp" />
         <text name="ft_fc_total_debt" text="Tổng nợ" />
         <text name="ft_fc_open_loan" text="QUẢN LÝ KHOẢN VAY" />
+        <text name="ft_irr_mode_operations" text="Vận hành" />
+        <text name="ft_irr_mode_forecast" text="Dự báo" />
+        <text name="ft_irr_mode_usage" text="Sử dụng" />
+        <text name="ft_irr_mins" text="%d phút" />
+        <text name="ft_irr_hours" text="%.1f giờ" />
+        <text name="ft_irr_na" text="không có" />
+        <text name="ft_irr_schedule_na" text="lịch: không có" />
+        <text name="ft_irr_day_mon" text="T2" />
+        <text name="ft_irr_day_tue" text="T3" />
+        <text name="ft_irr_day_wed" text="T4" />
+        <text name="ft_irr_day_thu" text="T5" />
+        <text name="ft_irr_day_fri" text="T6" />
+        <text name="ft_irr_day_sat" text="T7" />
+        <text name="ft_irr_day_sun" text="CN" />
+        <text name="ft_irr_no_active_days" text="không có ngày hoạt động" />
+        <text name="ft_irr_every_day" text="mỗi ngày" />
+        <text name="ft_irr_no_coverage" text="Không có đa giác vùng phủ." />
+        <text name="ft_irr_trend_watering" text="xu hướng: đang tưới" />
+        <text name="ft_irr_trend_drying" text="xu hướng: đang khô - cân nhắc một khung giờ" />
+        <text name="ft_irr_trend_wet" text="xu hướng: ẩm ướt - chờ có thể gây úng" />
+        <text name="ft_irr_trend_steady" text="xu hướng: ổn định" />
+        <text name="ft_irr_help_what_title" text="ĐÂY LÀ GÌ" />
+        <text name="ft_irr_help_what_body" text="Bức tranh tưới toàn nông trại từ Seasonal Crop Stress:&#10;hệ thống nào chạy, chúng phủ những gì, phân bổ độ ẩm,&#10;xu hướng ngắn, cùng mức sử dụng và rủi ro đất khi có Soil Fertilizer.&#10;Chỉ là bản phản chiếu để đọc. Không có mô hình độ ẩm thứ hai." />
+        <text name="ft_irr_help_ops_title" text="VẬN HÀNH" />
+        <text name="ft_irr_help_ops_body" text="Hệ thống đang hoạt động, lịch, đường bao vùng phủ và phân bổ&#10;tưới so với mưa theo ruộng từ dữ liệu SCS trực tiếp." />
+        <text name="ft_irr_help_forecast_title" text="DỰ BÁO" />
+        <text name="ft_irr_help_forecast_body" text="Độ ẩm hiện tại và stress hạn cùng một xu hướng&#10;được ghi rõ. Không phải tương lai mô phỏng. Khuyến nghị toàn nông trại khi SCS&#10;công bố." />
+        <text name="ft_irr_help_usage_title" text="SỬ DỤNG VÀ RỦI RO" />
+        <text name="ft_irr_help_usage_body" text="SCS tính phí bao nhiêu mỗi giờ hoạt động khi bật chi phí.&#10;Nén chặt / CHC / bệnh từ Soil Fertilizer khi có.&#10;Bệnh chưa khảo sát hiện Chưa khảo sát, không bao giờ là an toàn giả." />
+        <text name="ft_irr_scs_not_detected" text="Không phát hiện Seasonal Crop Stress." />
+        <text name="ft_irr_scs_install" text="Hãy cài FS25_SeasonalCropStress. Ứng dụng này ẩn khi không có." />
+        <text name="ft_irr_systems" text="HỆ THỐNG" />
+        <text name="ft_irr_no_systems" text="Chưa đăng ký hệ thống tưới nào." />
+        <text name="ft_irr_idle" text="nghỉ" />
+        <text name="ft_irr_no_schedule" text="không có lịch" />
+        <text name="ft_irr_system_line" text="%s  ·  ruộng %d  ·  lưu lượng %.2f/giờ" />
+        <text name="ft_irr_coverage_outline" text="ĐƯỜNG BAO VÙNG PHỦ" />
+        <text name="ft_irr_moisture_split" text="PHÂN BỔ ĐỘ ẨM RUỘNG" />
+        <text name="ft_irr_more_fields" text="… đã ẩn thêm ruộng" />
+        <text name="ft_irr_watering" text="đang tưới" />
+        <text name="ft_irr_field_tag" text="Ruộng #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   trời/khác ~%s" />
+        <text name="ft_irr_moisture_na" text="không có độ ẩm" />
+        <text name="ft_irr_no_moisture_reads" text="Chưa có ruộng sở hữu nào có chỉ số độ ẩm." />
+        <text name="ft_irr_farm_advisory" text="KHUYẾN NGHỊ NÔNG TRẠI" />
+        <text name="ft_irr_trend_header" text="HIỆN TẠI + XU HƯỚNG ĐÃ GHI NHÃN (không phải mô hình dự báo)" />
+        <text name="ft_irr_air_line" text="Không khí %s C   làm khô x%s" />
+        <text name="ft_irr_field" text="Ruộng #%s" />
+        <text name="ft_irr_moist_line" text="ẩm %s  stress hạn %s" />
+        <text name="ft_irr_alerts_capped" text="Bộ cảnh báo đã bị giới hạn - xem SCS để biết thêm." />
+        <text name="ft_irr_covered_gap" text="được phủ %d  ·  hổng %d" />
+        <text name="ft_irr_usage_header" text="SỬ DỤNG HỆ THỐNG (PHÍ SCS)" />
+        <text name="ft_irr_costs_off" text="Chi phí tưới đang tắt trong Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Không có hệ thống để định giá." />
+        <text name="ft_irr_usage_line" text="%s / giờ hoạt động   lưu lượng %.2f   ~%d giờ lịch / tuần" />
+        <text name="ft_irr_soil_risk_header" text="RỦI RO ĐẤT (khi có Soil Fertilizer)" />
+        <text name="ft_irr_soil_na" text="Không có Soil Fertilizer - đã ẩn các dòng rủi ro." />
+        <text name="ft_irr_unscouted" text="Chưa khảo sát" />
+        <text name="ft_irr_soil_line" text="nén chặt %s   CHC %s   bệnh %s" />
+        <text name="ft_irr_no_risk_reads" text="Chưa có chỉ số rủi ro ruộng." />
     </texts>
 
 </l10n>

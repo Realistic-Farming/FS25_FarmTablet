@@ -2784,44 +2784,44 @@
         <text name="ft_irr_call_can_hold" text="může počkat" />
         <text name="ft_irr_advisory_schedule_covers" text="plán pokrývá" />
         <text name="ft_irr_advisory_schedule_gap" text="mezera v plánu" />
-        <text name="ft_rainKey_unknown" text="neznamo" />
-        <text name="ft_rainKey_mm" text="mm modelovanych" />
-        <text name="ft_rainKey_unfitted" text="bez cidla deste" />
-        <text name="ft_rainKey_armed" text="cidlo aktivni" />
-        <text name="ft_rainKey_collecting" text="sbira dest" />
-        <text name="ft_rainKey_tripped" text="cidlo sepnulo" />
-        <text name="ft_rainKey_inputUnavail" text="vstup cidla nedostupny" />
-        <text name="ft_rainKey_whyTripped" text="zastaveno, protoze sepnulo cidlo deste" />
-        <text name="ft_rainKey_whyNoInput" text="pocasi nelze precist" />
-        <text name="ft_rainKey_whyNoSource" text="zadny zdroj vody" />
-        <text name="ft_rainKey_whyNoPress" text="zadny tlak" />
+        <text name="ft_rainKey_unknown" text="neznámo" />
+        <text name="ft_rainKey_mm" text="mm modelovaných" />
+        <text name="ft_rainKey_unfitted" text="bez čidla deště" />
+        <text name="ft_rainKey_armed" text="čidlo aktivní" />
+        <text name="ft_rainKey_collecting" text="sbírá déšť" />
+        <text name="ft_rainKey_tripped" text="čidlo sepnulo" />
+        <text name="ft_rainKey_inputUnavail" text="vstup čidla nedostupný" />
+        <text name="ft_rainKey_whyTripped" text="zastaveno, protože sepnulo čidlo deště" />
+        <text name="ft_rainKey_whyNoInput" text="počasí nelze přečíst" />
+        <text name="ft_rainKey_whyNoSource" text="žádný zdroj vody" />
+        <text name="ft_rainKey_whyNoPress" text="žádný tlak" />
         <text name="ft_rainKey_whySchedule" text="mimo harmonogram" />
-        <text name="ft_rainKey_whyMaster" text="hlavni vypinac zavlahy vypnuty" />
-        <text name="ft_rainKey_whyUnknown" text="duvod nedostupny" />
-        <text name="ft_rainKey_running" text="BEZI" />
-        <text name="ft_rainKey_rainPaused" text="PAUZA KVULI DESTI" />
+        <text name="ft_rainKey_whyMaster" text="hlavní vypínač závlahy vypnutý" />
+        <text name="ft_rainKey_whyUnknown" text="důvod nedostupný" />
+        <text name="ft_rainKey_running" text="BĚŽÍ" />
+        <text name="ft_rainKey_rainPaused" text="PAUZA KVŮLI DEŠTI" />
         <text name="ft_rainKey_off" text="vypnuto" />
-        <text name="ft_rainKey_unknownState" text="stav cidla neznamy" />
-        <text name="ft_rainKey_dryResetIn" text="suchy reset za %s" />
-        <text name="ft_rainKey_dryResetPending" text="reset, az dest ustane" />
-        <text name="ft_rainKey_nextCheckIn" text="dalsi kontrola %s" />
-        <text name="ft_rainKey_nextCheck" text="pripraveno pri dalsi kontrole harmonogramu" />
-        <text name="ft_rainKey_playerAction" text="vyzaduje zasah: zkontrolujte zdroj vody" />
-        <text name="ft_rainKey_collected" text="nasbirano" />
-        <text name="ft_rainKey_trip" text="prah" />
+        <text name="ft_rainKey_unknownState" text="stav čidla neznámý" />
+        <text name="ft_rainKey_dryResetIn" text="suchý reset za %s" />
+        <text name="ft_rainKey_dryResetPending" text="reset, až déšť ustane" />
+        <text name="ft_rainKey_nextCheckIn" text="další kontrola %s" />
+        <text name="ft_rainKey_nextCheck" text="připraveno při další kontrole harmonogramu" />
+        <text name="ft_rainKey_playerAction" text="vyžaduje zásah: zkontrolujte zdroj vody" />
+        <text name="ft_rainKey_collected" text="nasbíráno" />
+        <text name="ft_rainKey_trip" text="práh" />
         <text name="ft_rainKey_notifyTitle" text="Zavlaha" />
         <text name="ft_rainKey_notifyPaused" text="Pivot #%s zastaven cidlem deste" />
         <text name="ft_rainKey_notifyResumed" text="Pivot #%s bude znovu pripraven pri dalsi kontrole" />
         <text name="ft_water_header" text="ZDROJE VODY" />
-        <text name="ft_water_unlimited" text="Neomezene" />
+        <text name="ft_water_unlimited" text="Neomezené" />
         <text name="ft_water_hours" text="%.1f / %.1f h" />
         <text name="ft_water_dry" text="Sucho" />
-        <text name="ft_water_na" text="Nedostupne" />
-        <text name="ft_water_none" text="Na teto farme nejsou zdroje vody." />
+        <text name="ft_water_na" text="Nedostupné" />
+        <text name="ft_water_none" text="Na této farmě nejsou zdroje vody." />
         <text name="ft_water_source" text="Zdroj vody" />
-        <text name="ft_water_connected" text="%d pripojeno" />
+        <text name="ft_water_connected" text="%d připojeno" />
         <text name="ft_water_stop_dry" text="Zdroj vyschl" />
-        <text name="ft_water_stop_nosource" text="Zadny zdroj" />
+        <text name="ft_water_stop_nosource" text="Žádný zdroj" />
         <text name="ft_dairy_breed_herd" text="STÁDO NYNÍ" />
         <text name="ft_dairy_breed_milk" text="MLÉKO V NÁDRŽI" />
         <text name="ft_dairy_breed_unknown" text="neznámé" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Nouzový úvěr" />
         <text name="ft_fc_total_debt" text="Celkový dluh" />
         <text name="ft_fc_open_loan" text="SPRAVOVAT ÚVĚR" />
+        <text name="ft_irr_mode_operations" text="Provoz" />
+        <text name="ft_irr_mode_forecast" text="Prognóza" />
+        <text name="ft_irr_mode_usage" text="Spotřeba" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f h" />
+        <text name="ft_irr_na" text="n/d" />
+        <text name="ft_irr_schedule_na" text="plán n/d" />
+        <text name="ft_irr_day_mon" text="Po" />
+        <text name="ft_irr_day_tue" text="Út" />
+        <text name="ft_irr_day_wed" text="St" />
+        <text name="ft_irr_day_thu" text="Čt" />
+        <text name="ft_irr_day_fri" text="Pá" />
+        <text name="ft_irr_day_sat" text="So" />
+        <text name="ft_irr_day_sun" text="Ne" />
+        <text name="ft_irr_no_active_days" text="žádné aktivní dny" />
+        <text name="ft_irr_every_day" text="každý den" />
+        <text name="ft_irr_no_coverage" text="Nejsou k dispozici žádné polygony pokrytí." />
+        <text name="ft_irr_trend_watering" text="trend: právě se zavlažuje" />
+        <text name="ft_irr_trend_drying" text="trend: vysychá - zvažte okno pro závlahu" />
+        <text name="ft_irr_trend_wet" text="trend: mokro - čekání může pole podmáčet" />
+        <text name="ft_irr_trend_steady" text="trend: stabilní" />
+        <text name="ft_irr_help_what_title" text="CO TO JE" />
+        <text name="ft_irr_help_what_body" text="Celofaremní přehled zavlažování ze Seasonal Crop Stress:&#10;které systémy běží, co pokrývají, rozdělení vlhkosti,&#10;krátký trend a spotřeba plus půdní riziko, když je Soil Fertilizer&#10;k dispozici. Jen zrcadlo pro čtení. Žádný druhý model vlhkosti." />
+        <text name="ft_irr_help_ops_title" text="PROVOZ" />
+        <text name="ft_irr_help_ops_body" text="Aktivní systémy, harmonogramy, obrys pokrytí a rozdělení závlahy&#10;a deště po polích z živých údajů SCS." />
+        <text name="ft_irr_help_forecast_title" text="PROGNÓZA" />
+        <text name="ft_irr_help_forecast_body" text="Aktuální vlhkost a stres ze sucha plus jasně označený&#10;trend. Není to simulovaná budoucnost. Doporučení pro celou farmu, když ho SCS&#10;zveřejní." />
+        <text name="ft_irr_help_usage_title" text="SPOTŘEBA A RIZIKO" />
+        <text name="ft_irr_help_usage_body" text="Co SCS účtuje za hodinu provozu, když jsou náklady zapnuté.&#10;Zhutnění / humus / choroby ze Soil Fertilizer, pokud je k dispozici.&#10;Neprozkoumaná choroba se ukáže jako Neprozkoumáno, nikdy jako falešné vše v pořádku." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress nebyl nalezen." />
+        <text name="ft_irr_scs_install" text="Nainstalujte FS25_SeasonalCropStress. Bez něj zůstane tato aplikace skrytá." />
+        <text name="ft_irr_systems" text="SYSTÉMY" />
+        <text name="ft_irr_no_systems" text="Nejsou registrovány žádné zavlažovací systémy." />
+        <text name="ft_irr_idle" text="nečinný" />
+        <text name="ft_irr_no_schedule" text="bez harmonogramu" />
+        <text name="ft_irr_system_line" text="%s  ·  polí %d  ·  průtok %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="OBRYS POKRYTÍ" />
+        <text name="ft_irr_moisture_split" text="ROZDĚLENÍ VLHKOSTI POLÍ" />
+        <text name="ft_irr_more_fields" text="… další pole vynechána" />
+        <text name="ft_irr_watering" text="zavlažuje" />
+        <text name="ft_irr_field_tag" text="Pole #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   obloha/jiné ~%s" />
+        <text name="ft_irr_moisture_na" text="vlhkost není k dispozici" />
+        <text name="ft_irr_no_moisture_reads" text="Zatím žádná vlastní pole s údaji o vlhkosti." />
+        <text name="ft_irr_farm_advisory" text="DOPORUČENÍ PRO FARMU" />
+        <text name="ft_irr_trend_header" text="AKTUÁLNĚ + OZNAČENÝ TREND (nejde o předpovědní model)" />
+        <text name="ft_irr_air_line" text="Vzduch %s C   vysychání x%s" />
+        <text name="ft_irr_field" text="Pole #%s" />
+        <text name="ft_irr_moist_line" text="vlhkost %s  stres ze sucha %s" />
+        <text name="ft_irr_alerts_capped" text="Sada upozornění je omezena - podrobnosti najdete v SCS." />
+        <text name="ft_irr_covered_gap" text="pokryto %d  ·  mezera %d" />
+        <text name="ft_irr_usage_header" text="SPOTŘEBA SYSTÉMŮ (ÚČTOVÁNÍ SCS)" />
+        <text name="ft_irr_costs_off" text="Náklady na zavlažování jsou v Seasonal Crop Stress vypnuté." />
+        <text name="ft_irr_no_systems_price" text="Žádné systémy k ocenění." />
+        <text name="ft_irr_usage_line" text="%s / hodinu provozu   průtok %.2f   ~%d hodin harmonogramu / týden" />
+        <text name="ft_irr_soil_risk_header" text="PŮDNÍ RIZIKO (když je Soil Fertilizer k dispozici)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer není k dispozici - řádky rizik jsou skryté." />
+        <text name="ft_irr_unscouted" text="Neprozkoumáno" />
+        <text name="ft_irr_soil_line" text="zhutnění %s   humus %s   choroby %s" />
+        <text name="ft_irr_no_risk_reads" text="Zatím žádné údaje o rizicích polí." />
     </texts>
 
 </l10n>

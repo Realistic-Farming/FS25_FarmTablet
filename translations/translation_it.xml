@@ -2791,7 +2791,7 @@
         <text name="ft_rainKey_collecting" text="raccolta pioggia" />
         <text name="ft_rainKey_tripped" text="sensore scattato" />
         <text name="ft_rainKey_inputUnavail" text="ingresso sensore non disponibile" />
-        <text name="ft_rainKey_whyTripped" text="fermato perche il sensore pioggia e scattato" />
+        <text name="ft_rainKey_whyTripped" text="fermato perché il sensore pioggia è scattato" />
         <text name="ft_rainKey_whyNoInput" text="meteo non leggibile" />
         <text name="ft_rainKey_whyNoSource" text="nessuna fonte d'acqua" />
         <text name="ft_rainKey_whyNoPress" text="nessuna pressione" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Prestito d'emergenza" />
         <text name="ft_fc_total_debt" text="Debito totale" />
         <text name="ft_fc_open_loan" text="GESTISCI PRESTITO" />
+        <text name="ft_irr_mode_operations" text="Operazioni" />
+        <text name="ft_irr_mode_forecast" text="Previsioni" />
+        <text name="ft_irr_mode_usage" text="Utilizzo" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f h" />
+        <text name="ft_irr_na" text="n/d" />
+        <text name="ft_irr_schedule_na" text="programma n/d" />
+        <text name="ft_irr_day_mon" text="lun" />
+        <text name="ft_irr_day_tue" text="mar" />
+        <text name="ft_irr_day_wed" text="mer" />
+        <text name="ft_irr_day_thu" text="gio" />
+        <text name="ft_irr_day_fri" text="ven" />
+        <text name="ft_irr_day_sat" text="sab" />
+        <text name="ft_irr_day_sun" text="dom" />
+        <text name="ft_irr_no_active_days" text="nessun giorno attivo" />
+        <text name="ft_irr_every_day" text="ogni giorno" />
+        <text name="ft_irr_no_coverage" text="Nessun poligono di copertura disponibile." />
+        <text name="ft_irr_trend_watering" text="tendenza: irrigazione in corso" />
+        <text name="ft_irr_trend_drying" text="tendenza: si asciuga - valuta una finestra" />
+        <text name="ft_irr_trend_wet" text="tendenza: bagnato - aspettare può creare ristagni" />
+        <text name="ft_irr_trend_steady" text="tendenza: stabile" />
+        <text name="ft_irr_help_what_title" text="COS'È" />
+        <text name="ft_irr_help_what_body" text="Quadro dell'irrigazione dell'azienda da Seasonal Crop Stress:&#10;quali sistemi funzionano, cosa coprono, ripartizione dell'umidità,&#10;un breve andamento, e utilizzo più rischio del suolo se Soil Fertilizer&#10;è presente. Specchio in sola lettura. Nessun secondo modello di umidità." />
+        <text name="ft_irr_help_ops_title" text="OPERAZIONI" />
+        <text name="ft_irr_help_ops_body" text="Sistemi attivi, programmi, contorno di copertura e ripartizione&#10;irrigazione contro pioggia per campo da letture SCS in tempo reale." />
+        <text name="ft_irr_help_forecast_title" text="PREVISIONI" />
+        <text name="ft_irr_help_forecast_body" text="Umidità e stress da siccità attuali più un andamento chiaramente&#10;indicato. Non un futuro simulato. Avviso per l'azienda quando SCS&#10;ne pubblica uno." />
+        <text name="ft_irr_help_usage_title" text="UTILIZZO E RISCHIO" />
+        <text name="ft_irr_help_usage_body" text="Quanto SCS addebita per ora attiva quando i costi sono attivi.&#10;Compattazione / SO / malattia da Soil Fertilizer se presente.&#10;Una malattia non ispezionata resta Non ispezionata, mai un falso via libera." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress non rilevato." />
+        <text name="ft_irr_scs_install" text="Installa FS25_SeasonalCropStress. Senza di esso questa app resta nascosta." />
+        <text name="ft_irr_systems" text="SISTEMI" />
+        <text name="ft_irr_no_systems" text="Nessun sistema di irrigazione registrato." />
+        <text name="ft_irr_idle" text="inattivo" />
+        <text name="ft_irr_no_schedule" text="nessun programma" />
+        <text name="ft_irr_system_line" text="%s  ·  campi %d  ·  portata %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="CONTORNO DI COPERTURA" />
+        <text name="ft_irr_moisture_split" text="RIPARTIZIONE UMIDITÀ DEI CAMPI" />
+        <text name="ft_irr_more_fields" text="… altri campi omessi" />
+        <text name="ft_irr_watering" text="in irrigazione" />
+        <text name="ft_irr_field_tag" text="Campo n. %s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   cielo/altro ~%s" />
+        <text name="ft_irr_moisture_na" text="umidità non disponibile" />
+        <text name="ft_irr_no_moisture_reads" text="Ancora nessun campo di proprietà con letture di umidità." />
+        <text name="ft_irr_farm_advisory" text="AVVISO PER L'AZIENDA" />
+        <text name="ft_irr_trend_header" text="ATTUALE + ANDAMENTO INDICATO (non un modello di previsione)" />
+        <text name="ft_irr_air_line" text="Aria %s °C   essiccazione x%s" />
+        <text name="ft_irr_field" text="Campo n. %s" />
+        <text name="ft_irr_moist_line" text="umid. %s  stress secco %s" />
+        <text name="ft_irr_alerts_capped" text="Avvisi limitati - controlla SCS per maggiori dettagli." />
+        <text name="ft_irr_covered_gap" text="coperti %d  ·  gap %d" />
+        <text name="ft_irr_usage_header" text="UTILIZZO SISTEMI (ADDEBITO SCS)" />
+        <text name="ft_irr_costs_off" text="I costi di irrigazione sono disattivati in Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Nessun sistema da prezzare." />
+        <text name="ft_irr_usage_line" text="%s / ora attiva   portata %.2f   ~%d ore programmate / settimana" />
+        <text name="ft_irr_soil_risk_header" text="RISCHIO SUOLO (se Soil Fertilizer è presente)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer non disponibile - righe di rischio nascoste." />
+        <text name="ft_irr_unscouted" text="Non ispezionata" />
+        <text name="ft_irr_soil_line" text="compattazione %s   SO %s   malattia %s" />
+        <text name="ft_irr_no_risk_reads" text="Ancora nessuna lettura di rischio dei campi." />
     </texts>
 
 </l10n>

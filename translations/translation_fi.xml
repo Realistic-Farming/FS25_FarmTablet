@@ -2791,14 +2791,14 @@
         <text name="ft_rainKey_collecting" text="kerää sadetta" />
         <text name="ft_rainKey_tripped" text="anturi lauennut" />
         <text name="ft_rainKey_inputUnavail" text="anturitieto ei saatavilla" />
-        <text name="ft_rainKey_whyTripped" text="pysaytetty, koska sadeanturi laukesi" />
-        <text name="ft_rainKey_whyNoInput" text="saatietoa ei voi lukea" />
-        <text name="ft_rainKey_whyNoSource" text="ei vesilahdetta" />
+        <text name="ft_rainKey_whyTripped" text="pysäytetty, koska sadeanturi laukesi" />
+        <text name="ft_rainKey_whyNoInput" text="säätietoa ei voi lukea" />
+        <text name="ft_rainKey_whyNoSource" text="ei vesilähdettä" />
         <text name="ft_rainKey_whyNoPress" text="ei painetta" />
         <text name="ft_rainKey_whySchedule" text="aikataulun ulkopuolella" />
-        <text name="ft_rainKey_whyMaster" text="kastelun paakytkin pois" />
+        <text name="ft_rainKey_whyMaster" text="kastelun pääkytkin pois" />
         <text name="ft_rainKey_whyUnknown" text="syy ei saatavilla" />
-        <text name="ft_rainKey_running" text="KAY" />
+        <text name="ft_rainKey_running" text="KÄY" />
         <text name="ft_rainKey_rainPaused" text="SADETAUKO" />
         <text name="ft_rainKey_off" text="pois" />
         <text name="ft_rainKey_unknownState" text="anturin tila tuntematon" />
@@ -2806,22 +2806,22 @@
         <text name="ft_rainKey_dryResetPending" text="nollaus kun sade lakkaa" />
         <text name="ft_rainKey_nextCheckIn" text="seuraava aikataulutarkistus %s" />
         <text name="ft_rainKey_nextCheck" text="kelpoinen seuraavassa aikataulutarkistuksessa" />
-        <text name="ft_rainKey_playerAction" text="vaatii toimia: tarkista vesilahde" />
+        <text name="ft_rainKey_playerAction" text="vaatii toimia: tarkista vesilähde" />
         <text name="ft_rainKey_collected" text="kerätty" />
         <text name="ft_rainKey_trip" text="raja" />
         <text name="ft_rainKey_notifyTitle" text="Kastelu" />
         <text name="ft_rainKey_notifyPaused" text="Pivot #%s pysahtyi sadeanturin vuoksi" />
         <text name="ft_rainKey_notifyResumed" text="Pivot #%s on taas kelpoinen seuraavassa tarkistuksessa" />
-        <text name="ft_water_header" text="VESILAHTEET" />
+        <text name="ft_water_header" text="VESILÄHTEET" />
         <text name="ft_water_unlimited" text="Rajaton" />
         <text name="ft_water_hours" text="%.1f / %.1f h" />
         <text name="ft_water_dry" text="Kuiva" />
         <text name="ft_water_na" text="Ei saatavilla" />
-        <text name="ft_water_none" text="Talla tilalla ei ole vesilahteita." />
-        <text name="ft_water_source" text="Vesilahde" />
+        <text name="ft_water_none" text="Tällä tilalla ei ole vesilähteitä." />
+        <text name="ft_water_source" text="Vesilähde" />
         <text name="ft_water_connected" text="%d liitetty" />
-        <text name="ft_water_stop_dry" text="Lahde kuiva" />
-        <text name="ft_water_stop_nosource" text="Ei lahdetta" />
+        <text name="ft_water_stop_dry" text="Lähde kuiva" />
+        <text name="ft_water_stop_nosource" text="Ei lähdettä" />
         <text name="ft_dairy_breed_herd" text="KARJA NYT" />
         <text name="ft_dairy_breed_milk" text="MAITO SÄILIÖSSÄ" />
         <text name="ft_dairy_breed_unknown" text="tuntematon" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Hätälaina" />
         <text name="ft_fc_total_debt" text="Velka yhteensä" />
         <text name="ft_fc_open_loan" text="HALLINNOI LAINAA" />
+        <text name="ft_irr_mode_operations" text="Toiminta" />
+        <text name="ft_irr_mode_forecast" text="Ennuste" />
+        <text name="ft_irr_mode_usage" text="Kulutus" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f h" />
+        <text name="ft_irr_na" text="ei tietoa" />
+        <text name="ft_irr_schedule_na" text="aikataulu: ei tietoa" />
+        <text name="ft_irr_day_mon" text="Ma" />
+        <text name="ft_irr_day_tue" text="Ti" />
+        <text name="ft_irr_day_wed" text="Ke" />
+        <text name="ft_irr_day_thu" text="To" />
+        <text name="ft_irr_day_fri" text="Pe" />
+        <text name="ft_irr_day_sat" text="La" />
+        <text name="ft_irr_day_sun" text="Su" />
+        <text name="ft_irr_no_active_days" text="ei aktiivisia päiviä" />
+        <text name="ft_irr_every_day" text="joka päivä" />
+        <text name="ft_irr_no_coverage" text="Kattavuusalueita ei ole saatavilla." />
+        <text name="ft_irr_trend_watering" text="suunta: kastelu käynnissä" />
+        <text name="ft_irr_trend_drying" text="suunta: kuivumassa - harkitse kasteluikkunaa" />
+        <text name="ft_irr_trend_wet" text="suunta: märkä - odottaminen voi vettää pellon" />
+        <text name="ft_irr_trend_steady" text="suunta: vakaa" />
+        <text name="ft_irr_help_what_title" text="MIKÄ TÄMÄ ON" />
+        <text name="ft_irr_help_what_body" text="Tilan kastelukuva Seasonal Crop Stressistä:&#10;mitkä järjestelmät käyvät, mitä ne kattavat, kosteusjako,&#10;lyhyt suunta sekä kulutus ja maaperäriski, kun Soil Fertilizer&#10;on käytössä. Vain lukeva peili. Ei toista kosteusmallia." />
+        <text name="ft_irr_help_ops_title" text="TOIMINTA" />
+        <text name="ft_irr_help_ops_body" text="Aktiiviset järjestelmät, aikataulut, kattavuuden rajaus ja peltokohtainen&#10;kastelun ja sateen jako SCS:n reaaliaikaisista lukemista." />
+        <text name="ft_irr_help_forecast_title" text="ENNUSTE" />
+        <text name="ft_irr_help_forecast_body" text="Nykyinen kosteus ja kuivuusstressi sekä selvästi merkitty&#10;suunta. Ei simuloitu tulevaisuus. Koko tilan neuvo, kun SCS&#10;julkaisee sellaisen." />
+        <text name="ft_irr_help_usage_title" text="KULUTUS JA RISKI" />
+        <text name="ft_irr_help_usage_body" text="Mitä SCS veloittaa aktiiviselta tunnilta, kun kustannukset ovat päällä.&#10;Tiivistyminen / multavuus / taudit Soil Fertilizeristä, kun se on käytössä.&#10;Tutkimaton tauti näkyy Tutkimaton, ei koskaan virheellisenä kaikki kunnossa." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stressiä ei havaittu." />
+        <text name="ft_irr_scs_install" text="Asenna FS25_SeasonalCropStress. Sovellus pysyy piilossa ilman sitä." />
+        <text name="ft_irr_systems" text="JÄRJESTELMÄT" />
+        <text name="ft_irr_no_systems" text="Kastelujärjestelmiä ei ole rekisteröity." />
+        <text name="ft_irr_idle" text="joutilas" />
+        <text name="ft_irr_no_schedule" text="ei aikataulua" />
+        <text name="ft_irr_system_line" text="%s  ·  peltoja %d  ·  virtaus %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="KATTAVUUDEN RAJAUS" />
+        <text name="ft_irr_moisture_split" text="PELTOJEN KOSTEUSJAKO" />
+        <text name="ft_irr_more_fields" text="… lisää peltoja jätetty pois" />
+        <text name="ft_irr_watering" text="kastelee" />
+        <text name="ft_irr_field_tag" text="Pelto #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   taivas/muu ~%s" />
+        <text name="ft_irr_moisture_na" text="kosteus ei saatavilla" />
+        <text name="ft_irr_no_moisture_reads" text="Ei vielä omia peltoja kosteuslukemin." />
+        <text name="ft_irr_farm_advisory" text="TILAN NEUVONTA" />
+        <text name="ft_irr_trend_header" text="NYKYTILA + MERKITTY SUUNTA (ei ennustemalli)" />
+        <text name="ft_irr_air_line" text="Ilma %s C   kuivuminen x%s" />
+        <text name="ft_irr_field" text="Pelto #%s" />
+        <text name="ft_irr_moist_line" text="kosteus %s  kuivuusstressi %s" />
+        <text name="ft_irr_alerts_capped" text="Hälytysjoukko on rajattu - katso lisätiedot SCS:stä." />
+        <text name="ft_irr_covered_gap" text="katettu %d  ·  aukko %d" />
+        <text name="ft_irr_usage_header" text="JÄRJESTELMIEN KULUTUS (SCS-VELOITUS)" />
+        <text name="ft_irr_costs_off" text="Kastelukustannukset ovat pois päältä Seasonal Crop Stressissä." />
+        <text name="ft_irr_no_systems_price" text="Ei hinnoiteltavia järjestelmiä." />
+        <text name="ft_irr_usage_line" text="%s / aktiivinen tunti   virtaus %.2f   ~%d aikataulutuntia / viikko" />
+        <text name="ft_irr_soil_risk_header" text="MAAPERÄRISKI (kun Soil Fertilizer on käytössä)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer ei käytettävissä - riskirivit piilotettu." />
+        <text name="ft_irr_unscouted" text="Tutkimaton" />
+        <text name="ft_irr_soil_line" text="tiivistyminen %s   multavuus %s   tauti %s" />
+        <text name="ft_irr_no_risk_reads" text="Ei vielä peltojen riskilukemia." />
     </texts>
 
 </l10n>

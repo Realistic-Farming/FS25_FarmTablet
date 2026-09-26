@@ -2786,40 +2786,40 @@
         <text name="ft_irr_advisory_schedule_gap" text="plan boşluğu" />
         <text name="ft_rainKey_unknown" text="bilinmiyor" />
         <text name="ft_rainKey_mm" text="modellenen mm" />
-        <text name="ft_rainKey_unfitted" text="yagmur sensoru takili degil" />
-        <text name="ft_rainKey_armed" text="sensor hazir" />
-        <text name="ft_rainKey_collecting" text="yagmur topluyor" />
-        <text name="ft_rainKey_tripped" text="sensor devreye girdi" />
-        <text name="ft_rainKey_inputUnavail" text="sensor verisi yok" />
-        <text name="ft_rainKey_whyTripped" text="yagmur sensoru devreye girdigi icin durduruldu" />
-        <text name="ft_rainKey_whyNoInput" text="hava durumu okunamiyor" />
-        <text name="ft_rainKey_whyNoSource" text="su kaynagi yok" />
-        <text name="ft_rainKey_whyNoPress" text="basinc yok" />
-        <text name="ft_rainKey_whySchedule" text="program disinda" />
-        <text name="ft_rainKey_whyMaster" text="sulama ana salteri kapali" />
+        <text name="ft_rainKey_unfitted" text="yağmur sensörü takılı değil" />
+        <text name="ft_rainKey_armed" text="sensör hazır" />
+        <text name="ft_rainKey_collecting" text="yağmur topluyor" />
+        <text name="ft_rainKey_tripped" text="sensör devreye girdi" />
+        <text name="ft_rainKey_inputUnavail" text="sensör verisi yok" />
+        <text name="ft_rainKey_whyTripped" text="yağmur sensörü devreye girdiği için durduruldu" />
+        <text name="ft_rainKey_whyNoInput" text="hava durumu okunamıyor" />
+        <text name="ft_rainKey_whyNoSource" text="su kaynağı yok" />
+        <text name="ft_rainKey_whyNoPress" text="basınç yok" />
+        <text name="ft_rainKey_whySchedule" text="program dışında" />
+        <text name="ft_rainKey_whyMaster" text="sulama ana şalteri kapalı" />
         <text name="ft_rainKey_whyUnknown" text="neden bilinmiyor" />
-        <text name="ft_rainKey_running" text="CALISIYOR" />
-        <text name="ft_rainKey_rainPaused" text="YAGMUR MOLASI" />
-        <text name="ft_rainKey_off" text="kapali" />
-        <text name="ft_rainKey_unknownState" text="sensor durumu bilinmiyor" />
-        <text name="ft_rainKey_dryResetIn" text="kuru sifirlama %s sonra" />
-        <text name="ft_rainKey_dryResetPending" text="yagmur dinince sifirlanir" />
-        <text name="ft_rainKey_nextCheckIn" text="sonraki program kontrolu %s" />
-        <text name="ft_rainKey_nextCheck" text="sonraki program kontrolunde uygun" />
-        <text name="ft_rainKey_playerAction" text="islem gerekli: su kaynagini kontrol edin" />
+        <text name="ft_rainKey_running" text="ÇALIŞIYOR" />
+        <text name="ft_rainKey_rainPaused" text="YAĞMUR MOLASI" />
+        <text name="ft_rainKey_off" text="kapalı" />
+        <text name="ft_rainKey_unknownState" text="sensör durumu bilinmiyor" />
+        <text name="ft_rainKey_dryResetIn" text="kuru sıfırlama %s sonra" />
+        <text name="ft_rainKey_dryResetPending" text="yağmur dinince sıfırlanır" />
+        <text name="ft_rainKey_nextCheckIn" text="sonraki program kontrolü %s" />
+        <text name="ft_rainKey_nextCheck" text="sonraki program kontrolünde uygun" />
+        <text name="ft_rainKey_playerAction" text="işlem gerekli: su kaynağını kontrol edin" />
         <text name="ft_rainKey_collected" text="toplanan" />
-        <text name="ft_rainKey_trip" text="esik" />
+        <text name="ft_rainKey_trip" text="eşik" />
         <text name="ft_rainKey_notifyTitle" text="Sulama" />
         <text name="ft_rainKey_notifyPaused" text="#%s pivot yagmur sensoru nedeniyle durdu" />
         <text name="ft_rainKey_notifyResumed" text="#%s pivot sonraki program kontrolunde tekrar uygun" />
         <text name="ft_water_header" text="SU KAYNAKLARI" />
-        <text name="ft_water_unlimited" text="Sinirsiz" />
+        <text name="ft_water_unlimited" text="Sınırsız" />
         <text name="ft_water_hours" text="%.1f / %.1f sa" />
         <text name="ft_water_dry" text="Kuru" />
-        <text name="ft_water_na" text="Kullanilamiyor" />
-        <text name="ft_water_none" text="Bu ciftlikte su kaynagi yok." />
-        <text name="ft_water_source" text="Su kaynagi" />
-        <text name="ft_water_connected" text="%d bagli" />
+        <text name="ft_water_na" text="Kullanılamıyor" />
+        <text name="ft_water_none" text="Bu çiftlikte su kaynağı yok." />
+        <text name="ft_water_source" text="Su kaynağı" />
+        <text name="ft_water_connected" text="%d bağlı" />
         <text name="ft_water_stop_dry" text="Kaynak kuru" />
         <text name="ft_water_stop_nosource" text="Kaynak yok" />
         <text name="ft_dairy_breed_herd" text="ŞU ANKI SÜRÜ" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Acil kredi" />
         <text name="ft_fc_total_debt" text="Toplam borç" />
         <text name="ft_fc_open_loan" text="KREDİYİ YÖNET" />
+        <text name="ft_irr_mode_operations" text="İşletim" />
+        <text name="ft_irr_mode_forecast" text="Tahmin" />
+        <text name="ft_irr_mode_usage" text="Tüketim" />
+        <text name="ft_irr_mins" text="%d dk" />
+        <text name="ft_irr_hours" text="%.1f sa" />
+        <text name="ft_irr_na" text="yok" />
+        <text name="ft_irr_schedule_na" text="program yok" />
+        <text name="ft_irr_day_mon" text="Pzt" />
+        <text name="ft_irr_day_tue" text="Sal" />
+        <text name="ft_irr_day_wed" text="Çar" />
+        <text name="ft_irr_day_thu" text="Per" />
+        <text name="ft_irr_day_fri" text="Cum" />
+        <text name="ft_irr_day_sat" text="Cmt" />
+        <text name="ft_irr_day_sun" text="Paz" />
+        <text name="ft_irr_no_active_days" text="aktif gün yok" />
+        <text name="ft_irr_every_day" text="her gün" />
+        <text name="ft_irr_no_coverage" text="Kapsama poligonu yok." />
+        <text name="ft_irr_trend_watering" text="eğilim: şu an sulanıyor" />
+        <text name="ft_irr_trend_drying" text="eğilim: kuruyor - bir pencere düşünün" />
+        <text name="ft_irr_trend_wet" text="eğilim: ıslak - beklemek su birikmesine yol açabilir" />
+        <text name="ft_irr_trend_steady" text="eğilim: sabit" />
+        <text name="ft_irr_help_what_title" text="BU NEDİR" />
+        <text name="ft_irr_help_what_body" text="Seasonal Crop Stress'ten tüm çiftliğin sulama görünümü:&#10;hangi sistemler çalışıyor, neyi kapsıyor, nem dağılımı,&#10;kısa bir eğilim ve Soil Fertilizer varken tüketim ile toprak&#10;riski. Salt okunur ayna. İkinci bir nem modeli yok." />
+        <text name="ft_irr_help_ops_title" text="İŞLETİM" />
+        <text name="ft_irr_help_ops_body" text="Aktif sistemler, programlar, kapsama sınırı ve tarla başına&#10;sulama-yağmur dağılımı, canlı SCS okumalarından." />
+        <text name="ft_irr_help_forecast_title" text="TAHMİN" />
+        <text name="ft_irr_help_forecast_body" text="Mevcut nem ve kuraklık stresi ile açıkça etiketlenmiş bir&#10;eğilim. Simüle edilmiş bir gelecek değil. SCS yayımladığında&#10;tüm çiftlik için tavsiye." />
+        <text name="ft_irr_help_usage_title" text="TÜKETİM VE RİSK" />
+        <text name="ft_irr_help_usage_body" text="Maliyetler açıkken SCS'nin aktif saat başına aldığı ücret.&#10;Sıkışma / OM / hastalık, Soil Fertilizer varsa ondan.&#10;Taranmamış hastalık Taranmadı olarak görünür, asla sahte bir her şey yolunda." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress bulunamadı." />
+        <text name="ft_irr_scs_install" text="FS25_SeasonalCropStress'i kurun. Yokken bu uygulama gizli kalır." />
+        <text name="ft_irr_systems" text="SİSTEMLER" />
+        <text name="ft_irr_no_systems" text="Kayıtlı sulama sistemi yok." />
+        <text name="ft_irr_idle" text="boşta" />
+        <text name="ft_irr_no_schedule" text="program yok" />
+        <text name="ft_irr_system_line" text="%s  ·  tarla %d  ·  akış %.2f/sa" />
+        <text name="ft_irr_coverage_outline" text="KAPSAMA SINIRI" />
+        <text name="ft_irr_moisture_split" text="TARLA NEM DAĞILIMI" />
+        <text name="ft_irr_more_fields" text="… diğer tarlalar gösterilmedi" />
+        <text name="ft_irr_watering" text="sulanıyor" />
+        <text name="ft_irr_field_tag" text="Tarla #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   gök/diğer ~%s" />
+        <text name="ft_irr_moisture_na" text="nem bilgisi yok" />
+        <text name="ft_irr_no_moisture_reads" text="Henüz nem okuması olan kendi tarlanız yok." />
+        <text name="ft_irr_farm_advisory" text="ÇİFTLİK TAVSİYESİ" />
+        <text name="ft_irr_trend_header" text="GÜNCEL + ETİKETLİ EĞİLİM (tahmin modeli değil)" />
+        <text name="ft_irr_air_line" text="Hava %s C   kuruma x%s" />
+        <text name="ft_irr_field" text="Tarla #%s" />
+        <text name="ft_irr_moist_line" text="nem %s  kuraklık stresi %s" />
+        <text name="ft_irr_alerts_capped" text="Uyarı sayısı sınırlı - ayrıntılar için SCS'ye bakın." />
+        <text name="ft_irr_covered_gap" text="kapsanan %d  ·  boşluk %d" />
+        <text name="ft_irr_usage_header" text="SİSTEM TÜKETİMİ (SCS ÜCRETİ)" />
+        <text name="ft_irr_costs_off" text="Seasonal Crop Stress'te sulama maliyetleri kapalı." />
+        <text name="ft_irr_no_systems_price" text="Fiyatlandırılacak sistem yok." />
+        <text name="ft_irr_usage_line" text="%s / aktif saat   akış %.2f   ~%d program saati / hafta" />
+        <text name="ft_irr_soil_risk_header" text="TOPRAK RİSKİ (Soil Fertilizer varken)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer yok - risk satırları gizlendi." />
+        <text name="ft_irr_unscouted" text="Taranmadı" />
+        <text name="ft_irr_soil_line" text="sıkışma %s   OM %s   hastalık %s" />
+        <text name="ft_irr_no_risk_reads" text="Henüz tarla risk okuması yok." />
     </texts>
 
 </l10n>
