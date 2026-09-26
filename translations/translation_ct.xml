@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="工作中，已釘選" />
         <text name="ft_companion_idle_pinned" text="閒置，已釘選" />
         <text name="ft_income_help_what_body" text="顯示 FS25_IncomeMod 的目前狀態。&#10;此模組會加入可設定的定期收入&#10;以補充農場收益。" />
-        <text name="ft_income_help_mode_body" text="控制收入何時支付：&#10;每小時 = 每個遊戲小時。&#10;每日 = 每個遊戲日一次。&#10;每週 = 每個遊戲週一次。" />
+        <text name="ft_income_help_mode_body" text="控制收入何時支付：&#10;每小時 = 每個遊戲小時。&#10;每日 = 每個遊戲日一次。" />
         <text name="ft_income_help_amount_body" text="每個付款週期加入餘額的金額。&#10;請在 Income Mod 設定中調整。" />
         <text name="ft_companion_help_toggle_body" text="不需解除安裝即可開啟或關閉模組。&#10;變更會立即生效。" />
         <text name="ft_tax_help_what_body" text="顯示 FS25_TaxMod 的狀態。&#10;此模組會定期從餘額扣稅，&#10;並將可設定的比例退還為退稅。" />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="本次遊戲階段累計已繳稅款。&#10;以橘色顯示，因為這是持續性支出。" />
         <text name="ft_wrk_help_what_body" text="顯示 FS25_WorkerCosts 狀態：&#10;薪資等級、成本模式、在職&#10;工人以及本月至今的成本。&#10;向下捲動可查看 Pro-Staff 名冊。" />
         <text name="ft_wrk_help_wage_body" text="設定所僱工人的時薪。&#10;低 / 中 / 高 等級在&#10;Worker Costs 模組設定中調整。" />
-        <text name="ft_wrk_help_mode_body" text="控制薪資的計算方式：&#10;每小時 = 每個遊戲小時收取。&#10;每月 = 累計並在月底收取。" />
+        <text name="ft_wrk_help_mode_body" text="控制薪資的計算方式：&#10;每小時 = 每個遊戲小時收取。&#10;每公頃 = 依作業面積計費，於午夜結算。" />
         <text name="ft_wrk_help_month_body" text="本月累計的薪資總額。&#10;支付月薪後重設。" />
         <text name="ft_wrk_help_roster_body" text="你僱用的工人及其等級&#10;（新手 / 熟練 / 大師）、累計時數、&#10;完成工作數與目前疲勞條。&#10;此畫面為唯讀：僱用、解僱與指派&#10;請使用遊戲內的名冊面板（ALT+H）&#10;或 WorkerCosts 主控台指令。" />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  剩餘 %d 小時" />
         <text name="ft_npc_help_rep_body" text="你在當地社群中的地位（0-100）。&#10;受尊敬 &gt;= 70  |  中立 &gt;= 40  |  差 &lt; 40。&#10;聲望越高，可解鎖越好的委託獎勵。" />
         <text name="ft_npc_help_active_body" text="目前進行中的委託數量。&#10;每項委託會顯示 NPC 名稱、說明、&#10;完成百分比與剩餘時數。" />
-        <text name="ft_npc_help_relationships_body" text="列出每位活躍 NPC 的關係分數&#10;與顏色標示的長條。&#10;朋友 &gt;= 70  |  中立 &gt;= 40  |  冷淡 &lt; 40。&#10;其角色（農藝師、技師等）會以&#10;方括號顯示在名稱旁。" />
+        <text name="ft_npc_help_relationships_body" text="列出每位活躍 NPC 的關係分數&#10;與顏色標示的長條。&#10;朋友 &gt;= 70  |  中立 &gt;= 40  |  冷淡 &lt; 40。&#10;其角色（農藝師、店主等）會以&#10;方括號顯示在名稱旁。" />
         <text name="ft_npc_help_building_body" text="為 NPC 完成委託可提高&#10;關係分數。分數越高可解鎖獨家&#10;建議、折扣與提前警告。" />
         <text name="ft_npc_town_rep_fmt" text="城鎮聲望：%s" />
         <text name="ft_npc_relationships_fmt" text="關係  (%d)" />

@@ -49,6 +49,9 @@ MUTATIONS = [
     ("T4-line-break-lost", "translations/translation_ru.xml",
      one('Число услуг, которые сейчас выполняются.&#10;Для', 'Число услуг, которые сейчас выполняются. Для'),
      "a Russian help body one line short: the text rows"),
+    ("R1-mechanic-back", "translations/translation_en.xml",
+     one('(Agronomist, Shopkeeper, etc.)', '(Agronomist, Mechanic, etc.)'),
+     "the relationships help names a Mechanic role NPCFavor does not have (row 155): ROLE"),
 ]
 
 def sha(path):

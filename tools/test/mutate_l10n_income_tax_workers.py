@@ -53,6 +53,12 @@ MUTATIONS = [
     ("T5-line-break-lost", "translations/translation_ru.xml",
      one('Включает или выключает мод без удаления.&#10;Изменения', 'Включает или выключает мод без удаления. Изменения'),
      "a Russian help body one line short: the text rows"),
+    ("W1-weekly-line-back", "translations/translation_en.xml",
+     one('Daily = once per in-game day." />', 'Daily = once per in-game day.&#10;Weekly = once per in-game week." />'),
+     "Income's help names a Weekly mode IncomeMod does not have (row 155): MODE"),
+    ("W2-monthly-line-back", "translations/translation_en.xml",
+     one('Per Hectare = billed by area worked, settled at midnight." />', 'Monthly = accumulated and charged at month end." />'),
+     "Worker Costs' help names a Monthly mode WorkerCosts does not have (row 155): MODE"),
 ]
 
 def sha(path):

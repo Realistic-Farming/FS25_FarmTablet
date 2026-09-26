@@ -59,8 +59,7 @@ FarmTabletUI:registerDrawer(FT.APP.INCOME, function(self)
         { title = "PAYMENT MODE",
           body  = FT.l10n("ft_income_help_mode_body", "Controls when income is paid out:\n" ..
                   "Hourly = every in-game hour.\n" ..
-                  "Daily = once per in-game day.\n" ..
-                  "Weekly = once per in-game week."), literalBody = true },
+                  "Daily = once per in-game day."), literalBody = true },
         { title = "AMOUNT",
           body  = FT.l10n("ft_income_help_amount_body", "The money added to your balance per payment cycle.\n" ..
                   "Configure this in the Income Mod settings."), literalBody = true },
@@ -349,7 +348,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
           body  = FT.l10n("ft_npc_help_relationships_body", "Lists every active NPC with their relationship score\n" ..
                   "and a colour-coded bar.\n" ..
                   "Friend >= 70  |  Neutral >= 40  |  Cold < 40.\n" ..
-                  "Their role (Agronomist, Mechanic, etc.) is shown in\n" ..
+                  "Their role (Agronomist, Shopkeeper, etc.) is shown in\n" ..
                   "square brackets next to their name."), literalBody = true },
         { title = "BUILDING RELATIONSHIPS",
           body  = FT.l10n("ft_npc_help_building_body", "Complete favors for an NPC to increase their\n" ..
@@ -544,7 +543,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
         { title = "COST MODE",
           body  = FT.l10n("ft_wrk_help_mode_body", "Controls how wages are calculated:\n" ..
                   "Hourly = charged every in-game hour.\n" ..
-                  "Monthly = accumulated and charged at month end."), literalBody = true },
+                  "Per Hectare = billed by area worked, settled at midnight."), literalBody = true },
         { title = "MONTH COSTS",
           body  = FT.l10n("ft_wrk_help_month_body", "Total wages accumulated this month.\n" ..
                   "Resets after the monthly salary is paid."), literalBody = true },

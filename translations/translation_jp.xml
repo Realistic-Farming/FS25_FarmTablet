@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="作業中、固定" />
         <text name="ft_companion_idle_pinned" text="待機中、固定" />
         <text name="ft_income_help_what_body" text="FS25_IncomeMod の現在の状態を表示します。&#10;この MOD は設定可能な定期収入を追加し、&#10;農場の収益を補います。" />
-        <text name="ft_income_help_mode_body" text="収入の支払いタイミングを決めます：&#10;1時間ごと = ゲーム内の毎時。&#10;毎日 = ゲーム内で1日1回。&#10;毎週 = ゲーム内で週1回。" />
+        <text name="ft_income_help_mode_body" text="収入の支払いタイミングを決めます：&#10;1時間ごと = ゲーム内の毎時。&#10;毎日 = ゲーム内で1日1回。" />
         <text name="ft_income_help_amount_body" text="支払いサイクルごとに残高へ加算される金額。&#10;Income Mod の設定で変更できます。" />
         <text name="ft_companion_help_toggle_body" text="アンインストールせずに MOD をオン・オフします。&#10;変更はすぐに反映されます。" />
         <text name="ft_tax_help_what_body" text="FS25_TaxMod の状態を表示します。&#10;この MOD は残高から定期的に税を差し引き、&#10;設定した割合を還付として戻します。" />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="現在のセッションで支払った税の累計。&#10;継続的なコストのためオレンジで表示します。" />
         <text name="ft_wrk_help_what_body" text="FS25_WorkerCosts の状態を表示します：&#10;賃金レベル、コスト方式、稼働中の&#10;作業員、今月のコスト。&#10;下にスクロールすると Pro-Staff 名簿があります。" />
         <text name="ft_wrk_help_wage_body" text="雇った作業員の時給を設定します。&#10;低 / 中 / 高 の段階は&#10;Worker Costs MOD の設定で決めます。" />
-        <text name="ft_wrk_help_mode_body" text="賃金の計算方法を決めます：&#10;1時間ごと = ゲーム内の毎時に請求。&#10;毎月 = 累計して月末に請求。" />
+        <text name="ft_wrk_help_mode_body" text="賃金の計算方法を決めます：&#10;1時間ごと = ゲーム内の毎時に請求。&#10;ヘクタールごと = 作業した面積に応じて請求し、深夜0時に精算。" />
         <text name="ft_wrk_help_month_body" text="今月に累計された賃金の合計。&#10;月給の支払い後にリセットされます。" />
         <text name="ft_wrk_help_roster_body" text="雇った作業員とそのレベル&#10;（初心者 / 経験者 / 達人）、累計時間、&#10;完了した作業、現在の疲労バー。&#10;この画面は閲覧専用です：雇用・解雇・割り当ては&#10;ゲーム内の名簿パネル（ALT+H）&#10;または WorkerCosts のコンソールコマンドで行います。" />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  残り %d 時間" />
         <text name="ft_npc_help_rep_body" text="地域社会でのあなたの立場（0-100）。&#10;尊敬 &gt;= 70  |  中立 &gt;= 40  |  低評価 &lt; 40。&#10;評判が高いほど、より良い報酬が解放されます。" />
         <text name="ft_npc_help_active_body" text="現在進行中の依頼の数。&#10;各依頼には NPC の名前、内容、&#10;達成率、残り時間が表示されます。" />
-        <text name="ft_npc_help_relationships_body" text="活動中の NPC を関係スコアと&#10;色分けされたバーで一覧表示します。&#10;友人 &gt;= 70  |  中立 &gt;= 40  |  冷淡 &lt; 40。&#10;役割（農学者、整備士など）は&#10;名前の横の角かっこに表示されます。" />
+        <text name="ft_npc_help_relationships_body" text="活動中の NPC を関係スコアと&#10;色分けされたバーで一覧表示します。&#10;友人 &gt;= 70  |  中立 &gt;= 40  |  冷淡 &lt; 40。&#10;役割（農学者、店主など）は&#10;名前の横の角かっこに表示されます。" />
         <text name="ft_npc_help_building_body" text="NPC の依頼をこなして&#10;関係スコアを上げましょう。スコアが高いと限定の&#10;助言、割引、早期警告が解放されます。" />
         <text name="ft_npc_town_rep_fmt" text="町の評判：%s" />
         <text name="ft_npc_relationships_fmt" text="関係  (%d)" />

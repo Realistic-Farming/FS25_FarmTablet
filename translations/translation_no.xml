@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="arbeider, festet" />
         <text name="ft_companion_idle_pinned" text="ledig, festet" />
         <text name="ft_income_help_what_body" text="Viser gjeldende status for FS25_IncomeMod.&#10;Modden legger til justerbare periodiske inntekter&#10;som tillegg til gårdens inntjening." />
-        <text name="ft_income_help_mode_body" text="Styrer når inntekten utbetales:&#10;Per time = hver spilltime.&#10;Daglig = én gang per spilldag.&#10;Ukentlig = én gang per spilluke." />
+        <text name="ft_income_help_mode_body" text="Styrer når inntekten utbetales:&#10;Per time = hver spilltime.&#10;Daglig = én gang per spilldag." />
         <text name="ft_income_help_amount_body" text="Pengene som legges til saldoen per betalingssyklus.&#10;Still inn dette i Income Mod-innstillingene." />
         <text name="ft_companion_help_toggle_body" text="Slår modden av eller på uten å avinstallere den.&#10;Endringer gjelder med en gang." />
         <text name="ft_tax_help_what_body" text="Viser status for FS25_TaxMod.&#10;Modden trekker periodisk skatt fra saldoen&#10;og betaler tilbake en justerbar prosentandel." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Samlet betalt skatt i den gjeldende økten.&#10;Vises i oransje fordi det er en løpende kostnad." />
         <text name="ft_wrk_help_what_body" text="Viser status for FS25_WorkerCosts:&#10;lønnsnivå, kostnadsmåte, aktive&#10;arbeidere og kostnader hittil i måneden.&#10;Rull ned for Pro-Staff-laget." />
         <text name="ft_wrk_help_wage_body" text="Setter timelønnen for ansatte arbeidere.&#10;Nivåene Lav / Middels / Høy stilles inn i&#10;Worker Costs-moddens innstillinger." />
-        <text name="ft_wrk_help_mode_body" text="Styrer hvordan lønn beregnes:&#10;Per time = belastes hver spilltime.&#10;Månedlig = samles opp og belastes ved månedsslutt." />
+        <text name="ft_wrk_help_mode_body" text="Styrer hvordan lønn beregnes:&#10;Per time = belastes hver spilltime.&#10;Per hektar = belastes etter bearbeidet areal, gjøres opp ved midnatt." />
         <text name="ft_wrk_help_month_body" text="Samlet lønn opparbeidet denne måneden.&#10;Nullstilles når månedslønnen er betalt." />
         <text name="ft_wrk_help_roster_body" text="De ansatte arbeiderne dine med nivå&#10;(Nybegynner / Erfaren / Mester), timer totalt,&#10;fullførte oppdrag og nåværende tretthetslinje.&#10;Denne visningen er skrivebeskyttet: ansett, si opp og tildel&#10;arbeidere fra lagpanelet i spillet (ALT+H)&#10;eller med WorkerCosts sine konsollkommandoer." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  %d t igjen" />
         <text name="ft_npc_help_rep_body" text="Din status i lokalsamfunnet (0-100).&#10;Respektert &gt;= 70  |  Nøytral &gt;= 40  |  Dårlig &lt; 40.&#10;Bedre omdømme låser opp bedre belønninger." />
         <text name="ft_npc_help_active_body" text="Antall tjenester som pågår.&#10;Hver tjeneste viser NPC-ens navn, beskrivelse,&#10;fullføringsprosent og gjenstående timer." />
-        <text name="ft_npc_help_relationships_body" text="Viser hver aktive NPC med relasjonspoeng&#10;og en fargekodet linje.&#10;Venn &gt;= 70  |  Nøytral &gt;= 40  |  Kjølig &lt; 40.&#10;Rollen (agronom, mekaniker osv.) står&#10;i hakeparenteser ved navnet." />
+        <text name="ft_npc_help_relationships_body" text="Viser hver aktive NPC med relasjonspoeng&#10;og en fargekodet linje.&#10;Venn &gt;= 70  |  Nøytral &gt;= 40  |  Kjølig &lt; 40.&#10;Rollen (agronom, butikkeier osv.) står&#10;i hakeparenteser ved navnet." />
         <text name="ft_npc_help_building_body" text="Gjør tjenester for en NPC for å øke&#10;relasjonspoengene. Høye poeng låser opp eksklusive&#10;råd, rabatter og tidlige varsler." />
         <text name="ft_npc_town_rep_fmt" text="Bygdas omdømme: %s" />
         <text name="ft_npc_relationships_fmt" text="RELASJONER  (%d)" />

@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="đang làm, đã ghim" />
         <text name="ft_companion_idle_pinned" text="rảnh, đã ghim" />
         <text name="ft_income_help_what_body" text="Hiển thị trạng thái hiện tại của FS25_IncomeMod.&#10;Mod thêm các khoản thu nhập định kỳ có thể cài đặt&#10;để bổ sung thu nhập cho nông trại." />
-        <text name="ft_income_help_mode_body" text="Quy định khi nào thu nhập được trả:&#10;Theo giờ = mỗi giờ trong game.&#10;Hằng ngày = mỗi ngày trong game một lần.&#10;Hằng tuần = mỗi tuần trong game một lần." />
+        <text name="ft_income_help_mode_body" text="Quy định khi nào thu nhập được trả:&#10;Theo giờ = mỗi giờ trong game.&#10;Hằng ngày = mỗi ngày trong game một lần." />
         <text name="ft_income_help_amount_body" text="Số tiền cộng vào số dư mỗi chu kỳ thanh toán.&#10;Cài đặt trong phần tùy chọn của Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Bật hoặc tắt mod mà không cần gỡ cài đặt.&#10;Thay đổi có hiệu lực ngay." />
         <text name="ft_tax_help_what_body" text="Hiển thị trạng thái của FS25_TaxMod.&#10;Mod trừ thuế định kỳ từ số dư của bạn&#10;và hoàn lại một tỷ lệ phần trăm có thể cài đặt." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Tổng thuế đã nộp trong phiên hiện tại.&#10;Hiển thị màu cam vì đây là chi phí liên tục." />
         <text name="ft_wrk_help_what_body" text="Hiển thị trạng thái FS25_WorkerCosts:&#10;mức lương, chế độ chi phí, số công nhân&#10;đang làm và chi phí tháng này.&#10;Cuộn xuống để xem đội Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Đặt mức lương theo giờ cho công nhân đã thuê.&#10;Các mức Thấp / Trung bình / Cao được đặt trong&#10;tùy chọn của mod Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Quy định cách tính lương:&#10;Theo giờ = tính mỗi giờ trong game.&#10;Hằng tháng = cộng dồn và tính vào cuối tháng." />
+        <text name="ft_wrk_help_mode_body" text="Quy định cách tính lương:&#10;Theo giờ = tính mỗi giờ trong game.&#10;Theo hecta = tính theo diện tích đã làm, quyết toán lúc nửa đêm." />
         <text name="ft_wrk_help_month_body" text="Tổng lương cộng dồn trong tháng này.&#10;Đặt lại sau khi trả lương tháng." />
         <text name="ft_wrk_help_roster_body" text="Công nhân đã thuê cùng cấp bậc&#10;(Tập sự / Có kinh nghiệm / Bậc thầy), tổng giờ,&#10;số việc đã xong và thanh mệt mỏi hiện tại.&#10;Chế độ xem này chỉ đọc: thuê, sa thải và phân công&#10;công nhân từ bảng đội trong game (ALT+H)&#10;hoặc lệnh console của WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  còn %d giờ" />
         <text name="ft_npc_help_rep_body" text="Vị thế của bạn trong cộng đồng địa phương (0-100).&#10;Được kính trọng &gt;= 70  |  Trung lập &gt;= 40  |  Kém &lt; 40.&#10;Danh tiếng cao hơn mở khóa phần thưởng tốt hơn." />
         <text name="ft_npc_help_active_body" text="Số ân huệ đang thực hiện.&#10;Mỗi ân huệ hiện tên NPC, mô tả,&#10;phần trăm hoàn thành và số giờ còn lại." />
-        <text name="ft_npc_help_relationships_body" text="Liệt kê mọi NPC đang hoạt động kèm điểm quan hệ&#10;và thanh màu.&#10;Bạn bè &gt;= 70  |  Trung lập &gt;= 40  |  Lạnh nhạt &lt; 40.&#10;Vai trò (kỹ sư nông nghiệp, thợ máy, v.v.) được ghi&#10;trong ngoặc vuông cạnh tên." />
+        <text name="ft_npc_help_relationships_body" text="Liệt kê mọi NPC đang hoạt động kèm điểm quan hệ&#10;và thanh màu.&#10;Bạn bè &gt;= 70  |  Trung lập &gt;= 40  |  Lạnh nhạt &lt; 40.&#10;Vai trò (kỹ sư nông nghiệp, chủ cửa hàng, v.v.) được ghi&#10;trong ngoặc vuông cạnh tên." />
         <text name="ft_npc_help_building_body" text="Hoàn thành ân huệ cho một NPC để tăng&#10;điểm quan hệ. Điểm cao mở khóa lời khuyên&#10;độc quyền, giảm giá và cảnh báo sớm." />
         <text name="ft_npc_town_rep_fmt" text="Danh tiếng trong làng: %s" />
         <text name="ft_npc_relationships_fmt" text="QUAN HỆ  (%d)" />

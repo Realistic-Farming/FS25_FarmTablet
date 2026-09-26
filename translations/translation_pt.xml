@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="a trabalhar, fixado" />
         <text name="ft_companion_idle_pinned" text="inativo, fixado" />
         <text name="ft_income_help_what_body" text="Mostra o estado atual do FS25_IncomeMod.&#10;O mod adiciona pagamentos de rendimento periódicos configuráveis&#10;para complementar os ganhos da sua quinta." />
-        <text name="ft_income_help_mode_body" text="Controla quando a renda é paga:&#10;Por hora = a cada hora de jogo.&#10;Diário = uma vez por dia de jogo.&#10;Semanal = uma vez por semana de jogo." />
+        <text name="ft_income_help_mode_body" text="Controla quando a renda é paga:&#10;Por hora = a cada hora de jogo.&#10;Diário = uma vez por dia de jogo." />
         <text name="ft_income_help_amount_body" text="O dinheiro somado ao seu saldo a cada ciclo de pagamento.&#10;Configure isso nas opções do Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Liga ou desliga o mod sem o desinstalar.&#10;As alterações têm efeito imediato." />
         <text name="ft_tax_help_what_body" text="Mostra o estado do FS25_TaxMod.&#10;O mod desconta um imposto periódico do seu saldo&#10;e devolve uma percentagem configurável como reembolso." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Imposto acumulado pago na sessão atual.&#10;Mostrado em laranja por ser um custo contínuo." />
         <text name="ft_wrk_help_what_body" text="Mostra o estado do FS25_WorkerCosts:&#10;nível salarial, modo de custo, trabalhadores&#10;ativos e custos do mês até agora.&#10;Deslize para baixo para ver a equipa Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Define o salário por hora dos trabalhadores contratados.&#10;Os níveis Baixo / Médio / Alto são definidos&#10;nas opções do mod Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Controla como os salários são calculados:&#10;Por hora = cobrado a cada hora de jogo.&#10;Mensal = acumulado e cobrado no fim do mês." />
+        <text name="ft_wrk_help_mode_body" text="Controla como os salários são calculados:&#10;Por hora = cobrado a cada hora de jogo.&#10;Por hectare = cobrado pela área trabalhada, acertado à meia-noite." />
         <text name="ft_wrk_help_month_body" text="Total de salários acumulados neste mês.&#10;Repõe a zero depois de pago o salário mensal." />
         <text name="ft_wrk_help_roster_body" text="Os seus trabalhadores contratados com o nível&#10;(Novato / Experiente / Mestre), horas totais,&#10;trabalhos concluídos e barra de cansaço atual.&#10;Esta vista é só de leitura: contrate, despeça e atribua&#10;trabalhadores no painel da equipa (ALT+H)&#10;ou pelos comandos de consola do WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  faltam %d h" />
         <text name="ft_npc_help_rep_body" text="A sua posição perante a comunidade local (0-100).&#10;Respeitado &gt;= 70  |  Neutro &gt;= 40  |  Mau &lt; 40.&#10;Mais reputação desbloqueia recompensas melhores." />
         <text name="ft_npc_help_active_body" text="Número de favores em curso.&#10;Cada favor mostra o nome do NPC, a descrição,&#10;a percentagem concluída e as horas restantes." />
-        <text name="ft_npc_help_relationships_body" text="Lista cada NPC ativo com a sua pontuação de relação&#10;e uma barra colorida.&#10;Amigo &gt;= 70  |  Neutro &gt;= 40  |  Frio &lt; 40.&#10;A função (agrónomo, mecânico, etc.) aparece&#10;entre parênteses retos ao lado do nome." />
+        <text name="ft_npc_help_relationships_body" text="Lista cada NPC ativo com a sua pontuação de relação&#10;e uma barra colorida.&#10;Amigo &gt;= 70  |  Neutro &gt;= 40  |  Frio &lt; 40.&#10;A função (agrónomo, lojista, etc.) aparece&#10;entre parênteses retos ao lado do nome." />
         <text name="ft_npc_help_building_body" text="Faça favores a um NPC para aumentar a&#10;sua pontuação de relação. Pontuações altas desbloqueiam&#10;conselhos exclusivos, descontos e avisos antecipados." />
         <text name="ft_npc_town_rep_fmt" text="Reputação na cidade: %s" />
         <text name="ft_npc_relationships_fmt" text="RELAÇÕES  (%d)" />

@@ -2988,7 +2988,7 @@
         <text name="ft_companion_working_pinned" text="arbeitet, angeheftet" />
         <text name="ft_companion_idle_pinned" text="untätig, angeheftet" />
         <text name="ft_income_help_what_body" text="Zeigt den aktuellen Status von FS25_IncomeMod.&#10;Die Mod zahlt einstellbare regelmäßige Einnahmen&#10;als Ergänzung zu den Erträgen deines Hofs." />
-        <text name="ft_income_help_mode_body" text="Legt fest, wann das Einkommen ausgezahlt wird:&#10;Stündlich = jede Spielstunde.&#10;Täglich = einmal pro Spieltag.&#10;Wöchentlich = einmal pro Spielwoche." />
+        <text name="ft_income_help_mode_body" text="Legt fest, wann das Einkommen ausgezahlt wird:&#10;Stündlich = jede Spielstunde.&#10;Täglich = einmal pro Spieltag." />
         <text name="ft_income_help_amount_body" text="Der Betrag, der pro Zahlungszyklus deinem Konto gutgeschrieben wird.&#10;Einstellbar in den Optionen der Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Schaltet die Mod ein oder aus, ohne sie zu deinstallieren.&#10;Änderungen gelten sofort." />
         <text name="ft_tax_help_what_body" text="Zeigt den Status von FS25_TaxMod.&#10;Die Mod zieht regelmäßig Steuern von deinem Konto ab&#10;und erstattet einen einstellbaren Prozentsatz zurück." />
@@ -2997,7 +2997,7 @@
         <text name="ft_tax_help_total_body" text="Insgesamt gezahlte Steuer in der aktuellen Sitzung.&#10;In Orange, weil es laufende Kosten sind." />
         <text name="ft_wrk_help_what_body" text="Zeigt den Status von FS25_WorkerCosts:&#10;Lohnstufe, Kostenmodus, aktive&#10;Mitarbeiter und die Kosten dieses Monats.&#10;Weiter unten folgt das Pro-Staff-Team." />
         <text name="ft_wrk_help_wage_body" text="Legt den Stundenlohn für angestellte Mitarbeiter fest.&#10;Die Stufen Niedrig / Mittel / Hoch stellst du in&#10;den Optionen der Worker-Costs-Mod ein." />
-        <text name="ft_wrk_help_mode_body" text="Legt fest, wie Löhne berechnet werden:&#10;Stündlich = jede Spielstunde abgerechnet.&#10;Monatlich = gesammelt und am Monatsende abgerechnet." />
+        <text name="ft_wrk_help_mode_body" text="Legt fest, wie Löhne berechnet werden:&#10;Stündlich = jede Spielstunde abgerechnet.&#10;Pro Hektar = nach bearbeiteter Fläche, um Mitternacht abgerechnet." />
         <text name="ft_wrk_help_month_body" text="Die in diesem Monat aufgelaufenen Löhne.&#10;Wird nach der Monatslohnzahlung zurückgesetzt." />
         <text name="ft_wrk_help_roster_body" text="Deine angestellten Mitarbeiter mit ihrer Stufe&#10;(Anfänger / Erfahren / Meister), Gesamtstunden,&#10;erledigten Aufträgen und aktueller Erschöpfung.&#10;Diese Ansicht ist schreibgeschützt: Einstellen, Entlassen und Zuweisen&#10;über das Bewerberportal im Spiel (ALT+H)&#10;oder die Konsolenbefehle von WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3007,7 +3007,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  noch %d Std." />
         <text name="ft_npc_help_rep_body" text="Dein Ansehen in der Gemeinde vor Ort (0-100).&#10;Respektiert &gt;= 70  |  Neutral &gt;= 40  |  Schlecht &lt; 40.&#10;Ein höherer Ruf schaltet bessere Belohnungen frei." />
         <text name="ft_npc_help_active_body" text="Zahl der laufenden Gefallen.&#10;Jeder Gefallen zeigt den NPC-Namen, die Beschreibung,&#10;den Fortschritt in Prozent und die verbleibenden Stunden." />
-        <text name="ft_npc_help_relationships_body" text="Listet jeden aktiven NPC mit seinem Beziehungswert&#10;und einem farbigen Balken.&#10;Freund &gt;= 70  |  Neutral &gt;= 40  |  Kühl &lt; 40.&#10;Seine Rolle (Agronom, Mechaniker usw.) steht&#10;in eckigen Klammern neben dem Namen." />
+        <text name="ft_npc_help_relationships_body" text="Listet jeden aktiven NPC mit seinem Beziehungswert&#10;und einem farbigen Balken.&#10;Freund &gt;= 70  |  Neutral &gt;= 40  |  Kühl &lt; 40.&#10;Seine Rolle (Agronom, Ladenbesitzer usw.) steht&#10;in eckigen Klammern neben dem Namen." />
         <text name="ft_npc_help_building_body" text="Erledige Gefallen für einen NPC, um seinen&#10;Beziehungswert zu erhöhen. Höhere Werte schalten exklusive&#10;Tipps, Rabatte und frühe Warnungen frei." />
         <text name="ft_npc_town_rep_fmt" text="Ruf der Stadt: %s" />
         <text name="ft_npc_relationships_fmt" text="VERHÄLTNISSE  (%d)" />
