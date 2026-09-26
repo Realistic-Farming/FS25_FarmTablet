@@ -409,7 +409,7 @@
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
         <text name="ft_auto_a_rotating_recruitment_pool_each_candidate_has" text="A rotating recruitment pool. Each candidate has&#10;" />
         <text name="ft_auto_aac" text="AAC" />
-        <text name="ft_auto_above_ground" text="Above Ground" />
+        <text name="ft_auto_above_ground" text="高於地面" />
         <text name="ft_auto_above_ground_how_far_above_or_below_the_terrain" text="Above Ground: how far above (or below) the terrain&#10;" />
         <text name="ft_auto_abs" text="abs:" />
         <text name="ft_auto_accent" text="ACCENT" />
@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="面積: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="面積：擁有的農地總面積（公頃）。&#10;" />
         <text name="ft_auto_at" text=" " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="已連接" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="田地哨兵決定土壤模擬在哪些田地上運作。&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="田地哨兵無法使用。" />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - 各田地土壤模擬、休眠與草地切換" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="填充量" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="已填滿 = 已經過的時間。出價可能在刊登期間&#10;" />
@@ -1141,7 +1141,7 @@
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
         <text name="ft_auto_green_positive_red_overdrawn" text="綠色 = 正數，紅色 = 透支。&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
-        <text name="ft_auto_ground_level" text="Ground Level" />
+        <text name="ft_auto_ground_level" text="地面高度" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
         <text name="ft_auto_grouped_into_built_in_farming_and" text="依內建、農業與&#10;" />
         <text name="ft_auto_grow" text="GROW" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="機具" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1270,7 +1270,7 @@
         <text name="ft_auto_invoices_phone" text="發票 / 電話" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
-        <text name="ft_auto_items" text="ITEMS" />
+        <text name="ft_auto_items" text="項目" />
         <text name="ft_auto_items_number_of_individual_load_entries_in_history" text="ITEMS = number of individual load entries in history." />
         <text name="ft_auto_job" text=" 項作業" />
         <text name="ft_auto_jobs" text="JOBS" />
@@ -1304,11 +1304,11 @@
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="列出建築消耗與生產的物料類型。&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="剩餘公升數與總容量顯示在條旁。&#10;" />
         <text name="ft_auto_live_updates" text="LIVE UPDATES" />
-        <text name="ft_auto_load_history" text="LOAD HISTORY" />
+        <text name="ft_auto_load_history" text="裝載紀錄" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
         <text name="ft_auto_loading" text="裝貨" />
-        <text name="ft_auto_loads" text="LOADS" />
+        <text name="ft_auto_loads" text="裝載" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="貸款" />
         <text name="ft_auto_loan_2" text="貸款" />
@@ -1341,7 +1341,7 @@
         <text name="ft_auto_marketplace" text="市場" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
         <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="應用程式就會自動出現。" />
-        <text name="ft_auto_material" text="MATERIAL" />
+        <text name="ft_auto_material" text="物料" />
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="我的農場" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="不適用" />
+        <text name="ft_auto_name" text="名稱" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1474,7 +1474,7 @@
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
         <text name="ft_auto_no_job_running" text="沒有進行中的作業。" />
-        <text name="ft_auto_no_loads_recorded_yet" text="No loads recorded yet." />
+        <text name="ft_auto_no_loads_recorded_yet" text="尚未記錄任何裝載。" />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
         <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="建築，即可在這裡看到。" />
         <text name="ft_auto_player" text="玩家" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="無法取得玩家位置。" />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1737,7 +1737,7 @@
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
         <text name="ft_auto_reroll" text="REROLL" />
-        <text name="ft_auto_reset" text="RESET" />
+        <text name="ft_auto_reset" text="重設" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
         <text name="ft_auto_reset_button" text="RESET BUTTON" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="播種" />
         <text name="ft_auto_sowing_planting" text="播種 / 種植" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="速度" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="噴灑" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="摘要卡片" />
         <text name="ft_auto_summer" text="夏季" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2010,7 +2010,7 @@
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="溫度" />
         <text name="ft_auto_temperature_2" text="溫度" />
-        <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
+        <text name="ft_auto_terrain_at_position" text="位置的地形" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
         <text name="ft_auto_the_app_shown_first_every_time_you_open_the_tablet" text="The app shown first every time you open the tablet.&#10;" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="除草" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
-        <text name="ft_auto_weight" text="WEIGHT" />
+        <text name="ft_auto_weight" text="重量" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="歡迎！點選應用程式即可開始。" />
         <text name="ft_auto_what_counts_as_a_silo" text="什麼算是筒倉？" />
@@ -2682,7 +2682,7 @@
         <text name="ft_ai_active_short" text="助手" />
         <text name="ft_settings_battery_drain" text="電池消耗" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="沒有進行中的作業。" /><text name="ft_fieldjobs_start_job" text="開始作業" /><text name="ft_fieldjobs_recent_jobs" text="最近的作業" /><text name="ft_fieldjobs_no_completed" text="還沒有完成的作業。" /><text name="ft_fieldjobs_no_job_short" text="沒有進行中的作業" /><text name="ft_common_history" text="歷史記錄" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="關閉" />
+    <text name="ft_notes_template_harvest" text="收成作物" /><text name="ft_notes_template_sow" text="播種" /><text name="ft_notes_template_fertilize" text="施肥" /><text name="ft_notes_template_plow" text="犁田 / 整地" /><text name="ft_notes_template_spray" text="噴灑田地" /><text name="ft_notes_template_sell" text="出售作物" /><text name="ft_notes_template_refuel" text="車輛加油" /><text name="ft_notes_template_repair" text="維修車輛" /><text name="ft_notes_template_feed" text="餵食動物" /><text name="ft_notes_template_clean" text="清理圈舍" /><text name="ft_notes_template_mow" text="割草" /><text name="ft_notes_template_bale" text="打包乾草 / 稻草" /><text name="ft_notes_template_collect_bales" text="收集草捆" /><text name="ft_notes_template_contracts" text="查看合約" /><text name="ft_notes_template_shop" text="前往商店" /><text name="ft_notes_template_collect_prod" text="領取生產品" /><text name="ft_notes_template_buy" text="購買設備" /><text name="ft_notes_template_water" text="灌溉作物" /><text name="ft_notes_template_weather" text="查看天氣" /><text name="ft_notes_template_field_maint" text="田地維護" /><text name="ft_app_notes" text="筆記" /><text name="ft_notes_todo_list" text="待辦清單" /><text name="ft_notes_actions" text="動作" /><text name="ft_notes_all_done" text="全部完成！" /><text name="ft_notes_pending_fmt" text="%d 項未完成" /><text name="ft_notes_new_task" text="新工作" /><text name="ft_notes_no_fields" text="沒有擁有的田地" /><text name="ft_notes_any_field" text="任何田地" /><text name="ft_common_field" text="田地" /><text name="ft_notes_add" text="+ 新增工作" /><text name="ft_notes_list_count_fmt" text="工作清單 (%d 項未完成 - %d 項完成)" /><text name="ft_notes_empty" text="還沒有工作 - 請在上方新增" /><text name="ft_common_undo" text="復原" /><text name="ft_common_done" text="完成" /><text name="ft_notes_clear_completed_fmt" text="清除 %d 項已完成" /><text name="ft_fieldjobs_no_job" text="沒有進行中的作業。" /><text name="ft_fieldjobs_start_job" text="開始作業" /><text name="ft_fieldjobs_recent_jobs" text="最近的作業" /><text name="ft_fieldjobs_no_completed" text="還沒有完成的作業。" /><text name="ft_fieldjobs_no_job_short" text="沒有進行中的作業" /><text name="ft_common_history" text="歷史記錄" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="關閉" />
     <text name="ft_fieldjobs_confirm_start" text="開始作業計時" />
     <text name="ft_fieldjobs_purpose" text="為你的作業計時並記錄。不會派出工人。" />
     <text name="ft_fieldjobs_finish_job" text="結束作業" />
@@ -2806,6 +2806,22 @@
         <text name="ft_dairy_breed_help_title" text="品種記錄" />
         <text name="ft_dairy_breed_help_body" text="目前畜群計算牛舍裡的泌乳動物。&#10;槽內牛奶依生產牠的品種追蹤已儲存的牛奶。&#10;舊牛奶旁出現新畜群是正常的。未知牛奶早於記錄,&#10;或經由無法證明的途徑進入。這裡不評價任何品種。" />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="記錄農場的工作。&#10;&#10;用 &lt; / &gt; 選擇工作範本和田地，&#10;再按「+ 新增工作」加入清單。&#10;工作會依存檔自動儲存。" />
+        <text name="ft_notes_help_actions_body" text="完成 - 將工作標為已完成 (■)&#10;復原 - 將它重新標為未完成 (□)&#10;✕    - 完全刪除這項工作&#10;清除已完成 - 一次移除所有已完成的工作" />
+        <text name="ft_excavator_help_terrain_title" text="地形資訊" />
+        <text name="ft_excavator_help_terrain_body" text="顯示你在世界中的位置、車輛名稱與&#10;速度、地面高度，以及你比地形表面&#10;高出或低於多少。此頁開啟時&#10;數值會持續更新。" />
+        <text name="ft_excavator_help_bucket_title" text="鏟斗計數" />
+        <text name="ft_excavator_help_bucket_body" text="只要你駕駛輪式裝載機、挖土機或物料搬運機，&#10;就會在背景計算裝載次數。&#10;即使離開此頁或關閉平板，&#10;計數仍會繼續。不需要任何設定。" />
+        <text name="ft_excavator_help_cards_body" text="裝載 = 本次遊戲階段記錄的傾倒次數。&#10;重量 = 搬運的物料總量（公噸）。&#10;項目 = 保留的歷史紀錄筆數。" />
+        <text name="ft_excavator_help_history_body" text="列出最近的傾倒紀錄，含物料名稱與&#10;估計重量。較舊的列會移出清單。" />
+        <text name="ft_excavator_help_reset_body" text="清除裝載紀錄與本階段總計。在新工作&#10;開始時使用，以便分開追蹤效率。" />
+        <text name="ft_excavator_subtitle" text="地形 + 鏟斗" />
+        <text name="ft_excavator_speed_fmt" text="%.1f 公里/小時" />
+        <text name="ft_excavator_bucket_session" text="鏟斗階段" />
+        <text name="ft_excavator_active_bucket" text="使用中的鏟斗" />
+        <text name="ft_excavator_no_bucket" text="未偵測到有鏟斗的車輛。" />
+        <text name="ft_excavator_history_fmt" text="裝載紀錄  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f 公斤" />
     </texts>
 
 </l10n>

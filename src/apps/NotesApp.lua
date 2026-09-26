@@ -159,15 +159,9 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
     if self:drawHelpPage("_notesHelp", FT.APP.NOTES, N("ft_app_notes", "Notes"), AC, {
         { title = N("ft_notes_todo_list", "Todo list"),
-          body  = "Keep track of farm tasks.\n\n" ..
-                  "Use < / > to select a task template and field,\n" ..
-                  "then + ADD to add it to the list.\n" ..
-                  "Todos are saved automatically per savegame." },
+          body  = N("ft_notes_help_todo_body", "Keep track of farm tasks.\n\nUse < / > to select a task template and field,\nthen + ADD to add it to the list.\nTodos are saved automatically per savegame.") },
         { title = N("ft_notes_actions", "Actions"),
-          body  = "DONE — mark a task as completed (■)\n" ..
-                  "UNDO — mark it pending again (□)\n" ..
-                  "✕    — remove the task entirely\n" ..
-                  "CLEAR COMPLETED — remove all done tasks at once" },
+          body  = N("ft_notes_help_actions_body", "DONE - mark a task as completed (■)\nUNDO - mark it pending again (□)\n✕    - remove the task entirely\nCLEAR COMPLETED - remove all done tasks at once") },
     }) then return end
 
     local startY = self:drawAppHeader(N("ft_app_notes", "Notes"),

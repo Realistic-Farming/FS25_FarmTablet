@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Der Feldmonitor legt fest, auf welchen Feldern die Bodensimulation&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Feldmonitor nicht verfügbar." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="Feldmonitor - Feldspezifische Bodensimulation, Zustand und Wahl zwischen Brachfläche oder Grünland" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Füllung" />
         <text name="ft_auto_fill_fuel" text="Kraftstoff Tanken" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="Kraftstoff auffüllen - füllt Kraftstoff (und AdBlue) bis zum Maximum auf&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Gefüllt = verstrichene Zeit. Ein Angebot kann jederzeit&#10;" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Krankheit" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" Bild(er) in FTHintergrund  |  drücke zum Wechseln" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Anbaugerät" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Verbesserte Fortschrittanzeige mit Leuchteffekt" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Scroll-Helfer hinzugefügt um alle Apps mit viel Inhalt zu unterstützen" />
         <text name="ft_auto_in_each_version_newest_first" text="in jeder Version, neuste zuerst." />
@@ -1386,7 +1386,7 @@
         <text name="ft_auto_must_be_run_by_the_session_host" text="muss vom Session-Host gestartet werden." />
         <text name="ft_auto_my_farm" text="Mein Hof" />
         <text name="ft_auto_n_a" text="unbekannt" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_name" text="Bezeichnung" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="Name und geschätztes Gewicht der Ladung.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1638,7 +1638,7 @@
         <text name="ft_auto_plowing" text="Pflügen" />
         <text name="ft_auto_plowing_cultivating" text="Pflügen / Grubbern" />
         <text name="ft_auto_poor" text="Schlecht" />
-        <text name="ft_auto_position" text="Position" />
+        <text name="ft_auto_position" text="Standort" />
         <text name="ft_auto_position_2" text="Position" />
         <text name="ft_auto_potassium" text="Kalium" />
         <text name="ft_auto_ppm" text=" 1 mg je kg  (" />
@@ -2807,6 +2807,22 @@
         <text name="ft_dairy_breed_help_title" text="RASSENAUFZEICHNUNG" />
         <text name="ft_dairy_breed_help_body" text="Herde jetzt zählt die Milchtiere im Stall.&#10;Milch im Tank folgt der gelagerten Milch nach den&#10;Rassen, die sie erzeugt haben. Eine neue Herde neben&#10;alter Milch ist normal. Unbekannte Milch stammt von vor&#10;der Aufzeichnung oder kam auf unbelegtem Weg. Keine&#10;Rasse wird hier bewertet." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Behalte deine Hofaufgaben im Blick.&#10;&#10;Wähle mit &lt; / &gt; eine Aufgabenvorlage und ein Feld,&#10;dann nimm sie mit + Aufgabe hinzufügen in die Liste auf.&#10;Aufgaben werden pro Spielstand automatisch gespeichert." />
+        <text name="ft_notes_help_actions_body" text="Erledigt - Aufgabe als erledigt markieren (■)&#10;Rückgängig - wieder als offen markieren (□)&#10;✕    - Aufgabe ganz entfernen&#10;Erledigte löschen - alle erledigten Aufgaben auf einmal entfernen" />
+        <text name="ft_excavator_help_terrain_title" text="GELÄNDEANZEIGE" />
+        <text name="ft_excavator_help_terrain_body" text="Zeigt deine aktuelle Weltposition, Fahrzeugname und&#10;-geschwindigkeit, Bodenhöhe und wie weit du über oder unter&#10;der Geländeoberfläche bist. Die Werte aktualisieren sich,&#10;solange diese Seite offen ist." />
+        <text name="ft_excavator_help_bucket_title" text="SCHAUFELZÄHLUNG" />
+        <text name="ft_excavator_help_bucket_body" text="Die Ladungen werden im Hintergrund gezählt, sobald du&#10;einen Radlader, Bagger oder Umschlagbagger fährst.&#10;Das läuft weiter, wenn du diese Seite verlässt oder das&#10;Tablet schließt. Keine Einrichtung nötig." />
+        <text name="ft_excavator_help_cards_body" text="LADUNGEN = in dieser Sitzung erfasste Kippvorgänge.&#10;GEWICHT = insgesamt bewegtes Material in Tonnen.&#10;EINTRÄGE = Anzahl der gespeicherten Verlaufseinträge." />
+        <text name="ft_excavator_help_history_body" text="Listet die letzten Kippvorgänge mit Materialname und&#10;geschätztem Gewicht. Ältere Zeilen fallen aus der Liste." />
+        <text name="ft_excavator_help_reset_body" text="Löscht Ladeverlauf und Sitzungssummen. Nutze es zu Beginn&#10;eines neuen Auftrags, um die Leistung getrennt zu erfassen." />
+        <text name="ft_excavator_subtitle" text="Gelände + Schaufel" />
+        <text name="ft_excavator_speed_fmt" text="%.1f km/h" />
+        <text name="ft_excavator_bucket_session" text="SCHAUFEL-SITZUNG" />
+        <text name="ft_excavator_active_bucket" text="AKTIVE SCHAUFEL" />
+        <text name="ft_excavator_no_bucket" text="Kein Schaufelfahrzeug erkannt." />
+        <text name="ft_excavator_history_fmt" text="LADEVERLAUF  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>

@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="Площадь: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Площадь: вся ваша сельхозземля в гектарах.&#10;" />
         <text name="ft_auto_at" text=" в " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="Прицеплено" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -633,7 +633,7 @@
         <text name="ft_auto_chore_bumped_version_to_2_2_0_0" text="Chore: Bumped version to 2.2.0.0" />
         <text name="ft_auto_clean_animal_pens" text="Clean animal pens" />
         <text name="ft_auto_cleanliness_percentage_for_chickens_and_sheep" text="cleanliness percentage for chickens and sheep.&#10;" />
-        <text name="ft_auto_clear" text="ЯСНО" />
+        <text name="ft_auto_clear" text="ОЧИСТИТЬ" />
         <text name="ft_auto_clear_2" text="Ясно" />
         <text name="ft_auto_clear_3" text="clear" />
         <text name="ft_auto_clear_all" text="ОЧИСТИТЬ ВСЁ" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Страж полей решает, на каких полях работает симуляция&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Страж полей недоступен." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - почва по полям, сон и луг" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Заполнение" />
         <text name="ft_auto_fill_fuel" text="ЗАПРАВИТЬ" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Заполнено = прошедшее время. Предложение может прийти в любой&#10;" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Орудие" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1341,7 +1341,7 @@
         <text name="ft_auto_marketplace" text="Торговая площадка" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
         <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="нужный мод будет загружен в ваше сохранение." />
-        <text name="ft_auto_material" text="MATERIAL" />
+        <text name="ft_auto_material" text="МАТЕРИАЛ" />
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Моя ферма" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="Н/Д" />
+        <text name="ft_auto_name" text="Название" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="здание в магазине, чтобы увидеть его здесь." />
         <text name="ft_auto_player" text="Игрок" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="Позиция игрока недоступна." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="Посев" />
         <text name="ft_auto_sowing_planting" text="Посев / Посадка" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="Скорость" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Опрыскивание" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="СВОДНЫЕ КАРТОЧКИ" />
         <text name="ft_auto_summer" text="Лето" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2848,6 +2848,22 @@
         <text name="ft_dairy_breed_help_title" text="ЗАПИСИ ПОРОД" />
         <text name="ft_dairy_breed_help_body" text="Стадо сейчас считает дойных животных в хлеву.&#10;Молоко в танке следует за хранящимся молоком по породам,&#10;которые его дали. Новое стадо рядом со старым молоком -&#10;это нормально. Неизвестное молоко было до записи или&#10;пришло непроверенным путём. Породы здесь не оцениваются." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Следите за задачами фермы.&#10;&#10;Выберите шаблон задачи и поле кнопками &lt; / &gt;,&#10;затем добавьте задачу в список кнопкой + Добавить задачу.&#10;Задачи сохраняются автоматически для каждого сохранения." />
+        <text name="ft_notes_help_actions_body" text="Готово - отметить задачу выполненной (■)&#10;Отменить - снова отметить открытой (□)&#10;✕    - полностью удалить задачу&#10;Удалить готовые - убрать все выполненные задачи сразу" />
+        <text name="ft_excavator_help_terrain_title" text="ДАННЫЕ О РЕЛЬЕФЕ" />
+        <text name="ft_excavator_help_terrain_body" text="Показывает вашу позицию в мире, название и скорость&#10;техники, высоту земли и насколько вы выше или ниже&#10;поверхности рельефа. Значения обновляются,&#10;пока эта страница открыта." />
+        <text name="ft_excavator_help_bucket_title" text="ПОДСЧЁТ КОВШЕЙ" />
+        <text name="ft_excavator_help_bucket_body" text="Загрузки считаются в фоне, когда вы&#10;управляете погрузчиком, экскаватором или перегружателем.&#10;Подсчёт идёт дальше, даже если вы закрыли страницу&#10;или планшет. Настройка не нужна." />
+        <text name="ft_excavator_help_cards_body" text="ЗАГРУЗКИ = выгрузки, записанные за эту сессию.&#10;ВЕС = всего перемещено материала в тоннах.&#10;ЗАПИСИ = число сохранённых записей истории." />
+        <text name="ft_excavator_help_history_body" text="Показывает последние выгрузки с названием материала и&#10;примерным весом. Старые строки уходят из списка." />
+        <text name="ft_excavator_help_reset_body" text="Очищает историю загрузок и итоги сессии. Используйте в&#10;начале новой работы, чтобы отдельно отследить выработку." />
+        <text name="ft_excavator_subtitle" text="Рельеф + ковш" />
+        <text name="ft_excavator_speed_fmt" text="%.1f км/ч" />
+        <text name="ft_excavator_bucket_session" text="СЕССИЯ КОВША" />
+        <text name="ft_excavator_active_bucket" text="АКТИВНЫЙ КОВШ" />
+        <text name="ft_excavator_no_bucket" text="Техника с ковшом не найдена." />
+        <text name="ft_excavator_history_fmt" text="ИСТОРИЯ ЗАГРУЗОК  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f кг" />
     </texts>
 
 </l10n>

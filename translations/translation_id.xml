@@ -409,7 +409,7 @@
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
         <text name="ft_auto_a_rotating_recruitment_pool_each_candidate_has" text="A rotating recruitment pool. Each candidate has&#10;" />
         <text name="ft_auto_aac" text="AAC" />
-        <text name="ft_auto_above_ground" text="Above Ground" />
+        <text name="ft_auto_above_ground" text="Di atas tanah" />
         <text name="ft_auto_above_ground_how_far_above_or_below_the_terrain" text="Above Ground: how far above (or below) the terrain&#10;" />
         <text name="ft_auto_abs" text="abs:" />
         <text name="ft_auto_accent" text="ACCENT" />
@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="Luas: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Luas: total lahan pertanian yang dimiliki, dalam hektare.&#10;" />
         <text name="ft_auto_at" text=" pukul " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="Terpasang" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Penjaga Ladang menentukan di ladang mana simulasi tanah&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Penjaga Ladang tidak tersedia." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - simulasi tanah per ladang, istirahat, padang" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Isi" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Terisi = waktu berlalu. Tawaran bisa datang kapan saja&#10;" />
@@ -1141,7 +1141,7 @@
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
         <text name="ft_auto_green_positive_red_overdrawn" text="Hijau = positif, merah = minus.&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
-        <text name="ft_auto_ground_level" text="Ground Level" />
+        <text name="ft_auto_ground_level" text="Tinggi tanah" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
         <text name="ft_auto_grouped_into_built_in_farming_and" text="dikelompokkan ke kategori Bawaan, Pertanian, dan&#10;" />
         <text name="ft_auto_grow" text="GROW" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Alat" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1270,7 +1270,7 @@
         <text name="ft_auto_invoices_phone" text="Faktur / Ponsel" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
-        <text name="ft_auto_items" text="ITEMS" />
+        <text name="ft_auto_items" text="ENTRI" />
         <text name="ft_auto_items_number_of_individual_load_entries_in_history" text="ITEMS = number of individual load entries in history." />
         <text name="ft_auto_job" text=" pekerjaan" />
         <text name="ft_auto_jobs" text="JOBS" />
@@ -1304,11 +1304,11 @@
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Menampilkan jenis muatan yang dipakai dan dihasilkan bangunan.&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="Sisa liter dan kapasitas total ditampilkan di samping bar.&#10;" />
         <text name="ft_auto_live_updates" text="LIVE UPDATES" />
-        <text name="ft_auto_load_history" text="LOAD HISTORY" />
+        <text name="ft_auto_load_history" text="RIWAYAT MUATAN" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
         <text name="ft_auto_loading" text="Muat" />
-        <text name="ft_auto_loads" text="LOADS" />
+        <text name="ft_auto_loads" text="MUATAN" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="PINJAMAN" />
         <text name="ft_auto_loan_2" text="Pinjaman" />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Pertanianku" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="T/A" />
+        <text name="ft_auto_name" text="Nama" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1474,7 +1474,7 @@
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
         <text name="ft_auto_no_job_running" text="Tidak ada pekerjaan berjalan." />
-        <text name="ft_auto_no_loads_recorded_yet" text="No loads recorded yet." />
+        <text name="ft_auto_no_loads_recorded_yet" text="Belum ada muatan tercatat." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
         <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="dari toko untuk melihatnya di sini." />
         <text name="ft_auto_player" text="Pemain" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="Posisi pemain tidak tersedia." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1737,7 +1737,7 @@
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
         <text name="ft_auto_reroll" text="REROLL" />
-        <text name="ft_auto_reset" text="RESET" />
+        <text name="ft_auto_reset" text="ATUR ULANG" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
         <text name="ft_auto_reset_button" text="RESET BUTTON" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="Menabur" />
         <text name="ft_auto_sowing_planting" text="Menabur / Menanam" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="Kecepatan" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Menyemprot" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="KARTU RINGKASAN" />
         <text name="ft_auto_summer" text="Musim panas" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2010,7 +2010,7 @@
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="SUHU" />
         <text name="ft_auto_temperature_2" text="Suhu" />
-        <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
+        <text name="ft_auto_terrain_at_position" text="MEDAN DI POSISI" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
         <text name="ft_auto_the_app_shown_first_every_time_you_open_the_tablet" text="The app shown first every time you open the tablet.&#10;" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="Menyiangi" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
-        <text name="ft_auto_weight" text="WEIGHT" />
+        <text name="ft_auto_weight" text="BERAT" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Selamat datang! Ketuk aplikasi untuk memulai." />
         <text name="ft_auto_what_counts_as_a_silo" text="APA YANG DIHITUNG SEBAGAI SILO?" />
@@ -2383,7 +2383,7 @@
         <text name="ft_weather_help_dial_body" text="Nyata / Kering / Normal / Basah mengatur iklim dunia bersama.&#10;Hanya admin di multipemain. Sama dengan Soil Fertilizer." />
         <text name="ft_weather_help_temperature_body" text="Suhu udara dalam Celsius dengan label rasa: Beku (&lt;0)&#10;Dingin (&lt;8)  Sejuk (&lt;16)  Sedang (&lt;24)  Hangat (&lt;32)  Panas (32+)." />
         <text name="ft_weather_help_readings_title" text="PEMBACAAN LAIN" />
-        <text name="ft_weather_help_readings_body" text="Tutupan awan: 0-19%: cerah, 20-39%: sebagian, 40-69%: berawan,&#10;70%+: mendung. Angin: km/jam dan arah.&#10;Presipitasi: kekuatan hujan atau badai sebagai bilah." />
+        <text name="ft_weather_help_readings_body" text="Tutupan awan: 0-19%: cerah, 20-39%: sebagian, 40-69%: berawan,&#10;70%+: mendung. Angin: kph dan arah.&#10;Presipitasi: kekuatan hujan atau badai sebagai bilah." />
         <text name="ft_weather_help_forecast_body" text="Dengan WeatherGuard: prakiraan asli, hujan sebagai kekuatan.&#10;Tanpa itu: perkiraan proyeksi dengan peluang hujan." />
         <text name="ft_weather_source_wg" text="Lewat WeatherGuard" />
         <text name="ft_weather_source_engine" text="Mesin (tanpa WeatherGuard)" />
@@ -2392,8 +2392,8 @@
         <text name="ft_weather_notice_refused" text="WeatherGuard menolak perubahan cuaca dunia." />
         <text name="ft_weather_notice_admin_only" text="Cuaca dunia hanya untuk admin. Masuk sebagai admin server untuk mengubahnya." />
         <text name="ft_weather_dial_note" text="Pengaturan dunia bersama · hanya admin di multipemain" />
-        <text name="ft_weather_wind_kmh_fmt" text="%.0f km/jam" />
-        <text name="ft_weather_wind_kmh_1f_fmt" text="%.1f km/jam" />
+        <text name="ft_weather_wind_kmh_fmt" text="%.0f kph" />
+        <text name="ft_weather_wind_kmh_1f_fmt" text="%.1f kph" />
         <text name="ft_weather_rain_moderate" text="Hujan sedang" />
         <text name="ft_weather_rain_light" text="Hujan ringan" />
         <text name="ft_weather_forecast_engine" text="PRAKIRAAN  (mesin)" />
@@ -2682,7 +2682,7 @@
         <text name="ft_ai_active_short" text="PEMBANTU" />
         <text name="ft_settings_battery_drain" text="Pemakaian baterai" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Tidak ada pekerjaan berjalan." /><text name="ft_fieldjobs_start_job" text="Mulai pekerjaan" /><text name="ft_fieldjobs_recent_jobs" text="Pekerjaan terbaru" /><text name="ft_fieldjobs_no_completed" text="Belum ada pekerjaan selesai." /><text name="ft_fieldjobs_no_job_short" text="tidak ada pekerjaan aktif" /><text name="ft_common_history" text="Riwayat" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Mati" />
+    <text name="ft_notes_template_harvest" text="Panen" /><text name="ft_notes_template_sow" text="Tanam benih" /><text name="ft_notes_template_fertilize" text="Beri pupuk" /><text name="ft_notes_template_plow" text="Bajak / olah" /><text name="ft_notes_template_spray" text="Semprot ladang" /><text name="ft_notes_template_sell" text="Jual hasil panen" /><text name="ft_notes_template_refuel" text="Isi bahan bakar kendaraan" /><text name="ft_notes_template_repair" text="Perbaiki kendaraan" /><text name="ft_notes_template_feed" text="Beri makan hewan" /><text name="ft_notes_template_clean" text="Bersihkan kandang" /><text name="ft_notes_template_mow" text="Pangkas rumput" /><text name="ft_notes_template_bale" text="Bal jerami / rumput kering" /><text name="ft_notes_template_collect_bales" text="Kumpulkan bal" /><text name="ft_notes_template_contracts" text="Periksa kontrak" /><text name="ft_notes_template_shop" text="Kunjungi toko" /><text name="ft_notes_template_collect_prod" text="Ambil hasil produksi" /><text name="ft_notes_template_buy" text="Beli peralatan" /><text name="ft_notes_template_water" text="Siram tanaman" /><text name="ft_notes_template_weather" text="Cek cuaca" /><text name="ft_notes_template_field_maint" text="Perawatan ladang" /><text name="ft_app_notes" text="Catatan" /><text name="ft_notes_todo_list" text="Daftar tugas" /><text name="ft_notes_actions" text="Tindakan" /><text name="ft_notes_all_done" text="Semua selesai!" /><text name="ft_notes_pending_fmt" text="%d terbuka" /><text name="ft_notes_new_task" text="Tugas baru" /><text name="ft_notes_no_fields" text="Tidak punya ladang" /><text name="ft_notes_any_field" text="Ladang mana saja" /><text name="ft_common_field" text="Ladang" /><text name="ft_notes_add" text="+ Tambah tugas" /><text name="ft_notes_list_count_fmt" text="Daftar tugas (%d terbuka - %d selesai)" /><text name="ft_notes_empty" text="Belum ada tugas - tambahkan satu di atas" /><text name="ft_common_undo" text="Urungkan" /><text name="ft_common_done" text="Selesai" /><text name="ft_notes_clear_completed_fmt" text="Hapus %d yang selesai" /><text name="ft_fieldjobs_no_job" text="Tidak ada pekerjaan berjalan." /><text name="ft_fieldjobs_start_job" text="Mulai pekerjaan" /><text name="ft_fieldjobs_recent_jobs" text="Pekerjaan terbaru" /><text name="ft_fieldjobs_no_completed" text="Belum ada pekerjaan selesai." /><text name="ft_fieldjobs_no_job_short" text="tidak ada pekerjaan aktif" /><text name="ft_common_history" text="Riwayat" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Mati" />
     <text name="ft_fieldjobs_confirm_start" text="MULAI PENGATUR WAKTU" />
     <text name="ft_fieldjobs_purpose" text="Menghitung waktu dan mencatat pekerjaanmu. Tidak mengirim pekerja." />
     <text name="ft_fieldjobs_finish_job" text="SELESAIKAN PEKERJAAN" />
@@ -2806,6 +2806,22 @@
         <text name="ft_dairy_breed_help_title" text="CATATAN RAS" />
         <text name="ft_dairy_breed_help_body" text="Kawanan saat ini menghitung hewan perah di kandang.&#10;Susu di tangki mengikuti susu yang tersimpan menurut ras&#10;yang menghasilkannya. Kawanan baru di samping susu lama&#10;itu normal. Susu tidak diketahui berasal dari sebelum&#10;pencatatan atau masuk lewat jalur yang tidak terbukti.&#10;Tidak ada ras yang dinilai di sini." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Catat tugas-tugas pertanianmu.&#10;&#10;Pilih templat tugas dan ladang dengan &lt; / &gt;,&#10;lalu masukkan ke daftar dengan + Tambah tugas.&#10;Tugas disimpan otomatis per simpanan permainan." />
+        <text name="ft_notes_help_actions_body" text="Selesai - tandai tugas sebagai selesai (■)&#10;Urungkan - tandai lagi sebagai terbuka (□)&#10;✕    - hapus tugas sepenuhnya&#10;Hapus yang selesai - hapus semua tugas selesai sekaligus" />
+        <text name="ft_excavator_help_terrain_title" text="DATA MEDAN" />
+        <text name="ft_excavator_help_terrain_body" text="Menampilkan posisimu di dunia, nama dan kecepatan&#10;kendaraan, tinggi tanah, dan seberapa jauh kamu di atas&#10;atau di bawah permukaan medan. Nilainya diperbarui&#10;selama halaman ini terbuka." />
+        <text name="ft_excavator_help_bucket_title" text="HITUNG BUCKET" />
+        <text name="ft_excavator_help_bucket_body" text="Muatan dihitung di latar belakang setiap kali kamu&#10;mengemudikan wheel loader, ekskavator, atau material handler.&#10;Hitungan tetap jalan jika kamu keluar dari halaman ini atau&#10;menutup tablet. Tidak perlu pengaturan." />
+        <text name="ft_excavator_help_cards_body" text="MUATAN = siklus buang yang tercatat sesi ini.&#10;BERAT = total material yang dipindahkan dalam ton.&#10;ENTRI = jumlah entri riwayat yang disimpan." />
+        <text name="ft_excavator_help_history_body" text="Menampilkan siklus buang terbaru dengan nama material dan&#10;perkiraan berat. Baris lama keluar dari daftar." />
+        <text name="ft_excavator_help_reset_body" text="Menghapus riwayat muatan dan total sesi. Gunakan di&#10;awal pekerjaan baru untuk mengukur produktivitas terpisah." />
+        <text name="ft_excavator_subtitle" text="Medan + bucket" />
+        <text name="ft_excavator_speed_fmt" text="%.1f kph" />
+        <text name="ft_excavator_bucket_session" text="SESI BUCKET" />
+        <text name="ft_excavator_active_bucket" text="BUCKET AKTIF" />
+        <text name="ft_excavator_no_bucket" text="Tidak ada kendaraan ber-bucket." />
+        <text name="ft_excavator_history_fmt" text="RIWAYAT MUATAN  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>

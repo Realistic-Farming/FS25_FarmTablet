@@ -409,7 +409,7 @@
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
         <text name="ft_auto_a_rotating_recruitment_pool_each_candidate_has" text="A rotating recruitment pool. Each candidate has&#10;" />
         <text name="ft_auto_aac" text="AAC" />
-        <text name="ft_auto_above_ground" text="Above Ground" />
+        <text name="ft_auto_above_ground" text="Maanpinnan yllä" />
         <text name="ft_auto_above_ground_how_far_above_or_below_the_terrain" text="Above Ground: how far above (or below) the terrain&#10;" />
         <text name="ft_auto_abs" text="abs:" />
         <text name="ft_auto_accent" text="ACCENT" />
@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="Ala: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Pinta-ala: omistettu maatalousmaa yhteensä hehtaareina.&#10;" />
         <text name="ft_auto_at" text=" klo " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="Kytketty" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Peltovahti päättää, millä pelloilla maaperäsimulaatio&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Peltovahti ei ole käytettävissä." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - pelto kohtainen maaperä, lepo ja niitty" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Täyttö" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Täytetty = kulunut aika. Tarjous voi tulla milloin tahansa&#10;" />
@@ -1141,7 +1141,7 @@
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
         <text name="ft_auto_green_positive_red_overdrawn" text="Vihreä = positiivinen, punainen = ylitetty.&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
-        <text name="ft_auto_ground_level" text="Ground Level" />
+        <text name="ft_auto_ground_level" text="Maanpinnan taso" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
         <text name="ft_auto_grouped_into_built_in_farming_and" text="ryhmiteltyinä luokkiin Sisäänrakennetut, Maatalous ja&#10;" />
         <text name="ft_auto_grow" text="GROW" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Työkone" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1270,7 +1270,7 @@
         <text name="ft_auto_invoices_phone" text="Laskut / Puhelin" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
-        <text name="ft_auto_items" text="ITEMS" />
+        <text name="ft_auto_items" text="MERKINNÄT" />
         <text name="ft_auto_items_number_of_individual_load_entries_in_history" text="ITEMS = number of individual load entries in history." />
         <text name="ft_auto_job" text=" työ" />
         <text name="ft_auto_jobs" text="JOBS" />
@@ -1304,11 +1304,11 @@
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Luettelee tuotteet, joita rakennus kuluttaa ja tuottaa.&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="Jäljellä olevat litrat ja koko tilavuus palkin vieressä.&#10;" />
         <text name="ft_auto_live_updates" text="LIVE UPDATES" />
-        <text name="ft_auto_load_history" text="LOAD HISTORY" />
+        <text name="ft_auto_load_history" text="KUORMAHISTORIA" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
         <text name="ft_auto_loading" text="Lastaus" />
-        <text name="ft_auto_loads" text="LOADS" />
+        <text name="ft_auto_loads" text="KUORMAT" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="LAINA" />
         <text name="ft_auto_loan_2" text="Laina" />
@@ -1341,7 +1341,7 @@
         <text name="ft_auto_marketplace" text="Kauppapaikka" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
         <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="vastaava modi on ladattu tallennukseesi." />
-        <text name="ft_auto_material" text="MATERIAL" />
+        <text name="ft_auto_material" text="MATERIAALI" />
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Oma tila" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="-" />
+        <text name="ft_auto_name" text="Nimi" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1474,7 +1474,7 @@
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
         <text name="ft_auto_no_job_running" text="Ei työtä käynnissä." />
-        <text name="ft_auto_no_loads_recorded_yet" text="No loads recorded yet." />
+        <text name="ft_auto_no_loads_recorded_yet" text="Kuormia ei ole vielä kirjattu." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
         <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="kaupasta nähdäksesi sen tässä." />
         <text name="ft_auto_player" text="Pelaaja" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="Pelaajan sijaintia ei saatavilla." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1737,7 +1737,7 @@
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
         <text name="ft_auto_reroll" text="REROLL" />
-        <text name="ft_auto_reset" text="RESET" />
+        <text name="ft_auto_reset" text="NOLLAA" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
         <text name="ft_auto_reset_button" text="RESET BUTTON" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="Kylvö" />
         <text name="ft_auto_sowing_planting" text="Kylvö / Istutus" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="Nopeus" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Ruiskutus" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="YHTEENVETOKORTIT" />
         <text name="ft_auto_summer" text="Kesä" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2010,7 +2010,7 @@
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="LÄMPÖTILA" />
         <text name="ft_auto_temperature_2" text="Lämpötila" />
-        <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
+        <text name="ft_auto_terrain_at_position" text="MAASTO SIJAINNISSA" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
         <text name="ft_auto_the_app_shown_first_every_time_you_open_the_tablet" text="The app shown first every time you open the tablet.&#10;" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="Kitkentä" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
-        <text name="ft_auto_weight" text="WEIGHT" />
+        <text name="ft_auto_weight" text="PAINO" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Tervetuloa! Aloita napauttamalla sovellusta." />
         <text name="ft_auto_what_counts_as_a_silo" text="MIKÄ LASKETAAN SIILOKSI?" />
@@ -2682,7 +2682,7 @@
         <text name="ft_ai_active_short" text="APURI" />
         <text name="ft_settings_battery_drain" text="Akun kulutus" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Ei työtä käynnissä." /><text name="ft_fieldjobs_start_job" text="Aloita työ" /><text name="ft_fieldjobs_recent_jobs" text="Viimeisimmät työt" /><text name="ft_fieldjobs_no_completed" text="Ei vielä päätettyjä töitä." /><text name="ft_fieldjobs_no_job_short" text="ei aktiivista työtä" /><text name="ft_common_history" text="Historia" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Pois" />
+    <text name="ft_notes_template_harvest" text="Korjaa sato" /><text name="ft_notes_template_sow" text="Kylvä" /><text name="ft_notes_template_fertilize" text="Lannoita" /><text name="ft_notes_template_plow" text="Kynnä / muokkaa" /><text name="ft_notes_template_spray" text="Ruiskuta pellot" /><text name="ft_notes_template_sell" text="Myy sato" /><text name="ft_notes_template_refuel" text="Tankkaa ajoneuvot" /><text name="ft_notes_template_repair" text="Korjaa ajoneuvot" /><text name="ft_notes_template_feed" text="Ruoki eläimet" /><text name="ft_notes_template_clean" text="Siivoa karsinat" /><text name="ft_notes_template_mow" text="Niitä ruoho" /><text name="ft_notes_template_bale" text="Paalaa heinä / olki" /><text name="ft_notes_template_collect_bales" text="Kerää paalit" /><text name="ft_notes_template_contracts" text="Tarkista sopimukset" /><text name="ft_notes_template_shop" text="Käy kaupassa" /><text name="ft_notes_template_collect_prod" text="Nouda tuotanto" /><text name="ft_notes_template_buy" text="Osta kalustoa" /><text name="ft_notes_template_water" text="Kastele viljelmät" /><text name="ft_notes_template_weather" text="Tarkista sää" /><text name="ft_notes_template_field_maint" text="Peltojen hoito" /><text name="ft_app_notes" text="Muistiinpanot" /><text name="ft_notes_todo_list" text="Tehtävälista" /><text name="ft_notes_actions" text="Toiminnot" /><text name="ft_notes_all_done" text="Kaikki tehty!" /><text name="ft_notes_pending_fmt" text="%d avoinna" /><text name="ft_notes_new_task" text="Uusi tehtävä" /><text name="ft_notes_no_fields" text="Ei omia peltoja" /><text name="ft_notes_any_field" text="Mikä tahansa pelto" /><text name="ft_common_field" text="Pelto" /><text name="ft_notes_add" text="+ Lisää tehtävä" /><text name="ft_notes_list_count_fmt" text="Tehtävälista (%d avoinna - %d valmiina)" /><text name="ft_notes_empty" text="Ei vielä tehtäviä - lisää yksi yllä" /><text name="ft_common_undo" text="Kumoa" /><text name="ft_common_done" text="Valmis" /><text name="ft_notes_clear_completed_fmt" text="Tyhjennä %d valmista" /><text name="ft_fieldjobs_no_job" text="Ei työtä käynnissä." /><text name="ft_fieldjobs_start_job" text="Aloita työ" /><text name="ft_fieldjobs_recent_jobs" text="Viimeisimmät työt" /><text name="ft_fieldjobs_no_completed" text="Ei vielä päätettyjä töitä." /><text name="ft_fieldjobs_no_job_short" text="ei aktiivista työtä" /><text name="ft_common_history" text="Historia" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Pois" />
     <text name="ft_fieldjobs_confirm_start" text="KÄYNNISTÄ TYÖAJASTIN" />
     <text name="ft_fieldjobs_purpose" text="Ajastaa ja kirjaa työsi. Työntekijää ei lähetetä." />
     <text name="ft_fieldjobs_finish_job" text="PÄÄTÄ TYÖ" />
@@ -2806,6 +2806,22 @@
         <text name="ft_dairy_breed_help_title" text="ROTUKIRJAUS" />
         <text name="ft_dairy_breed_help_body" text="Karja nyt laskee navetan lypsyeläimet.&#10;Maito säiliössä seuraa varastoitua maitoa sen tuottaneiden&#10;rotujen mukaan. Uusi karja vanhan maidon rinnalla on&#10;normaalia. Tuntematon maito on kirjausta vanhempaa tai&#10;tuli todistamatonta reittiä. Rotuja ei arvoteta tässä." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Pidä kirjaa tilan tehtävistä.&#10;&#10;Valitse tehtäväpohja ja pelto painikkeilla &lt; / &gt;,&#10;ja lisää tehtävä listaan painikkeella + Lisää tehtävä.&#10;Tehtävät tallentuvat automaattisesti tallennuskohtaisesti." />
+        <text name="ft_notes_help_actions_body" text="Valmis - merkitse tehtävä tehdyksi (■)&#10;Kumoa - merkitse se taas avoimeksi (□)&#10;✕    - poista tehtävä kokonaan&#10;Tyhjennä valmiit - poista kaikki tehdyt tehtävät kerralla" />
+        <text name="ft_excavator_help_terrain_title" text="MAASTOLUKEMAT" />
+        <text name="ft_excavator_help_terrain_body" text="Näyttää nykyisen sijaintisi maailmassa, ajoneuvon nimen ja&#10;nopeuden, maanpinnan korkeuden ja kuinka paljon olet&#10;maanpinnan ylä- tai alapuolella. Arvot päivittyvät&#10;niin kauan kuin tämä sivu on auki." />
+        <text name="ft_excavator_help_bucket_title" text="KAUHALASKENTA" />
+        <text name="ft_excavator_help_bucket_body" text="Kuormien laskenta toimii taustalla aina, kun ajat&#10;pyöräkuormaajaa, kaivinkonetta tai materiaalinkäsittelijää.&#10;Se jatkuu, vaikka poistuisit sivulta tai sulkisit&#10;tabletin. Asetuksia ei tarvita." />
+        <text name="ft_excavator_help_cards_body" text="KUORMAT = tämän istunnon aikana kirjatut tyhjennykset.&#10;PAINO = siirretyn materiaalin kokonaismäärä tonneina.&#10;MERKINNÄT = historiaan tallennettujen merkintöjen määrä." />
+        <text name="ft_excavator_help_history_body" text="Luettelee viimeisimmät tyhjennykset materiaalin nimen ja&#10;arvioidun painon kanssa. Vanhemmat rivit poistuvat listalta." />
+        <text name="ft_excavator_help_reset_body" text="Tyhjentää kuormahistorian ja istunnon summat. Käytä sitä&#10;uuden työn alussa mitataksesi tuottavuuden erikseen." />
+        <text name="ft_excavator_subtitle" text="Maasto + kauha" />
+        <text name="ft_excavator_speed_fmt" text="%.1f km/h" />
+        <text name="ft_excavator_bucket_session" text="KAUHAISTUNTO" />
+        <text name="ft_excavator_active_bucket" text="AKTIIVINEN KAUHA" />
+        <text name="ft_excavator_no_bucket" text="Kauhallista ajoneuvoa ei löytynyt." />
+        <text name="ft_excavator_history_fmt" text="KUORMAHISTORIA  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>
