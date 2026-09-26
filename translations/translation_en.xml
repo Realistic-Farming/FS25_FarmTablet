@@ -2358,6 +2358,52 @@
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
         <text name="ft_count_pen" text="%d pen" />
         <text name="ft_count_pens" text="%d pens" />
+        <text name="ft_hotspot_help_what_body" text="Shows all active map hotspots / pins.&#10;Tick the checkbox beside a pin, then REMOVE SELECTED.&#10;ADD PIN HERE drops a custom pin at your feet.&#10;&#10;Removing system hotspots (Missions, Shops) may break&#10;game features - be careful. System pins can return&#10;after a map re-sync." />
+        <text name="ft_hotspot_help_clear_body" text="Press CLEAR ALL once - it turns red and asks&#10;for confirmation. Press it again within 4 seconds&#10;to remove every hotspot from the map." />
+        <text name="ft_hotspot_total_fmt" text="%d total" />
+        <text name="ft_hotspot_add_pin" text="ADD PIN HERE" />
+        <text name="ft_hotspot_pin_added" text="Pin added at your position." />
+        <text name="ft_hotspot_add_failed" text="Add failed" />
+        <text name="ft_hotspot_err_no_position" text="No player position" />
+        <text name="ft_hotspot_err_api" text="Hotspot API unavailable" />
+        <text name="ft_hotspot_err_add" text="Could not add pin" />
+        <text name="ft_hotspot_pin_name" text="Farm Tablet pin" />
+        <text name="ft_hotspot_remove_fmt" text="REMOVE (%d)" />
+        <text name="ft_hotspot_remove" text="REMOVE" />
+        <text name="ft_hotspot_tick_first" text="Tick pins to remove first." />
+        <text name="ft_hotspot_removed_one" text="Removed %d pin." />
+        <text name="ft_hotspot_removed" text="Removed %d pins." />
+        <text name="ft_hotspot_confirm_clear" text="CONFIRM CLEAR" />
+        <text name="ft_hotspot_all_cleared" text="All pins cleared." />
+        <text name="ft_hotspot_list_heading" text="HOTSPOTS  (tick to select)" />
+        <text name="ft_hotspot_none" text="No hotspots on the map - use ADD PIN HERE." />
+        <text name="ft_weather_help_condition_title" text="CURRENT CONDITION" />
+        <text name="ft_weather_help_condition_body" text="Shows the current weather at the top with a colour-coded&#10;left edge: blue = rain, orange = storm, grey = overcast,&#10;white = clear, dark = fog." />
+        <text name="ft_weather_help_weatherguard_body" text="With FS25_WeatherGuard installed this app reads the shared&#10;weather truth and a real engine forecast, not a guess." />
+        <text name="ft_weather_help_dial_title" text="WORLD WEATHER DIAL" />
+        <text name="ft_weather_help_dial_body" text="Real / Arid / Normal / Wet set the shared world climate.&#10;Admin-only in multiplayer. Matches Soil Fertilizer." />
+        <text name="ft_weather_help_temperature_body" text="Air temperature in Celsius with a feel label: Freezing (&lt;0)&#10;Cold (&lt;8)  Cool (&lt;16)  Mild (&lt;24)  Warm (&lt;32)  Hot (32+)." />
+        <text name="ft_weather_help_readings_title" text="OTHER READINGS" />
+        <text name="ft_weather_help_readings_body" text="Cloud cover: 0-19% Clear, 20-39% Partly, 40-69% Mostly,&#10;70%+ Overcast. Wind: km/h plus compass direction.&#10;Precipitation: rain or storm intensity as a fill bar." />
+        <text name="ft_weather_help_forecast_body" text="With WeatherGuard: real outlook, rain shown as intensity.&#10;Without it: a projected estimate showing rain chance." />
+        <text name="ft_weather_source_wg" text="Via WeatherGuard" />
+        <text name="ft_weather_source_engine" text="Engine (no WeatherGuard)" />
+        <text name="ft_weather_forecast_days_fmt" text="~%.0f day forecast" />
+        <text name="ft_weather_world_weather" text="WORLD WEATHER" />
+        <text name="ft_weather_notice_refused" text="World weather change was refused by WeatherGuard." />
+        <text name="ft_weather_notice_admin_only" text="World weather is admin-only. Log in as a server admin to change it." />
+        <text name="ft_weather_dial_note" text="Shared world setting · admin-only in multiplayer" />
+        <text name="ft_weather_wind_kmh_fmt" text="%.0f km/h" />
+        <text name="ft_weather_wind_kmh_1f_fmt" text="%.1f km/h" />
+        <text name="ft_weather_rain_moderate" text="Moderate Rain" />
+        <text name="ft_weather_rain_light" text="Light Rain" />
+        <text name="ft_weather_forecast_engine" text="FORECAST  (engine)" />
+        <text name="ft_weather_forecast_projected" text="FORECAST  (projected)" />
+        <text name="ft_weather_rain_intensity_fmt" text="%d%% intensity" />
+        <text name="ft_weather_rain_chance_fmt" text="%d%% chance" />
+        <text name="ft_weather_day_plus_fmt" text="Day +%d" />
+        <text name="ft_weather_cond_clear" text="CLEAR" />
+        <text name="ft_auto_snow_2" text="SNOW" />
         <text name="ft_count_field" text="%d field" />
         <text name="ft_count_fields" text="%d fields" />
         <text name="ft_count_vehicle" text="%d vehicle" />
