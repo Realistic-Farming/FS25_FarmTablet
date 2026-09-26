@@ -30,6 +30,9 @@
 // tablet is capitals. (No lowercase letter, not v === v.toUpperCase(): German's ß upper-cases to SS.)
 // SCRIPT-OUT row: a file written in Latin letters holds no Han, kana, Hangul or Cyrillic letter (fc is French Canadian).
 // ACCENT row: French's three existing values the import had stripped keep their accents.
+// FALLBACK row (Bob's fold on #204's intake): every key's English equals the fallback the code passes with it (a ".."
+// chain of literals joined). The file wins at run time, so an English value the code has moved on from is never seen:
+// FT-6's "Loan" hid RSF-F130's "Bank loan", and the history help had lost the code's Time Guard line.
 //
 // Draw-site rows (below the text rows), over the real source files in SOURCES:
 //   S1  every key a SOURCES file passes as a literal to one of its text functions (KEYFN) is one of
@@ -113,7 +116,8 @@ const SCRIPT_ALLOW = {
 };
 // Keys this app draws that another PR of the wave checks, with the PR.
 const OTHER_PR = {
-
+  "ft_companion_hourly": "another bar's key (l10n-income-tax-workers-check.mjs)",
+  "ft_companion_daily": "another bar's key (l10n-income-tax-workers-check.mjs)",
 };
 // Drawn literals with no key, each with its reason.
 const NO_KEY = {
@@ -223,6 +227,19 @@ for (const loc of locales) {
   }
   for (const [loc, keys] of Object.entries(ACCENT)) for (const k of keys) { acc++; const v = unesc((ALL[loc].inside.get(k) || [""])[0]); if (fold(v) === v) failures.push(`ACCENT ${loc}: ${k} ${JSON.stringify(v)} carries no accent: the import's stripped text is back`); }
   console.log(`  CASE: ${CAPS.length} capitals keys (${caps} values); SCRIPT-OUT: ${latin} Latin-script values; ACCENT: ${acc} restored pairs`);
+  // FALLBACK: the code's own English, read from the source.
+  const src = readFileSync(join(ROOT, "src/apps/FinancialCockpitApp.lua"), "utf8").replace(/\r\n/g, "\n");
+  const LIT = String.raw`"((?:[^"\\]|\\.)*)"`;
+  const CALL = new RegExp(String.raw`(?:_T|FT\.l10n(?:Format)?)\(\s*"(ft_[a-z0-9_]+)",\s*((?:` + LIT + String.raw`\s*(?:\.\.\s*)?)+)`, "g");
+  let fb = 0;
+  for (const m of src.matchAll(CALL)) {
+    const code = [...m[2].matchAll(new RegExp(LIT, "g"))].map((x) => x[1]).join("").replace(/\\n/g, "\n").replace(/\\"/g, '"');
+    if (!KEYS.includes(m[1])) continue;
+    fb++;
+    const en = unesc((EN.inside.get(m[1]) || [""])[0]);
+    if (en !== code) failures.push(`FALLBACK en: ${m[1]} reads ${JSON.stringify(en)}; the code's fallback is ${JSON.stringify(code)}`);
+  }
+  console.log(`  FALLBACK: ${fb} key calls' English equals their code fallback`);
 }
 
 // ---- Draw-site rows, over the real source.
