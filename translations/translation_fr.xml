@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Mois" />
         <text name="ft_fc_year" text="Année" />
         <text name="ft_fc_balance" text="Solde" />
-        <text name="ft_fc_loan" text="Prêt" />
+        <text name="ft_fc_loan" text="Prêt bancaire" />
         <text name="ft_fc_net_worth" text="Valeur nette" />
         <text name="ft_fc_clock" text="Horloge économique" />
         <text name="ft_fc_period" text="Période" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="SANTÉ DE LA FERME" />
         <text name="ft_fc_help_health_body" text="Une seule couleur de cœur, celle du pire indicateur disposant de données.&#10;Vert / orange / rouge. Les neutres et les partiels ne comptent jamais comme sains.&#10;Touchez le cœur pour ouvrir l'indicateur qui a fixé la couleur." />
         <text name="ft_fc_help_history_title" text="HISTORIQUE" />
-        <text name="ft_fc_help_history_body" text="Cette page enregistre elle-même une ligne mensuelle compacte.&#10;Hôte / solo uniquement en v1. Les lacunes restent des lacunes." />
+        <text name="ft_fc_help_history_body" text="Cette page enregistre elle-même une ligne mensuelle compacte.&#10;Time Guard est requis pour l'horloge mensuelle. Hôte / solo&#10;uniquement en v1. Les lacunes restent des lacunes." />
         <text name="ft_fc_help_forecast_title" text="PRÉVISIONS" />
         <text name="ft_fc_help_forecast_body" text="Présenté comme une projection. PARTIEL quand un flux manque.&#10;Les flux manquants affichent « pas encore suivi », jamais une supposition." />
         <text name="ft_fc_help_readonly_title" text="LECTURE SEULE" />

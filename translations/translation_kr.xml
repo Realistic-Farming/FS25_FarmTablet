@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="월" />
         <text name="ft_fc_year" text="연도" />
         <text name="ft_fc_balance" text="잔액" />
-        <text name="ft_fc_loan" text="대출" />
+        <text name="ft_fc_loan" text="은행 대출" />
         <text name="ft_fc_net_worth" text="순자산" />
         <text name="ft_fc_clock" text="경제 시계" />
         <text name="ft_fc_period" text="기간" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="농장 건전성" />
         <text name="ft_fc_help_health_body" text="데이터가 있는 가장 나쁜 지표로 하트 색 하나를 정합니다.&#10;녹색 / 노랑 / 빨강. 중립과 부분은 절대 양호로 치지 않습니다.&#10;하트를 누르면 색을 정한 지표가 열립니다." />
         <text name="ft_fc_help_history_title" text="기록" />
-        <text name="ft_fc_help_history_body" text="이 페이지는 간단한 월별 행을 직접 기록합니다.&#10;v1에서는 호스트 / 싱글플레이만. 빈 곳은 빈 곳으로 남습니다." />
+        <text name="ft_fc_help_history_body" text="이 페이지는 간단한 월별 행을 직접 기록합니다.&#10;월 시계에는 Time Guard가 필요합니다. v1에서는 호스트 /&#10;싱글플레이만. 빈 곳은 빈 곳으로 남습니다." />
         <text name="ft_fc_help_forecast_title" text="예측" />
         <text name="ft_fc_help_forecast_body" text="전망으로 표시됩니다. 흐름이 빠지면 부분.&#10;빠진 흐름은 아직 추적되지 않음으로 표시되며 추측하지 않습니다." />
         <text name="ft_fc_help_readonly_title" text="읽기 전용" />

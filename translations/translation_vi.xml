@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Tháng" />
         <text name="ft_fc_year" text="Năm" />
         <text name="ft_fc_balance" text="Số dư" />
-        <text name="ft_fc_loan" text="Khoản vay" />
+        <text name="ft_fc_loan" text="Khoản vay ngân hàng" />
         <text name="ft_fc_net_worth" text="Giá trị ròng" />
         <text name="ft_fc_clock" text="Đồng hồ kinh tế" />
         <text name="ft_fc_period" text="Kỳ" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="SỨC KHỎE TRANG TRẠI" />
         <text name="ft_fc_help_health_body" text="Một màu tim duy nhất theo chỉ số tệ nhất có dữ liệu.&#10;Xanh / vàng / đỏ. Trung tính và một phần không bao giờ được tính là tốt.&#10;Chạm vào tim để mở chỉ số đã quyết định màu." />
         <text name="ft_fc_help_history_title" text="LỊCH SỬ" />
-        <text name="ft_fc_help_history_body" text="Trang này tự ghi một dòng hằng tháng gọn.&#10;Chỉ máy chủ / chơi đơn trong v1. Khoảng trống vẫn là khoảng trống." />
+        <text name="ft_fc_help_history_body" text="Trang này tự ghi một dòng hằng tháng gọn.&#10;Cần Time Guard làm đồng hồ tháng. Chỉ máy chủ /&#10;chơi đơn trong v1. Khoảng trống vẫn là khoảng trống." />
         <text name="ft_fc_help_forecast_title" text="DỰ BÁO" />
         <text name="ft_fc_help_forecast_body" text="Được ghi là dự phóng. MỘT PHẦN khi thiếu một dòng tiền.&#10;Dòng tiền thiếu hiện chưa được theo dõi, không bao giờ đoán." />
         <text name="ft_fc_help_readonly_title" text="CHỈ ĐỌC" />

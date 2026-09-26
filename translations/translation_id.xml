@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Bulan" />
         <text name="ft_fc_year" text="Tahun" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Pinjaman" />
+        <text name="ft_fc_loan" text="Pinjaman bank" />
         <text name="ft_fc_net_worth" text="Kekayaan bersih" />
         <text name="ft_fc_clock" text="Jam ekonomi" />
         <text name="ft_fc_period" text="Periode" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="KESEHATAN PERTANIAN" />
         <text name="ft_fc_help_health_body" text="Satu warna hati dari indikator terburuk yang punya data.&#10;Hijau / kuning / merah. Netral dan sebagian tidak pernah dihitung sehat.&#10;Ketuk hati untuk membuka indikator yang menentukan warnanya." />
         <text name="ft_fc_help_history_title" text="RIWAYAT" />
-        <text name="ft_fc_help_history_body" text="Halaman ini mencatat sendiri satu baris bulanan ringkas.&#10;Hanya host / pemain tunggal di v1. Celah tetap celah." />
+        <text name="ft_fc_help_history_body" text="Halaman ini mencatat sendiri satu baris bulanan ringkas.&#10;Perlu Time Guard untuk jam bulanan. Hanya host /&#10;pemain tunggal di v1. Celah tetap celah." />
         <text name="ft_fc_help_forecast_title" text="PRAKIRAAN" />
         <text name="ft_fc_help_forecast_body" text="Ditampilkan sebagai proyeksi. SEBAGIAN saat ada arus yang hilang.&#10;Arus yang hilang menampilkan belum dilacak, tidak pernah tebakan." />
         <text name="ft_fc_help_readonly_title" text="HANYA BACA" />

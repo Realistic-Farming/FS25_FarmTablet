@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="月" />
         <text name="ft_fc_year" text="年" />
         <text name="ft_fc_balance" text="残高" />
-        <text name="ft_fc_loan" text="ローン" />
+        <text name="ft_fc_loan" text="銀行ローン" />
         <text name="ft_fc_net_worth" text="純資産" />
         <text name="ft_fc_clock" text="経済時計" />
         <text name="ft_fc_period" text="期間" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="農場の健全性" />
         <text name="ft_fc_help_health_body" text="データのある最悪の指標によるハートの色は 1 つだけです。&#10;緑 / 黄 / 赤。中立と一部は決して健全とみなしません。&#10;ハートをタップすると、色を決めた指標が開きます。" />
         <text name="ft_fc_help_history_title" text="履歴" />
-        <text name="ft_fc_help_history_body" text="このページは簡潔な月次行を自ら記録します。&#10;v1 ではホスト / シングルプレイのみ。欠けは欠けのままです。" />
+        <text name="ft_fc_help_history_body" text="このページは簡潔な月次行を自ら記録します。&#10;月の時計には Time Guard が必要です。v1 ではホスト /&#10;シングルプレイのみ。欠けは欠けのままです。" />
         <text name="ft_fc_help_forecast_title" text="予測" />
         <text name="ft_fc_help_forecast_body" text="見通しとして表示します。フローが欠けると 一部。&#10;欠けたフローは 未追跡 と表示し、決して推測しません。" />
         <text name="ft_fc_help_readonly_title" text="読み取り専用" />

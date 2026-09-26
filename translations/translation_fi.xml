@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Kuukausi" />
         <text name="ft_fc_year" text="Vuosi" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Laina" />
+        <text name="ft_fc_loan" text="Pankkilaina" />
         <text name="ft_fc_net_worth" text="Nettovarallisuus" />
         <text name="ft_fc_clock" text="Talouskello" />
         <text name="ft_fc_period" text="Jakso" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="TILAN TERVEYS" />
         <text name="ft_fc_help_health_body" text="Yksi sydämen väri huonoimmasta mittarista, jolla on tietoja.&#10;Vihreä / keltainen / punainen. Neutraalit ja osittaiset eivät koskaan laske terveiksi.&#10;Napauta sydäntä avataksesi mittarin, joka määritti värin." />
         <text name="ft_fc_help_history_title" text="HISTORIA" />
-        <text name="ft_fc_help_history_body" text="Tämä sivu tallentaa itse tiiviin kuukausirivin.&#10;Vain isäntä / yksinpeli v1:ssä. Aukot jäävät aukoiksi." />
+        <text name="ft_fc_help_history_body" text="Tämä sivu tallentaa itse tiiviin kuukausirivin.&#10;Vaatii Time Guardin kuukausikelloksi. Vain isäntä /&#10;yksinpeli v1:ssä. Aukot jäävät aukoiksi." />
         <text name="ft_fc_help_forecast_title" text="ENNUSTE" />
         <text name="ft_fc_help_forecast_body" text="Esitetään ennusteena. OSITTAINEN, kun virta puuttuu.&#10;Puuttuvat virrat näyttävät ei vielä seurattu, ei koskaan arvausta." />
         <text name="ft_fc_help_readonly_title" text="VAIN LUKU" />

@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Mês" />
         <text name="ft_fc_year" text="Ano" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Empréstimo" />
+        <text name="ft_fc_loan" text="Empréstimo bancário" />
         <text name="ft_fc_net_worth" text="Património líquido" />
         <text name="ft_fc_clock" text="Relógio económico" />
         <text name="ft_fc_period" text="Período" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="SAÚDE DA EXPLORAÇÃO" />
         <text name="ft_fc_help_health_body" text="Uma só cor de coração, a do pior indicador com dados.&#10;Verde / âmbar / vermelho. Neutros e parciais nunca contam como saudáveis.&#10;Toque no coração para abrir o indicador que definiu a cor." />
         <text name="ft_fc_help_history_title" text="HISTÓRICO" />
-        <text name="ft_fc_help_history_body" text="Esta página grava ela própria uma linha mensal compacta.&#10;Apenas anfitrião / um jogador na v1. As lacunas ficam lacunas." />
+        <text name="ft_fc_help_history_body" text="Esta página grava ela própria uma linha mensal compacta.&#10;Precisa do Time Guard para o relógio mensal. Apenas anfitrião /&#10;um jogador na v1. As lacunas ficam lacunas." />
         <text name="ft_fc_help_forecast_title" text="PREVISÃO" />
         <text name="ft_fc_help_forecast_body" text="Apresentado como projeção. PARCIAL quando falta um fluxo.&#10;Os fluxos em falta mostram ainda não acompanhado, nunca um palpite." />
         <text name="ft_fc_help_readonly_title" text="APENAS LEITURA" />

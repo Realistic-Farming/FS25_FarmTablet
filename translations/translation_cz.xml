@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Měsíc" />
         <text name="ft_fc_year" text="Rok" />
         <text name="ft_fc_balance" text="Zůstatek" />
-        <text name="ft_fc_loan" text="Úvěr" />
+        <text name="ft_fc_loan" text="Bankovní úvěr" />
         <text name="ft_fc_net_worth" text="Čisté jmění" />
         <text name="ft_fc_clock" text="Ekonomické hodiny" />
         <text name="ft_fc_period" text="Období" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="ZDRAVÍ FARMY" />
         <text name="ft_fc_help_health_body" text="Jedna barva srdce podle nejhoršího ukazatele s daty.&#10;Zelená / žlutá / červená. Neutrální a částečné se nikdy nepočítají jako zdravé.&#10;Klepněte na srdce a otevřete ukazatel, který určil barvu." />
         <text name="ft_fc_help_history_title" text="HISTORIE" />
-        <text name="ft_fc_help_history_body" text="Tato stránka sama zaznamenává kompaktní měsíční řádek.&#10;Pouze hostitel / jeden hráč ve v1. Mezery zůstávají mezerami." />
+        <text name="ft_fc_help_history_body" text="Tato stránka sama zaznamenává kompaktní měsíční řádek.&#10;Vyžaduje Time Guard jako měsíční hodiny. Pouze hostitel /&#10;jeden hráč ve v1. Mezery zůstávají mezerami." />
         <text name="ft_fc_help_forecast_title" text="PROGNÓZA" />
         <text name="ft_fc_help_forecast_body" text="Označeno jako projekce. ČÁSTEČNÉ, když chybí tok.&#10;Chybějící toky ukazují zatím nesledováno, nikdy odhad." />
         <text name="ft_fc_help_readonly_title" text="POUZE ČTENÍ" />

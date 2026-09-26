@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Месяц" />
         <text name="ft_fc_year" text="Год" />
         <text name="ft_fc_balance" text="Баланс" />
-        <text name="ft_fc_loan" text="Кредит" />
+        <text name="ft_fc_loan" text="Банковский кредит" />
         <text name="ft_fc_net_worth" text="Чистая стоимость" />
         <text name="ft_fc_clock" text="Экономические часы" />
         <text name="ft_fc_period" text="Период" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="ЗДОРОВЬЕ ФЕРМЫ" />
         <text name="ft_fc_help_health_body" text="Один цвет сердца по худшему показателю, по которому есть данные.&#10;Зелёный / жёлтый / красный. Нейтральные и частичные никогда не считаются здоровыми.&#10;Нажмите на сердце, чтобы открыть показатель, задавший цвет." />
         <text name="ft_fc_help_history_title" text="ИСТОРИЯ" />
-        <text name="ft_fc_help_history_body" text="Эта страница сама записывает компактную строку за месяц.&#10;Только хост / одиночная игра в v1. Пробелы остаются пробелами." />
+        <text name="ft_fc_help_history_body" text="Эта страница сама записывает компактную строку за месяц.&#10;Нужен Time Guard как месячные часы. Только хост /&#10;одиночная игра в v1. Пробелы остаются пробелами." />
         <text name="ft_fc_help_forecast_title" text="ПРОГНОЗ" />
         <text name="ft_fc_help_forecast_body" text="Помечено как проекция. ЧАСТИЧНО, если не хватает потока.&#10;Для недостающих потоков показано «пока не отслеживается», а не догадка." />
         <text name="ft_fc_help_readonly_title" text="ТОЛЬКО ЧТЕНИЕ" />

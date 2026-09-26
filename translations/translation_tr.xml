@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Ay" />
         <text name="ft_fc_year" text="Yıl" />
         <text name="ft_fc_balance" text="Bakiye" />
-        <text name="ft_fc_loan" text="Kredi" />
+        <text name="ft_fc_loan" text="Banka kredisi" />
         <text name="ft_fc_net_worth" text="Net değer" />
         <text name="ft_fc_clock" text="Ekonomik saat" />
         <text name="ft_fc_period" text="Dönem" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="ÇİFTLİK SAĞLIĞI" />
         <text name="ft_fc_help_health_body" text="Verisi olan en kötü göstergeden tek bir kalp rengi.&#10;Yeşil / sarı / kırmızı. Nötr ve kısmi olanlar asla sağlıklı sayılmaz.&#10;Rengi belirleyen göstergeyi açmak için kalbe dokunun." />
         <text name="ft_fc_help_history_title" text="GEÇMİŞ" />
-        <text name="ft_fc_help_history_body" text="Bu sayfa kısa bir aylık satırı kendisi kaydeder.&#10;v1'de yalnızca sunucu sahibi / tek oyunculu. Boşluklar boşluk olarak kalır." />
+        <text name="ft_fc_help_history_body" text="Bu sayfa kısa bir aylık satırı kendisi kaydeder.&#10;Aylık saat için Time Guard gerekir. v1'de yalnızca&#10;sunucu sahibi / tek oyunculu. Boşluklar boşluk olarak kalır." />
         <text name="ft_fc_help_forecast_title" text="TAHMİN" />
         <text name="ft_fc_help_forecast_body" text="Projeksiyon olarak etiketlenir. Bir akış eksikse KISMİ.&#10;Eksik akışlar henüz izlenmiyor gösterir, asla tahmin yürütmez." />
         <text name="ft_fc_help_readonly_title" text="SALT OKUNUR" />

@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Hónap" />
         <text name="ft_fc_year" text="Év" />
         <text name="ft_fc_balance" text="Egyenleg" />
-        <text name="ft_fc_loan" text="Kölcsön" />
+        <text name="ft_fc_loan" text="Banki kölcsön" />
         <text name="ft_fc_net_worth" text="Nettó vagyon" />
         <text name="ft_fc_clock" text="Gazdasági óra" />
         <text name="ft_fc_period" text="Időszak" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="A GAZDASÁG EGÉSZSÉGE" />
         <text name="ft_fc_help_health_body" text="Egyetlen szívszín, a legrosszabb adatokkal rendelkező mutatóból.&#10;Zöld / sárga / piros. A semlegesek és részlegesek soha nem számítanak egészségesnek.&#10;Koppints a szívre, hogy megnyisd a színt meghatározó mutatót." />
         <text name="ft_fc_help_history_title" text="ELŐZMÉNYEK" />
-        <text name="ft_fc_help_history_body" text="Ez az oldal maga rögzít egy tömör havi sort.&#10;Csak hoszt / egyjátékos a v1-ben. A hézagok hézagok maradnak." />
+        <text name="ft_fc_help_history_body" text="Ez az oldal maga rögzít egy tömör havi sort.&#10;A havi órához Time Guard szükséges. Csak hoszt /&#10;egyjátékos a v1-ben. A hézagok hézagok maradnak." />
         <text name="ft_fc_help_forecast_title" text="ELŐREJELZÉS" />
         <text name="ft_fc_help_forecast_body" text="Előrevetítésként jelölve. RÉSZLEGES, ha hiányzik egy pénzáramlás.&#10;A hiányzó pénzáramlások a még nincs követve szöveget mutatják, sosem találgatást." />
         <text name="ft_fc_help_readonly_title" text="CSAK OLVASHATÓ" />

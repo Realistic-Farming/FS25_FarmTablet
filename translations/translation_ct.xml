@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="月" />
         <text name="ft_fc_year" text="年" />
         <text name="ft_fc_balance" text="餘額" />
-        <text name="ft_fc_loan" text="貸款" />
+        <text name="ft_fc_loan" text="銀行貸款" />
         <text name="ft_fc_net_worth" text="淨值" />
         <text name="ft_fc_clock" text="經濟時鐘" />
         <text name="ft_fc_period" text="期間" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="農場健康度" />
         <text name="ft_fc_help_health_body" text="以有資料的最差指標決定唯一的心形顏色。&#10;綠 / 黃 / 紅。中性與部分永遠不算健全。&#10;點選心形以開啟決定顏色的指標。" />
         <text name="ft_fc_help_history_title" text="歷史" />
-        <text name="ft_fc_help_history_body" text="此頁面會自行記錄精簡的每月一行。&#10;v1 僅限主機 / 單人遊戲。缺口仍是缺口。" />
+        <text name="ft_fc_help_history_body" text="此頁面會自行記錄精簡的每月一行。&#10;每月時鐘需要 Time Guard。v1 僅限主機 /&#10;單人遊戲。缺口仍是缺口。" />
         <text name="ft_fc_help_forecast_title" text="預測" />
         <text name="ft_fc_help_forecast_body" text="以預估標示。缺少流量時顯示 部分。&#10;缺漏的流量顯示 尚未追蹤，從不猜測。" />
         <text name="ft_fc_help_readonly_title" text="唯讀" />

@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Måned" />
         <text name="ft_fc_year" text="År" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Lån" />
+        <text name="ft_fc_loan" text="Banklån" />
         <text name="ft_fc_net_worth" text="Nettoformue" />
         <text name="ft_fc_clock" text="Økonomisk klokke" />
         <text name="ft_fc_period" text="Periode" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="GÅRDENS HELSE" />
         <text name="ft_fc_help_health_body" text="Én hjertefarge fra den dårligste indikatoren med data.&#10;Grønn / gul / rød. Nøytrale og delvise teller aldri som sunne.&#10;Trykk på hjertet for å åpne indikatoren som satte fargen." />
         <text name="ft_fc_help_history_title" text="HISTORIKK" />
-        <text name="ft_fc_help_history_body" text="Denne siden registrerer selv en kompakt månedslinje.&#10;Bare vert / enspiller i v1. Hull forblir hull." />
+        <text name="ft_fc_help_history_body" text="Denne siden registrerer selv en kompakt månedslinje.&#10;Krever Time Guard som månedsklokke. Bare vert /&#10;enspiller i v1. Hull forblir hull." />
         <text name="ft_fc_help_forecast_title" text="PROGNOSE" />
         <text name="ft_fc_help_forecast_body" text="Vist som en framskriving. DELVIS når en strøm mangler.&#10;Manglende strømmer viser ikke registrert ennå, aldri en gjetning." />
         <text name="ft_fc_help_readonly_title" text="SKRIVEBESKYTTET" />

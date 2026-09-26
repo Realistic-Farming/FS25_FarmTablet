@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Månad" />
         <text name="ft_fc_year" text="År" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Lån" />
+        <text name="ft_fc_loan" text="Banklån" />
         <text name="ft_fc_net_worth" text="Nettoförmögenhet" />
         <text name="ft_fc_clock" text="Ekonomisk klocka" />
         <text name="ft_fc_period" text="Period" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="GÅRDENS HÄLSA" />
         <text name="ft_fc_help_health_body" text="En hjärtfärg från den sämsta indikatorn som har data.&#10;Grön / gul / röd. Neutrala och delvisa räknas aldrig som friska.&#10;Tryck på hjärtat för att öppna indikatorn som satte färgen." />
         <text name="ft_fc_help_history_title" text="HISTORIK" />
-        <text name="ft_fc_help_history_body" text="Den här sidan registrerar själv en kompakt månadsrad.&#10;Endast värd / enspelarläge i v1. Luckor förblir luckor." />
+        <text name="ft_fc_help_history_body" text="Den här sidan registrerar själv en kompakt månadsrad.&#10;Kräver Time Guard som månadsklocka. Endast värd /&#10;enspelarläge i v1. Luckor förblir luckor." />
         <text name="ft_fc_help_forecast_title" text="PROGNOS" />
         <text name="ft_fc_help_forecast_body" text="Visas som en prognos. DELVIS när ett flöde saknas.&#10;Saknade flöden visar inte spårat ännu, aldrig en gissning." />
         <text name="ft_fc_help_readonly_title" text="SKRIVSKYDDAD" />

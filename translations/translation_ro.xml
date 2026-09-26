@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Lună" />
         <text name="ft_fc_year" text="An" />
         <text name="ft_fc_balance" text="Sold" />
-        <text name="ft_fc_loan" text="Împrumut" />
+        <text name="ft_fc_loan" text="Împrumut bancar" />
         <text name="ft_fc_net_worth" text="Valoare netă" />
         <text name="ft_fc_clock" text="Ceas economic" />
         <text name="ft_fc_period" text="Perioadă" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="SĂNĂTATEA FERMEI" />
         <text name="ft_fc_help_health_body" text="O singură culoare a inimii, de la cel mai slab indicator care are date.&#10;Verde / chihlimbar / roșu. Neutrele și parțialele nu contează niciodată ca sănătoase.&#10;Atinge inima pentru a deschide indicatorul care a stabilit culoarea." />
         <text name="ft_fc_help_history_title" text="ISTORIC" />
-        <text name="ft_fc_help_history_body" text="Această pagină înregistrează singură un rând lunar compact.&#10;Doar gazda / un jucător în v1. Golurile rămân goluri." />
+        <text name="ft_fc_help_history_body" text="Această pagină înregistrează singură un rând lunar compact.&#10;Necesită Time Guard pentru ceasul lunar. Doar gazda /&#10;un jucător în v1. Golurile rămân goluri." />
         <text name="ft_fc_help_forecast_title" text="PROGNOZĂ" />
         <text name="ft_fc_help_forecast_body" text="Prezentat ca proiecție. PARȚIAL când lipsește un flux.&#10;Fluxurile lipsă arată încă neurmărit, niciodată o presupunere." />
         <text name="ft_fc_help_readonly_title" text="DOAR CITIRE" />

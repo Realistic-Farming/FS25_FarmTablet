@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Maand" />
         <text name="ft_fc_year" text="Jaar" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Lening" />
+        <text name="ft_fc_loan" text="Banklening" />
         <text name="ft_fc_net_worth" text="Nettovermogen" />
         <text name="ft_fc_clock" text="Economische klok" />
         <text name="ft_fc_period" text="Periode" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="GEZONDHEID VAN DE BOERDERIJ" />
         <text name="ft_fc_help_health_body" text="Eén hartkleur, van de slechtste indicator met gegevens.&#10;Groen / oranje / rood. Neutrale en gedeeltelijke tellen nooit als gezond.&#10;Tik op het hart om de indicator te openen die de kleur bepaalde." />
         <text name="ft_fc_help_history_title" text="GESCHIEDENIS" />
-        <text name="ft_fc_help_history_body" text="Deze pagina legt zelf een compacte maandregel vast.&#10;Alleen host / singleplayer in v1. Gaten blijven gaten." />
+        <text name="ft_fc_help_history_body" text="Deze pagina legt zelf een compacte maandregel vast.&#10;Time Guard is nodig voor de maandklok. Alleen host /&#10;singleplayer in v1. Gaten blijven gaten." />
         <text name="ft_fc_help_forecast_title" text="PROGNOSE" />
         <text name="ft_fc_help_forecast_body" text="Weergegeven als projectie. GEDEELTELIJK als een stroom ontbreekt.&#10;Ontbrekende stromen tonen nog niet bijgehouden, nooit een gok." />
         <text name="ft_fc_help_readonly_title" text="ALLEEN-LEZEN" />

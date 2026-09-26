@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Monat" />
         <text name="ft_fc_year" text="Jahr" />
         <text name="ft_fc_balance" text="Kontostand" />
-        <text name="ft_fc_loan" text="Kredit" />
+        <text name="ft_fc_loan" text="Bankkredit" />
         <text name="ft_fc_net_worth" text="Nettovermögen" />
         <text name="ft_fc_clock" text="Uhr" />
         <text name="ft_fc_period" text="Zeitraum" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="BILANZ" />
         <text name="ft_fc_help_health_body" text="Herzfarbe des schlechtesten Werts im Datensatz.&#10;Grün, Gelb, Rot. Neutrale und unvollständige Werte werden nicht positiv berücksichtigt.&#10;Drücke auf ein Herz, um den Wert zu sehen, der die Farbe hervorgerufen hat." />
         <text name="ft_fc_help_history_title" text="RÜCKBLICK" />
-        <text name="ft_fc_help_history_body" text="Diese Seite zeichnet eine kompakte Monatsübersicht auf.&#10;Nur Host- und Einzelspieler in v1. Lücken verbleiben als solche." />
+        <text name="ft_fc_help_history_body" text="Diese Seite zeichnet eine kompakte Monatsübersicht auf.&#10;Benötigt Time Guard als Monatsuhr. Nur Host- und&#10;Einzelspieler in v1. Lücken verbleiben als solche." />
         <text name="ft_fc_help_forecast_title" text="PROGNOSE" />
         <text name="ft_fc_help_forecast_body" text="Erstellt eine Vorhersage über die Entwicklung der Finanzen. Teilweise, wenn Werte fehlen.&#10;Fehlende Werte und Daten werden als 'noch nicht erfasst' gekennzeichnet." />
         <text name="ft_fc_help_readonly_title" text="KEINE VERÄNDERUNGEN" />

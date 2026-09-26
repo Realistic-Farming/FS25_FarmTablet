@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Mes" />
         <text name="ft_fc_year" text="Año" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Préstamo" />
+        <text name="ft_fc_loan" text="Préstamo bancario" />
         <text name="ft_fc_net_worth" text="Patrimonio neto" />
         <text name="ft_fc_clock" text="Reloj económico" />
         <text name="ft_fc_period" text="Periodo" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="SALUD DE LA GRANJA" />
         <text name="ft_fc_help_health_body" text="Un solo color de corazón, el del peor indicador con datos.&#10;Verde / ámbar / rojo. Los neutros y parciales nunca cuentan como saludables.&#10;Toca el corazón para abrir el indicador que fijó el color." />
         <text name="ft_fc_help_history_title" text="HISTORIAL" />
-        <text name="ft_fc_help_history_body" text="Esta página registra ella misma una fila mensual compacta.&#10;Solo anfitrión / un jugador en v1. Los huecos siguen siendo huecos." />
+        <text name="ft_fc_help_history_body" text="Esta página registra ella misma una fila mensual compacta.&#10;Necesita Time Guard para el reloj mensual. Solo anfitrión /&#10;un jugador en v1. Los huecos siguen siendo huecos." />
         <text name="ft_fc_help_forecast_title" text="PRONÓSTICO" />
         <text name="ft_fc_help_forecast_body" text="Presentado como proyección. PARCIAL cuando falta un flujo.&#10;Los flujos que faltan muestran «aún sin seguimiento», nunca una suposición." />
         <text name="ft_fc_help_readonly_title" text="SOLO LECTURA" />

@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Miesiąc" />
         <text name="ft_fc_year" text="Rok" />
         <text name="ft_fc_balance" text="Saldo" />
-        <text name="ft_fc_loan" text="Kredyt" />
+        <text name="ft_fc_loan" text="Kredyt bankowy" />
         <text name="ft_fc_net_worth" text="Wartość netto" />
         <text name="ft_fc_clock" text="Zegar ekonomiczny" />
         <text name="ft_fc_period" text="Okres" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="ZDROWIE GOSPODARSTWA" />
         <text name="ft_fc_help_health_body" text="Jeden kolor serca według najgorszego wskaźnika z danymi.&#10;Zielony / bursztynowy / czerwony. Neutralne i częściowe nigdy nie liczą się jako zdrowe.&#10;Dotknij serca, aby otworzyć wskaźnik, który ustalił kolor." />
         <text name="ft_fc_help_history_title" text="HISTORIA" />
-        <text name="ft_fc_help_history_body" text="Ta strona sama zapisuje zwięzły wiersz miesięczny.&#10;Tylko host / jeden gracz w v1. Luki pozostają lukami." />
+        <text name="ft_fc_help_history_body" text="Ta strona sama zapisuje zwięzły wiersz miesięczny.&#10;Wymaga Time Guard jako zegara miesięcznego. Tylko host /&#10;jeden gracz w v1. Luki pozostają lukami." />
         <text name="ft_fc_help_forecast_title" text="PROGNOZA" />
         <text name="ft_fc_help_forecast_body" text="Oznaczone jako projekcja. CZĘŚCIOWE, gdy brakuje przepływu.&#10;Brakujące przepływy pokazują jeszcze nieśledzone, nigdy zgadywanie." />
         <text name="ft_fc_help_readonly_title" text="TYLKO DO ODCZYTU" />

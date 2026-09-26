@@ -48,7 +48,7 @@
         <text name="ft_fc_month" text="Місяць" />
         <text name="ft_fc_year" text="Рік" />
         <text name="ft_fc_balance" text="Баланс" />
-        <text name="ft_fc_loan" text="Кредит" />
+        <text name="ft_fc_loan" text="Банківський кредит" />
         <text name="ft_fc_net_worth" text="Чиста вартість" />
         <text name="ft_fc_clock" text="Економічний годинник" />
         <text name="ft_fc_period" text="Період" />
@@ -116,7 +116,7 @@
         <text name="ft_fc_help_health_title" text="ЗДОРОВ'Я ФЕРМИ" />
         <text name="ft_fc_help_health_body" text="Один колір серця за найгіршим показником, для якого є дані.&#10;Зелений / жовтий / червоний. Нейтральні й часткові ніколи не вважаються здоровими.&#10;Торкніться серця, щоб відкрити показник, який задав колір." />
         <text name="ft_fc_help_history_title" text="ІСТОРІЯ" />
-        <text name="ft_fc_help_history_body" text="Ця сторінка сама записує компактний щомісячний рядок.&#10;Лише хост / одиночна гра у v1. Прогалини лишаються прогалинами." />
+        <text name="ft_fc_help_history_body" text="Ця сторінка сама записує компактний щомісячний рядок.&#10;Потрібен Time Guard як місячний годинник. Лише хост /&#10;одиночна гра у v1. Прогалини лишаються прогалинами." />
         <text name="ft_fc_help_forecast_title" text="ПРОГНОЗ" />
         <text name="ft_fc_help_forecast_body" text="Позначено як проєкцію. ЧАСТКОВО, коли бракує потоку.&#10;Для відсутніх потоків показано «ще не відстежується», а не здогадку." />
         <text name="ft_fc_help_readonly_title" text="ЛИШЕ ЧИТАННЯ" />
