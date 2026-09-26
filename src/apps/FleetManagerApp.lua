@@ -16,7 +16,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
     if self:drawHelpPage("_fleetHelp", FT.APP.FLEET, ftFleetText("ft_ui_app_fleet_manager", "Fleet Manager"), AC, {
         { title = "VEHICLE LIST",
           body  = "Shows every motorized vehicle your farm owns.\n" ..
-                  "Sorted by fuel level — emptiest machines appear first\n" ..
+                  "Sorted by fuel level - emptiest machines appear first\n" ..
                   "so you can spot what needs refuelling at a glance." },
         { title = "FUEL BAR",
           body  = "Current fuel as a percentage of tank capacity.\n" ..
@@ -24,7 +24,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
                   "Green >= 50%  |  Yellow >= 20%  |  Red < 20%." },
         { title = "WEAR BAR",
           body  = "Component wear percentage (0% = new, 100% = worn out).\n" ..
-                  "High wear reduces efficiency — repair before reaching 80%.\n" ..
+                  "High wear reduces efficiency - repair before reaching 80%.\n" ..
                   "Green <= 30%  |  Yellow <= 65%  |  Red > 65%." },
         { title = "HOURS / STATUS",
           body  = "Operating hours: total engine time in whole hours.\n" ..
@@ -36,7 +36,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
     local farmId  = data:getPlayerFarmId()
     local fleet   = data:getFleetVehicles(farmId)
 
-    local subtitle = #fleet == 1 and ftFleetText("ft_fleet_one_vehicle", "1 vehicle") or (#fleet .. " " .. ftFleetText("ft_fleet_vehicles", "vehicles"))
+    local subtitle = #fleet == 1 and ftFleetText("ft_fleet_one_vehicle", "1 vehicle") or FT.l10nFormat("ft_fleet_vehicles_fmt", "%d vehicles", #fleet)
     local startY   = self:drawAppHeader(ftFleetText("ft_ui_app_fleet_manager", "Fleet Manager"), subtitle)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
@@ -73,7 +73,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
             FT_Renderer.truncate(tostring(v.name or "-"), nameMax), RenderText.ALIGN_LEFT, nameColor)
         if v.aiActive then
             self.r:appText(x + cw - FT.px(8), y - FT.py(11), FT.FONT.TINY,
-                ftFleetText("ft_ai_active_short", "HELFER"), RenderText.ALIGN_RIGHT, FT.C.INFO)
+                ftFleetText("ft_ai_active_short", "HELPER"), RenderText.ALIGN_RIGHT, FT.C.INFO)
         end
 
         local fuelPct = tonumber(v.fuelPct) or 0
