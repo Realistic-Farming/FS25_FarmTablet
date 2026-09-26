@@ -92,7 +92,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
                 FT.FONT.BODY, nameText, RenderText.ALIGN_LEFT, statusColor)
             if statusLabel ~= "" then
                 self.r:appText(x + w - FT.px(4), y - FT.py(10),
-                    FT.FONT.TINY, statusLabel, RenderText.ALIGN_RIGHT, FT.C.WARNING)
+                    FT.FONT.TINY, statusLabel, RenderText.ALIGN_RIGHT, FT.C.WARNING, true)
             end
             y = y - FT.py(14)
 
@@ -104,7 +104,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
             local agentName = (lst.getAgentTierName and lst:getAgentTierName())
                            or tostring(lst.saleTier or "")
             self.r:appText(x + FT.px(4), y - FT.py(8),
-                FT.FONT.SMALL, priceStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.FONT.SMALL, priceStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             self.r:appText(x + w - FT.px(4), y - FT.py(8),
                 FT.FONT.TINY, agentName, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
             y = y - FT.py(11)
@@ -153,7 +153,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
             local monthly = (api.getMonthlyObligations and api.getMonthlyObligations(farmId)) or {}
             if monthly.grandTotal and monthly.grandTotal > 0 then
                 y = self:drawRow(y, "Monthly Total",
-                    data:formatMoney(monthly.grandTotal), nil, FT.C.WARNING)
+                    data:formatMoney(monthly.grandTotal), nil, FT.C.WARNING, nil, true)
                 y = y - FT.py(2)
             end
 
@@ -174,7 +174,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
                     data:formatMoney(monthly2),
                     remMonths)
                 self.r:appText(x + FT.px(4), y - FT.py(8),
-                    FT.FONT.TINY, detailStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    FT.FONT.TINY, detailStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(12)
             end
         end

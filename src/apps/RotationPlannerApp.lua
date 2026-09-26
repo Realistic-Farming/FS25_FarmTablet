@@ -101,7 +101,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
                   "A field with no history reads Unknown, never invented." },
     }) then return end
 
-    local startY = self:drawAppHeader("Rotation Planner", "")
+    local startY = self:drawAppHeader("Rotation Planner", "", nil, true)
     local x, cyBottom, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -150,7 +150,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
 
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
         FT.l10nFormat("ft_rotation_field_count", "%d fields · same engine as soil foresight", #fields),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     y = y - FT.py(16)
     y = self:drawRule(y, 0.4)
 
@@ -188,11 +188,11 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
             self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, label, RenderText.ALIGN_LEFT, col)
 
             local by = y - FT.py(2)
-            local btn = self.r:button(bx, by, btnW, btnH, isSel and "VIEW" or "SELECT", AC, {
+            local btn = self.r:button(bx, by, btnW, btnH, FT.l10nAuto(isSel and "VIEW" or "SELECT"), AC, {
                 onClick = function()
                     self.system.rotationPlannerSelectedField = field.id
                 end
-            })
+            }, true)
             table.insert(self._contentBtns, btn)
         end
         y = y - rowH
@@ -204,7 +204,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
 
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
         FT.l10nFormat("ft_rotation_whatif_field", "What if · field #%s", tostring(selected or "?")),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
     y = y - FT.py(18)
 
     local info = selected and cache.byId[selected] or nil

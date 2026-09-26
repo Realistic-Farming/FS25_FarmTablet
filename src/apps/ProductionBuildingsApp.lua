@@ -40,7 +40,7 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
     local buildings = data:getProductionBuildings(farmId)
 
     local subtitle = #buildings == 1 and PText("ft_production_one_building", "1 building") or string.format(PText("ft_production_buildings_fmt", "%d buildings"), #buildings)
-    local startY   = self:drawAppHeader(PText("ft_app_production", "Production"), subtitle)
+    local startY   = self:drawAppHeader(PText("ft_app_production", "Production"), subtitle, true, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY - FT.py(8) + scrollY
@@ -48,10 +48,10 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
     if #buildings == 0 then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             PText("ft_production_none", "No production buildings owned."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, y - FT.py(28), FT.FONT.SMALL,
             PText("ft_production_buy_hint", "Purchase a production placeable to track it here."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_prodHelp", AC)
         return
     end
@@ -73,7 +73,7 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
             or  PText("ft_production_stalled", "stalled")
         local statusColor = isActive and FT.C.POSITIVE or FT.C.WARNING
         self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
-            statusText, RenderText.ALIGN_RIGHT, statusColor)
+            statusText, RenderText.ALIGN_RIGHT, statusColor, true)
 
         -- ── Building name ─────────────────────────────────
         local nameMax = math.max(10, math.floor((cw - FT.px(90)) / FT.px(6.5)))
@@ -89,12 +89,12 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
         -- ── Inputs column ─────────────────────────────────
         local colW = (cw - FT.px(28)) * 0.48
         self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
-            PText("ft_production_inputs", "Inputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            PText("ft_production_inputs", "Inputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         ioY = ioY - FT.py(13)
 
         if #b.inputs == 0 then
             self.r:appText(x + FT.px(14), ioY, FT.FONT.TINY,
-                "-", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                "-", RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             ioY = ioY - FT.py(13)
         else
             local fillMax = math.max(8, math.floor(colW / FT.px(6)))
@@ -110,12 +110,12 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
         local outY = y - FT.py(27)
 
         self.r:appText(outX, outY, FT.FONT.TINY,
-            PText("ft_production_outputs", "Outputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            PText("ft_production_outputs", "Outputs"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         outY = outY - FT.py(13)
 
         if #b.outputs == 0 then
             self.r:appText(outX + FT.px(4), outY, FT.FONT.TINY,
-                "-", RenderText.ALIGN_LEFT, FT.C.MUTED)
+                "-", RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         else
             local fillMax = math.max(8, math.floor(colW / FT.px(6)))
             for _, out2 in ipairs(b.outputs) do

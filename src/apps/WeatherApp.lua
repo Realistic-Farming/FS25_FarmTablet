@@ -33,23 +33,23 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
 
     if self:drawHelpPage("_weatherHelp", FT.APP.WEATHER, "Weather", AC, {
         { title = FT.l10n("ft_weather_help_condition_title", "CURRENT CONDITION"),
-          body  = FT.l10n("ft_weather_help_condition_body", "Shows the current weather at the top with a colour-coded\nleft edge: blue = rain, orange = storm, grey = overcast,\nwhite = clear, dark = fog.") },
+          body  = FT.l10n("ft_weather_help_condition_body", "Shows the current weather at the top with a colour-coded\nleft edge: blue = rain, orange = storm, grey = overcast,\nwhite = clear, dark = fog."), literalTitle = true, literalBody = true },
         { title = "WEATHERGUARD",
-          body  = FT.l10n("ft_weather_help_weatherguard_body", "With FS25_WeatherGuard installed this app reads the shared\nweather truth and a real engine forecast, not a guess.") },
+          body  = FT.l10n("ft_weather_help_weatherguard_body", "With FS25_WeatherGuard installed this app reads the shared\nweather truth and a real engine forecast, not a guess."), literalBody = true },
         { title = FT.l10n("ft_weather_help_dial_title", "WORLD WEATHER DIAL"),
-          body  = FT.l10n("ft_weather_help_dial_body", "Real / Arid / Normal / Wet set the shared world climate.\nAdmin-only in multiplayer. Matches Soil Fertilizer.") },
+          body  = FT.l10n("ft_weather_help_dial_body", "Real / Arid / Normal / Wet set the shared world climate.\nAdmin-only in multiplayer. Matches Soil Fertilizer."), literalTitle = true, literalBody = true },
         { title = "TEMPERATURE",
-          body  = FT.l10n("ft_weather_help_temperature_body", "Air temperature in Celsius with a feel label: Freezing (<0)\nCold (<8)  Cool (<16)  Mild (<24)  Warm (<32)  Hot (32+).") },
+          body  = FT.l10n("ft_weather_help_temperature_body", "Air temperature in Celsius with a feel label: Freezing (<0)\nCold (<8)  Cool (<16)  Mild (<24)  Warm (<32)  Hot (32+)."), literalBody = true },
         { title = FT.l10n("ft_weather_help_readings_title", "OTHER READINGS"),
-          body  = FT.l10n("ft_weather_help_readings_body", "Cloud cover: 0-19% Clear, 20-39% Partly, 40-69% Mostly,\n70%+ Overcast. Wind: km/h plus compass direction.\nPrecipitation: rain or storm intensity as a fill bar.") },
+          body  = FT.l10n("ft_weather_help_readings_body", "Cloud cover: 0-19% Clear, 20-39% Partly, 40-69% Mostly,\n70%+ Overcast. Wind: km/h plus compass direction.\nPrecipitation: rain or storm intensity as a fill bar."), literalTitle = true, literalBody = true },
         { title = "FORECAST",
-          body  = FT.l10n("ft_weather_help_forecast_body", "With WeatherGuard: real outlook, rain shown as intensity.\nWithout it: a projected estimate showing rain chance.") },
+          body  = FT.l10n("ft_weather_help_forecast_body", "With WeatherGuard: real outlook, rain shown as intensity.\nWithout it: a projected estimate showing rain chance."), literalBody = true },
     }) then return end
 
     local data = self.system.data
     local w    = data:getWeather()
 
-    local startY = self:drawAppHeader("Weather", "")
+    local startY = self:drawAppHeader("Weather", "", nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -71,11 +71,11 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     self.r:appText(x, y - FT.py(16), FT.FONT.SMALL,
         viaWg and FT.l10n("ft_weather_source_wg", "Via WeatherGuard")
             or FT.l10n("ft_weather_source_engine", "Engine (no WeatherGuard)"),
-        RenderText.ALIGN_LEFT, viaWg and FT.C.POSITIVE or FT.C.WARNING)
+        RenderText.ALIGN_LEFT, viaWg and FT.C.POSITIVE or FT.C.WARNING, true)
     if viaWg and w.forecastHorizonDays then
         self.r:appText(x + cw, y - FT.py(16), FT.FONT.TINY,
             FT.l10nFormat("ft_weather_forecast_days_fmt", "~%.0f day forecast", w.forecastHorizonDays),
-            RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     end
     y = y - FT.py(24)
 
@@ -93,7 +93,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     -- World Weather dial (WeatherGuard only)
     local wg = _wg()
     if wg ~= nil and type(wg.requestWeatherMode) == "function" then
-        y = self:drawSection(y, FT.l10n("ft_weather_world_weather", "WORLD WEATHER"))
+        y = self:drawSection(y, FT.l10n("ft_weather_world_weather", "WORLD WEATHER"), true)
         local mode = tonumber(w.weatherMode) or 3
         -- Dial chip labels. Short on purpose: the chips are cw/4 wide in TINY font.
         -- The fuller meaning lives in the help page and the note line under the dial.
@@ -117,7 +117,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             end
             self.r:appText(cx + chipW * 0.5, y - chipH * 0.55, FT.FONT.TINY,
                 modeLabels[i], RenderText.ALIGN_CENTER,
-                selected and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
+                selected and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM, true)
             local btn = self.r:button(cx, y - chipH, chipW, chipH, "",
                 { 0, 0, 0, 0.01 },
                 { onClick = function()
@@ -139,13 +139,13 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
                         self.system.data:invalidate()
                     end
                     self:switchApp(FT.APP.WEATHER)
-                end })
+                end }, true)
             table.insert(self._contentBtns, btn)
         end
         y = y - chipH - FT.py(6)
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
             FT.l10n("ft_weather_dial_note", "Shared world setting · admin-only in multiplayer"),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         y = y - FT.py(16)
         y = self:drawRule(y, 0.3)
     end
@@ -165,18 +165,18 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     self.r:appRect(x, y - heroH, FT.px(4), heroH, condColor)
 
     local condLabel = {
-        storm = "STORM", rain = "RAIN", fog = "FOG", snow = "SNOW",
+        storm = FT.l10nAuto("STORM"), rain = FT.l10nAuto("RAIN"), fog = FT.l10nAuto("FOG"), snow = FT.l10nAuto("SNOW"),
         -- CLEAR has its own key: the map sends "CLEAR" to the Field Jobs button word (clear = erase).
-        overcast = "OVC", cloudy = "CLOUD", clear = FT.l10n("ft_weather_cond_clear", "CLEAR"),
+        overcast = FT.l10nAuto("OVC"), cloudy = FT.l10nAuto("CLOUD"), clear = FT.l10n("ft_weather_cond_clear", "CLEAR"),
     }
     self.r:appText(x + FT.px(10), y - heroH / 2 + FT.py(2),
-        FT.FONT.HEADER, condLabel[w.condKey] or "?", RenderText.ALIGN_LEFT, condColor)
+        FT.FONT.HEADER, condLabel[w.condKey] or "?", RenderText.ALIGN_LEFT, condColor, true)
     local tempStr = w.temperature ~= nil and string.format("%.1f C", w.temperature) or "-- C"
     self.r:appText(x + FT.px(62), y - heroH / 2 + FT.py(2),
         FT.FONT.BODY, tempStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     if w.windSpeed and w.windSpeed > 0 then
         self.r:appText(x + cw - FT.px(10), y - heroH / 2 + FT.py(10),
-            FT.FONT.BODY, FT.l10nFormat("ft_weather_wind_kmh_fmt", "%.0f km/h", w.windSpeed), RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
+            FT.FONT.BODY, FT.l10nFormat("ft_weather_wind_kmh_fmt", "%.0f km/h", w.windSpeed), RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL, true)
         self.r:appText(x + cw - FT.px(10), y - heroH / 2 - FT.py(6),
             FT.FONT.TINY, "WIND", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
         if w.windDir and w.windDir ~= "" then
@@ -196,16 +196,16 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             or w.temperature < 16 and "Cool" or w.temperature < 24 and "Mild"
             or w.temperature < 32 and "Warm" or "Hot")
         y = self:drawRow(y, "Temperature",
-            string.format("%.1f C  (%s)", w.temperature, feelStr), nil, tempColor)
+            string.format("%.1f C  (%s)", w.temperature, feelStr), nil, tempColor, nil, true)
     end
     if w.cloudCover ~= nil then
         local cp = math.floor(w.cloudCover * 100)
         local cs = FT.l10nAuto(cp < 20 and "Clear" or cp < 40 and "Partly Cloudy"
             or cp < 70 and "Mostly Cloudy" or "Overcast")
-        y = self:drawRow(y, "Cloud Cover", string.format("%d%%  (%s)", cp, cs))
+        y = self:drawRow(y, "Cloud Cover", string.format("%d%%  (%s)", cp, cs), nil, nil, nil, true)
     end
     if w.humidity ~= nil then
-        y = self:drawRow(y, "Humidity", string.format("%.0f%%", w.humidity * 100))
+        y = self:drawRow(y, "Humidity", string.format("%.0f%%", w.humidity * 100), nil, nil, nil, true)
     end
     if w.windSpeed and w.windSpeed > 0 then
         local ws = FT.l10nFormat("ft_weather_wind_kmh_1f_fmt", "%.1f km/h", w.windSpeed)
@@ -221,7 +221,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     elseif w.isRaining then
         local rainText = (w.rainScale and w.rainScale > 0.4) and FT.l10n("ft_weather_rain_moderate", "Moderate Rain")
             or FT.l10n("ft_weather_rain_light", "Light Rain")
-        y = self:drawRow(y, "Precipitation", rainText, nil, FT.C.WEATHER_RAIN)
+        y = self:drawRow(y, "Precipitation", rainText, nil, FT.C.WEATHER_RAIN, nil, true)
         if w.rainScale then
             y = y + FT.py(FT.SP.ROW) - FT.py(8)
             y = self:drawBar(y, math.floor(w.rainScale * 100), 100, FT.C.WEATHER_RAIN)
@@ -237,7 +237,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
         y = self:drawRule(y, 0.25)
         local fcTitle = w.forecastIsReal and FT.l10n("ft_weather_forecast_engine", "FORECAST  (engine)")
             or FT.l10n("ft_weather_forecast_projected", "FORECAST  (projected)")
-        y = self:drawSection(y, fcTitle)
+        y = self:drawSection(y, fcTitle, true)
         for i = 1, math.min(5, #w.forecast) do
             local f = w.forecast[i]
             if f and y > contentY + FT.py(8) then
@@ -252,7 +252,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
                     rainBit = "  " .. FT.l10nFormat("ft_weather_rain_chance_fmt", "%d%% chance", f.rainProb)
                 end
                 local right = (tempF and (cond .. "  " .. tempF) or cond) .. rainBit
-                y = self:drawRow(y, FT.l10nFormat("ft_weather_day_plus_fmt", "Day +%d", i), right, nil, FT.C.TEXT_DIM)
+                y = self:drawRow(y, FT.l10nFormat("ft_weather_day_plus_fmt", "Day +%d", i), right, nil, FT.C.TEXT_DIM, true)
             end
         end
     end

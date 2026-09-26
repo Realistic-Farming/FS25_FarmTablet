@@ -142,12 +142,12 @@ function _dashDrawHome(self, settings, AC)
     local editBH = FT.py(14)
     local editBtn = self.r:button(
         x + w - editBW, y - FT.py(1), editBW, editBH,
-        "EDIT", {0.18, 0.20, 0.26, 0.65}, {
+        FT.l10nAuto("EDIT"), {0.18, 0.20, 0.26, 0.65}, {
         onClick = function()
             _dashView = "customize"
             self:switchApp(FT.APP.DASHBOARD)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, editBtn)
     y = y - FT.py(18)
 
@@ -175,14 +175,14 @@ function _dashDrawHome(self, settings, AC)
         local balColor = balance >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
         self.r:appText(x + FT.px(12), y - FT.py(22),
             FT.FONT.HUGE, data:formatMoney(balance),
-            RenderText.ALIGN_LEFT, balColor)
+            RenderText.ALIGN_LEFT, balColor, true)
         if enabled["loan"] and loan > 0 then
             self.r:appText(x + w - FT.px(12), y - FT.py(8),
                 FT.FONT.TINY, "LOAN",
                 RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
             self.r:appText(x + w - FT.px(12), y - FT.py(22),
                 FT.FONT.SMALL, data:formatMoney(loan),
-                RenderText.ALIGN_RIGHT, FT.C.WARNING)
+                RenderText.ALIGN_RIGHT, FT.C.WARNING, true)
         end
         y = y - FT.py(36)
         y = self:drawRule(y, 0.4)
@@ -194,15 +194,15 @@ function _dashDrawHome(self, settings, AC)
         y = self:drawSection(y, "FINANCES")
         if enabled["income"] then
             local c = income  > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM
-            y = self:drawRow(y, "Income",   data:formatMoney(income),   nil, c)
+            y = self:drawRow(y, "Income",   data:formatMoney(income),   nil, c, nil, true)
         end
         if enabled["expenses"] then
             local c = expenses > 0 and FT.C.NEGATIVE or FT.C.TEXT_DIM
-            y = self:drawRow(y, "Expenses", data:formatMoney(expenses), nil, c)
+            y = self:drawRow(y, "Expenses", data:formatMoney(expenses), nil, c, nil, true)
         end
         if enabled["net_pl"] then
             local c = profit >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-            y = self:drawRow(y, "Net P/L",  data:formatMoney(profit),   nil, c)
+            y = self:drawRow(y, "Net P/L",  data:formatMoney(profit),   nil, c, nil, true)
         end
         y = y - FT.py(4)
         y = self:drawRule(y, 0.25)
@@ -213,10 +213,10 @@ function _dashDrawHome(self, settings, AC)
     if hasFarm then
         y = self:drawSection(y, "FARM")
         if enabled["fields"] then
-            y = self:drawRow(y, "Active Fields", tostring(fields))
+            y = self:drawRow(y, "Active Fields", tostring(fields), nil, nil, nil, true)
         end
         if enabled["vehicles"] then
-            y = self:drawRow(y, "Vehicles", tostring(vehicles))
+            y = self:drawRow(y, "Vehicles", tostring(vehicles), nil, nil, nil, true)
         end
         if enabled["contracts"] then
             local cStr   = contractCount > 0 and tostring(contractCount) or "none"
@@ -243,7 +243,7 @@ function _dashDrawHome(self, settings, AC)
             y = self:drawRow(y, "Day",  tostring(world.day))
         end
         if enabled["time"] then
-            y = self:drawRow(y, "Time", timeStr)
+            y = self:drawRow(y, "Time", timeStr, nil, nil, nil, true)
         end
         if enabled["weather"] and weather then
             local wColor = FT.C.TEXT_ACCENT
@@ -253,7 +253,7 @@ function _dashDrawHome(self, settings, AC)
             end
             y = self:drawRow(y, "Weather",
                 string.format("%s  %.0f'C", weather.condition, weather.temperature),
-                nil, wColor)
+                nil, wColor, nil, true)
         end
     end
 
@@ -276,12 +276,12 @@ function _dashDrawCustomize(self, settings, AC)
     local doneBW = FT.px(48)
     local doneBH = FT.py(20)
     local doneBtn = self.r:button(x + cw - doneBW, y, doneBW, doneBH,
-        "DONE", FT.C.BTN_PRIMARY, {
+        FT.l10nAuto("DONE"), FT.C.BTN_PRIMARY, {
         onClick = function()
             _dashView = "home"
             self:switchApp(FT.APP.DASHBOARD)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, doneBtn)
     y = y - doneBH - FT.py(4)
 
@@ -322,12 +322,12 @@ function _dashDrawCustomize(self, settings, AC)
         -- Toggle button
         local defId  = def.id  -- capture for closure
         local togBtn = self.r:button(x + cw - togW, y - FT.py(1), togW, togH,
-            togLabel, togColor, {
+            FT.l10nAuto(togLabel), togColor, {
             onClick = function()
                 toggleWidget(settings, defId)
                 self:switchApp(FT.APP.DASHBOARD)
             end
-        })
+        }, true)
         table.insert(self._contentBtns, togBtn)
 
         y = y - rowH - FT.py(2)

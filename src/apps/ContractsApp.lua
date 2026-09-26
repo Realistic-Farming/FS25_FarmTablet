@@ -119,7 +119,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
         subtitle = table.concat(parts, " · ")
     end
 
-    local startY = self:drawAppHeader("Contracts", subtitle)
+    local startY = self:drawAppHeader("Contracts", subtitle, nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -140,15 +140,15 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
     local bx = x
     if totalActive > 0 then
         bx = bx + self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_active", "%d ACTIVE", totalActive),
-            FT.C.BTN_PRIMARY) + FT.px(4)
+            FT.C.BTN_PRIMARY, true) + FT.px(4)
     end
     if #expiring > 0 then
         bx = bx + self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_expiring", "%d EXPIRING", #expiring),
-            {0.70, 0.40, 0.10, 0.90}) + FT.px(4)
+            {0.70, 0.40, 0.10, 0.90}, true) + FT.px(4)
     end
     if #done > 0 then
         self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_collect", "%d COLLECT", #done),
-            {0.16, 0.55, 0.30, 0.90})
+            {0.16, 0.55, 0.30, 0.90}, true)
     end
     y = y - FT.py(20)
     y = self:drawRule(y, 0.35)
@@ -192,7 +192,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
             {statusColor[1], statusColor[2], statusColor[3], 0.20})
         self.r:appText(x + cw - badgeW / 2, y + FT.py(4),
             FT.FONT.TINY, shownStatus,
-            RenderText.ALIGN_CENTER, statusColor)
+            RenderText.ALIGN_CENTER, statusColor, true)
 
         -- Row 1: type name (keep clear of the status badge)
         local typeMax = math.max(8, math.floor((cw - badgeW - padX - FT.px(8)) / FT.px(7)))
@@ -212,10 +212,10 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
             {cardAccent[1], cardAccent[2], cardAccent[3], 0.85})
         self.r:appText(x + padX + barW + FT.px(6), barY + FT.py(1),
             FT.FONT.SMALL, pct .. "%",
-            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
         self.r:appText(x + cw, barY + FT.py(1),
             FT.FONT.SMALL, rewardStr,
-            RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
+            RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT, true)
 
         -- Row 4: time remaining or collect prompt
         if statusLabel == "DONE" then
@@ -225,7 +225,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
         elseif timeStr then
             self.r:appText(x + padX, y - cardH + FT.py(12),
                 FT.FONT.TINY, FT.l10nFormat("ft_contracts_game_time", "Game time: %s", timeStr == "EXPIRED" and FT.l10nAuto("EXPIRED") or timeStr),
-                RenderText.ALIGN_LEFT, timeColor)
+                RenderText.ALIGN_LEFT, timeColor, true)
         end
 
         y = y - cardH - FT.py(6)

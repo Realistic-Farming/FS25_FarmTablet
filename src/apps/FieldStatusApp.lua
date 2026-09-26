@@ -21,28 +21,28 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
 
     if self:drawHelpPage("_fieldsHelp", FT.APP.FIELDS, ftText("ft_ui_app_field_status", "Field Manager"), AC, {
         { title = ftText("ft_fields_help_summary_title", "SUMMARY BADGES"),
-          body  = ftText("ft_fields_help_summary_body", "Top of the screen shows totals: READY fields that can\nbe harvested, GROW fields with crops growing, and EMPTY\nfields with no active crop.") },
+          body  = ftText("ft_fields_help_summary_body", "Top of the screen shows totals: READY fields that can\nbe harvested, GROW fields with crops growing, and EMPTY\nfields with no active crop."), literalTitle = true, literalBody = true },
         { title = ftText("ft_fields_help_columns_title", "COLUMNS: # / CROP / HA / STATE"),
-          body  = ftText("ft_fields_help_columns_body", "# = field ID.  CROP = crop type name.\nHA = field area in hectares.\nSTATE = current field condition (see dot colours below).") },
+          body  = ftText("ft_fields_help_columns_body", "# = field ID.  CROP = crop type name.\nHA = field area in hectares.\nSTATE = current field condition (see dot colours below)."), literalTitle = true, literalBody = true },
         { title = ftText("ft_fields_help_state_colors_title", "STATE DOT COLOURS"),
-          body  = ftText("ft_fields_help_state_colors_body", "Green  = Ready to harvest.\nBlue   = Growing normally.\nYellow = Needs attention (fertilise, plough, roll, etc.).\nGrey   = Fallow / empty field.") },
+          body  = ftText("ft_fields_help_state_colors_body", "Green  = Ready to harvest.\nBlue   = Growing normally.\nYellow = Needs attention (fertilise, plough, roll, etc.).\nGrey   = Fallow / empty field."), literalTitle = true, literalBody = true },
         { title = ftText("ft_fields_help_scrolling_title", "SCROLLING"),
-          body  = ftText("ft_fields_help_scrolling_body", "If you own more fields than fit on screen the list\nscrolls automatically. Use the mouse wheel to scroll.") },
-    }) then return end
+          body  = ftText("ft_fields_help_scrolling_body", "If you own more fields than fit on screen the list\nscrolls automatically. Use the mouse wheel to scroll."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local data   = self.system.data
     local farmId = data:getPlayerFarmId()
     local fields = data:getOwnedFields(farmId)
 
-    local startY = self:drawAppHeader(ftText("ft_ui_app_field_status", "Field Manager"), ftFormat("ft_fields_count", "%d fields", #fields))
+    local startY = self:drawAppHeader(ftText("ft_ui_app_field_status", "Field Manager"), ftFormat("ft_fields_count", "%d fields", #fields), true, true)
     local x, contentY, cw, contentH = self:contentInner()
     local scrollY = self:getContentScrollY()
 
     if #fields == 0 then
         self.r:appText(x, startY - FT.py(12), FT.FONT.BODY,
-            ftText("ft_fields_none", "You don't own any fields yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            ftText("ft_fields_none", "You don't own any fields yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, startY - FT.py(32), FT.FONT.SMALL,
-            ftText("ft_fields_none_hint", "Purchase land to start farming."), RenderText.ALIGN_LEFT, FT.C.MUTED)
+            ftText("ft_fields_none_hint", "Purchase land to start farming."), RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_fieldsHelp", AC)
         return
     end
@@ -57,17 +57,17 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
 
     local y  = startY - FT.py(12) + scrollY   -- breath under the header rule before the badges
     local bx = x
-    if countReady   > 0 then bx = bx + self.r:badge(bx, y, countReady.." "..ftText("ft_fields_badge_ready", "READY"), FT.C.BTN_PRIMARY)   + FT.px(4) end
-    if countGrowing > 0 then bx = bx + self.r:badge(bx, y, countGrowing.." "..ftText("ft_fields_badge_grow", "GROW"),  FT.C.BTN_NEUTRAL)   + FT.px(4) end
-    if countEmpty   > 0 then         self.r:badge(bx, y, countEmpty.." "..ftText("ft_fields_badge_empty", "EMPTY"), {0.18,0.18,0.22,0.9}) end
+    if countReady   > 0 then bx = bx + self.r:badge(bx, y, countReady.." "..ftText("ft_fields_badge_ready", "READY"), FT.C.BTN_PRIMARY, true)   + FT.px(4) end
+    if countGrowing > 0 then bx = bx + self.r:badge(bx, y, countGrowing.." "..ftText("ft_fields_badge_grow", "GROW"),  FT.C.BTN_NEUTRAL, true)   + FT.px(4) end
+    if countEmpty   > 0 then         self.r:badge(bx, y, countEmpty.." "..ftText("ft_fields_badge_empty", "EMPTY"), {0.18,0.18,0.22,0.9}, true) end
 
     y = y - FT.py(20)
     y = self:drawRule(y, 0.4)
 
-    self.r:appText(x,             y, FT.FONT.TINY, "#",     RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
-    self.r:appText(x + FT.px(28), y, FT.FONT.TINY, ftText("ft_fields_col_crop", "CROP"),  RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
+    self.r:appText(x,             y, FT.FONT.TINY, "#",     RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM, true)
+    self.r:appText(x + FT.px(28), y, FT.FONT.TINY, ftText("ft_fields_col_crop", "CROP"),  RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM, true)
     self.r:appText(x + cw * 0.6,  y, FT.FONT.TINY, "HA",    RenderText.ALIGN_LEFT,  FT.C.TEXT_DIM)
-    self.r:appText(x + cw,        y, FT.FONT.TINY, ftText("ft_fields_col_state", "STATE"), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+    self.r:appText(x + cw,        y, FT.FONT.TINY, ftText("ft_fields_col_state", "STATE"), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     y = y - FT.py(16)
 
     local rowH  = FT.py(19)
@@ -84,7 +84,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
         self.r:appText(x + FT.px(28), y, FT.FONT.SMALL, cropDisp, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
         if field.area and field.area > 0 then
             self.r:appText(x + cw * 0.6, y, FT.FONT.SMALL,
-                string.format("%.1f", field.area), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                string.format("%.1f", field.area), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         end
         -- Keep STATE clear of the HA column.
         local stateDisp = FT_Renderer.truncate(field.stateName or "", 12)

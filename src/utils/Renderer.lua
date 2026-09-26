@@ -37,6 +37,11 @@ function FT_Renderer:_newOverlay(x, y, w, h, color, sliceId)
 end
 
 -- ── Public drawing functions ──────────────────────────────
+-- literalText (MAINTENANCE row 154): RSF-F166's appText switch, the same on text, appHeaderText and
+-- button, and passed down by sectionHeader, row and badge. A final optional argument: only boolean
+-- true draws the text exactly as it is handed, for text the caller has already localized (FT.l10n,
+-- FT.l10nFormat, a resolver helper). Absent or false keeps FT.l10nAuto, as every caller had it. A
+-- second FT.l10nAuto on localized text reshapes it ("06:00" drew as "06: 00", "OK" as "ok").
 
 --- Draws a persistent overlay rectangle (lives until destroyAll).
 --- Use for chrome elements that should survive app switches.
@@ -71,10 +76,11 @@ end
 --- Queues a persistent text entry (survives app switches, cleared only by destroyAll).
 --- Use only for chrome-layer text (topbar, sidebar labels).
 --- App drawers must use appText() instead.
-function FT_Renderer:text(x, y, size, txt, align, color)
+function FT_Renderer:text(x, y, size, txt, align, color, literalText)
+    local literal = (literalText == true)
     table.insert(self._texts, {
         x = x, y = y, size = size or FT.FONT.BODY,
-        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
+        text = ((not literal) and FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
         align = align or RenderText.ALIGN_LEFT,
         color = color or FT.C.TEXT_NORMAL,
     })
@@ -94,11 +100,12 @@ function FT_Renderer:appHeaderRect(x, y, w, h, color, sliceId)
 end
 
 --- Queues fixed app-header text (title/subtitle), rendered above scrolling body.
-function FT_Renderer:appHeaderText(x, y, size, txt, align, color)
+function FT_Renderer:appHeaderText(x, y, size, txt, align, color, literalText)
+    local literal = (literalText == true)
     table.insert(self._headerTexts, {
         _isText = true,
         x = x, y = y, size = size or FT.FONT.BODY,
-        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
+        text = ((not literal) and FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
         align = align or RenderText.ALIGN_LEFT,
         color = color or FT.C.TEXT_NORMAL,
     })
@@ -107,11 +114,12 @@ end
 --- Queues an app-scoped text entry.
 --- Stored in the _buttons table (which holds mixed text+button entries)
 --- so both are cleared together on app switch.
-function FT_Renderer:appText(x, y, size, txt, align, color)
+function FT_Renderer:appText(x, y, size, txt, align, color, literalText)
+    local literal = (literalText == true)
     table.insert(self._buttons, {   -- mixed table: text entries have _isText=true
         _isText = true,
         x = x, y = y, size = size or FT.FONT.BODY,
-        text = (FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
+        text = ((not literal) and FT.l10nAuto ~= nil and FT.l10nAuto(txt) or tostring(txt)),
         align = align or RenderText.ALIGN_LEFT,
         color = color or FT.C.TEXT_NORMAL,
     })
@@ -121,21 +129,22 @@ end
 --- Returns a descriptor table {ov, x, y, w, h, meta} for hit-testing.
 --- The descriptor is NOT automatically inserted into FarmTabletUI._contentBtns;
 --- callers must do that themselves if they want click handling.
-function FT_Renderer:button(x, y, w, h, label, color, meta)
+function FT_Renderer:button(x, y, w, h, label, color, meta, literalText)
+    local literal = (literalText == true)
     local ov = self:appRect(x, y, w, h, color or FT.C.BTN_NEUTRAL)
     -- Boxed read on any background: a light top edge and a dark bottom edge on
     -- the shared fill (existing tokens only, no new palette).
     local edge = math.max(FT.py(1), 0.0009)
     self:appRect(x, y + h - edge, w, edge, {1, 1, 1, 0.12})
     self:appRect(x, y, w, edge, {0, 0, 0, 0.35})
-    local txt = (FT.l10nAuto ~= nil and FT.l10nAuto(label) or tostring(label or ""))
+    local txt = ((not literal) and FT.l10nAuto ~= nil and FT.l10nAuto(label) or tostring(label or ""))
     local len = string.len(tostring(txt or ""))
     local fontSize = FT.FONT.SMALL
     if len > 32 then
         fontSize = FT.FONT.TINY
     end
     self:appText(x + w/2, y + h/2 - FT.py(3), fontSize, txt,
-        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, literal)
     local btn = { ov=ov, x=x, y=y, w=w, h=h, meta=meta }
     table.insert(self._buttons, btn)
     return btn
@@ -175,40 +184,40 @@ end
 --- Draws a section heading: a boxed header row (BG_CARD) with the brand accent
 --- bar on its left edge. The box sits inside the 18px the caller reserves, so the
 --- y-cursor contract (drawSection returns y - FT.py(18)) is unchanged.
-function FT_Renderer:sectionHeader(x, y, contentW, label)
+function FT_Renderer:sectionHeader(x, y, contentW, label, literalText)
     local boxH = FT.py(16)
     local boxY = y - FT.py(3)
     self:appRect(x, boxY, contentW, boxH, FT.C.BG_CARD)
     self:appRect(x, boxY, FT.px(3), boxH, FT.C.BRAND)
     self:appText(x + FT.px(10), y, FT.FONT.SMALL, label,
-        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, literalText == true)
 end
 
 --- Draws a label/value row as a boxed card (BG_CARD) with an inner pad: the label
 --- sits left-aligned and the value right-aligned inside the box, so the two read
 --- as one grouped line. Pass nil for value to draw the label only.
 --- The box is 19px of the 22px row pitch (FT.SP.ROW), leaving a 3px seam.
-function FT_Renderer:row(x, y, contentW, label, value, labelColor, valueColor)
+function FT_Renderer:row(x, y, contentW, label, value, labelColor, valueColor, literalLabel, literalValue)
     local padX = FT.px(FT.SP.MD)
     self:appRect(x, y - FT.py(6), contentW, FT.py(19), FT.C.BG_CARD)
     self:appText(x + padX, y, FT.FONT.BODY, label,
-        RenderText.ALIGN_LEFT, labelColor or FT.C.TEXT_NORMAL)
+        RenderText.ALIGN_LEFT, labelColor or FT.C.TEXT_NORMAL, literalLabel == true)
     if value ~= nil then
         self:appText(x + contentW - padX, y, FT.FONT.BODY, tostring(value),
-            RenderText.ALIGN_RIGHT, valueColor or FT.C.TEXT_ACCENT)
+            RenderText.ALIGN_RIGHT, valueColor or FT.C.TEXT_ACCENT, literalValue == true)
     end
 end
 
 --- Draws a small filled badge/chip with a centred label.
 --- Returns the badge width so callers can advance their X cursor.
 --- Width follows the label so "URGENT" / "12 READY" are not clipped.
-function FT_Renderer:badge(x, y, label, color)
+function FT_Renderer:badge(x, y, label, color, literalText)
     local text = tostring(label or "")
     local w = math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
     local h = FT.py(14)
     self:appRect(x, y - FT.py(1), w, h, color or FT.C.BRAND_DIM)
     self:appText(x + w/2, y + h/2 - FT.py(3), FT.FONT.TINY, text,
-        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, literalText == true)
     return w
 end
 

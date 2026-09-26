@@ -366,7 +366,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                   "Unscouted disease reads Unscouted, never a false all-clear." },
     }) then return end
 
-    local startY = self:drawAppHeader("Irrigation Suite", "")
+    local startY = self:drawAppHeader("Irrigation Suite", "", nil, true)
     local x, cyBottom, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local bottomPad = FT.py(28)
@@ -394,13 +394,13 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         local selected = (mode == m)
         local col = selected and { AC[1], AC[2], AC[3], 0.95 } or FT.C.BTN_NEUTRAL
         local captured = m
-        local btn = self.r:button(bx, tabY, btnW, btnH, MODE_LABEL[m], col, {
+        local btn = self.r:button(bx, tabY, btnW, btnH, FT.l10nAuto(MODE_LABEL[m]), col, {
             onClick = function()
                 self.system.irrigationSuiteMode = captured
                 self._contentScrollY = 0
                 self._contentScrollTarget = 0
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btn)
     end
 
@@ -451,13 +451,13 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 if type(sources) == "table" then
                     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
                         _T("ft_water_header", "WATER SOURCES"),
-                        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+                        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
                     y = y - FT.py(16)
 
                     if #sources == 0 then
                         self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
                             _T("ft_water_none", "No water sources on this farm."),
-                            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                         y = y - FT.py(20)
                     else
                         for _, src in ipairs(sources) do
@@ -470,12 +470,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                                     label, tostring(src.id or "?")), 22),
                                 RenderText.ALIGN_LEFT, FT.C.TEXT)
                             self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, hours,
-                                RenderText.ALIGN_RIGHT, col)
+                                RenderText.ALIGN_RIGHT, col, true)
                             y = y - FT.py(14)
                             local n = #(src.connectedSystems or {})
                             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                                 string.format(_T("ft_water_connected", "%d connected"), n),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                             y = y - FT.py(16)
                         end
                     end
@@ -577,7 +577,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                                 keyTxt,
                                 _T("ft_rainKey_collected", "collected"), collected,
                                 _T("ft_rainKey_trip", "trip"), trip), 46),
-                            RenderText.ALIGN_LEFT, keyCol)
+                            RenderText.ALIGN_LEFT, keyCol, true)
                         y = y - FT.py(13)
 
                         -- Why it is not running, then what happens next. Only
@@ -603,7 +603,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         end
                     else
                         self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, keyTxt,
-                            RenderText.ALIGN_LEFT, FT.C.MUTED)
+                            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
                         y = y - FT.py(13)
                     end
                 end
@@ -796,12 +796,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         -- L7 WATER NEED -------------------------------------------------------
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
             _T("ft_irr_advisory_water_need", "WATER NEED (advisory)"),
-            RenderText.ALIGN_LEFT, AC)
+            RenderText.ALIGN_LEFT, AC, true)
         y = y - FT.py(14)
         if not hasForecastAccess then
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                 _T("ft_irr_advisory_locked_l7", "Unlocks at co-op level 7"),
-                RenderText.ALIGN_LEFT, FT.C.MUTED)
+                RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
             local hint = _pcall(function() return scs:getCriticalAlertHint() end)
@@ -827,14 +827,14 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     string.format("Field #%s", tostring(r.id)),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
-                    _T(callKey, callFallback), RenderText.ALIGN_RIGHT, callCol)
+                    _T(callKey, callFallback), RenderText.ALIGN_RIGHT, callCol, true)
                 y = y - FT.py(14)
                 shownNeed = shownNeed + 1
             end
             if shownNeed == 0 then
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                     _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
             end
         end
@@ -844,12 +844,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         -- L18 FORWARD CALL -----------------------------------------------------
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
             _T("ft_irr_advisory_forward_call", "FORWARD CALL (advisory)"),
-            RenderText.ALIGN_LEFT, AC)
+            RenderText.ALIGN_LEFT, AC, true)
         y = y - FT.py(14)
         if not hasPredictiveControl then
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                 _T("ft_irr_advisory_locked_l18", "Unlocks at co-op level 18"),
-                RenderText.ALIGN_LEFT, FT.C.MUTED)
+                RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
             -- The hold-or-water call extended across the schedule read: which
@@ -875,14 +875,14 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                         _T(callK, callF)),
                     RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + cw, y - FT.py(1), FT.FONT.SMALL,
-                    _T(fwdKey, fwdTxt), RenderText.ALIGN_RIGHT, fwdCol)
+                    _T(fwdKey, fwdTxt), RenderText.ALIGN_RIGHT, fwdCol, true)
                 y = y - FT.py(14)
                 shownFwd = shownFwd + 1
             end
             if shownFwd == 0 then
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                     _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
             else
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,

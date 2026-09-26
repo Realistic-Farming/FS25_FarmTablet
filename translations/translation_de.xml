@@ -1530,7 +1530,6 @@
         <text name="ft_auto_offer" text="  AUẞER" />
         <text name="ft_auto_offer_pending" text="offer_pending" />
         <text name="ft_auto_offline" text="offline" />
-        <text name="ft_auto_ok" text="ok" />
         <text name="ft_auto_older_entries_scroll_off_the_bottom_of_the_list" text="Älltere Einträge stehen am Ende der Liste." />
         <text name="ft_auto_on" text="AN" />
         <text name="ft_auto_on_2" text="An" />

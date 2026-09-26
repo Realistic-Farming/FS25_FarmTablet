@@ -1106,7 +1106,7 @@ function FarmTabletUI:_statusBarText()
     if self._signalOutageActive == true and self._signalFrozenStatusTime ~= nil then
         timeStr = self._signalFrozenStatusTime
     end
-    r:text(sx + FT.px(12), cy, FT.FONT.SMALL, timeStr, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+    r:text(sx + FT.px(12), cy, FT.FONT.SMALL, timeStr, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
 
     -- Centre: farm name (+ day/season)
     local farmId = data and data:getPlayerFarmId()
@@ -1144,7 +1144,7 @@ function FarmTabletUI:_statusBarText()
     -- Battery %: left of the signal bars, so it can never overlap the signal icon.
     r:text(sx + sw - FT.px(116), cy, FT.FONT.TINY,
         string.format("%d%%", math.floor(ftClampBattery(self._battery or 80))),
-        RenderText.ALIGN_RIGHT, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_RIGHT, FT.C.TEXT_BRIGHT, true)
 end
 
 function FarmTabletUI:_refreshStatusBar()
@@ -1300,7 +1300,7 @@ function FarmTabletUI:_drawAppView()
     -- App icon (small) + title (centre-left)
     local app = self.system.registry:get(self.system.currentApp)
     local appName = (app and g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
-                    or (app and app.navLabel) or "App"
+                    or FT.l10nAuto((app and app.navLabel) or "App")
     local titleIconSz = FT.py(20)
     local tiX = sbX + sbW + FT.px(10)
     local tiY = barY + (appbarH - titleIconSz)/2
@@ -1308,7 +1308,7 @@ function FarmTabletUI:_drawAppView()
                                     mono = (app and app.navLabel) or "?" })
     -- App name as a dim right-aligned breadcrumb (apps draw their own bright header)
     r:text(sx + sw - FT.px(12), barY + appbarH/2 - FT.py(5),
-           FT.FONT.SMALL, appName, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+           FT.FONT.SMALL, appName, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
 
     -- Content region = below the app bar, full width.
     L.contentX = sx
@@ -1337,7 +1337,7 @@ function FarmTabletUI:_drawContent()
     local fn = self._appDrawers and self._appDrawers[appId]
     if fn then
         local ok, err = pcall(fn, self)
-        if not ok then self:_drawError(err) end
+        if not ok then self:_drawError(FT.l10nAuto(err)) end
     else
         self:_drawWelcome()
     end
@@ -1362,7 +1362,7 @@ function FarmTabletUI:_drawOfflineDataBannerAt(x, y, w)
         "KEIN NETZ", RenderText.ALIGN_LEFT, {1.00, 0.78, 0.25, 1})
 
     self.r:appText(x + iconW + FT.px(80), y - h/2 + FT.py(1), FT.FONT.SMALL,
-        ftUiFormat("ft_network_data_frozen", "%s - data frozen", ftUiText("ft_network_default_provider", "Realistic Farming Mobile")), RenderText.ALIGN_LEFT, {0.95, 0.95, 0.86, 1})
+        ftUiFormat("ft_network_data_frozen", "%s - data frozen", ftUiText("ft_network_default_provider", "Realistic Farming Mobile")), RenderText.ALIGN_LEFT, {0.95, 0.95, 0.86, 1}, true)
 
     return y - h - FT.py(18)
 end
@@ -1612,8 +1612,8 @@ function FarmTabletUI:_drawProviderSelect()
     local top = L.screenY + L.screenH * 0.78
 
     r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0.02,0.03,0.04,0.72})
-    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_network_choose_provider", "Choose Network Provider"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-    r:text(cx, top - FT.py(28), FT.FONT.SMALL, ftUiText("ft_network_choose_hint", "Select a provider, then activate it."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_network_choose_provider", "Choose Network Provider"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+    r:text(cx, top - FT.py(28), FT.FONT.SMALL, ftUiText("ft_network_choose_hint", "Select a provider, then activate it."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
 
     local bw = FT.px(280)
     local bh = FT.py(44)
@@ -1632,7 +1632,7 @@ function FarmTabletUI:_drawProviderSelect()
         r:rect(bx, by, bw, bh, selected and {0.10,0.48,0.22,0.94} or {0.08,0.10,0.14,0.94})
         r:text(cx, by + bh/2 + FT.py(5), FT.FONT.BODY, provider.name, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
         local feeText = ftUiFormat("ft_network_fee_format", "Base fee: %s €/day", tostring(provider.dailyFee or self:_getSignalProviderDailyFee(provider.id)))
-        r:text(cx, by + FT.py(8), FT.FONT.TINY, feeText, RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, by + FT.py(8), FT.FONT.TINY, feeText, RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         table.insert(self._providerBtns, {x=bx, y=by, w=bw, h=bh, provider=provider})
     end
 
@@ -1641,7 +1641,7 @@ function FarmTabletUI:_drawProviderSelect()
     local cbx = cx - cbw / 2
     local cby = L.screenY + L.screenH * 0.18
     r:rect(cbx, cby, cbw, cbh, {0.10,0.55,0.22,0.96})
-    r:text(cx, cby + cbh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_network_activate", "ACTIVATE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    r:text(cx, cby + cbh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_network_activate", "ACTIVATE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     self._providerConfirmBtn = {x=cbx, y=cby, w=cbw, h=cbh}
 end
 
@@ -2256,21 +2256,21 @@ function FarmTabletUI:_drawRepairScreen()
     r:rect(cx - FT.px(40), crackY - FT.py(30), FT.px(80), FT.py(1.6), {1.0,0.45,0.30,0.34})
     r:rect(cx - FT.px(16), crackY - FT.py(18), FT.px(2), FT.py(36), {1.0,0.45,0.30,0.34})
 
-    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_repair_title", "DISPLAY DAMAGE"), RenderText.ALIGN_CENTER, {1.0,0.72,0.30,1})
-    r:text(cx, top - FT.py(32), FT.FONT.BODY, ftUiText("ft_repair_subtitle", "Display damage from a drop"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-    r:text(cx, top - FT.py(58), FT.FONT.SMALL, ftUiText("ft_repair_in_progress", "Tablet in repair"), RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL)
-    r:text(cx, top - FT.py(82), FT.FONT.SMALL, ftUiText("ft_repair_notify_done", "We will notify you when the repair is finished."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_repair_title", "DISPLAY DAMAGE"), RenderText.ALIGN_CENTER, {1.0,0.72,0.30,1}, true)
+    r:text(cx, top - FT.py(32), FT.FONT.BODY, ftUiText("ft_repair_subtitle", "Display damage from a drop"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+    r:text(cx, top - FT.py(58), FT.FONT.SMALL, ftUiText("ft_repair_in_progress", "Tablet in repair"), RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL, true)
+    r:text(cx, top - FT.py(82), FT.FONT.SMALL, ftUiText("ft_repair_notify_done", "We will notify you when the repair is finished."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
 
     local stockText = (self._tabletRepairInStock ~= false)
         and ftUiText("ft_repair_stock_available", "Display in stock - duration: approx. 1 in-game hour")
         or ftUiText("ft_repair_stock_ordered", "Display ordered - duration: approx. 1 in-game day")
-    r:text(cx, sy + sh * 0.30, FT.FONT.SMALL, stockText, RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL)
-    r:text(cx, sy + sh * 0.24, FT.FONT.BODY, ftUiFormat("ft_repair_remaining", "Remaining: %s", self:_formatRepairRemaining()), RenderText.ALIGN_CENTER, {0.80,0.95,1.0,1})
+    r:text(cx, sy + sh * 0.30, FT.FONT.SMALL, stockText, RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL, true)
+    r:text(cx, sy + sh * 0.24, FT.FONT.BODY, ftUiFormat("ft_repair_remaining", "Remaining: %s", self:_formatRepairRemaining()), RenderText.ALIGN_CENTER, {0.80,0.95,1.0,1}, true)
 
     local bw, bh = FT.px(150), FT.py(34)
     local bx, by = cx - bw/2, sy + sh * 0.12
     r:rect(bx, by, bw, bh, {0.18,0.20,0.24,0.95})
-    r:text(cx, by + bh/2 - FT.py(4), FT.FONT.SMALL, ftUiText("ft_common_close", "CLOSE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    r:text(cx, by + bh/2 - FT.py(4), FT.FONT.SMALL, ftUiText("ft_common_close", "CLOSE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     self._tabletRepairCloseBtn = {x=bx,y=by,w=bw,h=bh}
 end
 
@@ -2301,17 +2301,17 @@ function FarmTabletUI:_drawBatteryEmpty()
     r:rect(batX + FT.px(3), batY + FT.py(3), math.max(FT.px(2), (batW-FT.px(6))*math.max(0, math.min(1, (self._battery or 0)/100))), batH-FT.py(6), {0.95,0.30,0.30,0.90})
 
     if self._batteryCharging then
-        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_charging", "Tablet charging..."), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, string.format("%d%%", math.floor(self._battery or 0)), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_charging", "Tablet charging..."), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, string.format("%d%%", math.floor(self._battery or 0)), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
     else
-        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_empty", "Tablet battery empty"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, ftUiText("ft_battery_charge_hint", "Charge briefly to continue."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_empty", "Tablet battery empty"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, ftUiText("ft_battery_charge_hint", "Charge briefly to continue."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         local bw = FT.px(170)
         local bh = FT.py(40)
         local bx = cx - bw / 2
         local by = L.screenY + L.screenH * 0.28
         r:rect(bx, by, bw, bh, {0.10,0.55,0.22,0.95})
-        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_battery_charge", "CHARGE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_battery_charge", "CHARGE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
         self._batteryChargeBtn = {x=bx, y=by, w=bw, h=bh}
     end
 end
@@ -2492,8 +2492,8 @@ function FarmTabletUI:_drawSignalToast()
     local tMsg = tostring(toast.msg or "")
     if FT.utf8Len(tTitle) > 32 then tTitle = FT.utf8Sub(tTitle, 31) .. "." end
     if FT.utf8Len(tMsg) > 58 then tMsg = FT.utf8Sub(tMsg, 57) .. "." end
-    r:text(x + FT.px(13), y + h - FT.py(15), titleFont, tTitle, RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1})
-    r:text(x + FT.px(13), y + FT.py(11), msgFont, tMsg, RenderText.ALIGN_LEFT, {0.92,0.95,0.98,1})
+    r:text(x + FT.px(13), y + h - FT.py(15), titleFont, tTitle, RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1}, true)
+    r:text(x + FT.px(13), y + FT.py(11), msgFont, tMsg, RenderText.ALIGN_LEFT, {0.92,0.95,0.98,1}, true)
 end
 
 function FarmTabletUI:_calcLocalSignalBars()
@@ -3120,11 +3120,14 @@ function FarmTabletUI:drawInfoIcon(stateKey, accentColor)
     return btn
 end
 
-function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries)
+-- literalHeader, and each entry's literalTitle / literalBody (MAINTENANCE row 154): true when that text is
+-- already localized, so the renderer draws it as handed (see FT_Renderer's literalText). A raw English
+-- title or body leaves its flag out and keeps FT.l10nAuto, line by line for a body.
+function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries, literalHeader)
     if not self[stateKey] then return false end
 
     local ac     = accentColor or FT.C.BRAND
-    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"))
+    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"), literalHeader, true)
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
@@ -3135,7 +3138,8 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
-        end }
+        end },
+        true
     )
     table.insert(self._contentBtns, backBtn)
 
@@ -3145,12 +3149,12 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
         if y < contentY + FT.py(12) then break end
 
         self.r:appRect(x - FT.px(4), y - FT.py(1), w + FT.px(8), FT.py(14), {ac[1], ac[2], ac[3], 0.12})
-        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, entry.literalTitle == true)
         y = y - FT.py(16)
 
         for line in ((entry.body or "") .. "\n"):gmatch("([^\n]*)\n") do
             if y < contentY + FT.py(8) then break end
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, entry.literalBody == true)
             y = y - FT.py(13)
         end
         y = y - FT.py(5)
@@ -3187,7 +3191,7 @@ function FarmTabletUI:drawScrollBar()
     self.r:appRect(barX, thumbY, barW, thumbH, {FT.C.BRAND[1], FT.C.BRAND[2], FT.C.BRAND[3], 0.80})
 
     self.r:appText(barX + barW + FT.px(4), barY + barH - FT.py(10),
-        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
 end
 
 function FarmTabletUI:content()
@@ -3203,7 +3207,8 @@ function FarmTabletUI:contentInner()
            FT.LAYOUT.contentH - py*2
 end
 
-function FarmTabletUI:drawAppHeader(title, subtitle)
+-- literalTitle / literalSubtitle (MAINTENANCE row 154): true when that text is already localized.
+function FarmTabletUI:drawAppHeader(title, subtitle, literalTitle, literalSubtitle)
     local x, y, w, h = self:contentInner()
     local topY = y + h - FT.py(2)
     local accent = FT.appColor(self.system.currentApp)
@@ -3213,16 +3218,16 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     end
 
     if self.r.appHeaderText then
-        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     else
-        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     end
 
     if subtitle then
         if self.r.appHeaderText then
-            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         else
-            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         end
     end
 
@@ -3239,15 +3244,17 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     return divY - FT.py(12)
 end
 
-function FarmTabletUI:drawRow(y, label, value, labelC, valueC)
+-- literalLabel / literalValue, literalText, literalA / literalB (MAINTENANCE row 154): true when that
+-- text is already localized; passed down to the renderer.
+function FarmTabletUI:drawRow(y, label, value, labelC, valueC, literalLabel, literalValue)
     local x, _, w, _ = self:contentInner()
-    self.r:row(x, y, w, label, value, labelC, valueC)
+    self.r:row(x, y, w, label, value, labelC, valueC, literalLabel, literalValue)
     return y - FT.py(FT.SP.ROW)
 end
 
-function FarmTabletUI:drawSection(y, label)
+function FarmTabletUI:drawSection(y, label, literalText)
     local x, _, w, _ = self:contentInner()
-    self.r:sectionHeader(x, y, w, label)
+    self.r:sectionHeader(x, y, w, label, literalText)
     return y - FT.py(18)
 end
 
@@ -3262,25 +3269,25 @@ function FarmTabletUI:drawBar(y, value, maxVal, color)
     return self.r:progressBar(x, y, w, value, maxVal, color)
 end
 
-function FarmTabletUI:drawButton(y, label, color, meta)
+function FarmTabletUI:drawButton(y, label, color, meta, literalText)
     local x, _, w, _ = self:contentInner()
     local txt = tostring(label or "")
     -- Lange deutsche Texte dürfen nicht aus dem Button links/rechts herauslaufen.
     -- Deshalb wird der Button je nach Text automatisch breiter, maximal bis zur Inhaltsbreite.
     local bw = math.min(w, math.max(FT.px(150), string.len(txt) * FT.px(4.8)))
     local bh = FT.py(22)
-    local btn = self.r:button(x, y, bw, bh, label, color, meta)
+    local btn = self.r:button(x, y, bw, bh, label, color, meta, literalText)
     table.insert(self._contentBtns, btn)
     return y - bh - FT.py(4), btn
 end
 
-function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB)
+function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB, literalA, literalB)
     local x, _, w, _ = self:contentInner()
     local bw = FT.px(100)
     local bh = FT.py(22)
     local gap = FT.px(8)
-    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA)
-    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB)
+    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA, literalA)
+    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB, literalB)
     table.insert(self._contentBtns, btnA)
     table.insert(self._contentBtns, btnB)
     return y - bh - FT.py(4), btnA, btnB
@@ -3302,9 +3309,9 @@ function FarmTabletUI:_drawWelcome()
 end
 
 function FarmTabletUI:_drawError(msg)
-    local startY = self:drawAppHeader("App Error", "")
+    local startY = self:drawAppHeader("App Error", "", nil, true)
     local x, _, _, _ = self:contentInner()
-    self.r:appText(x, startY - FT.py(8), FT.FONT.SMALL, tostring(msg), RenderText.ALIGN_LEFT, FT.C.NEGATIVE)
+    self.r:appText(x, startY - FT.py(8), FT.FONT.SMALL, tostring(msg), RenderText.ALIGN_LEFT, FT.C.NEGATIVE, true)
 end
 
 -- ─────────────────────────────────────────────────────────

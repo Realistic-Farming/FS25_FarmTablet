@@ -51,7 +51,7 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
 
     local apps    = self.system.registry:getAll()
     local scrollY = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader(FT.l10nAuto("App Store"), FT.l10nFormat("ft_appstore_installed_count", "%d installed", #apps))
+    local afterHdr = self:drawAppHeader(FT.l10nAuto("App Store"), FT.l10nFormat("ft_appstore_installed_count", "%d installed", #apps), true, true)
     local x, contentY, cw, _ = self:contentInner()
     local y = afterHdr - FT.py(8) + scrollY
 
@@ -71,9 +71,9 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
     for _, gid in ipairs(groupOrder) do
         local list = groups[gid]
         if list and #list > 0 then
-            y = self:drawSection(y, groupLabels[gid] or gid:upper())
+            y = self:drawSection(y, groupLabels[gid] or FT.l10nAuto(gid:upper()), true)
             for _, app in ipairs(list) do
-                local dispName = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name)) or app.navLabel or app.id
+                local dispName = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name)) or FT.l10nAuto(app.navLabel or app.id)
                 y = self:_drawAppRow(y, app, dispName, x, cw, false)
             end
             y = y - FT.py(4)
@@ -81,13 +81,13 @@ FarmTabletUI:registerDrawer(FT.APP.APP_STORE, function(self)
     end
 
     -- ── Mod integrations ──────────────────────────────────
-    y = self:drawSection(y, FT.l10nAuto("MOD INTEGRATIONS"))
+    y = self:drawSection(y, FT.l10nAuto("MOD INTEGRATIONS"), true)
 
     for _, known in ipairs(KNOWN_INTEGRATIONS) do
         local app       = self.system.registry:get(known.appId)
         local installed = app ~= nil
         local dispName  = (installed and g_i18n and app and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
-                       or known.label
+                       or FT.l10nAuto(known.label)
         y = self:_drawAppRow(y, app, dispName, x, cw, not installed, known)
     end
 
@@ -112,7 +112,7 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
         or FT.C.TEXT_BRIGHT
     local nameMax = dimmed and 22 or 18
     self.r:appText(x + FT.px(10), y + FT.py(12), FT.FONT.BODY,
-        FT_Renderer.truncate(dispName, nameMax), RenderText.ALIGN_LEFT, nameColor)
+        FT_Renderer.truncate(dispName, nameMax), RenderText.ALIGN_LEFT, nameColor, true)
 
     -- Description / hint
     local desc
@@ -129,23 +129,23 @@ function FarmTabletUI:_drawAppRow(y, app, dispName, x, cw, dimmed, known)
     end
     self.r:appText(x + FT.px(10), y - FT.py(3), FT.FONT.TINY,
         desc, RenderText.ALIGN_LEFT,
-        {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha})
+        {FT.C.TEXT_DIM[1], FT.C.TEXT_DIM[2], FT.C.TEXT_DIM[3], alpha}, true)
 
     -- Version on the top-right; OPEN alone on the lower right (no developer clash).
     if app and not dimmed then
         self.r:appText(x + cw - FT.px(8), y + FT.py(12), FT.FONT.TINY,
-            FT.l10nAuto(app.version or "Built-in"), RenderText.ALIGN_RIGHT, FT.C.BRAND)
+            FT.l10nAuto(app.version or "Built-in"), RenderText.ALIGN_RIGHT, FT.C.BRAND, true)
     elseif dimmed then
         self.r:appText(x + cw - FT.px(8), y + FT.py(12), FT.FONT.TINY,
             FT.l10nAuto("not installed"), RenderText.ALIGN_RIGHT,
-            {FT.C.MUTED[1], FT.C.MUTED[2], FT.C.MUTED[3], 0.45})
+            {FT.C.MUTED[1], FT.C.MUTED[2], FT.C.MUTED[3], 0.45}, true)
     end
 
     -- OPEN button (only for installed apps)
     if app and not dimmed then
         local appId = app.id
         local btn = self.r:button(x + cw - FT.px(48), y - FT.py(4), FT.px(44), FT.py(15),
-            FT.l10nAuto("OPEN"), FT.C.BTN_PRIMARY, { onClick = function() self:switchApp(appId) end })
+            FT.l10nAuto("OPEN"), FT.C.BTN_PRIMARY, { onClick = function() self:switchApp(appId) end }, true)
         table.insert(self._contentBtns, btn)
     end
 

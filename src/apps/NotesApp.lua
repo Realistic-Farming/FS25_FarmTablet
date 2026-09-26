@@ -159,13 +159,13 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
 
     if self:drawHelpPage("_notesHelp", FT.APP.NOTES, N("ft_app_notes", "Notes"), AC, {
         { title = N("ft_notes_todo_list", "Todo list"),
-          body  = N("ft_notes_help_todo_body", "Keep track of farm tasks.\n\nUse < / > to select a task template and field,\nthen + ADD to add it to the list.\nTodos are saved automatically per savegame.") },
+          body  = N("ft_notes_help_todo_body", "Keep track of farm tasks.\n\nUse < / > to select a task template and field,\nthen + ADD to add it to the list.\nTodos are saved automatically per savegame."), literalTitle = true, literalBody = true },
         { title = N("ft_notes_actions", "Actions"),
-          body  = N("ft_notes_help_actions_body", "DONE - mark a task as completed (■)\nUNDO - mark it pending again (□)\n✕    - remove the task entirely\nCLEAR COMPLETED - remove all done tasks at once") },
-    }) then return end
+          body  = N("ft_notes_help_actions_body", "DONE - mark a task as completed (■)\nUNDO - mark it pending again (□)\n✕    - remove the task entirely\nCLEAR COMPLETED - remove all done tasks at once"), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local startY = self:drawAppHeader(N("ft_app_notes", "Notes"),
-        pending > 0 and string.format(N("ft_notes_pending_fmt", "%d pending"), pending) or N("ft_notes_all_done", "All done!"))
+        pending > 0 and string.format(N("ft_notes_pending_fmt", "%d pending"), pending) or N("ft_notes_all_done", "All done!"), true, true)
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
@@ -173,7 +173,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     local GAP     = FT.py(5)
 
     -- ── Template picker + Add ─────────────────────────────
-    y = self:drawSection(y, N("ft_notes_new_task", "New task"))
+    y = self:drawSection(y, N("ft_notes_new_task", "New task"), true)
     y = y - GAP
 
     local arrowW    = FT.px(28)
@@ -186,7 +186,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
         onClick = function()
             _templateIdx = ((_templateIdx - 2) % #TEMPLATES) + 1
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnPrev)
 
     -- Label display
@@ -194,7 +194,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
         labelW, BTN_H, FT.C.BG_CARD)
     self.r:appText(x + arrowW + FT.px(3) + labelW * 0.5,
         y - BTN_H * 0.5 - FT.py(5),
-        FT.FONT.SMALL, template, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        FT.FONT.SMALL, template, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
 
     -- Next arrow
     local btnNext = self.r:button(x + arrowW + FT.px(3) + labelW + FT.px(3),
@@ -202,7 +202,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
         onClick = function()
             _templateIdx = (_templateIdx % #TEMPLATES) + 1
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnNext)
     y = y - BTN_H - GAP
 
@@ -215,7 +215,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
         self.r:appRect(x, y - BTN_H, cw, BTN_H, FT.C.BG_CARD)
         self.r:appText(x + cw * 0.5, y - BTN_H * 0.5 - FT.py(5),
             FT.FONT.SMALL, N("ft_notes_no_fields", "No fields owned"),
-            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
     else
         local fieldLabel = _fieldIdx == 0
             and N("ft_notes_any_field", "Any field")
@@ -226,7 +226,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
             onClick = function()
                 _fieldIdx = (_fieldIdx - 1 + total) % total
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btnFPrev)
 
         self.r:appRect(x + arrowW + FT.px(3), y - BTN_H,
@@ -240,7 +240,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
             onClick = function()
                 _fieldIdx = (_fieldIdx + 1) % total
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btnFNext)
     end
     y = y - BTN_H - GAP
@@ -257,7 +257,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
             table.insert(_todos, {text = todoText, done = false})
             notes_save()
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnAdd)
     y = y - BTN_H - FT.py(8)
 
@@ -265,13 +265,13 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
     y = self:drawSection(y,
-        string.format(N("ft_notes_list_count_fmt", "Tasks (%d open - %d done)"), pending, done))
+        string.format(N("ft_notes_list_count_fmt", "Tasks (%d open - %d done)"), pending, done), true)
     y = y - GAP
 
     if #_todos == 0 then
         self.r:appText(x + cw * 0.5, y - FT.py(12), FT.FONT.SMALL,
             N("ft_notes_empty", "No tasks yet - add one above"),
-            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         y = y - FT.py(24)
     else
         local statusW = FT.px(14)
@@ -286,7 +286,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
             self.r:appText(x, y - FT.py(6),
                 FT.FONT.SMALL, todo.done and "■" or "□",
                 RenderText.ALIGN_LEFT,
-                todo.done and FT.C.TEXT_DIM or AC)
+                todo.done and FT.C.TEXT_DIM or AC, true)
 
             -- Task label
             local label = todo.text or ""
@@ -310,7 +310,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
                         notes_save()
                     end
                 end
-            })
+            }, true)
             table.insert(self._contentBtns, btnDone)
 
             -- Remove button
@@ -321,7 +321,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
                     table.remove(_todos, capturedIdx)
                     notes_save()
                 end
-            })
+            }, true)
             table.insert(self._contentBtns, btnRm)
 
             y = y - BTN_H - GAP
@@ -342,7 +342,7 @@ FarmTabletUI:registerDrawer(FT.APP.NOTES, function(self)
                 _todos = remaining
                 notes_save()
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btnClearDone)
         y = y - BTN_H
     end

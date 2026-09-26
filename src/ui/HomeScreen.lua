@@ -46,11 +46,11 @@ local function appLabel(app, maxChars)
         if g_i18n ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then
             return g_i18n:getText(key)
         end
-        return short
+        return FT.l10nAuto(short)
     end
 
     local name = (g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
-                 or app.navLabel or "?"
+                 or FT.l10nAuto(app.navLabel or "?")
     -- Cut at the last space that still fits, so the label ends on a whole word; counted in
     -- characters, never bytes (MAINTENANCE row 138).
     return FT.utf8Cut(name, maxChars, 4)
@@ -251,7 +251,7 @@ function FarmTabletUI:_drawHome()
                     lblColor = {0.95, 0.96, 0.98, 0.95}       -- white
                 end
                 r:appText(iconCx, cellBottom + labelH * 0.25, lblFont,
-                    appLabel(app, lblMax), RenderText.ALIGN_CENTER, lblColor)
+                    appLabel(app, lblMax), RenderText.ALIGN_CENTER, lblColor, true)
             end
 
             -- full-cell hitbox
@@ -293,7 +293,7 @@ function FarmTabletUI:_drawHome()
 
         r:text(dx + FT.px(6), dotsY + dotsH / 2 - FT.py(4), FT.FONT.TINY,
             string.format("%d / %d", (self._page or 0) + 1, self._pageCount),
-            RenderText.ALIGN_LEFT, {0.82, 0.85, 0.90, 0.90})
+            RenderText.ALIGN_LEFT, {0.82, 0.85, 0.90, 0.90}, true)
     end
 
     -- ── Dock (springboard mode only) ──────────────────────
@@ -335,7 +335,7 @@ function FarmTabletUI:_drawHome()
                 -- Dock label. Same short-name rule as the grid, so a dock app
                 -- and its grid tile never read as two different apps.
                 r:appText(ix + dockIcon / 2, panelY + FT.py(4), lblFont,
-                    appLabel(app, lblMax), RenderText.ALIGN_CENTER, {0.95, 0.96, 0.98, 0.95})
+                    appLabel(app, lblMax), RenderText.ALIGN_CENTER, {0.95, 0.96, 0.98, 0.95}, true)
             end
         end
     end

@@ -312,25 +312,25 @@ FarmTabletUI:registerDrawer("field_jobs", function(self)
                     "Home screen: tap %s.\n"..
                     "New Job screen: pick field, vehicle and task,\n"..
                     "then tap %s to begin timing.",
-                    FJText("ft_fieldjobs_start_job", "Start job"), FJText("ft_fieldjobs_confirm_start", "START JOB TIMER")) },
+                    FJText("ft_fieldjobs_start_job", "Start job"), FJText("ft_fieldjobs_confirm_start", "START JOB TIMER")), literalTitle = true, literalBody = true },
         { title = FJText("ft_fieldjobs_help_finish_title", "FINISHING A JOB"),
           body  = FJLines("ft_fieldjobs_help_finish_body",
                     "Home screen: tap %s when the work is done.\n"..
                     "While a job runs, %s stays disabled until you\n"..
                     "finish the current one.",
-                    FJText("ft_fieldjobs_finish_job", "FINISH JOB"), FJText("ft_fieldjobs_start_job", "Start job")) },
+                    FJText("ft_fieldjobs_finish_job", "FINISH JOB"), FJText("ft_fieldjobs_start_job", "Start job")), literalTitle = true, literalBody = true },
         { title = FJText("ft_common_history", "History"),
           body  = FJLines("ft_fieldjobs_help_history_body",
                     "The %s button appears on the Home screen once\n"..
                     "your first job is finished. Up to 30 jobs are kept\n"..
                     "per savegame, newest first.",
-                    FJText("ft_common_history", "History")) },
+                    FJText("ft_common_history", "History")), literalTitle = true, literalBody = true },
         { title = FJText("ft_fieldjobs_help_nav_title", "GETTING BACK"),
           body  = FJLines("ft_fieldjobs_help_nav_body",
                     "This help closes with its own Back button.\n"..
                     "From New Job or History, Back returns to Field\n"..
                     "Jobs Home, app bar or on-screen alike.\n"..
-                    "From Home, Back leaves Field Jobs.") },
+                    "From Home, Back leaves Field Jobs."), literalTitle = true, literalBody = true },
     }) then return end
 
     -- ── Route to sub-views ──────────────────────────────
@@ -357,7 +357,7 @@ function _drawHomeView(self)
     -- worker. Say plainly, on the screen, that this app only times and logs jobs.
     self.r:appText(x, startY - FT.py(3), FT.FONT.TINY,
         FJText("ft_fieldjobs_purpose", "Times and logs your jobs. It doesn't send a worker."),
-        RenderText.ALIGN_LEFT, FT.C.MUTED)
+        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
     local y = startY - FT.py(18)
 
     -- ── Active job card ────────────────────────────────
@@ -411,13 +411,13 @@ function _drawHomeView(self)
                 _finishJob()
                 _view = "home"
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, finBtn)
 
         -- START NEW (disabled look while active)
-        local sBtn = self.r:button(x + bw + FT.px(8), y, bw, bh, "START NEW",
+        local sBtn = self.r:button(x + bw + FT.px(8), y, bw, bh, FT.l10nAuto("START NEW"),
             {0.18, 0.20, 0.26, 0.50},
-            { onClick = function() end })  -- no-op while active
+            { onClick = function() end }, true)  -- no-op while active
         table.insert(self._contentBtns, sBtn)
         self.r:appText(x + bw + FT.px(8) + bw/2, y - FT.py(14),
             FT.FONT.TINY, "finish current first",
@@ -434,7 +434,7 @@ function _drawHomeView(self)
             {AC[1], AC[2], AC[3], 0.75})
         self.r:appText(x + FT.px(10), y - FT.py(8),
             FT.FONT.SMALL, FJText("ft_fieldjobs_no_job", "No job running."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
 
         local bw = FT.px(108)
         local bh = FT.py(22)
@@ -454,7 +454,7 @@ function _drawHomeView(self)
                 _selTaskIdx    = 1
                 _view = "start"
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, sBtn)
         y = y - cardH - FT.py(14)
     end
@@ -466,7 +466,7 @@ function _drawHomeView(self)
     -- History header row
     self.r:appText(x, y,
         FT.FONT.SMALL, FJText("ft_fieldjobs_recent_jobs", "Recent jobs"),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
 
     if #_jobHistory > 0 then
         local hbw = FT.px(60)
@@ -477,7 +477,7 @@ function _drawHomeView(self)
                 _histScroll = 0
                 _view = "history"
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, histBtn)
     end
 
@@ -486,7 +486,7 @@ function _drawHomeView(self)
     if #_jobHistory == 0 then
         self.r:appText(x, y, FT.FONT.SMALL,
             FJText("ft_fieldjobs_no_completed", "No completed jobs yet."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
     else
         -- Show last 4 entries as a mini-list
         local rowH  = FT.py(19)
@@ -522,7 +522,7 @@ function _drawHomeView(self)
                 FT.FONT.TINY,
                 FJFormat("ft_fieldjobs_history_more", "+%d more, tap %s",
                     #_jobHistory - 4, FJText("ft_common_history", "History")),
-                RenderText.ALIGN_CENTER, FT.C.MUTED)
+                RenderText.ALIGN_CENTER, FT.C.MUTED, true)
         end
     end
 end
@@ -539,12 +539,12 @@ function _drawStartView(self)
     -- BACK button
     local backBw = FT.px(52)
     local backBh = FT.py(18)
-    local backBtn = self.r:button(x + cw - backBw, y, backBw, backBh, "< BACK",
+    local backBtn = self.r:button(x + cw - backBw, y, backBw, backBh, FT.l10nAuto("< BACK"),
         FT.C.BTN_NEUTRAL,
         { onClick = function()
             _view = "home"
             self:switchApp("field_jobs")
-        end })
+        end }, true)
     table.insert(self._contentBtns, backBtn)
 
     -- Purpose line (#141), on the START view. Home already carries this one, but
@@ -566,7 +566,7 @@ function _drawStartView(self)
     -- the explanation.
     self.r:appText(x, y + backBh / 2 - FT.py(3), FT.FONT.TINY,
         FJText("ft_fieldjobs_purpose", "Times and logs your jobs. It doesn't send a worker."),
-        RenderText.ALIGN_LEFT, FT.C.MUTED)
+        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
 
     y = y - FT.py(24)
 
@@ -619,7 +619,7 @@ function _drawStartView(self)
                 _selFieldIdx = _selFieldIdx - 1
                 if _selFieldIdx < 1 then _selFieldIdx = #fields end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, lBtn)
 
         -- Field display
@@ -634,7 +634,7 @@ function _drawStartView(self)
                 _selFieldIdx = _selFieldIdx + 1
                 if _selFieldIdx > #fields then _selFieldIdx = 1 end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, rBtn)
 
         y = y - arrowH - FT.py(6)
@@ -666,7 +666,7 @@ function _drawStartView(self)
                 _selVehicleIdx = _selVehicleIdx - 1
                 if _selVehicleIdx < 1 then _selVehicleIdx = #vehicles end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, lBtn)
 
         self.r:appRect(x + arrowW + FT.px(2), y, selW - FT.px(4), arrowH, {0.09,0.11,0.15,0.80})
@@ -679,7 +679,7 @@ function _drawStartView(self)
                 _selVehicleIdx = _selVehicleIdx + 1
                 if _selVehicleIdx > #vehicles then _selVehicleIdx = 1 end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, rBtn)
 
         y = y - arrowH - FT.py(10)
@@ -700,7 +700,7 @@ function _drawStartView(self)
                 _selTaskIdx = _selTaskIdx - 1
                 if _selTaskIdx < 1 then _selTaskIdx = #TASK_TYPES end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, lBtn)
 
         self.r:appRect(x + arrowW + FT.px(2), y, selW - FT.px(4), arrowH,
@@ -714,7 +714,7 @@ function _drawStartView(self)
                 _selTaskIdx = _selTaskIdx + 1
                 if _selTaskIdx > #TASK_TYPES then _selTaskIdx = 1 end
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, rBtn)
 
         y = y - arrowH - FT.py(10)
@@ -743,7 +743,7 @@ function _drawStartView(self)
                 _startJob(fname, fid, vname, task)
                 _view = "home"
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, confirmBtn)
     end
 end
@@ -761,22 +761,22 @@ function _drawHistoryView(self)
     -- BACK + CLEAR buttons
     local backBw = FT.px(52)
     local backBh = FT.py(18)
-    local backBtn = self.r:button(x + cw - backBw, y, backBw, backBh, "< BACK",
+    local backBtn = self.r:button(x + cw - backBw, y, backBw, backBh, FT.l10nAuto("< BACK"),
         FT.C.BTN_NEUTRAL,
         { onClick = function()
             _view = "home"
             self:switchApp("field_jobs")
-        end })
+        end }, true)
     table.insert(self._contentBtns, backBtn)
 
     if #_jobHistory > 0 then
-        local clrBtn = self.r:button(x, y, backBw, backBh, "CLEAR",
+        local clrBtn = self.r:button(x, y, backBw, backBh, FT.l10nAuto("CLEAR"),
             FT.C.BTN_DANGER,
             { onClick = function()
                 _jobHistory = {}
                 _saveJobs()
                 self:switchApp("field_jobs")
-            end })
+            end }, true)
         table.insert(self._contentBtns, clrBtn)
     end
 
@@ -784,7 +784,7 @@ function _drawHistoryView(self)
 
     if #_jobHistory == 0 then
         self.r:appText(x, y, FT.FONT.BODY, FJText("ft_fieldjobs_no_completed", "No completed jobs yet."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         return
     end
 

@@ -55,14 +55,14 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
     y = self:drawSection(y, "FINANCES")
 
     local balColor = balance >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-    y = self:drawRow(y, "Balance", data:formatMoney(balance), nil, balColor)
+    y = self:drawRow(y, "Balance", data:formatMoney(balance), nil, balColor, nil, true)
 
     if loan > 0 then
-        y = self:drawRow(y, "Loan", data:formatMoney(loan), nil, FT.C.WARNING)
+        y = self:drawRow(y, "Loan", data:formatMoney(loan), nil, FT.C.WARNING, nil, true)
     end
 
     local nwColor = netWorth >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-    y = self:drawRow(y, "Net Worth", data:formatMoney(netWorth), nil, nwColor)
+    y = self:drawRow(y, "Net Worth", data:formatMoney(netWorth), nil, nwColor, nil, true)
 
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
@@ -70,11 +70,11 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
     -- ── SESSION P&L ───────────────────────────────────────
     y = self:drawSection(y, "SESSION P&L")
 
-    y = self:drawRow(y, "Income",   data:formatMoney(income),   nil, FT.C.POSITIVE)
-    y = self:drawRow(y, "Expenses", data:formatMoney(expenses), nil, FT.C.NEGATIVE)
+    y = self:drawRow(y, "Income",   data:formatMoney(income),   nil, FT.C.POSITIVE, nil, true)
+    y = self:drawRow(y, "Expenses", data:formatMoney(expenses), nil, FT.C.NEGATIVE, nil, true)
 
     local plColor = netPL >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-    y = self:drawRow(y, "Net P/L",  data:formatMoney(netPL),    nil, plColor)
+    y = self:drawRow(y, "Net P/L",  data:formatMoney(netPL),    nil, plColor, nil, true)
 
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
@@ -86,13 +86,13 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
         nil, FT.C.TEXT_NORMAL)
     y = self:drawRow(y, "Area",
         FT.l10nFormat("ft_auto_1f_ha", "%.1f ha", farmArea),
-        nil, FT.C.TEXT_NORMAL)
+        nil, FT.C.TEXT_NORMAL, nil, true)
     y = self:drawRow(y, "Vehicles",   tostring(vehCount),
         nil, FT.C.TEXT_NORMAL)
     y = self:drawRow(y, "Animal Pens", tostring(#animalPens),
-        nil, FT.C.TEXT_NORMAL)
+        nil, FT.C.TEXT_NORMAL, nil, true)
     y = self:drawRow(y, "Production", tostring(#productions),
-        nil, FT.C.TEXT_NORMAL)
+        nil, FT.C.TEXT_NORMAL, nil, true)
 
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
@@ -112,7 +112,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
             y = self:drawRow(y, "Season", seasonName, nil, FT.C.INFO)
         end
 
-        y = self:drawRow(y, "Time", timeStr, nil, FT.C.TEXT_NORMAL)
+        y = self:drawRow(y, "Time", timeStr, nil, FT.C.TEXT_NORMAL, nil, true)
     else
         y = self:drawRow(y, "World data", "unavailable", nil, FT.C.MUTED)
     end
