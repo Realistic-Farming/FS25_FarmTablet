@@ -2969,9 +2969,9 @@
         <text name="ft_rpphone_help_new_body" text="Atinge + NOUĂ ca să deschizi formularul.&#10;Disponibil doar în modul integrat.&#10;Când modul RoleplayPhone este instalat,&#10;creează facturile în aplicația lui." />
         <text name="ft_rpphone_due_date_fmt" text="Scadență: %s" />
         <text name="ft_rpphone_overdue_one" text="Restantă de 1 zi" />
-        <text name="ft_rpphone_overdue_fmt" text="Restantă de %d zile" />
+        <text name="ft_rpphone_overdue_fmt" text="Zile de întârziere: %d" />
         <text name="ft_rpphone_due_in_one" text="Scadentă în 1 zi" />
-        <text name="ft_rpphone_due_in_fmt" text="Scadentă în %d zile" />
+        <text name="ft_rpphone_due_in_fmt" text="Zile până la scadență: %d" />
         <text name="ft_companion_hourly" text="Pe oră" />
         <text name="ft_companion_daily" text="Zilnic" />
         <text name="ft_companion_per_hectare" text="Pe hectar" />
