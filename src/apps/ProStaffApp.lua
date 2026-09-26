@@ -107,10 +107,10 @@ FarmTabletUI:registerDrawer(FT.APP.PROSTAFF, function(self)
     y = self:drawRow(y, "Level", string.format("%d  ·  %s", level, _levelName(level)),
         nil, FT.C.TEXT_BRIGHT)
     if invested ~= nil then
-        y = self:drawRow(y, "Invested", _money(invested), nil, FT.C.TEXT_NORMAL)
+        y = self:drawRow(y, "Invested", _money(invested), nil, FT.C.TEXT_NORMAL, nil, true)
     end
     if nextCost ~= nil then
-        y = self:drawRow(y, "Next level cost", _money(nextCost), nil, FT.C.WARNING)
+        y = self:drawRow(y, "Next level cost", _money(nextCost), nil, FT.C.WARNING, nil, true)
     else
         y = self:drawRow(y, "Next level cost", "MAX", nil, FT.C.POSITIVE)
     end
@@ -118,11 +118,11 @@ FarmTabletUI:registerDrawer(FT.APP.PROSTAFF, function(self)
 
     if nextCost ~= nil and type(mgr.buyLevel) == "function" then
         local btn = self.r:button(x, y - FT.py(22), cw, FT.py(22),
-            "BUY NEXT LEVEL", FT.C.BTN_PRIMARY, {
+            FT.l10nAuto("BUY NEXT LEVEL"), FT.C.BTN_PRIMARY, {
                 onClick = function()
                     pcall(function() mgr:buyLevel() end)
                 end
-            })
+            }, true)
         table.insert(self._contentBtns, btn)
         y = y - FT.py(30)
     else

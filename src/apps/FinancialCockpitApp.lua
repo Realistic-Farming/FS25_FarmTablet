@@ -915,7 +915,7 @@ end
 -- ── UI pieces ─────────────────────────────────────────────
 
 local function _pocketBtn(self, x, y, w, h, label, color, onClick)
-    local btn = self.r:button(x, y, w, h, label, color, { onClick = onClick })
+    local btn = self.r:button(x, y, w, h, label, color, { onClick = onClick }, true)
     table.insert(self._contentBtns, btn)
     return btn
 end
@@ -929,9 +929,9 @@ local function _drawHeart(self, x, y, w, snap, AC)
     local chip = FT.px(22)
     self.r:appRect(x + FT.px(10), y - h + FT.py(16), chip, chip, col)
     self.r:appText(x + FT.px(40), y - FT.py(10), FT.FONT.TINY,
-        _T("ft_fc_health", "FARM HEALTH"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        _T("ft_fc_health", "FARM HEALTH"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     self.r:appText(x + FT.px(40), y - FT.py(28), FT.FONT.TITLE,
-        _bandLabel(band), RenderText.ALIGN_LEFT, col)
+        _bandLabel(band), RenderText.ALIGN_LEFT, col, true)
 
     local worstLabel = ""
     if snap.heartVitalId then
@@ -956,7 +956,7 @@ local function _drawHeart(self, x, y, w, snap, AC)
 end
 
 local function _drawHome(self, snap, AC)
-    local startY = self:drawAppHeader(_T("ft_ui_app_financial_cockpit", "Financial Cockpit"), snap.farmName)
+    local startY = self:drawAppHeader(_T("ft_ui_app_financial_cockpit", "Financial Cockpit"), snap.farmName, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -965,31 +965,31 @@ local function _drawHome(self, snap, AC)
     y = self:drawRule(y, 0.35)
 
     -- Live instruments
-    y = self:drawSection(y, _T("ft_fc_section_instruments", "INSTRUMENTS"))
+    y = self:drawSection(y, _T("ft_fc_section_instruments", "INSTRUMENTS"), true)
     local balC = snap.balance >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-    y = self:drawRow(y, _T("ft_fc_balance", "Balance"), _money(snap.data, snap.balance), nil, balC)
+    y = self:drawRow(y, _T("ft_fc_balance", "Balance"), _money(snap.data, snap.balance), nil, balC, true, true)
     -- Native bank loan (RSF-F130: labelled distinctly from emergency debt).
     if snap.loan > 0 then
-        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, snap.loan), nil, FT.C.WARNING)
+        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, snap.loan), nil, FT.C.WARNING, true, true)
     else
-        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, 0), nil, FT.C.TEXT_DIM)
+        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, 0), nil, FT.C.TEXT_DIM, true, true)
     end
     -- Emergency loan + total debt (RSF-F130). Kept separate from the bank loan.
     if snap.debtBasis == "COMPLETE" and (snap.emergencyOutstanding or 0) > 0 then
         y = self:drawRow(y, _T("ft_fc_emergency_loan", "Emergency loan"),
-            _money(snap.data, snap.emergencyOutstanding), nil, FT.C.WARNING)
+            _money(snap.data, snap.emergencyOutstanding), nil, FT.C.WARNING, true, true)
         y = self:drawRow(y, _T("ft_fc_total_debt", "Total debt"),
-            _money(snap.data, snap.totalDebt), nil, FT.C.WARNING)
+            _money(snap.data, snap.totalDebt), nil, FT.C.WARNING, true, true)
     elseif snap.debtBasis == "INCOMPLETE" then
         y = self:drawRow(y, _T("ft_fc_emergency_loan", "Emergency loan"),
-            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED)
+            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED, true, true)
     end
     -- Net worth (total-debt based); unavailable when the combined debt is unknown.
     if snap.netWorth ~= nil then
         local nwC = snap.netWorth >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
-        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _money(snap.data, snap.netWorth), nil, nwC)
+        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _money(snap.data, snap.netWorth), nil, nwC, true, true)
     else
-        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING)
+        y = self:drawRow(y, _T("ft_fc_net_worth", "Net worth"), _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING, true, true)
     end
 
     -- [RSF-F130] Open IncomeMod's own report to borrow or repay. The tablet never moves
@@ -1012,32 +1012,32 @@ local function _drawHome(self, snap, AC)
     y = self:drawRule(y, 0.25)
 
     -- Time Guard rhythm
-    y = self:drawSection(y, _T("ft_fc_section_rhythm", "RHYTHM"))
+    y = self:drawSection(y, _T("ft_fc_section_rhythm", "RHYTHM"), true)
     if snap.tgCtx == nil then
-        y = self:drawRow(y, _T("ft_fc_clock", "Economic clock"), _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED)
+        y = self:drawRow(y, _T("ft_fc_clock", "Economic clock"), _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED, true, true)
     elseif not snap.tgSynced then
-        y = self:drawRow(y, _T("ft_fc_clock", "Economic clock"), _T("ft_fc_syncing", "Syncing"), nil, FT.C.WARNING)
+        y = self:drawRow(y, _T("ft_fc_clock", "Economic clock"), _T("ft_fc_syncing", "Syncing"), nil, FT.C.WARNING, true, true)
     else
         y = self:drawRow(y, _T("ft_fc_period", "Period"),
             string.format("%s %d / %s %d",
                 _T("ft_fc_month", "Month"), snap.tgCtx.period or 0,
                 _T("ft_fc_year", "Year"), snap.tgCtx.year or 0),
-            nil, FT.C.TEXT_NORMAL)
+            nil, FT.C.TEXT_NORMAL, true, true)
         y = self:drawRow(y, _T("ft_fc_days_per_period", "Days / period"),
-            tostring(snap.tgCtx.daysPerPeriod or "-"), nil, FT.C.TEXT_DIM)
+            tostring(snap.tgCtx.daysPerPeriod or "-"), nil, FT.C.TEXT_DIM, true)
     end
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
 
     -- Forecast teaser
-    y = self:drawSection(y, _T("ft_fc_section_forecast", "FORECAST"))
+    y = self:drawSection(y, _T("ft_fc_section_forecast", "FORECAST"), true)
     local fc = snap.forecast
     local fcNote = fc.partial and _T("ft_fc_partial", "PARTIAL") or _T("ft_fc_forecast_label", "Projection")
     y = self:drawRow(y, _T("ft_fc_forecast_label", "Projection"), fcNote, nil,
-        fc.partial and FT.C.WARNING or FT.C.INFO)
+        fc.partial and FT.C.WARNING or FT.C.INFO, true, true)
     if fc.monthEndProjected then
         y = self:drawRow(y, _T("ft_fc_forecast_month_end", "Month-end outlook"),
-            fc.monthEndProjected, nil, FT.C.TEXT_NORMAL)
+            fc.monthEndProjected, nil, FT.C.TEXT_NORMAL, true)
     end
     -- OPEN on its own row so it cannot cover the forecast values above.
     local fcBtnW = FT.px(72)
@@ -1050,20 +1050,20 @@ local function _drawHome(self, snap, AC)
     y = self:drawRule(y, 0.25)
 
     -- History teaser
-    y = self:drawSection(y, _T("ft_fc_section_history", "HISTORY"))
+    y = self:drawSection(y, _T("ft_fc_section_history", "HISTORY"), true)
     if not snap.ledgerPresent and snap.historyMode == "available" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_no_ledger", "No StateLedger (live vitals only)"), nil, FT.C.MUTED)
+            _T("ft_fc_history_no_ledger", "No StateLedger (live vitals only)"), nil, FT.C.MUTED, true, true)
     elseif snap.historyMode == "dedicated" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_dedicated", "Unavailable on this server"), nil, FT.C.MUTED)
+            _T("ft_fc_history_dedicated", "Unavailable on this server"), nil, FT.C.MUTED, true, true)
     elseif snap.historyMode == "host_only" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_host_only", "Host-only in v1"), nil, FT.C.MUTED)
+            _T("ft_fc_history_host_only", "Host-only in v1"), nil, FT.C.MUTED, true, true)
     else
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
             string.format("%d %s", snap.monthlyCount, _T("ft_fc_months", "months")),
-            nil, FT.C.TEXT_NORMAL)
+            nil, FT.C.TEXT_NORMAL, true, true)
     end
     local hBtnW = FT.px(72)
     _pocketBtn(self, x + cw - hBtnW, y - FT.py(2), hBtnW, FT.py(16),
@@ -1075,12 +1075,12 @@ local function _drawHome(self, snap, AC)
     y = self:drawRule(y, 0.25)
 
     -- Flow / signal strip
-    y = self:drawSection(y, _T("ft_fc_section_flows", "FLOWS AND SIGNALS"))
+    y = self:drawSection(y, _T("ft_fc_section_flows", "FLOWS AND SIGNALS"), true)
     local function flowRow(label, present, value, color)
         if not present then
-            y = self:drawRow(y, label, _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            y = self:drawRow(y, label, _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
         else
-            y = self:drawRow(y, label, value, nil, color or FT.C.TEXT_NORMAL)
+            y = self:drawRow(y, label, value, nil, color or FT.C.TEXT_NORMAL, true, true)
         end
     end
     flowRow(_T("ft_fc_flow_income", "Income"), snap.income ~= nil,
@@ -1092,14 +1092,14 @@ local function _drawHome(self, snap, AC)
     flowRow(_T("ft_fc_flow_fuel", "Fuel spend"), false, "", nil)
     if snap.coop then
         y = self:drawRow(y, _T("ft_fc_signal_coop", "Co-Op level"),
-            tostring(snap.coop.level), nil, FT.C.TEXT_ACCENT)
+            tostring(snap.coop.level), nil, FT.C.TEXT_ACCENT, true)
     else
         y = self:drawRow(y, _T("ft_fc_signal_coop", "Co-Op level"),
-            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     end
     if snap.dairy then
         y = self:drawRow(y, _T("ft_fc_signal_dairy", "Dairy barns"),
-            tostring(snap.dairy.barnCount), nil, FT.C.TEXT_NORMAL)
+            tostring(snap.dairy.barnCount), nil, FT.C.TEXT_NORMAL, true)
     end
 
     local fBtnW = FT.px(72)
@@ -1116,12 +1116,12 @@ end
 
 local function _drawVitalPocket(self, snap, AC)
     local startY = self:drawAppHeader(_T("ft_fc_pocket_vital", "Health vital"),
-        _bandLabel(snap.heartBand))
+        _bandLabel(snap.heartBand), true, true)
     local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
 
-    y = self:drawSection(y, _T("ft_fc_section_vitals", "VITALS"))
+    y = self:drawSection(y, _T("ft_fc_section_vitals", "VITALS"), true)
     for _, v in ipairs(snap.vitals) do
         local focus = (_vitalFocus ~= nil and v.id == _vitalFocus)
         local label = focus and ("> " .. v.label) or v.label
@@ -1135,7 +1135,7 @@ local function _drawVitalPocket(self, snap, AC)
     y = y - FT.py(8)
     self.r:appText(x, y, FT.FONT.TINY,
         _T("ft_fc_worst_rule", "Heart color = worst vital that has data. Neutrals and partials do not count as healthy."),
-        RenderText.ALIGN_LEFT, FT.C.MUTED)
+        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
     y = y - FT.py(20)
 
     self:setContentHeight(startY - y + scrollY)
@@ -1144,41 +1144,41 @@ end
 
 local function _drawHistoryPocket(self, snap, AC)
     local startY = self:drawAppHeader(_T("ft_fc_pocket_history", "Financial history"),
-        _T("ft_fc_section_history", "HISTORY"))
+        _T("ft_fc_section_history", "HISTORY"), true, true)
     local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
 
     if snap.historyMode == "no_clock" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_no_clock", "Needs Time Guard"), nil, FT.C.MUTED)
+            _T("ft_fc_history_no_clock", "Needs Time Guard"), nil, FT.C.MUTED, true, true)
         self.r:appText(x, y, FT.FONT.TINY,
             _T("ft_fc_history_no_clock_detail",
                 "Install Time Guard to record monthly history. Live vitals still stand."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(18)
     elseif snap.historyMode == "dedicated" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_dedicated", "Unavailable on this server"), nil, FT.C.MUTED)
+            _T("ft_fc_history_dedicated", "Unavailable on this server"), nil, FT.C.MUTED, true, true)
     elseif snap.historyMode == "host_only" then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_host_only", "Host-only in v1"), nil, FT.C.MUTED)
+            _T("ft_fc_history_host_only", "Host-only in v1"), nil, FT.C.MUTED, true, true)
         self.r:appText(x, y, FT.FONT.TINY,
             _T("ft_fc_history_host_only_detail", "Monthly history is recorded on the host. Live cash and leverage still stand."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(18)
     elseif not snap.ledgerPresent then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_history_no_ledger", "No StateLedger (live vitals only)"), nil, FT.C.MUTED)
+            _T("ft_fc_history_no_ledger", "No StateLedger (live vitals only)"), nil, FT.C.MUTED, true, true)
     elseif #_hist.monthly == 0 then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_no_history_yet", "No history yet"), nil, FT.C.MUTED)
+            _T("ft_fc_no_history_yet", "No history yet"), nil, FT.C.MUTED, true, true)
         self.r:appText(x, y, FT.FONT.TINY,
             _T("ft_fc_history_wait_detail", "A compact row is written each closed in-game month."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(18)
     else
-        y = self:drawSection(y, _T("ft_fc_recent_months", "RECENT MONTHS"))
+        y = self:drawSection(y, _T("ft_fc_recent_months", "RECENT MONTHS"), true)
         local startIdx = math.max(1, #_hist.monthly - 11)
         -- Walk newest to oldest. A missing month between keys is left as a visual
         -- gap (separate rows only; never interpolate a false continuous trend).
@@ -1188,16 +1188,16 @@ local function _drawHistoryPocket(self, snap, AC)
             y = self:drawRow(y,
                 string.format("%d / %02d", row.year, row.monthIndex),
                 _money(snap.data, nw),
-                nil, nw >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE)
+                nil, nw >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, true, true)
         end
         if #_hist.yearly > 0 then
             y = y - FT.py(4)
             y = self:drawRule(y, 0.25)
-            y = self:drawSection(y, _T("ft_fc_yearly_rollup", "YEARLY ROLLUP"))
+            y = self:drawSection(y, _T("ft_fc_yearly_rollup", "YEARLY ROLLUP"), true)
             for i = #_hist.yearly, 1, -1 do
                 local yr = _hist.yearly[i]
                 local nw = _netWorth(yr.yearEndBalance, yr.yearEndLoan)
-                y = self:drawRow(y, tostring(yr.year), _money(snap.data, nw), nil, FT.C.TEXT_NORMAL)
+                y = self:drawRow(y, tostring(yr.year), _money(snap.data, nw), nil, FT.C.TEXT_NORMAL, nil, true)
             end
         end
     end
@@ -1208,7 +1208,7 @@ end
 
 local function _drawForecastPocket(self, snap, AC)
     local startY = self:drawAppHeader(_T("ft_fc_pocket_forecast", "Forecast"),
-        _T("ft_fc_forecast_label", "Projection"))
+        _T("ft_fc_forecast_label", "Projection"), true, true)
     local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -1216,7 +1216,7 @@ local function _drawForecastPocket(self, snap, AC)
     local fc = snap.forecast
     if fc.partial then
         y = self:drawRow(y, _T("ft_fc_honesty", "Honesty"),
-            _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING)
+            _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING, true, true)
     end
     for _, line in ipairs(fc.lines) do
         y = self:drawRow(y, line.label, line.value, nil, FT.C.TEXT_NORMAL)
@@ -1230,10 +1230,10 @@ local function _drawForecastPocket(self, snap, AC)
         y = y - FT.py(4)
         y = self:drawRule(y, 0.25)
         y = self:drawRow(y, _T("ft_fc_forecast_month_end", "Month-end outlook"),
-            fc.monthEndProjected, nil, FT.C.WARNING)
+            fc.monthEndProjected, nil, FT.C.WARNING, true)
         self.r:appText(x, y, FT.FONT.TINY,
             _T("ft_fc_forecast_disclaimer", "Projection only. Missing flows are not invented."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         y = y - FT.py(16)
     end
 
@@ -1243,69 +1243,69 @@ end
 
 local function _drawFlowsPocket(self, snap, AC)
     local startY = self:drawAppHeader(_T("ft_fc_pocket_flows", "Flows and signals"),
-        _T("ft_fc_section_flows", "FLOWS AND SIGNALS"))
+        _T("ft_fc_section_flows", "FLOWS AND SIGNALS"), true, true)
     local x, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
 
-    y = self:drawSection(y, _T("ft_fc_dollar_flows", "DOLLAR FLOWS"))
+    y = self:drawSection(y, _T("ft_fc_dollar_flows", "DOLLAR FLOWS"), true)
     if snap.income then
         y = self:drawRow(y, _T("ft_fc_flow_income", "Income"),
-            _money(snap.data, snap.income.amount or 0), nil, FT.C.POSITIVE)
+            _money(snap.data, snap.income.amount or 0), nil, FT.C.POSITIVE, true, true)
         if snap.income.mode then
             y = self:drawRow(y, _T("ft_fc_flow_income_mode", "Pay mode"),
-                tostring(snap.income.mode), nil, FT.C.TEXT_DIM)
+                tostring(snap.income.mode), nil, FT.C.TEXT_DIM, true)
         end
     else
         y = self:drawRow(y, _T("ft_fc_flow_income", "Income"),
-            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     end
     if snap.tax and snap.tax.totalTaxesPaid ~= nil then
         y = self:drawRow(y, _T("ft_fc_flow_tax", "Tax paid (total)"),
-            _money(snap.data, snap.tax.totalTaxesPaid), nil, FT.C.WARNING)
+            _money(snap.data, snap.tax.totalTaxesPaid), nil, FT.C.WARNING, true, true)
     else
         y = self:drawRow(y, _T("ft_fc_flow_tax", "Tax paid (total)"),
-            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     end
     if snap.wages and snap.wages.monthAccrued ~= nil then
         y = self:drawRow(y, _T("ft_fc_flow_wages", "Wages (month)"),
-            _money(snap.data, snap.wages.monthAccrued), nil, FT.C.WARNING)
+            _money(snap.data, snap.wages.monthAccrued), nil, FT.C.WARNING, true, true)
     else
         y = self:drawRow(y, _T("ft_fc_flow_wages", "Wages (month)"),
-            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     end
     y = self:drawRow(y, _T("ft_fc_flow_fuel", "Fuel spend"),
-        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     y = self:drawRow(y, _T("ft_fc_flow_dairy_income", "Dairy contract income"),
-        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     y = self:drawRow(y, _T("ft_fc_flow_rwe", "World-event money"),
-        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+        _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
 
     y = y - FT.py(4)
     y = self:drawRule(y, 0.25)
-    y = self:drawSection(y, _T("ft_fc_signals", "SIGNALS"))
+    y = self:drawSection(y, _T("ft_fc_signals", "SIGNALS"), true)
     if snap.coop then
         y = self:drawRow(y, _T("ft_fc_signal_coop", "Co-Op level"),
-            tostring(snap.coop.level), nil, FT.C.TEXT_ACCENT)
+            tostring(snap.coop.level), nil, FT.C.TEXT_ACCENT, true)
         self.r:appText(x, y, FT.FONT.TINY,
             _T("ft_fc_signal_coop_note", "Level only. Quantified savings wait on ProStaff benefit getters."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(14)
     else
         y = self:drawRow(y, _T("ft_fc_signal_coop", "Co-Op level"),
-            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED)
+            _T("ft_fc_not_tracked", "Not yet tracked"), nil, FT.C.MUTED, true, true)
     end
     if snap.dairy then
         y = self:drawRow(y, _T("ft_fc_signal_dairy", "Dairy barns"),
-            tostring(snap.dairy.barnCount), nil, FT.C.TEXT_NORMAL)
+            tostring(snap.dairy.barnCount), nil, FT.C.TEXT_NORMAL, true)
     end
     if snap.market then
         y = self:drawRow(y, _T("ft_fc_signal_market", "Market events"),
-            tostring(snap.market.activeEvents), nil, FT.C.TEXT_NORMAL)
+            tostring(snap.market.activeEvents), nil, FT.C.TEXT_NORMAL, true)
     end
     if snap.rwe and snap.rwe.event then
         y = self:drawRow(y, _T("ft_fc_signal_rwe", "World event"),
-            _rweEventLabel(snap.rwe.event), nil, FT.C.TEXT_ACCENT)
+            _rweEventLabel(snap.rwe.event), nil, FT.C.TEXT_ACCENT, true)
     end
 
     self:setContentHeight(startY - y + scrollY)
@@ -1332,21 +1332,21 @@ FarmTabletUI:registerDrawer(FT.APP.FINANCIAL_COCKPIT, function(self)
           body  = _T("ft_fc_help_health_body",
               "One heart color from the worst vital that has data.\n" ..
               "Green / amber / red. Neutrals and partials never count as healthy.\n" ..
-              "Tap the heart to open the vital that set the color.") },
+              "Tap the heart to open the vital that set the color."), literalTitle = true, literalBody = true },
         { title = _T("ft_fc_help_history_title", "HISTORY"),
           body  = _T("ft_fc_help_history_body",
               "This page records a compact monthly row itself.\n" ..
               "Needs Time Guard for the month clock. Host / single-player\n" ..
-              "only in v1. Gaps stay gaps.") },
+              "only in v1. Gaps stay gaps."), literalTitle = true, literalBody = true },
         { title = _T("ft_fc_help_forecast_title", "FORECAST"),
           body  = _T("ft_fc_help_forecast_body",
               "Labeled as a projection. PARTIAL when a flow is missing.\n" ..
-              "Missing flows show not yet tracked, never a guess.") },
+              "Missing flows show not yet tracked, never a guess."), literalTitle = true, literalBody = true },
         { title = _T("ft_fc_help_readonly_title", "READ-ONLY"),
           body  = _T("ft_fc_help_readonly_body",
               "The cockpit never moves money and never re-implements\n" ..
-              "Income, Tax, Wages, or other owning apps.") },
-    }) then return end
+              "Income, Tax, Wages, or other owning apps."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local snap = _gather(self)
     if _view == "vital" then

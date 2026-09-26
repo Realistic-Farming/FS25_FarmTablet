@@ -68,20 +68,20 @@ FarmTabletUI:registerDrawer(FT.APP.INCOME, function(self)
     local minY = contentY + FT.py(8)
     if y > minY + FT.py(26) then
         self:drawButtonPair(minY + FT.py(2),
-            "ENABLE",  enabled and FT.C.BTN_PRIMARY or FT.C.BTN_NEUTRAL,
+            FT.l10nAuto("ENABLE"),  enabled and FT.C.BTN_PRIMARY or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 if not g_currentMission:getIsServer() then return end
                 if inst.settings then inst.settings.enabled = true end
                 if inst.settings and inst.settings.save then inst.settings:save() end
                 self:switchApp(FT.APP.INCOME)
             end },
-            "DISABLE", enabled and FT.C.BTN_NEUTRAL or FT.C.BTN_DANGER,
+            FT.l10nAuto("DISABLE"), enabled and FT.C.BTN_NEUTRAL or FT.C.BTN_DANGER,
             { onClick = function()
                 if not g_currentMission:getIsServer() then return end
                 if inst.settings then inst.settings.enabled = false end
                 if inst.settings and inst.settings.save then inst.settings:save() end
                 self:switchApp(FT.APP.INCOME)
-            end })
+            end }, true, true)
     end
 
     self:drawInfoIcon("_incomeHelp", AC)
@@ -139,7 +139,7 @@ FarmTabletUI:registerDrawer(FT.APP.TAX, function(self)
     y = self:drawRow(y, "Tax Rate",   rate)
     y = self:drawRow(y, "Return %",   tostring(retPct) .. "%")
     if total then
-        y = self:drawRow(y, "Total Paid", data:formatMoney(total), nil, FT.C.WARNING)
+        y = self:drawRow(y, "Total Paid", data:formatMoney(total), nil, FT.C.WARNING, nil, true)
     end
 
     y = y - FT.py(8)
@@ -148,20 +148,20 @@ FarmTabletUI:registerDrawer(FT.APP.TAX, function(self)
     local minY = contentY + FT.py(8)
     if y > minY + FT.py(26) then
         self:drawButtonPair(minY + FT.py(2),
-            "ENABLE",  enabled and FT.C.BTN_PRIMARY or FT.C.BTN_NEUTRAL,
+            FT.l10nAuto("ENABLE"),  enabled and FT.C.BTN_PRIMARY or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 if not g_currentMission:getIsServer() then return end
                 if inst.settings then inst.settings.enabled = true end
                 if inst.saveSettings then inst:saveSettings() end
                 self:switchApp(FT.APP.TAX)
             end },
-            "DISABLE", enabled and FT.C.BTN_NEUTRAL or FT.C.BTN_DANGER,
+            FT.l10nAuto("DISABLE"), enabled and FT.C.BTN_NEUTRAL or FT.C.BTN_DANGER,
             { onClick = function()
                 if not g_currentMission:getIsServer() then return end
                 if inst.settings then inst.settings.enabled = false end
                 if inst.saveSettings then inst:saveSettings() end
                 self:switchApp(FT.APP.TAX)
-            end })
+            end }, true, true)
     end
 
     self:drawInfoIcon("_taxHelp", AC)
@@ -246,11 +246,11 @@ local function drawNpcWork(self, npcSys, y, minY)
     end
     -- Every literal here is its own mapped text (FT.AUTO_L10N, the ft_auto_* keys):
     -- the last-confirmed note is a line of its own, never appended to a value.
-    y = self:drawRow(y, "Active Favors", tostring(active))
+    y = self:drawRow(y, "Active Favors", tostring(active), nil, nil, nil, true)
     if view.state == "LAST_CONFIRMED" then
-        y = self:drawRow(y, "(last confirmed)", "", FT.C.TEXT_DIM)
+        y = self:drawRow(y, "(last confirmed)", "", FT.C.TEXT_DIM, nil, nil, true)
     end
-    y = self:drawRow(y, "Open Offers", tostring(offers))
+    y = self:drawRow(y, "Open Offers", tostring(offers), nil, nil, nil, true)
     if view.completedKnown then
         y = self:drawRow(y, "Completed", tostring(view.completedCount or 0))
     else
@@ -274,8 +274,8 @@ local function drawNpcWork(self, npcSys, y, minY)
                     y = self:drawRow(y, left, string.format("%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000)), nil, pctColor)
                 else
                     -- The unknown time is its own mapped literal beside the progress.
-                    y = self:drawRow(y, left, string.format("%d%%", progress), nil, pctColor)
-                    y = self:drawRow(y, "time unknown", "", FT.C.TEXT_DIM)
+                    y = self:drawRow(y, left, string.format("%d%%", progress), nil, pctColor, nil, true)
+                    y = self:drawRow(y, "time unknown", "", FT.C.TEXT_DIM, nil, nil, true)
                 end
             end
         end
@@ -307,7 +307,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                   "advice, discounts, and early warnings." },
     }) then return end
 
-    local startY = self:drawAppHeader("NPC Favor", "")
+    local startY = self:drawAppHeader("NPC Favor", "", nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y    = startY + scrollY
@@ -337,7 +337,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
     self.r:appText(x, y - FT.py(18), FT.FONT.BODY,
         "Town Reputation: " .. repLabel, RenderText.ALIGN_LEFT, repColor)
     self.r:appText(x + cw, y - FT.py(18), FT.FONT.SMALL,
-        tostring(math.floor(townRep)) .. " / 100", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+        tostring(math.floor(townRep)) .. " / 100", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     y = y - FT.py(26)
     y = y + FT.py(FT.SP.ROW) - FT.py(8)
     y = self:drawBar(y, townRep, 100, repColor)
@@ -352,7 +352,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
         local stats  = favorSys.stats or {}
         y = self:drawRule(y, 0.3)
         y = self:drawSection(y, "FAVORS")
-        y = self:drawRow(y, "Active Favors", tostring(#active))
+        y = self:drawRow(y, "Active Favors", tostring(#active), nil, nil, nil, true)
         y = self:drawRow(y, "Completed",     tostring(stats.totalFavorsCompleted or 0))
         y = self:drawRow(y, "Total Earned",
             (g_i18n and g_i18n:formatMoney(stats.totalMoneyEarned or 0, 0, true, true))
@@ -535,7 +535,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
         activeWorkers = workerSys:getActiveWorkers()
     end
     y = self:drawRow(y, "Active Workers", tostring(#activeWorkers),
-        nil, #activeWorkers > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+        nil, #activeWorkers > 0 and FT.C.WARNING or FT.C.TEXT_DIM, nil, true)
 
     -- Month-to-date costs
     local monthTotal = 0
@@ -549,7 +549,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
     y = self:drawSection(y, "THIS MONTH")
     local fmtCost = (g_i18n and g_i18n:formatMoney(monthTotal, 0, true, true)) or tostring(monthTotal)
     y = self:drawRow(y, "Wages Accrued", fmtCost, nil,
-        monthTotal > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+        monthTotal > 0 and FT.C.WARNING or FT.C.TEXT_DIM, nil, true)
 
     -- ── PRO-STAFF ROSTER ──────────────────────────────────
     -- Read the roster through the WorkerCosts cross-repo contract. Guard the call:

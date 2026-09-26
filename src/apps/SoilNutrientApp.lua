@@ -46,7 +46,7 @@ local function _chip(self, x, y, label, color)
     local h = FT.py(14)
     self.r:appRect(x, y - FT.py(1), w, h, color or FT.C.BRAND_DIM)
     self.r:appText(x + w * 0.5, y + h * 0.5 - FT.py(3), FT.FONT.TINY, text,
-        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     return w
 end
 
@@ -274,9 +274,9 @@ end
 local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     local rowTop = y
     self.r:appText(x + FT.px(6), rowTop, FT.FONT.SMALL, label,
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     self.r:appText(x + cw - FT.px(6), rowTop, FT.FONT.SMALL, valueText,
-        RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
+        RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL, true)
     -- Drop clearly below the label before painting the track (avoids overlap).
     local barY = rowTop - FT.py(14)
     local barW = cw - FT.px(12)
@@ -342,7 +342,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
                   "Healthy band sits around 3.5–5.0." },
     }) then return end
 
-    local startY = self:drawAppHeader("Soil Fertilizer", "")
+    local startY = self:drawAppHeader("Soil Fertilizer", "", nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -482,12 +482,12 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         if showFert then
             local fw = _chipWidth("FERT")
             cx = cx - fw
-            _chip(self, cx, chipY, "FERT", FT.C.WARNING)
+            _chip(self, cx, chipY, FT.l10nAuto("FERT"), FT.C.WARNING)
             cx = cx - chipGap
         end
         local uw = _chipWidth(urgencyTxt)
         cx = cx - uw
-        _chip(self, cx, chipY, urgencyTxt, uCol)
+        _chip(self, cx, chipY, FT.l10nAuto(urgencyTxt), uCol)
 
         local haTxt = (card.area and card.area > 0) and string.format("%.1f ha", card.area) or ""
         if haTxt ~= "" then
@@ -514,13 +514,13 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             local nVal = info.nitrogen and info.nitrogen.value or 0
             local pVal = info.phosphorus and info.phosphorus.value or 0
             local kVal = info.potassium and info.potassium.value or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "N",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("N"),
                 FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(nVal, ppm.N), ppmVal(tN, ppm.N)),
                 nVal / math.max(tN, 1), _statusColor(info.nitrogen and info.nitrogen.status))
-            y = _drawMetricBar(self, innerX, y, innerW, "P",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("P"),
                 FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(pVal, ppm.P), ppmVal(tP, ppm.P)),
                 pVal / math.max(tP, 1), _statusColor(info.phosphorus and info.phosphorus.status))
-            y = _drawMetricBar(self, innerX, y, innerW, "K",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("K"),
                 FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
                 kVal / math.max(tK, 1), _statusColor(info.potassium and info.potassium.status))
 
@@ -528,30 +528,30 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             local phRatio = 1.0 - math.min(1.0, math.abs(ph - phOpt) / 2.0)
             local phCol = (ph >= 6.0 and ph <= 7.5) and FT.C.POSITIVE
                 or ((ph >= 5.5 and ph <= 8.0) and FT.C.WARNING or FT.C.NEGATIVE)
-            y = _drawMetricBar(self, innerX, y, innerW, "pH",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("pH"),
                 string.format("%.1f / %.1f", ph, phOpt), phRatio, phCol)
 
             local om = info.organicMatter or 0
             local omCol = (om >= 3.5) and FT.C.POSITIVE or ((om >= 3.0) and FT.C.WARNING or FT.C.NEGATIVE)
-            y = _drawMetricBar(self, innerX, y, innerW, "OM",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("OM"),
                 string.format("%.1f / %.1f", om, OM_TARGET), om / OM_MAX, omCol)
 
             local weed = info.weedPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "Weed",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Weed"),
                 string.format("%.0f / <%d", weed, PRESSURE_ACTION_THRESH),
                 weed / 100, _barColor(weed / 100, true))
 
             local pest = info.pestPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "Pest",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Pest"),
                 string.format("%.0f / <%d", pest, PRESSURE_ACTION_THRESH),
                 pest / 100, _barColor(pest / 100, true))
 
             local shownD = info.shownDiseasePressure
             if shownD == nil then
-                y = _drawMetricBar(self, innerX, y, innerW, "Disease",
-                    "Unscouted", 0, FT.C.MUTED)
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Disease"),
+                    FT.l10nAuto("Unscouted"), 0, FT.C.MUTED)
             else
-                y = _drawMetricBar(self, innerX, y, innerW, "Disease",
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Disease"),
                     string.format("%.0f / <%d", shownD, PRESSURE_ACTION_THRESH),
                     shownD / 100, _barColor(shownD / 100, true))
             end

@@ -218,16 +218,16 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     if self:drawHelpPage("_adminHelp", FT.APP.FARM_ADMIN, FT.l10n("ft_ui_app_farm_admin", "Farm Admin"), AC, {
         { title = "MONEY",
           body  = FT.l10nFormat("ft_farmadmin_help_money_fmt", "Adds funds to your farm account.\nAmounts: %s",
-              table.concat(amountLabels, " · ")) },
+              table.concat(amountLabels, " · ")), literalBody = true },
         { title = "TIME SCALE",
-          body  = FT.l10n("ft_farmadmin_help_scale_body", "Sets how fast game time passes.\nPAUSE freezes time. Active speed highlighted.\nAbsorbed the old Time Controls hub tile.") },
+          body  = FT.l10n("ft_farmadmin_help_scale_body", "Sets how fast game time passes.\nPAUSE freezes time. Active speed highlighted.\nAbsorbed the old Time Controls hub tile."), literalBody = true },
         { title = "SKIP TO",
-          body  = FT.l10n("ft_farmadmin_help_skip_body", "Jumps the clock to a preset time of day.\nAdvances to tomorrow if time has passed today.") },
+          body  = FT.l10n("ft_farmadmin_help_skip_body", "Jumps the clock to a preset time of day.\nAdvances to tomorrow if time has passed today."), literalBody = true },
         { title = "VEHICLES",
-          body  = FT.l10n("ft_farmadmin_help_vehicles_body", "REPAIR ALL - resets damage on all your vehicles.\nFILL FUEL  - fills fuel (and AdBlue) to max\n             on all your motorized vehicles.") },
+          body  = FT.l10n("ft_farmadmin_help_vehicles_body", "REPAIR ALL - resets damage on all your vehicles.\nFILL FUEL  - fills fuel (and AdBlue) to max\n             on all your motorized vehicles."), literalBody = true },
         { title = "MULTIPLAYER",
-          body  = FT.l10n("ft_farmadmin_help_mp_body", "Usable by the host, and by a server admin (master\nuser) on a dedicated server. Changes run on the server.") },
-    }) then return end
+          body  = FT.l10n("ft_farmadmin_help_mp_body", "Usable by the host, and by a server admin (master\nuser) on a dedicated server. Changes run on the server."), literalBody = true },
+    }, true) then return end
 
     -- Time / money / vehicle changes are server-authoritative. The host (and SP)
     -- applies them locally; an admin (master user) on a client routes them to the
@@ -238,7 +238,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     local curScale = fa_getScale()
     local vehicles = fa_getVehicles(fa_getFarmId())
     local startY   = self:drawAppHeader(FT.l10n("ft_ui_app_farm_admin", "Farm Admin"),
-        canUse and fa_formatMoney(balance) or FT.l10n("ft_farmadmin_admin_only", "Admin only"))
+        canUse and fa_formatMoney(balance) or FT.l10n("ft_farmadmin_admin_only", "Admin only"), true, true)
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
@@ -248,13 +248,13 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     -- Show notice and bail out for players who are neither host nor admin.
     if not canUse then
         self.r:appText(x + cw / 2, y - FT.py(14), FT.FONT.NORMAL,
-            FT.l10n("ft_farmadmin_host_only", "Host or server admin only"), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            FT.l10n("ft_farmadmin_host_only", "Host or server admin only"), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         self.r:appText(x + cw / 2, y - FT.py(30), FT.FONT.SMALL,
             FT.l10n("ft_farmadmin_notice_1", "These controls affect all players. Log in as"),
-            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         self.r:appText(x + cw / 2, y - FT.py(43), FT.FONT.SMALL,
             FT.l10n("ft_farmadmin_notice_2", "a server admin to use them."),
-            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         self:setContentHeight(FT.py(60))
         return
     end
@@ -270,7 +270,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local btn = self.r:button(bx, y - BTN_H, bw4, BTN_H,
             am.label, FT.C.BTN_PRIMARY, {
             onClick = function() fa_dispatch(FarmAdminActions.MONEY, am.val) end
-        })
+        }, true)
         table.insert(self._contentBtns, btn)
     end
     y = y - BTN_H - FT.py(10)
@@ -278,7 +278,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     -- ── TIME SCALE ────────────────────────────────────────
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
-    y = self:drawSection(y, FT.l10nFormat("ft_farmadmin_time_scale_fmt", "TIME SCALE  ·  now: %s", fa_getTimeStr()))
+    y = self:drawSection(y, FT.l10nFormat("ft_farmadmin_time_scale_fmt", "TIME SCALE  ·  now: %s", fa_getTimeStr()), true)
     y = y - GAP
 
     local FA_SCALES = {
@@ -298,7 +298,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local btn    = self.r:button(bx, y - BTN_H, bw, BTN_H, sc.label,
             active and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL, {
             onClick = function() fa_dispatch(FarmAdminActions.SCALE, sc.val) end
-        })
+        }, true)
         table.insert(self._contentBtns, btn)
     end
     y = y - BTN_H - FT.py(10)
@@ -324,7 +324,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
         local btn = self.r:button(bx, by, halfW, BTN_H, t.label,
             FT.C.BTN_NEUTRAL, {
             onClick = function() fa_dispatch(FarmAdminActions.SKIP, t.h) end
-        })
+        }, true)
         table.insert(self._contentBtns, btn)
     end
     y = y - math.ceil(#TIMES / 2) * (BTN_H + GAP) + GAP
@@ -334,19 +334,19 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
     y = self:drawSection(y,
-        FT.l10nFormat("ft_farmadmin_vehicles_fmt", "VEHICLES  ·  %d owned", #vehicles))
+        FT.l10nFormat("ft_farmadmin_vehicles_fmt", "VEHICLES  ·  %d owned", #vehicles), true)
     y = y - GAP
 
     local btnRepair = self.r:button(x, y - BTN_H, halfW, BTN_H,
-        "REPAIR ALL", FT.C.BTN_NEUTRAL, {
+        FT.l10nAuto("REPAIR ALL"), FT.C.BTN_NEUTRAL, {
         onClick = function() fa_dispatch(FarmAdminActions.REPAIR, 0) end
-    })
+    }, true)
     table.insert(self._contentBtns, btnRepair)
 
     local btnFuel = self.r:button(x + halfW + FT.px(4), y - BTN_H, halfW, BTN_H,
-        "FILL FUEL", FT.C.BTN_NEUTRAL, {
+        FT.l10nAuto("FILL FUEL"), FT.C.BTN_NEUTRAL, {
         onClick = function() fa_dispatch(FarmAdminActions.FUEL, 0) end
-    })
+    }, true)
     table.insert(self._contentBtns, btnFuel)
     y = y - BTN_H - GAP
 

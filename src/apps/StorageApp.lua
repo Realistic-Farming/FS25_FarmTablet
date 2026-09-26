@@ -105,7 +105,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
 
     local subtitle = storage.siloCount == 1 and FT.l10nFormat("ft_storage_silo_one", "%d silo", 1)
         or FT.l10nFormat("ft_storage_silos", "%d silos", storage.siloCount)
-    local startY = self:drawAppHeader("Storage", subtitle)
+    local startY = self:drawAppHeader("Storage", subtitle, nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -123,7 +123,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
     y = self:drawSection(y, "INVENTORY")
 
     if #storage.crops == 0 then
-        y = self:drawRow(y, "Silos are empty", "")
+        y = self:drawRow(y, "Silos are empty", "", nil, nil, nil, true)
     else
         for _, crop in ipairs(storage.crops) do
             y = self:drawRow(y, crop.name, string.format("%d L", crop.amount))
@@ -146,7 +146,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
                 RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
             self.r:appText(x + cw - FT.px(14), y, FT.FONT.BODY,
                 data:formatMoney(pd.bestPrice),
-                RenderText.ALIGN_RIGHT, FT.C.POSITIVE)
+                RenderText.ALIGN_RIGHT, FT.C.POSITIVE, true)
             y = y - FT.py(FT.SP.ROW)
 
             -- Peak sub-row
@@ -157,14 +157,14 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
                 local pkText   = "  " .. FT.l10nFormat("ft_storage_peak_fmt", "Peak: %s  (day %d)",
                     data:formatMoney(pk.price), pk.day)
                 self.r:appText(x + FT.px(14), y, FT.FONT.TINY, pkText,
-                    RenderText.ALIGN_LEFT, pkColor)
+                    RenderText.ALIGN_LEFT, pkColor, true)
                 y = y - FT.py(13)
             end
         end
     end
 
     if not shownAny then
-        y = self:drawRow(y, "No sell price data found", "")
+        y = self:drawRow(y, "No sell price data found", "", nil, nil, nil, true)
     end
 
     y = y - FT.py(6)
@@ -195,7 +195,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
             for _, s in ipairs(sorted) do
                 local vc = (s.price == pd.bestPrice) and FT.C.POSITIVE or FT.C.TEXT_NORMAL
                 y = self:drawRow(y, "  " .. s.name,
-                    data:formatMoney(s.price), nil, vc)
+                    data:formatMoney(s.price), nil, vc, nil, true)
             end
 
             y = y - FT.py(4)
@@ -203,7 +203,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
     end
 
     if not compShown then
-        y = self:drawRow(y, "Single station - no comparison available", "")
+        y = self:drawRow(y, "Single station - no comparison available", "", nil, nil, nil, true)
     end
 
     self:setContentHeight(startY - y + scrollY)
@@ -214,7 +214,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
     if shieldH > 0 then
         self.r:appRect(hx, startY, hw, shieldH, FT.C.BG_PANEL)
     end
-    self:drawAppHeader("Storage", subtitle)
+    self:drawAppHeader("Storage", subtitle, nil, true)
 
     self:drawScrollBar()
     self:drawInfoIcon("_storageHelp", AC)

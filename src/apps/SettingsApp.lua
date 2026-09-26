@@ -46,16 +46,16 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local AC = FT.appColor(FT.APP.SETTINGS)
 
     if self:drawHelpPage("_settingsHelp", FT.APP.SETTINGS, ftSafeText("ft_auto_settings", "Settings"), AC, {
-        { title = ftSafeText("ft_settings_help_display_title", "DISPLAY"), body = ftSafeText("ft_settings_help_display_body", "Tablet position, size, background and app labels.") },
-        { title = ftSafeText("ft_settings_help_sound_title", "SOUND"), body = ftSafeText("ft_settings_help_sound_body2", "Switch tablet sounds on or off individually or globally.") },
-        { title = ftSafeText("ft_settings_help_network_title", "NETWORK"), body = ftSafeText("ft_settings_help_network_body", "Provider, reception, network outages and display repairs.") },
-        { title = ftSafeText("ft_settings_help_scroll_title", "SCROLL"), body = ftSafeText("ft_settings_help_scroll_body", "Use the mouse wheel over the tablet window to scroll settings.") },
-    }) then return end
+        { title = ftSafeText("ft_settings_help_display_title", "DISPLAY"), body = ftSafeText("ft_settings_help_display_body", "Tablet position, size, background and app labels."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_sound_title", "SOUND"), body = ftSafeText("ft_settings_help_sound_body2", "Switch tablet sounds on or off individually or globally."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_network_title", "NETWORK"), body = ftSafeText("ft_settings_help_network_body", "Provider, reception, network outages and display repairs."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_scroll_title", "SCROLL"), body = ftSafeText("ft_settings_help_scroll_body", "Use the mouse wheel over the tablet window to scroll settings."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local s = self.settings
     local cx, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
-    local afterHeader = self:drawAppHeader(ftSafeText("ft_auto_settings", "Settings"), "FarmTablet v" .. tostring(FT.VERSION or ""))
+    local afterHeader = self:drawAppHeader(ftSafeText("ft_auto_settings", "Settings"), "FarmTablet v" .. tostring(FT.VERSION or ""), true)
     local y = afterHeader + scrollY
 
     local cardPadX = FT.px(10)
@@ -67,14 +67,14 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     local function section(label)
         y = y - FT.py(4)
-        y = self:drawSection(y, label)
+        y = self:drawSection(y, label, true)
         y = y - sectionGap
     end
 
     local function infoRow(label, value)
         self.r:appRect(cx - FT.px(4), y - cardH + FT.py(6), cw + FT.px(8), cardH, {0.10, 0.12, 0.15, 0.70})
-        self.r:appText(cx + cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-        self.r:appText(cx + cw - cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND)
+        self.r:appText(cx + cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+        self.r:appText(cx + cw - cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND, true)
         y = y - cardH - rowGap
     end
 
@@ -89,16 +89,16 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
         local bx = cx + cw - btnW - rightPad
         local textW = math.max(FT.px(260), bx - leftX - FT.px(18))
 
-        self.r:appText(leftX, y - FT.py(7), FT.FONT.BODY, short(tostring(title or ""), 42), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appText(leftX, y - FT.py(7), FT.FONT.BODY, short(tostring(title or ""), 42), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
         if value ~= nil and tostring(value) ~= "" then
-            self.r:appText(leftX, y - FT.py(22), FT.FONT.BODY, short(tostring(value), 44), RenderText.ALIGN_LEFT, FT.C.BRAND)
+            self.r:appText(leftX, y - FT.py(22), FT.FONT.BODY, short(tostring(value), 44), RenderText.ALIGN_LEFT, FT.C.BRAND, true)
         end
         if hint ~= nil and tostring(hint) ~= "" then
-            self.r:appText(leftX, y - FT.py(38), FT.FONT.SMALL, short(tostring(hint), 66), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(leftX, y - FT.py(38), FT.FONT.SMALL, short(tostring(hint), 66), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
         end
         if buttonLabel ~= nil then
             local by = y - FT.py(32)
-            local b = self.r:button(bx, by, btnW, btnH, short(tostring(buttonLabel), 24), color or FT.C.BTN_NEUTRAL, { onClick = onClick })
+            local b = self.r:button(bx, by, btnW, btnH, short(tostring(buttonLabel), 24), color or FT.C.BTN_NEUTRAL, { onClick = onClick }, true)
             table.insert(self._contentBtns, b)
         end
         y = y - h - rowGap
@@ -108,7 +108,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     section(ftSafeText("ft_auto_display", "Display"))
     local posStr = string.format("X %.2f   Y %.2f", s.tabletPosX or 0.5, s.tabletPosY or 0.5)
     local scaleStr = string.format(ftSafeText("ft_settings_scale_format", "%.0f%% / width %.0f%%"), (s.tabletScale or 1.0) * 100, (s.tabletWidthMult or 1.0) * 100)
-    infoRow(ftSafeText("ft_auto_position", "Position"), posStr)
+    infoRow(ftSafeText("ft_auto_position", "Position"), FT.l10nAuto(posStr))
     infoRow(ftSafeText("ft_auto_scale", "Scale"), scaleStr)
 
     local editActive = (g_FarmTablet and g_FarmTablet.ui and g_FarmTablet.ui._editModeActive) or false
@@ -155,7 +155,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local bgOptIdx = 1
     for i, o in ipairs(bgOptions) do if o.file == curBg then bgOptIdx = i; break end end
     local curBgOpt = bgOptions[bgOptIdx] or bgOptions[1]
-    actionRow(ftSafeText("ft_settings_home_image_title", "Home image"), ftAuto(tostring(curBgOpt.label or ftSafeText("ft_common_default", "Default"))), ftSafeText("ft_settings_hint_home_image", "Use your own PNG files from the FTBackground folder."), ftSafeText("ft_common_switch", "Switch"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_home_image_title", "Home image"), tostring(curBgOpt.label or ftSafeText("ft_common_default", "Default")), ftSafeText("ft_settings_hint_home_image", "Use your own PNG files from the FTBackground folder."), ftSafeText("ft_common_switch", "Switch"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         local nextIdx = (bgOptIdx % #bgOptions) + 1
         local chosen = bgOptions[nextIdx]
@@ -245,7 +245,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     }
     local curProfile = tostring(s.tabletBatteryDrainProfile or "normal")
     if curProfile ~= "low" and curProfile ~= "normal" and curProfile ~= "high" and curProfile ~= "custom" then curProfile = "normal" end
-    actionRow(ftSafeText("ft_settings_battery_profile", "Battery profile"), profileLabels[curProfile] or curProfile, ftSafeText("ft_settings_hint_battery_profile", "Low, normal, high or custom values."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_battery_profile", "Battery profile"), profileLabels[curProfile] or FT.l10nAuto(curProfile), ftSafeText("ft_settings_hint_battery_profile", "Low, normal, high or custom values."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         local idx = 2
         for i, v in ipairs(profileOrder) do if v == curProfile then idx = i; break end end
@@ -306,7 +306,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     if self._signalOutageActive == true then netLabel = ftSafeText("ft_settings_outage", "Outage") end
     local providerName = tostring(self._signalProvider or curProvider.name or "Realistic Farming Mobile")
     if string.find(string.lower(providerName), "realistic", 1, true) ~= nil then providerName = "Realistic Mobile" end
-    infoRow(ftSafeText("ft_settings_provider", "Provider"), short(providerName, 28))
+    infoRow(ftSafeText("ft_settings_provider", "Provider"), FT.l10nAuto(short(providerName, 28)))
     local dailyFee = 0
     if self._getSignalProviderDailyFee ~= nil then dailyFee = tonumber(self:_getSignalProviderDailyFee(curProvider.id)) or 0 else dailyFee = tonumber(curProvider.dailyFee) or 0 end
     infoRow(ftSafeText("ft_settings_daily_fee", "Daily fee"), ftSafeFormat("ft_price_per_day", "%d €/day", math.floor(dailyFee)))
@@ -345,16 +345,16 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     -- Info ---------------------------------------------------
     section(ftSafeText("ft_common_info", "Info"))
-    infoRow(ftSafeText("ft_common_version", "Version"), "v" .. tostring(FT.VERSION or ""))
-    infoRow(ftSafeText("ft_common_author", "Author"), "TisonK")
+    infoRow(ftSafeText("ft_common_version", "Version"), FT.l10nAuto("v" .. tostring(FT.VERSION or "")))
+    infoRow(ftSafeText("ft_common_author", "Author"), FT.l10nAuto("TisonK"))
     infoRow(ftSafeText("ft_settings_apps_loaded", "Apps loaded"), tostring(#self.system.registry:getAll()))
-    infoRow(ftSafeText("ft_settings_open_key", "Open key"), g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
-        or InputHandler.DEFAULT_KEY_LABEL)
+    infoRow(ftSafeText("ft_settings_open_key", "Open key"), FT.l10nAuto(g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
+        or InputHandler.DEFAULT_KEY_LABEL))
 
     local hintH = FT.py(44)
     self.r:appRect(cx - FT.px(4), y - hintH + FT.py(6), cw + FT.px(8), hintH, {0.10, 0.12, 0.15, 0.76})
-    self.r:appText(cx + cardPadX, y - FT.py(9), FT.FONT.BODY, ftSafeText("ft_settings_scroll_help", "Mouse wheel over this window scrolls the settings."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-    self.r:appText(cx + cardPadX, y - FT.py(25), FT.FONT.BODY, ftSafeText("ft_settings_console_help", "Command 'tablet' shows console commands."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+    self.r:appText(cx + cardPadX, y - FT.py(9), FT.FONT.BODY, ftSafeText("ft_settings_scroll_help", "Mouse wheel over this window scrolls the settings."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+    self.r:appText(cx + cardPadX, y - FT.py(25), FT.FONT.BODY, ftSafeText("ft_settings_console_help", "Command 'tablet' shows console commands."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
     y = y - hintH - rowGap
 
     -- Reset --------------------------------------------------

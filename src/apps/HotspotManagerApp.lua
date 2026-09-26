@@ -133,9 +133,9 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
 
     if self:drawHelpPage("_hotspotHelp", FT.APP.HOTSPOT_MGR, "Hotspot Manager", AC, {
         { title = "WHAT IS THIS?",
-          body  = FT.l10n("ft_hotspot_help_what_body", "Shows all active map hotspots / pins.\nTick the checkbox beside a pin, then REMOVE SELECTED.\nADD PIN HERE drops a custom pin at your feet.\n\nRemoving system hotspots (Missions, Shops) may break\ngame features - be careful. System pins can return\nafter a map re-sync.") },
+          body  = FT.l10n("ft_hotspot_help_what_body", "Shows all active map hotspots / pins.\nTick the checkbox beside a pin, then REMOVE SELECTED.\nADD PIN HERE drops a custom pin at your feet.\n\nRemoving system hotspots (Missions, Shops) may break\ngame features - be careful. System pins can return\nafter a map re-sync."), literalBody = true },
         { title = "CLEAR ALL",
-          body  = FT.l10n("ft_hotspot_help_clear_body", "Press CLEAR ALL once - it turns red and asks\nfor confirmation. Press it again within 4 seconds\nto remove every hotspot from the map.") },
+          body  = FT.l10n("ft_hotspot_help_clear_body", "Press CLEAR ALL once - it turns red and asks\nfor confirmation. Press it again within 4 seconds\nto remove every hotspot from the map."), literalBody = true },
     }) then return end
 
     local im = hs_getIngameMap()
@@ -163,7 +163,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     end
 
     local startY = self:drawAppHeader("Hotspot Manager",
-        total > 0 and FT.l10nFormat("ft_hotspot_total_fmt", "%d total", total) or FT.l10nAuto("Empty"))
+        total > 0 and FT.l10nFormat("ft_hotspot_total_fmt", "%d total", total) or FT.l10nAuto("Empty"), nil, true)
     local x, cy, cw, ch = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -183,7 +183,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                 or (err or FT.l10n("ft_hotspot_add_failed", "Add failed"))
             _statusTimer = 180
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnAdd)
 
     local rmLabel = selectedCount > 0
@@ -211,7 +211,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                 or FT.l10nFormat("ft_hotspot_removed", "Removed %d pins.", #toRemove)
             _statusTimer = 180
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnRmSel)
 
     if total > 0 then
@@ -235,7 +235,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                     _confirmTimer = 240
                 end
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btnClear)
     end
     y = y - BTN_H - FT.py(6)
@@ -249,13 +249,13 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     -- ── Hotspot list with checkboxes ──────────────────────
     y = self:drawRule(y - FT.py(2), 0.3)
     y = y - FT.py(6)
-    y = self:drawSection(y, FT.l10n("ft_hotspot_list_heading", "HOTSPOTS  (tick to select)"))
+    y = self:drawSection(y, FT.l10n("ft_hotspot_list_heading", "HOTSPOTS  (tick to select)"), true)
     y = y - GAP
 
     if total == 0 then
         self.r:appText(x + cw / 2, y - FT.py(12), FT.FONT.SMALL,
             FT.l10n("ft_hotspot_none", "No hotspots on the map - use ADD PIN HERE."),
-            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         y = y - FT.py(24)
     else
         local checkW = FT.px(22)
@@ -277,7 +277,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
             local mark   = checked and "x" or "-"
             local capturedKey = key
             local btnChk = self.r:button(x, y - rowH + FT.py(2), checkW, rowH - FT.py(2),
-                mark, boxCol, {
+                FT.l10nAuto(mark), boxCol, {
                 onClick = function()
                     if _selected[capturedKey] then
                         _selected[capturedKey] = nil
@@ -285,11 +285,11 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                         _selected[capturedKey] = true
                     end
                 end
-            })
+            }, true)
             table.insert(self._contentBtns, btnChk)
 
             self.r:appText(x + checkW + FT.px(4), y - FT.py(5), FT.FONT.TINY,
-                catLabel, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                catLabel, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             self.r:appText(x + checkW + catW, y - FT.py(5), FT.FONT.SMALL,
                 nameLabel, RenderText.ALIGN_LEFT,
                 checked and FT.C.TEXT_BRIGHT or FT.C.TEXT_NORMAL)

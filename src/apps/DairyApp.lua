@@ -287,31 +287,31 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
           body  = FT.l10n("ft_dairy_help_barns_body",
               "Each card is one dairy barn tracked by DairyCore.\n" ..
               "Herd health, milk quality tier, and spoilage come\n" ..
-              "straight from DairyCore - FarmTablet does not invent values.") },
+              "straight from DairyCore - FarmTablet does not invent values."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_dairy_help_ritter_title", "RITTER MODE"),
           body  = FT.l10n("ft_dairy_help_ritter_body",
               "When Realistic Livestock is active, barn cards also show\n" ..
               "healthy / sick / pregnant counts and average genetics.\n" ..
-              "Individual animals stay in Ritter's own menu.") },
+              "Individual animals stay in Ritter's own menu."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_dairy_help_feed_title", "FEED WARNINGS"),
           body  = FT.l10n("ft_dairy_help_feed_body",
               "A feed disease flag means elevated risk on a designated\n" ..
               "feed field. The disease name appears only when DairyCore\n" ..
               "has revealed it (scout or Co-Op report). Mycotoxin is a\n" ..
-              "read-only herd-health penalty.") },
+              "read-only herd-health penalty."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_dairy_help_readonly_title", "READ-ONLY"),
           body  = FT.l10n("ft_dairy_help_readonly_body",
               "This tab does not schedule collections, edit contracts,\n" ..
               "or designate feed fields. It surfaces DairyCore's live\n" ..
-              "read model only.") },
+              "read model only."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_dairy_breed_help_title", "BREED RECORDS"),
           body  = FT.l10n("ft_dairy_breed_help_body",
               "Herd now counts the milking animals in the barn.\n" ..
               "Milk in tank follows the stored milk by the breeds that\n" ..
               "produced it. A new herd beside old milk is normal. Unknown\n" ..
               "milk predates the record or arrived unproven. No breed is\n" ..
-              "rated better here.") },
-    }) then return end
+              "rated better here."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local mgr = _dairyMgr()
     local rows = {}
@@ -354,16 +354,16 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
     local startY = self:drawAppHeader(
         FT.l10n("ft_ui_app_dairy", "Dairy"),
         FT.l10nFormat(#rows == 1 and "ft_dairy_count_barn" or "ft_dairy_count_barns",
-            "%d barns", #rows))
+            "%d barns", #rows), true, true)
     local x, _, cw, _ = self:contentInner()
 
     if mgr == nil then
         self.r:appText(x, startY - FT.py(12), FT.FONT.BODY,
             FT.l10n("ft_dairy_no_manager", "DairyCore not detected."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, startY - FT.py(30), FT.FONT.SMALL,
             FT.l10n("ft_dairy_install_hint", "Install FS25_DairyCore. This app stays hidden when absent."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_dairyHelp", AC)
         return
     end
@@ -381,9 +381,9 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
                 "The server has not sent this farm's breed records yet. Barn cards stay hidden until it does.")
         end
         self.r:appText(x, startY - FT.py(12), FT.FONT.BODY, emptyText,
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, startY - FT.py(30), FT.FONT.SMALL, emptyHint,
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_dairyHelp", AC)
         return
     end
@@ -395,9 +395,9 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
 
     local function drawKV(rowY, label, value, valueCol)
         self.r:appText(x + pad, rowY, FT.FONT.TINY, label,
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x + cw - pad, rowY, FT.FONT.TINY, tostring(value),
-            RenderText.ALIGN_RIGHT, valueCol or FT.C.TEXT_NORMAL)
+            RenderText.ALIGN_RIGHT, valueCol or FT.C.TEXT_NORMAL, true)
         return rowY - lineH
     end
 
@@ -446,11 +446,11 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
 
         local tier = tostring(row.qualityTier or "-")
         rowY = drawKV(rowY, FT.l10n("ft_dairy_label_tier", "QUALITY TIER"),
-            tier, tierColor(tier))
+            FT.l10nAuto(tier), tierColor(tier))
 
         local spoil = tostring(row.spoilage or "-")
         rowY = drawKV(rowY, FT.l10n("ft_dairy_label_spoilage", "SPOILAGE"),
-            spoil, spoilageColor(spoil))
+            FT.l10nAuto(spoil), spoilageColor(spoil))
 
         if row.ritterMode and type(row.counts) == "table" then
             local c = row.counts
@@ -479,17 +479,17 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
                 feedVal = tostring(row.feedDiseaseCropName)
             end
             rowY = drawKV(rowY, FT.l10n("ft_dairy_label_feed", "FEED DISEASE"),
-                feedVal, FT.C.NEGATIVE)
+                FT.l10nAuto(feedVal), FT.C.NEGATIVE)
         end
 
         if row.contractId ~= nil then
             rowY = drawKV(rowY, FT.l10n("ft_dairy_label_contract", "CONTRACT"),
-                tostring(row.contractId), FT.C.TEXT_NORMAL)
+                FT.l10nAuto(tostring(row.contractId)), FT.C.TEXT_NORMAL)
         end
 
         -- DC-27: the two breed clocks, every breed and fill type listed, unknown named.
         for _, br in ipairs(breedRows) do
-            rowY = drawKV(rowY, br[1], br[2], br[3])
+            rowY = drawKV(rowY, FT.l10nAuto(br[1]), FT.l10nAuto(br[2]), br[3])
         end
 
         y = cardBottom - FT.py(8)

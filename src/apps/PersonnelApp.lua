@@ -53,7 +53,7 @@ end
 
 -- Register a custom-placed button for click handling this frame.
 local function addBtn(self, bx, by, bw, bh, label, color, onClick)
-    local btn = self.r:button(bx, by, bw, bh, FT.l10nAuto(label), color, { onClick = onClick })
+    local btn = self.r:button(bx, by, bw, bh, FT.l10nAuto(label), color, { onClick = onClick }, true)
     table.insert(self._contentBtns, btn)
     return btn
 end
@@ -114,13 +114,13 @@ local function drawRoster(self, snap, bodyTop, AC)
     -- Summary
     if visTop(y) then
         self:drawRow(y, "Workers", FT.l10nFormat("ft_personnel_workers_fmt", "%d  (%d working)", snap.count or 0, snap.working or 0),
-            nil, (snap.working or 0) > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM)
+            nil, (snap.working or 0) > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM, nil, true)
     end
     y = y - ROWH
     if visTop(y) then
         local lv = snap.levels or {}
         self:drawRow(y, "Levels", FT.l10nFormat("ft_personnel_levels_fmt", "%dN / %dE / %dM",
-            lv.novice or 0, lv.experienced or 0, lv.master or 0))
+            lv.novice or 0, lv.experienced or 0, lv.master or 0), nil, nil, nil, true)
     end
     y = y - ROWH
 
@@ -214,7 +214,7 @@ local function drawRoster(self, snap, bodyTop, AC)
             local fatPct = math.floor((w.fatigue or 0) * 100)
             self.r:appText(x, y - FT.py(15), FT.FONT.TINY,
                 FT.l10nFormat("ft_personnel_worker_stats_fmt", "%.1fh  -  %d jobs  -  fatigue %d%%", w.totalHours or 0, w.totalJobs or 0, fatPct),
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             self.r:appText(x + cw, y - FT.py(15), FT.FONT.TINY,
                 money(math.floor(w.effRate or 0)) .. (snap.finance and snap.finance.isHourly and "/h" or "/ha"),
                 RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
@@ -282,7 +282,7 @@ local function drawHire(self, snap, bodyTop, AC)
             end)
 
             self.r:appText(x, y - FT.py(15), FT.FONT.TINY,
-                FT.l10nFormat("ft_personnel_signing_cost_fmt", "Signing cost  %s", money(r.hireCost)), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.l10nFormat("ft_personnel_signing_cost_fmt", "Signing cost  %s", money(r.hireCost)), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         end
         y = y - blockH
     end
@@ -310,9 +310,9 @@ local function drawPayroll(self, snap, bodyTop, AC)
     y = y - FT.py(2)
     y = self:drawSection(y, "RUNNING COSTS")
     y = self:drawRow(y, "Est. Interval", money(fin.estIntervalCost or 0), nil,
-        (fin.estIntervalCost or 0) > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+        (fin.estIntervalCost or 0) > 0 and FT.C.WARNING or FT.C.TEXT_DIM, nil, true)
     y = self:drawRow(y, "Month To Date", money(fin.monthAccrued or 0), nil,
-        (fin.monthAccrued or 0) > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+        (fin.monthAccrued or 0) > 0 and FT.C.WARNING or FT.C.TEXT_DIM, nil, true)
 
     -- Pro-Staff impact: net of all level discounts + fatigue surcharges across the
     -- roster. Negative => the crew's perks save money; positive => fatigue costs you.
@@ -325,7 +325,7 @@ local function drawPayroll(self, snap, bodyTop, AC)
 
     -- Per-worker effective rate breakdown (this part scrolls)
     y = y - FT.py(2)
-    y = self:drawSection(y, FT.l10nFormat("ft_personnel_per_worker_fmt", "PER WORKER  (base %s)", money(math.floor(fin.baseRate or 0)) .. rateUnit))
+    y = self:drawSection(y, FT.l10nFormat("ft_personnel_per_worker_fmt", "PER WORKER  (base %s)", money(math.floor(fin.baseRate or 0)) .. rateUnit), true)
 
     local workers = sortedFilteredWorkers(snap, "level", "all")
     for _, w in ipairs(workers) do
@@ -352,23 +352,23 @@ FarmTabletUI:registerDrawer(FT.APP.PERSONNEL, function(self)
 
     if self:drawHelpPage("_psHelp", FT.APP.PERSONNEL, FT.l10n("ft_ui_app_personnel", "Personnel"), AC, {
         { title = "WHAT THIS APP DOES",
-          body  = FT.l10n("ft_personnel_help_what_body", "A personnel command center for FS25_WorkerCosts.\nManage your Pro-Staff roster: review, hire,\nfire, and pin workers to vehicles.") },
+          body  = FT.l10n("ft_personnel_help_what_body", "A personnel command center for FS25_WorkerCosts.\nManage your Pro-Staff roster: review, hire,\nfire, and pin workers to vehicles."), literalBody = true },
         { title = "ROSTER TAB",
-          body  = FT.l10n("ft_personnel_help_roster_body", "Every worker with level, lifetime hours, jobs,\nand fatigue. Sort and filter the list. PIN a\nworker to the vehicle you're driving, or FIRE\nthem (tap twice - severance applies).") },
+          body  = FT.l10n("ft_personnel_help_roster_body", "Every worker with level, lifetime hours, jobs,\nand fatigue. Sort and filter the list. PIN a\nworker to the vehicle you're driving, or FIRE\nthem (tap twice - severance applies)."), literalBody = true },
         { title = "HIRE TAB",
-          body  = FT.l10n("ft_personnel_help_hire_body", "A rotating recruitment pool. Each candidate has\na level and a one-off signing cost. HIRE to add\nthem; REROLL to draw fresh candidates.") },
+          body  = FT.l10n("ft_personnel_help_hire_body", "A rotating recruitment pool. Each candidate has\na level and a one-off signing cost. HIRE to add\nthem; REROLL to draw fresh candidates."), literalBody = true },
         { title = "PAYROLL TAB",
-          body  = FT.l10n("ft_personnel_help_payroll_body", "Wage structure, the running cost estimate, and\nthe Pro-Staff impact - how levels (cheaper) and\nfatigue (pricier) net out across the crew.") },
+          body  = FT.l10n("ft_personnel_help_payroll_body", "Wage structure, the running cost estimate, and\nthe Pro-Staff impact - how levels (cheaper) and\nfatigue (pricier) net out across the crew."), literalBody = true },
         { title = "MULTIPLAYER",
-          body  = FT.l10n("ft_personnel_help_mp_body", "The roster lives on the host. Your actions are\nsent to the host and the result syncs back to\neveryone automatically.") },
-    }) then return end
+          body  = FT.l10n("ft_personnel_help_mp_body", "The roster lives on the host. Your actions are\nsent to the host and the result syncs back to\neveryone automatically."), literalBody = true },
+    }, true) then return end
 
     -- View / control state defaults
     self._psView   = self._psView   or "roster"
     self._psSort   = self._psSort   or "level"
     self._psFilter = self._psFilter or "all"
 
-    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_personnel", "Personnel"), "Pro-Staff")
+    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_personnel", "Personnel"), "Pro-Staff", true)
     local x, contentY, cw = self:contentInner()
     local mgr = mgrRef()
 

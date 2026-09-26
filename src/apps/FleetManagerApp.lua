@@ -30,24 +30,24 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
           body  = "Operating hours: total engine time in whole hours.\n" ..
                   "AI badge appears when the vehicle is driven by a hired worker.\n" ..
                   "No badge = parked or player-controlled." },
-    }) then return end
+    }, true) then return end
 
     local data    = self.system.data
     local farmId  = data:getPlayerFarmId()
     local fleet   = data:getFleetVehicles(farmId)
 
     local subtitle = #fleet == 1 and ftFleetText("ft_fleet_one_vehicle", "1 vehicle") or FT.l10nFormat("ft_fleet_vehicles_fmt", "%d vehicles", #fleet)
-    local startY   = self:drawAppHeader(ftFleetText("ft_ui_app_fleet_manager", "Fleet Manager"), subtitle)
+    local startY   = self:drawAppHeader(ftFleetText("ft_ui_app_fleet_manager", "Fleet Manager"), subtitle, true, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
 
     if #fleet == 0 then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
-            ftFleetText("ft_fleet_no_vehicles", "No vehicles owned."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            ftFleetText("ft_fleet_no_vehicles", "No vehicles owned."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appText(x, y - FT.py(28), FT.FONT.SMALL,
             ftFleetText("ft_fleet_no_vehicles_hint", "Purchase motorized vehicles to track them here."),
-            RenderText.ALIGN_LEFT, FT.C.MUTED)
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         self:drawInfoIcon("_fleetHelp", AC)
         return
     end
@@ -73,7 +73,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
             FT_Renderer.truncate(tostring(v.name or "-"), nameMax), RenderText.ALIGN_LEFT, nameColor)
         if v.aiActive then
             self.r:appText(x + cw - FT.px(8), y - FT.py(11), FT.FONT.TINY,
-                ftFleetText("ft_ai_active_short", "HELPER"), RenderText.ALIGN_RIGHT, FT.C.INFO)
+                ftFleetText("ft_ai_active_short", "HELPER"), RenderText.ALIGN_RIGHT, FT.C.INFO, true)
         end
 
         local fuelPct = tonumber(v.fuelPct) or 0
@@ -83,7 +83,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
         local fuelY = y - FT.py(29)
         local barX = x + labelW
         self.r:appText(x + FT.px(8), fuelY + FT.py(1), FT.FONT.TINY,
-            ftFleetText("ft_fleet_fuel", "Fuel"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            ftFleetText("ft_fleet_fuel", "Fuel"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appRect(barX, fuelY - FT.py(2), barW, barH, {0.11, 0.12, 0.15, 0.92})
         local fuelFill = math.max(barW * (fuelPct / 100), 0)
         if fuelFill > 0 then
@@ -101,7 +101,7 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
                        or FT.C.NEGATIVE
         local wearY = y - FT.py(45)
         self.r:appText(x + FT.px(8), wearY + FT.py(1), FT.FONT.TINY,
-            ftFleetText("ft_fleet_wear", "Wear"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            ftFleetText("ft_fleet_wear", "Wear"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self.r:appRect(barX, wearY - FT.py(2), barW, barH, {0.11, 0.12, 0.15, 0.92})
         local wearFill = barW * (wearPct / 100)
         if wearFill > 0 then
@@ -109,11 +109,11 @@ FarmTabletUI:registerDrawer(FT.APP.FLEET, function(self)
                 {wearColor[1], wearColor[2], wearColor[3], 0.90})
         end
         self.r:appText(valueX, wearY + FT.py(1), FT.FONT.TINY,
-            string.format("%d%%", wearPct), RenderText.ALIGN_LEFT, wearColor)
+            string.format("%d%%", wearPct), RenderText.ALIGN_LEFT, wearColor, true)
 
         if not v.aiActive then
             self.r:appText(x + cw - FT.px(8), wearY + FT.py(1), FT.FONT.TINY,
-                string.format(ftFleetText("ft_fleet_hours_fmt", "%d h"), tonumber(v.opHours) or 0), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                string.format(ftFleetText("ft_fleet_hours_fmt", "%d h"), tonumber(v.opHours) or 0), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
         end
 
         y = y - rowH - FT.py(5)

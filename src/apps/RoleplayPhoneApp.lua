@@ -114,7 +114,7 @@ local function drawCycler(self, y, label, value, onChange)
 
     -- Label in a reserved left column (not on top of the arrows).
     self.r:appText(x + FT.px(4), y + FT.py(4),
-        FT.FONT.TINY, label, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        FT.FONT.TINY, label, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
 
     local ctrlX = x + labelW
     local ctrlW = w - labelW
@@ -125,7 +125,7 @@ local function drawCycler(self, y, label, value, onChange)
             onChange(-1)
             self:switchApp(appId)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnL)
 
     local valX = ctrlX + arrowW + FT.px(4)
@@ -142,7 +142,7 @@ local function drawCycler(self, y, label, value, onChange)
             onChange(1)
             self:switchApp(appId)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnR)
 
     return y - FT.py(22)
@@ -181,7 +181,7 @@ local function drawAmountRow(self, y, amount)
     self.r:appText(midX + midW * 0.5, y + FT.py(4),
         FT.FONT.SMALL, data:formatMoney(amount),
         RenderText.ALIGN_CENTER,
-        amount > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
+        amount > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM, true)
 
     for i, step in ipairs(steps) do
         local bx
@@ -191,12 +191,12 @@ local function drawAmountRow(self, y, amount)
             bx = ctrlX + ctrlW - (7 - i) * stepW
         end
         local stepVal = step
-        local btn = self.r:button(bx, y, stepW - FT.px(2), rowH, labels[i], FT.C.BTN_NEUTRAL, {
+        local btn = self.r:button(bx, y, stepW - FT.px(2), rowH, FT.l10nAuto(labels[i]), FT.C.BTN_NEUTRAL, {
             onClick = function()
                 self._invoiceForm.amount = math.max(0, self._invoiceForm.amount + stepVal)
                 self:switchApp(appId)
             end
-        })
+        }, true)
         table.insert(self._contentBtns, btn)
     end
 
@@ -215,14 +215,14 @@ local function drawInvoiceForm(self)
     local partyList = form.partyList
     local partyVal  = partyList[form.partyIdx] or "—"
     if partyVal == "Custom" then partyVal = "Custom (set via console)" end
-    y = drawCycler(self, y, "PARTY", partyVal, function(dir)
+    y = drawCycler(self, y, FT.l10nAuto("PARTY"), partyVal, function(dir)
         form.partyIdx = ((form.partyIdx - 1 + dir + #partyList) % #partyList) + 1
     end)
     y = y - FT.py(4)
 
     local descVal = DESC_PRESETS[form.descIdx] or "—"
     if descVal == "Custom" then descVal = "Custom (set via console)" end
-    y = drawCycler(self, y, "DESCRIPTION", descVal, function(dir)
+    y = drawCycler(self, y, FT.l10nAuto("DESCRIPTION"), descVal, function(dir)
         form.descIdx = ((form.descIdx - 1 + dir + #DESC_PRESETS) % #DESC_PRESETS) + 1
     end)
     y = y - FT.py(4)
@@ -231,7 +231,7 @@ local function drawInvoiceForm(self)
     y = y - FT.py(4)
 
     local dueOpt = DUE_OPTIONS[form.dueIdx] or DUE_OPTIONS[1]
-    y = drawCycler(self, y, "DUE DATE", dueOpt.label, function(dir)
+    y = drawCycler(self, y, FT.l10nAuto("DUE DATE"), dueOpt.label, function(dir)
         form.dueIdx = ((form.dueIdx - 1 + dir + #DUE_OPTIONS) % #DUE_OPTIONS) + 1
     end)
 
@@ -242,18 +242,18 @@ local function drawInvoiceForm(self)
     local btnH  = FT.py(20)
     local halfW = (w - FT.px(8)) * 0.5
 
-    local btnCancel = self.r:button(x, y, halfW, btnH, "CANCEL", FT.C.BTN_NEUTRAL, {
+    local btnCancel = self.r:button(x, y, halfW, btnH, FT.l10nAuto("CANCEL"), FT.C.BTN_NEUTRAL, {
         onClick = function()
             self._invoiceFormOpen = false
             self._invoiceForm     = nil
             self:switchApp(appId)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnCancel)
 
     local canCreate   = form.amount > 0
     local createColor = canCreate and FT.C.BTN_PRIMARY or FT.C.BTN_NEUTRAL
-    local btnCreate = self.r:button(x + halfW + FT.px(8), y, halfW, btnH, "CREATE", createColor, {
+    local btnCreate = self.r:button(x + halfW + FT.px(8), y, halfW, btnH, FT.l10nAuto("CREATE"), createColor, {
         onClick = function()
             if not canCreate then return end
             local invoiceMgr = g_currentMission and g_currentMission.ftInvoiceManager
@@ -278,7 +278,7 @@ local function drawInvoiceForm(self)
             self._invoiceForm     = nil
             self:switchApp(appId)
         end
-    })
+    }, true)
     table.insert(self._contentBtns, btnCreate)
 
     if not canCreate then
@@ -411,14 +411,14 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
         FT.FONT.TINY, "RECEIVABLE", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     self.r:appText(x + FT.px(4), y - FT.py(19),
         FT.FONT.BODY, data:formatMoney(totalReceivable),
-        RenderText.ALIGN_LEFT, FT.C.POSITIVE)
+        RenderText.ALIGN_LEFT, FT.C.POSITIVE, true)
 
     self.r:appText(x + w - FT.px(4), y - FT.py(8),
         FT.FONT.TINY, "OWED", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
     self.r:appText(x + w - FT.px(4), y - FT.py(19),
         FT.FONT.BODY, data:formatMoney(totalOwed),
         RenderText.ALIGN_RIGHT,
-        totalOwed > 0 and FT.C.NEGATIVE or FT.C.TEXT_DIM)
+        totalOwed > 0 and FT.C.NEGATIVE or FT.C.TEXT_DIM, true)
 
     y = y - FT.py(28)
     y = self:drawRule(y, 0.3)
@@ -426,7 +426,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
     -- ── Invoice list renderer ─────────────────────────────
     local function drawInvoiceList(title, list)
         if #list == 0 then return end
-        y = self:drawSection(y, title)
+        y = self:drawSection(y, title, true)
         local appId = FT.APP.ROLEPLAY_PHONE
 
         for _, inv in ipairs(list) do
@@ -505,7 +505,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
                 FT.FONT.SMALL, desc, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             self.r:appText(x + w - FT.px(4), line2Y,
                 FT.FONT.SMALL, data:formatMoney(inv.amount or 0),
-                RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
+                RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL, true)
 
             -- Line 3: due date
             if hasDue and dueStr then
@@ -527,22 +527,22 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
                 else
                     local gap  = FT.px(6)
                     local btnW = (w - gap) * 0.5
-                    local btnPay = self.r:button(x, btnY, btnW, btnH, "PAY",
+                    local btnPay = self.r:button(x, btnY, btnW, btnH, FT.l10nAuto("PAY"),
                         FT.C.BTN_PRIMARY, {
                             onClick = function()
                                 local mgr = g_currentMission and g_currentMission.ftInvoiceManager
                                 if mgr then mgr:updateStatus(invId, FT_InvoiceManager.STATUS.PAID); mgr:save() end
                                 self:switchApp(appId)
                             end
-                        })
-                    local btnCancel = self.r:button(x + btnW + gap, btnY, btnW, btnH, "CANCEL",
+                        }, true)
+                    local btnCancel = self.r:button(x + btnW + gap, btnY, btnW, btnH, FT.l10nAuto("CANCEL"),
                         FT.C.BTN_DANGER, {
                             onClick = function()
                                 local mgr = g_currentMission and g_currentMission.ftInvoiceManager
                                 if mgr then mgr:deleteInvoice(invId); mgr:save() end
                                 self:switchApp(appId)
                             end
-                        })
+                        }, true)
                     table.insert(self._contentBtns, btnPay)
                     table.insert(self._contentBtns, btnCancel)
                 end
@@ -550,14 +550,14 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
                 -- Paid / rejected – DELETE only in built-in mode
                 if not inv.isRPInvoice then
                     local delW   = FT.px(60)
-                    local btnDel = self.r:button(x + w - delW, btnY, delW, btnH, "DELETE",
+                    local btnDel = self.r:button(x + w - delW, btnY, delW, btnH, FT.l10nAuto("DELETE"),
                         FT.C.BTN_NEUTRAL, {
                             onClick = function()
                                 local mgr = g_currentMission and g_currentMission.ftInvoiceManager
                                 if mgr then mgr:deleteInvoice(invId); mgr:save() end
                                 self:switchApp(appId)
                             end
-                        })
+                        }, true)
                     table.insert(self._contentBtns, btnDel)
                 end
             end
@@ -566,14 +566,14 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
         end
     end
 
-    drawInvoiceList("INCOMING  (money owed to you)", incoming)
+    drawInvoiceList(FT.l10nAuto("INCOMING  (money owed to you)"), incoming)
 
     if #incoming > 0 and #outgoing > 0 then
         y = y - FT.py(4)
         y = self:drawRule(y, 0.2)
     end
 
-    drawInvoiceList("OUTGOING  (money you owe)", outgoing)
+    drawInvoiceList(FT.l10nAuto("OUTGOING  (money you owe)"), outgoing)
 
     -- ── Empty state ───────────────────────────────────────
     if #incoming == 0 and #outgoing == 0 then
@@ -600,12 +600,12 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
         local newBtn = self.r:button(
             x + w - iSz - gap - btnW, cY,
             btnW, iSz,
-            "+ NEW", FT.C.BTN_PRIMARY,
+            FT.l10nAuto("+ NEW"), FT.C.BTN_PRIMARY,
             { onClick = function()
                 initForm(self)
                 self._invoiceFormOpen = true
                 self:switchApp(FT.APP.ROLEPLAY_PHONE)
-            end }
+            end }, true
         )
         table.insert(self._contentBtns, newBtn)
     end

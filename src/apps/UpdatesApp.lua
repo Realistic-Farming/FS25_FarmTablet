@@ -150,10 +150,10 @@ local CHANGELOG = {
 
 local function drawChangeGroup(ui, x, y, w, title, list, color)
     if list == nil or #list == 0 then return y end
-    ui.r:appText(x, y, FT.FONT.SMALL, title, RenderText.ALIGN_LEFT, color)
+    ui.r:appText(x, y, FT.FONT.SMALL, title, RenderText.ALIGN_LEFT, color, true)
     y = y - py(14)
     for _, text in ipairs(list) do
-        ui.r:appText(x + px(10), y, FT.FONT.BODY, "• " .. tostring(text), RenderText.ALIGN_LEFT, col(FT.C.TEXT_NORMAL, {0.9,0.9,0.9,1}))
+        ui.r:appText(x + px(10), y, FT.FONT.BODY, "• " .. tostring(text), RenderText.ALIGN_LEFT, col(FT.C.TEXT_NORMAL, {0.9,0.9,0.9,1}), true)
         y = y - py(13)
     end
     return y - py(4)
@@ -163,12 +163,12 @@ FarmTabletUI:registerDrawer(FT.APP.UPDATES, function(self)
     local AC = FT.appColor(FT.APP.UPDATES)
 
     if self:drawHelpPage("_updatesHelp", FT.APP.UPDATES, ftSafeText("ft_auto_updates", "Aktualisierungen"), AC, {
-        { title = ftSafeText("ft_updates_help_history_title", "VERSION HISTORY"), body = ftSafeText("ft_updates_help_history_body", "Shows FarmTablet changes sorted by version.") },
-        { title = ftSafeText("ft_updates_help_structure_title", "STRUCTURE"), body = ftSafeText("ft_updates_help_structure_body", "Each version is split into New, Improved and Fixed.") },
-    }) then return end
+        { title = ftSafeText("ft_updates_help_history_title", "VERSION HISTORY"), body = ftSafeText("ft_updates_help_history_body", "Shows FarmTablet changes sorted by version."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_updates_help_structure_title", "STRUCTURE"), body = ftSafeText("ft_updates_help_structure_body", "Each version is split into New, Improved and Fixed."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local scrollY  = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader(ftSafeText("ft_auto_updates", "Aktualisierungen"), ftSafeText("ft_updates_version_history", "Version history"))
+    local afterHdr = self:drawAppHeader(ftSafeText("ft_auto_updates", "Aktualisierungen"), ftSafeText("ft_updates_version_history", "Version history"), true, true)
     local x, _, cw, _ = self:contentInner()
     local y = afterHdr + scrollY
 
@@ -179,8 +179,8 @@ FarmTabletUI:registerDrawer(FT.APP.UPDATES, function(self)
         self.r:appRect(x - px(4), y - cardH + py(6), cw + px(8), cardH, {0.11, 0.13, 0.16, 0.82})
         self.r:appRect(x - px(4), y - py(2), cw + px(8), py(2), {AC[1], AC[2], AC[3], 0.85})
 
-        self.r:appText(x + px(8), y - py(14), FT.FONT.TITLE, ftSafeText("ft_updates_version", "Version") .. " " .. tostring(entry.version), RenderText.ALIGN_LEFT, col(FT.C.TEXT_BRIGHT, {1,1,1,1}))
-        self.r:appText(x + cw - px(8), y - py(14), FT.FONT.SMALL, tostring(entry.date or ""), RenderText.ALIGN_RIGHT, col(FT.C.TEXT_DIM, {0.75,0.75,0.75,1}))
+        self.r:appText(x + px(8), y - py(14), FT.FONT.TITLE, ftSafeText("ft_updates_version", "Version") .. " " .. tostring(entry.version), RenderText.ALIGN_LEFT, col(FT.C.TEXT_BRIGHT, {1,1,1,1}), true)
+        self.r:appText(x + cw - px(8), y - py(14), FT.FONT.SMALL, tostring(entry.date or ""), RenderText.ALIGN_RIGHT, col(FT.C.TEXT_DIM, {0.75,0.75,0.75,1}), true)
         y = y - py(34)
 
         y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_new", "New"), entry.neu, col(FT.C.BRAND, FT.C.TEXT_ACCENT))

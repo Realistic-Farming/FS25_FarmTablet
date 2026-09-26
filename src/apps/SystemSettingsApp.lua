@@ -177,8 +177,8 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
             local on = (live == true)
             local bw = FT.px(60)
             local btn = self.r:button(rightEdge - bw, rowY - FT.py(22), bw, FT.py(20),
-                on and "On" or "Off", on and FT.C.POSITIVE or FT.C.MUTED,
-                { onClick = function() commit(1) end })
+                FT.l10nAuto(on and "On" or "Off"), on and FT.C.POSITIVE or FT.C.MUTED,
+                { onClick = function() commit(1) end }, true)
             table.insert(self._contentBtns, btn)
         else
             -- enum / int / float: [<]/[-]  value  [>]/[+]
@@ -190,9 +190,9 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
             local incLbl = (st == "enum") and ">" or "+"
 
             local bDec = self.r:button(decX, rowY - FT.py(22), aw, FT.py(20),
-                decLbl, FT.C.BTN_NEUTRAL, { onClick = function() commit(-1) end })
+                decLbl, FT.C.BTN_NEUTRAL, { onClick = function() commit(-1) end }, true)
             local bInc = self.r:button(incX, rowY - FT.py(22), aw, FT.py(20),
-                incLbl, FT.C.BTN_NEUTRAL, { onClick = function() commit(1) end })
+                incLbl, FT.C.BTN_NEUTRAL, { onClick = function() commit(1) end }, true)
             table.insert(self._contentBtns, bDec)
             table.insert(self._contentBtns, bInc)
 
@@ -218,7 +218,7 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
             self.r:appText(x + FT.px(9), headerY, FT.FONT.SMALL,
                 (isCol and "[+] " or "[-] ") .. modId, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
             self.r:appText(x + cw - FT.px(2), headerY, FT.FONT.TINY,
-                "(" .. #settings .. ")", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                "(" .. #settings .. ")", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
             table.insert(self._contentBtns, {
                 x = x - FT.px(4), y = headerY - FT.py(4), w = cw + FT.px(8), h = FT.py(17),
                 meta = { onClick = function() collapsed[modId] = not collapsed[modId] end },

@@ -47,7 +47,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
     }) then return end
 
     local FS = g_currentMission and g_currentMission.fieldSentry
-    local startY = self:drawAppHeader("Field Sentry", "")
+    local startY = self:drawAppHeader("Field Sentry", "", nil, true)
     local x, cyBottom, cw, contentH = self:contentInner()
 
     if FS == nil or FS.getUIStatus == nil then
@@ -80,7 +80,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
     -- Sub-header line: counts + admin note.
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
         FT.l10nFormat("ft_fieldsentry_count", "%d fields  ·  %d asleep", #fields, asleep),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL,
         isAdmin and "Admin" or "View only (admin needed)",
         RenderText.ALIGN_RIGHT, isAdmin and FT.C.TEXT_ACCENT or FT.C.WARNING)
@@ -144,21 +144,21 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
             -- Sleep toggle (manual blacklist).
             local sleepCol = isManual and FT.C.WARNING or FT.C.BTN_NEUTRAL
             local sleepBtn = self.r:button(sleepX, y - FT.py(2), btnW, btnH,
-                isManual and "WAKE" or "SLEEP", sleepCol, isAdmin and {
+                FT.l10nAuto(isManual and "WAKE" or "SLEEP"), sleepCol, isAdmin and {
                     onClick = function()
                         if FS.toggleSleep then FS.toggleSleep(field.id, not isManual) end
                     end
-                } or nil)
+                } or nil, true)
             if isAdmin then table.insert(self._contentBtns, sleepBtn) end
 
             -- Meadow toggle.
             local meadowCol = isMeadow and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL
             local meadowBtn = self.r:button(meadowX, y - FT.py(2), btnW, btnH,
-                "MEADOW", meadowCol, isAdmin and {
+                FT.l10nAuto("MEADOW"), meadowCol, isAdmin and {
                     onClick = function()
                         if FS.toggleMeadow then FS.toggleMeadow(field.id, not isMeadow) end
                     end
-                } or nil)
+                } or nil, true)
             if isAdmin then table.insert(self._contentBtns, meadowBtn) end
         end
 
