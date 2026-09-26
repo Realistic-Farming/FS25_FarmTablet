@@ -45,6 +45,8 @@
 //       literal runs the real FT.l10nAuto. The result must be the file's text (formatted, when the
 //       site passes arguments), never the fallback. S1 and S2 read the code; X1 runs it. A helper the
 //       bar cannot run fails X1 until X1_SKIP names it with a reason.
+//   X2  the level name, executed (MAINTENANCE row 142 part 3): ProStaffApp.lua's own _levelName asks
+//       ProStaff's getLevelDisplayName with a colon call and falls back to LEVEL_NAMES, then "Level %d".
 //
 // Usage:  node tools/test/l10n-rotation-sysset-prostaff-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
@@ -427,7 +429,71 @@ for (const loc of locales) {
       }
     }
   }
-  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals in ${SOURCES.map((s) => s.file).join(", ")}; X1: ${x1Calls} lookups executed against the files`);
+  // ---- X2: the level name, executed (MAINTENANCE row 142 part 3). ProStaffApp.lua's own _ps and
+  // _levelName, cut from the real source, run in a fresh fengari state beside the real
+  // Constants.lua. ProStaff's getLevelDisplayName wins when it answers a non-empty string through a
+  // colon call; a manager without it, or one whose getter raises or answers "", falls back to
+  // ProStaffConstants.LEVEL_NAMES; a level the getter refuses and the table lacks reads "Level %d";
+  // level 0 reads None.
+  let x2 = "";
+  {
+    const rel = "src/apps/ProStaffApp.lua";
+    const text = readFileSync(join(ROOT, rel), "latin1");
+    const ast = luaparse.parse(text, { luaVersion: "5.1", encodingMode: "pseudo-latin1", ranges: true });
+    const cut = (name) => {
+      const s = ast.body.find((n) => n.type === "FunctionDeclaration" && n.isLocal && n.identifier && n.identifier.name === name);
+      return s ? text.slice(s.range[0], s.range[1]) : null;
+    };
+    const ps = cut("_ps"), ln = cut("_levelName");
+    if (!ps || !ln) failures.push(`X2 ${rel}: _ps or _levelName is not a top-level local function; the bar cannot run the level name`);
+    else {
+      const L2 = lauxlib.luaL_newstate();
+      lualib.luaL_openlibs(L2);
+      const run2 = (buf, name) => {
+        if (lauxlib.luaL_loadbuffer(L2, buf, null, to_luastring(name)) !== lua.LUA_OK || lua.lua_pcall(L2, 0, 0, 0) !== lua.LUA_OK) {
+          const e = lua.lua_tojsstring(L2, -1); lua.lua_pop(L2, 1); return e;
+        }
+        return null;
+      };
+      let err = run2(readFileSync(join(ROOT, "src", "core", "Constants.lua")), "@Constants.lua");
+      if (!err) err = run2(Buffer.from(`
+        getfenv = getfenv or function() return _G end
+        g_i18n = { texts = { ft_prostaff_level_none = "None", ft_prostaff_level_n = "Level %d" } }
+        function g_i18n:hasText(k) return self.texts[k] ~= nil end
+        function g_i18n:getText(k) return self.texts[k] end
+        ProStaffConstants = { LEVEL_NAMES = { [7] = "Bulk Silo Admin" } }
+        ${ps}
+        ${ln}
+        local mgr = {}
+        function mgr:getLevelDisplayName(level)
+          if self ~= mgr then error("not a colon call") end
+          if level == 7 then return "X2-NAME-7" end
+          return nil
+        end
+        local r = {}
+        g_currentMission = { proStaffManager = mgr }
+        r[1] = _levelName(7)
+        r[2] = _levelName(25)
+        r[3] = _levelName(0)
+        g_currentMission.proStaffManager = {}
+        r[4] = _levelName(7)
+        g_currentMission.proStaffManager = { getLevelDisplayName = function() error("boom") end }
+        r[5] = _levelName(7)
+        g_currentMission.proStaffManager = { getLevelDisplayName = function() return "" end }
+        r[6] = _levelName(7)
+        X2_OUT = table.concat(r, "|")
+      `, "latin1"), "@" + rel + " (X2 cut)");
+      if (err) failures.push(`X2: _levelName did not run: ${err}`);
+      else {
+        lua.lua_getglobal(L2, to_luastring("X2_OUT"));
+        x2 = lua.lua_tojsstring(L2, -1);
+        lua.lua_pop(L2, 1);
+        const want = "X2-NAME-7|Level 25|None|Bulk Silo Admin|Bulk Silo Admin|Bulk Silo Admin";
+        if (x2 !== want) failures.push(`X2 _levelName: got ${JSON.stringify(x2)}, want ${JSON.stringify(want)} (the getter through a colon call, out of range, level 0, no getter, a getter that raises, an empty answer)`);
+      }
+    }
+  }
+  console.log(`  draw sites checked: ${keySites} key calls, ${litSites} drawn literals in ${SOURCES.map((s) => s.file).join(", ")}; X1: ${x1Calls} lookups executed against the files; X2: the level name executed through 6 managers`);
 }
 
 const checked = KEYS.length * locales.length;

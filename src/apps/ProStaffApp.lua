@@ -22,6 +22,15 @@ end
 local function _levelName(level)
     level = tonumber(level) or 0
     if level <= 0 then return FT.l10n("ft_prostaff_level_none", "None") end
+    -- ProStaff's own display name (MAINTENANCE row 142): its getter reads ProStaff's i18n,
+    -- which this mod's cannot reach, and answers nil outside its ladder. A colon call, like
+    -- getLevel; an older ProStaff without it, a getter that raises or an empty answer falls
+    -- through to the English table below.
+    local mgr = _ps()
+    if type(mgr) == "table" and type(mgr.getLevelDisplayName) == "function" then
+        local ok, name = pcall(mgr.getLevelDisplayName, mgr, level)
+        if ok and type(name) == "string" and name ~= "" then return name end
+    end
     if ProStaffConstants ~= nil and type(ProStaffConstants.LEVEL_NAMES) == "table" then
         return ProStaffConstants.LEVEL_NAMES[level] or FT.l10nFormat("ft_prostaff_level_n", "Level %d", level)
     end

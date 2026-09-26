@@ -3,6 +3,8 @@
 # onto named keys (FT.l10n / FT.l10nFormat). Each mutation undoes one piece, or breaks one text row the
 # translation leans on, and the bar tools/test/l10n-rotation-sysset-prostaff-check.mjs must FAIL on a named row.
 # Each file is restored byte-identical (sha256-checked) after each run. The bar must be green before any run.
+# MAINTENANCE row 142 part 3 adds P3a to P3d: the Pro-Staff level name through ProStaff's own getter, the
+# bar's X2 row.
 # Usage: py tools/test/mutate_l10n_rotation_sysset_prostaff.py [id-prefix ...]
 import hashlib, os, subprocess, sys
 
@@ -55,6 +57,22 @@ MUTATIONS = [
      one("    if g_i18n ~= nil and key ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then\n        local text = g_i18n:getText(key)",
          "    if false and g_i18n ~= nil and key ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then\n        local text = g_i18n:getText(key)"),
      "FT.l10n stops reading the locale file: every lookup returns its English fallback: X1"),
+    # MAINTENANCE row 142 part 3: _levelName asks ProStaff's getLevelDisplayName (X2). Run with the prefix P3.
+    ("P3a-getter-skipped", "src/apps/ProStaffApp.lua",
+     one("    local mgr = _ps()\n    if type(mgr) == \"table\" and type(mgr.getLevelDisplayName) == \"function\" then",
+         "    local mgr = nil\n    if type(mgr) == \"table\" and type(mgr.getLevelDisplayName) == \"function\" then"),
+     "the level name never asks ProStaff: English in every language: X2"),
+    ("P3b-dot-call", "src/apps/ProStaffApp.lua",
+     one("pcall(mgr.getLevelDisplayName, mgr, level)", "pcall(mgr.getLevelDisplayName, level)"),
+     "the getter is called with the level as self: X2"),
+    ("P3c-no-pcall", "src/apps/ProStaffApp.lua",
+     one("        local ok, name = pcall(mgr.getLevelDisplayName, mgr, level)\n",
+         "        local ok, name = true, mgr:getLevelDisplayName(level)\n"),
+     "a getter that raises takes the tablet page down: X2"),
+    ("P3d-empty-answer-kept", "src/apps/ProStaffApp.lua",
+     one("        if ok and type(name) == \"string\" and name ~= \"\" then return name end\n",
+         "        if ok and type(name) == \"string\" then return name end\n"),
+     "an empty answer is drawn as the level name: X2"),
 ]
 
 def sha(path):
