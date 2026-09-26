@@ -211,6 +211,26 @@ for (const loc of locales) {
   }
 }
 
+// ---- MODE (MAINTENANCE row 155): a help that lists a companion mod's modes ("X = ...") names exactly the words that
+// mod's getter can return: Income's pay modes are Hourly and Daily (IncomeMod Settings.lua:101-107), Worker Costs'
+// cost modes Hourly and Per Hectare (WorkerCosts Settings.lua:90-95). All 26 files, English included.
+{
+  const MODE_LINES = [
+    ["ft_income_help_mode_body", ["ft_companion_hourly", "ft_companion_daily"]],
+    ["ft_wrk_help_mode_body", ["ft_companion_hourly", "ft_companion_per_hectare"]],
+  ];
+  for (const loc of ["en", ...locales]) {
+    const L = ALL[loc];
+    for (const [body, words] of MODE_LINES) {
+      const b = (L.inside.get(body) || [])[0];
+      if (!b) continue;
+      const named = unesc(b).split("\n").filter((l) => l.includes(" = ")).map((l) => l.split(" = ")[0].trim().toLowerCase()).sort();
+      const want = words.map((w) => unesc((L.inside.get(w) || [""])[0]).trim().toLowerCase()).sort();
+      if (JSON.stringify(named) !== JSON.stringify(want)) failures.push(`MODE ${loc}: ${body} names ${JSON.stringify(named)}; the getter returns ${JSON.stringify(want)}`);
+    }
+  }
+}
+
 // ---- Draw-site rows, over the real source.
 {
   const { createRequire } = await import("node:module");

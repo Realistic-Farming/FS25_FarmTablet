@@ -187,6 +187,25 @@ for (const loc of locales) {
   }
 }
 
+// ---- ROLE (MAINTENANCE row 155): the relationships help's example roles are NPCFavor's role ids in the file's own
+// words (it named a Mechanic, which NPCFavor does not have). All 26 files, English included.
+{
+  const ROLE_KEYS = ["ft_npc_role_farmer", "ft_npc_role_shopkeeper", "ft_npc_role_worker", "ft_npc_role_farmhand", "ft_npc_role_agronomist"];
+  const ETC = ["и т. д.", "v.v.", "etc.", "ecc.", "enz.", "osv.", "jne.", "itp.", "atd.", "stb.", "dll.", "vb.", "usw.", "тощо", "など", "等", "등"];
+  for (const loc of ["en", ...locales]) {
+    const L = ALL[loc];
+    const b = unesc((L.inside.get("ft_npc_help_relationships_body") || [""])[0]);
+    const m = b.match(/[(（]([^)）]*)[)）]/);
+    if (!m) { failures.push(`ROLE ${loc}: the relationships help names no example roles`); continue; }
+    let inner = m[1].trim();
+    for (const e of ETC) if (inner.endsWith(e)) { inner = inner.slice(0, -e.length).replace(/[\s,、，]+$/, ""); break; }
+    const roles = new Set(ROLE_KEYS.map((k) => unesc((L.inside.get(k) || [""])[0]).trim().toLowerCase()));
+    for (const item of inner.split(/[,、，]\s*/).map((s) => s.trim()).filter(Boolean)) {
+      if (!roles.has(item.toLowerCase())) failures.push(`ROLE ${loc}: the relationships help's example ${JSON.stringify(item)} is not one of NPCFavor's roles in this file`);
+    }
+  }
+}
+
 // ---- Draw-site rows, over the real source.
 {
   const { createRequire } = await import("node:module");
