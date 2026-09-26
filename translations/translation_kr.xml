@@ -375,8 +375,6 @@
         <text name="ft_auto_0f_km_h" text="%.0f km/h" />
         <text name="ft_auto_0f_width_0f" text="%.0f%%  (width: %.0f%%)" />
         <text name="ft_auto_0ft" text="%.0ft" />
-        <text name="ft_auto_100k" text="+$100K" />
-        <text name="ft_auto_10k" text="+$10K" />
         <text name="ft_auto_12_pm" text="12 PM" />
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="작업 1개 진행 중" />
@@ -391,10 +389,8 @@
         <text name="ft_auto_1f_ha" text="%.1f ha" />
         <text name="ft_auto_1f_km_h" text="%.1f km/h" />
         <text name="ft_auto_1fh_d_jobs_fatigue_d" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
-        <text name="ft_auto_1k" text="+$1K" />
         <text name="ft_auto_1k_2" text="+1k" />
         <text name="ft_auto_1k_3" text="-1k" />
-        <text name="ft_auto_1m" text="+$1M" />
         <text name="ft_auto_2f_m" text="%.2f m" />
         <text name="ft_auto_30_days" text="30 days" />
         <text name="ft_auto_3g" text="3G" />
@@ -2729,7 +2725,11 @@
         <text name="ft_storage_silo_one" text="사일로 %d개" />
         <text name="ft_storage_silos" text="사일로 %d개" />
         <text name="ft_storage_peak_fmt" text="최고가: %s  (%d일째)" />
-        <text name="ft_farmadmin_help_money_body" text="농장 계좌에 자금을 추가합니다.&#10;금액: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_money_fmt" text="농장 계좌에 자금을 추가합니다.&#10;금액: %s" />
+        <text name="ft_farmadmin_money_1k_fmt" text="+%s1천" />
+        <text name="ft_farmadmin_money_10k_fmt" text="+%s1만" />
+        <text name="ft_farmadmin_money_100k_fmt" text="+%s10만" />
+        <text name="ft_farmadmin_money_1m_fmt" text="+%s100만" />
         <text name="ft_farmadmin_help_scale_body" text="게임 시간이 흐르는 속도를 정합니다.&#10;일시 정지는 시간을 멈춥니다. 현재 속도가 강조됩니다.&#10;예전 시간 조절 타일을 대신합니다." />
         <text name="ft_farmadmin_help_skip_body" text="시계를 하루 중 정해진 시각으로 옮깁니다.&#10;오늘 그 시각이 이미 지났다면 내일로 넘어갑니다." />
         <text name="ft_farmadmin_help_vehicles_body" text="모두 수리 - 모든 차량의 손상을 초기화합니다.&#10;연료 채우기 - 연료(와 AdBlue)를 가득 채웁니다&#10;             모든 동력 차량이 대상입니다." />

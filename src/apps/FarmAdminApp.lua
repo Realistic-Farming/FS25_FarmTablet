@@ -142,6 +142,29 @@ local function fa_formatMoney(amount)
     return string.format("$%d", math.floor(amount))
 end
 
+-- The money buttons' currency is the player's money unit, the game's own setting (euro, pound or
+-- dollar: I18N:getCurrencySymbol), never the language (MAINTENANCE row 153). "$" only when the
+-- game's i18n is absent. The amount stays the button's own in every unit: the game converts no
+-- money for display, the HUD draws the stored balance.
+local function fa_currencySymbol()
+    if g_i18n ~= nil and g_i18n.getCurrencySymbol ~= nil then
+        local ok, sym = pcall(function() return g_i18n:getCurrencySymbol(true) end)
+        if ok and type(sym) == "string" and sym ~= "" then return sym end
+    end
+    return "$"
+end
+
+-- One key per amount: each language places the symbol and writes its own thousand and million.
+local function fa_moneyAmounts()
+    local sym = fa_currencySymbol()
+    return {
+        {val = 1000,    label = FT.l10nFormat("ft_farmadmin_money_1k_fmt",   "+%s1K",   sym)},
+        {val = 10000,   label = FT.l10nFormat("ft_farmadmin_money_10k_fmt",  "+%s10K",  sym)},
+        {val = 100000,  label = FT.l10nFormat("ft_farmadmin_money_100k_fmt", "+%s100K", sym)},
+        {val = 1000000, label = FT.l10nFormat("ft_farmadmin_money_1m_fmt",   "+%s1M",   sym)},
+    }
+end
+
 -- ── Admin action routing (server authority + dedicated-server admin path) ──
 
 -- Shared action ids and the single server-side apply entry point. Exposed as a
@@ -188,10 +211,14 @@ end
 
 FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     local AC = FT.appColor(FT.APP.FARM_ADMIN)
+    local AMOUNTS = fa_moneyAmounts()
+    local amountLabels = {}
+    for i, am in ipairs(AMOUNTS) do amountLabels[i] = am.label end
 
     if self:drawHelpPage("_adminHelp", FT.APP.FARM_ADMIN, FT.l10n("ft_ui_app_farm_admin", "Farm Admin"), AC, {
         { title = "MONEY",
-          body  = FT.l10n("ft_farmadmin_help_money_body", "Adds funds to your farm account.\nAmounts: +$1K · +$10K · +$100K · +$1M") },
+          body  = FT.l10nFormat("ft_farmadmin_help_money_fmt", "Adds funds to your farm account.\nAmounts: %s",
+              table.concat(amountLabels, " · ")) },
         { title = "TIME SCALE",
           body  = FT.l10n("ft_farmadmin_help_scale_body", "Sets how fast game time passes.\nPAUSE freezes time. Active speed highlighted.\nAbsorbed the old Time Controls hub tile.") },
         { title = "SKIP TO",
@@ -236,12 +263,6 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     y = self:drawSection(y, "MONEY")
     y = y - GAP
 
-    local AMOUNTS = {
-        {val = 1000,    label = "+$1K"},
-        {val = 10000,   label = "+$10K"},
-        {val = 100000,  label = "+$100K"},
-        {val = 1000000, label = "+$1M"},
-    }
     local gap4 = FT.px(3)
     local bw4  = (cw - gap4 * 3) / 4
     for i, am in ipairs(AMOUNTS) do

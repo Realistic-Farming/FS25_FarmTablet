@@ -375,8 +375,6 @@
         <text name="ft_auto_0f_km_h" text="%.0f km/h" />
         <text name="ft_auto_0f_width_0f" text="%.0f%%  (width: %.0f%%)" />
         <text name="ft_auto_0ft" text="%.0ft" />
-        <text name="ft_auto_100k" text="+$100K" />
-        <text name="ft_auto_10k" text="+$10K" />
         <text name="ft_auto_12_pm" text="12 PM" />
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="1 trabalho ativo" />
@@ -391,10 +389,8 @@
         <text name="ft_auto_1f_ha" text="%.1f ha" />
         <text name="ft_auto_1f_km_h" text="%.1f km/h" />
         <text name="ft_auto_1fh_d_jobs_fatigue_d" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
-        <text name="ft_auto_1k" text="+$1K" />
         <text name="ft_auto_1k_2" text="+1k" />
         <text name="ft_auto_1k_3" text="-1k" />
-        <text name="ft_auto_1m" text="+$1M" />
         <text name="ft_auto_2f_m" text="%.2f m" />
         <text name="ft_auto_30_days" text="30 days" />
         <text name="ft_auto_3g" text="3G" />
@@ -2729,7 +2725,11 @@
         <text name="ft_storage_silo_one" text="%d silo" />
         <text name="ft_storage_silos" text="%d silos" />
         <text name="ft_storage_peak_fmt" text="Máximo: %s  (dia %d)" />
-        <text name="ft_farmadmin_help_money_body" text="Adiciona fundos à conta da sua quinta.&#10;Valores: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_money_fmt" text="Adiciona fundos à conta da sua quinta.&#10;Valores: %s" />
+        <text name="ft_farmadmin_money_1k_fmt" text="+1 mil %s" />
+        <text name="ft_farmadmin_money_10k_fmt" text="+10 mil %s" />
+        <text name="ft_farmadmin_money_100k_fmt" text="+100 mil %s" />
+        <text name="ft_farmadmin_money_1m_fmt" text="+1 M%s" />
         <text name="ft_farmadmin_help_scale_body" text="Define a rapidez com que o tempo de jogo passa.&#10;PAUSA congela o tempo. A velocidade ativa fica destacada.&#10;Substitui o antigo mosaico Controlo do tempo." />
         <text name="ft_farmadmin_help_skip_body" text="Avança o relógio para uma hora fixa do dia.&#10;Passa para amanhã se essa hora já passou hoje." />
         <text name="ft_farmadmin_help_vehicles_body" text="REPARAR TUDO - repõe os danos de todos os seus veículos.&#10;ATESTAR - enche o combustível (e o AdBlue) ao máximo&#10;             em todos os seus veículos motorizados." />
