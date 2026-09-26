@@ -360,6 +360,52 @@ t.setLocale("de");
   expectIn("de Worker Costs stats line", wrk.texts, pct(fmt(file("de", "ft_wrk_worker_stats_fmt"), "12.5", 3, 40)));
 }
 lua(`g_currentMission.incomeManager = nil; g_currentMission.taxManager = nil; g_currentMission.workerCostsManager = nil`);
+// NPC Favor (MAINTENANCE row 105, batch 13; RSF-F357's drawer), in German, on two hosts shaped like #168's spec
+// world: an older host (the compatibility list from its live people and its favor system) and a repaired host (the
+// work page through getPersonalWorkView and the roster view through getNeighbourRosterView). Each draw must pass
+// FLAG and PASS.
+lua(`
+  HARNESS.setup = nil
+  E_NPC_OLD = { townReputation = 75,
+    favorSystem = { activeFavors = { { npcName = "Greta", description = "Fix fence", progress = 50, timeRemaining = 7200000 } },
+      stats = { totalFavorsCompleted = 4, totalMoneyEarned = 1200 } },
+    activeNPCs = { { name = "Anna", role = "farmer", relationship = 80, isActive = true },
+      { name = "Ben", relationship = 30, isActive = true } } }
+  E_NPC_NEW = { townReputation = 30,
+    getPersonalWorkView = function() return { state = "CURRENT", completedKnown = true, completedCount = 4,
+      rows = { { status = "active", npcName = "Greta", description = "Fix fence", progress = 50, timeKnown = true, timeRemainingMs = 7200000 } } } end,
+    requestPersonalWorkView = function() end, watchPersonalWork = function() end,
+    getNeighbourRosterView = function() return { personLoadState = "READY", snapshotState = "READY",
+      rows = { { kind = "LIVE", trust = 80, name = "Anna", roleLabel = "farmer" }, { kind = "LIVE", trust = 55, name = "Ben" } } } end }
+  g_currentMission.npcFavorSystem = E_NPC_OLD
+`);
+t.setLocale("de");
+{
+  const old = t.draw("npc_favor", false); const vOld = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  lua(`g_currentMission.npcFavorSystem = E_NPC_NEW`);
+  const rep = t.draw("npc_favor", false); const vNew = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  eChecks += 2;
+  for (const [what, r, v] of [["NPC Favor (older host)", old, vOld], ["NPC Favor (repaired host)", rep, vNew]]) {
+    if (r.error) failures.push(`E de ${what}: ${r.error}`);
+    if (v.length) failures.push(`E de ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  }
+  const pct = (s) => (s == null ? s : s.replace(/%%/g, "%"));
+  expectIn("de NPC Favor town reputation (older host)", old.texts, fmt(file("de", "ft_npc_town_rep_fmt"), file("de", "ft_auto_respected")));
+  expectIn("de NPC Favor relationships heading (older host)", old.texts, fmt(file("de", "ft_npc_relationships_fmt"), 2));
+  expectIn("de NPC Favor friend (older host)", old.texts, "80 " + file("de", "ft_auto_friend"));
+  expectIn("de NPC Favor cold (older host)", old.texts, "30 " + file("de", "ft_npc_rel_cold"));
+  expectIn("de NPC Favor progress line (older host)", old.texts, pct(fmt(file("de", "ft_npc_progress_left_fmt"), 50, 2)));
+  expectIn("de NPC Favor town reputation (repaired host)", rep.texts, fmt(file("de", "ft_npc_town_rep_fmt"), file("de", "ft_auto_poor")));
+  expectIn("de NPC Favor relationships heading (roster view)", rep.texts, fmt(file("de", "ft_npc_relationships_fmt"), 2));
+  expectIn("de NPC Favor friend (roster view)", rep.texts, "80 " + file("de", "ft_auto_friend"));
+  expectIn("de NPC Favor neutral (roster view)", rep.texts, "55 " + file("de", "ft_auto_neutral"));
+  expectIn("de NPC Favor progress line (work page)", rep.texts, pct(fmt(file("de", "ft_npc_progress_left_fmt"), 50, 2)));
+  expectIn("de NPC Favor FAVORS section", rep.texts, file("de", "ft_auto_favors"));
+  expectIn("de NPC Favor role (older host)", old.texts, "Anna  [" + file("de", "ft_npc_role_farmer") + "]");
+  expectIn("de NPC Favor unknown role (older host)", old.texts, "Ben  [?]");
+  expectIn("de NPC Favor role (roster view)", rep.texts, "Anna  [" + file("de", "ft_npc_role_farmer") + "]");
+}
+lua(`g_currentMission.npcFavorSystem = nil`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);

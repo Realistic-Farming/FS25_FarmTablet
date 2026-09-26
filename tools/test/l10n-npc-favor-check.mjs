@@ -1,10 +1,10 @@
-// l10n-income-tax-workers-check.mjs - MAINTENANCE row 105's text bar for three companion apps (batch 12 of the
-// remaining apps in the tablet translation wave; the pattern of l10n-roleplay-phone-check.mjs, #197).
+// l10n-npc-favor-check.mjs - MAINTENANCE row 105's text bar for the NPC Favor app (batch 13 of the remaining apps
+// in the tablet translation wave; the pattern of l10n-income-tax-workers-check.mjs, #198).
 //
-// Three drawers of IncomeApp.lua: Income Mod, Tax Mod and Worker Costs (with its Pro-Staff roster). The file's
-// NPC Favor drawer and its helpers are RSF-F357's and have a bar of their own: skipDrawers / skipFunctions keep
-// them out of this one. The companion mods' own words (pay mode, tax rate, wage level, cost mode, roster level
-// and status) reach their keys through the file's COMPANION_WORD table.
+// IncomeApp.lua's NPC Favor drawer and its helpers (RSF-F357's work page and roster view, #168), carrying the
+// brief's strings clause (Implementation brief :238, Wizard brief :90): every touched player string in the 26
+// locales. The file's Income, Tax and Worker Costs drawers and the companion table are #198's bar's: skipDrawers,
+// skipFunctions and skipLocals keep them out of this one. Names and roles are the host's and drawn as supplied.
 // Drawn literals reach their keys through the renderer's FT.l10nAuto; built texts through FT.l10n,
 // FT.l10nFormat and an app's own helper. A SOURCES entry's drawnTables names a local table whose string
 // values the app draws through FT.l10nAuto, and drawnArgs a local function whose argument at an index it
@@ -48,7 +48,7 @@
 //       bar cannot run fails X1 until X1_SKIP names it with a reason.
 //   S5  a drawnArgs function draws that parameter through FT.l10nAuto (none in this batch).
 //
-// Usage:  node tools/test/l10n-income-tax-workers-check.mjs        Exit: 0 clean, 1 any failure.
+// Usage:  node tools/test/l10n-npc-favor-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -57,36 +57,28 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DIR = join(ROOT, "translations");
 
 const KEYS = [
-  "ft_auto_active_workers", "ft_auto_amount_3", "ft_auto_cost_mode", "ft_auto_disable", "ft_auto_enable",
-  "ft_auto_enable_disable", "ft_auto_income_mod_is_not_installed", "ft_auto_install_fs25_incomemod_to_use_this_app",
-  "ft_auto_install_fs25_taxmod_to_use_this_app", "ft_auto_install_fs25_workercosts_to_use_this_app",
-  "ft_auto_month_costs", "ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h", "ft_auto_payment_mode",
-  "ft_auto_payment_mode_2", "ft_auto_pro_staff_roster", "ft_auto_return", "ft_auto_return_2",
-  "ft_auto_tax_mod_is_not_installed", "ft_auto_tax_rate", "ft_auto_tax_rate_2", "ft_auto_this_month",
-  "ft_auto_total_paid", "ft_auto_total_paid_2", "ft_auto_wage_level", "ft_auto_wages_accrued", "ft_auto_working_now",
-  "ft_companion_daily", "ft_companion_experienced", "ft_companion_help_toggle_body", "ft_companion_high",
-  "ft_companion_hourly", "ft_companion_idle", "ft_companion_idle_pinned", "ft_companion_legendary",
-  "ft_companion_low", "ft_companion_master", "ft_companion_medium", "ft_companion_novice",
-  "ft_companion_per_hectare", "ft_companion_working", "ft_companion_working_pinned", "ft_income_help_amount_body",
-  "ft_income_help_mode_body", "ft_income_help_what_body", "ft_tax_help_rate_body", "ft_tax_help_return_body",
-  "ft_tax_help_total_body", "ft_tax_help_what_body", "ft_wrk_help_mode_body", "ft_wrk_help_month_body",
-  "ft_wrk_help_roster_body", "ft_wrk_help_wage_body", "ft_wrk_help_what_body", "ft_wrk_levels_fmt",
-  "ft_wrk_prostaff_fmt", "ft_wrk_roster_host", "ft_wrk_worker_stats_fmt",
+  "ft_auto_active_favors", "ft_auto_active_favors_2", "ft_auto_building_relationships", "ft_auto_completed",
+  "ft_auto_favors", "ft_auto_friend", "ft_auto_install_fs25_npcfavor_to_use_this_app", "ft_auto_last_confirmed",
+  "ft_auto_neighbours_not_available_yet", "ft_auto_neutral", "ft_auto_no_npcs_spawned_yet",
+  "ft_auto_npc_favor_mod_not_detected", "ft_auto_open_offers", "ft_auto_poor", "ft_auto_relationships",
+  "ft_auto_respected", "ft_auto_time_unknown", "ft_auto_total_earned", "ft_auto_town_reputation", "ft_auto_waiting",
+  "ft_auto_work", "ft_auto_worker_2", "ft_npc_help_active_body", "ft_npc_help_building_body",
+  "ft_npc_help_relationships_body", "ft_npc_help_rep_body", "ft_npc_progress_left_fmt", "ft_npc_rel_cold",
+  "ft_npc_relationships_fmt", "ft_npc_role_agronomist", "ft_npc_role_farmer", "ft_npc_role_farmhand",
+  "ft_npc_role_shopkeeper", "ft_npc_role_worker", "ft_npc_town_rep_fmt",
 ];
 
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
-  "ft_wrk_prostaff_fmt": "PRO-STAFF, the ProStaff mod's own name; the count is its only other part",
+
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-  "br:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Novato / Experiente / Mestre (Portuguese)",
-  "da:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Nybegynder / Erfaren / Mester (Danish)",
-  "ea:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Novato / Experimentado / Maestro (Spanish)",
-  "es:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Novato / Experimentado / Maestro (Spanish)",
-  "no:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Nybegynner / Erfaren / Mester (Norwegian)",
-  "pt:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Novato / Experiente / Mestre (Portuguese)",
-  "sv:ft_wrk_levels_fmt": "the initials N / E / M are the language's own level words: Nybörjare / Erfaren / Mästare (Swedish)",
+  "da:ft_auto_neutral": "Neutral is the Danish word",
+  "de:ft_auto_neutral": "Neutral is the German word",
+  "ea:ft_auto_neutral": "Neutral is the Spanish word",
+  "es:ft_auto_neutral": "Neutral is the Spanish word",
+  "sv:ft_auto_neutral": "Neutral is the Swedish word",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").
@@ -95,20 +87,9 @@ const SCRIPT_ALLOW = {
 };
 // Keys this app draws that another PR of the wave checks, with the PR.
 const OTHER_PR = {
-  "ft_auto_tax_mod": "another bar's key (l10n-appstore-check.mjs)",
-  "ft_auto_worker_costs": "another bar's key (l10n-appstore-check.mjs)",
-  "ft_auto_income_mod": "another bar's key (l10n-appstore-check.mjs)",
-  "ft_auto_worker_costs_is_not_installed": "another bar's key (l10n-farmadmin-personnel-check.mjs)",
-  "ft_auto_what_this_app_shows": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
-  "ft_auto_wage_level_2": "another bar's key (l10n-farmadmin-personnel-check.mjs)",
-  "ft_auto_cost_mode_2": "another bar's key (l10n-farmadmin-personnel-check.mjs)",
-  "ft_auto_levels": "another bar's key (l10n-farmadmin-personnel-check.mjs)",
-  "ft_auto_amount_2": "another bar's key (l10n-roleplay-phone-check.mjs)",
-  "ft_auto_integration": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
-  "ft_auto_status": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
-  "ft_auto_disabled_2": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
-  "ft_auto_enabled": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
-  "ft_auto_status_2": "another bar's key (l10n-farmadmin-personnel-check.mjs)",
+  "ft_auto_unavailable": "another bar's key (l10n-farmstats-production-events-market-check.mjs)",
+  "ft_auto_active_3": "another bar's key (l10n-animals-contracts-fleet-check.mjs)",
+  "ft_auto_npc_favor": "another bar's key (l10n-appstore-check.mjs)",
 };
 // Drawn literals with no key, each with its reason.
 const NO_KEY = {
@@ -116,7 +97,8 @@ const NO_KEY = {
 };
 // Keys this bar checks that no SOURCES file draws, each with its reason.
 const UNDRAWN = {
-
+  "ft_auto_worker_2": "drawn through a local choice (tag = kind == PRESENCE and \"worker\" or \"waiting\") this bar's S2 does not read; #168's spec pins it (N2)",
+  "ft_auto_waiting": "drawn through a local choice (tag = kind == PRESENCE and \"worker\" or \"waiting\") this bar's S2 does not read; #168's spec pins it (N2)",
 };
 // Key helpers X1 does not run, each with its reason (e.g. a helper returning a table of lines).
 const X1_SKIP = {
@@ -124,25 +106,19 @@ const X1_SKIP = {
 };
 // [outer, inner]: the outer text names the inner key's text (case-insensitive).
 const CONTAINS = [
-  ["ft_income_help_mode_body", "ft_companion_hourly"],
-  ["ft_income_help_mode_body", "ft_companion_daily"],
-  ["ft_tax_help_rate_body", "ft_companion_low"],
-  ["ft_tax_help_rate_body", "ft_companion_medium"],
-  ["ft_tax_help_rate_body", "ft_companion_high"],
-  ["ft_wrk_help_wage_body", "ft_companion_low"],
-  ["ft_wrk_help_wage_body", "ft_companion_medium"],
-  ["ft_wrk_help_wage_body", "ft_companion_high"],
-  ["ft_wrk_help_mode_body", "ft_companion_hourly"],
-  ["ft_wrk_help_roster_body", "ft_companion_novice"],
-  ["ft_wrk_help_roster_body", "ft_companion_experienced"],
-  ["ft_wrk_help_roster_body", "ft_companion_master"],
+  ["ft_npc_help_rep_body", "ft_auto_respected"],
+  ["ft_npc_help_rep_body", "ft_auto_neutral"],
+  ["ft_npc_help_rep_body", "ft_auto_poor"],
+  ["ft_npc_help_relationships_body", "ft_auto_friend"],
+  ["ft_npc_help_relationships_body", "ft_auto_neutral"],
+  ["ft_npc_help_relationships_body", "ft_npc_rel_cold"],
+  ["ft_npc_help_relationships_body", "ft_npc_role_agronomist"],
 ];
 // The source files the draw-site rows read, and in each the text functions whose first argument is
 // a key. keyPrefix limits a shared file to this app's keys.
 const SOURCES = [
   {"file": "src/apps/IncomeApp.lua", "keyFns": ["l10n", "l10nFormat"], "literals": true,
-   "skipDrawers": ["NPC_FAVOR"], "skipFunctions": ["npcHostRepaired", "npcWorkWatch", "npcWorkReleaseIfHidden", "drawNpcWork", "npcRoleWord"],
-   "skipLocals": ["NPC_ROLE_WORD"]},
+   "skipDrawers": ["INCOME", "TAX", "WORKER_COSTS"], "skipFunctions": ["companionWord"], "skipLocals": ["COMPANION_WORD"]},
 ];
 const DRAWFN = new Set(["appText", "text", "drawRow", "drawSection", "button", "drawButton", "drawButtonPair",
   "drawAppHeader", "appHeaderText", "sectionHeader", "row", "badge", "l10nAuto", "infoRow", "actionRow", "section"]);
@@ -285,6 +261,7 @@ for (const loc of locales) {
           && n.arguments[0].type === "MemberExpression" && src.skipDrawers.includes(n.arguments[0].identifier.name)) return;
       if (src.skipFunctions && n.type === "FunctionDeclaration" && n.identifier
           && src.skipFunctions.includes(n.identifier.type === "Identifier" ? n.identifier.name : n.identifier.identifier.name)) return;
+      if (src.skipLocals && n.type === "LocalStatement" && n.variables.some((v) => src.skipLocals.includes(v.name))) return;
       if (src.skipLocals && n.type === "LocalStatement" && n.variables.some((v) => src.skipLocals.includes(v.name))) return;
       if (n.type === "CallExpression") {
         const name = callName(n);
@@ -527,7 +504,7 @@ const checked = KEYS.length * locales.length;
 if (failures.length > 0) {
   for (const f of failures.slice(0, 60)) console.log("  FAIL " + f);
   if (failures.length > 60) console.log(`  ... and ${failures.length - 60} more`);
-  console.log(`l10n-income-tax-workers: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
+  console.log(`l10n-npc-favor: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
   process.exit(1);
 }
-console.log(`l10n-income-tax-workers: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} own names; script rule: ${scriptChecked} values in ${locales.filter((l) => SCRIPT[l]).join(", ")}`);
+console.log(`l10n-npc-favor: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} own names; script rule: ${scriptChecked} values in ${locales.filter((l) => SCRIPT[l]).join(", ")}`);

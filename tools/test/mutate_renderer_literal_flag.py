@@ -82,6 +82,20 @@ MUTATIONS = [
                     RenderText.ALIGN_RIGHT, stColor, true)''', '''                self.r:appText(x + cw, y, FT.FONT.SMALL, companionWord(w.status or "idle"),
                     RenderText.ALIGN_RIGHT, stColor)'''))],
      "a roster status drawn without the flag: E (Worker Costs' FLAG row)"),
+    # NPC Favor (MAINTENANCE row 105, batch 13): RSF-F357's drawer, held by E's two German hosts.
+    ("M15-town-rep-unflagged", [("src/apps/IncomeApp.lua",
+        one('''FT.l10nFormat("ft_npc_town_rep_fmt", "Town Reputation: %s", repLabel), RenderText.ALIGN_LEFT, repColor, true)''',
+            '''FT.l10nFormat("ft_npc_town_rep_fmt", "Town Reputation: %s", repLabel), RenderText.ALIGN_LEFT, repColor)'''))],
+     "the resolved town reputation line drawn without the flag: E (the NPC Favor FLAG rows)"),
+    ("M16-roster-word-raw", [("src/apps/IncomeApp.lua",
+        one('''                local relLabel = rel >= 70 and FT.l10n("ft_auto_friend", "Friend")
+                              or rel >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_npc_rel_cold", "Cold")''',
+            '''                local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"'''))],
+     "the roster view's relationship word back to raw English (drawn as handed): E (the roster view's friend and neutral)"),
+    ("M17-role-line-unflagged", [("src/apps/IncomeApp.lua",
+        one('''nm .. "  [" .. npcRoleWord(r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)''',
+            '''nm .. "  [" .. npcRoleWord(r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)'''))],
+     "the roster view's resolved role drawn without the flag: E (the roster view's FLAG row)"),
 ]
 
 

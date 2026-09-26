@@ -591,7 +591,7 @@
         <text name="ft_auto_bug_reports" text="Fehler melden:" />
         <text name="ft_auto_building" text="Gebäude" />
         <text name="ft_auto_building_list" text="Gebäude Liste" />
-        <text name="ft_auto_building_relationships" text="Zusammenhänge zwischen Gebäuden" />
+        <text name="ft_auto_building_relationships" text="BEZIEHUNGEN AUFBAUEN" />
         <text name="ft_auto_buildings" text=" Gebäude" />
         <text name="ft_auto_built_in" text="INTEGRIERT" />
         <text name="ft_auto_built_in_2" text="Integriert" />
@@ -971,7 +971,7 @@
         <text name="ft_auto_farmtabletfocus" text="FarmTabletFocus" />
         <text name="ft_auto_fatigue_pricier_net_out_across_the_crew" text="Müdigkeit unter der Belegschaft." />
         <text name="ft_auto_favorites" text="favorites" />
-        <text name="ft_auto_favors" text="FAVORS" />
+        <text name="ft_auto_favors" text="GEFALLEN" />
         <text name="ft_auto_favourites" text="Favoriten" />
         <text name="ft_auto_favourites_2" text="Favoriten" />
         <text name="ft_auto_fbm" text="fbm" />
@@ -3004,6 +3004,19 @@
         <text name="ft_wrk_roster_host" text="Das Team verwaltet der Host: wird bald synchronisiert." />
         <text name="ft_wrk_levels_fmt" text="%dA / %dE / %dM" />
         <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d Aufträge  -  Erschöpfung %d%%" />
+        <text name="ft_npc_progress_left_fmt" text="%d%%  noch %d Std." />
+        <text name="ft_npc_help_rep_body" text="Dein Ansehen in der Gemeinde vor Ort (0-100).&#10;Respektiert &gt;= 70  |  Neutral &gt;= 40  |  Schlecht &lt; 40.&#10;Ein höherer Ruf schaltet bessere Belohnungen frei." />
+        <text name="ft_npc_help_active_body" text="Zahl der laufenden Gefallen.&#10;Jeder Gefallen zeigt den NPC-Namen, die Beschreibung,&#10;den Fortschritt in Prozent und die verbleibenden Stunden." />
+        <text name="ft_npc_help_relationships_body" text="Listet jeden aktiven NPC mit seinem Beziehungswert&#10;und einem farbigen Balken.&#10;Freund &gt;= 70  |  Neutral &gt;= 40  |  Kühl &lt; 40.&#10;Seine Rolle (Agronom, Mechaniker usw.) steht&#10;in eckigen Klammern neben dem Namen." />
+        <text name="ft_npc_help_building_body" text="Erledige Gefallen für einen NPC, um seinen&#10;Beziehungswert zu erhöhen. Höhere Werte schalten exklusive&#10;Tipps, Rabatte und frühe Warnungen frei." />
+        <text name="ft_npc_town_rep_fmt" text="Ruf der Stadt: %s" />
+        <text name="ft_npc_relationships_fmt" text="VERHÄLTNISSE  (%d)" />
+        <text name="ft_npc_rel_cold" text="Kühl" />
+        <text name="ft_npc_role_farmer" text="Landwirt" />
+        <text name="ft_npc_role_shopkeeper" text="Ladenbesitzer" />
+        <text name="ft_npc_role_worker" text="Arbeiter" />
+        <text name="ft_npc_role_farmhand" text="Knecht" />
+        <text name="ft_npc_role_agronomist" text="Agronom" />
     </texts>
 
 </l10n>
