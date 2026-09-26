@@ -38,7 +38,9 @@ end
 
 local function getTypeName(mission)
     local raw = safeGet(mission, "getMissionTypeName")
-    return (raw and CONTRACT_TYPE_NAMES[raw]) or raw or "Contract"
+    local name = raw and CONTRACT_TYPE_NAMES[raw]
+    if name then return FT.l10nAuto(name) end
+    return raw or FT.l10nAuto("Contract")
 end
 
 -- Formats game-minutes remaining into a short string.
@@ -47,10 +49,10 @@ local function fmtMins(mins)
     if mins == nil then return nil end
     if mins <= 0   then return "EXPIRED" end
     local h = math.floor(mins / 60)
-    local m = mins % 60
-    if     h == 0 then return m .. "m left"
-    elseif m == 0 then return h .. "h left"
-    else               return h .. "h " .. m .. "m left"
+    local m = math.floor(mins % 60)
+    if     h == 0 then return FT.l10nFormat("ft_contracts_minutes_left", "%dm left", m)
+    elseif m == 0 then return FT.l10nFormat("ft_contracts_hours_left", "%dh left", h)
+    else               return FT.l10nFormat("ft_contracts_hours_minutes_left", "%dh %dm left", h, m)
     end
 end
 
@@ -90,14 +92,14 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
           body  = "Time shown is in-game time, not real-world time.\n" ..
                   "Contracts in amber are expiring soon (< 2 game hours).\n" ..
                   "Tap T to close the tablet and get back to work!" },
-        { title = "DONE — COLLECT REWARD",
+        { title = "DONE - COLLECT REWARD",
           body  = "Contracts marked DONE are complete but unpaid.\n" ..
                   "Visit the NPC on the map to dismiss and collect\n" ..
                   "your reward." },
         { title = "NO CONTRACTS SHOWING",
           body  = "Accept contracts from NPCs on the map or via the\n" ..
                   "Contracts board in the pause menu. Only accepted\n" ..
-                  "contracts appear here — available ones do not." },
+                  "contracts appear here - available ones do not." },
     }) then return end
 
     local data   = self.system.data
@@ -108,12 +110,12 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
     -- Subtitle
     local subtitle
     if totalActive == 0 and #done == 0 then
-        subtitle = "none active"
+        subtitle = FT.l10nAuto("none active")
     else
         local parts = {}
-        if totalActive > 0 then parts[#parts+1] = totalActive .. " active"   end
-        if #expiring   > 0 then parts[#parts+1] = #expiring  .. " expiring"  end
-        if #done       > 0 then parts[#parts+1] = #done      .. " to collect" end
+        if totalActive > 0 then parts[#parts+1] = FT.l10nFormat("ft_contracts_n_active", "%d active", totalActive) end
+        if #expiring   > 0 then parts[#parts+1] = FT.l10nFormat("ft_contracts_n_expiring", "%d expiring", #expiring) end
+        if #done       > 0 then parts[#parts+1] = FT.l10nFormat("ft_contracts_n_to_collect", "%d to collect", #done) end
         subtitle = table.concat(parts, " · ")
     end
 
@@ -137,15 +139,15 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
     -- ── Summary badges ────────────────────────────────────
     local bx = x
     if totalActive > 0 then
-        bx = bx + self.r:badge(bx, y, totalActive .. " ACTIVE",
+        bx = bx + self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_active", "%d ACTIVE", totalActive),
             FT.C.BTN_PRIMARY) + FT.px(4)
     end
     if #expiring > 0 then
-        bx = bx + self.r:badge(bx, y, #expiring .. " EXPIRING",
+        bx = bx + self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_expiring", "%d EXPIRING", #expiring),
             {0.70, 0.40, 0.10, 0.90}) + FT.px(4)
     end
     if #done > 0 then
-        self.r:badge(bx, y, #done .. " COLLECT",
+        self.r:badge(bx, y, FT.l10nFormat("ft_contracts_badge_collect", "%d COLLECT", #done),
             {0.16, 0.55, 0.30, 0.90})
     end
     y = y - FT.py(20)
@@ -157,7 +159,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
 
     local function drawCard(mission, cardAccent, statusLabel, statusColor)
         local typeName   = getTypeName(mission)
-        local location   = safeGet(mission, "getLocation") or "Unknown Field"
+        local location   = safeGet(mission, "getLocation") or FT.l10nAuto("Unknown Field")
         location = location:gsub("^Farmland:%s*", "")
         if FT.utf8Len(location) > 26 then location = FT.utf8Sub(location, 24) .. ".." end
 
@@ -182,12 +184,14 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
             FT.px(3), cardH,
             {cardAccent[1], cardAccent[2], cardAccent[3], 0.80})
 
-        -- Status badge (top-right); width follows the label so EXPIRING is not clipped.
-        local badgeW = math.max(FT.px(52), FT.px(8) + string.len(tostring(statusLabel or "")) * FT.px(5.2))
+        -- Status badge (top-right); width follows the drawn (translated) label, in characters,
+        -- so a longer word in another language is not clipped.
+        local shownStatus = FT.l10nAuto(statusLabel)
+        local badgeW = math.max(FT.px(52), FT.px(8) + FT.utf8Len(shownStatus) * FT.px(5.2))
         self.r:appRect(x + cw - badgeW, y - FT.py(1), badgeW, FT.py(12),
             {statusColor[1], statusColor[2], statusColor[3], 0.20})
         self.r:appText(x + cw - badgeW / 2, y + FT.py(4),
-            FT.FONT.TINY, statusLabel,
+            FT.FONT.TINY, shownStatus,
             RenderText.ALIGN_CENTER, statusColor)
 
         -- Row 1: type name (keep clear of the status badge)
@@ -220,7 +224,7 @@ FarmTabletUI:registerDrawer(FT.APP.CONTRACTS, function(self)
                 RenderText.ALIGN_LEFT, FT.C.POSITIVE)
         elseif timeStr then
             self.r:appText(x + padX, y - cardH + FT.py(12),
-                FT.FONT.TINY, "Game time: " .. timeStr,
+                FT.FONT.TINY, FT.l10nFormat("ft_contracts_game_time", "Game time: %s", timeStr == "EXPIRED" and FT.l10nAuto("EXPIRED") or timeStr),
                 RenderText.ALIGN_LEFT, timeColor)
         end
 

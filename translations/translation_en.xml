@@ -2257,6 +2257,17 @@
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="your reward." />
         <text name="ft_auto_your_silo_capacity" text="your silo capacity." />
+        <text name="ft_contracts_minutes_left" text="%dm left" />
+        <text name="ft_contracts_hours_left" text="%dh left" />
+        <text name="ft_contracts_hours_minutes_left" text="%dh %dm left" />
+        <text name="ft_contracts_n_active" text="%d active" />
+        <text name="ft_contracts_n_expiring" text="%d expiring" />
+        <text name="ft_contracts_n_to_collect" text="%d to collect" />
+        <text name="ft_contracts_badge_active" text="%d ACTIVE" />
+        <text name="ft_contracts_badge_expiring" text="%d EXPIRING" />
+        <text name="ft_contracts_badge_collect" text="%d COLLECT" />
+        <text name="ft_contracts_game_time" text="Game time: %s" />
+        <text name="ft_fleet_vehicles_fmt" text="%d vehicles" />
         <text name="ft_rotation_help_what_1" text="Farm-wide crop rotation standing and a what-if compare&#10;" />
         <text name="ft_rotation_help_what_2" text="for the next crop on any field. Numbers come from Soil&#10;" />
         <text name="ft_rotation_help_what_3" text="Fertilizer's own rotation scoring, not a second model." />

@@ -13,7 +13,7 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMALS, function(self)
         { title = FT.l10n("ft_animals_help_water_title", "WATER BAR"),
           body  = FT.l10n("ft_animals_help_water_body", "Percentage of the water trough that is filled.\nSame colour thresholds as food.\nAnimals without water lose productivity quickly.") },
         { title = FT.l10n("ft_animals_help_straw_title", "STRAW / CLEANLINESS BAR"),
-          body  = FT.l10n("ft_animals_help_straw_body", "How clean the pen is — straw level for pigs and cows,\ncleanliness percentage for chickens and sheep.\nLow cleanliness reduces output and animal happiness.") },
+          body  = FT.l10n("ft_animals_help_straw_body", "How clean the pen is - straw level for pigs and cows,\ncleanliness percentage for chickens and sheep.\nLow cleanliness reduces output and animal happiness.") },
         { title = FT.l10n("ft_animals_help_productivity_title", "PRODUCTIVITY"),
           body  = FT.l10n("ft_animals_help_productivity_body", "Overall animal productivity is driven by food, water,\nand cleanliness together. Keeping all three bars green\nmaximises milk, eggs, wool, and manure output.") },
     }) then return end
@@ -22,7 +22,10 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMALS, function(self)
     local farmId = data:getPlayerFarmId()
     local pens   = data:getAnimalPens(farmId)
 
-    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_animals", "Animals"), FT.l10nFormat(#pens == 1 and "ft_count_pen" or "ft_count_pens", "%d pens", #pens))
+    -- One literal key per form, so one pen reads "1 pen" (the old fallback read "1 pens").
+    local penCount = (#pens == 1) and FT.l10nFormat("ft_count_pen", "%d pen", #pens)
+        or FT.l10nFormat("ft_count_pens", "%d pens", #pens)
+    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_animals", "Animals"), penCount)
     local x, contentY, cw, contentH = self:contentInner()
 
     if #pens == 0 then
