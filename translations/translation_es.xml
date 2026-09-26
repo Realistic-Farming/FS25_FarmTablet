@@ -2776,7 +2776,7 @@
         <text name="ft_fc_history_no_clock_detail" text="Instala Time Guard para registrar el historial mensual. Los indicadores en vivo siguen vigentes." />
         <text name="ft_irr_advisory_water_need" text="NECESIDAD DE AGUA (asesoría)" />
         <text name="ft_irr_advisory_locked_l7" text="Se desbloquea con la cooperativa Pro Staff en el nivel 7" />
-        <text name="ft_irr_advisory_forward_call" text="PREVISION (asesoría)" />
+        <text name="ft_irr_advisory_forward_call" text="PREVISIÓN (asesoría)" />
         <text name="ft_irr_advisory_locked_l18" text="Se desbloquea con la cooperativa Pro Staff en el nivel 18" />
         <text name="ft_irr_advisory_no_reads" text="Aún no hay campos con lecturas de agua." />
         <text name="ft_irr_call_water_today" text="regar hoy" />
@@ -2791,10 +2791,10 @@
         <text name="ft_rainKey_collecting" text="recogiendo lluvia" />
         <text name="ft_rainKey_tripped" text="sensor activado" />
         <text name="ft_rainKey_inputUnavail" text="entrada del sensor no disponible" />
-        <text name="ft_rainKey_whyTripped" text="detenido porque el sensor de lluvia se activo" />
+        <text name="ft_rainKey_whyTripped" text="detenido porque el sensor de lluvia se activó" />
         <text name="ft_rainKey_whyNoInput" text="no se puede leer el clima" />
         <text name="ft_rainKey_whyNoSource" text="sin fuente de agua" />
-        <text name="ft_rainKey_whyNoPress" text="sin presion" />
+        <text name="ft_rainKey_whyNoPress" text="sin presión" />
         <text name="ft_rainKey_whySchedule" text="fuera del horario" />
         <text name="ft_rainKey_whyMaster" text="interruptor general de riego apagado" />
         <text name="ft_rainKey_whyUnknown" text="motivo no disponible" />
@@ -2804,9 +2804,9 @@
         <text name="ft_rainKey_unknownState" text="estado del sensor desconocido" />
         <text name="ft_rainKey_dryResetIn" text="reinicio seco en %s" />
         <text name="ft_rainKey_dryResetPending" text="reinicio cuando pare la lluvia" />
-        <text name="ft_rainKey_nextCheckIn" text="proxima revision %s" />
-        <text name="ft_rainKey_nextCheck" text="disponible en la proxima revision del horario" />
-        <text name="ft_rainKey_playerAction" text="requiere accion: revisar la fuente de agua" />
+        <text name="ft_rainKey_nextCheckIn" text="próxima revisión %s" />
+        <text name="ft_rainKey_nextCheck" text="disponible en la próxima revisión del horario" />
+        <text name="ft_rainKey_playerAction" text="requiere acción: revisar la fuente de agua" />
         <text name="ft_rainKey_collected" text="recogido" />
         <text name="ft_rainKey_trip" text="umbral" />
         <text name="ft_rainKey_notifyTitle" text="Riego" />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Préstamo de emergencia" />
         <text name="ft_fc_total_debt" text="Deuda total" />
         <text name="ft_fc_open_loan" text="GESTIONAR PRÉSTAMO" />
+        <text name="ft_irr_mode_operations" text="Operaciones" />
+        <text name="ft_irr_mode_forecast" text="Previsión" />
+        <text name="ft_irr_mode_usage" text="Uso" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f h" />
+        <text name="ft_irr_na" text="n/d" />
+        <text name="ft_irr_schedule_na" text="horario n/d" />
+        <text name="ft_irr_day_mon" text="lun" />
+        <text name="ft_irr_day_tue" text="mar" />
+        <text name="ft_irr_day_wed" text="mié" />
+        <text name="ft_irr_day_thu" text="jue" />
+        <text name="ft_irr_day_fri" text="vie" />
+        <text name="ft_irr_day_sat" text="sáb" />
+        <text name="ft_irr_day_sun" text="dom" />
+        <text name="ft_irr_no_active_days" text="ningún día activo" />
+        <text name="ft_irr_every_day" text="todos los días" />
+        <text name="ft_irr_no_coverage" text="No hay polígonos de cobertura disponibles." />
+        <text name="ft_irr_trend_watering" text="tendencia: regando ahora" />
+        <text name="ft_irr_trend_drying" text="tendencia: secándose - considera una ventana" />
+        <text name="ft_irr_trend_wet" text="tendencia: húmedo - esperar puede encharcar" />
+        <text name="ft_irr_trend_steady" text="tendencia: estable" />
+        <text name="ft_irr_help_what_title" text="QUÉ ES ESTO" />
+        <text name="ft_irr_help_what_body" text="Panorama del riego de toda la granja desde Seasonal Crop Stress:&#10;qué sistemas funcionan, qué cubren, reparto de humedad,&#10;una tendencia corta, y uso más riesgo del suelo si Soil Fertilizer&#10;está presente. Espejo de solo lectura. Sin un segundo modelo de humedad." />
+        <text name="ft_irr_help_ops_title" text="OPERACIONES" />
+        <text name="ft_irr_help_ops_body" text="Sistemas activos, horarios, contorno de cobertura y reparto&#10;riego contra lluvia por campo desde lecturas en vivo de SCS." />
+        <text name="ft_irr_help_forecast_title" text="PREVISIÓN" />
+        <text name="ft_irr_help_forecast_body" text="Humedad y estrés por sequía actuales más una tendencia claramente&#10;indicada. No es un futuro simulado. Aviso para toda la granja cuando&#10;SCS publica uno." />
+        <text name="ft_irr_help_usage_title" text="USO Y RIESGO" />
+        <text name="ft_irr_help_usage_body" text="Lo que SCS cobra por hora activa cuando los costes están activados.&#10;Compactación / MO / enfermedad desde Soil Fertilizer si está presente.&#10;Una enfermedad sin inspeccionar dice Sin inspeccionar, nunca un falso visto bueno." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress no detectado." />
+        <text name="ft_irr_scs_install" text="Instala FS25_SeasonalCropStress. Esta app permanece oculta sin él." />
+        <text name="ft_irr_systems" text="SISTEMAS" />
+        <text name="ft_irr_no_systems" text="No hay sistemas de riego registrados." />
+        <text name="ft_irr_idle" text="inactivo" />
+        <text name="ft_irr_no_schedule" text="sin horario" />
+        <text name="ft_irr_system_line" text="%s  ·  campos %d  ·  caudal %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="CONTORNO DE COBERTURA" />
+        <text name="ft_irr_moisture_split" text="REPARTO DE HUMEDAD POR CAMPO" />
+        <text name="ft_irr_more_fields" text="… más campos omitidos" />
+        <text name="ft_irr_watering" text="regando" />
+        <text name="ft_irr_field_tag" text="Campo n.º %s  %s" />
+        <text name="ft_irr_split_line" text="pívot ~%s   cielo/otro ~%s" />
+        <text name="ft_irr_moisture_na" text="humedad no disponible" />
+        <text name="ft_irr_no_moisture_reads" text="Aún no hay campos propios con lecturas de humedad." />
+        <text name="ft_irr_farm_advisory" text="AVISO DE LA GRANJA" />
+        <text name="ft_irr_trend_header" text="ACTUAL + TENDENCIA INDICADA (no es un modelo de previsión)" />
+        <text name="ft_irr_air_line" text="Aire %s °C   secado x%s" />
+        <text name="ft_irr_field" text="Campo n.º %s" />
+        <text name="ft_irr_moist_line" text="humedad %s  estrés seco %s" />
+        <text name="ft_irr_alerts_capped" text="Alertas limitadas - consulta SCS para más detalle." />
+        <text name="ft_irr_covered_gap" text="cubiertos %d  ·  huecos %d" />
+        <text name="ft_irr_usage_header" text="USO DE SISTEMAS (COBRO DE SCS)" />
+        <text name="ft_irr_costs_off" text="Los costes de riego están desactivados en Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="No hay sistemas que tarificar." />
+        <text name="ft_irr_usage_line" text="%s / hora activa   caudal %.2f   ~%d horas programadas / semana" />
+        <text name="ft_irr_soil_risk_header" text="RIESGO DEL SUELO (si Soil Fertilizer está presente)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer no disponible - filas de riesgo ocultas." />
+        <text name="ft_irr_unscouted" text="Sin inspeccionar" />
+        <text name="ft_irr_soil_line" text="compactación %s   MO %s   enfermedad %s" />
+        <text name="ft_irr_no_risk_reads" text="Aún no hay lecturas de riesgo de campos." />
     </texts>
 
 </l10n>

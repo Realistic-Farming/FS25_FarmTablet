@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Екстрена позика" />
         <text name="ft_fc_total_debt" text="Загальний борг" />
         <text name="ft_fc_open_loan" text="КЕРУВАТИ ПОЗИКОЮ" />
+        <text name="ft_irr_mode_operations" text="Робота" />
+        <text name="ft_irr_mode_forecast" text="Прогноз" />
+        <text name="ft_irr_mode_usage" text="Витрата" />
+        <text name="ft_irr_mins" text="%d хв" />
+        <text name="ft_irr_hours" text="%.1f год" />
+        <text name="ft_irr_na" text="н/д" />
+        <text name="ft_irr_schedule_na" text="графік н/д" />
+        <text name="ft_irr_day_mon" text="Пн" />
+        <text name="ft_irr_day_tue" text="Вт" />
+        <text name="ft_irr_day_wed" text="Ср" />
+        <text name="ft_irr_day_thu" text="Чт" />
+        <text name="ft_irr_day_fri" text="Пт" />
+        <text name="ft_irr_day_sat" text="Сб" />
+        <text name="ft_irr_day_sun" text="Нд" />
+        <text name="ft_irr_no_active_days" text="немає активних днів" />
+        <text name="ft_irr_every_day" text="щодня" />
+        <text name="ft_irr_no_coverage" text="Немає доступних полігонів покриття." />
+        <text name="ft_irr_trend_watering" text="тренд: іде полив" />
+        <text name="ft_irr_trend_drying" text="тренд: підсихає - подумайте про вікно поливу" />
+        <text name="ft_irr_trend_wet" text="тренд: волого - очікування може призвести до перезволоження" />
+        <text name="ft_irr_trend_steady" text="тренд: стабільно" />
+        <text name="ft_irr_help_what_title" text="ЩО ЦЕ" />
+        <text name="ft_irr_help_what_body" text="Картина поливу всієї ферми з Seasonal Crop Stress:&#10;які системи працюють, що вони покривають, розподіл вологи,&#10;короткий тренд, а також витрата й ризики ґрунту за наявності Soil Fertilizer.&#10;Лише дзеркало для читання. Другої моделі вологості немає." />
+        <text name="ft_irr_help_ops_title" text="РОБОТА" />
+        <text name="ft_irr_help_ops_body" text="Активні системи, графіки, контур покриття та розподіл&#10;поливу й дощу за полями з живих даних SCS." />
+        <text name="ft_irr_help_forecast_title" text="ПРОГНОЗ" />
+        <text name="ft_irr_help_forecast_body" text="Поточна вологість і стрес посухи плюс чітко позначений&#10;тренд. Не змодельоване майбутнє. Порада для всієї ферми, коли SCS&#10;її публікує." />
+        <text name="ft_irr_help_usage_title" text="ВИТРАТА Й РИЗИКИ" />
+        <text name="ft_irr_help_usage_body" text="Скільки SCS бере за годину роботи, коли витрати ввімкнено.&#10;Ущільнення / гумус / хвороби з Soil Fertilizer, якщо він є.&#10;Необстежена хвороба показується як Не обстежено, а не хибне все гаразд." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress не виявлено." />
+        <text name="ft_irr_scs_install" text="Установіть FS25_SeasonalCropStress. Без нього цей застосунок приховано." />
+        <text name="ft_irr_systems" text="СИСТЕМИ" />
+        <text name="ft_irr_no_systems" text="Немає зареєстрованих систем поливу." />
+        <text name="ft_irr_idle" text="простій" />
+        <text name="ft_irr_no_schedule" text="немає графіка" />
+        <text name="ft_irr_system_line" text="%s  ·  поля %d  ·  витрата %.2f/год" />
+        <text name="ft_irr_coverage_outline" text="КОНТУР ПОКРИТТЯ" />
+        <text name="ft_irr_moisture_split" text="РОЗПОДІЛ ВОЛОГИ ЗА ПОЛЯМИ" />
+        <text name="ft_irr_more_fields" text="… решту полів приховано" />
+        <text name="ft_irr_watering" text="полив" />
+        <text name="ft_irr_field_tag" text="Поле #%s  %s" />
+        <text name="ft_irr_split_line" text="півот ~%s   небо/інше ~%s" />
+        <text name="ft_irr_moisture_na" text="вологість недоступна" />
+        <text name="ft_irr_no_moisture_reads" text="Поки немає власних полів із даними про вологість." />
+        <text name="ft_irr_farm_advisory" text="ПОРАДА ДЛЯ ФЕРМИ" />
+        <text name="ft_irr_trend_header" text="ЗАРАЗ + ПОЗНАЧЕНИЙ ТРЕНД (не модель прогнозу)" />
+        <text name="ft_irr_air_line" text="Повітря %s C   висихання x%s" />
+        <text name="ft_irr_field" text="Поле #%s" />
+        <text name="ft_irr_moist_line" text="волога %s  стрес посухи %s" />
+        <text name="ft_irr_alerts_capped" text="Кількість сповіщень обмежено - подробиці в SCS." />
+        <text name="ft_irr_covered_gap" text="покрито %d  ·  прогалина %d" />
+        <text name="ft_irr_usage_header" text="ВИТРАТА СИСТЕМ (ОПЛАТА SCS)" />
+        <text name="ft_irr_costs_off" text="Витрати на полив вимкнено в Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Немає систем для розрахунку ціни." />
+        <text name="ft_irr_usage_line" text="%s / година роботи   витрата %.2f   ~%d год за графіком / тиждень" />
+        <text name="ft_irr_soil_risk_header" text="РИЗИКИ ҐРУНТУ (за наявності Soil Fertilizer)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer недоступний - рядки ризиків приховано." />
+        <text name="ft_irr_unscouted" text="Не обстежено" />
+        <text name="ft_irr_soil_line" text="ущільнення %s   гумус %s   хвороби %s" />
+        <text name="ft_irr_no_risk_reads" text="Поки немає даних про ризики полів." />
     </texts>
 
 </l10n>

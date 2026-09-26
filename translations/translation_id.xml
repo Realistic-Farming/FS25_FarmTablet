@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Pinjaman darurat" />
         <text name="ft_fc_total_debt" text="Total utang" />
         <text name="ft_fc_open_loan" text="KELOLA PINJAMAN" />
+        <text name="ft_irr_mode_operations" text="Operasi" />
+        <text name="ft_irr_mode_forecast" text="Prakiraan" />
+        <text name="ft_irr_mode_usage" text="Pemakaian" />
+        <text name="ft_irr_mins" text="%d mnt" />
+        <text name="ft_irr_hours" text="%.1f j" />
+        <text name="ft_irr_na" text="t/a" />
+        <text name="ft_irr_schedule_na" text="jadwal t/a" />
+        <text name="ft_irr_day_mon" text="Sen" />
+        <text name="ft_irr_day_tue" text="Sel" />
+        <text name="ft_irr_day_wed" text="Rab" />
+        <text name="ft_irr_day_thu" text="Kam" />
+        <text name="ft_irr_day_fri" text="Jum" />
+        <text name="ft_irr_day_sat" text="Sab" />
+        <text name="ft_irr_day_sun" text="Min" />
+        <text name="ft_irr_no_active_days" text="tidak ada hari aktif" />
+        <text name="ft_irr_every_day" text="setiap hari" />
+        <text name="ft_irr_no_coverage" text="Tidak ada poligon cakupan." />
+        <text name="ft_irr_trend_watering" text="tren: sedang menyiram" />
+        <text name="ft_irr_trend_drying" text="tren: mengering - pertimbangkan jendela penyiraman" />
+        <text name="ft_irr_trend_wet" text="tren: basah - menunda bisa membuat tergenang" />
+        <text name="ft_irr_trend_steady" text="tren: stabil" />
+        <text name="ft_irr_help_what_title" text="APA INI" />
+        <text name="ft_irr_help_what_body" text="Gambaran irigasi seluruh pertanian dari Seasonal Crop Stress:&#10;sistem mana yang berjalan, apa yang dicakup, pembagian kelembapan,&#10;tren singkat, serta pemakaian dan risiko tanah saat Soil Fertilizer&#10;ada. Cermin baca saja. Tidak ada model kelembapan kedua." />
+        <text name="ft_irr_help_ops_title" text="OPERASI" />
+        <text name="ft_irr_help_ops_body" text="Sistem aktif, jadwal, garis cakupan, dan pembagian irigasi&#10;versus hujan per lahan dari pembacaan langsung SCS." />
+        <text name="ft_irr_help_forecast_title" text="PRAKIRAAN" />
+        <text name="ft_irr_help_forecast_body" text="Kelembapan saat ini dan stres kekeringan serta tren&#10;yang diberi label jelas. Bukan masa depan simulasi. Saran seluruh pertanian saat SCS&#10;menerbitkannya." />
+        <text name="ft_irr_help_usage_title" text="PEMAKAIAN DAN RISIKO" />
+        <text name="ft_irr_help_usage_body" text="Yang ditagih SCS per jam aktif saat biaya aktif.&#10;Pemadatan / BO / penyakit dari Soil Fertilizer jika ada.&#10;Penyakit yang belum disurvei terbaca Belum disurvei, tidak pernah aman palsu." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress tidak terdeteksi." />
+        <text name="ft_irr_scs_install" text="Pasang FS25_SeasonalCropStress. Aplikasi ini tetap tersembunyi tanpanya." />
+        <text name="ft_irr_systems" text="SISTEM" />
+        <text name="ft_irr_no_systems" text="Tidak ada sistem irigasi terdaftar." />
+        <text name="ft_irr_idle" text="diam" />
+        <text name="ft_irr_no_schedule" text="tanpa jadwal" />
+        <text name="ft_irr_system_line" text="%s  ·  lahan %d  ·  aliran %.2f/j" />
+        <text name="ft_irr_coverage_outline" text="GARIS CAKUPAN" />
+        <text name="ft_irr_moisture_split" text="PEMBAGIAN KELEMBAPAN LAHAN" />
+        <text name="ft_irr_more_fields" text="… lahan lainnya dihilangkan" />
+        <text name="ft_irr_watering" text="menyiram" />
+        <text name="ft_irr_field_tag" text="Lahan #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   langit/lain ~%s" />
+        <text name="ft_irr_moisture_na" text="kelembapan tidak tersedia" />
+        <text name="ft_irr_no_moisture_reads" text="Belum ada lahan milik dengan pembacaan kelembapan." />
+        <text name="ft_irr_farm_advisory" text="SARAN PERTANIAN" />
+        <text name="ft_irr_trend_header" text="KINI + TREN BERLABEL (bukan model prakiraan)" />
+        <text name="ft_irr_air_line" text="Udara %s C   pengeringan x%s" />
+        <text name="ft_irr_field" text="Lahan #%s" />
+        <text name="ft_irr_moist_line" text="lembap %s  stres kering %s" />
+        <text name="ft_irr_alerts_capped" text="Set peringatan dibatasi - periksa SCS untuk detail." />
+        <text name="ft_irr_covered_gap" text="tercakup %d  ·  celah %d" />
+        <text name="ft_irr_usage_header" text="PEMAKAIAN SISTEM (TAGIHAN SCS)" />
+        <text name="ft_irr_costs_off" text="Biaya irigasi dimatikan di Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Tidak ada sistem untuk dihargai." />
+        <text name="ft_irr_usage_line" text="%s / jam aktif   aliran %.2f   ~%d jam jadwal / minggu" />
+        <text name="ft_irr_soil_risk_header" text="RISIKO TANAH (saat Soil Fertilizer ada)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer tidak tersedia - baris risiko disembunyikan." />
+        <text name="ft_irr_unscouted" text="Belum disurvei" />
+        <text name="ft_irr_soil_line" text="pemadatan %s   BO %s   penyakit %s" />
+        <text name="ft_irr_no_risk_reads" text="Belum ada pembacaan risiko lahan." />
     </texts>
 
 </l10n>

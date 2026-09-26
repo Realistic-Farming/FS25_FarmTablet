@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="긴급 대출" />
         <text name="ft_fc_total_debt" text="총부채" />
         <text name="ft_fc_open_loan" text="대출 관리" />
+        <text name="ft_irr_mode_operations" text="운영" />
+        <text name="ft_irr_mode_forecast" text="예보" />
+        <text name="ft_irr_mode_usage" text="사용량" />
+        <text name="ft_irr_mins" text="%d분" />
+        <text name="ft_irr_hours" text="%.1f시간" />
+        <text name="ft_irr_na" text="없음" />
+        <text name="ft_irr_schedule_na" text="일정: 없음" />
+        <text name="ft_irr_day_mon" text="월" />
+        <text name="ft_irr_day_tue" text="화" />
+        <text name="ft_irr_day_wed" text="수" />
+        <text name="ft_irr_day_thu" text="목" />
+        <text name="ft_irr_day_fri" text="금" />
+        <text name="ft_irr_day_sat" text="토" />
+        <text name="ft_irr_day_sun" text="일" />
+        <text name="ft_irr_no_active_days" text="활성 요일 없음" />
+        <text name="ft_irr_every_day" text="매일" />
+        <text name="ft_irr_no_coverage" text="사용할 수 있는 살수 범위 다각형이 없습니다." />
+        <text name="ft_irr_trend_watering" text="추세: 지금 관수 중" />
+        <text name="ft_irr_trend_drying" text="추세: 건조해지는 중 - 관수 시간대를 고려하세요" />
+        <text name="ft_irr_trend_wet" text="추세: 습함 - 미루면 과습될 수 있음" />
+        <text name="ft_irr_trend_steady" text="추세: 안정" />
+        <text name="ft_irr_help_what_title" text="이 앱은" />
+        <text name="ft_irr_help_what_body" text="Seasonal Crop Stress의 농장 전체 관개 현황:&#10;어떤 시스템이 돌아가는지, 무엇을 덮는지, 수분 분할,&#10;짧은 추세, Soil Fertilizer가 있으면 사용량과 토양 위험까지.&#10;읽기 전용 미러입니다. 두 번째 수분 모델은 없습니다." />
+        <text name="ft_irr_help_ops_title" text="운영" />
+        <text name="ft_irr_help_ops_body" text="가동 중인 시스템, 일정, 범위 윤곽, 필드별&#10;관개 대 강우 분할을 SCS 실시간 값으로 보여 줍니다." />
+        <text name="ft_irr_help_forecast_title" text="예보" />
+        <text name="ft_irr_help_forecast_body" text="현재 수분과 가뭄 스트레스, 그리고 분명히 표시된&#10;추세입니다. 모의 미래가 아닙니다. SCS가 발표하면&#10;농장 전체 권고도 표시합니다." />
+        <text name="ft_irr_help_usage_title" text="사용량 및 위험" />
+        <text name="ft_irr_help_usage_body" text="비용이 켜져 있을 때 SCS가 가동 1시간당 청구하는 금액.&#10;Soil Fertilizer가 있으면 다짐 / 유기물 / 병해.&#10;조사하지 않은 병해는 미조사로 표시하며, 거짓으로 이상 없음이라 하지 않습니다." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress를 찾을 수 없습니다." />
+        <text name="ft_irr_scs_install" text="FS25_SeasonalCropStress를 설치하세요. 없으면 이 앱은 숨겨집니다." />
+        <text name="ft_irr_systems" text="시스템" />
+        <text name="ft_irr_no_systems" text="등록된 관개 시스템이 없습니다." />
+        <text name="ft_irr_idle" text="대기" />
+        <text name="ft_irr_no_schedule" text="일정 없음" />
+        <text name="ft_irr_system_line" text="%s  ·  필드 %d  ·  유량 %.2f/시간" />
+        <text name="ft_irr_coverage_outline" text="범위 윤곽" />
+        <text name="ft_irr_moisture_split" text="필드 수분 분할" />
+        <text name="ft_irr_more_fields" text="… 나머지 필드 생략" />
+        <text name="ft_irr_watering" text="관수 중" />
+        <text name="ft_irr_field_tag" text="필드 #%s  %s" />
+        <text name="ft_irr_split_line" text="피벗 ~%s   하늘/기타 ~%s" />
+        <text name="ft_irr_moisture_na" text="수분 정보 없음" />
+        <text name="ft_irr_no_moisture_reads" text="수분 측정값이 있는 소유 필드가 아직 없습니다." />
+        <text name="ft_irr_farm_advisory" text="농장 권고" />
+        <text name="ft_irr_trend_header" text="현재 + 표시된 추세 (예보 모델 아님)" />
+        <text name="ft_irr_air_line" text="기온 %s C   건조 x%s" />
+        <text name="ft_irr_field" text="필드 #%s" />
+        <text name="ft_irr_moist_line" text="수분 %s  가뭄 스트레스 %s" />
+        <text name="ft_irr_alerts_capped" text="경보 수가 제한되었습니다 - 자세한 내용은 SCS에서 확인하세요." />
+        <text name="ft_irr_covered_gap" text="적용 %d  ·  공백 %d" />
+        <text name="ft_irr_usage_header" text="시스템 사용량 (SCS 청구)" />
+        <text name="ft_irr_costs_off" text="Seasonal Crop Stress에서 관개 비용이 꺼져 있습니다." />
+        <text name="ft_irr_no_systems_price" text="가격을 매길 시스템이 없습니다." />
+        <text name="ft_irr_usage_line" text="%s / 가동 시간   유량 %.2f   ~%d 일정 시간 / 주" />
+        <text name="ft_irr_soil_risk_header" text="토양 위험 (Soil Fertilizer가 있을 때)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer 없음 - 위험 행이 숨겨졌습니다." />
+        <text name="ft_irr_unscouted" text="미조사" />
+        <text name="ft_irr_soil_line" text="다짐 %s   유기물 %s   병해 %s" />
+        <text name="ft_irr_no_risk_reads" text="아직 필드 위험 측정값이 없습니다." />
     </texts>
 
 </l10n>

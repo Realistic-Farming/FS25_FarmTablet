@@ -2814,7 +2814,7 @@
         <text name="ft_rainKey_notifyResumed" text="Pivot #%s is weer beschikbaar bij de volgende schemacontrole" />
         <text name="ft_water_header" text="WATERBRONNEN" />
         <text name="ft_water_unlimited" text="Onbeperkt" />
-        <text name="ft_water_hours" text="%.1f / %.1f h" />
+        <text name="ft_water_hours" text="%.1f / %.1f u" />
         <text name="ft_water_dry" text="Droog" />
         <text name="ft_water_na" text="Niet beschikbaar" />
         <text name="ft_water_none" text="Geen waterbronnen op deze boerderij." />
@@ -3031,6 +3031,66 @@
         <text name="ft_fc_emergency_loan" text="Noodlening" />
         <text name="ft_fc_total_debt" text="Totale schuld" />
         <text name="ft_fc_open_loan" text="LENING BEHEREN" />
+        <text name="ft_irr_mode_operations" text="Bediening" />
+        <text name="ft_irr_mode_forecast" text="Prognose" />
+        <text name="ft_irr_mode_usage" text="Verbruik" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f u" />
+        <text name="ft_irr_na" text="n.v.t." />
+        <text name="ft_irr_schedule_na" text="schema n.v.t." />
+        <text name="ft_irr_day_mon" text="Ma" />
+        <text name="ft_irr_day_tue" text="Di" />
+        <text name="ft_irr_day_wed" text="Wo" />
+        <text name="ft_irr_day_thu" text="Do" />
+        <text name="ft_irr_day_fri" text="Vr" />
+        <text name="ft_irr_day_sat" text="Za" />
+        <text name="ft_irr_day_sun" text="Zo" />
+        <text name="ft_irr_no_active_days" text="geen actieve dagen" />
+        <text name="ft_irr_every_day" text="elke dag" />
+        <text name="ft_irr_no_coverage" text="Geen dekkingspolygonen beschikbaar." />
+        <text name="ft_irr_trend_watering" text="trend: nu aan het beregenen" />
+        <text name="ft_irr_trend_drying" text="trend: droogt op - overweeg een venster" />
+        <text name="ft_irr_trend_wet" text="trend: nat - wachten kan wateroverlast geven" />
+        <text name="ft_irr_trend_steady" text="trend: stabiel" />
+        <text name="ft_irr_help_what_title" text="WAT DIT IS" />
+        <text name="ft_irr_help_what_body" text="Beregeningsbeeld van de hele boerderij uit Seasonal Crop Stress:&#10;welke systemen draaien, wat ze dekken, vochtverdeling,&#10;een korte trend en verbruik plus bodemrisico wanneer Soil Fertilizer&#10;aanwezig is. Alleen-lezen spiegel. Geen tweede vochtmodel." />
+        <text name="ft_irr_help_ops_title" text="BEDIENING" />
+        <text name="ft_irr_help_ops_body" text="Actieve systemen, schema's, dekkingsomtrek en per veld&#10;beregening versus regen uit live SCS-metingen." />
+        <text name="ft_irr_help_forecast_title" text="PROGNOSE" />
+        <text name="ft_irr_help_forecast_body" text="Huidig vocht en droogtestress plus een duidelijk gelabelde&#10;trend. Geen gesimuleerde toekomst. Advies voor de hele boerderij wanneer SCS&#10;er een publiceert." />
+        <text name="ft_irr_help_usage_title" text="VERBRUIK EN RISICO" />
+        <text name="ft_irr_help_usage_body" text="Wat SCS per actief uur rekent wanneer kosten aan staan.&#10;Verdichting / OS / ziekte uit Soil Fertilizer wanneer aanwezig.&#10;Niet-verkende ziekte leest Niet verkend, nooit een onterecht alles in orde." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress niet gevonden." />
+        <text name="ft_irr_scs_install" text="Installeer FS25_SeasonalCropStress. Zonder blijft deze app verborgen." />
+        <text name="ft_irr_systems" text="SYSTEMEN" />
+        <text name="ft_irr_no_systems" text="Geen beregeningssystemen geregistreerd." />
+        <text name="ft_irr_idle" text="inactief" />
+        <text name="ft_irr_no_schedule" text="geen schema" />
+        <text name="ft_irr_system_line" text="%s  ·  velden %d  ·  debiet %.2f/u" />
+        <text name="ft_irr_coverage_outline" text="DEKKINGSOMTREK" />
+        <text name="ft_irr_moisture_split" text="VOCHTVERDELING PER VELD" />
+        <text name="ft_irr_more_fields" text="… meer velden weggelaten" />
+        <text name="ft_irr_watering" text="beregent" />
+        <text name="ft_irr_field_tag" text="Veld #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   lucht/overig ~%s" />
+        <text name="ft_irr_moisture_na" text="vocht niet beschikbaar" />
+        <text name="ft_irr_no_moisture_reads" text="Nog geen eigen velden met vochtmetingen." />
+        <text name="ft_irr_farm_advisory" text="BOERDERIJADVIES" />
+        <text name="ft_irr_trend_header" text="HUIDIG + GELABELDE TREND (geen prognosemodel)" />
+        <text name="ft_irr_air_line" text="Lucht %s C   uitdroging x%s" />
+        <text name="ft_irr_field" text="Veld #%s" />
+        <text name="ft_irr_moist_line" text="vocht %s  droogtestress %s" />
+        <text name="ft_irr_alerts_capped" text="Meldingenset begrensd - zie SCS voor meer details." />
+        <text name="ft_irr_covered_gap" text="gedekt %d  ·  hiaat %d" />
+        <text name="ft_irr_usage_header" text="SYSTEEMVERBRUIK (SCS-KOSTEN)" />
+        <text name="ft_irr_costs_off" text="Beregeningskosten staan uit in Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="Geen systemen om te prijzen." />
+        <text name="ft_irr_usage_line" text="%s / actief uur   debiet %.2f   ~%d schema-uren / week" />
+        <text name="ft_irr_soil_risk_header" text="BODEMRISICO (wanneer Soil Fertilizer aanwezig is)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer niet beschikbaar - risicorijen verborgen." />
+        <text name="ft_irr_unscouted" text="Niet verkend" />
+        <text name="ft_irr_soil_line" text="verdichting %s   OS %s   ziekte %s" />
+        <text name="ft_irr_no_risk_reads" text="Nog geen risicometingen voor velden." />
     </texts>
 
 </l10n>
