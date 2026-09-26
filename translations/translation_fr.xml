@@ -415,7 +415,7 @@
         <text name="ft_auto_accent" text="ACCENT" />
         <text name="ft_auto_accept_contracts_from_npcs_on_the_map" text="Acceptez des contrats auprès des PNJ sur la carte." />
         <text name="ft_auto_accept_contracts_from_npcs_on_the_map_or_via_the" text="Acceptez des contrats auprès des PNJ sur la carte ou via le&#10;" />
-        <text name="ft_auto_across_all_active_selling_stations_on_the_map" text="across all active selling stations on the map.&#10;" />
+        <text name="ft_auto_across_all_active_selling_stations_on_the_map" text="parmi tous les points de vente actifs de la carte.&#10;" />
         <text name="ft_auto_actions" text="ACTIONS" />
         <text name="ft_auto_activate" text="ACTIVATE" />
         <text name="ft_auto_activates_visual_editing_of_the_tablet" text="Activates visual editing of the tablet.&#10;" />
@@ -438,10 +438,10 @@
         <text name="ft_auto_active_fields_vehicles" text="CHAMPS ACTIFS / VÉHICULES" />
         <text name="ft_auto_active_financing" text="Active Financing" />
         <text name="ft_auto_active_illnesses" text="Active Illnesses" />
-        <text name="ft_auto_active_loans_and_leases_arranged_through_usedplus" text="Active loans and leases arranged through UsedPlus.&#10;" />
+        <text name="ft_auto_active_loans_and_leases_arranged_through_usedplus" text="Prêts et locations actifs conclus via UsedPlus.&#10;" />
         <text name="ft_auto_active_mods_show_in_full_colour_with_an_open_button" text="Les mods actifs s'affichent en couleur avec un bouton OUVRIR.&#10;" />
         <text name="ft_auto_active_s" text="Active: %s." />
-        <text name="ft_auto_active_sale_listings" text="ACTIVE SALE LISTINGS" />
+        <text name="ft_auto_active_sale_listings" text="ANNONCES DE VENTE ACTIVES" />
         <text name="ft_auto_active_simulated_normally" text="ACTIF = simulé normalement.&#10;" />
         <text name="ft_auto_active_stalled" text="ACTIF / À L'ARRÊT" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
@@ -467,7 +467,7 @@
         <text name="ft_auto_advances_to_tomorrow_if_time_has_passed_today" text="Advances to tomorrow if time has passed today." />
         <text name="ft_auto_advice_discounts_and_early_warnings" text="advice, discounts, and early warnings." />
         <text name="ft_auto_after_a_fixed_duration" text="après une durée fixe." />
-        <text name="ft_auto_agent_shows_vehicle_name_asking_price_range_agent" text="agent. Shows vehicle name, asking price range, agent&#10;" />
+        <text name="ft_auto_agent_shows_vehicle_name_asking_price_range_agent" text="UsedPlus. Affiche le nom du véhicule, la fourchette de prix, le niveau&#10;" />
         <text name="ft_auto_agraconnect" text="AgraConnect" />
         <text name="ft_auto_agraconnect_2" text="agraconnect" />
         <text name="ft_auto_agrar" text="agrar" />
@@ -490,7 +490,7 @@
         <text name="ft_auto_amount_2" text="AMOUNT" />
         <text name="ft_auto_amount_3" text="Amount" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
-        <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Amounts shown in litres, sorted largest-first.&#10;" />
+        <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Quantités en litres, de la plus grande à la plus petite.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
         <text name="ft_auto_and_a_colour_coded_bar" text="and a colour-coded bar.&#10;" />
         <text name="ft_auto_and_applying_slurry_or_solid_manure" text="and applying slurry or solid manure." />
@@ -500,9 +500,9 @@
         <text name="ft_auto_and_how_long_the_job_took" text="and how long the job took." />
         <text name="ft_auto_and_is_currently_working_on" text="et en cours de réalisation.&#10;" />
         <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="et ne dépend pas des états contrat ou décoratif." />
-        <text name="ft_auto_and_liquid_manure_tanks" text="and liquid manure tanks." />
+        <text name="ft_auto_and_liquid_manure_tanks" text="et fosses à lisier." />
         <text name="ft_auto_and_returns_a_configurable_percentage_as_a_rebate" text="and returns a configurable percentage as a rebate." />
-        <text name="ft_auto_and_the_selected_vehicle_has_more_than_2_wear" text="and the selected vehicle has more than 2% wear.&#10;" />
+        <text name="ft_auto_and_the_selected_vehicle_has_more_than_2_wear" text="et si l'usure du véhicule choisi dépasse 2%.&#10;" />
         <text name="ft_auto_and_time_of_day" text="et l'heure de la journée." />
         <text name="ft_auto_and_total_owed_red_across_all_pending_invoices" text="and total owed (red) across all pending invoices." />
         <text name="ft_auto_ani" text="ANI" />
@@ -525,8 +525,8 @@
         <text name="ft_auto_animalvetsystem_illness_and_treatment_monitor" text="AnimalVetSystem - maladies et traitements" />
         <text name="ft_auto_animalvetsystem_was_not_detected" text="AnimalVetSystem was not detected." />
         <text name="ft_auto_any_field" text="Any field" />
-        <text name="ft_auto_any_placeable_with_bulk_storage_you_own" text="Any placeable with bulk storage you own:&#10;" />
-        <text name="ft_auto_any_vehicle_within_35_metres_appears_automatically" text="Any vehicle within 35 metres appears automatically.&#10;" />
+        <text name="ft_auto_any_placeable_with_bulk_storage_you_own" text="Tout objet posable avec un stockage en vrac que vous possédez :&#10;" />
+        <text name="ft_auto_any_vehicle_within_35_metres_appears_automatically" text="Tout véhicule à moins de 35 mètres apparaît automatiquement.&#10;" />
         <text name="ft_auto_app" text="App" />
         <text name="ft_auto_app_2" text="app" />
         <text name="ft_auto_app_cannot_be_undone" text="app. Cannot be undone." />
@@ -568,7 +568,7 @@
         <text name="ft_auto_balance_2" text="balance" />
         <text name="ft_auto_balance_3" text="balance_" />
         <text name="ft_auto_balance_loan_income_expenses_net_pl_fields_vehicles_sea" text="balance,loan,income,expenses,net_pl,fields,vehicles,season,day,time,weather" />
-        <text name="ft_auto_balance_manage_deals_in_the_usedplus_finance_menu" text="balance. Manage deals in the UsedPlus finance menu." />
+        <text name="ft_auto_balance_manage_deals_in_the_usedplus_finance_menu" text="restant. Gérez vos contrats dans le menu financier UsedPlus." />
         <text name="ft_auto_balance_your_current_available_money" text="Solde : l'argent dont vous disposez.&#10;" />
         <text name="ft_auto_bale_hay_straw" text="Bale hay / straw" />
         <text name="ft_auto_baling" text="Pressage" />
@@ -579,11 +579,11 @@
         <text name="ft_auto_base_fee_s_day" text="Base fee: %s €/day" />
         <text name="ft_auto_base_rate" text="Base Rate" />
         <text name="ft_auto_bck" text="BCK" />
-        <text name="ft_auto_best_sell_prices" text="BEST SELL PRICES" />
-        <text name="ft_auto_best_sell_prices_per_1_000_l" text="BEST SELL PRICES  (per 1,000 L)" />
-        <text name="ft_auto_between_25_and_75_of_the_listing_window" text="between 25% and 75% of the listing window.&#10;" />
+        <text name="ft_auto_best_sell_prices" text="MEILLEURS PRIX DE VENTE" />
+        <text name="ft_auto_best_sell_prices_per_1_000_l" text="MEILLEURS PRIX DE VENTE  (pour 1 000 L)" />
+        <text name="ft_auto_between_25_and_75_of_the_listing_window" text="entre 25% et 75% écoulés de la période d'annonce.&#10;" />
         <text name="ft_auto_boolean" text="boolean" />
-        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="breakdowns - repair before reaching 80%." />
+        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="des pannes - réparez avant d'atteindre 80%." />
         <text name="ft_auto_browse_and_manage_installed_apps" text="Parcourir et gérer les applications installées" />
         <text name="ft_auto_bucket" text="bucket" />
         <text name="ft_auto_bucket_fill_level_and_material_type_as_a_bar" text="bucket fill level and material type as a bar.&#10;" />
@@ -606,7 +606,7 @@
         <text name="ft_auto_c" text="-- C" />
         <text name="ft_auto_cancel" text="CANCEL" />
         <text name="ft_auto_canola" text="CANOLA" />
-        <text name="ft_auto_capacity_e_g_78_390l_500l" text="capacity (e.g. 78%  (390L / 500L)).&#10;" />
+        <text name="ft_auto_capacity_e_g_78_390l_500l" text="du réservoir (ex. 78%  (390 L / 500 L)).&#10;" />
         <text name="ft_auto_care_cost" text="Care Cost" />
         <text name="ft_auto_care_now" text="Care Now" />
         <text name="ft_auto_cases" text="CASES" />
@@ -643,7 +643,7 @@
         <text name="ft_auto_clears_all_load_history_and_resets_the_session_totals" text="Clears all load history and resets the session totals&#10;" />
         <text name="ft_auto_click" text="click" />
         <text name="ft_auto_click_open_on_any_app_row_to_switch_to_it_directly" text="Touchez OUVRIR sur la ligne d'une application pour y aller.&#10;" />
-        <text name="ft_auto_click_select_on_a_vehicle_to_pin_its_diagnostics_in" text="Click SELECT on a vehicle to pin its diagnostics in&#10;" />
+        <text name="ft_auto_click_select_on_a_vehicle_to_pin_its_diagnostics_in" text="Cliquez sur CHOISIR sur un véhicule pour épingler son diagnostic&#10;" />
         <text name="ft_auto_click_select_on_any_field_row_to_open_its_detailed" text="Click SELECT on any field row to open its detailed&#10;" />
         <text name="ft_auto_click_the_button_to_cycle_through_available_options" text="Click the button to cycle through available options.&#10;" />
         <text name="ft_auto_click_to_change_saved_in_modsettings" text="Click to change | saved in modSettings" />
@@ -652,7 +652,7 @@
         <text name="ft_auto_click_to_cycle_screen_background_color" text="Click to cycle  |  Screen background color" />
         <text name="ft_auto_click_to_cycle_through_6_preset_dark_themes" text="Click to cycle through 6 preset dark themes:&#10;" />
         <text name="ft_auto_click_to_cycle_white_gold_or_each_app_s_accent" text="Click to cycle  |  White, gold, or each app's accent" />
-        <text name="ft_auto_click_to_instantly_restore_the_vehicle_to_new_condition" text="Click to instantly restore the vehicle to new condition." />
+        <text name="ft_auto_click_to_instantly_restore_the_vehicle_to_new_condition" text="Cliquez pour remettre le véhicule à neuf instantanément." />
         <text name="ft_auto_click_unpin_to_close_the_detail_view" text="Click UNPIN to close the detail view." />
         <text name="ft_auto_clock_farm_name_in_persistent_topbar" text="Clock + farm name in persistent topbar" />
         <text name="ft_auto_close" text="CLOSE" />
@@ -674,7 +674,7 @@
         <text name="ft_auto_completed" text="Completed" />
         <text name="ft_auto_completed_collect_reward_from_npc" text="TERMINÉS - RÉCOMPENSE AUPRÈS DU PNJ" />
         <text name="ft_auto_completion_updates_automatically" text="La progression se met à jour automatiquement." />
-        <text name="ft_auto_component_wear_as_a_percentage_0_new_100_worn" text="Component wear as a percentage (0% = new, 100% = worn).&#10;" />
+        <text name="ft_auto_component_wear_as_a_percentage_0_new_100_worn" text="Usure des composants en pourcentage (0% = neuf, 100% = usé).&#10;" />
         <text name="ft_auto_component_wear_percentage_0_new_100_worn_out" text="Usure des pièces en % (0% = neuf, 100% = usé).&#10;" />
         <text name="ft_auto_comprehensive_farm_statistics_snapshot" text="Aperçu complet des statistiques de la ferme" />
         <text name="ft_auto_con" text="CON" />
@@ -717,8 +717,8 @@
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Nombre de contrats acceptés en cours.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
-        <text name="ft_auto_credit" text="CREDIT" />
-        <text name="ft_auto_credit_score" text="CREDIT SCORE" />
+        <text name="ft_auto_credit" text="CRÉDIT" />
+        <text name="ft_auto_credit_score" text="SCORE DE CRÉDIT" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
         <text name="ft_auto_crop" text="CROP" />
         <text name="ft_auto_crop_sale" text="Crop Sale" />
@@ -776,7 +776,7 @@
         <text name="ft_auto_dashboard_weather_app_store_settings" text="dashboard,weather,app_store,settings" />
         <text name="ft_auto_dashboard_weather_fields_animals_workshop" text="Dashboard, Weather, Fields, Animals, Workshop" />
         <text name="ft_auto_data_refreshed" text="data_refreshed" />
-        <text name="ft_auto_data_refreshes_every_3_seconds" text="Data refreshes every 3 seconds." />
+        <text name="ft_auto_data_refreshes_every_3_seconds" text="Données actualisées toutes les 3 secondes." />
         <text name="ft_auto_day" text="JOUR" />
         <text name="ft_auto_day_2" text="Jour" />
         <text name="ft_auto_day_3" text="Jour " />
@@ -798,7 +798,7 @@
         <text name="ft_auto_defaulted" text="defaulted" />
         <text name="ft_auto_delete" text="DELETE" />
         <text name="ft_auto_description" text="DESCRIPTION" />
-        <text name="ft_auto_diagnostics" text="DIAGNOSTICS" />
+        <text name="ft_auto_diagnostics" text="DIAGNOSTIC" />
         <text name="ft_auto_dig" text="DIG" />
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
@@ -843,7 +843,7 @@
         <text name="ft_auto_duration_of_a_network_outage_1_2_3_4_hours" text="Duration of a network outage: 1 / 2 / 3 / 4 hours" />
         <text name="ft_auto_each_block_shows_the_version_number_on_the_left_and" text="Each block shows the version number on the left and&#10;" />
         <text name="ft_auto_each_card_shows_the_animal_type_current_count_and_the" text="Each card shows the animal type, current count, and the&#10;" />
-        <text name="ft_auto_each_crop_you_have_in_storage" text="each crop you have in storage.&#10;" />
+        <text name="ft_auto_each_crop_you_have_in_storage" text="chaque culture que vous avez en stock.&#10;" />
         <text name="ft_auto_each_entry_shows_field_vehicle_task_day_started" text="Each entry shows field, vehicle, task, day started,&#10;" />
         <text name="ft_auto_each_entry_shows_predicted_condition_and_max_temperatur" text="Each entry shows predicted condition and max temperature." />
         <text name="ft_auto_each_entry_shows_the_building_name_and_how_many_of_its" text="Chaque entrée indique le nom du bâtiment et combien de ses&#10;" />
@@ -1012,12 +1012,12 @@
         <text name="ft_auto_fill" text="Fill" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
-        <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Filled = time elapsed. An offer can arrive any time&#10;" />
+        <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Rempli = temps écoulé. Une offre peut arriver à tout moment&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
         <text name="ft_auto_fin" text="FIN" />
         <text name="ft_auto_finance" text="FINANCES" />
-        <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
+        <text name="ft_auto_finance_deals" text="FINANCEMENTS" />
         <text name="ft_auto_finances" text="FINANCES" />
         <text name="ft_auto_finish_current_first" text="terminez d'abord le travail en cours" />
         <text name="ft_auto_finish_job" text="TERMINER LE TRAVAIL" />
@@ -1096,7 +1096,7 @@
         <text name="ft_auto_ftprovider" text="ftProvider" />
         <text name="ft_auto_ftstoragepeaks" text="FTStoragePeaks" />
         <text name="ft_auto_fuel" text="FUEL" />
-        <text name="ft_auto_fuel_2" text="Fuel" />
+        <text name="ft_auto_fuel_2" text="Carburant" />
         <text name="ft_auto_fuel_bar" text="BARRE DE CARBURANT" />
         <text name="ft_auto_full_irrigation_guidance" text="full irrigation guidance." />
         <text name="ft_auto_function" text="function" />
@@ -1130,7 +1130,7 @@
         <text name="ft_auto_gold" text="GOLD" />
         <text name="ft_auto_good" text="Good" />
         <text name="ft_auto_grain_elevator" text="Grain Elevator" />
-        <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="grain silos, bunker silos, silage pits, manure stores,&#10;" />
+        <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="silos à grain, silos couloirs, fosses à ensilage, fumières,&#10;" />
         <text name="ft_auto_grapple" text="grapple" />
         <text name="ft_auto_grass" text="GRASS" />
         <text name="ft_auto_green_30_yellow_65_red_65" text="Vert &lt;= 30%  |  Jaune &lt;= 65%  |  Rouge &gt; 65%." />
@@ -1168,10 +1168,10 @@
         <text name="ft_auto_help_panel_sound_paging_when_the_fs25_help_opens" text="Help Panel Sound: paging when the FS25 help opens.&#10;" />
         <text name="ft_auto_hero_card_for_balance_on_dashboard" text="Hero card for balance on Dashboard" />
         <text name="ft_auto_high_wear_reduces_efficiency_repair_before_reaching_80" text="Une forte usure réduit l'efficacité - réparez avant 80%.&#10;" />
-        <text name="ft_auto_high_wear_reduces_vehicle_efficiency_and_can_cause" text="High wear reduces vehicle efficiency and can cause&#10;" />
+        <text name="ft_auto_high_wear_reduces_vehicle_efficiency_and_can_cause" text="Une forte usure réduit l'efficacité du véhicule et peut causer&#10;" />
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Higher organic matter improves water retention and&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="Higher reputation unlocks better favor rewards." />
-        <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="Higher score = better loan terms and lower interest." />
+        <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="Score plus élevé = meilleures conditions de prêt et intérêts plus bas." />
         <text name="ft_auto_hire" text="HIRE" />
         <text name="ft_auto_hire_2" text="hire" />
         <text name="ft_auto_hire_tab" text="HIRE TAB" />
@@ -1243,7 +1243,7 @@
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
-        <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Install FS25_UsedPlus to use this app." />
+        <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Installez FS25_UsedPlus pour utiliser cette application." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Install FS25_WorkerCosts to manage personnel." />
         <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
@@ -1261,7 +1261,7 @@
         <text name="ft_auto_inv_2" text="inv_" />
         <text name="ft_auto_invalid_hook_type" text="Invalid hook type: " />
         <text name="ft_auto_invalid_value_use_true_or_false" text="Invalid value. Use 'true' or 'false'" />
-        <text name="ft_auto_inventory" text="INVENTORY" />
+        <text name="ft_auto_inventory" text="INVENTAIRE" />
         <text name="ft_auto_invoice" text="invoice" />
         <text name="ft_auto_invoice_tracker" text="INVOICE TRACKER" />
         <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Suivi des factures - intégré + intégration RoleplayPhone" />
@@ -1296,10 +1296,10 @@
         <text name="ft_auto_level_2" text="level" />
         <text name="ft_auto_levels" text="Levels" />
         <text name="ft_auto_light" text="Light" />
-        <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Lists all crops currently stored across your owned silos.&#10;" />
+        <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Liste toutes les cultures stockées dans vos silos.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Lists every active NPC with their relationship score&#10;" />
         <text name="ft_auto_lists_every_app_registered_with_the_farm_tablet" text="Liste toutes les applications enregistrées sur la Farm Tablet,&#10;" />
-        <text name="ft_auto_lists_every_selling_station_and_its_current_price_for" text="Lists every selling station and its current price for&#10;" />
+        <text name="ft_auto_lists_every_selling_station_and_its_current_price_for" text="Liste chaque point de vente et son prix actuel pour&#10;" />
         <text name="ft_auto_lists_the_8_most_recent_dump_cycles_with_material" text="Lists the 8 most recent dump cycles with material&#10;" />
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Liste les produits que le bâtiment consomme et produit.&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="Litres restants et capacité totale à côté de la barre.&#10;" />
@@ -1338,7 +1338,7 @@
         <text name="ft_auto_market_dynamics_2" text="market_dynamics" />
         <text name="ft_auto_market_dynamics_is_not_installed" text="Market Dynamics n'est pas installé." />
         <text name="ft_auto_market_prices_and_dynamic_events" text="Prix du marché et événements dynamiques" />
-        <text name="ft_auto_marketplace" text="Marketplace" />
+        <text name="ft_auto_marketplace" text="Marché" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
         <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="le mod correspondant est chargé dans votre partie." />
         <text name="ft_auto_material" text="MATERIAL" />
@@ -1372,7 +1372,7 @@
         <text name="ft_auto_month_costs" text="MONTH COSTS" />
         <text name="ft_auto_month_to_date" text="Month To Date" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
-        <text name="ft_auto_monthly_total" text="Monthly Total" />
+        <text name="ft_auto_monthly_total" text="Total mensuel" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
         <text name="ft_auto_mostly_cloudy" text="Mostly Cloudy" />
         <text name="ft_auto_mount_a_wheel_loader_excavator_or_material_handler" text="mount a wheel loader, excavator, or material handler.&#10;" />
@@ -1392,7 +1392,7 @@
         <text name="ft_auto_ne" text="NE" />
         <text name="ft_auto_nearby" text="NEARBY  (" />
         <text name="ft_auto_nearby_vehicle_diagnostics" text="Diagnostic des véhicules à proximité" />
-        <text name="ft_auto_nearby_vehicles" text="NEARBY VEHICLES" />
+        <text name="ft_auto_nearby_vehicles" text="VÉHICULES À PROXIMITÉ" />
         <text name="ft_auto_needs_fertilizer" text="Needs Fertilizer" />
         <text name="ft_auto_needs_fertilizer_flag" text="NEEDS FERTILIZER FLAG" />
         <text name="ft_auto_net_p_l" text="Résultat net" />
@@ -1454,7 +1454,7 @@
         <text name="ft_auto_no_active_contracts" text="Aucun contrat actif." />
         <text name="ft_auto_no_active_financing_contracts" text="No active financing contracts." />
         <text name="ft_auto_no_active_job" text="aucun travail en cours" />
-        <text name="ft_auto_no_active_listings" text="No active listings." />
+        <text name="ft_auto_no_active_listings" text="Aucune annonce active." />
         <text name="ft_auto_no_active_market_events" text="Aucun événement de marché actif." />
         <text name="ft_auto_no_animal_pens_owned" text="No animal pens owned." />
         <text name="ft_auto_no_badge_parked_or_player_controlled" text="Pas de badge = garé ou conduit par un joueur." />
@@ -1484,14 +1484,14 @@
         <text name="ft_auto_no_setup_required_just_start_working" text="No setup required - just start working." />
         <text name="ft_auto_no_sick_animal_pens_reported" text="No sick animal pens reported." />
         <text name="ft_auto_no_signal" text="No signal" />
-        <text name="ft_auto_no_silos_owned" text="No silos owned." />
+        <text name="ft_auto_no_silos_owned" text="Aucun silo possédé." />
         <text name="ft_auto_no_todos_yet_add_one_above" text="No todos yet - add one above" />
         <text name="ft_auto_no_vehicle" text="Aucun véhicule" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
-        <text name="ft_auto_no_vehicles_within_35_m" text="No vehicles within 35 m." />
+        <text name="ft_auto_no_vehicles_within_35_m" text="Aucun véhicule à moins de 35 m." />
         <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
-        <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="No workshop found on this farm  (repairs disabled)" />
+        <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Aucun atelier sur cette ferme  (réparations désactivées)" />
         <text name="ft_auto_none" text="aucun" />
         <text name="ft_auto_none_active" text="aucun actif" />
         <text name="ft_auto_normal" text="Normal" />
@@ -1542,8 +1542,8 @@
         <text name="ft_auto_on_sleeping_fields_are_skipped_to_save_performance_and" text="tourne. Les champs en veille sont ignorés pour économiser les ressources&#10;" />
         <text name="ft_auto_only_available_in_built_in_mode" text="Only available in built-in mode.&#10;" />
         <text name="ft_auto_only_motorized_vehicles_owned_by_your_farm_appear" text="Only motorized vehicles owned by your farm appear.&#10;" />
-        <text name="ft_auto_only_shown_when_2_stations_buy_that_crop" text="Only shown when 2+ stations buy that crop." />
-        <text name="ft_auto_only_shown_when_a_workshop_placeable_is_on_your_farm" text="Only shown when a workshop placeable is on your farm&#10;" />
+        <text name="ft_auto_only_shown_when_2_stations_buy_that_crop" text="Affiché seulement si 2 points de vente ou plus achètent cette culture." />
+        <text name="ft_auto_only_shown_when_a_workshop_placeable_is_on_your_farm" text="Affiché seulement si un atelier posable est sur votre ferme&#10;" />
         <text name="ft_auto_open" text="OUVRIR" />
         <text name="ft_auto_open_2" text="Open" />
         <text name="ft_auto_open_button" text="BOUTON OUVRIR" />
@@ -1553,14 +1553,14 @@
         <text name="ft_auto_open_tablet" text="Open tablet" />
         <text name="ft_auto_open_the_contracts_app_for_details_and_deadlines" text="Ouvrez l'application Contrats pour les détails et délais." />
         <text name="ft_auto_opens_the_large_provider_selection_window" text="Opens the large provider selection window" />
-        <text name="ft_auto_operating_hours" text="Operating Hours" />
+        <text name="ft_auto_operating_hours" text="Heures de fonctionnement" />
         <text name="ft_auto_operating_hours_total_engine_time_in_whole_hours" text="Heures de service : temps moteur total en heures entières.&#10;" />
         <text name="ft_auto_optimal_ph_range_is_6_0_to_7_5" text="Optimal pH range is 6.0 to 7.5.&#10;" />
         <text name="ft_auto_or_reset_position_scale_to_restore_defaults" text="or RESET POSITION &amp; SCALE to restore defaults." />
         <text name="ft_auto_or_set_it_via_console_tabletsetstartupapp_weather" text="Or set it via console: TabletSetStartupApp weather" />
         <text name="ft_auto_or_the_workercosts_console_commands" text="or the WorkerCosts console commands." />
-        <text name="ft_auto_orange_bar_offer_is_waiting_for_your_decision" text="Orange bar = offer is waiting for your decision." />
-        <text name="ft_auto_orange_peak_current_price_is_below_the_recorded_high" text="Orange peak = current price is below the recorded high.&#10;" />
+        <text name="ft_auto_orange_bar_offer_is_waiting_for_your_decision" text="Barre orange = une offre attend votre décision." />
+        <text name="ft_auto_orange_peak_current_price_is_below_the_recorded_high" text="Record en orange = le prix actuel est sous le record enregistré.&#10;" />
         <text name="ft_auto_organic_matter" text="ORGANIC MATTER" />
         <text name="ft_auto_organic_matter_2" text="Organic Matter" />
         <text name="ft_auto_other" text="Other" />
@@ -1602,7 +1602,7 @@
         <text name="ft_auto_payroll" text="PAYROLL" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="PAYROLL TAB" />
-        <text name="ft_auto_peak_price_is_tracked_and_saved_per_savegame" text="Peak price is tracked and saved per savegame.&#10;" />
+        <text name="ft_auto_peak_price_is_tracked_and_saved_per_savegame" text="Le prix record est suivi et enregistré par sauvegarde.&#10;" />
         <text name="ft_auto_peak_s_day_d" text="  Peak: %s  (day %d)" />
         <text name="ft_auto_pen" text="Pen" />
         <text name="ft_auto_pen_capacity_e_g_cows_12_20" text="pen capacity (e.g. Cows  (12 / 20)).&#10;" />
@@ -1648,11 +1648,11 @@
         <text name="ft_auto_present" text="Present" />
         <text name="ft_auto_press_clear_all_once_it_turns_red_and_asks" text="Press CLEAR ALL once - it turns red and asks&#10;" />
         <text name="ft_auto_press_s_to_open" text="Press %s to open" />
-        <text name="ft_auto_price_comparison" text="PRICE COMPARISON" />
-        <text name="ft_auto_price_comparison_all_stations" text="PRICE COMPARISON  (all stations)" />
+        <text name="ft_auto_price_comparison" text="COMPARAISON DES PRIX" />
+        <text name="ft_auto_price_comparison_all_stations" text="COMPARAISON DES PRIX  (tous les points de vente)" />
         <text name="ft_auto_price_modifiers" text="Modificateurs de prix" />
         <text name="ft_auto_price_modifiers_and_event_frequency_can_be" text="Les modificateurs de prix et la fréquence des événements se&#10;" />
-        <text name="ft_auto_prices_are_per_1_000_litres_refreshes_every_5_seconds" text="Prices are per 1,000 litres. Refreshes every 5 seconds." />
+        <text name="ft_auto_prices_are_per_1_000_litres_refreshes_every_5_seconds" text="Prix pour 1 000 litres. Actualisés toutes les 5 secondes." />
         <text name="ft_auto_pro_staff" text="PRO-STAFF  (" />
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="PRO-STAFF IMPACT" />
@@ -1669,14 +1669,14 @@
         <text name="ft_auto_production_production_buildings_you_own" text="Production : bâtiments de production possédés." />
         <text name="ft_auto_productivity" text="PRODUCTIVITY" />
         <text name="ft_auto_productivity_separately" text="productivity separately." />
-        <text name="ft_auto_progress_bar" text="PROGRESS BAR" />
+        <text name="ft_auto_progress_bar" text="BARRE DE PROGRESSION" />
         <text name="ft_auto_provider" text="Provider" />
         <text name="ft_auto_provider_2" text="provider" />
         <text name="ft_auto_provider_changed_s" text="Provider changed: %s." />
         <text name="ft_auto_purchase_a_cheese_factory_bakery_or_other_production" text="Achetez une fromagerie, une boulangerie ou un autre bâtiment de production&#10;" />
         <text name="ft_auto_purchase_a_pen_to_start_raising_animals" text="Purchase a pen to start raising animals." />
         <text name="ft_auto_purchase_a_production_placeable_to_track_it_here" text="Purchase a production placeable to track it here." />
-        <text name="ft_auto_purchase_a_silo_to_track_stored_crops" text="Purchase a silo to track stored crops." />
+        <text name="ft_auto_purchase_a_silo_to_track_stored_crops" text="Achetez un silo pour suivre les cultures stockées." />
         <text name="ft_auto_purchase_cost" text="Purchase Cost" />
         <text name="ft_auto_purchase_land_to_start_farming" text="Purchase land to start farming." />
         <text name="ft_auto_purchase_motorized_vehicles_to_track_them_here" text="Purchase motorized vehicles to track them here." />
@@ -1726,11 +1726,11 @@
         <text name="ft_auto_repair_2" text="repair" />
         <text name="ft_auto_repair_all" text="REPAIR ALL" />
         <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL - resets damage on all your vehicles.&#10;" />
-        <text name="ft_auto_repair_button" text="REPAIR BUTTON" />
+        <text name="ft_auto_repair_button" text="BOUTON RÉPARER" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Repair completed. Tablet is ready to use again." />
-        <text name="ft_auto_repair_vehicle" text="REPAIR VEHICLE" />
+        <text name="ft_auto_repair_vehicle" text="RÉPARER LE VÉHICULE" />
         <text name="ft_auto_repair_vehicles" text="Repair vehicles" />
-        <text name="ft_auto_repairs_available" text="REPAIRS AVAILABLE" />
+        <text name="ft_auto_repairs_available" text="RÉPARATIONS DISPONIBLES" />
         <text name="ft_auto_repossessed" text="Repossessed" />
         <text name="ft_auto_repossessed_2" text="repossessed" />
         <text name="ft_auto_repossession" text="repossession" />
@@ -1799,8 +1799,8 @@
         <text name="ft_auto_select_a_field" text="SELECT A FIELD" />
         <text name="ft_auto_select_a_field_above_for_soil_details" text="Select a field above for soil details." />
         <text name="ft_auto_select_a_provider_then_activate_it" text="Select a provider, then activate it." />
-        <text name="ft_auto_select_a_vehicle_above_to_inspect" text="Select a vehicle above to inspect." />
-        <text name="ft_auto_select_unpin" text="SELECT / UNPIN" />
+        <text name="ft_auto_select_a_vehicle_above_to_inspect" text="Choisissez un véhicule ci-dessus pour l'inspecter." />
+        <text name="ft_auto_select_unpin" text="CHOISIR / DÉTACHER" />
         <text name="ft_auto_self" text="Self" />
         <text name="ft_auto_sell_crops" text="Sell crops" />
         <text name="ft_auto_sell_point" text="Sell Point" />
@@ -1837,11 +1837,11 @@
         <text name="ft_auto_shows_a_welcome_notification_when_a_savegame_loads" text="Shows a welcome notification when a savegame loads" />
         <text name="ft_auto_shows_all_active_map_hotspots_pins" text="Shows all active map hotspots / pins.&#10;" />
         <text name="ft_auto_shows_all_field_contracts_your_farm_has_accepted" text="Affiche tous les contrats de champ acceptés par votre ferme&#10;" />
-        <text name="ft_auto_shows_current_fuel_level_litres_remaining_and_tank" text="Shows current fuel level, litres remaining, and tank&#10;" />
+        <text name="ft_auto_shows_current_fuel_level_litres_remaining_and_tank" text="Affiche le niveau de carburant, les litres restants et la capacité&#10;" />
         <text name="ft_auto_shows_every_motorized_vehicle_your_farm_owns" text="Affiche chaque véhicule motorisé de votre ferme.&#10;" />
         <text name="ft_auto_shows_every_production_building_your_farm_owns" text="Affiche chaque bâtiment de production de votre ferme.&#10;" />
-        <text name="ft_auto_shows_item_name_monthly_payment_and_remaining" text="Shows item name, monthly payment, and remaining&#10;" />
-        <text name="ft_auto_shows_the_best_available_sell_price_per_stored_crop" text="Shows the best available sell price per stored crop&#10;" />
+        <text name="ft_auto_shows_item_name_monthly_payment_and_remaining" text="Affiche le nom de l'élément, la mensualité et le solde&#10;" />
+        <text name="ft_auto_shows_the_best_available_sell_price_per_stored_crop" text="Affiche le meilleur prix de vente de chaque culture stockée&#10;" />
         <text name="ft_auto_shows_the_changelog_for_farm_tablet_what_changed" text="Shows the changelog for Farm Tablet - what changed&#10;" />
         <text name="ft_auto_shows_the_current_tablet_position_x_y_and_scale" text="Shows the current tablet position (X/Y) and scale.&#10;" />
         <text name="ft_auto_shows_the_current_weather_condition_with_a_colour_coded" text="Shows the current weather condition with a colour-coded&#10;" />
@@ -1851,9 +1851,9 @@
         <text name="ft_auto_signing_cost" text="Signing cost  " />
         <text name="ft_auto_silo_inventory_and_current_sell_prices" text="Stock des silos et prix de vente actuels" />
         <text name="ft_auto_silos" text=" silos" />
-        <text name="ft_auto_silos_are_empty" text="Silos are empty" />
+        <text name="ft_auto_silos_are_empty" text="Les silos sont vides" />
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(depuis le dernier chargement de la sauvegarde).&#10;" />
-        <text name="ft_auto_single_station_no_comparison_available" text="Single station - no comparison available" />
+        <text name="ft_auto_single_station_no_comparison_available" text="Un seul point de vente - aucune comparaison possible" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
         <text name="ft_auto_skip_to" text="SKIP TO" />
         <text name="ft_auto_slate_grey" text="Gris ardoise" />
@@ -1909,7 +1909,7 @@
         <text name="ft_auto_state_2" text="STATE" />
         <text name="ft_auto_state_dot_colours" text="STATE DOT COLOURS" />
         <text name="ft_auto_stated_tax_rate" text="stated tax rate." />
-        <text name="ft_auto_stations_are_sorted_best_price_first" text="Stations are sorted best-price first.&#10;" />
+        <text name="ft_auto_stations_are_sorted_best_price_first" text="Les points de vente sont triés du meilleur prix au moins bon.&#10;" />
         <text name="ft_auto_stats" text="stats" />
         <text name="ft_auto_status" text="STATUT" />
         <text name="ft_auto_status_2" text="État" />
@@ -1918,7 +1918,7 @@
         <text name="ft_auto_status_banner" text="STATUS BANNER" />
         <text name="ft_auto_statuses_pending_paid_overdue_rejected" text="Statuses: PENDING, PAID, OVERDUE / REJECTED." />
         <text name="ft_auto_stone_picking" text="Ramassage de pierres" />
-        <text name="ft_auto_storage" text="Storage" />
+        <text name="ft_auto_storage" text="Stockage" />
         <text name="ft_auto_storage_2" text="storage" />
         <text name="ft_auto_storage_historical_peak_price_tracking_saved_per_savega" text="Storage: historical peak price tracking - saved per savegame" />
         <text name="ft_auto_storage_peak_shown_under_each_crop_orange_below_peak_gr" text="Storage: peak shown under each crop (orange = below peak, green = at peak)" />
@@ -2022,7 +2022,7 @@
         <text name="ft_auto_the_mod_adds_configurable_periodic_income_payments" text="The mod adds configurable periodic income payments&#10;" />
         <text name="ft_auto_the_mod_deducts_periodic_tax_from_your_balance" text="The mod deducts periodic tax from your balance&#10;" />
         <text name="ft_auto_the_money_added_to_your_balance_per_payment_cycle" text="The money added to your balance per payment cycle.&#10;" />
-        <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="the panel below. Pinned vehicles stay visible even&#10;" />
+        <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="dans le panneau ci-dessous. Les véhicules épinglés restent visibles&#10;" />
         <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact - how levels (cheaper) and&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="the release date on the right.&#10;" />
         <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="The roster lives on the host and is loading." />
@@ -2041,7 +2041,7 @@
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="C'est un raccourci - vous pouvez aussi toucher son icône dans&#10;" />
         <text name="ft_auto_this_month" text="THIS MONTH" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
-        <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="tier, and how far through the listing period you are." />
+        <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="de l'agent et l'avancement de la période d'annonce." />
         <text name="ft_auto_time" text="TIME" />
         <text name="ft_auto_time_2" text="Heure" />
         <text name="ft_auto_time_3" text="time" />
@@ -2093,10 +2093,10 @@
         <text name="ft_auto_unloading" text="Unloading" />
         <text name="ft_auto_unlock" text="unlock" />
         <text name="ft_auto_unnamed" text="(unnamed)" />
-        <text name="ft_auto_unpin" text="UNPIN" />
+        <text name="ft_auto_unpin" text="DÉTACHER" />
         <text name="ft_auto_unpinned" text="Unpinned " />
         <text name="ft_auto_up_to_30_completed_jobs_are_stored_per_savegame" text="Up to 30 completed jobs are stored per savegame.&#10;" />
-        <text name="ft_auto_up_to_6_vehicles_are_shown_at_a_time" text="Up to 6 vehicles are shown at a time." />
+        <text name="ft_auto_up_to_6_vehicles_are_shown_at_a_time" text="Jusqu'à 6 véhicules sont affichés à la fois." />
         <text name="ft_auto_upd" text="UPD" />
         <text name="ft_auto_update_fs25_soilfertilizer_to_a_build_that_ships_the_br" text="Mettez à jour FS25_SoilFertilizer vers une version qui inclut le pont." />
         <text name="ft_auto_updates" text="Updates" />
@@ -2115,7 +2115,7 @@
         <text name="ft_auto_used_plus" text="used_plus" />
         <text name="ft_auto_usedplus" text="UsedPlus" />
         <text name="ft_auto_usedplus_active_sale_listings_and_finance_deals" text="UsedPlus - annonces de vente et financements actifs" />
-        <text name="ft_auto_usedplus_is_not_installed" text="UsedPlus is not installed." />
+        <text name="ft_auto_usedplus_is_not_installed" text="UsedPlus n'est pas installé." />
         <text name="ft_auto_v2" text="v2" />
         <text name="ft_auto_values_update_live_as_you_walk_around" text="Values update live as you walk around." />
         <text name="ft_auto_vehcount" text="vehcount_" />
@@ -2134,7 +2134,7 @@
         <text name="ft_auto_vehicles_motorised_vehicles_owned_by_your_farm" text="Véhicules : les véhicules motorisés de votre ferme." />
         <text name="ft_auto_vehicles_motorized_vehicles_owned_by_your_farm" text="Véhicules : véhicules motorisés de votre ferme.&#10;" />
         <text name="ft_auto_vehicles_nearby" text=" vehicles nearby" />
-        <text name="ft_auto_vehicles_you_have_listed_for_sale_through_a_usedplus" text="Vehicles you have listed for sale through a UsedPlus&#10;" />
+        <text name="ft_auto_vehicles_you_have_listed_for_sale_through_a_usedplus" text="Véhicules que vous avez mis en vente via un agent&#10;" />
         <text name="ft_auto_version" text="Version" />
         <text name="ft_auto_version_developer" text="VERSION / DÉVELOPPEUR" />
         <text name="ft_auto_version_entries" text="VERSION ENTRIES" />
@@ -2158,8 +2158,8 @@
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="RÉVEIL" />
         <text name="ft_auto_wake_2" text="wake" />
-        <text name="ft_auto_walk_closer_to_a_machine_to_see_it_in_the_list" text="Walk closer to a machine to see it in the list.&#10;" />
-        <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="Walk closer to a vehicle to inspect it." />
+        <text name="ft_auto_walk_closer_to_a_machine_to_see_it_in_the_list" text="Approchez-vous d'une machine pour la voir dans la liste.&#10;" />
+        <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="Approchez-vous d'un véhicule pour l'inspecter." />
         <text name="ft_auto_walk_to_scan_terrain_elevation" text="Walk to scan terrain elevation" />
         <text name="ft_auto_wall" text="wall" />
         <text name="ft_auto_warm" text="Warm" />
@@ -2175,7 +2175,7 @@
         <text name="ft_auto_weak_reception" text="Weak reception." />
         <text name="ft_auto_weak_signal" text="Weak signal" />
         <text name="ft_auto_wear" text="WEAR" />
-        <text name="ft_auto_wear_2" text="Wear" />
+        <text name="ft_auto_wear_2" text="Usure" />
         <text name="ft_auto_wear_bar" text="BARRE D'USURE" />
         <text name="ft_auto_weather" text="Météo" />
         <text name="ft_auto_weather_2" text="weather" />
@@ -2186,7 +2186,7 @@
         <text name="ft_auto_weight" text="WEIGHT" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Bienvenue ! Touchez une application pour commencer." />
-        <text name="ft_auto_what_counts_as_a_silo" text="WHAT COUNTS AS A SILO?" />
+        <text name="ft_auto_what_counts_as_a_silo" text="QU'EST-CE QU'UN SILO ?" />
         <text name="ft_auto_what_is_the_app_store" text="QU'EST-CE QUE LE MAGASIN D'APPLICATIONS" />
         <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
@@ -2199,7 +2199,7 @@
         <text name="ft_auto_when_off_all_sub_toggles_are_also_silenced" text="When off all sub-toggles are also silenced.&#10;" />
         <text name="ft_auto_when_that_mod_is_installed" text="when that mod is installed." />
         <text name="ft_auto_when_you_are_driving_a_vehicle_its_name_and_current" text="When you are driving a vehicle its name and current&#10;" />
-        <text name="ft_auto_when_you_walk_away_click_unpin_to_release_it" text="when you walk away. Click UNPIN to release it." />
+        <text name="ft_auto_when_you_walk_away_click_unpin_to_release_it" text="même si vous vous éloignez. Cliquez sur DÉTACHER pour le libérer." />
         <text name="ft_auto_whenever_a_savegame_loads_turn_off_to_keep_things" text="whenever a savegame loads. Turn off to keep things&#10;" />
         <text name="ft_auto_while_it_is_open_no_need_to_reopen_it" text="while it is open - no need to reopen it.&#10;" />
         <text name="ft_auto_white" text="WHITE" />
@@ -2232,7 +2232,7 @@
         <text name="ft_auto_working" text="Working" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Working Now" />
-        <text name="ft_auto_workshop" text="Workshop" />
+        <text name="ft_auto_workshop" text="Atelier" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
         <text name="ft_auto_world" text="MONDE" />
@@ -2252,7 +2252,7 @@
         <text name="ft_auto_you_don_t_own_any_fields_yet" text="Vous ne possédez encore aucun champ." />
         <text name="ft_auto_your_farm_in_the_vehicle_settings" text="your farm in the vehicle settings." />
         <text name="ft_auto_your_farm_s_total_available_money" text="Tout l'argent disponible de votre ferme.&#10;" />
-        <text name="ft_auto_your_farm_s_usedplus_credit_rating" text="Your farm's UsedPlus credit rating.&#10;" />
+        <text name="ft_auto_your_farm_s_usedplus_credit_rating" text="La note de crédit UsedPlus de votre ferme.&#10;" />
         <text name="ft_auto_your_hired_workers_with_their_level" text="Your hired workers with their level&#10;" />
         <text name="ft_auto_your_reward" text="votre récompense." />
         <text name="ft_auto_your_silo_capacity" text="la capacité de vos silos." />
@@ -2673,6 +2673,22 @@
         <text name="ft_weather_mode_arid" text="Arid" />
         <text name="ft_weather_mode_normal" text="Normal" />
         <text name="ft_weather_mode_wet" text="Wet" />
+        <text name="ft_workshop_shop_one" text="%d atelier" />
+        <text name="ft_workshop_shops" text="%d ateliers" />
+        <text name="ft_workshop_vehicle_nearby_one" text="%d véhicule à proximité" />
+        <text name="ft_workshop_vehicles_nearby" text="%d véhicules à proximité" />
+        <text name="ft_workshop_nearby_fmt" text="À PROXIMITÉ  (%d)" />
+        <text name="ft_workshop_near_row_fmt" text="%sm  %s%%U" />
+        <text name="ft_workshop_fuel_fmt" text="%.0f%%  (%.0f L / %.0f L)" />
+        <text name="ft_storage_silo_one" text="%d silo" />
+        <text name="ft_storage_silos" text="%d silos" />
+        <text name="ft_storage_peak_fmt" text="Record : %s  (jour %d)" />
+        <text name="ft_usedplus_offer" text="OFFRE" />
+        <text name="ft_usedplus_day_left" text="%d jour restant" />
+        <text name="ft_usedplus_days_left" text="%d jours restants" />
+        <text name="ft_usedplus_hour_left" text="%d h restante" />
+        <text name="ft_usedplus_hours_left" text="%d h restantes" />
+        <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/mois  •  %d mois restants" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="BESOIN EN EAU (conseil)" />

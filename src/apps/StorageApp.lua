@@ -103,7 +103,8 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
         end
     end
 
-    local subtitle = storage.siloCount == 1 and "1 silo" or (storage.siloCount .. " silos")
+    local subtitle = storage.siloCount == 1 and FT.l10nFormat("ft_storage_silo_one", "%d silo", 1)
+        or FT.l10nFormat("ft_storage_silos", "%d silos", storage.siloCount)
     local startY = self:drawAppHeader("Storage", subtitle)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
@@ -153,7 +154,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
             if pk and pk.price > 0 then
                 local isAtPeak = pd.bestPrice >= pk.price
                 local pkColor  = isAtPeak and FT.C.POSITIVE or FT.C.WARNING
-                local pkText   = string.format("  Peak: %s  (day %d)",
+                local pkText   = "  " .. FT.l10nFormat("ft_storage_peak_fmt", "Peak: %s  (day %d)",
                     data:formatMoney(pk.price), pk.day)
                 self.r:appText(x + FT.px(14), y, FT.FONT.TINY, pkText,
                     RenderText.ALIGN_LEFT, pkColor)
@@ -202,7 +203,7 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
     end
 
     if not compShown then
-        y = self:drawRow(y, "Single station — no comparison available", "")
+        y = self:drawRow(y, "Single station - no comparison available", "")
     end
 
     self:setContentHeight(startY - y + scrollY)

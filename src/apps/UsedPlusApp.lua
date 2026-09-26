@@ -85,7 +85,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
             local statusLabel = ""
             if lst.status == "offer_pending" then
                 statusColor = FT.C.WARNING
-                statusLabel = "  OFFER"
+                statusLabel = FT.l10n("ft_usedplus_offer", "OFFER")
             end
             local nameText = FT_Renderer.truncate(lst.vehicleName or "Unknown", 22)
             self.r:appText(x + FT.px(4), y - FT.py(10),
@@ -130,9 +130,11 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
             local daysLeft  = math.floor(hoursLeft / 24)
             local timeStr
             if daysLeft > 0 then
-                timeStr = string.format("%d day%s remaining", daysLeft, daysLeft ~= 1 and "s" or "")
+                timeStr = (daysLeft == 1) and FT.l10nFormat("ft_usedplus_day_left", "%d day remaining", daysLeft)
+                    or FT.l10nFormat("ft_usedplus_days_left", "%d days remaining", daysLeft)
             else
-                timeStr = string.format("%d hr%s remaining", hoursLeft, hoursLeft ~= 1 and "s" or "")
+                timeStr = (hoursLeft == 1) and FT.l10nFormat("ft_usedplus_hour_left", "%d hr remaining", hoursLeft)
+                    or FT.l10nFormat("ft_usedplus_hours_left", "%d hrs remaining", hoursLeft)
             end
             self.r:appText(x + FT.px(4), y - FT.py(7),
                 FT.FONT.TINY, timeStr, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
@@ -167,7 +169,7 @@ FarmTabletUI:registerDrawer(FT.APP.USED_PLUS, function(self)
                 y = y - FT.py(14)
 
                 -- Balance / monthly
-                local detailStr = string.format("%s  •  %s/mo  •  %d mo left",
+                local detailStr = FT.l10nFormat("ft_usedplus_deal_detail_fmt", "%s  •  %s/mo  •  %d mo left",
                     data:formatMoney(balance),
                     data:formatMoney(monthly2),
                     remMonths)

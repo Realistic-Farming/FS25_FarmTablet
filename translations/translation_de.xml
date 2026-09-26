@@ -467,7 +467,7 @@
         <text name="ft_auto_advances_to_tomorrow_if_time_has_passed_today" text="Springt zum nächsten Tag, wenn die Uhrzeit bereits überschritten wurde." />
         <text name="ft_auto_advice_discounts_and_early_warnings" text="Ratschläge, Rabatte und Warnungen." />
         <text name="ft_auto_after_a_fixed_duration" text="nach einer festen Zeit." />
-        <text name="ft_auto_agent_shows_vehicle_name_asking_price_range_agent" text="Verkäufer zeigt den Fahrzeugnamen und fragt nach der Preisspanne&#10;" />
+        <text name="ft_auto_agent_shows_vehicle_name_asking_price_range_agent" text="Zeigt Fahrzeugname, Preisspanne und Makler-&#10;" />
         <text name="ft_auto_agraconnect" text="AgraConnect" />
         <text name="ft_auto_agraconnect_2" text="agraconnect" />
         <text name="ft_auto_agrar" text="agrar" />
@@ -500,7 +500,7 @@
         <text name="ft_auto_and_how_long_the_job_took" text="und wie lange der Auftrag gedauert hat." />
         <text name="ft_auto_and_is_currently_working_on" text="und gerade bearbeitet.&#10;" />
         <text name="ft_auto_and_is_independent_of_contract_decorative_states" text="und hängt nicht von Vertrags- oder Dekozuständen ab." />
-        <text name="ft_auto_and_liquid_manure_tanks" text="und Flüssigdüngerbehälter." />
+        <text name="ft_auto_and_liquid_manure_tanks" text="und Güllebehälter." />
         <text name="ft_auto_and_returns_a_configurable_percentage_as_a_rebate" text="und gibt einen konfigurierbaren Prozentsatz als Rabatt." />
         <text name="ft_auto_and_the_selected_vehicle_has_more_than_2_wear" text="und das ausgewählte Fahrzeug hat mehr als 2% Abnutzung.&#10;" />
         <text name="ft_auto_and_time_of_day" text="und die Tageszeit." />
@@ -581,9 +581,9 @@
         <text name="ft_auto_bck" text="BCK" />
         <text name="ft_auto_best_sell_prices" text="Höchstpreis (Verkauf)" />
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="Höchstpreis pro 1.000 Liter" />
-        <text name="ft_auto_between_25_and_75_of_the_listing_window" text="zwischen 25% und 75% aufgezeichneten Zeitraums.&#10;" />
+        <text name="ft_auto_between_25_and_75_of_the_listing_window" text="zwischen 25% und 75% Angebotslaufzeit eintreffen.&#10;" />
         <text name="ft_auto_boolean" text="boolean" />
-        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="Ausfälle - reparieren bevore 80% erreicht werden." />
+        <text name="ft_auto_breakdowns_repair_before_reaching_80" text="Ausfälle verursachen - vor 80% reparieren." />
         <text name="ft_auto_browse_and_manage_installed_apps" text="Installierte Apps durchsuchen und verwalten" />
         <text name="ft_auto_bucket" text="Ladevolumen" />
         <text name="ft_auto_bucket_fill_level_and_material_type_as_a_bar" text="Füllvolumen und Art des Material als Leiste.&#10;" />
@@ -643,7 +643,7 @@
         <text name="ft_auto_clears_all_load_history_and_resets_the_session_totals" text="entfernt alle gespeicherten Ladevorgänge und setzt die Werte für die gesamte Spiel-Session zurück.&#10;" />
         <text name="ft_auto_click" text="click" />
         <text name="ft_auto_click_open_on_any_app_row_to_switch_to_it_directly" text="Drücke auf eine App um direkt zu ihr zu wechseln.&#10;" />
-        <text name="ft_auto_click_select_on_a_vehicle_to_pin_its_diagnostics_in" text="Drücke auf auswählen um ein die Daten eines Fahrzeugs anzuheften&#10;" />
+        <text name="ft_auto_click_select_on_a_vehicle_to_pin_its_diagnostics_in" text="Klicke bei einem Fahrzeug auf AUSWÄHLEN, um seine Diagnose&#10;" />
         <text name="ft_auto_click_select_on_any_field_row_to_open_its_detailed" text="Drücke auf ein beliebiges Feld um seine Detailseite zu sehen&#10;" />
         <text name="ft_auto_click_the_button_to_cycle_through_available_options" text="Drücke den Knopf um durch die verfügbaren Optionen zu wechseln&#10;" />
         <text name="ft_auto_click_to_change_saved_in_modsettings" text="Zum Wechseln drücken | gespeichert in modSettings" />
@@ -717,8 +717,8 @@
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Anzahl von angenommenen Aufträgen die derzeit in Bearbeitung sind.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Erstelle Rechnungen mit der RoleplayPhone App." />
-        <text name="ft_auto_credit" text="CREDIT" />
-        <text name="ft_auto_credit_score" text="CREDIT SCORE" />
+        <text name="ft_auto_credit" text="BONITÄT" />
+        <text name="ft_auto_credit_score" text="KREDITWÜRDIGKEIT" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
         <text name="ft_auto_crop" text="Kultur" />
         <text name="ft_auto_crop_sale" text="Kulturverkauf" />
@@ -798,7 +798,7 @@
         <text name="ft_auto_defaulted" text="defaulted" />
         <text name="ft_auto_delete" text="LÖSCHEN" />
         <text name="ft_auto_description" text="DESCRIPTION" />
-        <text name="ft_auto_diagnostics" text="DIAGNOSTICS" />
+        <text name="ft_auto_diagnostics" text="DIAGNOSE" />
         <text name="ft_auto_dig" text="DIG" />
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
@@ -1012,12 +1012,12 @@
         <text name="ft_auto_fill" text="Fill" />
         <text name="ft_auto_fill_fuel" text="Kraftstoff Tanken" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="Kraftstoff auffüllen - füllt Kraftstoff (und AdBlue) bis zum Maximum auf&#10;" />
-        <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Füllzeit abgelaufen. Ein Angebot kann jederzeit erscheinen.&#10;" />
+        <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Gefüllt = verstrichene Zeit. Ein Angebot kann jederzeit&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
         <text name="ft_auto_filter" text="FILTER: " />
         <text name="ft_auto_fin" text="FIN" />
         <text name="ft_auto_finance" text="FINANZEN" />
-        <text name="ft_auto_finance_deals" text="FINANCE DEALS" />
+        <text name="ft_auto_finance_deals" text="FINANZIERUNGEN" />
         <text name="ft_auto_finances" text="FINANZEN" />
         <text name="ft_auto_finish_current_first" text="schließe den aktuellen zuerst ab" />
         <text name="ft_auto_finish_job" text="Auftrag abschließen" />
@@ -1130,7 +1130,7 @@
         <text name="ft_auto_gold" text="GOLD" />
         <text name="ft_auto_good" text="Gut" />
         <text name="ft_auto_grain_elevator" text="Getreide-Förderband" />
-        <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="Getreidesilo, Fahrsilo, Getreidegosse, Misthaufen,&#10;" />
+        <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="Getreidesilos, Fahrsilos, Silagegruben, Mistlager,&#10;" />
         <text name="ft_auto_grapple" text="grapple" />
         <text name="ft_auto_grass" text="GRAS" />
         <text name="ft_auto_green_30_yellow_65_red_65" text="Grün &lt;= 30%  |  Gelb &lt;= 65%  |  Rot &gt; 65%." />
@@ -1168,7 +1168,7 @@
         <text name="ft_auto_help_panel_sound_paging_when_the_fs25_help_opens" text="Hilfe-Seite Ton: abspielen, wenn die LS25 Hilfe-Seite geöffnet wird.&#10;" />
         <text name="ft_auto_hero_card_for_balance_on_dashboard" text="Anzeige für Kontostand im Dashboard." />
         <text name="ft_auto_high_wear_reduces_efficiency_repair_before_reaching_80" text="Hoher Verschleiß senkt die Leistung - vor 80% reparieren.&#10;" />
-        <text name="ft_auto_high_wear_reduces_vehicle_efficiency_and_can_cause" text="Eine hohe Abnutzung reduziert die Leistung deines Fahrzeugs und kann [X] verursachen&#10;" />
+        <text name="ft_auto_high_wear_reduces_vehicle_efficiency_and_can_cause" text="Hoher Verschleiß senkt die Leistung des Fahrzeugs und kann&#10;" />
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Eine höhere Organische Substanz im Boden verbessert die Wasseraufnahme und&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="eine höhere Beliebtheit schaltet bessere Belohnungen für erfüllte Gefallen frei." />
         <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="ein höherer Score gibt dir bessere Bedingungen für Kredite und geringere Zinsen." />
@@ -2022,7 +2022,7 @@
         <text name="ft_auto_the_mod_adds_configurable_periodic_income_payments" text="Der Mod fügt konfigurierbare regelmäßige Einnahmen hinzu.&#10;" />
         <text name="ft_auto_the_mod_deducts_periodic_tax_from_your_balance" text="Der Mod zieht regelmäßig Steuern von deinem Kontostand ab.&#10;" />
         <text name="ft_auto_the_money_added_to_your_balance_per_payment_cycle" text="Der Betrag, der pro Zahlungszyklus deinem Kontostand gutgeschrieben wird.&#10;" />
-        <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="Das folgende Panel bleibt auch bei angehefteten Fahrzeugen sichtbar.&#10;" />
+        <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="unten anzuheften. Angeheftete Fahrzeuge bleiben sichtbar,&#10;" />
         <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="Zeigt den Einfluss von Pro-Staff – wie Stufen Kosten und Effizienz beeinflussen.&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="...das Veröffentlichungsdatum auf der rechten Seite.&#10;" />
         <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="Die Personalliste befindet sich auf dem Host und wird geladen." />
@@ -2199,7 +2199,7 @@
         <text name="ft_auto_when_off_all_sub_toggles_are_also_silenced" text="Wenn deaktiviert, werden auch alle Unteroptionen stummgeschaltet.&#10;" />
         <text name="ft_auto_when_that_mod_is_installed" text="wenn dieser Mod installiert ist." />
         <text name="ft_auto_when_you_are_driving_a_vehicle_its_name_and_current" text="Wenn du ein Fahrzeug fährst, werden dessen Name und aktuelle&#10;" />
-        <text name="ft_auto_when_you_walk_away_click_unpin_to_release_it" text="Wenn du weggehst, klicke auf ENTFERNEN, um es zu lösen." />
+        <text name="ft_auto_when_you_walk_away_click_unpin_to_release_it" text="auch wenn du weggehst. Mit LÖSEN gibst du es wieder frei." />
         <text name="ft_auto_whenever_a_savegame_loads_turn_off_to_keep_things" text="bei jedem Laden eines Spielstands. Deaktiviere es, um Dinge&#10;" />
         <text name="ft_auto_while_it_is_open_no_need_to_reopen_it" text="solange es geöffnet ist – kein erneutes Öffnen erforderlich.&#10;" />
         <text name="ft_auto_white" text="Weiß" />
@@ -2674,6 +2674,22 @@
         <text name="ft_weather_mode_arid" text="Trocken" />
         <text name="ft_weather_mode_normal" text="Normal" />
         <text name="ft_weather_mode_wet" text="Feucht" />
+        <text name="ft_workshop_shop_one" text="%d Werkstatt" />
+        <text name="ft_workshop_shops" text="%d Werkstätten" />
+        <text name="ft_workshop_vehicle_nearby_one" text="%d Fahrzeug in der Nähe" />
+        <text name="ft_workshop_vehicles_nearby" text="%d Fahrzeuge in der Nähe" />
+        <text name="ft_workshop_nearby_fmt" text="IN DER NÄHE  (%d)" />
+        <text name="ft_workshop_near_row_fmt" text="%sm  %s%%V" />
+        <text name="ft_workshop_fuel_fmt" text="%.0f%%  (%.0f L / %.0f L)" />
+        <text name="ft_storage_silo_one" text="%d Silo" />
+        <text name="ft_storage_silos" text="%d Silos" />
+        <text name="ft_storage_peak_fmt" text="Höchstwert: %s  (Tag %d)" />
+        <text name="ft_usedplus_offer" text="ANGEBOT" />
+        <text name="ft_usedplus_day_left" text="noch %d Tag" />
+        <text name="ft_usedplus_days_left" text="noch %d Tage" />
+        <text name="ft_usedplus_hour_left" text="noch %d Std." />
+        <text name="ft_usedplus_hours_left" text="noch %d Std." />
+        <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/Monat  •  noch %d Monate" />
         <text name="ft_fc_history_no_clock" text="Time Guard benötigt" />
         <text name="ft_fc_history_no_clock_detail" text="Installiere Time Guard, um die monatliche Historie aufzuzeichnen. Die aktuellen Werte bleiben verfügbar." />
         <text name="ft_irr_advisory_water_need" text="BEWAESSERUNGSBEDARF (Beratung)" />
