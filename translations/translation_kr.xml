@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="일꾼" />
         <text name="ft_npc_role_farmhand" text="농장 일꾼" />
         <text name="ft_npc_role_agronomist" text="농학자" />
+        <text name="ft_aac_refill_below" text="보충 기준" />
+        <text name="ft_aac_target_fill" text="목표 충전량" />
+        <text name="ft_aac_last_action_line" text="마지막 작업" />
+        <text name="ft_aac_priority" text="우선순위" />
+        <text name="ft_vet_active_cases_one" text="활성 사례 1건" />
+        <text name="ft_vet_case_line_one" text="%s - 동물 1마리 - 약 %d분" />
     </texts>
 
 </l10n>

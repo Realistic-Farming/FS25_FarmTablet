@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="作業員" />
         <text name="ft_npc_role_farmhand" text="農場手伝い" />
         <text name="ft_npc_role_agronomist" text="農学者" />
+        <text name="ft_aac_refill_below" text="補充しきい値" />
+        <text name="ft_aac_target_fill" text="目標充填量" />
+        <text name="ft_aac_last_action_line" text="最後の操作" />
+        <text name="ft_aac_priority" text="優先度" />
+        <text name="ft_vet_active_cases_one" text="対応中 1 件" />
+        <text name="ft_vet_case_line_one" text="%s - 動物 1 頭 - 約 %d 分" />
     </texts>
 
 </l10n>

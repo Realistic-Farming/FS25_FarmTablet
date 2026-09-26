@@ -224,7 +224,7 @@
         <text name="ft_common_closed" text="Kiinni" />
         <text name="ft_common_note" text="MUISTIINPANO" />
         <text name="ft_aac_not_detected" text="AnimalAutoCarea ei havaittu." />
-        <text name="ft_aac_overall" text="Yhteensa" />
+        <text name="ft_aac_overall" text="Yhteensä" />
         <text name="ft_aac_food" text="Ruoka" />
         <text name="ft_aac_water" text="Vesi" />
         <text name="ft_aac_straw" text="Olki" />
@@ -232,18 +232,18 @@
         <text name="ft_aac_care_cost" text="Hoitokulu" />
         <text name="ft_aac_care_now" text="Hoida nyt" />
         <text name="ft_aac_last_action" text="VIIMEISIN TOIMI" />
-        <text name="ft_aac_no_action" text="Yhtaan toimea ei ole viela kirjattu." />
+        <text name="ft_aac_no_action" text="Yhtään toimea ei ole vielä kirjattu." />
         <text name="ft_vet_active_cases" text="%d aktiivista tapausta" />
         <text name="ft_vet_not_detected" text="AnimalVetSystemia ei havaittu." />
         <text name="ft_vet_active_illnesses" text="Aktiiviset sairaudet" />
-        <text name="ft_vet_veterinarian" text="Elainlaakari" />
+        <text name="ft_vet_veterinarian" text="Eläinlääkäri" />
         <text name="ft_vet_no_sick_pens" text="Ei sairaita karsinoita ilmoitettu." />
         <text name="ft_vet_cases" text="TAPAUKSET" />
         <text name="ft_vet_pen" text="Karsina" />
         <text name="ft_vet_illness" text="Sairaus" />
-        <text name="ft_vet_worker" text="Tyontekija" />
+        <text name="ft_vet_worker" text="Työntekijä" />
         <text name="ft_vet_self" text="Itse" />
-        <text name="ft_vet_case_line" text="%s - %d elainta - noin %d min" />
+        <text name="ft_vet_case_line" text="%s - %d eläintä - noin %d min" />
         <text name="ft_fws_open_count" text="%d/%d auki" />
         <text name="ft_fws_not_detected" text="FactoryWeekScheduleta ei havaittu." />
         <text name="ft_fws_factories_open" text="Tehtaita auki" />
@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="työläinen" />
         <text name="ft_npc_role_farmhand" text="renki" />
         <text name="ft_npc_role_agronomist" text="agronomi" />
+        <text name="ft_aac_refill_below" text="Täytä alle" />
+        <text name="ft_aac_target_fill" text="Tavoitetäyttö" />
+        <text name="ft_aac_last_action_line" text="Viimeisin toimi" />
+        <text name="ft_aac_priority" text="Prioriteetti" />
+        <text name="ft_vet_active_cases_one" text="1 aktiivinen tapaus" />
+        <text name="ft_vet_case_line_one" text="%s - 1 eläin - noin %d min" />
     </texts>
 
 </l10n>
