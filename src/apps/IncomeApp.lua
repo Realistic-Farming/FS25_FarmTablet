@@ -210,6 +210,24 @@ end)
 -- says so instead of claiming a zero. Nothing here touches the host's favour
 -- model; the page and the roster view are copies. An older host keeps the
 -- established compatibility read below.
+-- The role ids NPCFavor ships as a person's role (NPCSystem's farmer / shopkeeper / worker / farmhand, and
+-- agronomist for the consultant; the roster view's roleLabel carries the same id). An id selects the tablet's
+-- key where it is read (RSF-F357 section 7: names and ids are not lookup keys, the UI uses localized keys); an id
+-- this table does not know is drawn as the host supplies it.
+local NPC_ROLE_WORD = {
+    farmer     = function() return FT.l10n("ft_npc_role_farmer", "farmer") end,
+    shopkeeper = function() return FT.l10n("ft_npc_role_shopkeeper", "shopkeeper") end,
+    worker     = function() return FT.l10n("ft_npc_role_worker", "worker") end,
+    farmhand   = function() return FT.l10n("ft_npc_role_farmhand", "farmhand") end,
+    agronomist = function() return FT.l10n("ft_npc_role_agronomist", "agronomist") end,
+}
+
+local function npcRoleWord(role)
+    local f = NPC_ROLE_WORD[tostring(role)]
+    if f ~= nil then return f() end
+    return tostring(role)
+end
+
 local function npcHostRepaired(npcSys)
     return type(npcSys) == "table"
         and type(npcSys.getPersonalWorkView) == "function"
@@ -303,7 +321,7 @@ local function drawNpcWork(self, npcSys, y, minY)
                 local left = FT_Renderer.truncate(
                     (f.npcName or "?") .. "  " .. (f.description or f.type or ""), 28)
                 if f.timeKnown then
-                    y = self:drawRow(y, left, string.format("%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000)), nil, pctColor)
+                    y = self:drawRow(y, left, FT.l10nFormat("ft_npc_progress_left_fmt", "%d%%  %dh left", progress, math.floor((f.timeRemainingMs or 0) / 3600000)), nil, pctColor, nil, true)
                 else
                     -- The unknown time is its own mapped literal beside the progress.
                     y = self:drawRow(y, left, string.format("%d%%", progress), nil, pctColor, nil, true)
@@ -320,23 +338,23 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
 
     if self:drawHelpPage("_npcHelp", FT.APP.NPC_FAVOR, "NPC Favor", AC, {
         { title = "TOWN REPUTATION",
-          body  = "Overall standing with the local community (0-100).\n" ..
+          body  = FT.l10n("ft_npc_help_rep_body", "Overall standing with the local community (0-100).\n" ..
                   "Respected >= 70  |  Neutral >= 40  |  Poor < 40.\n" ..
-                  "Higher reputation unlocks better favor rewards." },
+                  "Higher reputation unlocks better favor rewards."), literalBody = true },
         { title = "ACTIVE FAVORS",
-          body  = "Number of favors currently in progress.\n" ..
+          body  = FT.l10n("ft_npc_help_active_body", "Number of favors currently in progress.\n" ..
                   "Each favor shows NPC name, description, completion\n" ..
-                  "percentage, and hours remaining." },
+                  "percentage, and hours remaining."), literalBody = true },
         { title = "RELATIONSHIPS",
-          body  = "Lists every active NPC with their relationship score\n" ..
+          body  = FT.l10n("ft_npc_help_relationships_body", "Lists every active NPC with their relationship score\n" ..
                   "and a colour-coded bar.\n" ..
                   "Friend >= 70  |  Neutral >= 40  |  Cold < 40.\n" ..
                   "Their role (Agronomist, Mechanic, etc.) is shown in\n" ..
-                  "square brackets next to their name." },
+                  "square brackets next to their name."), literalBody = true },
         { title = "BUILDING RELATIONSHIPS",
-          body  = "Complete favors for an NPC to increase their\n" ..
+          body  = FT.l10n("ft_npc_help_building_body", "Complete favors for an NPC to increase their\n" ..
                   "relationship score. Higher scores unlock exclusive\n" ..
-                  "advice, discounts, and early warnings." },
+                  "advice, discounts, and early warnings."), literalBody = true },
     }) then return end
 
     local startY = self:drawAppHeader("NPC Favor", "", nil, true)
@@ -362,12 +380,13 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
     local accent   = AC
 
     local repColor = townRep >= 70 and FT.C.POSITIVE or townRep >= 40 and FT.C.WARNING or FT.C.NEGATIVE
-    local repLabel = townRep >= 70 and "Respected" or townRep >= 40 and "Neutral" or "Poor"
+    local repLabel = townRep >= 70 and FT.l10n("ft_auto_respected", "Respected")
+                  or townRep >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_auto_poor", "Poor")
 
     self.r:appRect(x - FT.px(4), y - FT.py(22), cw + FT.px(8), FT.py(20),
         {repColor[1]*0.12, repColor[2]*0.12, repColor[3]*0.12, 0.95})
     self.r:appText(x, y - FT.py(18), FT.FONT.BODY,
-        "Town Reputation: " .. repLabel, RenderText.ALIGN_LEFT, repColor)
+        FT.l10nFormat("ft_npc_town_rep_fmt", "Town Reputation: %s", repLabel), RenderText.ALIGN_LEFT, repColor, true)
     self.r:appText(x + cw, y - FT.py(18), FT.FONT.SMALL,
         tostring(math.floor(townRep)) .. " / 100", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     y = y - FT.py(26)
@@ -403,8 +422,8 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                     local left = FT_Renderer.truncate(
                         (f.npcName or "?") .. "  " .. (f.description or f.type or ""), 28)
                     y = self:drawRow(y, left,
-                        string.format("%d%%  %dh left", math.floor(f.progress or 0), hoursLeft),
-                        nil, pctColor)
+                        FT.l10nFormat("ft_npc_progress_left_fmt", "%d%%  %dh left", math.floor(f.progress or 0), hoursLeft),
+                        nil, pctColor, nil, true)
                 end
             end
         end
@@ -428,7 +447,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
             if r.kind == "LIVE" and type(r.trust) == "number" then live[#live + 1] = r else others[#others + 1] = r end
         end
         table.sort(live, function(a, b) return a.trust > b.trust end)
-        y = self:drawSection(y, "RELATIONSHIPS  (" .. #live .. ")")
+        y = self:drawSection(y, FT.l10nFormat("ft_npc_relationships_fmt", "RELATIONSHIPS  (%d)", #live), true)
         if roster.personLoadState ~= "READY" or roster.snapshotState == "UNAVAILABLE" then
             self.r:appText(x, y - FT.py(10), FT.FONT.SMALL,
                 "Neighbours not available yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
@@ -440,13 +459,15 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                 if y <= minY + FT.py(16) then break end
                 local rel      = math.floor(math.min(math.max(r.trust, 0), 100))
                 local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
-                local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"
+                local relLabel = rel >= 70 and FT.l10n("ft_auto_friend", "Friend")
+                              or rel >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_npc_rel_cold", "Cold")
                 local nm       = tostring(r.name or "Unknown")
                 if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
                 self.r:appText(x, y, FT.FONT.SMALL,
-                    nm .. "  [" .. (r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                    nm .. "  [" .. npcRoleWord(r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+                -- One space: the text players have seen (the old draw pass collapsed the code's two).
                 self.r:appText(x + cw, y, FT.FONT.SMALL,
-                    rel .. "  " .. relLabel, RenderText.ALIGN_RIGHT, relColor)
+                    rel .. " " .. relLabel, RenderText.ALIGN_RIGHT, relColor, true)
                 y = y - FT.py(14)
                 y = self:drawBar(y, rel, 100, relColor)
                 y = y - FT.py(4)
@@ -464,11 +485,11 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
             end
         end
     elseif #npcs == 0 then
-        y = self:drawSection(y, "RELATIONSHIPS  (" .. #npcs .. ")")
+        y = self:drawSection(y, FT.l10nFormat("ft_npc_relationships_fmt", "RELATIONSHIPS  (%d)", #npcs), true)
         self.r:appText(x, y - FT.py(10), FT.FONT.SMALL,
             "No NPCs spawned yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
     else
-        y = self:drawSection(y, "RELATIONSHIPS  (" .. #npcs .. ")")
+        y = self:drawSection(y, FT.l10nFormat("ft_npc_relationships_fmt", "RELATIONSHIPS  (%d)", #npcs), true)
         local sorted = {}
         for _, npc in ipairs(npcs) do
             if npc and npc.isActive ~= false then table.insert(sorted, npc) end
@@ -479,13 +500,15 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
             if y <= minY + FT.py(16) then break end
             local rel      = math.floor(math.min(math.max(npc.relationship or 0, 0), 100))
             local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
-            local relLabel = rel >= 70 and "Friend" or rel >= 40 and "Neutral" or "Cold"
+            local relLabel = rel >= 70 and FT.l10n("ft_auto_friend", "Friend")
+                          or rel >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_npc_rel_cold", "Cold")
             local nm       = tostring(npc.name or "Unknown")
             if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
             self.r:appText(x, y, FT.FONT.SMALL,
-                nm .. "  [" .. (npc.role or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                nm .. "  [" .. npcRoleWord(npc.role or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+            -- One space: the text players have seen (the old draw pass collapsed the code's two).
             self.r:appText(x + cw, y, FT.FONT.SMALL,
-                rel .. "  " .. relLabel, RenderText.ALIGN_RIGHT, relColor)
+                rel .. " " .. relLabel, RenderText.ALIGN_RIGHT, relColor, true)
             y = y - FT.py(14)
             y = self:drawBar(y, rel, 100, relColor)
             y = y - FT.py(4)

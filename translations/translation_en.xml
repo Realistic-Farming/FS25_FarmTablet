@@ -2991,6 +2991,19 @@
         <text name="ft_wrk_roster_host" text="Roster is host-managed - syncs to clients soon." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />
         <text name="ft_wrk_worker_stats_fmt" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
+        <text name="ft_npc_progress_left_fmt" text="%d%%  %dh left" />
+        <text name="ft_npc_help_rep_body" text="Overall standing with the local community (0-100).&#10;Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;Higher reputation unlocks better favor rewards." />
+        <text name="ft_npc_help_active_body" text="Number of favors currently in progress.&#10;Each favor shows NPC name, description, completion&#10;percentage, and hours remaining." />
+        <text name="ft_npc_help_relationships_body" text="Lists every active NPC with their relationship score&#10;and a colour-coded bar.&#10;Friend &gt;= 70  |  Neutral &gt;= 40  |  Cold &lt; 40.&#10;Their role (Agronomist, Mechanic, etc.) is shown in&#10;square brackets next to their name." />
+        <text name="ft_npc_help_building_body" text="Complete favors for an NPC to increase their&#10;relationship score. Higher scores unlock exclusive&#10;advice, discounts, and early warnings." />
+        <text name="ft_npc_town_rep_fmt" text="Town Reputation: %s" />
+        <text name="ft_npc_relationships_fmt" text="RELATIONSHIPS  (%d)" />
+        <text name="ft_npc_rel_cold" text="Cold" />
+        <text name="ft_npc_role_farmer" text="farmer" />
+        <text name="ft_npc_role_shopkeeper" text="shopkeeper" />
+        <text name="ft_npc_role_worker" text="worker" />
+        <text name="ft_npc_role_farmhand" text="farmhand" />
+        <text name="ft_npc_role_agronomist" text="agronomist" />
     </texts>
 
 </l10n>
