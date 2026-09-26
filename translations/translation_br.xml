@@ -476,7 +476,7 @@
         <text name="ft_auto_ai_badge_appears_when_the_vehicle_is_driven_by_a_hired" text="O selo AJUDANTE aparece quando um trabalhador contratado dirige.&#10;" />
         <text name="ft_auto_akita" text="akita" />
         <text name="ft_auto_akita83" text="Akita83" />
-        <text name="ft_auto_all" text="All" />
+        <text name="ft_auto_all" text="Todos" />
         <text name="ft_auto_all_2" text="all" />
         <text name="ft_auto_all_apps" text="all apps" />
         <text name="ft_auto_all_apps_rewritten_with_new_drawer_pattern" text="All apps rewritten with new drawer pattern" />
@@ -577,7 +577,7 @@
         <text name="ft_auto_base_fee" text="Base fee" />
         <text name="ft_auto_base_fee_deducted_d" text="Base fee deducted: %d €" />
         <text name="ft_auto_base_fee_s_day" text="Base fee: %s €/day" />
-        <text name="ft_auto_base_rate" text="Base Rate" />
+        <text name="ft_auto_base_rate" text="Taxa base" />
         <text name="ft_auto_bck" text="BCK" />
         <text name="ft_auto_best_sell_prices" text="MELHORES PREÇOS DE VENDA" />
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="MELHORES PREÇOS DE VENDA  (por 1.000 L)" />
@@ -713,7 +713,7 @@
         <text name="ft_auto_cool" text="Fresco" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
-        <text name="ft_auto_cost_mode_2" text="Cost Mode" />
+        <text name="ft_auto_cost_mode_2" text="Modo de custo" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Número de contratos aceitos em andamento.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
@@ -872,7 +872,7 @@
         <text name="ft_auto_equipment_rental" text="Equipment Rental" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
         <text name="ft_auto_error_farm_tablet_not_initialized" text="Error: Farm Tablet not initialized" />
-        <text name="ft_auto_est_interval" text="Est. Interval" />
+        <text name="ft_auto_est_interval" text="Intervalo estimado" />
         <text name="ft_auto_etc_it_appears_here_with_its_name_events_end" text="etc.), ele aparece aqui com o nome. Os eventos terminam&#10;" />
         <text name="ft_auto_event" text="Event" />
         <text name="ft_auto_event_frequency" text="Frequência de eventos" />
@@ -1010,7 +1010,7 @@
         <text name="ft_auto_fieldsentry_is_not_available" text="A Sentinela de Campo não está disponível." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - simulação do solo por campo, repouso e pasto" />
         <text name="ft_auto_fill" text="Carga" />
-        <text name="ft_auto_fill_fuel" text="FILL FUEL" />
+        <text name="ft_auto_fill_fuel" text="ABASTECER" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Preenchido = tempo decorrido. Uma oferta pode chegar a qualquer&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
@@ -1022,7 +1022,7 @@
         <text name="ft_auto_finish_current_first" text="conclua o atual primeiro" />
         <text name="ft_auto_finish_job" text="CONCLUIR TRABALHO" />
         <text name="ft_auto_finishing_a_job" text="CONCLUINDO UM TRABALHO" />
-        <text name="ft_auto_fire" text="FIRE" />
+        <text name="ft_auto_fire" text="DEMITIR" />
         <text name="ft_auto_fire_and_pin_workers_to_vehicles" text="fire, and pin workers to vehicles." />
         <text name="ft_auto_fire_system" text="Fire System" />
         <text name="ft_auto_fired_s_severance_s" text="Fired %s (severance %s)" />
@@ -1172,9 +1172,9 @@
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Higher organic matter improves water retention and&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="Higher reputation unlocks better favor rewards." />
         <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="Pontuação maior = melhores condições de empréstimo e juros menores." />
-        <text name="ft_auto_hire" text="HIRE" />
+        <text name="ft_auto_hire" text="CONTRATAR" />
         <text name="ft_auto_hire_2" text="hire" />
-        <text name="ft_auto_hire_tab" text="HIRE TAB" />
+        <text name="ft_auto_hire_tab" text="ABA CONTRATAR" />
         <text name="ft_auto_hired_s_signing_s" text="Hired %s (signing %s)" />
         <text name="ft_auto_history" text="HISTORY" />
         <text name="ft_auto_history_2" text="Histórico · " />
@@ -1192,7 +1192,7 @@
         <text name="ft_auto_hotspots" text="HOTSPOTS" />
         <text name="ft_auto_hourly_charged_every_in_game_hour" text="Hourly = charged every in-game hour.&#10;" />
         <text name="ft_auto_hourly_every_in_game_hour" text="Hourly = every in-game hour.&#10;" />
-        <text name="ft_auto_hours" text="Hours" />
+        <text name="ft_auto_hours" text="Horas" />
         <text name="ft_auto_hours_2" text="hours" />
         <text name="ft_auto_hours_status" text="HORAS / STATUS" />
         <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is - straw level for pigs and cows,&#10;" />
@@ -1201,7 +1201,7 @@
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
-        <text name="ft_auto_idle" text="Idle" />
+        <text name="ft_auto_idle" text="Ociosos" />
         <text name="ft_auto_idle_2" text="idle" />
         <text name="ft_auto_if_a_field_has_more_than_5_accumulated_drought" text="If a field has more than 5% accumulated drought&#10;" />
         <text name="ft_auto_if_a_vehicle_is_missing_check_it_is_assigned_to" text="If a vehicle is missing, check it is assigned to&#10;" />
@@ -1244,7 +1244,7 @@
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instale o FS25_UsedPlus para usar este aplicativo." />
-        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Install FS25_WorkerCosts to manage personnel." />
+        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instale o FS25_WorkerCosts para gerenciar o pessoal." />
         <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
@@ -1294,7 +1294,7 @@
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
         <text name="ft_auto_level" text="Nível" />
         <text name="ft_auto_level_2" text="level" />
-        <text name="ft_auto_levels" text="Levels" />
+        <text name="ft_auto_levels" text="Níveis" />
         <text name="ft_auto_light" text="Light" />
         <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Lista todas as culturas armazenadas nos seus silos.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Lists every active NPC with their relationship score&#10;" />
@@ -1367,10 +1367,10 @@
         <text name="ft_auto_modsettings" text="modSettings" />
         <text name="ft_auto_moisture_bar" text="MOISTURE BAR" />
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
-        <text name="ft_auto_money" text="MONEY" />
+        <text name="ft_auto_money" text="DINHEIRO" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
         <text name="ft_auto_month_costs" text="MONTH COSTS" />
-        <text name="ft_auto_month_to_date" text="Month To Date" />
+        <text name="ft_auto_month_to_date" text="Mês até agora" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total mensal" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
@@ -1399,8 +1399,8 @@
         <text name="ft_auto_net_p_l_income_minus_expenses" text="Lucro líquido: receitas menos despesas." />
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Resultado líquido = receitas menos despesas da sessão." />
         <text name="ft_auto_net_pl" text="net_pl" />
-        <text name="ft_auto_net_savings" text="Net Savings" />
-        <text name="ft_auto_net_surcharge" text="Net Surcharge" />
+        <text name="ft_auto_net_savings" text="Economia líquida" />
+        <text name="ft_auto_net_surcharge" text="Acréscimo líquido" />
         <text name="ft_auto_net_worth" text="Patrimônio líquido" />
         <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Patrimônio líquido: saldo menos empréstimo - sua real situação financeira." />
         <text name="ft_auto_network" text="Network" />
@@ -1460,7 +1460,7 @@
         <text name="ft_auto_no_badge_parked_or_player_controlled" text="Sem selo = estacionado ou dirigido por um jogador." />
         <text name="ft_auto_no_bucket_vehicle_detected_nearby" text="No bucket vehicle detected nearby." />
         <text name="ft_auto_no_buildings_shown" text="NENHUM EDIFÍCIO EXIBIDO" />
-        <text name="ft_auto_no_candidates_available" text="No candidates available." />
+        <text name="ft_auto_no_candidates_available" text="Nenhum candidato disponível." />
         <text name="ft_auto_no_completed_jobs_yet" text="Nenhum trabalho concluído ainda." />
         <text name="ft_auto_no_contracts_showing" text="NENHUM CONTRATO VISÍVEL" />
         <text name="ft_auto_no_crop_stress_data_yet" text="No crop stress data yet." />
@@ -1490,7 +1490,7 @@
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Nenhum veículo a até 35 m." />
         <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
-        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
+        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Nenhum trabalhador ainda. Abra a aba CONTRATAR para recrutar." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Nenhuma oficina nesta fazenda  (consertos desativados)" />
         <text name="ft_auto_none" text="nenhum" />
         <text name="ft_auto_none_active" text="nenhum ativo" />
@@ -1599,9 +1599,9 @@
         <text name="ft_auto_pay" text="PAY" />
         <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
         <text name="ft_auto_payment_mode_2" text="Payment Mode" />
-        <text name="ft_auto_payroll" text="PAYROLL" />
+        <text name="ft_auto_payroll" text="FOLHA" />
         <text name="ft_auto_payroll_2" text="payroll" />
-        <text name="ft_auto_payroll_tab" text="PAYROLL TAB" />
+        <text name="ft_auto_payroll_tab" text="ABA FOLHA" />
         <text name="ft_auto_peak_price_is_tracked_and_saved_per_savegame" text="O preço máximo é registrado e salvo por jogo salvo.&#10;" />
         <text name="ft_auto_peak_s_day_d" text="  Peak: %s  (day %d)" />
         <text name="ft_auto_pen" text="Pen" />
@@ -1623,7 +1623,7 @@
         <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
-        <text name="ft_auto_pin" text="PIN" />
+        <text name="ft_auto_pin" text="FIXAR" />
         <text name="ft_auto_pin_2" text="Marcador" />
         <text name="ft_auto_pinned_s_to_s" text="Pinned %s to %s" />
         <text name="ft_auto_pins" text="PINS" />
@@ -1655,7 +1655,7 @@
         <text name="ft_auto_prices_are_per_1_000_litres_refreshes_every_5_seconds" text="Preços por 1.000 litros. Atualizados a cada 5 segundos." />
         <text name="ft_auto_pro_staff" text="PRO-STAFF  (" />
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
-        <text name="ft_auto_pro_staff_impact" text="PRO-STAFF IMPACT" />
+        <text name="ft_auto_pro_staff_impact" text="IMPACTO PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
         <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
         <text name="ft_auto_prod" text="PROD" />
@@ -1708,7 +1708,7 @@
         <text name="ft_auto_record_is_saved_to_the_history_list" text="record is saved to the History list." />
         <text name="ft_auto_recruit" text="Recruit" />
         <text name="ft_auto_recruit_2" text="recruit" />
-        <text name="ft_auto_recruitment_pool" text="Recruitment pool" />
+        <text name="ft_auto_recruitment_pool" text="Banco de candidatos" />
         <text name="ft_auto_recruitment_pool_rerolled" text="Recruitment pool rerolled" />
         <text name="ft_auto_refill_before_hitting_red_to_maintain_productivity" text="Refill before hitting red to maintain productivity." />
         <text name="ft_auto_refuel_vehicles" text="Refuel vehicles" />
@@ -1724,7 +1724,7 @@
         <text name="ft_auto_reopen_initial_selection" text="REOPEN INITIAL SELECTION" />
         <text name="ft_auto_repair" text="REPAIR" />
         <text name="ft_auto_repair_2" text="repair" />
-        <text name="ft_auto_repair_all" text="REPAIR ALL" />
+        <text name="ft_auto_repair_all" text="CONSERTAR TUDO" />
         <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL - resets damage on all your vehicles.&#10;" />
         <text name="ft_auto_repair_button" text="BOTÃO CONSERTAR" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Repair completed. Tablet is ready to use again." />
@@ -1736,7 +1736,7 @@
         <text name="ft_auto_repossession" text="repossession" />
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
-        <text name="ft_auto_reroll" text="REROLL" />
+        <text name="ft_auto_reroll" text="RENOVAR" />
         <text name="ft_auto_reset" text="REDEFINIR" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
@@ -1757,13 +1757,13 @@
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
         <text name="ft_auto_rolling" text="Rolagem" />
-        <text name="ft_auto_roster" text="ROSTER" />
+        <text name="ft_auto_roster" text="EQUIPE" />
         <text name="ft_auto_roster_2" text="roster" />
-        <text name="ft_auto_roster_data_unavailable" text="Roster data unavailable." />
+        <text name="ft_auto_roster_data_unavailable" text="Dados da equipe indisponíveis." />
         <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Roster is host-managed - syncs to clients soon." />
-        <text name="ft_auto_roster_tab" text="ROSTER TAB" />
+        <text name="ft_auto_roster_tab" text="ABA EQUIPE" />
         <text name="ft_auto_rows_marked_fert_in_yellow_need_fertilising" text="Rows marked [FERT!] in yellow need fertilising.&#10;" />
-        <text name="ft_auto_running_costs" text="RUNNING COSTS" />
+        <text name="ft_auto_running_costs" text="CUSTOS CORRENTES" />
         <text name="ft_auto_rurallink" text="RuralLink" />
         <text name="ft_auto_rurallink_2" text="rurallink" />
         <text name="ft_auto_rwe" text="RWE" />
@@ -1855,7 +1855,7 @@
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(desde o último carregamento do jogo salvo).&#10;" />
         <text name="ft_auto_single_station_no_comparison_available" text="Só um ponto de venda - sem comparação disponível" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
-        <text name="ft_auto_skip_to" text="SKIP TO" />
+        <text name="ft_auto_skip_to" text="PULAR PARA" />
         <text name="ft_auto_slate_grey" text="Cinza Ardósia" />
         <text name="ft_auto_sleep" text="DORMIR" />
         <text name="ft_auto_sleep_toggle" text="CHAVE DE SONO" />
@@ -1941,12 +1941,12 @@
         <text name="ft_auto_summary_cards" text="CARTÕES DE RESUMO" />
         <text name="ft_auto_summer" text="Verão" />
         <text name="ft_auto_supplier" text="Supplier" />
-        <text name="ft_auto_sure" text="SURE?" />
+        <text name="ft_auto_sure" text="CERTEZA?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
         <text name="ft_auto_sw" text="SW" />
         <text name="ft_auto_switch_to_app_by_id" text="Switch to app by ID" />
         <text name="ft_auto_switched_to_app_s" text="Switched to app: %s" />
-        <text name="ft_auto_syncing_roster_from_host" text="Syncing roster from host..." />
+        <text name="ft_auto_syncing_roster_from_host" text="Sincronizando a equipe do host..." />
         <text name="ft_auto_system_initialized_apps_d" text="System initialized. Apps: %d" />
         <text name="ft_auto_table" text="table" />
         <text name="ft_auto_tablet" text="tablet" />
@@ -2025,7 +2025,7 @@
         <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="painel abaixo. Veículos fixados continuam visíveis mesmo&#10;" />
         <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact - how levels (cheaper) and&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="the release date on the right.&#10;" />
-        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="The roster lives on the host and is loading." />
+        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="A equipe fica no host e está carregando." />
         <text name="ft_auto_the_roster_lives_on_the_host_your_actions_are" text="The roster lives on the host. Your actions are&#10;" />
         <text name="ft_auto_the_tracker_activates_automatically_when_you_drive_or" text="The tracker activates automatically when you drive or&#10;" />
         <text name="ft_auto_the_worker_costs_mod_settings" text="the Worker Costs mod settings." />
@@ -2049,7 +2049,7 @@
         <text name="ft_auto_time_controls_2" text="time_controls" />
         <text name="ft_auto_time_controls_affect_all_players_and" text="Time controls affect all players and" />
         <text name="ft_auto_time_remaining" text="TEMPO RESTANTE" />
-        <text name="ft_auto_time_scale" text="TIME SCALE" />
+        <text name="ft_auto_time_scale" text="ESCALA DE TEMPO" />
         <text name="ft_auto_time_scale_now" text="TIME SCALE  ·  now: " />
         <text name="ft_auto_time_shown_is_in_game_time_not_real_world_time" text="O tempo mostrado é o do jogo, não o real.&#10;" />
         <text name="ft_auto_tisonk" text="TisonK" />
@@ -2127,7 +2127,7 @@
         <text name="ft_auto_vehicle_list" text="LISTA DE VEÍCULOS" />
         <text name="ft_auto_vehicle_repossessions_still_run_through_realisticdealer" text="Vehicle repossessions still run through RealisticDealer server-side." />
         <text name="ft_auto_vehicles" text=" vehicles" />
-        <text name="ft_auto_vehicles_2" text="VEHICLES" />
+        <text name="ft_auto_vehicles_2" text="VEÍCULOS" />
         <text name="ft_auto_vehicles_3" text="Veículos" />
         <text name="ft_auto_vehicles_4" text="vehicles" />
         <text name="ft_auto_vehicles_d_owned" text="VEHICLES  ·  %d owned" />
@@ -2151,8 +2151,8 @@
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
         <text name="ft_auto_wage_level" text="WAGE LEVEL" />
-        <text name="ft_auto_wage_level_2" text="Wage Level" />
-        <text name="ft_auto_wage_structure" text="WAGE STRUCTURE" />
+        <text name="ft_auto_wage_level_2" text="Nível salarial" />
+        <text name="ft_auto_wage_structure" text="ESTRUTURA SALARIAL" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
         <text name="ft_auto_wages_accrued" text="Wages Accrued" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
@@ -2223,13 +2223,13 @@
         <text name="ft_auto_waiting" text="aguardando" />
         <text name="ft_auto_worker_costs" text="Custos de trabalhadores" />
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
-        <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />
+        <text name="ft_auto_worker_costs_is_not_installed" text="O Worker Costs não está instalado." />
         <text name="ft_auto_worker_to_the_vehicle_you_re_driving_or_fire" text="worker to the vehicle you're driving, or FIRE&#10;" />
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salários dos trabalhadores e detalhamento de custos" />
-        <text name="ft_auto_workers" text="Workers" />
+        <text name="ft_auto_workers" text="Trabalhadores" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
-        <text name="ft_auto_working" text="Working" />
+        <text name="ft_auto_working" text="Trabalhando" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Working Now" />
         <text name="ft_auto_workshop" text="Oficina" />
@@ -2729,6 +2729,44 @@
         <text name="ft_storage_silo_one" text="%d silo" />
         <text name="ft_storage_silos" text="%d silos" />
         <text name="ft_storage_peak_fmt" text="Máximo: %s  (dia %d)" />
+        <text name="ft_farmadmin_help_money_body" text="Adiciona fundos à conta da sua fazenda.&#10;Valores: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_scale_body" text="Define a rapidez com que o tempo do jogo passa.&#10;PAUSA congela o tempo. A velocidade ativa fica destacada.&#10;Substitui o antigo bloco Controle de tempo." />
+        <text name="ft_farmadmin_help_skip_body" text="Avança o relógio para uma hora fixa do dia.&#10;Vai para amanhã se essa hora já passou hoje." />
+        <text name="ft_farmadmin_help_vehicles_body" text="CONSERTAR TUDO - zera o dano de todos os seus veículos.&#10;ABASTECER - enche o combustível (e o AdBlue) ao máximo&#10;             em todos os seus veículos motorizados." />
+        <text name="ft_farmadmin_help_mp_body" text="Pode ser usado pelo host e por um admin do servidor (master&#10;user) num servidor dedicado. As mudanças rodam no servidor." />
+        <text name="ft_farmadmin_admin_only" text="Só admins" />
+        <text name="ft_farmadmin_host_only" text="Só host ou admin do servidor" />
+        <text name="ft_farmadmin_notice_1" text="Estes controles afetam todos os jogadores. Entre" />
+        <text name="ft_farmadmin_notice_2" text="como admin do servidor para usá-los." />
+        <text name="ft_farmadmin_time_scale_fmt" text="ESCALA DE TEMPO  ·  agora: %s" />
+        <text name="ft_farmadmin_skip_6am" text="6:00" />
+        <text name="ft_farmadmin_skip_noon" text="12:00" />
+        <text name="ft_farmadmin_skip_6pm" text="18:00" />
+        <text name="ft_farmadmin_skip_midnight" text="MEIA-NOITE" />
+        <text name="ft_farmadmin_vehicles_fmt" text="VEÍCULOS  ·  %d próprios" />
+        <text name="ft_personnel_workers_fmt" text="%d  (%d trabalhando)" />
+        <text name="ft_personnel_levels_fmt" text="%dN / %dE / %dM" />
+        <text name="ft_personnel_sort_fmt" text="ORDEM: %s" />
+        <text name="ft_personnel_filter_fmt" text="FILTRO: %s" />
+        <text name="ft_personnel_worker_word" text="trabalhador" />
+        <text name="ft_personnel_vehicle_word" text="veículo" />
+        <text name="ft_personnel_recruit_word" text="candidato" />
+        <text name="ft_personnel_msg_unpinned" text="%s desafixado" />
+        <text name="ft_personnel_msg_enter_vehicle" text="Entre primeiro num veículo e depois FIXAR" />
+        <text name="ft_personnel_msg_no_vehicle_id" text="O veículo não tem id estável - salve uma vez e depois FIXAR" />
+        <text name="ft_personnel_msg_pinned" text="%s fixado em %s" />
+        <text name="ft_personnel_msg_fired" text="%s demitido (rescisão %s)" />
+        <text name="ft_personnel_msg_confirm_fire" text="Toque DEMITIR de novo para confirmar - rescisão %s" />
+        <text name="ft_personnel_worker_stats_fmt" text="%.1f h  -  %d serviços  -  cansaço %d%%" />
+        <text name="ft_personnel_msg_rerolled" text="Banco de candidatos renovado" />
+        <text name="ft_personnel_msg_hired" text="%s contratado (bônus %s)" />
+        <text name="ft_personnel_signing_cost_fmt" text="Custo de contratação  %s" />
+        <text name="ft_personnel_per_worker_fmt" text="POR TRABALHADOR  (base %s)" />
+        <text name="ft_personnel_help_what_body" text="Uma central de pessoal para o FS25_WorkerCosts.&#10;Gerencie sua equipe Pro-Staff: revisar, contratar,&#10;demitir e fixar trabalhadores em veículos." />
+        <text name="ft_personnel_help_roster_body" text="Cada trabalhador com nível, horas totais, serviços&#10;e cansaço. Ordene e filtre a lista. FIXAR liga um&#10;trabalhador ao veículo que você dirige; DEMITIR o&#10;demite (toque duas vezes - há rescisão)." />
+        <text name="ft_personnel_help_hire_body" text="Um banco de candidatos que se renova. Cada candidato tem&#10;um nível e um bônus de contratação único. CONTRATAR o&#10;adiciona; RENOVAR traz novos candidatos." />
+        <text name="ft_personnel_help_payroll_body" text="A estrutura salarial, a estimativa de custos correntes e&#10;o impacto Pro-Staff - como os níveis (mais baratos) e&#10;o cansaço (mais caro) se equilibram na equipe." />
+        <text name="ft_personnel_help_mp_body" text="A equipe fica no host. Suas ações são&#10;enviadas ao host e o resultado volta&#10;para todos automaticamente." />
         <text name="ft_usedplus_offer" text="OFERTA" />
         <text name="ft_usedplus_day_left" text="%d dia restante" />
         <text name="ft_usedplus_days_left" text="%d dias restantes" />

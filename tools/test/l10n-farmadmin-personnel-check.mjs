@@ -86,11 +86,32 @@ const KEYS = [
 
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
-
+  "ft_auto_pro_staff_2": "the Pro-Staff feature's own name (FS25_WorkerCosts), kept in every language",
+  "ft_auto_1k": "a money amount in the tablet's shorthand (+$1K), written the same unless a locale spells it out",
+  "ft_auto_10k": "a money amount in the tablet's shorthand (+$10K), written the same unless a locale spells it out",
+  "ft_auto_100k": "a money amount in the tablet's shorthand (+$100K), written the same unless a locale spells it out",
+  "ft_auto_1m": "a money amount in the tablet's shorthand (+$1M), written the same unless a locale spells it out",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "br:ft_personnel_levels_fmt": "the level initials N / E / M are the Portuguese words' too (Novato / Experiente / Mestre)",
+  "da:ft_personnel_filter_fmt": "FILTER is the Danish word",
+  "da:ft_personnel_levels_fmt": "the level initials N / E / M are the Danish words' too (Nybegynder / Erfaren / Mester)",
+  "de:ft_personnel_filter_fmt": "FILTER is the German word",
+  "ea:ft_personnel_levels_fmt": "the level initials N / E / M are the Spanish words' too (Novato / Experimentado / Maestro)",
+  "es:ft_personnel_levels_fmt": "the level initials N / E / M are the Spanish words' too (Novato / Experimentado / Maestro)",
+  "fc:ft_ui_app_personnel": "Personnel is the French word",
+  "fr:ft_ui_app_personnel": "Personnel is the French word",
+  "id:ft_personnel_filter_fmt": "FILTER is the Indonesian word",
+  "it:ft_personnel_levels_fmt": "the level initials N / E / M are the Italian words' too (Novizio / Esperto / Maestro)",
+  "nl:ft_personnel_filter_fmt": "FILTER is the Dutch word",
+  "nl:ft_personnel_levels_fmt": "the level initials N / E / M are the Dutch words' too (Nieuweling / Ervaren / Meester)",
+  "no:ft_personnel_filter_fmt": "FILTER is the Norwegian word",
+  "no:ft_personnel_levels_fmt": "the level initials N / E / M are the Norwegian words' too (Nybegynner / Erfaren / Mester)",
+  "pt:ft_personnel_levels_fmt": "the level initials N / E / M are the Portuguese words' too (Novato / Experiente / Mestre)",
+  "ro:ft_personnel_levels_fmt": "the level initials N / E / M are the Romanian words' too (Novice / Experimentat / Maestru)",
+  "sv:ft_personnel_filter_fmt": "FILTER is the Swedish word",
+  "sv:ft_personnel_levels_fmt": "the level initials N / E / M are the Swedish words' too (Nybörjare / Erfaren / Mästare)",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").

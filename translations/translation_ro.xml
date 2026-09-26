@@ -476,7 +476,7 @@
         <text name="ft_auto_ai_badge_appears_when_the_vehicle_is_driven_by_a_hired" text="Insigna AJUTOR apare când vehiculul e condus de un muncitor angajat.&#10;" />
         <text name="ft_auto_akita" text="akita" />
         <text name="ft_auto_akita83" text="Akita83" />
-        <text name="ft_auto_all" text="All" />
+        <text name="ft_auto_all" text="Toți" />
         <text name="ft_auto_all_2" text="all" />
         <text name="ft_auto_all_apps" text="all apps" />
         <text name="ft_auto_all_apps_rewritten_with_new_drawer_pattern" text="All apps rewritten with new drawer pattern" />
@@ -577,7 +577,7 @@
         <text name="ft_auto_base_fee" text="Base fee" />
         <text name="ft_auto_base_fee_deducted_d" text="Base fee deducted: %d €" />
         <text name="ft_auto_base_fee_s_day" text="Base fee: %s €/day" />
-        <text name="ft_auto_base_rate" text="Base Rate" />
+        <text name="ft_auto_base_rate" text="Tarif de bază" />
         <text name="ft_auto_bck" text="BCK" />
         <text name="ft_auto_best_sell_prices" text="CELE MAI BUNE PREȚURI DE VÂNZARE" />
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="CELE MAI BUNE PREȚURI DE VÂNZARE  (la 1.000 L)" />
@@ -713,7 +713,7 @@
         <text name="ft_auto_cool" text="Răcoare" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
-        <text name="ft_auto_cost_mode_2" text="Cost Mode" />
+        <text name="ft_auto_cost_mode_2" text="Mod de cost" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Numărul contractelor acceptate în desfășurare.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
@@ -872,7 +872,7 @@
         <text name="ft_auto_equipment_rental" text="Equipment Rental" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
         <text name="ft_auto_error_farm_tablet_not_initialized" text="Error: Farm Tablet not initialized" />
-        <text name="ft_auto_est_interval" text="Est. Interval" />
+        <text name="ft_auto_est_interval" text="Interval estimat" />
         <text name="ft_auto_etc_it_appears_here_with_its_name_events_end" text="etc.), apare aici cu numele său. Evenimentele se încheie&#10;" />
         <text name="ft_auto_event" text="Event" />
         <text name="ft_auto_event_frequency" text="Frecvența evenimentelor" />
@@ -1010,7 +1010,7 @@
         <text name="ft_auto_fieldsentry_is_not_available" text="Santinela câmpurilor nu este disponibilă." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - simularea solului pe câmp, repaus, pășune" />
         <text name="ft_auto_fill" text="Umplere" />
-        <text name="ft_auto_fill_fuel" text="FILL FUEL" />
+        <text name="ft_auto_fill_fuel" text="ALIMENTEAZĂ" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Plin = timp scurs. O ofertă poate sosi oricând&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
@@ -1022,7 +1022,7 @@
         <text name="ft_auto_finish_current_first" text="încheie mai întâi lucrarea curentă" />
         <text name="ft_auto_finish_job" text="ÎNCHEIE LUCRAREA" />
         <text name="ft_auto_finishing_a_job" text="ÎNCHEIEREA UNEI LUCRĂRI" />
-        <text name="ft_auto_fire" text="FIRE" />
+        <text name="ft_auto_fire" text="CONCEDIAZĂ" />
         <text name="ft_auto_fire_and_pin_workers_to_vehicles" text="fire, and pin workers to vehicles." />
         <text name="ft_auto_fire_system" text="Fire System" />
         <text name="ft_auto_fired_s_severance_s" text="Fired %s (severance %s)" />
@@ -1172,9 +1172,9 @@
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Higher organic matter improves water retention and&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="Higher reputation unlocks better favor rewards." />
         <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="Scor mai mare = condiții de credit mai bune și dobândă mai mică." />
-        <text name="ft_auto_hire" text="HIRE" />
+        <text name="ft_auto_hire" text="ANGAJEAZĂ" />
         <text name="ft_auto_hire_2" text="hire" />
-        <text name="ft_auto_hire_tab" text="HIRE TAB" />
+        <text name="ft_auto_hire_tab" text="FILA ANGAJEAZĂ" />
         <text name="ft_auto_hired_s_signing_s" text="Hired %s (signing %s)" />
         <text name="ft_auto_history" text="HISTORY" />
         <text name="ft_auto_history_2" text="Istoric · " />
@@ -1192,7 +1192,7 @@
         <text name="ft_auto_hotspots" text="HOTSPOTS" />
         <text name="ft_auto_hourly_charged_every_in_game_hour" text="Hourly = charged every in-game hour.&#10;" />
         <text name="ft_auto_hourly_every_in_game_hour" text="Hourly = every in-game hour.&#10;" />
-        <text name="ft_auto_hours" text="Hours" />
+        <text name="ft_auto_hours" text="Ore" />
         <text name="ft_auto_hours_2" text="hours" />
         <text name="ft_auto_hours_status" text="ORE / STARE" />
         <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is - straw level for pigs and cows,&#10;" />
@@ -1201,7 +1201,7 @@
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
-        <text name="ft_auto_idle" text="Idle" />
+        <text name="ft_auto_idle" text="Liberi" />
         <text name="ft_auto_idle_2" text="idle" />
         <text name="ft_auto_if_a_field_has_more_than_5_accumulated_drought" text="If a field has more than 5% accumulated drought&#10;" />
         <text name="ft_auto_if_a_vehicle_is_missing_check_it_is_assigned_to" text="If a vehicle is missing, check it is assigned to&#10;" />
@@ -1244,7 +1244,7 @@
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instalează FS25_UsedPlus pentru a folosi această aplicație." />
-        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Install FS25_WorkerCosts to manage personnel." />
+        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instalează FS25_WorkerCosts ca să gestionezi personalul." />
         <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
@@ -1294,7 +1294,7 @@
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
         <text name="ft_auto_level" text="Nivel" />
         <text name="ft_auto_level_2" text="level" />
-        <text name="ft_auto_levels" text="Levels" />
+        <text name="ft_auto_levels" text="Niveluri" />
         <text name="ft_auto_light" text="Light" />
         <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Afișează toate culturile depozitate în silozurile tale.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Lists every active NPC with their relationship score&#10;" />
@@ -1367,10 +1367,10 @@
         <text name="ft_auto_modsettings" text="modSettings" />
         <text name="ft_auto_moisture_bar" text="MOISTURE BAR" />
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
-        <text name="ft_auto_money" text="MONEY" />
+        <text name="ft_auto_money" text="BANI" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
         <text name="ft_auto_month_costs" text="MONTH COSTS" />
-        <text name="ft_auto_month_to_date" text="Month To Date" />
+        <text name="ft_auto_month_to_date" text="Luna până acum" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total lunar" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
@@ -1399,8 +1399,8 @@
         <text name="ft_auto_net_p_l_income_minus_expenses" text="Rezultat net: venituri minus cheltuieli." />
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Rezultat net = venituri minus cheltuieli în sesiune." />
         <text name="ft_auto_net_pl" text="net_pl" />
-        <text name="ft_auto_net_savings" text="Net Savings" />
-        <text name="ft_auto_net_surcharge" text="Net Surcharge" />
+        <text name="ft_auto_net_savings" text="Economie netă" />
+        <text name="ft_auto_net_surcharge" text="Supliment net" />
         <text name="ft_auto_net_worth" text="Valoare netă" />
         <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Valoare netă: sold minus împrumut - situația ta financiară reală." />
         <text name="ft_auto_network" text="Network" />
@@ -1460,7 +1460,7 @@
         <text name="ft_auto_no_badge_parked_or_player_controlled" text="Fără insignă = parcat sau condus de jucător." />
         <text name="ft_auto_no_bucket_vehicle_detected_nearby" text="No bucket vehicle detected nearby." />
         <text name="ft_auto_no_buildings_shown" text="NU SE AFIȘEAZĂ CLĂDIRI" />
-        <text name="ft_auto_no_candidates_available" text="No candidates available." />
+        <text name="ft_auto_no_candidates_available" text="Niciun candidat disponibil." />
         <text name="ft_auto_no_completed_jobs_yet" text="Nicio lucrare încheiată încă." />
         <text name="ft_auto_no_contracts_showing" text="NU APAR CONTRACTE" />
         <text name="ft_auto_no_crop_stress_data_yet" text="No crop stress data yet." />
@@ -1490,7 +1490,7 @@
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Niciun vehicul la mai puțin de 35 m." />
         <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
-        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
+        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Încă nu ai muncitori. Deschide fila ANGAJEAZĂ ca să recrutezi." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Niciun atelier în această fermă  (reparații dezactivate)" />
         <text name="ft_auto_none" text="niciunul" />
         <text name="ft_auto_none_active" text="niciunul activ" />
@@ -1599,9 +1599,9 @@
         <text name="ft_auto_pay" text="PAY" />
         <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
         <text name="ft_auto_payment_mode_2" text="Payment Mode" />
-        <text name="ft_auto_payroll" text="PAYROLL" />
+        <text name="ft_auto_payroll" text="SALARII" />
         <text name="ft_auto_payroll_2" text="payroll" />
-        <text name="ft_auto_payroll_tab" text="PAYROLL TAB" />
+        <text name="ft_auto_payroll_tab" text="FILA SALARII" />
         <text name="ft_auto_peak_price_is_tracked_and_saved_per_savegame" text="Prețul maxim este urmărit și salvat pentru fiecare salvare.&#10;" />
         <text name="ft_auto_peak_s_day_d" text="  Peak: %s  (day %d)" />
         <text name="ft_auto_pen" text="Pen" />
@@ -1623,7 +1623,7 @@
         <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
-        <text name="ft_auto_pin" text="PIN" />
+        <text name="ft_auto_pin" text="FIXEAZĂ" />
         <text name="ft_auto_pin_2" text="Marcaj" />
         <text name="ft_auto_pinned_s_to_s" text="Pinned %s to %s" />
         <text name="ft_auto_pins" text="PINS" />
@@ -1655,7 +1655,7 @@
         <text name="ft_auto_prices_are_per_1_000_litres_refreshes_every_5_seconds" text="Prețuri la 1.000 de litri. Se actualizează la fiecare 5 secunde." />
         <text name="ft_auto_pro_staff" text="PRO-STAFF  (" />
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
-        <text name="ft_auto_pro_staff_impact" text="PRO-STAFF IMPACT" />
+        <text name="ft_auto_pro_staff_impact" text="IMPACT PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
         <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
         <text name="ft_auto_prod" text="PROD" />
@@ -1708,7 +1708,7 @@
         <text name="ft_auto_record_is_saved_to_the_history_list" text="record is saved to the History list." />
         <text name="ft_auto_recruit" text="Recruit" />
         <text name="ft_auto_recruit_2" text="recruit" />
-        <text name="ft_auto_recruitment_pool" text="Recruitment pool" />
+        <text name="ft_auto_recruitment_pool" text="Rezervă de recrutare" />
         <text name="ft_auto_recruitment_pool_rerolled" text="Recruitment pool rerolled" />
         <text name="ft_auto_refill_before_hitting_red_to_maintain_productivity" text="Refill before hitting red to maintain productivity." />
         <text name="ft_auto_refuel_vehicles" text="Refuel vehicles" />
@@ -1724,7 +1724,7 @@
         <text name="ft_auto_reopen_initial_selection" text="REOPEN INITIAL SELECTION" />
         <text name="ft_auto_repair" text="REPAIR" />
         <text name="ft_auto_repair_2" text="repair" />
-        <text name="ft_auto_repair_all" text="REPAIR ALL" />
+        <text name="ft_auto_repair_all" text="REPARĂ TOT" />
         <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL - resets damage on all your vehicles.&#10;" />
         <text name="ft_auto_repair_button" text="BUTON REPARAȚIE" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Repair completed. Tablet is ready to use again." />
@@ -1736,7 +1736,7 @@
         <text name="ft_auto_repossession" text="repossession" />
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
-        <text name="ft_auto_reroll" text="REROLL" />
+        <text name="ft_auto_reroll" text="REÎMPROSPĂTEAZĂ" />
         <text name="ft_auto_reset" text="RESETARE" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
@@ -1757,13 +1757,13 @@
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
         <text name="ft_auto_rolling" text="Tăvălugire" />
-        <text name="ft_auto_roster" text="ROSTER" />
+        <text name="ft_auto_roster" text="ECHIPĂ" />
         <text name="ft_auto_roster_2" text="roster" />
-        <text name="ft_auto_roster_data_unavailable" text="Roster data unavailable." />
+        <text name="ft_auto_roster_data_unavailable" text="Datele echipei nu sunt disponibile." />
         <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Roster is host-managed - syncs to clients soon." />
-        <text name="ft_auto_roster_tab" text="ROSTER TAB" />
+        <text name="ft_auto_roster_tab" text="FILA ECHIPĂ" />
         <text name="ft_auto_rows_marked_fert_in_yellow_need_fertilising" text="Rows marked [FERT!] in yellow need fertilising.&#10;" />
-        <text name="ft_auto_running_costs" text="RUNNING COSTS" />
+        <text name="ft_auto_running_costs" text="COSTURI CURENTE" />
         <text name="ft_auto_rurallink" text="RuralLink" />
         <text name="ft_auto_rurallink_2" text="rurallink" />
         <text name="ft_auto_rwe" text="RWE" />
@@ -1855,7 +1855,7 @@
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(de la ultima încărcare a salvării).&#10;" />
         <text name="ft_auto_single_station_no_comparison_available" text="Un singur punct de vânzare - nicio comparație posibilă" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
-        <text name="ft_auto_skip_to" text="SKIP TO" />
+        <text name="ft_auto_skip_to" text="SARI LA" />
         <text name="ft_auto_slate_grey" text="Gri ardezie" />
         <text name="ft_auto_sleep" text="ADORMIRE" />
         <text name="ft_auto_sleep_toggle" text="COMUTATOR SOMN" />
@@ -1941,12 +1941,12 @@
         <text name="ft_auto_summary_cards" text="CARDURI REZUMAT" />
         <text name="ft_auto_summer" text="Vară" />
         <text name="ft_auto_supplier" text="Supplier" />
-        <text name="ft_auto_sure" text="SURE?" />
+        <text name="ft_auto_sure" text="SIGUR?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
         <text name="ft_auto_sw" text="SW" />
         <text name="ft_auto_switch_to_app_by_id" text="Switch to app by ID" />
         <text name="ft_auto_switched_to_app_s" text="Switched to app: %s" />
-        <text name="ft_auto_syncing_roster_from_host" text="Syncing roster from host..." />
+        <text name="ft_auto_syncing_roster_from_host" text="Se sincronizează echipa de la gazdă..." />
         <text name="ft_auto_system_initialized_apps_d" text="System initialized. Apps: %d" />
         <text name="ft_auto_table" text="table" />
         <text name="ft_auto_tablet" text="tablet" />
@@ -2025,7 +2025,7 @@
         <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="panoul de mai jos. Vehiculele fixate rămân vizibile chiar&#10;" />
         <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact - how levels (cheaper) and&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="the release date on the right.&#10;" />
-        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="The roster lives on the host and is loading." />
+        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="Echipa se află la gazdă și se încarcă." />
         <text name="ft_auto_the_roster_lives_on_the_host_your_actions_are" text="The roster lives on the host. Your actions are&#10;" />
         <text name="ft_auto_the_tracker_activates_automatically_when_you_drive_or" text="The tracker activates automatically when you drive or&#10;" />
         <text name="ft_auto_the_worker_costs_mod_settings" text="the Worker Costs mod settings." />
@@ -2049,7 +2049,7 @@
         <text name="ft_auto_time_controls_2" text="time_controls" />
         <text name="ft_auto_time_controls_affect_all_players_and" text="Time controls affect all players and" />
         <text name="ft_auto_time_remaining" text="TIMP RĂMAS" />
-        <text name="ft_auto_time_scale" text="TIME SCALE" />
+        <text name="ft_auto_time_scale" text="SCARA TIMPULUI" />
         <text name="ft_auto_time_scale_now" text="TIME SCALE  ·  now: " />
         <text name="ft_auto_time_shown_is_in_game_time_not_real_world_time" text="Timpul afișat este timp de joc, nu timp real.&#10;" />
         <text name="ft_auto_tisonk" text="TisonK" />
@@ -2127,7 +2127,7 @@
         <text name="ft_auto_vehicle_list" text="LISTA VEHICULELOR" />
         <text name="ft_auto_vehicle_repossessions_still_run_through_realisticdealer" text="Vehicle repossessions still run through RealisticDealer server-side." />
         <text name="ft_auto_vehicles" text=" vehicles" />
-        <text name="ft_auto_vehicles_2" text="VEHICLES" />
+        <text name="ft_auto_vehicles_2" text="VEHICULE" />
         <text name="ft_auto_vehicles_3" text="Vehicule" />
         <text name="ft_auto_vehicles_4" text="vehicles" />
         <text name="ft_auto_vehicles_d_owned" text="VEHICLES  ·  %d owned" />
@@ -2151,8 +2151,8 @@
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
         <text name="ft_auto_wage_level" text="WAGE LEVEL" />
-        <text name="ft_auto_wage_level_2" text="Wage Level" />
-        <text name="ft_auto_wage_structure" text="WAGE STRUCTURE" />
+        <text name="ft_auto_wage_level_2" text="Nivel salarial" />
+        <text name="ft_auto_wage_structure" text="STRUCTURA SALARIALĂ" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
         <text name="ft_auto_wages_accrued" text="Wages Accrued" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
@@ -2223,13 +2223,13 @@
         <text name="ft_auto_waiting" text="în așteptare" />
         <text name="ft_auto_worker_costs" text="Costurile muncitorilor" />
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
-        <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />
+        <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs nu este instalat." />
         <text name="ft_auto_worker_to_the_vehicle_you_re_driving_or_fire" text="worker to the vehicle you're driving, or FIRE&#10;" />
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salariile muncitorilor și defalcarea costurilor" />
-        <text name="ft_auto_workers" text="Workers" />
+        <text name="ft_auto_workers" text="Muncitori" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
-        <text name="ft_auto_working" text="Working" />
+        <text name="ft_auto_working" text="La lucru" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Working Now" />
         <text name="ft_auto_workshop" text="Atelier" />
@@ -2729,6 +2729,44 @@
         <text name="ft_storage_silo_one" text="%d siloz" />
         <text name="ft_storage_silos" text="%d silozuri" />
         <text name="ft_storage_peak_fmt" text="Maxim: %s  (ziua %d)" />
+        <text name="ft_farmadmin_help_money_body" text="Adaugă fonduri în contul fermei.&#10;Sume: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_scale_body" text="Stabilește cât de repede trece timpul de joc.&#10;PAUZĂ oprește timpul. Viteza activă e evidențiată.&#10;Înlocuiește vechea dală Controlul timpului." />
+        <text name="ft_farmadmin_help_skip_body" text="Mută ceasul la o oră fixă a zilei.&#10;Trece la ziua de mâine dacă ora a trecut deja azi." />
+        <text name="ft_farmadmin_help_vehicles_body" text="REPARĂ TOT - șterge avariile tuturor vehiculelor tale.&#10;ALIMENTEAZĂ - umple combustibilul (și AdBlue) la maximum&#10;             la toate vehiculele tale motorizate." />
+        <text name="ft_farmadmin_help_mp_body" text="Utilizabil de gazdă și de un admin al serverului (master&#10;user) pe un server dedicat. Schimbările rulează pe server." />
+        <text name="ft_farmadmin_admin_only" text="Doar admini" />
+        <text name="ft_farmadmin_host_only" text="Doar gazda sau adminul serverului" />
+        <text name="ft_farmadmin_notice_1" text="Aceste comenzi afectează toți jucătorii. Conectează-te" />
+        <text name="ft_farmadmin_notice_2" text="ca admin al serverului ca să le folosești." />
+        <text name="ft_farmadmin_time_scale_fmt" text="SCARA TIMPULUI  ·  acum: %s" />
+        <text name="ft_farmadmin_skip_6am" text="6:00" />
+        <text name="ft_farmadmin_skip_noon" text="12:00" />
+        <text name="ft_farmadmin_skip_6pm" text="18:00" />
+        <text name="ft_farmadmin_skip_midnight" text="MIEZUL NOPȚII" />
+        <text name="ft_farmadmin_vehicles_fmt" text="VEHICULE  ·  %d deținute" />
+        <text name="ft_personnel_workers_fmt" text="%d  (%d la lucru)" />
+        <text name="ft_personnel_levels_fmt" text="%dN / %dE / %dM" />
+        <text name="ft_personnel_sort_fmt" text="SORTARE: %s" />
+        <text name="ft_personnel_filter_fmt" text="FILTRU: %s" />
+        <text name="ft_personnel_worker_word" text="muncitor" />
+        <text name="ft_personnel_vehicle_word" text="vehicul" />
+        <text name="ft_personnel_recruit_word" text="candidat" />
+        <text name="ft_personnel_msg_unpinned" text="%s detașat" />
+        <text name="ft_personnel_msg_enter_vehicle" text="Urcă întâi într-un vehicul, apoi FIXEAZĂ" />
+        <text name="ft_personnel_msg_no_vehicle_id" text="Vehiculul nu are un id stabil - salvează o dată, apoi FIXEAZĂ" />
+        <text name="ft_personnel_msg_pinned" text="%s fixat pe %s" />
+        <text name="ft_personnel_msg_fired" text="%s concediat (indemnizație %s)" />
+        <text name="ft_personnel_msg_confirm_fire" text="Apasă din nou CONCEDIAZĂ ca să confirmi - indemnizație %s" />
+        <text name="ft_personnel_worker_stats_fmt" text="%.1f h  -  %d lucrări  -  oboseală %d%%" />
+        <text name="ft_personnel_msg_rerolled" text="Rezerva de recrutare a fost reîmprospătată" />
+        <text name="ft_personnel_msg_hired" text="%s angajat (primă %s)" />
+        <text name="ft_personnel_signing_cost_fmt" text="Cost de angajare  %s" />
+        <text name="ft_personnel_per_worker_fmt" text="PE MUNCITOR  (bază %s)" />
+        <text name="ft_personnel_help_what_body" text="Un centru de comandă pentru personal pentru FS25_WorkerCosts.&#10;Gestionează echipa Pro-Staff: vezi, angajează,&#10;concediază și fixează muncitori pe vehicule." />
+        <text name="ft_personnel_help_roster_body" text="Fiecare muncitor cu nivel, ore totale, lucrări&#10;și oboseală. Sortează și filtrează lista. FIXEAZĂ leagă&#10;un muncitor de vehiculul pe care îl conduci, CONCEDIAZĂ&#10;îl concediază (apasă de două ori - se plătește indemnizația)." />
+        <text name="ft_personnel_help_hire_body" text="O rezervă de recrutare care se schimbă. Fiecare candidat are&#10;un nivel și un cost de angajare unic. ANGAJEAZĂ îl&#10;adaugă; REÎMPROSPĂTEAZĂ aduce candidați noi." />
+        <text name="ft_personnel_help_payroll_body" text="Structura salarială, estimarea costurilor curente și&#10;impactul Pro-Staff - cum se echilibrează nivelurile (mai ieftine) și&#10;oboseala (mai scumpă) în echipă." />
+        <text name="ft_personnel_help_mp_body" text="Echipa se află la gazdă. Acțiunile tale&#10;sunt trimise gazdei, iar rezultatul se sincronizează&#10;automat la toți." />
         <text name="ft_usedplus_offer" text="OFERTĂ" />
         <text name="ft_usedplus_day_left" text="%d zi rămasă" />
         <text name="ft_usedplus_days_left" text="%d zile rămase" />

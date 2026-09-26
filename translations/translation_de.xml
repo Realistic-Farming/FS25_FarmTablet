@@ -713,7 +713,7 @@
         <text name="ft_auto_cool" text="Kühl" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
-        <text name="ft_auto_cost_mode_2" text="Cost Mode" />
+        <text name="ft_auto_cost_mode_2" text="Kostenmodus" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Anzahl von angenommenen Aufträgen die derzeit in Bearbeitung sind.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Erstelle Rechnungen mit der RoleplayPhone App." />
@@ -1022,7 +1022,7 @@
         <text name="ft_auto_finish_current_first" text="schließe den aktuellen zuerst ab" />
         <text name="ft_auto_finish_job" text="Auftrag abschließen" />
         <text name="ft_auto_finishing_a_job" text="Einen Auftrag abschließen" />
-        <text name="ft_auto_fire" text="Feuer" />
+        <text name="ft_auto_fire" text="ENTLASSEN" />
         <text name="ft_auto_fire_and_pin_workers_to_vehicles" text="Feuer und Mitarbeit einem Fahrzeug zuweisen." />
         <text name="ft_auto_fire_system" text="BMA" />
         <text name="ft_auto_fired_s_severance_s" text="Fired %s (severance %s)" />
@@ -1201,7 +1201,7 @@
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
-        <text name="ft_auto_idle" text="Idle" />
+        <text name="ft_auto_idle" text="Untätig" />
         <text name="ft_auto_idle_2" text="idle" />
         <text name="ft_auto_if_a_field_has_more_than_5_accumulated_drought" text="Wenn ein Feld mehr als 5% Trockenheit angesammelt hat&#10;" />
         <text name="ft_auto_if_a_vehicle_is_missing_check_it_is_assigned_to" text="Fehlt ein Fahrzeug, überprüfe ob es zugewiesen ist&#10;" />
@@ -1294,7 +1294,7 @@
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="Linker Streifen: Blau = Regen, Orange = Sturm, Grau = Bewölkt,&#10;" />
         <text name="ft_auto_level" text="Stufe" />
         <text name="ft_auto_level_2" text="level" />
-        <text name="ft_auto_levels" text="Levels" />
+        <text name="ft_auto_levels" text="Stufen" />
         <text name="ft_auto_light" text="Leicht" />
         <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Zeigt alle eingelagerten Kulturen in all deinen Silos an.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Zeigt alle aktiven NPC mit ihrem Verhältnis zu dir.&#10;" />
@@ -1400,7 +1400,7 @@
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Netto G/V = Einnahmen minus Ausgaben der Sitzung." />
         <text name="ft_auto_net_pl" text="net_pl" />
         <text name="ft_auto_net_savings" text="Netto Einsparungen" />
-        <text name="ft_auto_net_surcharge" text="Netto Kontoüberziehung" />
+        <text name="ft_auto_net_surcharge" text="Netto-Aufschlag" />
         <text name="ft_auto_net_worth" text="Nettovermögen" />
         <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Nettovermögen: Kontostand abzüglich Kredit ergibt deine finanzielle Lage." />
         <text name="ft_auto_network" text="Netzwerk" />
@@ -1757,11 +1757,11 @@
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
         <text name="ft_auto_rolling" text="Walzen" />
-        <text name="ft_auto_roster" text="BEWERBERPORTAL" />
+        <text name="ft_auto_roster" text="PERSONAL" />
         <text name="ft_auto_roster_2" text="Bewerberportal" />
-        <text name="ft_auto_roster_data_unavailable" text="Bewerberdaten nicht verfügbar." />
+        <text name="ft_auto_roster_data_unavailable" text="Personaldaten nicht verfügbar." />
         <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Das Bewerberportal wird durch den Host verwaltet - Synchronisation mit den Clients folgt." />
-        <text name="ft_auto_roster_tab" text="BEWERBERPORTAL" />
+        <text name="ft_auto_roster_tab" text="REITER PERSONAL" />
         <text name="ft_auto_rows_marked_fert_in_yellow_need_fertilising" text="Zeilen markiert mit [FERT!] in Gelb müssen gedüngt werden.&#10;" />
         <text name="ft_auto_running_costs" text="LAUFENDE KOSTEN" />
         <text name="ft_auto_rurallink" text="RuralLink" />
@@ -2730,6 +2730,44 @@
         <text name="ft_storage_silo_one" text="%d Silo" />
         <text name="ft_storage_silos" text="%d Silos" />
         <text name="ft_storage_peak_fmt" text="Höchstwert: %s  (Tag %d)" />
+        <text name="ft_farmadmin_help_money_body" text="Fügt deinem Hofkonto Geld hinzu.&#10;Beträge: +1.000 € · +10.000 € · +100.000 € · +1.000.000 €" />
+        <text name="ft_farmadmin_help_scale_body" text="Legt fest, wie schnell die Spielzeit vergeht.&#10;PAUSE hält die Zeit an. Die aktive Geschwindigkeit ist hervorgehoben.&#10;Ersetzt die frühere Kachel Zeitsteuerung." />
+        <text name="ft_farmadmin_help_skip_body" text="Stellt die Uhr auf eine feste Tageszeit.&#10;Ist die Zeit heute schon vorbei, geht es zum nächsten Tag." />
+        <text name="ft_farmadmin_help_vehicles_body" text="ALLE REPARIEREN - setzt den Schaden aller deiner Fahrzeuge zurück.&#10;Kraftstoff Tanken - füllt Kraftstoff (und AdBlue) bis zum Maximum&#10;             bei allen deinen motorisierten Fahrzeugen." />
+        <text name="ft_farmadmin_help_mp_body" text="Nutzbar für den Host und für einen Server-Admin (Master-&#10;User) auf einem dedizierten Server. Änderungen laufen auf dem Server." />
+        <text name="ft_farmadmin_admin_only" text="Nur für Admins" />
+        <text name="ft_farmadmin_host_only" text="Nur für Host oder Server-Admin" />
+        <text name="ft_farmadmin_notice_1" text="Diese Steuerung wirkt auf alle Spieler. Melde dich als" />
+        <text name="ft_farmadmin_notice_2" text="Server-Admin an, um sie zu nutzen." />
+        <text name="ft_farmadmin_time_scale_fmt" text="ZEITSKALIERUNG  ·  jetzt: %s" />
+        <text name="ft_farmadmin_skip_6am" text="06:00" />
+        <text name="ft_farmadmin_skip_noon" text="12:00" />
+        <text name="ft_farmadmin_skip_6pm" text="18:00" />
+        <text name="ft_farmadmin_skip_midnight" text="MITTERNACHT" />
+        <text name="ft_farmadmin_vehicles_fmt" text="FAHRZEUGE  ·  %d im Besitz" />
+        <text name="ft_personnel_workers_fmt" text="%d  (%d arbeiten)" />
+        <text name="ft_personnel_levels_fmt" text="%dA / %dE / %dM" />
+        <text name="ft_personnel_sort_fmt" text="SORTIEREN: %s" />
+        <text name="ft_personnel_filter_fmt" text="FILTER: %s" />
+        <text name="ft_personnel_worker_word" text="Arbeiter" />
+        <text name="ft_personnel_vehicle_word" text="Fahrzeug" />
+        <text name="ft_personnel_recruit_word" text="Bewerber" />
+        <text name="ft_personnel_msg_unpinned" text="%s gelöst" />
+        <text name="ft_personnel_msg_enter_vehicle" text="Steig zuerst in ein Fahrzeug, dann Anheften" />
+        <text name="ft_personnel_msg_no_vehicle_id" text="Das Fahrzeug hat keine feste ID - einmal speichern, dann Anheften" />
+        <text name="ft_personnel_msg_pinned" text="%s an %s angeheftet" />
+        <text name="ft_personnel_msg_fired" text="%s entlassen (Abfindung %s)" />
+        <text name="ft_personnel_msg_confirm_fire" text="Zum Bestätigen erneut ENTLASSEN tippen - Abfindung %s" />
+        <text name="ft_personnel_worker_stats_fmt" text="%.1f Std.  -  %d Aufträge  -  Erschöpfung %d%%" />
+        <text name="ft_personnel_msg_rerolled" text="Bewerberpool neu gemischt" />
+        <text name="ft_personnel_msg_hired" text="%s eingestellt (Handgeld %s)" />
+        <text name="ft_personnel_signing_cost_fmt" text="Einstellungskosten  %s" />
+        <text name="ft_personnel_per_worker_fmt" text="PRO ARBEITER  (Basis %s)" />
+        <text name="ft_personnel_help_what_body" text="Eine Personalzentrale für FS25_WorkerCosts.&#10;Verwalte dein Pro-Staff-Team: prüfen, einstellen,&#10;entlassen und Arbeiter an Fahrzeuge anheften." />
+        <text name="ft_personnel_help_roster_body" text="Jeder Arbeiter mit Stufe, Gesamtstunden, Aufträgen&#10;und Erschöpfung. Sortiere und filtere die Liste. Mit Anheften&#10;hängst du einen Arbeiter an dein aktuelles Fahrzeug, mit ENTLASSEN&#10;entlässt du ihn (zweimal tippen - Abfindung fällig)." />
+        <text name="ft_personnel_help_hire_body" text="Ein wechselnder Bewerberpool. Jeder Kandidat hat&#10;eine Stufe und einmalige Einstellungskosten. EINSTELLEN nimmt&#10;ihn auf; NEULADEN zieht neue Kandidaten." />
+        <text name="ft_personnel_help_payroll_body" text="Lohnstruktur, die geschätzten laufenden Kosten und&#10;der Pro-Staff-Einfluss - wie Stufen (günstiger) und&#10;Erschöpfung (teurer) sich im Team ausgleichen." />
+        <text name="ft_personnel_help_mp_body" text="Die Personalliste liegt beim Host. Deine Aktionen gehen&#10;an den Host, und das Ergebnis wird automatisch&#10;an alle synchronisiert." />
         <text name="ft_usedplus_offer" text="ANGEBOT" />
         <text name="ft_usedplus_day_left" text="noch %d Tag" />
         <text name="ft_usedplus_days_left" text="noch %d Tage" />
