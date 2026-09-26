@@ -37,7 +37,8 @@ MUTATIONS = [
      one("local stopTxt = _stopWords(sys.stopReason)", "local stopTxt = _stopWords(nil)"),
      "the private row's stopReason not read: dry source and no source vanish (E)"),
     ("R5-non-strict-farm", APP,
-     one("local farmId = data:getPlayerFarmIdStrict()", "local farmId = data:getPlayerFarmId()"),
+     one("    local farmId = data:getPlayerFarmIdStrict()\n    if farmId == nil then return nil, nil end\n    if type(scs.getIrrigationSystems)",
+         "    local farmId = data:getPlayerFarmId()\n    if farmId == nil then return nil, nil end\n    if type(scs.getIrrigationSystems)"),
      "the non-strict farm id (falls back to farm 1 with no local player): no strict farm (E), and the static row"),
     ("R6-fitted-shows-source-stop", APP,
      one("                    if nextTxt ~= nil then bits[#bits + 1] = nextTxt end\n                    if #bits > 0 then",
@@ -49,6 +50,13 @@ MUTATIONS = [
      one('if rem <= 0 or src.hasWater == false then return _T("ft_water_dry", "Dry") end',
          'if false then return _T("ft_water_dry", "Dry") end'),
      "a finite source at a readable zero shown as hours, not Dry (E)"),
+    ("R8-coverage-fed-every-farm", APP,
+     one("local polyCache = _cacheCoveragePolys(scs, systems)", "local polyCache = _cacheCoveragePolys(scs, scs.getIrrigationSystems(scs))"),
+     "Bob's MAJOR: the coverage outline fed every farm's systems (E: farm 2's field outlined), and the static call row"),
+    ("R9-owned-fields-non-strict", APP,
+     one("    local farmId = data:getPlayerFarmIdStrict()\n    if farmId == nil then return nil, nil end\n    return data:getOwnedFields(farmId)",
+         "    local farmId = data:getPlayerFarmId()\n    if farmId == nil then return nil, nil end\n    return data:getOwnedFields(farmId)"),
+     "Bob's MINOR: the owned-field lists on the non-strict farm id (E: farm 1's field listed with no local player), and the static row"),
 ]
 
 def sha(path):

@@ -685,7 +685,10 @@ lua(`g_currentMission.placeableSystem = E_RS.placeables; g_farmlandManager = E_R
 // the flag.
 lua(`
   HARNESS.setup = nil
-  E_IRR = { farmland = g_farmlandManager }
+  E_IRR = { farmland = g_farmlandManager, fieldManager = g_fieldManager }
+  -- IrrigationSuiteApp caches its farmland-to-field index on first use (_farmlandFieldMap), so the field manager is in
+  -- place before the suite's first draw in this bar; the SCS-023 rebind case below outlines fields 4 and 9 through it.
+  g_fieldManager = { fields = { { farmland = { id = 4 } }, { farmland = { id = 7 } }, { farmland = { id = 9 } } } }
   g_farmlandManager = { farmlands = {
     { id = 4, farmId = 1, field = { getAreaHa = function() return 2.0 end } },
     { id = 7, farmId = 1, field = { getAreaHa = function() return 3.0 end } } } }
@@ -817,7 +820,7 @@ lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager 
   console.log(`  rebind fixture: ${verbatim}`);
   lua(fixture);
   lua(`
-    E_RB = { player = g_localPlayer, server = g_server, farmland = g_farmlandManager }
+    E_RB = { player = g_localPlayer, server = g_server, farmland = g_farmlandManager, polys = {} }
     g_farmlandManager = { farmlands = {
       { id = 4, farmId = 1, field = { getAreaHa = function() return 2.0 end } },
       { id = 9, farmId = 2, field = { getAreaHa = function() return 2.0 end } } } }
@@ -845,7 +848,14 @@ lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager 
       local CSM = setmetatable({ irrigationManager = IM,
         getMoisture = function() return 0.5 end, getStress = function() return 0.2 end,
         getIrrigationRate = function() return 0 end, isFieldIrrigated = function() return false end,
-        getFieldPolygonWorld = function() return nil end, getCriticalAlertHint = function() return nil end,
+        -- A square per field, and a record of each field the coverage outline asks for (Bob's MAJOR on #207).
+        getFieldPolygonWorld = function(self, field)
+          local id = field and field.farmland and field.farmland.id
+          E_RB.polys[#E_RB.polys + 1] = id
+          local cx = (id or 0) * 10
+          return { cx, cx + 8, cx + 8, cx }, { 0, 0, 8, 8 }, 4
+        end,
+        getCriticalAlertHint = function() return nil end,
         getTemperature = function() return 18 end, getEvaporativeDemand = function() return 1.0 end,
         getIrrigationCostsEnabled = function() return true end, getIrrigationSchedule = function() return nil end },
         { __index = CropStressManager })
@@ -878,6 +888,8 @@ lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager 
       if (hasFarm2(r)) failures.push(`E ${loc} rebind host ${what}: farm 2's system or source is drawn on farm 1's tablet`);
     }
     expectIn(`${loc} rebind host Operations farm 1's pivot`, d.ops.texts, "#1  CenterPivot");
+    eChecks++;
+    if (d.ops.texts.includes(f("ft_irr_no_coverage"))) failures.push(`E ${loc} rebind host: the coverage outline draws no polygon, so it cannot show a leak`);
     expectIn(`${loc} rebind host Usage farm 1's pivot`, d.usage.texts, "#1  CenterPivot");
     expectLit(`${loc} rebind finite source with water`, d.ops, fmt(f("ft_water_hours"), "40.0", "100.0"));
     expectLit(`${loc} rebind finite source at zero reads Dry`, d.ops, f("ft_water_dry"));
@@ -909,6 +921,9 @@ lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager 
     lua(`E_RB.world(); g_server = {}; g_localPlayer = nil`);
     d = drawAll(loc);
     expectLit(`${loc} rebind no strict farm reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
+    eChecks++;
+    if (d.ops.texts.some((s) => s.startsWith(fmt(f("ft_irr_field_tag"), "4", "").trimEnd())) || d.fc.texts.includes(fmt(f("ft_irr_field"), "4")))
+      failures.push(`E ${loc} rebind no strict farm: farm 1's field is listed by the fallback farm id`);
     lua(`g_localPlayer = E_RB.player; E_RB.world(); E_RB.CSM.getIrrigationWaterSources = false`);
     d = drawAll(loc);
     expectLit(`${loc} rebind missing source getter reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
@@ -916,14 +931,31 @@ lua(`g_currentMission.proStaffManager = nil; g_currentMission.cropStressManager 
     d = drawAll(loc);
     expectLit(`${loc} rebind failed call reads Unavailable`, d.ops, f("ft_irr_private_unavailable"));
   }
-  lua(`g_localPlayer = E_RB.player; g_server = E_RB.server; g_farmlandManager = E_RB.farmland; g_currentMission.cropStressManager = nil`);
+  lua(`
+    local seen = {}
+    for _, id in ipairs(E_RB.polys) do seen[id] = true end
+    if not seen[4] then error("E rebind coverage: farm 1's covered field 4 was never outlined, so the check cannot see a leak") end
+    if seen[9] then error("E rebind coverage: farm 2's covered field 9 was outlined on farm 1's tablet") end
+  `);
+  eChecks += 2;
+  lua(`g_localPlayer = E_RB.player; g_server = E_RB.server; g_farmlandManager = E_RB.farmland; g_currentMission.cropStressManager = nil
+    g_fieldManager = E_IRR.fieldManager`);
   // Static: the reader never reads the legacy aliases or the public no-argument list (the real host publishes both,
   // so a world-driven row cannot fail on them).
   const app = readFileSync(join(ROOT, "src", "apps", "IrrigationSuiteApp.lua"), "utf8").replace(/--[^\n]*/g, "");
   for (const [re, what] of [[/\.unlimited\b/, ".unlimited"], [/\.capacity\b/, ".capacity"], [/\.connectedSystems\b/, ".connectedSystems"],
-    [/getIrrigationSystems\(\s*\)/, "the no-argument getIrrigationSystems()"], [/:getPlayerFarmId\(\)[\s\S]{0,200}getIrrigation/, "a non-strict farm id feeding a private read"]]) {
+    [/:getPlayerFarmId\(\)/, "the non-strict getPlayerFarmId()"]]) {
     eChecks++;
     if (re.test(app)) failures.push(`E rebind static: IrrigationSuiteApp.lua reads ${what}`);
+  }
+  // Every call to the two private getters passes the strict farm id (Bob's MAJOR: a call handed anything else, the
+  // no-argument list included, would feed another farm's rows to a mode).
+  const calls = [...app.matchAll(/getIrrigation(Systems|WaterSources)\s*\(([^)]*)\)/g)];
+  eChecks++;
+  if (calls.length < 2) failures.push(`E rebind static: ${calls.length} private getter calls found, want both`);
+  for (const m of calls) {
+    eChecks++;
+    if (m[2].trim() !== "farmId") failures.push(`E rebind static: IrrigationSuiteApp.lua calls getIrrigation${m[1]}(${m[2]}), not with the strict farm id`);
   }
 }
 
