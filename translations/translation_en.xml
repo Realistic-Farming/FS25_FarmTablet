@@ -2661,6 +2661,22 @@
         <text name="ft_weather_mode_arid" text="Arid" />
         <text name="ft_weather_mode_normal" text="Normal" />
         <text name="ft_weather_mode_wet" text="Wet" />
+        <text name="ft_workshop_shop_one" text="%d shop" />
+        <text name="ft_workshop_shops" text="%d shops" />
+        <text name="ft_workshop_vehicle_nearby_one" text="%d vehicle nearby" />
+        <text name="ft_workshop_vehicles_nearby" text="%d vehicles nearby" />
+        <text name="ft_workshop_nearby_fmt" text="NEARBY  (%d)" />
+        <text name="ft_workshop_near_row_fmt" text="%sm  %s%%W" />
+        <text name="ft_workshop_fuel_fmt" text="%.0f%%  (%.0fL / %.0fL)" />
+        <text name="ft_storage_silo_one" text="%d silo" />
+        <text name="ft_storage_silos" text="%d silos" />
+        <text name="ft_storage_peak_fmt" text="Peak: %s  (day %d)" />
+        <text name="ft_usedplus_offer" text="OFFER" />
+        <text name="ft_usedplus_day_left" text="%d day remaining" />
+        <text name="ft_usedplus_days_left" text="%d days remaining" />
+        <text name="ft_usedplus_hour_left" text="%d hr remaining" />
+        <text name="ft_usedplus_hours_left" text="%d hrs remaining" />
+        <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/mo  •  %d mo left" />
         <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
         <text name="ft_irr_advisory_water_need" text="WATER NEED (advisory)" />
