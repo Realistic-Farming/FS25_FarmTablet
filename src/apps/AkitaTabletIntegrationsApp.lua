@@ -229,7 +229,9 @@ FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
     end
 
     y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"), true)
-    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fwsView.hudDayName or "-") .. " " .. (fwsView.hudTimeText or "-")), nil, nil, true)
+    -- A day and time are drawn as the mod gives them: the renderer's second pass split the time ("Montag 06:00"
+    -- drew as "Montag 06: 00") and never translated the day. With no time the mod's day keeps the pass.
+    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fwsView.hudDayName or "-") .. " " .. (fwsView.hudTimeText or "-")), nil, nil, true, fwsView.hudTimeText ~= nil)
     y = self:drawRow(y, ftAkitaText("ft_fws_factories_open", "Factories Open"), tostring(open) .. " / " .. tostring(total), nil, open > 0 and FT.C.POSITIVE or FT.C.WARNING, true)
     y = self:drawRow(y, ftAkitaText("ft_fws_fire_system", "Fire System"), ftAkitaBool(fwsView.fireAutoEnabled == true), nil, nil, true, true)
     if fwsView.hudEventSummaryText ~= nil and tostring(fwsView.hudEventSummaryText) ~= "" then

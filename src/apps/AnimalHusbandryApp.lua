@@ -86,8 +86,9 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMALS, function(self)
         else
             header = header .. "  (" .. FT.l10n("ft_common_empty_lower", "empty") .. ")"
         end
+        -- The type name is already the file's text (DataProvider ran FT.l10nAuto on the engine's name): drawn as it is.
         self.r:appText(x + pad, y - FT.py(9), FT.FONT.BODY, header, RenderText.ALIGN_LEFT,
-            pen.numAnimals > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM)
+            pen.numAnimals > 0 and FT.C.TEXT_BRIGHT or FT.C.TEXT_DIM, true)
 
         local rowY = y - headerH
         for _, m in ipairs(metrics) do

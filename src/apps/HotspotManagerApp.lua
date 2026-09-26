@@ -241,8 +241,9 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     y = y - BTN_H - FT.py(6)
 
     if _statusMsg then
+        -- Every status message is the file's text (FT.l10n or FT.l10nFormat): drawn as it is.
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY, _statusMsg,
-            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(14)
     end
 

@@ -352,8 +352,10 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                     local feedLabel = barn.feedDiseaseCropName or FT.l10n("ft_organic_elevated_risk", "Elevated risk")
                     self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
                         FT.l10n("ft_organic_feed_disease", "Feed disease"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+                    -- The fallback is the file's text, drawn as it is; DairyCore's disease name is the mod's text and
+                    -- keeps the renderer's pass.
                     self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
-                        tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
+                        tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE, barn.feedDiseaseCropName == nil)
                     y = y - FT.py(12)
                 end
                 y = y - FT.py(4)
