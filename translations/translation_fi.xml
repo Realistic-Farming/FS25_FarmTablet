@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="AKTIIVINEN = simuloidaan normaalisti.&#10;" />
         <text name="ft_auto_active_stalled" text="AKTIIVINEN / PYSÄHTYNYT" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Aktiiviset työntekijät" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="aktiiviset maailmantapahtumat, hintakertoimet,&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="SUMMA" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Summa" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Määrät litroina, suurin ensin.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Viileä" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="KULUTAPA" />
         <text name="ft_auto_cost_mode_2" text="Kulutila" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Hyväksyttyjen, käynnissä olevien sopimusten määrä.&#10;" />
         <text name="ft_auto_create" text="LUO" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Himmennetyt rivit ovat tuettuja, mutta niitä ei ole asennettu.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="POISTA KÄYTÖSTÄ" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="POIS KÄYTÖSTÄ" />
         <text name="ft_auto_disabled_2" text="Pois käytöstä" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Tyhjä" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="OTA KÄYTTÖÖN" />
+        <text name="ft_auto_enable_disable" text="OTA KÄYTTÖÖN / POISTA KÄYTÖSTÄ" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Käytössä" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Tulomodin ohjaimet ja tilastot" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod ei ole asennettuna." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Tulot: ansaitut rahat. Menot: käytetyt rahat.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="SAAPUVAT  (rahat, jotka saat)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="RAAKA-AINEET / TUOTTEET" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Asenna FS25_IncomeMod käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Asenna FS25_MarketDynamics käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Asenna FS25_RandomWorldEvents käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Asenna FS25_SoilFertilizer käyttääksesi tätä sovellusta." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Asenna FS25_TaxMod käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Asenna FS25_UsedPlus käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Asenna FS25_WorkerCosts hallitaksesi henkilöstöä." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Asenna FS25_WorkerCosts käyttääksesi tätä sovellusta." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="RAHA" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="KUUKAUDEN KULUT" />
         <text name="ft_auto_month_to_date" text="Kuukausi tähän mennessä" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Yhteensä kuukaudessa" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Ei ajoneuvoa" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Ei ajoneuvoja 35 metrin sisällä." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ei vielä työntekijöitä. Palkkaa miehistöpaneelista (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Ei vielä työntekijöitä. Avaa PALKKAA-välilehti rekrytoidaksesi." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Tilalla ei ole korjaamoa  (korjaukset pois käytöstä)" />
         <text name="ft_auto_none" text="ei yhtään" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="MAKSA" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="MAKSUTAPA" />
+        <text name="ft_auto_payment_mode_2" text="Maksutapa" />
         <text name="ft_auto_payroll" text="PALKAT" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="PALKAT-VÄLILEHTI" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="PRO-STAFF-VAIKUTUS" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF-MIEHISTÖ" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Tuotanto" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="PALAUTUS %" />
+        <text name="ft_auto_return_2" text="Palautus %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Veromodi" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod ei ole asennettuna." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Veromodin tila ja kytkin" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="VEROPROSENTTI" />
+        <text name="ft_auto_tax_rate_2" text="Veroprosentti" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="LÄMPÖTILA" />
         <text name="ft_auto_temperature_2" text="Lämpötila" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Kolmansien osapuolten kumppanisovellukset näyttävät oman&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Tämä on pikavalinta - voit myös napauttaa kuvaketta&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="TÄMÄ KUUKAUSI" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="tason ja kuinka pitkällä ilmoitusaika on." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="MAKSETTU YHTEENSÄ" />
+        <text name="ft_auto_total_paid_2" text="Maksettu yhteensä" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Kierros" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Käy kartalla NPC:n luona päättääksesi sopimuksen ja&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="PALKKATASO" />
         <text name="ft_auto_wage_level_2" text="Palkkataso" />
         <text name="ft_auto_wage_structure" text="PALKKARAKENNE" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Kertyneet palkat" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="HERÄTÄ" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="Töissä" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Töissä nyt" />
         <text name="ft_auto_workshop" text="Korjaamo" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2972,6 +2972,37 @@
         <text name="ft_rpphone_overdue_fmt" text="Myöhässä %d päivää" />
         <text name="ft_rpphone_due_in_one" text="Erääntyy 1 päivän päästä" />
         <text name="ft_rpphone_due_in_fmt" text="Erääntyy %d päivän päästä" />
+        <text name="ft_companion_hourly" text="Tunneittain" />
+        <text name="ft_companion_daily" text="Päivittäin" />
+        <text name="ft_companion_per_hectare" text="Hehtaarilta" />
+        <text name="ft_companion_low" text="Matala" />
+        <text name="ft_companion_medium" text="Keskitaso" />
+        <text name="ft_companion_high" text="Korkea" />
+        <text name="ft_companion_novice" text="Aloittelija" />
+        <text name="ft_companion_experienced" text="Kokenut" />
+        <text name="ft_companion_master" text="Mestari" />
+        <text name="ft_companion_legendary" text="Legendaarinen" />
+        <text name="ft_companion_working" text="töissä" />
+        <text name="ft_companion_idle" text="vapaana" />
+        <text name="ft_companion_working_pinned" text="töissä, kiinnitetty" />
+        <text name="ft_companion_idle_pinned" text="vapaana, kiinnitetty" />
+        <text name="ft_income_help_what_body" text="Näyttää FS25_IncomeModin nykyisen tilan.&#10;Modi lisää säädettäviä säännöllisiä tuloja&#10;tilan ansioiden tueksi." />
+        <text name="ft_income_help_mode_body" text="Määrittää, milloin tulo maksetaan:&#10;Tunneittain = joka pelitunti.&#10;Päivittäin = kerran pelipäivässä.&#10;Viikoittain = kerran peliviikossa." />
+        <text name="ft_income_help_amount_body" text="Saldoon lisättävä raha jokaisella maksukierroksella.&#10;Säädä tämä Income Modin asetuksista." />
+        <text name="ft_companion_help_toggle_body" text="Kytkee modin päälle tai pois poistamatta sitä.&#10;Muutokset tulevat voimaan heti." />
+        <text name="ft_tax_help_what_body" text="Näyttää FS25_TaxModin tilan.&#10;Modi vähentää saldosta säännöllisesti veroa&#10;ja palauttaa säädettävän osuuden hyvityksenä." />
+        <text name="ft_tax_help_rate_body" text="Kuinka paljon veroa peritään kierrosta kohden.&#10;Tasot Matala / Keskitaso / Korkea säädetään modissa.&#10;Näytetään tässä kassavirran suunnittelua varten." />
+        <text name="ft_tax_help_return_body" text="Maksetun veron osuus, joka palautetaan hyvityksenä.&#10;20%:n palautus tarkoittaa, että maksat käytännössä 80%&#10;ilmoitetusta veroprosentista." />
+        <text name="ft_tax_help_total_body" text="Nykyisen istunnon aikana maksettu vero yhteensä.&#10;Näytetään oranssina, koska se on jatkuva kulu." />
+        <text name="ft_wrk_help_what_body" text="Näyttää FS25_WorkerCostsin tilan:&#10;palkkataso, kulutapa, aktiiviset&#10;työntekijät ja kuukauden kulut tähän asti.&#10;Vieritä alas Pro-Staff-miehistöön." />
+        <text name="ft_wrk_help_wage_body" text="Asettaa palkattujen työntekijöiden tuntipalkan.&#10;Tasot Matala / Keskitaso / Korkea säädetään&#10;Worker Costs -modin asetuksissa." />
+        <text name="ft_wrk_help_mode_body" text="Määrittää, miten palkat lasketaan:&#10;Tunneittain = veloitetaan joka pelitunti.&#10;Kuukausittain = kertyy ja veloitetaan kuun lopussa." />
+        <text name="ft_wrk_help_month_body" text="Tässä kuussa kertyneet palkat yhteensä.&#10;Nollautuu, kun kuukausipalkka on maksettu." />
+        <text name="ft_wrk_help_roster_body" text="Palkatut työntekijäsi ja heidän tasonsa&#10;(Aloittelija / Kokenut / Mestari), tunnit yhteensä,&#10;valmiit työt ja nykyinen väsymyspalkki.&#10;Näkymä on vain luku: palkkaa, irtisano ja määrää&#10;työntekijöitä pelin miehistöpaneelista (ALT+H)&#10;tai WorkerCostsin konsolikomennoilla." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="Miehistöä hallitsee isäntä: synkronoituu pian." />
+        <text name="ft_wrk_levels_fmt" text="%dA / %dK / %dM" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d työtä  -  väsymys %d%%" />
     </texts>
 
 </l10n>

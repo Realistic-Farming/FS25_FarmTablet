@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="ACTIVO = se simula con normalidad.&#10;" />
         <text name="ft_auto_active_stalled" text="ACTIVO / PARADO" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Trabajadores activos" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="eventos mundiales activos, modificadores de precio,&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="MONTO" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Monto" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Cantidades en litros, de mayor a menor.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Fresco" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="MODO DE COSTO" />
         <text name="ft_auto_cost_mode_2" text="Modo de coste" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Número de contratos aceptados en curso.&#10;" />
         <text name="ft_auto_create" text="CREAR" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Las filas atenuadas son compatibles, pero no están instaladas.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="DESACTIVAR" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="DESACTIVADO" />
         <text name="ft_auto_disabled_2" text="Desactivado" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Vacío" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="ACTIVAR" />
+        <text name="ft_auto_enable_disable" text="ACTIVAR / DESACTIVAR" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Activado" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Controles y estadísticas del mod de ingresos" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod no está instalado." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Ingresos: dinero ganado. Gastos: dinero gastado.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="ENTRANTES  (dinero que te deben)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="ENTRADAS / SALIDAS" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Instala FS25_IncomeMod para usar esta app." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Instala FS25_MarketDynamics para usar esta app." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Instala FS25_RandomWorldEvents para usar esta app." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Instala FS25_SoilFertilizer para usar esta aplicación." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Instala FS25_TaxMod para usar esta app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instala FS25_UsedPlus para usar esta aplicación." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instala FS25_WorkerCosts para gestionar el personal." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Instala FS25_WorkerCosts para usar esta app." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="DINERO" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="COSTOS DEL MES" />
         <text name="ft_auto_month_to_date" text="Mes hasta hoy" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total mensual" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Sin vehículo" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="No hay vehículos a menos de 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Aún no hay trabajadores. Contrata desde el panel de plantilla (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Aún no hay trabajadores. Abre la pestaña CONTRATAR para reclutar." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="No hay taller en esta granja  (reparaciones desactivadas)" />
         <text name="ft_auto_none" text="ninguno" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="PAGAR" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="MODO DE PAGO" />
+        <text name="ft_auto_payment_mode_2" text="Modo de pago" />
         <text name="ft_auto_payroll" text="NÓMINA" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="PESTAÑA NÓMINA" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="IMPACTO PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="PLANTILLA PRO-STAFF" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Producción" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="REEMBOLSO %" />
+        <text name="ft_auto_return_2" text="Reembolso %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Mod de impuestos" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod no está instalado." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Estado y activación del mod de impuestos" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="TIPO IMPOSITIVO" />
+        <text name="ft_auto_tax_rate_2" text="Tipo impositivo" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="TEMPERATURA" />
         <text name="ft_auto_temperature_2" text="Temperatura" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Las aplicaciones complementarias de terceros muestran su&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Es un atajo - también puedes tocar su icono en la&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="ESTE MES" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="del agente y cuánto ha avanzado el periodo del anuncio." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="TOTAL PAGADO" />
+        <text name="ft_auto_total_paid_2" text="Total pagado" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Recorrido" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Visita al PNJ en el mapa para cerrarlo y cobrar&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="NIVEL SALARIAL" />
         <text name="ft_auto_wage_level_2" text="Nivel salarial" />
         <text name="ft_auto_wage_structure" text="ESTRUCTURA SALARIAL" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Salarios acumulados" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="DESPERTAR" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="Trabajando" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Trabajando ahora" />
         <text name="ft_auto_workshop" text="Taller" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2972,6 +2972,37 @@
         <text name="ft_rpphone_overdue_fmt" text="Vencida hace %d días" />
         <text name="ft_rpphone_due_in_one" text="Vence en 1 día" />
         <text name="ft_rpphone_due_in_fmt" text="Vence en %d días" />
+        <text name="ft_companion_hourly" text="Por hora" />
+        <text name="ft_companion_daily" text="Diario" />
+        <text name="ft_companion_per_hectare" text="Por hectárea" />
+        <text name="ft_companion_low" text="Bajo" />
+        <text name="ft_companion_medium" text="Medio" />
+        <text name="ft_companion_high" text="Alto" />
+        <text name="ft_companion_novice" text="Novato" />
+        <text name="ft_companion_experienced" text="Experimentado" />
+        <text name="ft_companion_master" text="Maestro" />
+        <text name="ft_companion_legendary" text="Legendario" />
+        <text name="ft_companion_working" text="trabajando" />
+        <text name="ft_companion_idle" text="inactivo" />
+        <text name="ft_companion_working_pinned" text="trabajando, fijado" />
+        <text name="ft_companion_idle_pinned" text="inactivo, fijado" />
+        <text name="ft_income_help_what_body" text="Muestra el estado actual de FS25_IncomeMod.&#10;El mod añade pagos de ingresos periódicos configurables&#10;para complementar las ganancias de tu granja." />
+        <text name="ft_income_help_mode_body" text="Controla cuándo se paga el ingreso:&#10;Por hora = cada hora de juego.&#10;Diario = una vez por día de juego.&#10;Semanal = una vez por semana de juego." />
+        <text name="ft_income_help_amount_body" text="El dinero que se suma a tu saldo en cada ciclo de pago.&#10;Configúralo en los ajustes de Income Mod." />
+        <text name="ft_companion_help_toggle_body" text="Activa o desactiva el mod sin desinstalarlo.&#10;Los cambios se aplican al instante." />
+        <text name="ft_tax_help_what_body" text="Muestra el estado de FS25_TaxMod.&#10;El mod descuenta un impuesto periódico de tu saldo&#10;y devuelve un porcentaje configurable como reembolso." />
+        <text name="ft_tax_help_rate_body" text="Cuánto impuesto se cobra en cada ciclo.&#10;Los niveles Bajo / Medio / Alto se ajustan en el mod.&#10;Se muestra aquí para que planifiques tu tesorería." />
+        <text name="ft_tax_help_return_body" text="Porcentaje del impuesto pagado que se devuelve.&#10;Con un reembolso del 20%, en realidad pagas el 80%&#10;del tipo impositivo indicado." />
+        <text name="ft_tax_help_total_body" text="Impuesto acumulado pagado en la sesión actual.&#10;Se muestra en naranja porque es un costo continuo." />
+        <text name="ft_wrk_help_what_body" text="Muestra el estado de FS25_WorkerCosts:&#10;nivel salarial, modo de costo, trabajadores&#10;activos y costos del mes en curso.&#10;Desplázate para ver la plantilla Pro-Staff." />
+        <text name="ft_wrk_help_wage_body" text="Fija el salario por hora de los trabajadores contratados.&#10;Los niveles Bajo / Medio / Alto se ajustan en&#10;los ajustes del mod Worker Costs." />
+        <text name="ft_wrk_help_mode_body" text="Controla cómo se calculan los salarios:&#10;Por hora = se cobra cada hora de juego.&#10;Mensual = se acumula y se cobra a fin de mes." />
+        <text name="ft_wrk_help_month_body" text="Total de salarios acumulados este mes.&#10;Se reinicia tras pagar el salario mensual." />
+        <text name="ft_wrk_help_roster_body" text="Tus trabajadores contratados con su nivel&#10;(Novato / Experimentado / Maestro), horas totales,&#10;trabajos completados y barra de fatiga actual.&#10;Esta vista es de solo lectura: contrata, despide y asigna&#10;trabajadores desde el panel de plantilla (ALT+H)&#10;o con los comandos de consola de WorkerCosts." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="La plantilla la gestiona el anfitrión: se sincronizará pronto." />
+        <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d trabajos  -  fatiga %d%%" />
     </texts>
 
 </l10n>

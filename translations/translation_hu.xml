@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="AKTÍV = normálisan szimulálva.&#10;" />
         <text name="ft_auto_active_stalled" text="AKTÍV / LEÁLLT" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Aktív munkások" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="az aktív világeseményeket, az ármódosítókat&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="ÖSSZEG" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Összeg" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Mennyiségek literben, a legnagyobbtól kezdve.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Hűvös" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="KÖLTSÉGMÓD" />
         <text name="ft_auto_cost_mode_2" text="Költségmód" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Az elfogadott, folyamatban lévő szerződések száma.&#10;" />
         <text name="ft_auto_create" text="LÉTREHOZÁS" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="A halvány sorok támogatottak, de most nincsenek telepítve.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="KIKAPCSOLÁS" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="LETILTVA" />
         <text name="ft_auto_disabled_2" text="Kikapcsolva" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Üres" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="BEKAPCSOLÁS" />
+        <text name="ft_auto_enable_disable" text="BEKAPCSOLÁS / KIKAPCSOLÁS" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Bekapcsolva" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="A bevételmod vezérlői és statisztikái" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Az Income Mod nincs telepítve." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Bevételek: megkeresett pénz. Kiadások: elköltött pénz.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="BEJÖVŐ  (neked járó pénz)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="ALAPANYAG / TERMÉK" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Az app használatához telepítsd az FS25_IncomeMod modot." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Az app használatához telepítsd az FS25_MarketDynamics modot." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Az app használatához telepítsd az FS25_RandomWorldEvents modot." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Telepítsd a FS25_SoilFertilizer modot az alkalmazás használatához." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Az app használatához telepítsd az FS25_TaxMod modot." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Telepítsd az FS25_UsedPlus modot az alkalmazás használatához." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Telepítsd az FS25_WorkerCosts modot a személyzet kezeléséhez." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Az app használatához telepítsd az FS25_WorkerCosts modot." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="PÉNZ" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="HAVI KÖLTSÉGEK" />
         <text name="ft_auto_month_to_date" text="Hónap eddig" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Havi összesen" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Nincs jármű" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Nincs jármű 35 méteren belül." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Még nincs munkás. Vegyél fel a csapatpanelen (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Még nincs dolgozó. Nyisd meg a FELVESZ lapot a toborzáshoz." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Nincs műhely ezen a gazdaságon  (javítás kikapcsolva)" />
         <text name="ft_auto_none" text="nincs" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="FIZETÉS" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="FIZETÉSI MÓD" />
+        <text name="ft_auto_payment_mode_2" text="Fizetési mód" />
         <text name="ft_auto_payroll" text="BÉREK" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="BÉREK LAP" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="PRO-STAFF HATÁS" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF CSAPAT" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Termelés" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="VISSZATÉRÍTÉS %" />
+        <text name="ft_auto_return_2" text="Visszatérítés %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Adómod" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="A Tax Mod nincs telepítve." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Az adómod állapota és kapcsolója" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="ADÓKULCS" />
+        <text name="ft_auto_tax_rate_2" text="Adókulcs" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="HŐMÉRSÉKLET" />
         <text name="ft_auto_temperature_2" text="Hőmérséklet" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="A külső fejlesztők kiegészítő appjai a saját&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Ez csak gyorsgomb - az ikonra is bármikor rákattinthatsz&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="EBBEN A HÓNAPBAN" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="szintjét és azt, hogy hol tart a hirdetési idő." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="ÖSSZESEN FIZETVE" />
+        <text name="ft_auto_total_paid_2" text="Összesen fizetve" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Túra" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Keresd fel a térképen az NPC-t a lezáráshoz és&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="BÉRSZINT" />
         <text name="ft_auto_wage_level_2" text="Bérszint" />
         <text name="ft_auto_wage_structure" text="BÉRSZERKEZET" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Felhalmozott bérek" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="ÉBRESZTÉS" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="Dolgozik" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Most dolgozik" />
         <text name="ft_auto_workshop" text="Műhely" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2972,6 +2972,37 @@
         <text name="ft_rpphone_overdue_fmt" text="%d napja lejárt" />
         <text name="ft_rpphone_due_in_one" text="1 nap múlva esedékes" />
         <text name="ft_rpphone_due_in_fmt" text="%d nap múlva esedékes" />
+        <text name="ft_companion_hourly" text="Óránként" />
+        <text name="ft_companion_daily" text="Naponta" />
+        <text name="ft_companion_per_hectare" text="Hektáronként" />
+        <text name="ft_companion_low" text="Alacsony" />
+        <text name="ft_companion_medium" text="Közepes" />
+        <text name="ft_companion_high" text="Magas" />
+        <text name="ft_companion_novice" text="Kezdő" />
+        <text name="ft_companion_experienced" text="Tapasztalt" />
+        <text name="ft_companion_master" text="Mester" />
+        <text name="ft_companion_legendary" text="Legendás" />
+        <text name="ft_companion_working" text="dolgozik" />
+        <text name="ft_companion_idle" text="tétlen" />
+        <text name="ft_companion_working_pinned" text="dolgozik, rögzítve" />
+        <text name="ft_companion_idle_pinned" text="tétlen, rögzítve" />
+        <text name="ft_income_help_what_body" text="Az FS25_IncomeMod aktuális állapotát mutatja.&#10;A mod beállítható, rendszeres bevételt ad&#10;a gazdaság keresetének kiegészítésére." />
+        <text name="ft_income_help_mode_body" text="Megadja, mikor fizet a bevétel:&#10;Óránként = minden játékórában.&#10;Naponta = játéknaponként egyszer.&#10;Hetente = játékhetente egyszer." />
+        <text name="ft_income_help_amount_body" text="A fizetési ciklusonként az egyenlegedhez adott összeg.&#10;Az Income Mod beállításaiban adhatod meg." />
+        <text name="ft_companion_help_toggle_body" text="Be- vagy kikapcsolja a modot eltávolítás nélkül.&#10;A változások azonnal érvénybe lépnek." />
+        <text name="ft_tax_help_what_body" text="Az FS25_TaxMod állapotát mutatja.&#10;A mod rendszeresen adót von le az egyenlegedből,&#10;és beállítható százalékot visszatérít." />
+        <text name="ft_tax_help_rate_body" text="Ciklusonként mennyi adót von le.&#10;Az Alacsony / Közepes / Magas szint a modban állítható.&#10;Itt látod, hogy tervezhesd a pénzforgalmat." />
+        <text name="ft_tax_help_return_body" text="A befizetett adó visszatérített része.&#10;20% visszatérítés esetén valójában 80%-ot fizetsz&#10;a megadott adókulcsból." />
+        <text name="ft_tax_help_total_body" text="Az aktuális munkamenetben befizetett adó összesen.&#10;Narancssárga, mert folyamatos költség." />
+        <text name="ft_wrk_help_what_body" text="Az FS25_WorkerCosts állapotát mutatja:&#10;bérszint, költségmód, aktív&#10;munkások és a hónap eddigi költségei.&#10;Görgess le a Pro-Staff csapatért." />
+        <text name="ft_wrk_help_wage_body" text="A felvett munkások órabérét állítja be.&#10;Az Alacsony / Közepes / Magas szint a&#10;Worker Costs mod beállításaiban adható meg." />
+        <text name="ft_wrk_help_mode_body" text="Megadja a bérek számítását:&#10;Óránként = minden játékórában terhel.&#10;Havonta = összegyűlik, és a hónap végén terhel." />
+        <text name="ft_wrk_help_month_body" text="Az e havi összes felhalmozott bér.&#10;A havi fizetés kifizetése után nullázódik." />
+        <text name="ft_wrk_help_roster_body" text="A felvett munkásaid a szintjükkel&#10;(Kezdő / Tapasztalt / Mester), összes órával,&#10;elvégzett munkákkal és aktuális fáradtsággal.&#10;Ez a nézet csak olvasható: felvétel, elbocsátás és beosztás&#10;a játékbeli csapatpanelen (ALT+H)&#10;vagy a WorkerCosts konzolparancsaival." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="A csapatot a gazdagép kezeli: hamarosan szinkronizál." />
+        <text name="ft_wrk_levels_fmt" text="%dK / %dT / %dM" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f ó  -  %d munka  -  fáradtság %d%%" />
     </texts>
 
 </l10n>
