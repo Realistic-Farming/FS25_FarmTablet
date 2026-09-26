@@ -73,8 +73,8 @@ const KEYS = [
   "ft_fws_factories_open", "ft_fws_factory", "ft_fws_fire_system", "ft_fws_no_event", "ft_fws_no_factories",
   "ft_fws_not_detected", "ft_fws_open_count", "ft_fws_state_open", "ft_rd_active_financing", "ft_rd_check_repo",
   "ft_rd_contracts", "ft_rd_credit_score", "ft_rd_installment_line", "ft_rd_money_line", "ft_rd_no_contracts",
-  "ft_rd_not_detected", "ft_rd_notices_line", "ft_rd_open_notices", "ft_rd_remaining_debt", "ft_rd_repossessions",
-  "ft_rd_server_note", "ft_rd_status_active", "ft_rd_status_overdue", "ft_rd_status_paid",
+  "ft_rd_no_finance", "ft_rd_not_detected", "ft_rd_notices_line", "ft_rd_open_notices", "ft_rd_remaining_debt",
+  "ft_rd_repossessions", "ft_rd_server_note", "ft_rd_status_active", "ft_rd_status_overdue", "ft_rd_status_paid",
   "ft_rd_status_repossessed", "ft_rd_status_repossession", "ft_rd_vehicle",
 ];
 

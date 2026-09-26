@@ -417,21 +417,22 @@ lua(`
       autoStrohEnabled = true, lastNotKaufCost = 1200, lastWorkerCost = 300,
       lines = { "Status: ok", "Gesamt: An", "Futter: Auffüllen ab 20% | Zielfüllung 90%", "Wasser: Aus",
         "Stroh: Priorität 2", "Letzte Aktion: 06:00", "Wasser: Anzahl 4", "Stroh: Aus (manuell)", "Futter: Anästhesie 1" } } end }
-  E_AVS_N = 3
-  E_AVS = { vetBusy = true, getActiveIllnessCount = function() return E_AVS_N end,
+  E_AVS = { vetBusy = true,
     sickStables = { s1 = { stableName = "Kuhstall Nord", illnessName = "Mastitis", remainingMs = 600000, animalCount = 3, vetCalled = true },
       s2 = { stableName = "Schafe", illnessName = "Grippe", remainingMs = 120000, animalCount = 1, workerTreatment = true },
       s3 = { stableName = "Ziegen", illnessName = "Husten", remainingMs = 60000, animalCount = 4, treatmentMode = "Quarantaene" } } }
+  -- The page counts the cases it draws (F27, MAINTENANCE row 156): one case is one entry.
+  E_AVS_ALL = E_AVS.sickStables
   g_currentMission.animalAutoCareCore = E_AAC
   g_currentMission.animalVetSystem = E_AVS
 `);
 for (const loc of ["de", "fr", "pl", "en"]) {
   t.setLocale(loc);
   const f = (k) => file(loc, k);
-  lua(`E_AVS_N = 3`);
+  lua(`E_AVS.sickStables = E_AVS_ALL`);
   const aac = t.draw("animal_auto_care", false); const vA = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
   const vet = t.draw("animal_vet_system", false); const vV = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
-  lua(`E_AVS_N = 1`);
+  lua(`E_AVS.sickStables = { s2 = E_AVS_ALL.s2 }`);
   const one = t.draw("animal_vet_system", false); const vO = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
   eChecks += 3;
   for (const [what, r, v] of [["AnimalAutoCare", aac, vA], ["AnimalVetSystem", vet, vV], ["AnimalVetSystem (one case)", one, vO]]) {
