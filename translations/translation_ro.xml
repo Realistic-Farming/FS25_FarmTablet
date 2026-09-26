@@ -428,8 +428,8 @@
         <text name="ft_auto_active_event" text="EVENIMENT ACTIV" />
         <text name="ft_auto_active_events" text="ACTIVE EVENTS  (" />
         <text name="ft_auto_active_events_and_their_intensity_are_listed_here" text="Evenimentele active și intensitatea lor apar aici." />
-        <text name="ft_auto_active_favors" text="ACTIVE FAVORS" />
-        <text name="ft_auto_active_favors_2" text="Active Favors" />
+        <text name="ft_auto_active_favors" text="FAVORURI ACTIVE" />
+        <text name="ft_auto_active_favors_2" text="Favoruri active" />
         <text name="ft_auto_active_fields" text="Câmpuri active" />
         <text name="ft_auto_active_fields_vehicles" text="CÂMPURI ACTIVE / VEHICULE" />
         <text name="ft_auto_active_financing" text="Active Financing" />
@@ -591,7 +591,7 @@
         <text name="ft_auto_bug_reports" text="Bug reports:" />
         <text name="ft_auto_building" text="Building" />
         <text name="ft_auto_building_list" text="LISTA CLĂDIRILOR" />
-        <text name="ft_auto_building_relationships" text="BUILDING RELATIONSHIPS" />
+        <text name="ft_auto_building_relationships" text="CONSTRUIREA RELAȚIILOR" />
         <text name="ft_auto_buildings" text=" buildings" />
         <text name="ft_auto_built_in" text="INTEGRATE" />
         <text name="ft_auto_built_in_2" text="Integrată" />
@@ -667,7 +667,7 @@
         <text name="ft_auto_combine" text="Combină" />
         <text name="ft_auto_complete_favors_for_an_npc_to_increase_their" text="Complete favors for an NPC to increase their&#10;" />
         <text name="ft_auto_complete_v2_overhaul_new_sidebar_layout" text="Complete V2 overhaul - new sidebar layout" />
-        <text name="ft_auto_completed" text="Completed" />
+        <text name="ft_auto_completed" text="Finalizate" />
         <text name="ft_auto_completed_collect_reward_from_npc" text="FINALIZAT - IA RECOMPENSA DE LA NPC" />
         <text name="ft_auto_completion_updates_automatically" text="Progresul se actualizează automat." />
         <text name="ft_auto_component_wear_as_a_percentage_0_new_100_worn" text="Uzura componentelor în procente (0% = nou, 100% = uzat).&#10;" />
@@ -971,7 +971,7 @@
         <text name="ft_auto_farmtabletfocus" text="FarmTabletFocus" />
         <text name="ft_auto_fatigue_pricier_net_out_across_the_crew" text="fatigue (pricier) net out across the crew." />
         <text name="ft_auto_favorites" text="favorites" />
-        <text name="ft_auto_favors" text="FAVORS" />
+        <text name="ft_auto_favors" text="FAVORURI" />
         <text name="ft_auto_favourites" text="Favorite" />
         <text name="ft_auto_favourites_2" text="favourites" />
         <text name="ft_auto_fbm" text="fbm" />
@@ -1068,7 +1068,7 @@
         <text name="ft_auto_frequency_intensity" text="FRECVENȚĂ / INTENSITATE" />
         <text name="ft_auto_frequent" text="Frequent" />
         <text name="ft_auto_frequent_2" text="frequent" />
-        <text name="ft_auto_friend" text="Friend" />
+        <text name="ft_auto_friend" text="Prieten" />
         <text name="ft_auto_friend_70_neutral_40_cold_40" text="Friend &gt;= 70  |  Neutral &gt;= 40  |  Cold &lt; 40.&#10;" />
         <text name="ft_auto_frontloader" text="frontloader" />
         <text name="ft_auto_fs25_farmtablet" text="/FS25_FarmTablet" />
@@ -1234,7 +1234,7 @@
         <text name="ft_auto_install" text="Install " />
         <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Instalează FS25_IncomeMod ca să folosești această aplicație." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Instalează FS25_MarketDynamics ca să folosești aplicația." />
-        <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
+        <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Instalează FS25_NPCFavor ca să folosești această aplicație." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Instalează FS25_RandomWorldEvents ca să folosești aplicația." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Instalează FS25_SoilFertilizer ca să folosești această aplicație." />
@@ -1406,7 +1406,7 @@
         <text name="ft_auto_network_outages" text="Network outages" />
         <text name="ft_auto_netzst" text="netzst" />
         <text name="ft_auto_netzwerk" text="NETZWERK" />
-        <text name="ft_auto_neutral" text="Neutral" />
+        <text name="ft_auto_neutral" text="Neutru" />
         <text name="ft_auto_new" text="+ NOUĂ" />
         <text name="ft_auto_new_about_section_in_settings_with_version_links" text="New: About section in Settings with version + links" />
         <text name="ft_auto_new_added_ukrainian_translation" text="New: Added Ukrainian translation" />
@@ -1471,7 +1471,7 @@
         <text name="ft_auto_no_invoices_yet" text="Încă nu există facturi." />
         <text name="ft_auto_no_job_running" text="Nicio lucrare în curs." />
         <text name="ft_auto_no_loads_recorded_yet" text="Nicio încărcătură înregistrată încă." />
-        <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
+        <text name="ft_auto_no_npcs_spawned_yet" text="Niciun NPC nu a apărut încă." />
         <text name="ft_auto_no_owned_fields_found" text="Nu s-au găsit câmpuri deținute." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
@@ -1512,7 +1512,7 @@
         <text name="ft_auto_npc_asleep_under_an_ai_npc_contract" text="NPC    = adormit sub un contract IA/NPC.&#10;" />
         <text name="ft_auto_npc_favor" text="Favoruri NPC" />
         <text name="ft_auto_npc_favor_2" text="npc_favor" />
-        <text name="ft_auto_npc_favor_mod_not_detected" text="NPC Favor mod not detected." />
+        <text name="ft_auto_npc_favor_mod_not_detected" text="Modul NPC Favor nu a fost detectat." />
         <text name="ft_auto_npc_favor_tracker" text="Urmărirea favorurilor NPC" />
         <text name="ft_auto_number" text="number" />
         <text name="ft_auto_number_and_developer_name" text="număr de versiune și numele dezvoltatorului." />
@@ -1632,7 +1632,7 @@
         <text name="ft_auto_plow_cultivate" text="Plow / cultivate" />
         <text name="ft_auto_plowing" text="Arat" />
         <text name="ft_auto_plowing_cultivating" text="Arat / Cultivare" />
-        <text name="ft_auto_poor" text="Poor" />
+        <text name="ft_auto_poor" text="Slab" />
         <text name="ft_auto_position" text="Poziție" />
         <text name="ft_auto_position_2" text="Position" />
         <text name="ft_auto_potassium" text="Potassium" />
@@ -1710,7 +1710,7 @@
         <text name="ft_auto_rejected" text="RESPINSĂ" />
         <text name="ft_auto_rejected_2" text="rejected" />
         <text name="ft_auto_relationship_score_higher_scores_unlock_exclusive" text="relationship score. Higher scores unlock exclusive&#10;" />
-        <text name="ft_auto_relationships" text="RELATIONSHIPS" />
+        <text name="ft_auto_relationships" text="RELAȚII" />
         <text name="ft_auto_relationships_2" text="RELATIONSHIPS  (" />
         <text name="ft_auto_remaining_debt" text="Remaining Debt" />
         <text name="ft_auto_remaining_s" text="Remaining: %s" />
@@ -1739,7 +1739,7 @@
         <text name="ft_auto_reset_position_scale" text="RESET POSITION &amp; SCALE" />
         <text name="ft_auto_reset_settings" text="Reset Settings" />
         <text name="ft_auto_resets_after_the_monthly_salary_is_paid" text="Resets after the monthly salary is paid." />
-        <text name="ft_auto_respected" text="Respected" />
+        <text name="ft_auto_respected" text="Respectat" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
         <text name="ft_auto_return" text="RAMBURSARE %" />
@@ -2064,12 +2064,12 @@
         <text name="ft_auto_top_of_the_app_shows_total_receivable_green" text="Top of the app shows total receivable (green)&#10;" />
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
-        <text name="ft_auto_total_earned" text="Total Earned" />
+        <text name="ft_auto_total_earned" text="Câștigat în total" />
         <text name="ft_auto_total_paid" text="TOTAL PLĂTIT" />
         <text name="ft_auto_total_paid_2" text="Total plătit" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Tur" />
-        <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
+        <text name="ft_auto_town_reputation" text="REPUTAȚIA ÎN SAT" />
         <text name="ft_auto_town_reputation_2" text="Town Reputation: " />
         <text name="ft_auto_tracked_from_the_current_session_since_load" text="Numărat din sesiunea curentă (de la încărcare).&#10;" />
         <text name="ft_auto_tracks_money_you_owe_others_outgoing_and" text="Tracks money you owe others (OUTGOING) and&#10;" />
@@ -2209,7 +2209,7 @@
         <text name="ft_auto_without_admin_see_the_list_read_only" text="fără admin văd lista doar în citire." />
         <text name="ft_auto_without_it_use_the_built_in_invoice_system" text="Without it, use the built-in invoice system." />
         <text name="ft_auto_worker" text="Worker" />
-        <text name="ft_auto_worker_2" text="worker" />
+        <text name="ft_auto_worker_2" text="muncitor" />
         <text name="ft_auto_work" text="Muncă" />
         <text name="ft_auto_open_offers" text="Oferte deschise" />
         <text name="ft_auto_neighbours_not_available_yet" text="Vecinii nu sunt încă disponibili." />
@@ -3003,6 +3003,19 @@
         <text name="ft_wrk_roster_host" text="Echipa e gestionată de gazdă: se sincronizează în curând." />
         <text name="ft_wrk_levels_fmt" text="%dÎ / %dE / %dM" />
         <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d lucrări  -  oboseală %d%%" />
+        <text name="ft_npc_progress_left_fmt" text="%d%%  mai sunt %d h" />
+        <text name="ft_npc_help_rep_body" text="Poziția ta în comunitatea locală (0-100).&#10;Respectat &gt;= 70  |  Neutru &gt;= 40  |  Slab &lt; 40.&#10;O reputație mai bună deblochează recompense mai bune." />
+        <text name="ft_npc_help_active_body" text="Numărul de favoruri în desfășurare.&#10;Fiecare favor arată numele NPC-ului, descrierea,&#10;procentul de finalizare și orele rămase." />
+        <text name="ft_npc_help_relationships_body" text="Afișează fiecare NPC activ cu scorul relației&#10;și o bară colorată.&#10;Prieten &gt;= 70  |  Neutru &gt;= 40  |  Rece &lt; 40.&#10;Rolul (agronom, mecanic etc.) apare&#10;între paranteze pătrate lângă nume." />
+        <text name="ft_npc_help_building_body" text="Fă favoruri unui NPC ca să-i crești&#10;scorul relației. Scorurile mari deblochează sfaturi&#10;exclusive, reduceri și avertizări din timp." />
+        <text name="ft_npc_town_rep_fmt" text="Reputația în sat: %s" />
+        <text name="ft_npc_relationships_fmt" text="RELAȚII  (%d)" />
+        <text name="ft_npc_rel_cold" text="Rece" />
+        <text name="ft_npc_role_farmer" text="fermier" />
+        <text name="ft_npc_role_shopkeeper" text="negustor" />
+        <text name="ft_npc_role_worker" text="muncitor" />
+        <text name="ft_npc_role_farmhand" text="argat" />
+        <text name="ft_npc_role_agronomist" text="agronom" />
     </texts>
 
 </l10n>
