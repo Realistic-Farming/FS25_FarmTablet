@@ -53,7 +53,7 @@ end
 
 -- Register a custom-placed button for click handling this frame.
 local function addBtn(self, bx, by, bw, bh, label, color, onClick)
-    local btn = self.r:button(bx, by, bw, bh, label, color, { onClick = onClick })
+    local btn = self.r:button(bx, by, bw, bh, FT.l10nAuto(label), color, { onClick = onClick })
     table.insert(self._contentBtns, btn)
     return btn
 end
@@ -113,13 +113,13 @@ local function drawRoster(self, snap, bodyTop, AC)
 
     -- Summary
     if visTop(y) then
-        self:drawRow(y, "Workers", string.format("%d  (%d working)", snap.count or 0, snap.working or 0),
+        self:drawRow(y, "Workers", FT.l10nFormat("ft_personnel_workers_fmt", "%d  (%d working)", snap.count or 0, snap.working or 0),
             nil, (snap.working or 0) > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM)
     end
     y = y - ROWH
     if visTop(y) then
         local lv = snap.levels or {}
-        self:drawRow(y, "Levels", string.format("%dN / %dE / %dM",
+        self:drawRow(y, "Levels", FT.l10nFormat("ft_personnel_levels_fmt", "%dN / %dE / %dM",
             lv.novice or 0, lv.experienced or 0, lv.master or 0))
     end
     y = y - ROWH
@@ -130,10 +130,10 @@ local function drawRoster(self, snap, bodyTop, AC)
     y = y - FT.py(2)
     if visBlock(y, ctlH) then
         addBtn(self, x, y - ctlH, ctlW, ctlH,
-            "SORT: " .. (SORT_LABEL[self._psSort] or "Level"), FT.C.BTN_NEUTRAL,
+            FT.l10nFormat("ft_personnel_sort_fmt", "SORT: %s", FT.l10nAuto(SORT_LABEL[self._psSort] or "Level")), FT.C.BTN_NEUTRAL,
             function() self._psSort = nextInCycle(SORT_ORDER, self._psSort) end)
         addBtn(self, x + ctlW + FT.px(8), y - ctlH, ctlW, ctlH,
-            "FILTER: " .. (FILTER_LABEL[self._psFilter] or "All"), FT.C.BTN_NEUTRAL,
+            FT.l10nFormat("ft_personnel_filter_fmt", "FILTER: %s", FT.l10nAuto(FILTER_LABEL[self._psFilter] or "All")), FT.C.BTN_NEUTRAL,
             function() self._psFilter = nextInCycle(FILTER_ORDER, self._psFilter) end)
     end
     y = y - ctlH - FT.py(8)
@@ -174,24 +174,24 @@ local function drawRoster(self, snap, bodyTop, AC)
                 addBtn(self, pinX, y - FT.py(2), smallW, smallH, "UNPIN", FT.C.BTN_NEUTRAL, function()
                     local mgr = mgrRef()
                     if mgr then mgr:unassignWorker(uuid) end
-                    self._psMsg = "Unpinned " .. (wName or "worker")
+                    self._psMsg = FT.l10nFormat("ft_personnel_msg_unpinned", "Unpinned %s", wName or FT.l10n("ft_personnel_worker_word", "worker"))
                 end)
             else
                 addBtn(self, pinX, y - FT.py(2), smallW, smallH, "PIN", FT.C.BTN_PRIMARY, function()
                     local mgr = mgrRef()
                     local veh = getCurrentVehicle()
                     if not veh then
-                        self._psMsg = "Enter a vehicle first, then PIN"
+                        self._psMsg = FT.l10n("ft_personnel_msg_enter_vehicle", "Enter a vehicle first, then PIN")
                         return
                     end
                     local uid = (veh.getUniqueId and veh:getUniqueId()) or nil
                     if not uid or uid == "" then
-                        self._psMsg = "Vehicle has no stable id — save once, then PIN"
+                        self._psMsg = FT.l10n("ft_personnel_msg_no_vehicle_id", "Vehicle has no stable id - save once, then PIN")
                         return
                     end
                     if mgr then mgr:assignWorker(uuid, uid) end
-                    local vn = (veh.getFullName and veh:getFullName()) or "vehicle"
-                    self._psMsg = string.format("Pinned %s to %s", wName or "worker", vn)
+                    local vn = (veh.getFullName and veh:getFullName()) or FT.l10n("ft_personnel_vehicle_word", "vehicle")
+                    self._psMsg = FT.l10nFormat("ft_personnel_msg_pinned", "Pinned %s to %s", wName or FT.l10n("ft_personnel_worker_word", "worker"), vn)
                 end)
             end
 
@@ -202,18 +202,18 @@ local function drawRoster(self, snap, bodyTop, AC)
                 local mgr = mgrRef()
                 if confirming then
                     if mgr then mgr:fireWorker(uuid) end
-                    self._psMsg = string.format("Fired %s (severance %s)", wName or "worker", money(wSev))
+                    self._psMsg = FT.l10nFormat("ft_personnel_msg_fired", "Fired %s (severance %s)", wName or FT.l10n("ft_personnel_worker_word", "worker"), money(wSev))
                     self._psConfirmFire = nil
                 else
                     self._psConfirmFire = uuid
-                    self._psMsg = "Tap FIRE again to confirm — severance " .. money(wSev)
+                    self._psMsg = FT.l10nFormat("ft_personnel_msg_confirm_fire", "Tap FIRE again to confirm - severance %s", money(wSev))
                 end
             end)
 
             -- Line 2: metrics + effective rate
             local fatPct = math.floor((w.fatigue or 0) * 100)
             self.r:appText(x, y - FT.py(15), FT.FONT.TINY,
-                string.format("%.1fh  -  %d jobs  -  fatigue %d%%", w.totalHours or 0, w.totalJobs or 0, fatPct),
+                FT.l10nFormat("ft_personnel_worker_stats_fmt", "%.1fh  -  %d jobs  -  fatigue %d%%", w.totalHours or 0, w.totalJobs or 0, fatPct),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             self.r:appText(x + cw, y - FT.py(15), FT.FONT.TINY,
                 money(math.floor(w.effRate or 0)) .. (snap.finance and snap.finance.isHourly and "/h" or "/ha"),
@@ -244,7 +244,7 @@ local function drawHire(self, snap, bodyTop, AC)
         addBtn(self, x + cw - rW, y - FT.py(2), rW, FT.py(16), "REROLL", FT.C.BTN_NEUTRAL, function()
             local mgr = mgrRef()
             if mgr then mgr:refreshRecruits() end
-            self._psMsg = "Recruitment pool rerolled"
+            self._psMsg = FT.l10n("ft_personnel_msg_rerolled", "Recruitment pool rerolled")
         end)
     end
     y = y - FT.py(22)
@@ -278,11 +278,11 @@ local function drawHire(self, snap, bodyTop, AC)
             addBtn(self, x + cw - hireW, y - FT.py(2), hireW, hireH, "HIRE", FT.C.BTN_PRIMARY, function()
                 local mgr = mgrRef()
                 if mgr then mgr:hireWorker(slot) end
-                self._psMsg = string.format("Hired %s (signing %s)", rName or "recruit", money(rCost))
+                self._psMsg = FT.l10nFormat("ft_personnel_msg_hired", "Hired %s (signing %s)", rName or FT.l10n("ft_personnel_recruit_word", "recruit"), money(rCost))
             end)
 
             self.r:appText(x, y - FT.py(15), FT.FONT.TINY,
-                "Signing cost  " .. money(r.hireCost), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.l10nFormat("ft_personnel_signing_cost_fmt", "Signing cost  %s", money(r.hireCost)), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         end
         y = y - blockH
     end
@@ -325,7 +325,7 @@ local function drawPayroll(self, snap, bodyTop, AC)
 
     -- Per-worker effective rate breakdown (this part scrolls)
     y = y - FT.py(2)
-    y = self:drawSection(y, "PER WORKER  (base " .. money(math.floor(fin.baseRate or 0)) .. rateUnit .. ")")
+    y = self:drawSection(y, FT.l10nFormat("ft_personnel_per_worker_fmt", "PER WORKER  (base %s)", money(math.floor(fin.baseRate or 0)) .. rateUnit))
 
     local workers = sortedFilteredWorkers(snap, "level", "all")
     for _, w in ipairs(workers) do
@@ -350,28 +350,17 @@ end
 FarmTabletUI:registerDrawer(FT.APP.PERSONNEL, function(self)
     local AC = FT.appColor(FT.APP.PERSONNEL)
 
-    if self:drawHelpPage("_psHelp", FT.APP.PERSONNEL, "Personnel", AC, {
+    if self:drawHelpPage("_psHelp", FT.APP.PERSONNEL, FT.l10n("ft_ui_app_personnel", "Personnel"), AC, {
         { title = "WHAT THIS APP DOES",
-          body  = "A personnel command center for FS25_WorkerCosts.\n" ..
-                  "Manage your Pro-Staff roster: review, hire,\n" ..
-                  "fire, and pin workers to vehicles." },
+          body  = FT.l10n("ft_personnel_help_what_body", "A personnel command center for FS25_WorkerCosts.\nManage your Pro-Staff roster: review, hire,\nfire, and pin workers to vehicles.") },
         { title = "ROSTER TAB",
-          body  = "Every worker with level, lifetime hours, jobs,\n" ..
-                  "and fatigue. Sort and filter the list. PIN a\n" ..
-                  "worker to the vehicle you're driving, or FIRE\n" ..
-                  "them (tap twice — severance applies)." },
+          body  = FT.l10n("ft_personnel_help_roster_body", "Every worker with level, lifetime hours, jobs,\nand fatigue. Sort and filter the list. PIN a\nworker to the vehicle you're driving, or FIRE\nthem (tap twice - severance applies).") },
         { title = "HIRE TAB",
-          body  = "A rotating recruitment pool. Each candidate has\n" ..
-                  "a level and a one-off signing cost. HIRE to add\n" ..
-                  "them; REROLL to draw fresh candidates." },
+          body  = FT.l10n("ft_personnel_help_hire_body", "A rotating recruitment pool. Each candidate has\na level and a one-off signing cost. HIRE to add\nthem; REROLL to draw fresh candidates.") },
         { title = "PAYROLL TAB",
-          body  = "Wage structure, the running cost estimate, and\n" ..
-                  "the Pro-Staff impact — how levels (cheaper) and\n" ..
-                  "fatigue (pricier) net out across the crew." },
+          body  = FT.l10n("ft_personnel_help_payroll_body", "Wage structure, the running cost estimate, and\nthe Pro-Staff impact - how levels (cheaper) and\nfatigue (pricier) net out across the crew.") },
         { title = "MULTIPLAYER",
-          body  = "The roster lives on the host. Your actions are\n" ..
-                  "sent to the host and the result syncs back to\n" ..
-                  "everyone automatically." },
+          body  = FT.l10n("ft_personnel_help_mp_body", "The roster lives on the host. Your actions are\nsent to the host and the result syncs back to\neveryone automatically.") },
     }) then return end
 
     -- View / control state defaults
@@ -379,7 +368,7 @@ FarmTabletUI:registerDrawer(FT.APP.PERSONNEL, function(self)
     self._psSort   = self._psSort   or "level"
     self._psFilter = self._psFilter or "all"
 
-    local startY = self:drawAppHeader("Personnel", "Pro-Staff")
+    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_personnel", "Personnel"), "Pro-Staff")
     local x, contentY, cw = self:contentInner()
     local mgr = mgrRef()
 

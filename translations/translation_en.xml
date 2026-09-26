@@ -2717,6 +2717,44 @@
         <text name="ft_storage_silo_one" text="%d silo" />
         <text name="ft_storage_silos" text="%d silos" />
         <text name="ft_storage_peak_fmt" text="Peak: %s  (day %d)" />
+        <text name="ft_farmadmin_help_money_body" text="Adds funds to your farm account.&#10;Amounts: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_scale_body" text="Sets how fast game time passes.&#10;PAUSE freezes time. Active speed highlighted.&#10;Absorbed the old Time Controls hub tile." />
+        <text name="ft_farmadmin_help_skip_body" text="Jumps the clock to a preset time of day.&#10;Advances to tomorrow if time has passed today." />
+        <text name="ft_farmadmin_help_vehicles_body" text="REPAIR ALL - resets damage on all your vehicles.&#10;FILL FUEL  - fills fuel (and AdBlue) to max&#10;             on all your motorized vehicles." />
+        <text name="ft_farmadmin_help_mp_body" text="Usable by the host, and by a server admin (master&#10;user) on a dedicated server. Changes run on the server." />
+        <text name="ft_farmadmin_admin_only" text="Admin only" />
+        <text name="ft_farmadmin_host_only" text="Host or server admin only" />
+        <text name="ft_farmadmin_notice_1" text="These controls affect all players. Log in as" />
+        <text name="ft_farmadmin_notice_2" text="a server admin to use them." />
+        <text name="ft_farmadmin_time_scale_fmt" text="TIME SCALE  ·  now: %s" />
+        <text name="ft_farmadmin_skip_6am" text="6 AM" />
+        <text name="ft_farmadmin_skip_noon" text="12 PM" />
+        <text name="ft_farmadmin_skip_6pm" text="6 PM" />
+        <text name="ft_farmadmin_skip_midnight" text="MIDNIGHT" />
+        <text name="ft_farmadmin_vehicles_fmt" text="VEHICLES  ·  %d owned" />
+        <text name="ft_personnel_workers_fmt" text="%d  (%d working)" />
+        <text name="ft_personnel_levels_fmt" text="%dN / %dE / %dM" />
+        <text name="ft_personnel_sort_fmt" text="SORT: %s" />
+        <text name="ft_personnel_filter_fmt" text="FILTER: %s" />
+        <text name="ft_personnel_worker_word" text="worker" />
+        <text name="ft_personnel_vehicle_word" text="vehicle" />
+        <text name="ft_personnel_recruit_word" text="recruit" />
+        <text name="ft_personnel_msg_unpinned" text="Unpinned %s" />
+        <text name="ft_personnel_msg_enter_vehicle" text="Enter a vehicle first, then PIN" />
+        <text name="ft_personnel_msg_no_vehicle_id" text="Vehicle has no stable id - save once, then PIN" />
+        <text name="ft_personnel_msg_pinned" text="Pinned %s to %s" />
+        <text name="ft_personnel_msg_fired" text="Fired %s (severance %s)" />
+        <text name="ft_personnel_msg_confirm_fire" text="Tap FIRE again to confirm - severance %s" />
+        <text name="ft_personnel_worker_stats_fmt" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
+        <text name="ft_personnel_msg_rerolled" text="Recruitment pool rerolled" />
+        <text name="ft_personnel_msg_hired" text="Hired %s (signing %s)" />
+        <text name="ft_personnel_signing_cost_fmt" text="Signing cost  %s" />
+        <text name="ft_personnel_per_worker_fmt" text="PER WORKER  (base %s)" />
+        <text name="ft_personnel_help_what_body" text="A personnel command center for FS25_WorkerCosts.&#10;Manage your Pro-Staff roster: review, hire,&#10;fire, and pin workers to vehicles." />
+        <text name="ft_personnel_help_roster_body" text="Every worker with level, lifetime hours, jobs,&#10;and fatigue. Sort and filter the list. PIN a&#10;worker to the vehicle you're driving, or FIRE&#10;them (tap twice - severance applies)." />
+        <text name="ft_personnel_help_hire_body" text="A rotating recruitment pool. Each candidate has&#10;a level and a one-off signing cost. HIRE to add&#10;them; REROLL to draw fresh candidates." />
+        <text name="ft_personnel_help_payroll_body" text="Wage structure, the running cost estimate, and&#10;the Pro-Staff impact - how levels (cheaper) and&#10;fatigue (pricier) net out across the crew." />
+        <text name="ft_personnel_help_mp_body" text="The roster lives on the host. Your actions are&#10;sent to the host and the result syncs back to&#10;everyone automatically." />
         <text name="ft_usedplus_offer" text="OFFER" />
         <text name="ft_usedplus_day_left" text="%d day remaining" />
         <text name="ft_usedplus_days_left" text="%d days remaining" />

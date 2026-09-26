@@ -476,7 +476,7 @@
         <text name="ft_auto_ai_badge_appears_when_the_vehicle_is_driven_by_a_hired" text="Lencana PEMBANTU muncul saat kendaraan dikemudikan pekerja sewaan.&#10;" />
         <text name="ft_auto_akita" text="akita" />
         <text name="ft_auto_akita83" text="Akita83" />
-        <text name="ft_auto_all" text="All" />
+        <text name="ft_auto_all" text="Semua" />
         <text name="ft_auto_all_2" text="all" />
         <text name="ft_auto_all_apps" text="all apps" />
         <text name="ft_auto_all_apps_rewritten_with_new_drawer_pattern" text="All apps rewritten with new drawer pattern" />
@@ -577,7 +577,7 @@
         <text name="ft_auto_base_fee" text="Base fee" />
         <text name="ft_auto_base_fee_deducted_d" text="Base fee deducted: %d €" />
         <text name="ft_auto_base_fee_s_day" text="Base fee: %s €/day" />
-        <text name="ft_auto_base_rate" text="Base Rate" />
+        <text name="ft_auto_base_rate" text="Tarif dasar" />
         <text name="ft_auto_bck" text="BCK" />
         <text name="ft_auto_best_sell_prices" text="HARGA JUAL TERBAIK" />
         <text name="ft_auto_best_sell_prices_per_1_000_l" text="HARGA JUAL TERBAIK  (per 1.000 L)" />
@@ -713,7 +713,7 @@
         <text name="ft_auto_cool" text="Sejuk" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
-        <text name="ft_auto_cost_mode_2" text="Cost Mode" />
+        <text name="ft_auto_cost_mode_2" text="Mode biaya" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Jumlah kontrak diterima yang sedang berjalan.&#10;" />
         <text name="ft_auto_create" text="CREATE" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
@@ -872,7 +872,7 @@
         <text name="ft_auto_equipment_rental" text="Equipment Rental" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
         <text name="ft_auto_error_farm_tablet_not_initialized" text="Error: Farm Tablet not initialized" />
-        <text name="ft_auto_est_interval" text="Est. Interval" />
+        <text name="ft_auto_est_interval" text="Perkiraan interval" />
         <text name="ft_auto_etc_it_appears_here_with_its_name_events_end" text="dll.), peristiwa itu muncul di sini dengan namanya. Peristiwa berakhir&#10;" />
         <text name="ft_auto_event" text="Event" />
         <text name="ft_auto_event_frequency" text="Frekuensi Peristiwa" />
@@ -1010,7 +1010,7 @@
         <text name="ft_auto_fieldsentry_is_not_available" text="Penjaga Ladang tidak tersedia." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - simulasi tanah per ladang, istirahat, padang" />
         <text name="ft_auto_fill" text="Isi" />
-        <text name="ft_auto_fill_fuel" text="FILL FUEL" />
+        <text name="ft_auto_fill_fuel" text="ISI BBM" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Terisi = waktu berlalu. Tawaran bisa datang kapan saja&#10;" />
         <text name="ft_auto_filltype" text="fillType_" />
@@ -1022,7 +1022,7 @@
         <text name="ft_auto_finish_current_first" text="selesaikan yang sekarang dulu" />
         <text name="ft_auto_finish_job" text="SELESAIKAN PEKERJAAN" />
         <text name="ft_auto_finishing_a_job" text="MENYELESAIKAN PEKERJAAN" />
-        <text name="ft_auto_fire" text="FIRE" />
+        <text name="ft_auto_fire" text="PECAT" />
         <text name="ft_auto_fire_and_pin_workers_to_vehicles" text="fire, and pin workers to vehicles." />
         <text name="ft_auto_fire_system" text="Fire System" />
         <text name="ft_auto_fired_s_severance_s" text="Fired %s (severance %s)" />
@@ -1172,9 +1172,9 @@
         <text name="ft_auto_higher_organic_matter_improves_water_retention_and" text="Higher organic matter improves water retention and&#10;" />
         <text name="ft_auto_higher_reputation_unlocks_better_favor_rewards" text="Higher reputation unlocks better favor rewards." />
         <text name="ft_auto_higher_score_better_loan_terms_and_lower_interest" text="Skor lebih tinggi = syarat pinjaman lebih baik dan bunga lebih rendah." />
-        <text name="ft_auto_hire" text="HIRE" />
+        <text name="ft_auto_hire" text="REKRUT" />
         <text name="ft_auto_hire_2" text="hire" />
-        <text name="ft_auto_hire_tab" text="HIRE TAB" />
+        <text name="ft_auto_hire_tab" text="TAB REKRUT" />
         <text name="ft_auto_hired_s_signing_s" text="Hired %s (signing %s)" />
         <text name="ft_auto_history" text="HISTORY" />
         <text name="ft_auto_history_2" text="Riwayat · " />
@@ -1192,7 +1192,7 @@
         <text name="ft_auto_hotspots" text="HOTSPOTS" />
         <text name="ft_auto_hourly_charged_every_in_game_hour" text="Hourly = charged every in-game hour.&#10;" />
         <text name="ft_auto_hourly_every_in_game_hour" text="Hourly = every in-game hour.&#10;" />
-        <text name="ft_auto_hours" text="Hours" />
+        <text name="ft_auto_hours" text="Jam" />
         <text name="ft_auto_hours_2" text="hours" />
         <text name="ft_auto_hours_status" text="JAM / STATUS" />
         <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is - straw level for pigs and cows,&#10;" />
@@ -1201,7 +1201,7 @@
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
-        <text name="ft_auto_idle" text="Idle" />
+        <text name="ft_auto_idle" text="Menganggur" />
         <text name="ft_auto_idle_2" text="idle" />
         <text name="ft_auto_if_a_field_has_more_than_5_accumulated_drought" text="If a field has more than 5% accumulated drought&#10;" />
         <text name="ft_auto_if_a_vehicle_is_missing_check_it_is_assigned_to" text="If a vehicle is missing, check it is assigned to&#10;" />
@@ -1244,7 +1244,7 @@
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Install FS25_SoilFertilizer to use this app." />
         <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Pasang FS25_UsedPlus untuk memakai aplikasi ini." />
-        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Install FS25_WorkerCosts to manage personnel." />
+        <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Pasang FS25_WorkerCosts untuk mengelola personalia." />
         <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
@@ -1294,7 +1294,7 @@
         <text name="ft_auto_left_stripe_blue_rain_orange_storm_grey_overcast" text="left stripe: blue = rain, orange = storm, grey = overcast,&#10;" />
         <text name="ft_auto_level" text="Tingkat" />
         <text name="ft_auto_level_2" text="level" />
-        <text name="ft_auto_levels" text="Levels" />
+        <text name="ft_auto_levels" text="Tingkat" />
         <text name="ft_auto_light" text="Light" />
         <text name="ft_auto_lists_all_crops_currently_stored_across_your_owned_silo" text="Menampilkan semua hasil panen yang tersimpan di silomu.&#10;" />
         <text name="ft_auto_lists_every_active_npc_with_their_relationship_score" text="Lists every active NPC with their relationship score&#10;" />
@@ -1367,10 +1367,10 @@
         <text name="ft_auto_modsettings" text="modSettings" />
         <text name="ft_auto_moisture_bar" text="MOISTURE BAR" />
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
-        <text name="ft_auto_money" text="MONEY" />
+        <text name="ft_auto_money" text="UANG" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
         <text name="ft_auto_month_costs" text="MONTH COSTS" />
-        <text name="ft_auto_month_to_date" text="Month To Date" />
+        <text name="ft_auto_month_to_date" text="Bulan berjalan" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total bulanan" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
@@ -1399,8 +1399,8 @@
         <text name="ft_auto_net_p_l_income_minus_expenses" text="Laba/rugi bersih: pemasukan dikurangi pengeluaran." />
         <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Laba/Rugi Bersih = pemasukan dikurangi pengeluaran sesi ini." />
         <text name="ft_auto_net_pl" text="net_pl" />
-        <text name="ft_auto_net_savings" text="Net Savings" />
-        <text name="ft_auto_net_surcharge" text="Net Surcharge" />
+        <text name="ft_auto_net_savings" text="Hemat bersih" />
+        <text name="ft_auto_net_surcharge" text="Tambahan bersih" />
         <text name="ft_auto_net_worth" text="Kekayaan Bersih" />
         <text name="ft_auto_net_worth_balance_minus_loan_your_true_financial_positi" text="Kekayaan Bersih: saldo dikurangi pinjaman - posisi keuanganmu yang sebenarnya." />
         <text name="ft_auto_network" text="Network" />
@@ -1460,7 +1460,7 @@
         <text name="ft_auto_no_badge_parked_or_player_controlled" text="Tanpa lencana = diparkir atau dikendalikan pemain." />
         <text name="ft_auto_no_bucket_vehicle_detected_nearby" text="No bucket vehicle detected nearby." />
         <text name="ft_auto_no_buildings_shown" text="TIDAK ADA BANGUNAN" />
-        <text name="ft_auto_no_candidates_available" text="No candidates available." />
+        <text name="ft_auto_no_candidates_available" text="Tidak ada kandidat tersedia." />
         <text name="ft_auto_no_completed_jobs_yet" text="Belum ada pekerjaan selesai." />
         <text name="ft_auto_no_contracts_showing" text="TIDAK ADA KONTRAK" />
         <text name="ft_auto_no_crop_stress_data_yet" text="No crop stress data yet." />
@@ -1490,7 +1490,7 @@
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Tidak ada kendaraan dalam 35 m." />
         <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
-        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
+        <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Belum ada pekerja. Buka tab REKRUT untuk merekrut." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Tidak ada bengkel di pertanian ini  (perbaikan nonaktif)" />
         <text name="ft_auto_none" text="tidak ada" />
         <text name="ft_auto_none_active" text="tidak ada yang aktif" />
@@ -1599,9 +1599,9 @@
         <text name="ft_auto_pay" text="PAY" />
         <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
         <text name="ft_auto_payment_mode_2" text="Payment Mode" />
-        <text name="ft_auto_payroll" text="PAYROLL" />
+        <text name="ft_auto_payroll" text="PENGGAJIAN" />
         <text name="ft_auto_payroll_2" text="payroll" />
-        <text name="ft_auto_payroll_tab" text="PAYROLL TAB" />
+        <text name="ft_auto_payroll_tab" text="TAB PENGGAJIAN" />
         <text name="ft_auto_peak_price_is_tracked_and_saved_per_savegame" text="Harga puncak dicatat dan disimpan per simpanan permainan.&#10;" />
         <text name="ft_auto_peak_s_day_d" text="  Peak: %s  (day %d)" />
         <text name="ft_auto_pen" text="Pen" />
@@ -1623,7 +1623,7 @@
         <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
-        <text name="ft_auto_pin" text="PIN" />
+        <text name="ft_auto_pin" text="SEMATKAN" />
         <text name="ft_auto_pin_2" text="Penanda" />
         <text name="ft_auto_pinned_s_to_s" text="Pinned %s to %s" />
         <text name="ft_auto_pins" text="PINS" />
@@ -1655,7 +1655,7 @@
         <text name="ft_auto_prices_are_per_1_000_litres_refreshes_every_5_seconds" text="Harga per 1.000 liter. Diperbarui setiap 5 detik." />
         <text name="ft_auto_pro_staff" text="PRO-STAFF  (" />
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
-        <text name="ft_auto_pro_staff_impact" text="PRO-STAFF IMPACT" />
+        <text name="ft_auto_pro_staff_impact" text="DAMPAK PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
         <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
         <text name="ft_auto_prod" text="PROD" />
@@ -1708,7 +1708,7 @@
         <text name="ft_auto_record_is_saved_to_the_history_list" text="record is saved to the History list." />
         <text name="ft_auto_recruit" text="Recruit" />
         <text name="ft_auto_recruit_2" text="recruit" />
-        <text name="ft_auto_recruitment_pool" text="Recruitment pool" />
+        <text name="ft_auto_recruitment_pool" text="Kumpulan kandidat" />
         <text name="ft_auto_recruitment_pool_rerolled" text="Recruitment pool rerolled" />
         <text name="ft_auto_refill_before_hitting_red_to_maintain_productivity" text="Refill before hitting red to maintain productivity." />
         <text name="ft_auto_refuel_vehicles" text="Refuel vehicles" />
@@ -1724,7 +1724,7 @@
         <text name="ft_auto_reopen_initial_selection" text="REOPEN INITIAL SELECTION" />
         <text name="ft_auto_repair" text="REPAIR" />
         <text name="ft_auto_repair_2" text="repair" />
-        <text name="ft_auto_repair_all" text="REPAIR ALL" />
+        <text name="ft_auto_repair_all" text="PERBAIKI SEMUA" />
         <text name="ft_auto_repair_all_resets_damage_on_all_your_vehicles" text="REPAIR ALL - resets damage on all your vehicles.&#10;" />
         <text name="ft_auto_repair_button" text="TOMBOL PERBAIKI" />
         <text name="ft_auto_repair_completed_tablet_is_ready_to_use_again" text="Repair completed. Tablet is ready to use again." />
@@ -1736,7 +1736,7 @@
         <text name="ft_auto_repossession" text="repossession" />
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
-        <text name="ft_auto_reroll" text="REROLL" />
+        <text name="ft_auto_reroll" text="ACAK ULANG" />
         <text name="ft_auto_reset" text="ATUR ULANG" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
@@ -1757,13 +1757,13 @@
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
         <text name="ft_auto_rolling" text="Menggilas" />
-        <text name="ft_auto_roster" text="ROSTER" />
+        <text name="ft_auto_roster" text="DAFTAR PEKERJA" />
         <text name="ft_auto_roster_2" text="roster" />
-        <text name="ft_auto_roster_data_unavailable" text="Roster data unavailable." />
+        <text name="ft_auto_roster_data_unavailable" text="Data daftar pekerja tidak tersedia." />
         <text name="ft_auto_roster_is_host_managed_syncs_to_clients_soon" text="Roster is host-managed - syncs to clients soon." />
-        <text name="ft_auto_roster_tab" text="ROSTER TAB" />
+        <text name="ft_auto_roster_tab" text="TAB DAFTAR PEKERJA" />
         <text name="ft_auto_rows_marked_fert_in_yellow_need_fertilising" text="Rows marked [FERT!] in yellow need fertilising.&#10;" />
-        <text name="ft_auto_running_costs" text="RUNNING COSTS" />
+        <text name="ft_auto_running_costs" text="BIAYA BERJALAN" />
         <text name="ft_auto_rurallink" text="RuralLink" />
         <text name="ft_auto_rurallink_2" text="rurallink" />
         <text name="ft_auto_rwe" text="RWE" />
@@ -1855,7 +1855,7 @@
         <text name="ft_auto_since_the_last_time_the_savegame_was_loaded" text="(sejak simpanan terakhir kali dimuat).&#10;" />
         <text name="ft_auto_single_station_no_comparison_available" text="Hanya satu titik jual - tidak ada perbandingan" />
         <text name="ft_auto_skidsteer" text="skidsteer" />
-        <text name="ft_auto_skip_to" text="SKIP TO" />
+        <text name="ft_auto_skip_to" text="LOMPAT KE" />
         <text name="ft_auto_slate_grey" text="Abu-abu Sabak" />
         <text name="ft_auto_sleep" text="TIDUR" />
         <text name="ft_auto_sleep_toggle" text="SAKLAR TIDUR" />
@@ -1941,12 +1941,12 @@
         <text name="ft_auto_summary_cards" text="KARTU RINGKASAN" />
         <text name="ft_auto_summer" text="Musim panas" />
         <text name="ft_auto_supplier" text="Supplier" />
-        <text name="ft_auto_sure" text="SURE?" />
+        <text name="ft_auto_sure" text="YAKIN?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
         <text name="ft_auto_sw" text="SW" />
         <text name="ft_auto_switch_to_app_by_id" text="Switch to app by ID" />
         <text name="ft_auto_switched_to_app_s" text="Switched to app: %s" />
-        <text name="ft_auto_syncing_roster_from_host" text="Syncing roster from host..." />
+        <text name="ft_auto_syncing_roster_from_host" text="Menyinkronkan daftar pekerja dari host..." />
         <text name="ft_auto_system_initialized_apps_d" text="System initialized. Apps: %d" />
         <text name="ft_auto_table" text="table" />
         <text name="ft_auto_tablet" text="tablet" />
@@ -2025,7 +2025,7 @@
         <text name="ft_auto_the_panel_below_pinned_vehicles_stay_visible_even" text="panel bawah. Kendaraan yang disematkan tetap tampil meski&#10;" />
         <text name="ft_auto_the_pro_staff_impact_how_levels_cheaper_and" text="the Pro-Staff impact - how levels (cheaper) and&#10;" />
         <text name="ft_auto_the_release_date_on_the_right" text="the release date on the right.&#10;" />
-        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="The roster lives on the host and is loading." />
+        <text name="ft_auto_the_roster_lives_on_the_host_and_is_loading" text="Daftar pekerja ada di host dan sedang dimuat." />
         <text name="ft_auto_the_roster_lives_on_the_host_your_actions_are" text="The roster lives on the host. Your actions are&#10;" />
         <text name="ft_auto_the_tracker_activates_automatically_when_you_drive_or" text="The tracker activates automatically when you drive or&#10;" />
         <text name="ft_auto_the_worker_costs_mod_settings" text="the Worker Costs mod settings." />
@@ -2049,7 +2049,7 @@
         <text name="ft_auto_time_controls_2" text="time_controls" />
         <text name="ft_auto_time_controls_affect_all_players_and" text="Time controls affect all players and" />
         <text name="ft_auto_time_remaining" text="SISA WAKTU" />
-        <text name="ft_auto_time_scale" text="TIME SCALE" />
+        <text name="ft_auto_time_scale" text="SKALA WAKTU" />
         <text name="ft_auto_time_scale_now" text="TIME SCALE  ·  now: " />
         <text name="ft_auto_time_shown_is_in_game_time_not_real_world_time" text="Waktu yang ditampilkan adalah waktu dalam game, bukan waktu nyata.&#10;" />
         <text name="ft_auto_tisonk" text="TisonK" />
@@ -2127,7 +2127,7 @@
         <text name="ft_auto_vehicle_list" text="DAFTAR KENDARAAN" />
         <text name="ft_auto_vehicle_repossessions_still_run_through_realisticdealer" text="Vehicle repossessions still run through RealisticDealer server-side." />
         <text name="ft_auto_vehicles" text=" vehicles" />
-        <text name="ft_auto_vehicles_2" text="VEHICLES" />
+        <text name="ft_auto_vehicles_2" text="KENDARAAN" />
         <text name="ft_auto_vehicles_3" text="Kendaraan" />
         <text name="ft_auto_vehicles_4" text="vehicles" />
         <text name="ft_auto_vehicles_d_owned" text="VEHICLES  ·  %d owned" />
@@ -2151,8 +2151,8 @@
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
         <text name="ft_auto_wage_level" text="WAGE LEVEL" />
-        <text name="ft_auto_wage_level_2" text="Wage Level" />
-        <text name="ft_auto_wage_structure" text="WAGE STRUCTURE" />
+        <text name="ft_auto_wage_level_2" text="Tingkat gaji" />
+        <text name="ft_auto_wage_structure" text="STRUKTUR GAJI" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
         <text name="ft_auto_wages_accrued" text="Wages Accrued" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
@@ -2223,13 +2223,13 @@
         <text name="ft_auto_waiting" text="menunggu" />
         <text name="ft_auto_worker_costs" text="Biaya Pekerja" />
         <text name="ft_auto_worker_costs_2" text="worker_costs" />
-        <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs is not installed." />
+        <text name="ft_auto_worker_costs_is_not_installed" text="Worker Costs tidak terpasang." />
         <text name="ft_auto_worker_to_the_vehicle_you_re_driving_or_fire" text="worker to the vehicle you're driving, or FIRE&#10;" />
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Upah pekerja dan rincian biaya" />
-        <text name="ft_auto_workers" text="Workers" />
+        <text name="ft_auto_workers" text="Pekerja" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
-        <text name="ft_auto_working" text="Working" />
+        <text name="ft_auto_working" text="Bekerja" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Working Now" />
         <text name="ft_auto_workshop" text="Bengkel" />
@@ -2729,6 +2729,44 @@
         <text name="ft_storage_silo_one" text="%d silo" />
         <text name="ft_storage_silos" text="%d silo" />
         <text name="ft_storage_peak_fmt" text="Puncak: %s  (hari %d)" />
+        <text name="ft_farmadmin_help_money_body" text="Menambah dana ke rekening pertanianmu.&#10;Jumlah: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_scale_body" text="Mengatur seberapa cepat waktu permainan berjalan.&#10;JEDA menghentikan waktu. Kecepatan aktif disorot.&#10;Menggantikan ubin Kontrol Waktu yang lama." />
+        <text name="ft_farmadmin_help_skip_body" text="Memajukan jam ke waktu tetap dalam sehari.&#10;Lanjut ke besok jika waktu itu sudah lewat hari ini." />
+        <text name="ft_farmadmin_help_vehicles_body" text="PERBAIKI SEMUA - menghapus kerusakan semua kendaraanmu.&#10;ISI BBM - mengisi bahan bakar (dan AdBlue) sampai penuh&#10;             di semua kendaraan bermotormu." />
+        <text name="ft_farmadmin_help_mp_body" text="Bisa dipakai host, dan admin server (master&#10;user) di server khusus. Perubahan berjalan di server." />
+        <text name="ft_farmadmin_admin_only" text="Hanya admin" />
+        <text name="ft_farmadmin_host_only" text="Hanya host atau admin server" />
+        <text name="ft_farmadmin_notice_1" text="Kontrol ini memengaruhi semua pemain. Masuk sebagai" />
+        <text name="ft_farmadmin_notice_2" text="admin server untuk memakainya." />
+        <text name="ft_farmadmin_time_scale_fmt" text="SKALA WAKTU  ·  sekarang: %s" />
+        <text name="ft_farmadmin_skip_6am" text="06.00" />
+        <text name="ft_farmadmin_skip_noon" text="12.00" />
+        <text name="ft_farmadmin_skip_6pm" text="18.00" />
+        <text name="ft_farmadmin_skip_midnight" text="TENGAH MALAM" />
+        <text name="ft_farmadmin_vehicles_fmt" text="KENDARAAN  ·  %d dimiliki" />
+        <text name="ft_personnel_workers_fmt" text="%d  (%d bekerja)" />
+        <text name="ft_personnel_levels_fmt" text="%dP / %dB / %dA" />
+        <text name="ft_personnel_sort_fmt" text="URUTKAN: %s" />
+        <text name="ft_personnel_filter_fmt" text="FILTER: %s" />
+        <text name="ft_personnel_worker_word" text="pekerja" />
+        <text name="ft_personnel_vehicle_word" text="kendaraan" />
+        <text name="ft_personnel_recruit_word" text="kandidat" />
+        <text name="ft_personnel_msg_unpinned" text="%s dilepas" />
+        <text name="ft_personnel_msg_enter_vehicle" text="Naik kendaraan dulu, lalu SEMATKAN" />
+        <text name="ft_personnel_msg_no_vehicle_id" text="Kendaraan tidak punya id tetap - simpan sekali, lalu SEMATKAN" />
+        <text name="ft_personnel_msg_pinned" text="%s disematkan ke %s" />
+        <text name="ft_personnel_msg_fired" text="%s dipecat (pesangon %s)" />
+        <text name="ft_personnel_msg_confirm_fire" text="Ketuk PECAT lagi untuk konfirmasi - pesangon %s" />
+        <text name="ft_personnel_worker_stats_fmt" text="%.1f jam  -  %d pekerjaan  -  lelah %d%%" />
+        <text name="ft_personnel_msg_rerolled" text="Kumpulan kandidat diacak ulang" />
+        <text name="ft_personnel_msg_hired" text="%s direkrut (biaya tanda tangan %s)" />
+        <text name="ft_personnel_signing_cost_fmt" text="Biaya rekrut  %s" />
+        <text name="ft_personnel_per_worker_fmt" text="PER PEKERJA  (dasar %s)" />
+        <text name="ft_personnel_help_what_body" text="Pusat kendali personalia untuk FS25_WorkerCosts.&#10;Kelola tim Pro-Staff-mu: tinjau, rekrut,&#10;pecat, dan sematkan pekerja ke kendaraan." />
+        <text name="ft_personnel_help_roster_body" text="Tiap pekerja dengan tingkat, total jam, pekerjaan,&#10;dan kelelahan. Urutkan dan saring daftar. SEMATKAN mengikat&#10;pekerja ke kendaraan yang kamu kemudikan, PECAT&#10;memecatnya (ketuk dua kali - pesangon berlaku)." />
+        <text name="ft_personnel_help_hire_body" text="Kumpulan kandidat yang berganti. Tiap kandidat punya&#10;tingkat dan biaya rekrut sekali bayar. REKRUT&#10;menambahkannya; ACAK ULANG mendatangkan kandidat baru." />
+        <text name="ft_personnel_help_payroll_body" text="Struktur gaji, perkiraan biaya berjalan, dan&#10;dampak Pro-Staff - bagaimana tingkat (lebih murah) dan&#10;kelelahan (lebih mahal) saling mengimbangi di tim." />
+        <text name="ft_personnel_help_mp_body" text="Daftar pekerja ada di host. Tindakanmu&#10;dikirim ke host dan hasilnya disinkronkan&#10;ke semua orang secara otomatis." />
         <text name="ft_usedplus_offer" text="TAWARAN" />
         <text name="ft_usedplus_day_left" text="sisa %d hari" />
         <text name="ft_usedplus_days_left" text="sisa %d hari" />
