@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="dolgozik, rögzítve" />
         <text name="ft_companion_idle_pinned" text="tétlen, rögzítve" />
         <text name="ft_income_help_what_body" text="Az FS25_IncomeMod aktuális állapotát mutatja.&#10;A mod beállítható, rendszeres bevételt ad&#10;a gazdaság keresetének kiegészítésére." />
-        <text name="ft_income_help_mode_body" text="Megadja, mikor fizet a bevétel:&#10;Óránként = minden játékórában.&#10;Naponta = játéknaponként egyszer.&#10;Hetente = játékhetente egyszer." />
+        <text name="ft_income_help_mode_body" text="Megadja, mikor fizet a bevétel:&#10;Óránként = minden játékórában.&#10;Naponta = játéknaponként egyszer." />
         <text name="ft_income_help_amount_body" text="A fizetési ciklusonként az egyenlegedhez adott összeg.&#10;Az Income Mod beállításaiban adhatod meg." />
         <text name="ft_companion_help_toggle_body" text="Be- vagy kikapcsolja a modot eltávolítás nélkül.&#10;A változások azonnal érvénybe lépnek." />
         <text name="ft_tax_help_what_body" text="Az FS25_TaxMod állapotát mutatja.&#10;A mod rendszeresen adót von le az egyenlegedből,&#10;és beállítható százalékot visszatérít." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Az aktuális munkamenetben befizetett adó összesen.&#10;Narancssárga, mert folyamatos költség." />
         <text name="ft_wrk_help_what_body" text="Az FS25_WorkerCosts állapotát mutatja:&#10;bérszint, költségmód, aktív&#10;munkások és a hónap eddigi költségei.&#10;Görgess le a Pro-Staff csapatért." />
         <text name="ft_wrk_help_wage_body" text="A felvett munkások órabérét állítja be.&#10;Az Alacsony / Közepes / Magas szint a&#10;Worker Costs mod beállításaiban adható meg." />
-        <text name="ft_wrk_help_mode_body" text="Megadja a bérek számítását:&#10;Óránként = minden játékórában terhel.&#10;Havonta = összegyűlik, és a hónap végén terhel." />
+        <text name="ft_wrk_help_mode_body" text="Megadja a bérek számítását:&#10;Óránként = minden játékórában terhel.&#10;Hektáronként = a megművelt terület után terhel, éjfélkor elszámolva." />
         <text name="ft_wrk_help_month_body" text="Az e havi összes felhalmozott bér.&#10;A havi fizetés kifizetése után nullázódik." />
         <text name="ft_wrk_help_roster_body" text="A felvett munkásaid a szintjükkel&#10;(Kezdő / Tapasztalt / Mester), összes órával,&#10;elvégzett munkákkal és aktuális fáradtsággal.&#10;Ez a nézet csak olvasható: felvétel, elbocsátás és beosztás&#10;a játékbeli csapatpanelen (ALT+H)&#10;vagy a WorkerCosts konzolparancsaival." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  még %d ó" />
         <text name="ft_npc_help_rep_body" text="A helyi közösségben elfoglalt helyed (0-100).&#10;Megbecsült &gt;= 70  |  Semleges &gt;= 40  |  Gyenge &lt; 40.&#10;A jobb hírnév jobb jutalmakat nyit meg." />
         <text name="ft_npc_help_active_body" text="A folyamatban lévő szívességek száma.&#10;Minden szívességnél látszik az NPC neve, a leírás,&#10;a készültség százaléka és a hátralévő órák." />
-        <text name="ft_npc_help_relationships_body" text="Minden aktív NPC-t felsorol a kapcsolati pontszámával&#10;és egy színkódolt sávval.&#10;Barát &gt;= 70  |  Semleges &gt;= 40  |  Hűvös &lt; 40.&#10;A szerepe (agronómus, szerelő stb.) szögletes&#10;zárójelben áll a neve mellett." />
+        <text name="ft_npc_help_relationships_body" text="Minden aktív NPC-t felsorol a kapcsolati pontszámával&#10;és egy színkódolt sávval.&#10;Barát &gt;= 70  |  Semleges &gt;= 40  |  Hűvös &lt; 40.&#10;A szerepe (agronómus, boltos stb.) szögletes&#10;zárójelben áll a neve mellett." />
         <text name="ft_npc_help_building_body" text="Teljesíts szívességeket egy NPC-nek, hogy nőjön&#10;a kapcsolati pontszám. A magasabb pontszám különleges&#10;tanácsokat, kedvezményeket és korai figyelmeztetéseket nyit meg." />
         <text name="ft_npc_town_rep_fmt" text="A város megbecsülése: %s" />
         <text name="ft_npc_relationships_fmt" text="KAPCSOLATOK  (%d)" />

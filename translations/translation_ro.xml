@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="lucrează, fixat" />
         <text name="ft_companion_idle_pinned" text="inactiv, fixat" />
         <text name="ft_income_help_what_body" text="Afișează starea actuală a FS25_IncomeMod.&#10;Modul adaugă plăți de venit periodice configurabile&#10;în completarea câștigurilor fermei." />
-        <text name="ft_income_help_mode_body" text="Stabilește când se plătește venitul:&#10;Pe oră = la fiecare oră de joc.&#10;Zilnic = o dată pe zi de joc.&#10;Săptămânal = o dată pe săptămână de joc." />
+        <text name="ft_income_help_mode_body" text="Stabilește când se plătește venitul:&#10;Pe oră = la fiecare oră de joc.&#10;Zilnic = o dată pe zi de joc." />
         <text name="ft_income_help_amount_body" text="Banii adăugați la sold la fiecare ciclu de plată.&#10;Setează-i în opțiunile Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Pornește sau oprește modul fără să-l dezinstalezi.&#10;Modificările se aplică imediat." />
         <text name="ft_tax_help_what_body" text="Afișează starea FS25_TaxMod.&#10;Modul reține periodic un impozit din sold&#10;și returnează un procent configurabil ca rambursare." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Impozitul total plătit în sesiunea curentă.&#10;Afișat cu portocaliu, fiind un cost continuu." />
         <text name="ft_wrk_help_what_body" text="Afișează starea FS25_WorkerCosts:&#10;nivelul salarial, modul de cost, muncitorii&#10;activi și costurile lunii până acum.&#10;Derulează în jos pentru echipa Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Stabilește salariul pe oră al muncitorilor angajați.&#10;Nivelurile Scăzut / Mediu / Ridicat se setează&#10;în opțiunile modului Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Stabilește cum se calculează salariile:&#10;Pe oră = taxat la fiecare oră de joc.&#10;Lunar = cumulat și taxat la sfârșitul lunii." />
+        <text name="ft_wrk_help_mode_body" text="Stabilește cum se calculează salariile:&#10;Pe oră = taxat la fiecare oră de joc.&#10;Pe hectar = taxat după suprafața lucrată, decontat la miezul nopții." />
         <text name="ft_wrk_help_month_body" text="Totalul salariilor acumulate luna aceasta.&#10;Se resetează după plata salariului lunar." />
         <text name="ft_wrk_help_roster_body" text="Muncitorii tăi angajați cu nivelul lor&#10;(Începător / Experimentat / Maestru), ore totale,&#10;lucrări finalizate și bara de oboseală actuală.&#10;Această vedere e doar pentru citire: angajează, concediază și repartizează&#10;muncitori din panoul echipei din joc (ALT+H)&#10;sau cu comenzile de consolă WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  mai sunt %d h" />
         <text name="ft_npc_help_rep_body" text="Poziția ta în comunitatea locală (0-100).&#10;Respectat &gt;= 70  |  Neutru &gt;= 40  |  Slab &lt; 40.&#10;O reputație mai bună deblochează recompense mai bune." />
         <text name="ft_npc_help_active_body" text="Numărul de favoruri în desfășurare.&#10;Fiecare favor arată numele NPC-ului, descrierea,&#10;procentul de finalizare și orele rămase." />
-        <text name="ft_npc_help_relationships_body" text="Afișează fiecare NPC activ cu scorul relației&#10;și o bară colorată.&#10;Prieten &gt;= 70  |  Neutru &gt;= 40  |  Rece &lt; 40.&#10;Rolul (agronom, mecanic etc.) apare&#10;între paranteze pătrate lângă nume." />
+        <text name="ft_npc_help_relationships_body" text="Afișează fiecare NPC activ cu scorul relației&#10;și o bară colorată.&#10;Prieten &gt;= 70  |  Neutru &gt;= 40  |  Rece &lt; 40.&#10;Rolul (agronom, negustor etc.) apare&#10;între paranteze pătrate lângă nume." />
         <text name="ft_npc_help_building_body" text="Fă favoruri unui NPC ca să-i crești&#10;scorul relației. Scorurile mari deblochează sfaturi&#10;exclusive, reduceri și avertizări din timp." />
         <text name="ft_npc_town_rep_fmt" text="Reputația în sat: %s" />
         <text name="ft_npc_relationships_fmt" text="RELAȚII  (%d)" />

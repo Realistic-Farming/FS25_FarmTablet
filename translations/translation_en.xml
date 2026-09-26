@@ -2975,7 +2975,7 @@
         <text name="ft_companion_working_pinned" text="working, pinned" />
         <text name="ft_companion_idle_pinned" text="idle, pinned" />
         <text name="ft_income_help_what_body" text="Displays the current status of FS25_IncomeMod.&#10;The mod adds configurable periodic income payments&#10;to supplement your farm earnings." />
-        <text name="ft_income_help_mode_body" text="Controls when income is paid out:&#10;Hourly = every in-game hour.&#10;Daily = once per in-game day.&#10;Weekly = once per in-game week." />
+        <text name="ft_income_help_mode_body" text="Controls when income is paid out:&#10;Hourly = every in-game hour.&#10;Daily = once per in-game day." />
         <text name="ft_income_help_amount_body" text="The money added to your balance per payment cycle.&#10;Configure this in the Income Mod settings." />
         <text name="ft_companion_help_toggle_body" text="Toggles the mod on or off without uninstalling it.&#10;Changes take effect immediately." />
         <text name="ft_tax_help_what_body" text="Displays the status of FS25_TaxMod.&#10;The mod deducts periodic tax from your balance&#10;and returns a configurable percentage as a rebate." />
@@ -2984,7 +2984,7 @@
         <text name="ft_tax_help_total_body" text="Cumulative tax paid across the current session.&#10;Shown in orange as it represents an ongoing cost." />
         <text name="ft_wrk_help_what_body" text="Displays FS25_WorkerCosts status:&#10;current wage level, cost mode, active&#10;workers, and month-to-date costs.&#10;Scroll down for the Pro-Staff roster." />
         <text name="ft_wrk_help_wage_body" text="Sets the per-hour wage rate for hired workers.&#10;Low / Medium / High tiers are configured in&#10;the Worker Costs mod settings." />
-        <text name="ft_wrk_help_mode_body" text="Controls how wages are calculated:&#10;Hourly = charged every in-game hour.&#10;Monthly = accumulated and charged at month end." />
+        <text name="ft_wrk_help_mode_body" text="Controls how wages are calculated:&#10;Hourly = charged every in-game hour.&#10;Per Hectare = billed by area worked, settled at midnight." />
         <text name="ft_wrk_help_month_body" text="Total wages accumulated this month.&#10;Resets after the monthly salary is paid." />
         <text name="ft_wrk_help_roster_body" text="Your hired workers with their level&#10;(Novice / Experienced / Master), lifetime hours,&#10;jobs completed, and current fatigue bar.&#10;This view is read-only - hire, fire, and assign&#10;workers from the in-game roster panel (ALT+H)&#10;or the WorkerCosts console commands." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -2994,7 +2994,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  %dh left" />
         <text name="ft_npc_help_rep_body" text="Overall standing with the local community (0-100).&#10;Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;Higher reputation unlocks better favor rewards." />
         <text name="ft_npc_help_active_body" text="Number of favors currently in progress.&#10;Each favor shows NPC name, description, completion&#10;percentage, and hours remaining." />
-        <text name="ft_npc_help_relationships_body" text="Lists every active NPC with their relationship score&#10;and a colour-coded bar.&#10;Friend &gt;= 70  |  Neutral &gt;= 40  |  Cold &lt; 40.&#10;Their role (Agronomist, Mechanic, etc.) is shown in&#10;square brackets next to their name." />
+        <text name="ft_npc_help_relationships_body" text="Lists every active NPC with their relationship score&#10;and a colour-coded bar.&#10;Friend &gt;= 70  |  Neutral &gt;= 40  |  Cold &lt; 40.&#10;Their role (Agronomist, Shopkeeper, etc.) is shown in&#10;square brackets next to their name." />
         <text name="ft_npc_help_building_body" text="Complete favors for an NPC to increase their&#10;relationship score. Higher scores unlock exclusive&#10;advice, discounts, and early warnings." />
         <text name="ft_npc_town_rep_fmt" text="Town Reputation: %s" />
         <text name="ft_npc_relationships_fmt" text="RELATIONSHIPS  (%d)" />

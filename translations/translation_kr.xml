@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="작업 중, 고정됨" />
         <text name="ft_companion_idle_pinned" text="대기 중, 고정됨" />
         <text name="ft_income_help_what_body" text="FS25_IncomeMod의 현재 상태를 표시합니다.&#10;이 모드는 설정 가능한 정기 수입을 추가해&#10;농장 수익을 보충합니다." />
-        <text name="ft_income_help_mode_body" text="수입 지급 시점을 정합니다:&#10;시간당 = 게임 시간 1시간마다.&#10;일별 = 게임 하루에 한 번.&#10;주별 = 게임 한 주에 한 번." />
+        <text name="ft_income_help_mode_body" text="수입 지급 시점을 정합니다:&#10;시간당 = 게임 시간 1시간마다.&#10;일별 = 게임 하루에 한 번." />
         <text name="ft_income_help_amount_body" text="지급 주기마다 잔액에 더해지는 금액입니다.&#10;Income Mod 설정에서 바꿀 수 있습니다." />
         <text name="ft_companion_help_toggle_body" text="제거하지 않고 모드를 켜거나 끕니다.&#10;변경 사항은 바로 적용됩니다." />
         <text name="ft_tax_help_what_body" text="FS25_TaxMod의 상태를 표시합니다.&#10;이 모드는 잔액에서 정기적으로 세금을 떼고&#10;설정한 비율을 환급으로 돌려줍니다." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="현재 세션 동안 낸 세금의 합계입니다.&#10;계속 드는 비용이므로 주황색으로 표시됩니다." />
         <text name="ft_wrk_help_what_body" text="FS25_WorkerCosts 상태를 표시합니다:&#10;임금 수준, 비용 방식, 활동 중인&#10;작업자, 이번 달 비용.&#10;아래로 스크롤하면 Pro-Staff 명단이 있습니다." />
         <text name="ft_wrk_help_wage_body" text="고용한 작업자의 시급을 정합니다.&#10;낮음 / 보통 / 높음 단계는&#10;Worker Costs 모드 설정에서 정합니다." />
-        <text name="ft_wrk_help_mode_body" text="임금 계산 방식을 정합니다:&#10;시간당 = 게임 시간 1시간마다 청구.&#10;월별 = 누적해서 월말에 청구." />
+        <text name="ft_wrk_help_mode_body" text="임금 계산 방식을 정합니다:&#10;시간당 = 게임 시간 1시간마다 청구.&#10;헥타르당 = 작업한 면적에 따라 청구, 자정에 정산." />
         <text name="ft_wrk_help_month_body" text="이번 달 누적 임금 합계입니다.&#10;월급을 지급하면 초기화됩니다." />
         <text name="ft_wrk_help_roster_body" text="고용한 작업자와 등급&#10;(초보 / 숙련 / 마스터), 누적 시간,&#10;완료한 작업, 현재 피로도 막대.&#10;이 화면은 읽기 전용입니다: 고용, 해고, 배정은&#10;게임 속 명단 패널(ALT+H)이나&#10;WorkerCosts 콘솔 명령으로 하세요." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  %d시간 남음" />
         <text name="ft_npc_help_rep_body" text="지역 사회에서의 위치입니다(0-100).&#10;존경 &gt;= 70  |  중립 &gt;= 40  |  나쁨 &lt; 40.&#10;평판이 높을수록 더 좋은 보상이 열립니다." />
         <text name="ft_npc_help_active_body" text="현재 진행 중인 부탁 수입니다.&#10;각 부탁에는 NPC 이름, 설명,&#10;완료율과 남은 시간이 표시됩니다." />
-        <text name="ft_npc_help_relationships_body" text="활동 중인 모든 NPC를 관계 점수와&#10;색상 막대로 보여 줍니다.&#10;친구 &gt;= 70  |  중립 &gt;= 40  |  냉담 &lt; 40.&#10;역할(농학자, 정비공 등)은&#10;이름 옆 대괄호에 표시됩니다." />
+        <text name="ft_npc_help_relationships_body" text="활동 중인 모든 NPC를 관계 점수와&#10;색상 막대로 보여 줍니다.&#10;친구 &gt;= 70  |  중립 &gt;= 40  |  냉담 &lt; 40.&#10;역할(농학자, 상점 주인 등)은&#10;이름 옆 대괄호에 표시됩니다." />
         <text name="ft_npc_help_building_body" text="NPC의 부탁을 완료해&#10;관계 점수를 올리세요. 점수가 높으면 특별한&#10;조언, 할인, 조기 경고가 열립니다." />
         <text name="ft_npc_town_rep_fmt" text="마을 평판: %s" />
         <text name="ft_npc_relationships_fmt" text="관계  (%d)" />

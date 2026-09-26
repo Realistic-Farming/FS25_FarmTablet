@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="çalışıyor, sabitlenmiş" />
         <text name="ft_companion_idle_pinned" text="boşta, sabitlenmiş" />
         <text name="ft_income_help_what_body" text="FS25_IncomeMod'un güncel durumunu gösterir.&#10;Mod, çiftlik kazancını desteklemek için&#10;ayarlanabilir düzenli gelir ödemeleri ekler." />
-        <text name="ft_income_help_mode_body" text="Gelirin ne zaman ödeneceğini belirler:&#10;Saatlik = her oyun saatinde.&#10;Günlük = her oyun gününde bir kez.&#10;Haftalık = her oyun haftasında bir kez." />
+        <text name="ft_income_help_mode_body" text="Gelirin ne zaman ödeneceğini belirler:&#10;Saatlik = her oyun saatinde.&#10;Günlük = her oyun gününde bir kez." />
         <text name="ft_income_help_amount_body" text="Her ödeme döngüsünde bakiyene eklenen para.&#10;Bunu Income Mod ayarlarından yapılandır." />
         <text name="ft_companion_help_toggle_body" text="Modu kaldırmadan açar veya kapatır.&#10;Değişiklikler hemen geçerli olur." />
         <text name="ft_tax_help_what_body" text="FS25_TaxMod'un durumunu gösterir.&#10;Mod bakiyenden düzenli olarak vergi keser&#10;ve ayarlanabilir bir yüzdeyi iade olarak geri öder." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Mevcut oturumda ödenen toplam vergi.&#10;Sürekli bir maliyet olduğu için turuncu gösterilir." />
         <text name="ft_wrk_help_what_body" text="FS25_WorkerCosts durumunu gösterir:&#10;ücret seviyesi, maliyet modu, aktif&#10;işçiler ve bu ayki maliyetler.&#10;Pro-Staff kadrosu için aşağı kaydır." />
         <text name="ft_wrk_help_wage_body" text="İşe alınan işçilerin saatlik ücretini belirler.&#10;Düşük / Orta / Yüksek seviyeleri&#10;Worker Costs mod ayarlarında yapılandırılır." />
-        <text name="ft_wrk_help_mode_body" text="Ücretlerin nasıl hesaplandığını belirler:&#10;Saatlik = her oyun saatinde tahsil edilir.&#10;Aylık = birikir ve ay sonunda tahsil edilir." />
+        <text name="ft_wrk_help_mode_body" text="Ücretlerin nasıl hesaplandığını belirler:&#10;Saatlik = her oyun saatinde tahsil edilir.&#10;Hektar başına = işlenen alana göre tahsil edilir, gece yarısı kapatılır." />
         <text name="ft_wrk_help_month_body" text="Bu ay biriken toplam ücret.&#10;Aylık maaş ödendikten sonra sıfırlanır." />
         <text name="ft_wrk_help_roster_body" text="İşe aldığın işçiler, seviyeleriyle&#10;(Acemi / Deneyimli / Usta), toplam saat,&#10;tamamlanan iş ve güncel yorgunluk çubuğuyla.&#10;Bu görünüm salt okunurdur: işe alma, çıkarma ve görevlendirme&#10;oyundaki kadro panelinden (ALT+H)&#10;veya WorkerCosts konsol komutlarıyla yapılır." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%%%d  kalan %d sa" />
         <text name="ft_npc_help_rep_body" text="Yerel topluluktaki durumun (0-100).&#10;Saygın &gt;= 70  |  Nötr &gt;= 40  |  Zayıf &lt; 40.&#10;Daha yüksek itibar daha iyi ödüllerin kilidini açar." />
         <text name="ft_npc_help_active_body" text="Şu an süren iyilik sayısı.&#10;Her iyilik NPC'nin adını, açıklamayı,&#10;tamamlanma yüzdesini ve kalan saatleri gösterir." />
-        <text name="ft_npc_help_relationships_body" text="Her aktif NPC'yi ilişki puanı ve&#10;renkli bir çubukla listeler.&#10;Dost &gt;= 70  |  Nötr &gt;= 40  |  Soğuk &lt; 40.&#10;Rolü (ziraat mühendisi, tamirci vb.) adının&#10;yanında köşeli parantez içinde gösterilir." />
+        <text name="ft_npc_help_relationships_body" text="Her aktif NPC'yi ilişki puanı ve&#10;renkli bir çubukla listeler.&#10;Dost &gt;= 70  |  Nötr &gt;= 40  |  Soğuk &lt; 40.&#10;Rolü (ziraat mühendisi, esnaf vb.) adının&#10;yanında köşeli parantez içinde gösterilir." />
         <text name="ft_npc_help_building_body" text="Bir NPC için iyilikler yaparak&#10;ilişki puanını yükselt. Yüksek puanlar özel&#10;tavsiyelerin, indirimlerin ve erken uyarıların kilidini açar." />
         <text name="ft_npc_town_rep_fmt" text="Kasabadaki itibar: %s" />
         <text name="ft_npc_relationships_fmt" text="İLİŞKİLER  (%d)" />

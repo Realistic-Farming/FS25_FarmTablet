@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="pracuje, przypięty" />
         <text name="ft_companion_idle_pinned" text="bezczynny, przypięty" />
         <text name="ft_income_help_what_body" text="Pokazuje bieżący stan FS25_IncomeMod.&#10;Mod dodaje konfigurowalne okresowe wypłaty dochodu&#10;jako uzupełnienie zarobków gospodarstwa." />
-        <text name="ft_income_help_mode_body" text="Określa, kiedy dochód jest wypłacany:&#10;Godzinowo = co godzinę gry.&#10;Dziennie = raz na dzień gry.&#10;Tygodniowo = raz na tydzień gry." />
+        <text name="ft_income_help_mode_body" text="Określa, kiedy dochód jest wypłacany:&#10;Godzinowo = co godzinę gry.&#10;Dziennie = raz na dzień gry." />
         <text name="ft_income_help_amount_body" text="Kwota dodawana do salda w każdym cyklu płatności.&#10;Ustaw ją w ustawieniach Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Włącza lub wyłącza mod bez odinstalowania.&#10;Zmiany działają od razu." />
         <text name="ft_tax_help_what_body" text="Pokazuje stan FS25_TaxMod.&#10;Mod okresowo pobiera podatek z twojego salda&#10;i zwraca konfigurowalny procent jako zwrot." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Łączny podatek zapłacony w bieżącej sesji.&#10;Pokazany na pomarańczowo, bo to stały koszt." />
         <text name="ft_wrk_help_what_body" text="Pokazuje stan FS25_WorkerCosts:&#10;poziom płac, tryb kosztów, aktywnych&#10;pracowników i koszty od początku miesiąca.&#10;Przewiń w dół do zespołu Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Ustala stawkę godzinową zatrudnionych pracowników.&#10;Poziomy Niski / Średni / Wysoki ustawia się&#10;w ustawieniach moda Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Określa sposób naliczania płac:&#10;Godzinowo = naliczane co godzinę gry.&#10;Miesięcznie = sumowane i naliczane na koniec miesiąca." />
+        <text name="ft_wrk_help_mode_body" text="Określa sposób naliczania płac:&#10;Godzinowo = naliczane co godzinę gry.&#10;Za hektar = naliczane od obrobionej powierzchni, rozliczane o północy." />
         <text name="ft_wrk_help_month_body" text="Łączne płace naliczone w tym miesiącu.&#10;Zerowane po wypłacie miesięcznej pensji." />
         <text name="ft_wrk_help_roster_body" text="Twoi zatrudnieni pracownicy z poziomem&#10;(Nowicjusz / Doświadczony / Mistrz), łącznymi godzinami,&#10;ukończonymi zleceniami i paskiem zmęczenia.&#10;Ten widok jest tylko do odczytu: zatrudniaj, zwalniaj i przydzielaj&#10;pracowników w panelu zespołu w grze (ALT+H)&#10;lub komendami konsoli WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  zostało %d h" />
         <text name="ft_npc_help_rep_body" text="Twoja pozycja w lokalnej społeczności (0-100).&#10;Szanowany &gt;= 70  |  Neutralny &gt;= 40  |  Słaby &lt; 40.&#10;Wyższa reputacja odblokowuje lepsze nagrody." />
         <text name="ft_npc_help_active_body" text="Liczba przysług w toku.&#10;Każda przysługa pokazuje imię NPC, opis,&#10;procent ukończenia i pozostałe godziny." />
-        <text name="ft_npc_help_relationships_body" text="Pokazuje każdą aktywną postać NPC z wynikiem relacji&#10;i kolorowym paskiem.&#10;Przyjaciel &gt;= 70  |  Neutralny &gt;= 40  |  Chłodny &lt; 40.&#10;Jej rola (agronom, mechanik itp.) jest podana&#10;w nawiasach kwadratowych obok imienia." />
+        <text name="ft_npc_help_relationships_body" text="Pokazuje każdą aktywną postać NPC z wynikiem relacji&#10;i kolorowym paskiem.&#10;Przyjaciel &gt;= 70  |  Neutralny &gt;= 40  |  Chłodny &lt; 40.&#10;Jej rola (agronom, sklepikarz itp.) jest podana&#10;w nawiasach kwadratowych obok imienia." />
         <text name="ft_npc_help_building_body" text="Wykonuj przysługi dla NPC, aby podnieść&#10;wynik relacji. Wysokie wyniki odblokowują wyjątkowe&#10;porady, zniżki i wczesne ostrzeżenia." />
         <text name="ft_npc_town_rep_fmt" text="Reputacja we wsi: %s" />
         <text name="ft_npc_relationships_fmt" text="RELACJE  (%d)" />

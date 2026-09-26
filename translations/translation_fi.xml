@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="töissä, kiinnitetty" />
         <text name="ft_companion_idle_pinned" text="vapaana, kiinnitetty" />
         <text name="ft_income_help_what_body" text="Näyttää FS25_IncomeModin nykyisen tilan.&#10;Modi lisää säädettäviä säännöllisiä tuloja&#10;tilan ansioiden tueksi." />
-        <text name="ft_income_help_mode_body" text="Määrittää, milloin tulo maksetaan:&#10;Tunneittain = joka pelitunti.&#10;Päivittäin = kerran pelipäivässä.&#10;Viikoittain = kerran peliviikossa." />
+        <text name="ft_income_help_mode_body" text="Määrittää, milloin tulo maksetaan:&#10;Tunneittain = joka pelitunti.&#10;Päivittäin = kerran pelipäivässä." />
         <text name="ft_income_help_amount_body" text="Saldoon lisättävä raha jokaisella maksukierroksella.&#10;Säädä tämä Income Modin asetuksista." />
         <text name="ft_companion_help_toggle_body" text="Kytkee modin päälle tai pois poistamatta sitä.&#10;Muutokset tulevat voimaan heti." />
         <text name="ft_tax_help_what_body" text="Näyttää FS25_TaxModin tilan.&#10;Modi vähentää saldosta säännöllisesti veroa&#10;ja palauttaa säädettävän osuuden hyvityksenä." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Nykyisen istunnon aikana maksettu vero yhteensä.&#10;Näytetään oranssina, koska se on jatkuva kulu." />
         <text name="ft_wrk_help_what_body" text="Näyttää FS25_WorkerCostsin tilan:&#10;palkkataso, kulutapa, aktiiviset&#10;työntekijät ja kuukauden kulut tähän asti.&#10;Vieritä alas Pro-Staff-miehistöön." />
         <text name="ft_wrk_help_wage_body" text="Asettaa palkattujen työntekijöiden tuntipalkan.&#10;Tasot Matala / Keskitaso / Korkea säädetään&#10;Worker Costs -modin asetuksissa." />
-        <text name="ft_wrk_help_mode_body" text="Määrittää, miten palkat lasketaan:&#10;Tunneittain = veloitetaan joka pelitunti.&#10;Kuukausittain = kertyy ja veloitetaan kuun lopussa." />
+        <text name="ft_wrk_help_mode_body" text="Määrittää, miten palkat lasketaan:&#10;Tunneittain = veloitetaan joka pelitunti.&#10;Hehtaarilta = veloitetaan työstetyn pinta-alan mukaan, tilitetään keskiyöllä." />
         <text name="ft_wrk_help_month_body" text="Tässä kuussa kertyneet palkat yhteensä.&#10;Nollautuu, kun kuukausipalkka on maksettu." />
         <text name="ft_wrk_help_roster_body" text="Palkatut työntekijäsi ja heidän tasonsa&#10;(Aloittelija / Kokenut / Mestari), tunnit yhteensä,&#10;valmiit työt ja nykyinen väsymyspalkki.&#10;Näkymä on vain luku: palkkaa, irtisano ja määrää&#10;työntekijöitä pelin miehistöpaneelista (ALT+H)&#10;tai WorkerCostsin konsolikomennoilla." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  %d h jäljellä" />
         <text name="ft_npc_help_rep_body" text="Asemasi paikallisessa yhteisössä (0-100).&#10;Arvostettu &gt;= 70  |  Neutraali &gt;= 40  |  Huono &lt; 40.&#10;Parempi maine avaa parempia palkkioita." />
         <text name="ft_npc_help_active_body" text="Käynnissä olevien palvelusten määrä.&#10;Jokainen palvelus näyttää NPC:n nimen, kuvauksen,&#10;valmiusprosentin ja jäljellä olevat tunnit." />
-        <text name="ft_npc_help_relationships_body" text="Luettelee jokaisen aktiivisen NPC:n suhdepisteineen&#10;ja värikoodattuine palkkeineen.&#10;Ystävä &gt;= 70  |  Neutraali &gt;= 40  |  Viileä &lt; 40.&#10;Rooli (agronomi, mekaanikko jne.) näkyy&#10;hakasulkeissa nimen vieressä." />
+        <text name="ft_npc_help_relationships_body" text="Luettelee jokaisen aktiivisen NPC:n suhdepisteineen&#10;ja värikoodattuine palkkeineen.&#10;Ystävä &gt;= 70  |  Neutraali &gt;= 40  |  Viileä &lt; 40.&#10;Rooli (agronomi, kauppias jne.) näkyy&#10;hakasulkeissa nimen vieressä." />
         <text name="ft_npc_help_building_body" text="Tee palveluksia NPC:lle nostaaksesi&#10;suhdepisteitä. Korkeat pisteet avaavat erityisiä&#10;neuvoja, alennuksia ja ennakkovaroituksia." />
         <text name="ft_npc_town_rep_fmt" text="Kylän maine: %s" />
         <text name="ft_npc_relationships_fmt" text="SUHTEET  (%d)" />

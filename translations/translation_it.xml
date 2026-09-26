@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="al lavoro, fissato" />
         <text name="ft_companion_idle_pinned" text="inattivo, fissato" />
         <text name="ft_income_help_what_body" text="Mostra lo stato attuale di FS25_IncomeMod.&#10;La mod aggiunge entrate periodiche configurabili&#10;per integrare i guadagni della fattoria." />
-        <text name="ft_income_help_mode_body" text="Stabilisce quando viene pagata l'entrata:&#10;Orario = ogni ora di gioco.&#10;Giornaliero = una volta al giorno di gioco.&#10;Settimanale = una volta a settimana di gioco." />
+        <text name="ft_income_help_mode_body" text="Stabilisce quando viene pagata l'entrata:&#10;Orario = ogni ora di gioco.&#10;Giornaliero = una volta al giorno di gioco." />
         <text name="ft_income_help_amount_body" text="Il denaro aggiunto al saldo a ogni ciclo di pagamento.&#10;Impostalo nelle opzioni di Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Attiva o disattiva la mod senza disinstallarla.&#10;Le modifiche hanno effetto subito." />
         <text name="ft_tax_help_what_body" text="Mostra lo stato di FS25_TaxMod.&#10;La mod preleva una tassa periodica dal saldo&#10;e ne restituisce una percentuale configurabile come rimborso." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Tasse cumulative pagate nella sessione in corso.&#10;In arancione perché è un costo continuo." />
         <text name="ft_wrk_help_what_body" text="Mostra lo stato di FS25_WorkerCosts:&#10;livello salariale, modalità di costo, lavoratori&#10;attivi e costi del mese corrente.&#10;Scorri in basso per l'organico Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Imposta la paga oraria dei lavoratori assunti.&#10;I livelli Basso / Medio / Alto si impostano&#10;nelle opzioni della mod Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Stabilisce come si calcolano i salari:&#10;Orario = addebitato a ogni ora di gioco.&#10;Mensile = accumulato e addebitato a fine mese." />
+        <text name="ft_wrk_help_mode_body" text="Stabilisce come si calcolano i salari:&#10;Orario = addebitato a ogni ora di gioco.&#10;Per ettaro = addebitato in base alla superficie lavorata, saldato a mezzanotte." />
         <text name="ft_wrk_help_month_body" text="Salari totali accumulati questo mese.&#10;Si azzera dopo il pagamento dello stipendio mensile." />
         <text name="ft_wrk_help_roster_body" text="I lavoratori assunti con il loro livello&#10;(Principiante / Esperto / Maestro), ore totali,&#10;lavori completati e barra della fatica attuale.&#10;Questa vista è di sola lettura: assumi, licenzia e assegna&#10;i lavoratori dal pannello dell'organico (ALT+H)&#10;o con i comandi console di WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  mancano %d h" />
         <text name="ft_npc_help_rep_body" text="La tua posizione presso la comunità locale (0-100).&#10;Rispettata &gt;= 70  |  Neutrale &gt;= 40  |  Scarsa &lt; 40.&#10;Una reputazione più alta sblocca ricompense migliori." />
         <text name="ft_npc_help_active_body" text="Numero di favori in corso.&#10;Ogni favore mostra il nome del PNG, la descrizione,&#10;la percentuale di completamento e le ore rimanenti." />
-        <text name="ft_npc_help_relationships_body" text="Elenca ogni PNG attivo con il suo punteggio di relazione&#10;e una barra colorata.&#10;Amico &gt;= 70  |  Neutrale &gt;= 40  |  Freddo &lt; 40.&#10;Il suo ruolo (agronomo, meccanico, ecc.) è indicato&#10;tra parentesi quadre accanto al nome." />
+        <text name="ft_npc_help_relationships_body" text="Elenca ogni PNG attivo con il suo punteggio di relazione&#10;e una barra colorata.&#10;Amico &gt;= 70  |  Neutrale &gt;= 40  |  Freddo &lt; 40.&#10;Il suo ruolo (agronomo, negoziante, ecc.) è indicato&#10;tra parentesi quadre accanto al nome." />
         <text name="ft_npc_help_building_body" text="Completa favori per un PNG per aumentare il suo&#10;punteggio di relazione. Punteggi alti sbloccano consigli&#10;esclusivi, sconti e avvisi anticipati." />
         <text name="ft_npc_town_rep_fmt" text="Reputazione in paese: %s" />
         <text name="ft_npc_relationships_fmt" text="RELAZIONI  (%d)" />

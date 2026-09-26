@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="arbetar, fäst" />
         <text name="ft_companion_idle_pinned" text="ledig, fäst" />
         <text name="ft_income_help_what_body" text="Visar aktuell status för FS25_IncomeMod.&#10;Modden lägger till inställbara periodiska inkomster&#10;som komplement till gårdens intäkter." />
-        <text name="ft_income_help_mode_body" text="Styr när inkomsten betalas ut:&#10;Per timme = varje speltimme.&#10;Daglig = en gång per speldag.&#10;Veckovis = en gång per spelvecka." />
+        <text name="ft_income_help_mode_body" text="Styr när inkomsten betalas ut:&#10;Per timme = varje speltimme.&#10;Daglig = en gång per speldag." />
         <text name="ft_income_help_amount_body" text="Pengarna som läggs till saldot per betalningscykel.&#10;Ställ in det i Income Mods inställningar." />
         <text name="ft_companion_help_toggle_body" text="Slår på eller av modden utan att avinstallera den.&#10;Ändringar gäller direkt." />
         <text name="ft_tax_help_what_body" text="Visar status för FS25_TaxMod.&#10;Modden drar periodisk skatt från saldot&#10;och återbetalar en inställbar procentandel." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Sammanlagd betald skatt under aktuell session.&#10;Visas i orange eftersom det är en löpande kostnad." />
         <text name="ft_wrk_help_what_body" text="Visar status för FS25_WorkerCosts:&#10;lönenivå, kostnadsläge, aktiva&#10;arbetare och månadens kostnader hittills.&#10;Rulla ned för Pro-Staff-laget." />
         <text name="ft_wrk_help_wage_body" text="Anger timlönen för anställda arbetare.&#10;Nivåerna Låg / Medel / Hög ställs in i&#10;Worker Costs-moddens inställningar." />
-        <text name="ft_wrk_help_mode_body" text="Styr hur löner beräknas:&#10;Per timme = debiteras varje speltimme.&#10;Månadsvis = samlas upp och debiteras vid månadens slut." />
+        <text name="ft_wrk_help_mode_body" text="Styr hur löner beräknas:&#10;Per timme = debiteras varje speltimme.&#10;Per hektar = debiteras efter bearbetad yta, regleras vid midnatt." />
         <text name="ft_wrk_help_month_body" text="Sammanlagda löner upparbetade denna månad.&#10;Nollställs när månadslönen har betalats." />
         <text name="ft_wrk_help_roster_body" text="Dina anställda arbetare med sin nivå&#10;(Nybörjare / Erfaren / Mästare), totala timmar,&#10;slutförda uppdrag och aktuell trötthetsstapel.&#10;Vyn är skrivskyddad: anställ, avskeda och tilldela&#10;arbetare från lagpanelen i spelet (ALT+H)&#10;eller med WorkerCosts konsolkommandon." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  %d h kvar" />
         <text name="ft_npc_help_rep_body" text="Din ställning i lokalsamhället (0-100).&#10;Respekterad &gt;= 70  |  Neutral &gt;= 40  |  Dålig &lt; 40.&#10;Bättre anseende låser upp bättre belöningar." />
         <text name="ft_npc_help_active_body" text="Antal tjänster som pågår.&#10;Varje tjänst visar NPC:ns namn, beskrivning,&#10;hur många procent som är klart och återstående timmar." />
-        <text name="ft_npc_help_relationships_body" text="Visar varje aktiv NPC med relationspoäng&#10;och en färgkodad stapel.&#10;Vän &gt;= 70  |  Neutral &gt;= 40  |  Kylig &lt; 40.&#10;Rollen (agronom, mekaniker osv.) visas&#10;inom hakparentes bredvid namnet." />
+        <text name="ft_npc_help_relationships_body" text="Visar varje aktiv NPC med relationspoäng&#10;och en färgkodad stapel.&#10;Vän &gt;= 70  |  Neutral &gt;= 40  |  Kylig &lt; 40.&#10;Rollen (agronom, butiksägare osv.) visas&#10;inom hakparentes bredvid namnet." />
         <text name="ft_npc_help_building_body" text="Gör tjänster åt en NPC för att höja&#10;relationspoängen. Höga poäng låser upp exklusiva&#10;råd, rabatter och tidiga varningar." />
         <text name="ft_npc_town_rep_fmt" text="Byns anseende: %s" />
         <text name="ft_npc_relationships_fmt" text="RELATIONER  (%d)" />

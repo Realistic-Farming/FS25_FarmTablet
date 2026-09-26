@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="aan het werk, vastgezet" />
         <text name="ft_companion_idle_pinned" text="inactief, vastgezet" />
         <text name="ft_income_help_what_body" text="Toont de huidige status van FS25_IncomeMod.&#10;De mod voegt instelbare periodieke inkomsten toe&#10;als aanvulling op je boerderij-inkomsten." />
-        <text name="ft_income_help_mode_body" text="Bepaalt wanneer het inkomen wordt uitbetaald:&#10;Per uur = elk speluur.&#10;Dagelijks = eens per speldag.&#10;Wekelijks = eens per spelweek." />
+        <text name="ft_income_help_mode_body" text="Bepaalt wanneer het inkomen wordt uitbetaald:&#10;Per uur = elk speluur.&#10;Dagelijks = eens per speldag." />
         <text name="ft_income_help_amount_body" text="Het geld dat per betaalcyclus aan je saldo wordt toegevoegd.&#10;Stel dit in bij de instellingen van Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Schakelt de mod in of uit zonder hem te verwijderen.&#10;Wijzigingen gelden meteen." />
         <text name="ft_tax_help_what_body" text="Toont de status van FS25_TaxMod.&#10;De mod houdt periodiek belasting in op je saldo&#10;en betaalt een instelbaar percentage terug." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Totaal betaalde belasting in de huidige sessie.&#10;In oranje, omdat het een doorlopende kostenpost is." />
         <text name="ft_wrk_help_what_body" text="Toont de status van FS25_WorkerCosts:&#10;loonniveau, kostenmodus, actieve&#10;arbeiders en kosten van deze maand.&#10;Scrol omlaag voor het Pro-Staff-team." />
         <text name="ft_wrk_help_wage_body" text="Stelt het uurloon voor ingehuurde arbeiders in.&#10;De niveaus Laag / Gemiddeld / Hoog stel je in&#10;de instellingen van de Worker Costs-mod in." />
-        <text name="ft_wrk_help_mode_body" text="Bepaalt hoe lonen worden berekend:&#10;Per uur = elk speluur afgerekend.&#10;Maandelijks = opgebouwd en aan het eind van de maand afgerekend." />
+        <text name="ft_wrk_help_mode_body" text="Bepaalt hoe lonen worden berekend:&#10;Per uur = elk speluur afgerekend.&#10;Per hectare = afgerekend naar bewerkte oppervlakte, om middernacht verrekend." />
         <text name="ft_wrk_help_month_body" text="Totaal opgebouwde lonen deze maand.&#10;Wordt gereset nadat het maandloon is betaald." />
         <text name="ft_wrk_help_roster_body" text="Je ingehuurde arbeiders met hun niveau&#10;(Beginner / Ervaren / Meester), totale uren,&#10;voltooide klussen en de huidige vermoeidheidsbalk.&#10;Dit overzicht is alleen-lezen: inhuren, ontslaan en toewijzen&#10;doe je via het teampaneel in het spel (ALT+H)&#10;of de consolecommando's van WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  nog %d u" />
         <text name="ft_npc_help_rep_body" text="Je aanzien bij de lokale gemeenschap (0-100).&#10;Gerespecteerd &gt;= 70  |  Neutraal &gt;= 40  |  Slecht &lt; 40.&#10;Een hogere reputatie ontgrendelt betere beloningen." />
         <text name="ft_npc_help_active_body" text="Aantal gunsten dat nu loopt.&#10;Elke gunst toont de naam van de NPC, de omschrijving,&#10;het voltooiingspercentage en de resterende uren." />
-        <text name="ft_npc_help_relationships_body" text="Toont elke actieve NPC met zijn relatiescore&#10;en een gekleurde balk.&#10;Vriend &gt;= 70  |  Neutraal &gt;= 40  |  Koel &lt; 40.&#10;Zijn rol (agronoom, monteur, enz.) staat&#10;tussen vierkante haken naast de naam." />
+        <text name="ft_npc_help_relationships_body" text="Toont elke actieve NPC met zijn relatiescore&#10;en een gekleurde balk.&#10;Vriend &gt;= 70  |  Neutraal &gt;= 40  |  Koel &lt; 40.&#10;Zijn rol (agronoom, winkelier, enz.) staat&#10;tussen vierkante haken naast de naam." />
         <text name="ft_npc_help_building_body" text="Voltooi gunsten voor een NPC om zijn&#10;relatiescore te verhogen. Hogere scores ontgrendelen exclusief&#10;advies, kortingen en vroege waarschuwingen." />
         <text name="ft_npc_town_rep_fmt" text="Reputatie in het dorp: %s" />
         <text name="ft_npc_relationships_fmt" text="RELATIES  (%d)" />

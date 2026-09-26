@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="pracuje, připnutý" />
         <text name="ft_companion_idle_pinned" text="nečinný, připnutý" />
         <text name="ft_income_help_what_body" text="Zobrazuje aktuální stav FS25_IncomeMod.&#10;Mod přidává nastavitelné pravidelné příjmy&#10;jako doplněk výdělků vaší farmy." />
-        <text name="ft_income_help_mode_body" text="Určuje, kdy se příjem vyplácí:&#10;Hodinově = každou herní hodinu.&#10;Denně = jednou za herní den.&#10;Týdně = jednou za herní týden." />
+        <text name="ft_income_help_mode_body" text="Určuje, kdy se příjem vyplácí:&#10;Hodinově = každou herní hodinu.&#10;Denně = jednou za herní den." />
         <text name="ft_income_help_amount_body" text="Peníze přičtené k zůstatku v každém platebním cyklu.&#10;Nastavte je v nastavení Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Zapne nebo vypne mod bez odinstalování.&#10;Změny platí okamžitě." />
         <text name="ft_tax_help_what_body" text="Zobrazuje stav FS25_TaxMod.&#10;Mod pravidelně strhává daň z vašeho zůstatku&#10;a vrací nastavitelné procento jako vratku." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Celková daň zaplacená v aktuální relaci.&#10;Zobrazena oranžově, protože jde o průběžný náklad." />
         <text name="ft_wrk_help_what_body" text="Zobrazuje stav FS25_WorkerCosts:&#10;úroveň mzdy, režim nákladů, aktivní&#10;pracovníky a náklady za tento měsíc.&#10;Posuňte se dolů k týmu Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Nastavuje hodinovou mzdu najatých pracovníků.&#10;Úrovně Nízká / Střední / Vysoká se nastavují&#10;v nastavení modu Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Určuje, jak se počítají mzdy:&#10;Hodinově = účtováno každou herní hodinu.&#10;Měsíčně = sčítáno a účtováno na konci měsíce." />
+        <text name="ft_wrk_help_mode_body" text="Určuje, jak se počítají mzdy:&#10;Hodinově = účtováno každou herní hodinu.&#10;Za hektar = účtováno podle obdělané plochy, vyúčtováno o půlnoci." />
         <text name="ft_wrk_help_month_body" text="Celkové mzdy za tento měsíc.&#10;Vynuluje se po vyplacení měsíční mzdy." />
         <text name="ft_wrk_help_roster_body" text="Vaši najatí pracovníci s jejich úrovní&#10;(Nováček / Zkušený / Mistr), celkovými hodinami,&#10;dokončenými zakázkami a aktuální únavou.&#10;Tento přehled je jen pro čtení: najímejte, propouštějte a přidělujte&#10;pracovníky v týmovém panelu ve hře (ALT+H)&#10;nebo konzolovými příkazy WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  zbývá %d h" />
         <text name="ft_npc_help_rep_body" text="Vaše postavení v místní komunitě (0-100).&#10;Respektovaný &gt;= 70  |  Neutrální &gt;= 40  |  Špatný &lt; 40.&#10;Vyšší pověst odemyká lepší odměny." />
         <text name="ft_npc_help_active_body" text="Počet laskavostí, které právě probíhají.&#10;Každá laskavost ukazuje jméno NPC, popis,&#10;procento dokončení a zbývající hodiny." />
-        <text name="ft_npc_help_relationships_body" text="Zobrazuje každou aktivní NPC s jejím skóre vztahu&#10;a barevným pruhem.&#10;Přítel &gt;= 70  |  Neutrální &gt;= 40  |  Chladný &lt; 40.&#10;Její role (agronom, mechanik atd.) je uvedena&#10;v hranatých závorkách vedle jména." />
+        <text name="ft_npc_help_relationships_body" text="Zobrazuje každou aktivní NPC s jejím skóre vztahu&#10;a barevným pruhem.&#10;Přítel &gt;= 70  |  Neutrální &gt;= 40  |  Chladný &lt; 40.&#10;Její role (agronom, obchodník atd.) je uvedena&#10;v hranatých závorkách vedle jména." />
         <text name="ft_npc_help_building_body" text="Plňte laskavosti pro NPC a zvyšujte&#10;skóre vztahu. Vyšší skóre odemyká exkluzivní&#10;rady, slevy a včasná varování." />
         <text name="ft_npc_town_rep_fmt" text="Pověst ve městě: %s" />
         <text name="ft_npc_relationships_fmt" text="VZTAHY  (%d)" />

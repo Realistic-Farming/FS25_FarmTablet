@@ -2987,7 +2987,7 @@
         <text name="ft_companion_working_pinned" text="bekerja, disematkan" />
         <text name="ft_companion_idle_pinned" text="menganggur, disematkan" />
         <text name="ft_income_help_what_body" text="Menampilkan status FS25_IncomeMod saat ini.&#10;Mod ini menambahkan pembayaran pendapatan berkala&#10;yang dapat diatur untuk menambah penghasilan pertanianmu." />
-        <text name="ft_income_help_mode_body" text="Mengatur kapan pendapatan dibayarkan:&#10;Per jam = setiap jam permainan.&#10;Harian = sekali per hari permainan.&#10;Mingguan = sekali per minggu permainan." />
+        <text name="ft_income_help_mode_body" text="Mengatur kapan pendapatan dibayarkan:&#10;Per jam = setiap jam permainan.&#10;Harian = sekali per hari permainan." />
         <text name="ft_income_help_amount_body" text="Uang yang ditambahkan ke saldomu tiap siklus pembayaran.&#10;Atur ini di pengaturan Income Mod." />
         <text name="ft_companion_help_toggle_body" text="Menyalakan atau mematikan mod tanpa mencopotnya.&#10;Perubahan langsung berlaku." />
         <text name="ft_tax_help_what_body" text="Menampilkan status FS25_TaxMod.&#10;Mod ini memotong pajak berkala dari saldomu&#10;dan mengembalikan persentase yang dapat diatur." />
@@ -2996,7 +2996,7 @@
         <text name="ft_tax_help_total_body" text="Total pajak yang dibayar dalam sesi ini.&#10;Ditampilkan oranye karena merupakan biaya berjalan." />
         <text name="ft_wrk_help_what_body" text="Menampilkan status FS25_WorkerCosts:&#10;tingkat upah, mode biaya, pekerja&#10;aktif, dan biaya bulan berjalan.&#10;Gulir ke bawah untuk tim Pro-Staff." />
         <text name="ft_wrk_help_wage_body" text="Mengatur upah per jam pekerja yang direkrut.&#10;Tingkat Rendah / Sedang / Tinggi diatur di&#10;pengaturan mod Worker Costs." />
-        <text name="ft_wrk_help_mode_body" text="Mengatur cara upah dihitung:&#10;Per jam = ditagih setiap jam permainan.&#10;Bulanan = dikumpulkan dan ditagih di akhir bulan." />
+        <text name="ft_wrk_help_mode_body" text="Mengatur cara upah dihitung:&#10;Per jam = ditagih setiap jam permainan.&#10;Per hektar = ditagih menurut luas lahan yang dikerjakan, diselesaikan tengah malam." />
         <text name="ft_wrk_help_month_body" text="Total upah yang terkumpul bulan ini.&#10;Direset setelah gaji bulanan dibayar." />
         <text name="ft_wrk_help_roster_body" text="Pekerjamu yang direkrut beserta tingkatnya&#10;(Pemula / Berpengalaman / Ahli), total jam,&#10;pekerjaan selesai, dan bilah kelelahan saat ini.&#10;Tampilan ini hanya-baca: rekrut, pecat, dan tugaskan&#10;pekerja dari panel tim dalam game (ALT+H)&#10;atau perintah konsol WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
@@ -3006,7 +3006,7 @@
         <text name="ft_npc_progress_left_fmt" text="%d%%  sisa %d jam" />
         <text name="ft_npc_help_rep_body" text="Kedudukanmu di komunitas setempat (0-100).&#10;Dihormati &gt;= 70  |  Netral &gt;= 40  |  Buruk &lt; 40.&#10;Reputasi lebih tinggi membuka hadiah yang lebih baik." />
         <text name="ft_npc_help_active_body" text="Jumlah bantuan yang sedang berjalan.&#10;Setiap bantuan menampilkan nama NPC, deskripsi,&#10;persentase selesai, dan jam tersisa." />
-        <text name="ft_npc_help_relationships_body" text="Menampilkan setiap NPC aktif dengan skor hubungan&#10;dan bilah berwarna.&#10;Teman &gt;= 70  |  Netral &gt;= 40  |  Dingin &lt; 40.&#10;Perannya (agronom, mekanik, dll.) ditampilkan&#10;dalam kurung siku di samping namanya." />
+        <text name="ft_npc_help_relationships_body" text="Menampilkan setiap NPC aktif dengan skor hubungan&#10;dan bilah berwarna.&#10;Teman &gt;= 70  |  Netral &gt;= 40  |  Dingin &lt; 40.&#10;Perannya (agronom, pemilik toko, dll.) ditampilkan&#10;dalam kurung siku di samping namanya." />
         <text name="ft_npc_help_building_body" text="Selesaikan bantuan untuk NPC untuk menaikkan&#10;skor hubungan. Skor tinggi membuka saran&#10;eksklusif, diskon, dan peringatan dini." />
         <text name="ft_npc_town_rep_fmt" text="Reputasi di desa: %s" />
         <text name="ft_npc_relationships_fmt" text="HUBUNGAN  (%d)" />
