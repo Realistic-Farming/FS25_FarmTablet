@@ -212,65 +212,65 @@
         <text name="ft_desc_app_realistic_dealer" text="RealisticDealer：融资、分期与收回状态" />
         <text name="ft_common_on" text="Activé" />
         <text name="ft_common_off" text="Désactivé" />
-        <text name="ft_common_connected" text="已连接" />
-        <text name="ft_common_inactive" text="未激活" />
-        <text name="ft_common_status" text="状态" />
-        <text name="ft_common_overview" text="概览" />
-        <text name="ft_common_busy" text="忙碌" />
-        <text name="ft_common_available" text="可用" />
-        <text name="ft_common_time" text="时间" />
-        <text name="ft_common_event" text="事件" />
+        <text name="ft_common_connected" text="Connecté" />
+        <text name="ft_common_inactive" text="Inactif" />
+        <text name="ft_common_status" text="ÉTAT" />
+        <text name="ft_common_overview" text="APERÇU" />
+        <text name="ft_common_busy" text="Occupé" />
+        <text name="ft_common_available" text="Disponible" />
+        <text name="ft_common_time" text="Heure" />
+        <text name="ft_common_event" text="Événement" />
         <text name="ft_common_open" text="Ouvrir" />
-        <text name="ft_common_closed" text="关闭" />
-        <text name="ft_common_note" text="备注" />
-        <text name="ft_aac_not_detected" text="未检测到 AnimalAutoCare。" />
-        <text name="ft_aac_overall" text="总体" />
-        <text name="ft_aac_food" text="饲料" />
-        <text name="ft_aac_water" text="水" />
-        <text name="ft_aac_straw" text="稻草" />
-        <text name="ft_aac_purchase_cost" text="购买成本" />
-        <text name="ft_aac_care_cost" text="照护成本" />
-        <text name="ft_aac_care_now" text="立即照护" />
-        <text name="ft_aac_last_action" text="上次操作" />
-        <text name="ft_aac_no_action" text="尚未记录任何操作。" />
-        <text name="ft_vet_active_cases" text="%d 个活动病例" />
-        <text name="ft_vet_not_detected" text="未检测到 AnimalVetSystem。" />
-        <text name="ft_vet_active_illnesses" text="活动疾病" />
-        <text name="ft_vet_veterinarian" text="兽医" />
-        <text name="ft_vet_no_sick_pens" text="未报告患病畜栏。" />
-        <text name="ft_vet_cases" text="病例" />
-        <text name="ft_vet_pen" text="畜栏" />
-        <text name="ft_vet_illness" text="疾病" />
-        <text name="ft_vet_worker" text="工人" />
-        <text name="ft_vet_self" text="亲自" />
-        <text name="ft_vet_case_line" text="%s - %d 只动物 - 约 %d 分钟" />
-        <text name="ft_fws_open_count" text="%d/%d 开放" />
-        <text name="ft_fws_not_detected" text="未检测到 FactoryWeekSchedule。" />
-        <text name="ft_fws_factories_open" text="开放的工厂" />
-        <text name="ft_fws_fire_system" text="火灾系统" />
-        <text name="ft_fws_factories" text="工厂" />
-        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD 缓存中暂无工厂。" />
-        <text name="ft_fws_factory" text="工厂" />
-        <text name="ft_fws_no_event" text="无事件" />
-        <text name="ft_rd_status_repossession" text="收回进行中" />
-        <text name="ft_rd_status_repossessed" text="已收回" />
-        <text name="ft_rd_status_paid" text="已付清" />
-        <text name="ft_rd_status_overdue" text="逾期" />
-        <text name="ft_rd_status_active" text="活动" />
-        <text name="ft_rd_not_detected" text="未检测到 RealisticDealer。" />
-        <text name="ft_rd_active_financing" text="活动融资" />
-        <text name="ft_rd_remaining_debt" text="剩余债务" />
-        <text name="ft_rd_credit_score" text="信用评分" />
-        <text name="ft_rd_open_notices" text="未处理通知" />
-        <text name="ft_rd_repossessions" text="收回" />
-        <text name="ft_rd_check_repo" text="查看收回" />
-        <text name="ft_rd_contracts" text="合同" />
-        <text name="ft_rd_no_contracts" text="没有活动的融资合同。" />
-        <text name="ft_rd_vehicle" text="车辆" />
-        <text name="ft_rd_money_line" text="剩余：%s | 月供：%s" />
-        <text name="ft_rd_installment_line" text="分期：%d/%d" />
-        <text name="ft_rd_notices_line" text="通知：%d" />
-        <text name="ft_rd_server_note" text="车辆收回仍通过服务器端的 RealisticDealer 处理。" />
+        <text name="ft_common_closed" text="Fermé" />
+        <text name="ft_common_note" text="REMARQUE" />
+        <text name="ft_aac_not_detected" text="AnimalAutoCare n'a pas été détecté." />
+        <text name="ft_aac_overall" text="Global" />
+        <text name="ft_aac_food" text="Nourriture" />
+        <text name="ft_aac_water" text="Eau" />
+        <text name="ft_aac_straw" text="Paille" />
+        <text name="ft_aac_purchase_cost" text="Coût d'achat" />
+        <text name="ft_aac_care_cost" text="Coût des soins" />
+        <text name="ft_aac_care_now" text="Soigner" />
+        <text name="ft_aac_last_action" text="DERNIÈRE ACTION" />
+        <text name="ft_aac_no_action" text="Aucune action enregistrée pour l'instant." />
+        <text name="ft_vet_active_cases" text="%d cas actifs" />
+        <text name="ft_vet_not_detected" text="AnimalVetSystem n'a pas été détecté." />
+        <text name="ft_vet_active_illnesses" text="Maladies actives" />
+        <text name="ft_vet_veterinarian" text="Vétérinaire" />
+        <text name="ft_vet_no_sick_pens" text="Aucun enclos malade signalé." />
+        <text name="ft_vet_cases" text="CAS" />
+        <text name="ft_vet_pen" text="Enclos" />
+        <text name="ft_vet_illness" text="Maladie" />
+        <text name="ft_vet_worker" text="Ouvrier" />
+        <text name="ft_vet_self" text="Soi-même" />
+        <text name="ft_vet_case_line" text="%s - %d animaux - environ %d min" />
+        <text name="ft_fws_open_count" text="%d/%d ouvertes" />
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule n'a pas été détecté." />
+        <text name="ft_fws_factories_open" text="Usines ouvertes" />
+        <text name="ft_fws_fire_system" text="Système incendie" />
+        <text name="ft_fws_factories" text="USINES" />
+        <text name="ft_fws_no_factories" text="Aucune usine dans le cache HUD de FactoryWeekSchedule." />
+        <text name="ft_fws_factory" text="Usine" />
+        <text name="ft_fws_no_event" text="Aucun événement" />
+        <text name="ft_rd_status_repossession" text="Saisie en cours" />
+        <text name="ft_rd_status_repossessed" text="Saisi" />
+        <text name="ft_rd_status_paid" text="Payé" />
+        <text name="ft_rd_status_overdue" text="En retard" />
+        <text name="ft_rd_status_active" text="Actif" />
+        <text name="ft_rd_not_detected" text="RealisticDealer n'a pas été détecté." />
+        <text name="ft_rd_active_financing" text="Financements actifs" />
+        <text name="ft_rd_remaining_debt" text="Dette restante" />
+        <text name="ft_rd_credit_score" text="Cote de crédit" />
+        <text name="ft_rd_open_notices" text="Avis ouverts" />
+        <text name="ft_rd_repossessions" text="Saisies" />
+        <text name="ft_rd_check_repo" text="Voir saisies" />
+        <text name="ft_rd_contracts" text="CONTRATS" />
+        <text name="ft_rd_no_contracts" text="Aucun contrat de financement actif." />
+        <text name="ft_rd_vehicle" text="Véhicule" />
+        <text name="ft_rd_money_line" text="Restant : %s | Mensualité : %s" />
+        <text name="ft_rd_installment_line" text="Échéances : %d/%d" />
+        <text name="ft_rd_notices_line" text="Avis : %d" />
+        <text name="ft_rd_server_note" text="Les saisies de véhicules passent toujours par RealisticDealer côté serveur." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Réseau" />
         <text name="ft_network_choose_provider" text="Choisissez un opérateur réseau" />
@@ -3016,13 +3016,13 @@
         <text name="ft_npc_role_worker" text="ouvrier" />
         <text name="ft_npc_role_farmhand" text="ouvrier agricole" />
         <text name="ft_npc_role_agronomist" text="agronome" />
-        <text name="ft_aac_refill_below" text="补充阈值" />
-        <text name="ft_aac_target_fill" text="目标填充量" />
-        <text name="ft_aac_last_action_line" text="上次操作" />
-        <text name="ft_aac_priority" text="优先级" />
-        <text name="ft_vet_active_cases_one" text="1 个活动病例" />
-        <text name="ft_vet_case_line_one" text="%s - 1 只动物 - 约 %d 分钟" />
-        <text name="ft_fws_state_open" text="开放" />
+        <text name="ft_aac_refill_below" text="Remplir sous" />
+        <text name="ft_aac_target_fill" text="Remplissage cible" />
+        <text name="ft_aac_last_action_line" text="Dernière action" />
+        <text name="ft_aac_priority" text="Priorité" />
+        <text name="ft_vet_active_cases_one" text="1 cas actif" />
+        <text name="ft_vet_case_line_one" text="%s - 1 animal - environ %d min" />
+        <text name="ft_fws_state_open" text="Ouvert" />
     </texts>
 
 </l10n>
