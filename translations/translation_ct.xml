@@ -471,7 +471,7 @@
         <text name="ft_auto_agraconnect" text="AgraConnect" />
         <text name="ft_auto_agraconnect_2" text="agraconnect" />
         <text name="ft_auto_agrar" text="agrar" />
-        <text name="ft_auto_ai" text="AI" />
+        <text name="ft_auto_ai" text="幫手" />
         <text name="ft_auto_ai_2" text="[AI]" />
         <text name="ft_auto_ai_badge_appears_when_the_vehicle_is_driven_by_a_hired" text="車輛由雇用的工人駕駛時會顯示「助手」標籤。&#10;" />
         <text name="ft_auto_akita" text="akita" />
@@ -506,7 +506,7 @@
         <text name="ft_auto_and_time_of_day" text="以及一天中的時間。" />
         <text name="ft_auto_and_total_owed_red_across_all_pending_invoices" text="and total owed (red) across all pending invoices." />
         <text name="ft_auto_ani" text="ANI" />
-        <text name="ft_auto_animal" text="Animal" />
+        <text name="ft_auto_animal" text="動物" />
         <text name="ft_auto_animal_auto_care" text="animal_auto_care" />
         <text name="ft_auto_animal_care" text="Animal Care" />
         <text name="ft_auto_animal_pens" text="動物圈舍" />
@@ -634,9 +634,9 @@
         <text name="ft_auto_clean_animal_pens" text="Clean animal pens" />
         <text name="ft_auto_cleanliness_percentage_for_chickens_and_sheep" text="cleanliness percentage for chickens and sheep.&#10;" />
         <text name="ft_auto_clear" text="清除" />
-        <text name="ft_auto_clear_2" text="Clear" />
+        <text name="ft_auto_clear_2" text="晴朗" />
         <text name="ft_auto_clear_3" text="clear" />
-        <text name="ft_auto_clear_all" text="CLEAR ALL" />
+        <text name="ft_auto_clear_all" text="全部清除" />
         <text name="ft_auto_clear_all_d" text="CLEAR ALL (%d)" />
         <text name="ft_auto_clear_completed_remove_all_done_tasks_at_once" text="CLEAR COMPLETED - remove all done tasks at once" />
         <text name="ft_auto_clear_d_completed" text="CLEAR %d COMPLETED" />
@@ -658,17 +658,17 @@
         <text name="ft_auto_close" text="CLOSE" />
         <text name="ft_auto_close_tablet" text="Close tablet" />
         <text name="ft_auto_closed" text="Closed" />
-        <text name="ft_auto_cloud" text="CLOUD" />
+        <text name="ft_auto_cloud" text="多雲" />
         <text name="ft_auto_cloud_cover" text="CLOUD COVER" />
-        <text name="ft_auto_cloud_cover_2" text="Cloud Cover" />
+        <text name="ft_auto_cloud_cover_2" text="雲量" />
         <text name="ft_auto_cloudy" text="Cloudy" />
         <text name="ft_auto_cloudy_2" text="cloudy" />
-        <text name="ft_auto_cold" text="Cold" />
+        <text name="ft_auto_cold" text="寒冷" />
         <text name="ft_auto_collect" text=" COLLECT" />
         <text name="ft_auto_collect_bales" text="Collect bales" />
         <text name="ft_auto_collect_productions" text="Collect productions" />
         <text name="ft_auto_columns_crop_ha_state" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_auto_combine" text="Combine" />
+        <text name="ft_auto_combine" text="聯合收割機" />
         <text name="ft_auto_complete_favors_for_an_npc_to_increase_their" text="Complete favors for an NPC to increase their&#10;" />
         <text name="ft_auto_complete_v2_overhaul_new_sidebar_layout" text="Complete V2 overhaul - new sidebar layout" />
         <text name="ft_auto_completed" text="Completed" />
@@ -679,7 +679,7 @@
         <text name="ft_auto_comprehensive_farm_statistics_snapshot" text="完整的農場統計快照" />
         <text name="ft_auto_con" text="CON" />
         <text name="ft_auto_condition_hero_card" text="CONDITION HERO CARD" />
-        <text name="ft_auto_conditions" text="CONDITIONS" />
+        <text name="ft_auto_conditions" text="狀況" />
         <text name="ft_auto_configure_this_in_the_income_mod_settings" text="Configure this in the Income Mod settings." />
         <text name="ft_auto_confirm_clear_all_d" text="CONFIRM CLEAR ALL (%d)" />
         <text name="ft_auto_confirm_start_job" text="CONFIRM - START JOB" />
@@ -710,7 +710,7 @@
         <text name="ft_auto_contracts_marked_done_are_complete_but_unpaid" text="標示為完成的合約已完成但尚未付款。&#10;" />
         <text name="ft_auto_controls_how_wages_are_calculated" text="Controls how wages are calculated:&#10;" />
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
-        <text name="ft_auto_cool" text="Cool" />
+        <text name="ft_auto_cool" text="涼爽" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
         <text name="ft_auto_cost_mode_2" text="Cost Mode" />
@@ -867,7 +867,7 @@
         <text name="ft_auto_enables_verbose_console_logging_for_troubleshooting" text="Enables verbose console logging for troubleshooting" />
         <text name="ft_auto_enter_a_vehicle_first_then_pin" text="Enter a vehicle first, then PIN" />
         <text name="ft_auto_enter_edit_mode" text="ENTER EDIT MODE" />
-        <text name="ft_auto_environment_not_loaded_yet" text="Environment not loaded yet." />
+        <text name="ft_auto_environment_not_loaded_yet" text="環境尚未載入。" />
         <text name="ft_auto_equipment_dealer" text="Equipment Dealer" />
         <text name="ft_auto_equipment_rental" text="Equipment Rental" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
@@ -1052,8 +1052,8 @@
         <text name="ft_auto_fleet_3" text="fleet_" />
         <text name="ft_auto_fleet_manager" text="Fleet Manager" />
         <text name="ft_auto_fleet_manager_2" text="fleet_manager" />
-        <text name="ft_auto_fog" text="FOG" />
-        <text name="ft_auto_fog_2" text="Fog" />
+        <text name="ft_auto_fog" text="霧" />
+        <text name="ft_auto_fog_2" text="霧" />
         <text name="ft_auto_fog_3" text="fog" />
         <text name="ft_auto_foggy" text="Foggy" />
         <text name="ft_auto_food" text="飼料" />
@@ -1061,11 +1061,11 @@
         <text name="ft_auto_food_d" text="FOOD  %d%%" />
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="for confirmation. Press it again within 4 seconds&#10;" />
         <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="讓田地休眠（或喚醒）。你的選擇會保留，&#10;" />
-        <text name="ft_auto_forecast" text="FORECAST" />
+        <text name="ft_auto_forecast" text="預報" />
         <text name="ft_auto_forest_green" text="森林綠" />
         <text name="ft_auto_fork" text="fork" />
         <text name="ft_auto_frame" text="frame" />
-        <text name="ft_auto_freezing" text="Freezing" />
+        <text name="ft_auto_freezing" text="冰凍" />
         <text name="ft_auto_freezing_0_cold_8_cool_16_mild_24" text="Freezing (&lt;0)  Cold (&lt;8)  Cool (&lt;16)  Mild (&lt;24)&#10;" />
         <text name="ft_auto_frequency" text="頻率" />
         <text name="ft_auto_frequency_1_10_controls_how_often_events" text="頻率（1-10）決定事件&#10;" />
@@ -1161,7 +1161,7 @@
         <text name="ft_auto_harvest_crops" text="Harvest crops" />
         <text name="ft_auto_harvested" text="Harvested" />
         <text name="ft_auto_harvesting" text="收割" />
-        <text name="ft_auto_heavy_storm" text="Heavy Storm" />
+        <text name="ft_auto_heavy_storm" text="強烈暴風雨" />
         <text name="ft_auto_help" text="Help" />
         <text name="ft_auto_help_panel_sound_off" text="HELP PANEL SOUND: OFF" />
         <text name="ft_auto_help_panel_sound_on" text="HELP PANEL SOUND: ON" />
@@ -1185,9 +1185,9 @@
         <text name="ft_auto_home_background_2" text="HOME BACKGROUND: " />
         <text name="ft_auto_host_listen_server_only" text="Host / listen-server only" />
         <text name="ft_auto_host_only" text="Host Only" />
-        <text name="ft_auto_hot" text="Hot" />
+        <text name="ft_auto_hot" text="炎熱" />
         <text name="ft_auto_hotspot" text="hotspot" />
-        <text name="ft_auto_hotspot_manager" text="Hotspot Manager" />
+        <text name="ft_auto_hotspot_manager" text="標記管理" />
         <text name="ft_auto_hotspot_manager_2" text="hotspot_manager" />
         <text name="ft_auto_hotspots" text="HOTSPOTS" />
         <text name="ft_auto_hourly_charged_every_in_game_hour" text="Hourly = charged every in-game hour.&#10;" />
@@ -1197,7 +1197,7 @@
         <text name="ft_auto_hours_status" text="時數 / 狀態" />
         <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is - straw level for pigs and cows,&#10;" />
         <text name="ft_auto_how_much_tax_is_charged_per_cycle" text="How much tax is charged per cycle.&#10;" />
-        <text name="ft_auto_humidity" text="Humidity" />
+        <text name="ft_auto_humidity" text="濕度" />
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
@@ -1307,7 +1307,7 @@
         <text name="ft_auto_load_history" text="LOAD HISTORY" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
-        <text name="ft_auto_loading" text="Loading" />
+        <text name="ft_auto_loading" text="裝貨" />
         <text name="ft_auto_loads" text="LOADS" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="貸款" />
@@ -1356,8 +1356,8 @@
         <text name="ft_auto_midnight" text="MIDNIGHT" />
         <text name="ft_auto_midnight_purple" text="午夜紫" />
         <text name="ft_auto_midnight_purple_warm_dark_slate_grey" text="Midnight Purple, Warm Dark, Slate Grey." />
-        <text name="ft_auto_mild" text="Mild" />
-        <text name="ft_auto_mission" text="Mission" />
+        <text name="ft_auto_mild" text="溫和" />
+        <text name="ft_auto_mission" text="任務" />
         <text name="ft_auto_mkt" text="MKT" />
         <text name="ft_auto_mod_integration_categories" text="模組整合分類。" />
         <text name="ft_auto_mod_integrations" text="模組整合" />
@@ -1374,7 +1374,7 @@
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="每月總計" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
-        <text name="ft_auto_mostly_cloudy" text="Mostly Cloudy" />
+        <text name="ft_auto_mostly_cloudy" text="大致多雲" />
         <text name="ft_auto_mount_a_wheel_loader_excavator_or_material_handler" text="mount a wheel loader, excavator, or material handler.&#10;" />
         <text name="ft_auto_mow_grass" text="Mow grass" />
         <text name="ft_auto_mowing" text="割草" />
@@ -1563,7 +1563,7 @@
         <text name="ft_auto_orange_peak_current_price_is_below_the_recorded_high" text="橘色最高價 = 目前價格低於紀錄高點。&#10;" />
         <text name="ft_auto_organic_matter" text="ORGANIC MATTER" />
         <text name="ft_auto_organic_matter_2" text="Organic Matter" />
-        <text name="ft_auto_other" text="Other" />
+        <text name="ft_auto_other" text="其他" />
         <text name="ft_auto_outage" text="Outage" />
         <text name="ft_auto_outage_2" text="outage" />
         <text name="ft_auto_outages_s" text="OUTAGES: %s" />
@@ -1573,11 +1573,11 @@
         <text name="ft_auto_outputs" text="OUTPUTS" />
         <text name="ft_auto_outputs_pile_up_if_the_unloading_station_is_full_check" text="若卸貨站已滿，產品會堆積 - 請檢查&#10;" />
         <text name="ft_auto_outside_this_range_nutrient_uptake_is_reduced_even" text="Outside this range nutrient uptake is reduced even&#10;" />
-        <text name="ft_auto_ovc" text="OVC" />
+        <text name="ft_auto_ovc" text="陰" />
         <text name="ft_auto_overall" text="Overall" />
         <text name="ft_auto_overall_animal_productivity_is_driven_by_food_water" text="Overall animal productivity is driven by food, water,&#10;" />
         <text name="ft_auto_overall_standing_with_the_local_community_0_100" text="Overall standing with the local community (0-100).&#10;" />
-        <text name="ft_auto_overcast" text="Overcast" />
+        <text name="ft_auto_overcast" text="陰天" />
         <text name="ft_auto_overcast_2" text="overcast" />
         <text name="ft_auto_overdue" text="OVERDUE" />
         <text name="ft_auto_overdue_2" text="Overdue" />
@@ -1590,7 +1590,7 @@
         <text name="ft_auto_paid" text="PAID" />
         <text name="ft_auto_paid_2" text="Paid" />
         <text name="ft_auto_paid_3" text="paid" />
-        <text name="ft_auto_partly_cloudy" text="Partly Cloudy" />
+        <text name="ft_auto_partly_cloudy" text="局部多雲" />
         <text name="ft_auto_party" text="PARTY" />
         <text name="ft_auto_party_2" text="party" />
         <text name="ft_auto_pause" text="⏸ PAUSE" />
@@ -1624,11 +1624,11 @@
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="PIN" />
-        <text name="ft_auto_pin_2" text="Pin" />
+        <text name="ft_auto_pin_2" text="標記" />
         <text name="ft_auto_pinned_s_to_s" text="Pinned %s to %s" />
         <text name="ft_auto_pins" text="PINS" />
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="建築，即可在這裡看到。" />
-        <text name="ft_auto_player" text="Player" />
+        <text name="ft_auto_player" text="玩家" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
         <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
@@ -1643,9 +1643,9 @@
         <text name="ft_auto_potassium" text="Potassium" />
         <text name="ft_auto_ppm" text=" ppm  (" />
         <text name="ft_auto_precipitation" text="PRECIPITATION" />
-        <text name="ft_auto_precipitation_2" text="Precipitation" />
+        <text name="ft_auto_precipitation_2" text="降水" />
         <text name="ft_auto_prepend" text="prepend" />
-        <text name="ft_auto_present" text="Present" />
+        <text name="ft_auto_present" text="有" />
         <text name="ft_auto_press_clear_all_once_it_turns_red_and_asks" text="Press CLEAR ALL once - it turns red and asks&#10;" />
         <text name="ft_auto_press_s_to_open" text="Press %s to open" />
         <text name="ft_auto_price_comparison" text="價格比較" />
@@ -1682,7 +1682,7 @@
         <text name="ft_auto_purchase_motorized_vehicles_to_track_them_here" text="Purchase motorized vehicles to track them here." />
         <text name="ft_auto_quiet_if_you_already_know_the_open_key" text="quiet if you already know the open key." />
         <text name="ft_auto_rain" text=" Rain" />
-        <text name="ft_auto_rain_2" text="RAIN" />
+        <text name="ft_auto_rain_2" text="雨" />
         <text name="ft_auto_rain_3" text="Rain" />
         <text name="ft_auto_rain_4" text="rain" />
         <text name="ft_auto_rain_or_storm_intensity_shown_with_a_fill_bar" text="Rain or storm intensity shown with a fill bar.&#10;" />
@@ -1823,7 +1823,7 @@
         <text name="ft_auto_settings_3" text="settings" />
         <text name="ft_auto_settings_changed" text="settings_changed" />
         <text name="ft_auto_settings_integration_in_pause_menu" text="Settings integration in pause menu" />
-        <text name="ft_auto_shop" text="Shop" />
+        <text name="ft_auto_shop" text="商店" />
         <text name="ft_auto_shops" text=" shops  |  " />
         <text name="ft_auto_shops_may_break_game_features_be_careful" text="Shops) may break game features - be careful." />
         <text name="ft_auto_should_i_draw_my_overlay_right_now" text="should I draw my overlay right now?" />
@@ -1925,7 +1925,7 @@
         <text name="ft_auto_storage_price_comparison_section_all_stations_sorted_be" text="Storage: price comparison section - all stations sorted best-first" />
         <text name="ft_auto_storages" text="storages_" />
         <text name="ft_auto_store" text="store" />
-        <text name="ft_auto_storm" text="STORM" />
+        <text name="ft_auto_storm" text="暴風" />
         <text name="ft_auto_storm_2" text="Storm" />
         <text name="ft_auto_storm_3" text="storm" />
         <text name="ft_auto_stormy" text="Stormy" />
@@ -2008,8 +2008,8 @@
         <text name="ft_auto_tax_rate" text="TAX RATE" />
         <text name="ft_auto_tax_rate_2" text="Tax Rate" />
         <text name="ft_auto_telehandler" text="telehandler" />
-        <text name="ft_auto_temperature" text="TEMPERATURE" />
-        <text name="ft_auto_temperature_2" text="Temperature" />
+        <text name="ft_auto_temperature" text="溫度" />
+        <text name="ft_auto_temperature_2" text="溫度" />
         <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
@@ -2065,7 +2065,7 @@
         <text name="ft_auto_toggle_tablet" text="Toggle tablet" />
         <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="切換僅限管理員，並由主機驗證。沒有管理員&#10;" />
         <text name="ft_auto_toggles_the_mod_on_or_off_without_uninstalling_it" text="Toggles the mod on or off without uninstalling it.&#10;" />
-        <text name="ft_auto_tool" text="Tool" />
+        <text name="ft_auto_tool" text="機具" />
         <text name="ft_auto_top_of_the_app_shows_total_receivable_green" text="Top of the app shows total receivable (green)&#10;" />
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
@@ -2073,12 +2073,12 @@
         <text name="ft_auto_total_paid" text="TOTAL PAID" />
         <text name="ft_auto_total_paid_2" text="Total Paid" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
-        <text name="ft_auto_tour" text="Tour" />
+        <text name="ft_auto_tour" text="導覽" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
         <text name="ft_auto_town_reputation_2" text="Town Reputation: " />
         <text name="ft_auto_tracked_from_the_current_session_since_load" text="從目前這次遊戲開始（載入後）計算。&#10;" />
         <text name="ft_auto_tracks_money_you_owe_others_outgoing_and" text="Tracks money you owe others (OUTGOING) and&#10;" />
-        <text name="ft_auto_trailer" text="Trailer" />
+        <text name="ft_auto_trailer" text="拖車" />
         <text name="ft_auto_transport" text="運輸" />
         <text name="ft_auto_tree_planting" text="植樹" />
         <text name="ft_auto_true" text="true" />
@@ -2090,9 +2090,9 @@
         <text name="ft_auto_undo_mark_it_pending_again" text="UNDO - mark it pending again (□)&#10;" />
         <text name="ft_auto_unknown" text="未知" />
         <text name="ft_auto_unknown_field" text="未知田地" />
-        <text name="ft_auto_unloading" text="Unloading" />
+        <text name="ft_auto_unloading" text="卸貨" />
         <text name="ft_auto_unlock" text="unlock" />
-        <text name="ft_auto_unnamed" text="(unnamed)" />
+        <text name="ft_auto_unnamed" text="(未命名)" />
         <text name="ft_auto_unpin" text="取消釘選" />
         <text name="ft_auto_unpinned" text="Unpinned " />
         <text name="ft_auto_up_to_30_completed_jobs_are_stored_per_savegame" text="Up to 30 completed jobs are stored per savegame.&#10;" />
@@ -2162,7 +2162,7 @@
         <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="走近車輛即可檢查。" />
         <text name="ft_auto_walk_to_scan_terrain_elevation" text="Walk to scan terrain elevation" />
         <text name="ft_auto_wall" text="wall" />
-        <text name="ft_auto_warm" text="Warm" />
+        <text name="ft_auto_warm" text="溫暖" />
         <text name="ft_auto_warm_32_hot_32" text="Warm (&lt;32)  Hot (32+)." />
         <text name="ft_auto_warm_dark" text="暖色暗調" />
         <text name="ft_auto_water" text="飲水" />
@@ -2179,7 +2179,7 @@
         <text name="ft_auto_wear_bar" text="磨損條" />
         <text name="ft_auto_weather" text="天氣" />
         <text name="ft_auto_weather_2" text="weather" />
-        <text name="ft_auto_weather_data_unavailable" text="Weather data unavailable." />
+        <text name="ft_auto_weather_data_unavailable" text="無法取得天氣資料。" />
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="除草" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
@@ -2188,7 +2188,7 @@
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="歡迎！點選應用程式即可開始。" />
         <text name="ft_auto_what_counts_as_a_silo" text="什麼算是筒倉？" />
         <text name="ft_auto_what_is_the_app_store" text="什麼是應用程式商店" />
-        <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
+        <text name="ft_auto_what_is_this" text="這是什麼？" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
         <text name="ft_auto_what_this_app_does" text="此應用程式的功能" />
         <text name="ft_auto_what_this_app_shows" text="此應用程式顯示的內容" />
@@ -2205,8 +2205,8 @@
         <text name="ft_auto_white" text="WHITE" />
         <text name="ft_auto_white_clear_dark_fog" text="white = clear, dark = fog." />
         <text name="ft_auto_wiederhergestellt" text="wiederhergestellt" />
-        <text name="ft_auto_wind" text="WIND" />
-        <text name="ft_auto_wind_speed" text="Wind Speed" />
+        <text name="ft_auto_wind" text="風" />
+        <text name="ft_auto_wind_speed" text="風速" />
         <text name="ft_auto_wind_speed_in_km_h_and_compass_direction" text="Wind speed in km/h and compass direction.&#10;" />
         <text name="ft_auto_winter" text="冬季" />
         <text name="ft_auto_withered" text="Withered" />
@@ -2357,6 +2357,52 @@
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
         <text name="ft_count_pen" text="%d 個欄舍" />
         <text name="ft_count_pens" text="%d 個欄舍" />
+        <text name="ft_hotspot_help_what_body" text="顯示地圖上所有啟用中的標記。&#10;勾選標記旁的方塊，然後按「移除」。&#10;「在此標記」會在你腳下放置自訂標記。&#10;&#10;移除系統標記（任務、商店）可能破壞&#10;遊戲功能 - 請小心。系統標記可能在&#10;地圖重新同步後再次出現。" />
+        <text name="ft_hotspot_help_clear_body" text="按一次「全部清除」- 按鈕會變紅並要求&#10;確認。在 4 秒內再按一次，&#10;即可移除地圖上所有標記。" />
+        <text name="ft_hotspot_total_fmt" text="共 %d 個" />
+        <text name="ft_hotspot_add_pin" text="在此標記" />
+        <text name="ft_hotspot_pin_added" text="已在你的位置新增標記。" />
+        <text name="ft_hotspot_add_failed" text="新增失敗" />
+        <text name="ft_hotspot_err_no_position" text="無玩家位置" />
+        <text name="ft_hotspot_err_api" text="標記功能無法使用" />
+        <text name="ft_hotspot_err_add" text="無法新增標記" />
+        <text name="ft_hotspot_pin_name" text="Farm Tablet 標記" />
+        <text name="ft_hotspot_remove_fmt" text="移除 (%d)" />
+        <text name="ft_hotspot_remove" text="移除" />
+        <text name="ft_hotspot_tick_first" text="請先勾選要移除的標記。" />
+        <text name="ft_hotspot_removed_one" text="已移除 %d 個標記。" />
+        <text name="ft_hotspot_removed" text="已移除 %d 個標記。" />
+        <text name="ft_hotspot_confirm_clear" text="確認清除" />
+        <text name="ft_hotspot_all_cleared" text="已清除所有標記。" />
+        <text name="ft_hotspot_list_heading" text="標記  (勾選以選擇)" />
+        <text name="ft_hotspot_none" text="地圖上沒有標記 - 請使用「在此標記」。" />
+        <text name="ft_weather_help_condition_title" text="目前天氣" />
+        <text name="ft_weather_help_condition_body" text="在頂部顯示目前天氣，左側邊緣以顏色&#10;標示：藍 = 雨，橙 = 暴風雨，灰 = 陰天，&#10;白 = 晴朗，深色 = 霧。" />
+        <text name="ft_weather_help_weatherguard_body" text="安裝 FS25_WeatherGuard 後，此應用程式會讀取共用的&#10;天氣與引擎的真實預報，而非猜測。" />
+        <text name="ft_weather_help_dial_title" text="世界天氣轉盤" />
+        <text name="ft_weather_help_dial_body" text="寫實 / 乾燥 / 一般 / 潮濕 會設定共用的世界氣候。&#10;多人遊戲中僅限管理員。與 Soil Fertilizer 相同。" />
+        <text name="ft_weather_help_temperature_body" text="以攝氏顯示氣溫並附體感標籤：冰凍 (&lt;0)&#10;寒冷 (&lt;8)  涼爽 (&lt;16)  溫和 (&lt;24)  溫暖 (&lt;32)  炎熱 (32+)。" />
+        <text name="ft_weather_help_readings_title" text="其他讀數" />
+        <text name="ft_weather_help_readings_body" text="雲量：0-19%：晴朗，20-39%：少雲，40-69%：多雲，&#10;70%+：陰天。風：公里/小時與方位。&#10;降水：以長條顯示雨或暴風雨的強度。" />
+        <text name="ft_weather_help_forecast_body" text="有 WeatherGuard：真實預報，雨以強度顯示。&#10;沒有時：推估的預測，顯示降雨機率。" />
+        <text name="ft_weather_source_wg" text="透過 WeatherGuard" />
+        <text name="ft_weather_source_engine" text="引擎 (無 WeatherGuard)" />
+        <text name="ft_weather_forecast_days_fmt" text="約 %.0f 天預報" />
+        <text name="ft_weather_world_weather" text="世界天氣" />
+        <text name="ft_weather_notice_refused" text="WeatherGuard 拒絕了世界天氣變更。" />
+        <text name="ft_weather_notice_admin_only" text="世界天氣僅限管理員。請以伺服器管理員身分登入以變更。" />
+        <text name="ft_weather_dial_note" text="共用的世界設定 · 多人遊戲中僅限管理員" />
+        <text name="ft_weather_wind_kmh_fmt" text="%.0f 公里/小時" />
+        <text name="ft_weather_wind_kmh_1f_fmt" text="%.1f 公里/小時" />
+        <text name="ft_weather_rain_moderate" text="中雨" />
+        <text name="ft_weather_rain_light" text="小雨" />
+        <text name="ft_weather_forecast_engine" text="預報  (引擎)" />
+        <text name="ft_weather_forecast_projected" text="預報  (推估)" />
+        <text name="ft_weather_rain_intensity_fmt" text="強度 %d%%" />
+        <text name="ft_weather_rain_chance_fmt" text="機率 %d%%" />
+        <text name="ft_weather_day_plus_fmt" text="第 +%d 天" />
+        <text name="ft_weather_cond_clear" text="晴" />
+        <text name="ft_auto_snow_2" text="雪" />
         <text name="ft_count_field" text="%d field" />
         <text name="ft_count_fields" text="%d fields" />
         <text name="ft_count_vehicle" text="%d vehicle" />
@@ -2669,10 +2715,10 @@
         <text name="ft_battery_charging_locked" text="平板充電中。電量達 15% 後即可開機。" />
         <text name="ft_battery_charged_usable" text="平板電量已足夠。按 %s 開機。" />
         <text name="ft_battery_charged_full" text="平板已充滿電。" />
-        <text name="ft_weather_mode_real" text="Real" />
-        <text name="ft_weather_mode_arid" text="Arid" />
-        <text name="ft_weather_mode_normal" text="Normal" />
-        <text name="ft_weather_mode_wet" text="Wet" />
+        <text name="ft_weather_mode_real" text="寫實" />
+        <text name="ft_weather_mode_arid" text="乾燥" />
+        <text name="ft_weather_mode_normal" text="一般" />
+        <text name="ft_weather_mode_wet" text="潮濕" />
         <text name="ft_workshop_shop_one" text="%d 間工作間" />
         <text name="ft_workshop_shops" text="%d 間工作間" />
         <text name="ft_workshop_vehicle_nearby_one" text="附近 %d 輛車輛" />

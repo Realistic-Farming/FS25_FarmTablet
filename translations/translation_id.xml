@@ -471,7 +471,7 @@
         <text name="ft_auto_agraconnect" text="AgraConnect" />
         <text name="ft_auto_agraconnect_2" text="agraconnect" />
         <text name="ft_auto_agrar" text="agrar" />
-        <text name="ft_auto_ai" text="AI" />
+        <text name="ft_auto_ai" text="Pekerja" />
         <text name="ft_auto_ai_2" text="[AI]" />
         <text name="ft_auto_ai_badge_appears_when_the_vehicle_is_driven_by_a_hired" text="Lencana PEMBANTU muncul saat kendaraan dikemudikan pekerja sewaan.&#10;" />
         <text name="ft_auto_akita" text="akita" />
@@ -506,7 +506,7 @@
         <text name="ft_auto_and_time_of_day" text="dan waktu dalam sehari." />
         <text name="ft_auto_and_total_owed_red_across_all_pending_invoices" text="and total owed (red) across all pending invoices." />
         <text name="ft_auto_ani" text="ANI" />
-        <text name="ft_auto_animal" text="Animal" />
+        <text name="ft_auto_animal" text="Hewan" />
         <text name="ft_auto_animal_auto_care" text="animal_auto_care" />
         <text name="ft_auto_animal_care" text="Animal Care" />
         <text name="ft_auto_animal_pens" text="Kandang Hewan" />
@@ -634,9 +634,9 @@
         <text name="ft_auto_clean_animal_pens" text="Clean animal pens" />
         <text name="ft_auto_cleanliness_percentage_for_chickens_and_sheep" text="cleanliness percentage for chickens and sheep.&#10;" />
         <text name="ft_auto_clear" text="HAPUS" />
-        <text name="ft_auto_clear_2" text="Clear" />
+        <text name="ft_auto_clear_2" text="Cerah" />
         <text name="ft_auto_clear_3" text="clear" />
-        <text name="ft_auto_clear_all" text="CLEAR ALL" />
+        <text name="ft_auto_clear_all" text="HAPUS SEMUA" />
         <text name="ft_auto_clear_all_d" text="CLEAR ALL (%d)" />
         <text name="ft_auto_clear_completed_remove_all_done_tasks_at_once" text="CLEAR COMPLETED - remove all done tasks at once" />
         <text name="ft_auto_clear_d_completed" text="CLEAR %d COMPLETED" />
@@ -658,17 +658,17 @@
         <text name="ft_auto_close" text="CLOSE" />
         <text name="ft_auto_close_tablet" text="Close tablet" />
         <text name="ft_auto_closed" text="Closed" />
-        <text name="ft_auto_cloud" text="CLOUD" />
+        <text name="ft_auto_cloud" text="AWAN" />
         <text name="ft_auto_cloud_cover" text="CLOUD COVER" />
-        <text name="ft_auto_cloud_cover_2" text="Cloud Cover" />
+        <text name="ft_auto_cloud_cover_2" text="Tutupan awan" />
         <text name="ft_auto_cloudy" text="Cloudy" />
         <text name="ft_auto_cloudy_2" text="cloudy" />
-        <text name="ft_auto_cold" text="Cold" />
+        <text name="ft_auto_cold" text="Dingin" />
         <text name="ft_auto_collect" text=" COLLECT" />
         <text name="ft_auto_collect_bales" text="Collect bales" />
         <text name="ft_auto_collect_productions" text="Collect productions" />
         <text name="ft_auto_columns_crop_ha_state" text="COLUMNS: # / CROP / HA / STATE" />
-        <text name="ft_auto_combine" text="Combine" />
+        <text name="ft_auto_combine" text="Pemanen" />
         <text name="ft_auto_complete_favors_for_an_npc_to_increase_their" text="Complete favors for an NPC to increase their&#10;" />
         <text name="ft_auto_complete_v2_overhaul_new_sidebar_layout" text="Complete V2 overhaul - new sidebar layout" />
         <text name="ft_auto_completed" text="Completed" />
@@ -679,7 +679,7 @@
         <text name="ft_auto_comprehensive_farm_statistics_snapshot" text="Ringkasan lengkap statistik pertanian" />
         <text name="ft_auto_con" text="CON" />
         <text name="ft_auto_condition_hero_card" text="CONDITION HERO CARD" />
-        <text name="ft_auto_conditions" text="CONDITIONS" />
+        <text name="ft_auto_conditions" text="KONDISI" />
         <text name="ft_auto_configure_this_in_the_income_mod_settings" text="Configure this in the Income Mod settings." />
         <text name="ft_auto_confirm_clear_all_d" text="CONFIRM CLEAR ALL (%d)" />
         <text name="ft_auto_confirm_start_job" text="CONFIRM - START JOB" />
@@ -710,7 +710,7 @@
         <text name="ft_auto_contracts_marked_done_are_complete_but_unpaid" text="Kontrak bertanda SELESAI sudah tuntas tetapi belum dibayar.&#10;" />
         <text name="ft_auto_controls_how_wages_are_calculated" text="Controls how wages are calculated:&#10;" />
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
-        <text name="ft_auto_cool" text="Cool" />
+        <text name="ft_auto_cool" text="Sejuk" />
         <text name="ft_auto_core" text="CORE" />
         <text name="ft_auto_cost_mode" text="COST MODE" />
         <text name="ft_auto_cost_mode_2" text="Cost Mode" />
@@ -867,7 +867,7 @@
         <text name="ft_auto_enables_verbose_console_logging_for_troubleshooting" text="Enables verbose console logging for troubleshooting" />
         <text name="ft_auto_enter_a_vehicle_first_then_pin" text="Enter a vehicle first, then PIN" />
         <text name="ft_auto_enter_edit_mode" text="ENTER EDIT MODE" />
-        <text name="ft_auto_environment_not_loaded_yet" text="Environment not loaded yet." />
+        <text name="ft_auto_environment_not_loaded_yet" text="Lingkungan belum dimuat." />
         <text name="ft_auto_equipment_dealer" text="Equipment Dealer" />
         <text name="ft_auto_equipment_rental" text="Equipment Rental" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
@@ -1052,8 +1052,8 @@
         <text name="ft_auto_fleet_3" text="fleet_" />
         <text name="ft_auto_fleet_manager" text="Fleet Manager" />
         <text name="ft_auto_fleet_manager_2" text="fleet_manager" />
-        <text name="ft_auto_fog" text="FOG" />
-        <text name="ft_auto_fog_2" text="Fog" />
+        <text name="ft_auto_fog" text="KABUT" />
+        <text name="ft_auto_fog_2" text="Kabut" />
         <text name="ft_auto_fog_3" text="fog" />
         <text name="ft_auto_foggy" text="Foggy" />
         <text name="ft_auto_food" text="Pakan" />
@@ -1061,11 +1061,11 @@
         <text name="ft_auto_food_d" text="FOOD  %d%%" />
         <text name="ft_auto_for_confirmation_press_it_again_within_4_seconds" text="for confirmation. Press it again within 4 seconds&#10;" />
         <text name="ft_auto_force_a_field_to_sleep_or_wake_it_your_choice_persists" text="Tidurkan ladang (atau bangunkan). Pilihanmu tetap tersimpan&#10;" />
-        <text name="ft_auto_forecast" text="FORECAST" />
+        <text name="ft_auto_forecast" text="PRAKIRAAN" />
         <text name="ft_auto_forest_green" text="Hijau Hutan" />
         <text name="ft_auto_fork" text="fork" />
         <text name="ft_auto_frame" text="frame" />
-        <text name="ft_auto_freezing" text="Freezing" />
+        <text name="ft_auto_freezing" text="Beku" />
         <text name="ft_auto_freezing_0_cold_8_cool_16_mild_24" text="Freezing (&lt;0)  Cold (&lt;8)  Cool (&lt;16)  Mild (&lt;24)&#10;" />
         <text name="ft_auto_frequency" text="Frekuensi" />
         <text name="ft_auto_frequency_1_10_controls_how_often_events" text="Frekuensi (1-10) mengatur seberapa sering peristiwa&#10;" />
@@ -1161,7 +1161,7 @@
         <text name="ft_auto_harvest_crops" text="Harvest crops" />
         <text name="ft_auto_harvested" text="Harvested" />
         <text name="ft_auto_harvesting" text="Panen" />
-        <text name="ft_auto_heavy_storm" text="Heavy Storm" />
+        <text name="ft_auto_heavy_storm" text="Badai kuat" />
         <text name="ft_auto_help" text="Help" />
         <text name="ft_auto_help_panel_sound_off" text="HELP PANEL SOUND: OFF" />
         <text name="ft_auto_help_panel_sound_on" text="HELP PANEL SOUND: ON" />
@@ -1185,9 +1185,9 @@
         <text name="ft_auto_home_background_2" text="HOME BACKGROUND: " />
         <text name="ft_auto_host_listen_server_only" text="Host / listen-server only" />
         <text name="ft_auto_host_only" text="Host Only" />
-        <text name="ft_auto_hot" text="Hot" />
+        <text name="ft_auto_hot" text="Panas" />
         <text name="ft_auto_hotspot" text="hotspot" />
-        <text name="ft_auto_hotspot_manager" text="Hotspot Manager" />
+        <text name="ft_auto_hotspot_manager" text="Pengelola Penanda" />
         <text name="ft_auto_hotspot_manager_2" text="hotspot_manager" />
         <text name="ft_auto_hotspots" text="HOTSPOTS" />
         <text name="ft_auto_hourly_charged_every_in_game_hour" text="Hourly = charged every in-game hour.&#10;" />
@@ -1197,7 +1197,7 @@
         <text name="ft_auto_hours_status" text="JAM / STATUS" />
         <text name="ft_auto_how_clean_the_pen_is_straw_level_for_pigs_and_cows" text="How clean the pen is - straw level for pigs and cows,&#10;" />
         <text name="ft_auto_how_much_tax_is_charged_per_cycle" text="How much tax is charged per cycle.&#10;" />
-        <text name="ft_auto_humidity" text="Humidity" />
+        <text name="ft_auto_humidity" text="Kelembapan" />
         <text name="ft_auto_icon" text="icon:" />
         <text name="ft_auto_icon_fallback" text="icon:_fallback" />
         <text name="ft_auto_icons" text="icons/" />
@@ -1307,7 +1307,7 @@
         <text name="ft_auto_load_history" text="LOAD HISTORY" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
-        <text name="ft_auto_loading" text="Loading" />
+        <text name="ft_auto_loading" text="Muat" />
         <text name="ft_auto_loads" text="LOADS" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="PINJAMAN" />
@@ -1356,8 +1356,8 @@
         <text name="ft_auto_midnight" text="MIDNIGHT" />
         <text name="ft_auto_midnight_purple" text="Ungu Tengah Malam" />
         <text name="ft_auto_midnight_purple_warm_dark_slate_grey" text="Midnight Purple, Warm Dark, Slate Grey." />
-        <text name="ft_auto_mild" text="Mild" />
-        <text name="ft_auto_mission" text="Mission" />
+        <text name="ft_auto_mild" text="Sedang" />
+        <text name="ft_auto_mission" text="Misi" />
         <text name="ft_auto_mkt" text="MKT" />
         <text name="ft_auto_mod_integration_categories" text="Integrasi Mod." />
         <text name="ft_auto_mod_integrations" text="INTEGRASI MOD" />
@@ -1374,7 +1374,7 @@
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total bulanan" />
         <text name="ft_auto_more_tap_history" text=" more - tap HISTORY" />
-        <text name="ft_auto_mostly_cloudy" text="Mostly Cloudy" />
+        <text name="ft_auto_mostly_cloudy" text="Banyak awan" />
         <text name="ft_auto_mount_a_wheel_loader_excavator_or_material_handler" text="mount a wheel loader, excavator, or material handler.&#10;" />
         <text name="ft_auto_mow_grass" text="Mow grass" />
         <text name="ft_auto_mowing" text="Memotong rumput" />
@@ -1563,7 +1563,7 @@
         <text name="ft_auto_orange_peak_current_price_is_below_the_recorded_high" text="Puncak oranye = harga saat ini di bawah rekor.&#10;" />
         <text name="ft_auto_organic_matter" text="ORGANIC MATTER" />
         <text name="ft_auto_organic_matter_2" text="Organic Matter" />
-        <text name="ft_auto_other" text="Other" />
+        <text name="ft_auto_other" text="Lainnya" />
         <text name="ft_auto_outage" text="Outage" />
         <text name="ft_auto_outage_2" text="outage" />
         <text name="ft_auto_outages_s" text="OUTAGES: %s" />
@@ -1573,11 +1573,11 @@
         <text name="ft_auto_outputs" text="OUTPUTS" />
         <text name="ft_auto_outputs_pile_up_if_the_unloading_station_is_full_check" text="Hasil menumpuk jika stasiun bongkar penuh - periksa&#10;" />
         <text name="ft_auto_outside_this_range_nutrient_uptake_is_reduced_even" text="Outside this range nutrient uptake is reduced even&#10;" />
-        <text name="ft_auto_ovc" text="OVC" />
+        <text name="ft_auto_ovc" text="MENDUNG" />
         <text name="ft_auto_overall" text="Overall" />
         <text name="ft_auto_overall_animal_productivity_is_driven_by_food_water" text="Overall animal productivity is driven by food, water,&#10;" />
         <text name="ft_auto_overall_standing_with_the_local_community_0_100" text="Overall standing with the local community (0-100).&#10;" />
-        <text name="ft_auto_overcast" text="Overcast" />
+        <text name="ft_auto_overcast" text="Mendung" />
         <text name="ft_auto_overcast_2" text="overcast" />
         <text name="ft_auto_overdue" text="OVERDUE" />
         <text name="ft_auto_overdue_2" text="Overdue" />
@@ -1590,7 +1590,7 @@
         <text name="ft_auto_paid" text="PAID" />
         <text name="ft_auto_paid_2" text="Paid" />
         <text name="ft_auto_paid_3" text="paid" />
-        <text name="ft_auto_partly_cloudy" text="Partly Cloudy" />
+        <text name="ft_auto_partly_cloudy" text="Berawan sebagian" />
         <text name="ft_auto_party" text="PARTY" />
         <text name="ft_auto_party_2" text="party" />
         <text name="ft_auto_pause" text="⏸ PAUSE" />
@@ -1624,11 +1624,11 @@
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="PIN" />
-        <text name="ft_auto_pin_2" text="Pin" />
+        <text name="ft_auto_pin_2" text="Penanda" />
         <text name="ft_auto_pinned_s_to_s" text="Pinned %s to %s" />
         <text name="ft_auto_pins" text="PINS" />
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="dari toko untuk melihatnya di sini." />
-        <text name="ft_auto_player" text="Player" />
+        <text name="ft_auto_player" text="Pemain" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
         <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
@@ -1643,9 +1643,9 @@
         <text name="ft_auto_potassium" text="Potassium" />
         <text name="ft_auto_ppm" text=" ppm  (" />
         <text name="ft_auto_precipitation" text="PRECIPITATION" />
-        <text name="ft_auto_precipitation_2" text="Precipitation" />
+        <text name="ft_auto_precipitation_2" text="Presipitasi" />
         <text name="ft_auto_prepend" text="prepend" />
-        <text name="ft_auto_present" text="Present" />
+        <text name="ft_auto_present" text="Ada" />
         <text name="ft_auto_press_clear_all_once_it_turns_red_and_asks" text="Press CLEAR ALL once - it turns red and asks&#10;" />
         <text name="ft_auto_press_s_to_open" text="Press %s to open" />
         <text name="ft_auto_price_comparison" text="PERBANDINGAN HARGA" />
@@ -1682,7 +1682,7 @@
         <text name="ft_auto_purchase_motorized_vehicles_to_track_them_here" text="Purchase motorized vehicles to track them here." />
         <text name="ft_auto_quiet_if_you_already_know_the_open_key" text="quiet if you already know the open key." />
         <text name="ft_auto_rain" text=" Rain" />
-        <text name="ft_auto_rain_2" text="RAIN" />
+        <text name="ft_auto_rain_2" text="HUJAN" />
         <text name="ft_auto_rain_3" text="Rain" />
         <text name="ft_auto_rain_4" text="rain" />
         <text name="ft_auto_rain_or_storm_intensity_shown_with_a_fill_bar" text="Rain or storm intensity shown with a fill bar.&#10;" />
@@ -1823,7 +1823,7 @@
         <text name="ft_auto_settings_3" text="settings" />
         <text name="ft_auto_settings_changed" text="settings_changed" />
         <text name="ft_auto_settings_integration_in_pause_menu" text="Settings integration in pause menu" />
-        <text name="ft_auto_shop" text="Shop" />
+        <text name="ft_auto_shop" text="Toko" />
         <text name="ft_auto_shops" text=" shops  |  " />
         <text name="ft_auto_shops_may_break_game_features_be_careful" text="Shops) may break game features - be careful." />
         <text name="ft_auto_should_i_draw_my_overlay_right_now" text="should I draw my overlay right now?" />
@@ -1925,7 +1925,7 @@
         <text name="ft_auto_storage_price_comparison_section_all_stations_sorted_be" text="Storage: price comparison section - all stations sorted best-first" />
         <text name="ft_auto_storages" text="storages_" />
         <text name="ft_auto_store" text="store" />
-        <text name="ft_auto_storm" text="STORM" />
+        <text name="ft_auto_storm" text="BADAI" />
         <text name="ft_auto_storm_2" text="Storm" />
         <text name="ft_auto_storm_3" text="storm" />
         <text name="ft_auto_stormy" text="Stormy" />
@@ -2008,8 +2008,8 @@
         <text name="ft_auto_tax_rate" text="TAX RATE" />
         <text name="ft_auto_tax_rate_2" text="Tax Rate" />
         <text name="ft_auto_telehandler" text="telehandler" />
-        <text name="ft_auto_temperature" text="TEMPERATURE" />
-        <text name="ft_auto_temperature_2" text="Temperature" />
+        <text name="ft_auto_temperature" text="SUHU" />
+        <text name="ft_auto_temperature_2" text="Suhu" />
         <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
@@ -2065,7 +2065,7 @@
         <text name="ft_auto_toggle_tablet" text="Toggle tablet" />
         <text name="ft_auto_toggles_are_admin_only_and_validated_by_the_host_client" text="Saklar hanya untuk admin dan divalidasi oleh host. Pemain&#10;" />
         <text name="ft_auto_toggles_the_mod_on_or_off_without_uninstalling_it" text="Toggles the mod on or off without uninstalling it.&#10;" />
-        <text name="ft_auto_tool" text="Tool" />
+        <text name="ft_auto_tool" text="Alat" />
         <text name="ft_auto_top_of_the_app_shows_total_receivable_green" text="Top of the app shows total receivable (green)&#10;" />
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
@@ -2073,7 +2073,7 @@
         <text name="ft_auto_total_paid" text="TOTAL PAID" />
         <text name="ft_auto_total_paid_2" text="Total Paid" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
-        <text name="ft_auto_tour" text="Tour" />
+        <text name="ft_auto_tour" text="Tur" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
         <text name="ft_auto_town_reputation_2" text="Town Reputation: " />
         <text name="ft_auto_tracked_from_the_current_session_since_load" text="Dihitung sejak sesi ini (sejak dimuat).&#10;" />
@@ -2090,9 +2090,9 @@
         <text name="ft_auto_undo_mark_it_pending_again" text="UNDO - mark it pending again (□)&#10;" />
         <text name="ft_auto_unknown" text="Tidak diketahui" />
         <text name="ft_auto_unknown_field" text="Ladang tak dikenal" />
-        <text name="ft_auto_unloading" text="Unloading" />
+        <text name="ft_auto_unloading" text="Bongkar" />
         <text name="ft_auto_unlock" text="unlock" />
-        <text name="ft_auto_unnamed" text="(unnamed)" />
+        <text name="ft_auto_unnamed" text="(tanpa nama)" />
         <text name="ft_auto_unpin" text="LEPAS" />
         <text name="ft_auto_unpinned" text="Unpinned " />
         <text name="ft_auto_up_to_30_completed_jobs_are_stored_per_savegame" text="Up to 30 completed jobs are stored per savegame.&#10;" />
@@ -2162,7 +2162,7 @@
         <text name="ft_auto_walk_closer_to_a_vehicle_to_inspect_it" text="Dekati kendaraan untuk memeriksanya." />
         <text name="ft_auto_walk_to_scan_terrain_elevation" text="Walk to scan terrain elevation" />
         <text name="ft_auto_wall" text="wall" />
-        <text name="ft_auto_warm" text="Warm" />
+        <text name="ft_auto_warm" text="Hangat" />
         <text name="ft_auto_warm_32_hot_32" text="Warm (&lt;32)  Hot (32+)." />
         <text name="ft_auto_warm_dark" text="Gelap Hangat" />
         <text name="ft_auto_water" text="Air" />
@@ -2179,7 +2179,7 @@
         <text name="ft_auto_wear_bar" text="BAR KEAUSAN" />
         <text name="ft_auto_weather" text="Cuaca" />
         <text name="ft_auto_weather_2" text="weather" />
-        <text name="ft_auto_weather_data_unavailable" text="Weather data unavailable." />
+        <text name="ft_auto_weather_data_unavailable" text="Data cuaca tidak tersedia." />
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="Menyiangi" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
@@ -2188,7 +2188,7 @@
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Selamat datang! Ketuk aplikasi untuk memulai." />
         <text name="ft_auto_what_counts_as_a_silo" text="APA YANG DIHITUNG SEBAGAI SILO?" />
         <text name="ft_auto_what_is_the_app_store" text="APA ITU TOKO APLIKASI" />
-        <text name="ft_auto_what_is_this" text="WHAT IS THIS?" />
+        <text name="ft_auto_what_is_this" text="APA INI?" />
         <text name="ft_auto_what_is_this_app" text="WHAT IS THIS APP" />
         <text name="ft_auto_what_this_app_does" text="APA FUNGSI APLIKASI INI" />
         <text name="ft_auto_what_this_app_shows" text="APA YANG DITAMPILKAN APLIKASI INI" />
@@ -2205,8 +2205,8 @@
         <text name="ft_auto_white" text="WHITE" />
         <text name="ft_auto_white_clear_dark_fog" text="white = clear, dark = fog." />
         <text name="ft_auto_wiederhergestellt" text="wiederhergestellt" />
-        <text name="ft_auto_wind" text="WIND" />
-        <text name="ft_auto_wind_speed" text="Wind Speed" />
+        <text name="ft_auto_wind" text="ANGIN" />
+        <text name="ft_auto_wind_speed" text="Kecepatan angin" />
         <text name="ft_auto_wind_speed_in_km_h_and_compass_direction" text="Wind speed in km/h and compass direction.&#10;" />
         <text name="ft_auto_winter" text="Musim dingin" />
         <text name="ft_auto_withered" text="Withered" />
@@ -2357,6 +2357,52 @@
         <text name="ft_dynamic_started_day_at" text="Started Day %d at %s" />
         <text name="ft_count_pen" text="%d kandang" />
         <text name="ft_count_pens" text="%d kandang" />
+        <text name="ft_hotspot_help_what_body" text="Menampilkan semua penanda aktif di peta.&#10;Centang kotak sebuah penanda, lalu HAPUS.&#10;TANDAI DI SINI memasang penanda sendiri di posisimu.&#10;&#10;Menghapus penanda sistem (misi, toko) bisa merusak&#10;fitur game - hati-hati. Penanda sistem bisa&#10;muncul lagi setelah sinkronisasi ulang peta." />
+        <text name="ft_hotspot_help_clear_body" text="Tekan HAPUS SEMUA sekali - tombol jadi merah dan meminta&#10;konfirmasi. Tekan lagi dalam 4 detik&#10;untuk menghapus semua penanda dari peta." />
+        <text name="ft_hotspot_total_fmt" text="total %d" />
+        <text name="ft_hotspot_add_pin" text="TANDAI DI SINI" />
+        <text name="ft_hotspot_pin_added" text="Penanda ditambahkan di posisimu." />
+        <text name="ft_hotspot_add_failed" text="Gagal menambahkan" />
+        <text name="ft_hotspot_err_no_position" text="Posisi pemain tidak ada" />
+        <text name="ft_hotspot_err_api" text="Fungsi penanda tidak tersedia" />
+        <text name="ft_hotspot_err_add" text="Penanda tidak dapat ditambahkan" />
+        <text name="ft_hotspot_pin_name" text="Penanda Farm Tablet" />
+        <text name="ft_hotspot_remove_fmt" text="HAPUS (%d)" />
+        <text name="ft_hotspot_remove" text="HAPUS" />
+        <text name="ft_hotspot_tick_first" text="Centang dulu penanda yang akan dihapus." />
+        <text name="ft_hotspot_removed_one" text="%d penanda dihapus." />
+        <text name="ft_hotspot_removed" text="%d penanda dihapus." />
+        <text name="ft_hotspot_confirm_clear" text="KONFIRMASI" />
+        <text name="ft_hotspot_all_cleared" text="Semua penanda dihapus." />
+        <text name="ft_hotspot_list_heading" text="PENANDA  (centang untuk memilih)" />
+        <text name="ft_hotspot_none" text="Tidak ada penanda di peta - pakai TANDAI DI SINI." />
+        <text name="ft_weather_help_condition_title" text="CUACA SAAT INI" />
+        <text name="ft_weather_help_condition_body" text="Menampilkan cuaca saat ini di atas dengan tepi kiri&#10;berwarna: biru = hujan, oranye = badai, abu-abu = mendung,&#10;putih = cerah, gelap = kabut." />
+        <text name="ft_weather_help_weatherguard_body" text="Dengan FS25_WeatherGuard, aplikasi ini membaca cuaca&#10;bersama dan prakiraan asli dari mesin, bukan tebakan." />
+        <text name="ft_weather_help_dial_title" text="PENGATUR CUACA DUNIA" />
+        <text name="ft_weather_help_dial_body" text="Nyata / Kering / Normal / Basah mengatur iklim dunia bersama.&#10;Hanya admin di multipemain. Sama dengan Soil Fertilizer." />
+        <text name="ft_weather_help_temperature_body" text="Suhu udara dalam Celsius dengan label rasa: Beku (&lt;0)&#10;Dingin (&lt;8)  Sejuk (&lt;16)  Sedang (&lt;24)  Hangat (&lt;32)  Panas (32+)." />
+        <text name="ft_weather_help_readings_title" text="PEMBACAAN LAIN" />
+        <text name="ft_weather_help_readings_body" text="Tutupan awan: 0-19%: cerah, 20-39%: sebagian, 40-69%: berawan,&#10;70%+: mendung. Angin: km/jam dan arah.&#10;Presipitasi: kekuatan hujan atau badai sebagai bilah." />
+        <text name="ft_weather_help_forecast_body" text="Dengan WeatherGuard: prakiraan asli, hujan sebagai kekuatan.&#10;Tanpa itu: perkiraan proyeksi dengan peluang hujan." />
+        <text name="ft_weather_source_wg" text="Lewat WeatherGuard" />
+        <text name="ft_weather_source_engine" text="Mesin (tanpa WeatherGuard)" />
+        <text name="ft_weather_forecast_days_fmt" text="Prakiraan ~%.0f hari" />
+        <text name="ft_weather_world_weather" text="CUACA DUNIA" />
+        <text name="ft_weather_notice_refused" text="WeatherGuard menolak perubahan cuaca dunia." />
+        <text name="ft_weather_notice_admin_only" text="Cuaca dunia hanya untuk admin. Masuk sebagai admin server untuk mengubahnya." />
+        <text name="ft_weather_dial_note" text="Pengaturan dunia bersama · hanya admin di multipemain" />
+        <text name="ft_weather_wind_kmh_fmt" text="%.0f km/jam" />
+        <text name="ft_weather_wind_kmh_1f_fmt" text="%.1f km/jam" />
+        <text name="ft_weather_rain_moderate" text="Hujan sedang" />
+        <text name="ft_weather_rain_light" text="Hujan ringan" />
+        <text name="ft_weather_forecast_engine" text="PRAKIRAAN  (mesin)" />
+        <text name="ft_weather_forecast_projected" text="PRAKIRAAN  (proyeksi)" />
+        <text name="ft_weather_rain_intensity_fmt" text="kekuatan %d%%" />
+        <text name="ft_weather_rain_chance_fmt" text="peluang %d%%" />
+        <text name="ft_weather_day_plus_fmt" text="Hari +%d" />
+        <text name="ft_weather_cond_clear" text="CERAH" />
+        <text name="ft_auto_snow_2" text="SALJU" />
         <text name="ft_count_field" text="%d field" />
         <text name="ft_count_fields" text="%d fields" />
         <text name="ft_count_vehicle" text="%d vehicle" />
@@ -2669,10 +2715,10 @@
         <text name="ft_battery_charging_locked" text="Tablet sedang diisi daya. Bisa dinyalakan mulai 15%." />
         <text name="ft_battery_charged_usable" text="Tablet sudah cukup terisi. Tekan %s untuk menyalakannya." />
         <text name="ft_battery_charged_full" text="Tablet terisi penuh." />
-        <text name="ft_weather_mode_real" text="Real" />
-        <text name="ft_weather_mode_arid" text="Arid" />
+        <text name="ft_weather_mode_real" text="Nyata" />
+        <text name="ft_weather_mode_arid" text="Kering" />
         <text name="ft_weather_mode_normal" text="Normal" />
-        <text name="ft_weather_mode_wet" text="Wet" />
+        <text name="ft_weather_mode_wet" text="Basah" />
         <text name="ft_workshop_shop_one" text="%d bengkel" />
         <text name="ft_workshop_shops" text="%d bengkel" />
         <text name="ft_workshop_vehicle_nearby_one" text="%d kendaraan terdekat" />

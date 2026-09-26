@@ -61,7 +61,7 @@ MUTATIONS = [
      one('<text name="ft_weather_rain_light" text="小雨" />', '<text name="ft_weather_rain_light" text="kosame" />'),
      "a Japanese value written in Latin letters: the script row"),
     ("T3-english-copy", "translations/translation_fr.xml",
-     one('<text name="ft_hotspot_tick_first" text="Cochez des repères à supprimer d\'abord." />', '<text name="ft_hotspot_tick_first" text="Tick pins to remove first." />'),
+     one('<text name="ft_hotspot_tick_first" text="Cochez d\'abord les repères à supprimer." />', '<text name="ft_hotspot_tick_first" text="Tick pins to remove first." />'),
      "a French value reverted to the English text: the text rows"),
 ]
 
