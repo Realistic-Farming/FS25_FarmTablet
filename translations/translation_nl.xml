@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Gedimde rijen worden ondersteund, maar zijn niet geïnstalleerd.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="UITGESCHAKELD" />
         <text name="ft_auto_disabled_2" text="Uitgeschakeld" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Weergave" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Geen klus bezig." />
         <text name="ft_auto_no_loads_recorded_yet" text="Nog geen ladingen vastgelegd." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Geen eigen velden gevonden." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Geen verkoopprijzen gevonden" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="versienummer en de naam van de ontwikkelaar." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="KLEUREN VOEDINGSSTOFFEN" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="voorkomen. De sterkte (1-5) bepaalt hoe zwaar&#10;" />
         <text name="ft_auto_ocean_blue" text="Oceaanblauw" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="plagen de gewasprijzen tijdelijk verschuiven.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC actief" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="VASTZETTEN" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Bodembemesting" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer-mod niet gevonden." />
         <text name="ft_auto_soil_fertilizer_status" text="Status van bodem en bemesting" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Verkooppremie: MDM-contract in behandeling" />
         <text name="ft_organic_market" text="MARKT" />
         <text name="ft_organic_market_na" text="niet beschikbaar - wacht op biopremie / MDM-contract" />
+        <text name="ft_soilnut_urgent" text="DRINGEND" />
+        <text name="ft_soilnut_watch" text="OPLETTEN" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Geen bodemgegevens" />
+        <text name="ft_soilnut_tr_lime" text="Breng KALK of VLOEIBARE KALK aan om de pH te verhogen." />
+        <text name="ft_soilnut_tr_gypsum" text="Breng GIPS aan om de pH te verlagen / de structuur te verbeteren." />
+        <text name="ft_soilnut_om" text="OS" />
+        <text name="ft_soilnut_tr_om_low" text="Werk MEST of COMPOST in, of hak het stro." />
+        <text name="ft_soilnut_tr_om_monitor" text="In de gaten houden. Organische aanvoer behouden." />
+        <text name="ft_soilnut_tr_urea" text="Breng UREUM of UAN32 aan" />
+        <text name="ft_soilnut_tr_ams" text="Breng AMMONIUMSULFAAT of AMMONIUMNITRAAT aan" />
+        <text name="ft_soilnut_tr_map" text="Breng MAP of DAP aan" />
+        <text name="ft_soilnut_tr_liquid_map" text="Aanvullen met vloeibare MAP / DAP" />
+        <text name="ft_soilnut_tr_p_above" text="Boven doel - sla deze werkgang het P-product over." />
+        <text name="ft_soilnut_tr_potash" text="Breng KALI aan" />
+        <text name="ft_soilnut_tr_potash_topup" text="Aanvullen met KALI" />
+        <text name="ft_soilnut_weed" text="Onkruid" />
+        <text name="ft_soilnut_tr_herbicide" text="Breng HERBICIDE aan of gebruik de WIEDEG/SCHOFFEL." />
+        <text name="ft_soilnut_pest" text="Plagen" />
+        <text name="ft_soilnut_tr_insecticide" text="Breng direct INSECTICIDE aan." />
+        <text name="ft_soilnut_disease" text="Ziekte" />
+        <text name="ft_soilnut_tr_unscouted" text="Niet verkend - verken het veld voor het behandelen." />
+        <text name="ft_soilnut_tr_fungicide" text="Breng direct FUNGICIDE aan." />
+        <text name="ft_soilnut_tr_all_clear" text="Alles in orde - geen behandeling nodig." />
+        <text name="ft_soilnut_help_what_body" text="Eén kaart per eigen veld: N / P / K / pH / OS /&#10;Onkruid / Plagen / Ziekte als balken huidig / verwacht,&#10;plus een BEHANDELPLAN met doseringen als een voedingsstof&#10;of druk werk nodig heeft." />
+        <text name="ft_soilnut_help_urgency_title" text="URGENTIEVOLGORDE" />
+        <text name="ft_soilnut_help_urgency_body" text="Kaarten zijn gesorteerd op SoilFertilizer-urgentie, zodat&#10;de velden die eerst aandacht nodig hebben bovenaan staan.&#10;Streep links: groen OK · geel OPLETTEN · rood DRINGEND." />
+        <text name="ft_soilnut_treatment" text="BEHANDELING" />
+        <text name="ft_soilnut_help_treatment_body" text="De voorschriften volgen het venster Behandelingsvoorschrift&#10;(%s): productdoseringen + beschermingsacties.&#10;Ziekte blijft Niet verkend tot je het veld verkent." />
+        <text name="ft_soilnut_help_colours_body" text="Groen = op doel  |  Geel = matig  |  Rood = slecht.&#10;De balken tonen huidig / verwacht (ppm voor N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + ORGANISCHE STOF" />
+        <text name="ft_soilnut_help_ph_body" text="De optimale pH is 6.5 (band ~6.0–7.5).&#10;OS is een bodemschaal van 0–10 (geen percentage).&#10;De gezonde band ligt rond 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="VELDEN  (%d)" />
+        <text name="ft_soilnut_fert" text="BEMESTEN" />
+        <text name="ft_soilnut_field_title_fmt" text="Veld nr. %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Geen bodemgegevens voor dit veld." />
+        <text name="ft_soilnut_unscouted" text="Niet verkend" />
+        <text name="ft_soilnut_treatment_plan" text="BEHANDELPLAN" />
+        <text name="ft_soilnut_no_actions" text="Geen acties - de niveaus zien er goed uit." />
     </texts>
 
 </l10n>

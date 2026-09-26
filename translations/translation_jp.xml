@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="暗く表示された行は対応済みですが、未インストールです。&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="無効" />
         <text name="ft_auto_disabled_2" text="無効" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="表示" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="実行中の作業はありません。" />
         <text name="ft_auto_no_loads_recorded_yet" text="まだ積載の記録がありません。" />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="所有する畑が見つかりません。" />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="売値データが見つかりません" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="番号と開発者名を表示します。" />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="養分の色" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="起こる頻度を決めます。強度（1-5）は&#10;" />
         <text name="ft_auto_ocean_blue" text="オーシャンブルー" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="害虫の大発生などのイベントは作物価格を一時的に変動させます。&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC 有効" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="ピン留め" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="土壌肥料" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer MOD が見つかりません。" />
         <text name="ft_auto_soil_fertilizer_status" text="土壌と施肥の状態" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="販売プレミアム：MDM契約待ち" />
         <text name="ft_organic_market" text="市場" />
         <text name="ft_organic_market_na" text="利用不可 - 有機プレミアム / MDM契約待ち" />
+        <text name="ft_soilnut_urgent" text="緊急" />
+        <text name="ft_soilnut_watch" text="注意" />
+        <text name="ft_soilnut_ok" text="良好" />
+        <text name="ft_soilnut_tr_no_data" text="土壌データなし" />
+        <text name="ft_soilnut_tr_lime" text="石灰または液体石灰を散布して pH を上げてください。" />
+        <text name="ft_soilnut_tr_gypsum" text="石膏を散布して pH を下げ、土壌構造を改善してください。" />
+        <text name="ft_soilnut_om" text="有機物" />
+        <text name="ft_soilnut_tr_om_low" text="厩肥または堆肥をすき込むか、わらを細断してください。" />
+        <text name="ft_soilnut_tr_om_monitor" text="監視を続け、有機物の投入を維持してください。" />
+        <text name="ft_soilnut_tr_urea" text="尿素または UAN32 を散布" />
+        <text name="ft_soilnut_tr_ams" text="硫酸アンモニウムまたは硝酸アンモニウムを散布" />
+        <text name="ft_soilnut_tr_map" text="MAP または DAP を散布" />
+        <text name="ft_soilnut_tr_liquid_map" text="液体 MAP / DAP で追肥" />
+        <text name="ft_soilnut_tr_p_above" text="目標超過 - 今回は P 製品を省いてください。" />
+        <text name="ft_soilnut_tr_potash" text="塩化カリを散布" />
+        <text name="ft_soilnut_tr_potash_topup" text="塩化カリで追肥" />
+        <text name="ft_soilnut_weed" text="雑草" />
+        <text name="ft_soilnut_tr_herbicide" text="除草剤を散布するか、除草ハロー/鍬を使ってください。" />
+        <text name="ft_soilnut_pest" text="害虫" />
+        <text name="ft_soilnut_tr_insecticide" text="直ちに殺虫剤を散布してください。" />
+        <text name="ft_soilnut_disease" text="病気" />
+        <text name="ft_soilnut_tr_unscouted" text="未調査 - 処理の前に調査してください。" />
+        <text name="ft_soilnut_tr_fungicide" text="直ちに殺菌剤を散布してください。" />
+        <text name="ft_soilnut_tr_all_clear" text="問題なし - 処理は不要です。" />
+        <text name="ft_soilnut_help_what_body" text="所有する畑ごとに1枚のカード: N / P / K / pH / 有機物 /&#10;雑草 / 害虫 / 病気を現在値 / 期待値のバーで表示し、&#10;養分や圧力に対処が必要なときは施用量付きの&#10;処理計画も表示します。" />
+        <text name="ft_soilnut_help_urgency_title" text="緊急度順" />
+        <text name="ft_soilnut_help_urgency_body" text="カードは SoilFertilizer の緊急度順に並ぶため、&#10;先に手当てが必要な畑が上に来ます。&#10;左の線: 緑 良好 · 黄 注意 · 赤 緊急。" />
+        <text name="ft_soilnut_treatment" text="処理" />
+        <text name="ft_soilnut_help_treatment_body" text="処方は処方箋ダイアログ (%s) に従います&#10;(製品の施用量 + 防除作業)。&#10;病気は畑を調査するまで未調査のままです。" />
+        <text name="ft_soilnut_help_colours_body" text="緑 = 目標どおり  |  黄 = まずまず  |  赤 = 不足。&#10;バーは現在値 / 期待値を表示 (N/P/K は ppm)。" />
+        <text name="ft_soilnut_help_ph_title" text="pH + 有機物" />
+        <text name="ft_soilnut_help_ph_body" text="最適な pH は 6.5 (範囲 ~6.0–7.5)。&#10;有機物は 0–10 の土壌スケールです (パーセントではありません)。&#10;健全な範囲はおよそ 3.5–5.0 です。" />
+        <text name="ft_soilnut_fields_fmt" text="畑  (%d)" />
+        <text name="ft_soilnut_fert" text="施肥" />
+        <text name="ft_soilnut_field_title_fmt" text="畑 #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="この畑の土壌データはありません。" />
+        <text name="ft_soilnut_unscouted" text="未調査" />
+        <text name="ft_soilnut_treatment_plan" text="処理計画" />
+        <text name="ft_soilnut_no_actions" text="対処不要 - 数値は良好です。" />
     </texts>
 
 </l10n>

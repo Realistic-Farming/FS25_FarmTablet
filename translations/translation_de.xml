@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Dimmed rows werden unterstützt sind aber derzeit nicht installiert.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Farm Tablet deaktiveren" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="DEAKTIVIERT" />
         <text name="ft_auto_disabled_2" text="Deaktiviert" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Anzeige" />
@@ -2917,6 +2917,45 @@
         <text name="ft_organic_sale_premium" text="Verkaufsprämie: MDM-Vertrag ausstehend" />
         <text name="ft_organic_market" text="MARKT" />
         <text name="ft_organic_market_na" text="nicht verfügbar - wartet auf Bio-Prämie / MDM-Vertrag" />
+        <text name="ft_soilnut_urgent" text="DRINGEND" />
+        <text name="ft_soilnut_watch" text="BEOBACHTEN" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Keine Bodendaten" />
+        <text name="ft_soilnut_tr_lime" text="KALK oder FLÜSSIGKALK ausbringen, um den pH-Wert zu erhöhen." />
+        <text name="ft_soilnut_tr_gypsum" text="GIPS ausbringen, um den pH-Wert zu senken / die Struktur zu verbessern." />
+        <text name="ft_soilnut_om" text="Humus" />
+        <text name="ft_soilnut_tr_om_low" text="MIST oder KOMPOST einarbeiten oder Stroh häckseln." />
+        <text name="ft_soilnut_tr_om_monitor" text="Beobachten. Organische Zufuhr beibehalten." />
+        <text name="ft_soilnut_tr_urea" text="HARNSTOFF oder AHL-32 ausbringen" />
+        <text name="ft_soilnut_tr_ams" text="AMMONIUMSULFAT oder KAS ausbringen" />
+        <text name="ft_soilnut_tr_map" text="MAP oder DAP ausbringen" />
+        <text name="ft_soilnut_tr_liquid_map" text="Mit flüssigem MAP / DAP nachdüngen" />
+        <text name="ft_soilnut_tr_p_above" text="Über dem Ziel - bei diesem Durchgang kein P-Produkt." />
+        <text name="ft_soilnut_tr_potash" text="KALIUMCHLORID ausbringen" />
+        <text name="ft_soilnut_tr_potash_topup" text="Mit KALIUMCHLORID nachdüngen" />
+        <text name="ft_soilnut_weed" text="Unkraut" />
+        <text name="ft_soilnut_tr_herbicide" text="HERBIZID ausbringen oder STRIEGEL/HACKE einsetzen." />
+        <text name="ft_soilnut_pest" text="Schädlinge" />
+        <text name="ft_soilnut_tr_insecticide" text="Sofort INSEKTIZID ausbringen." />
+        <text name="ft_soilnut_disease" text="Krankheit" />
+        <text name="ft_soilnut_tr_unscouted" text="Nicht erkundet - vor der Behandlung erkunden." />
+        <text name="ft_soilnut_tr_fungicide" text="Sofort FUNGIZID ausbringen." />
+        <text name="ft_soilnut_tr_all_clear" text="Alles in Ordnung - keine Behandlung nötig." />
+        <text name="ft_soilnut_help_what_body" text="Eine Karte je eigenem Feld: N / P / K / pH / Humus /&#10;Unkraut / Schädlinge / Krankheit als Ist- gegen Sollbalken,&#10;dazu ein BEHANDLUNGSPLAN mit Mengen, wenn ein Nährstoff&#10;oder ein Befall Arbeit braucht." />
+        <text name="ft_soilnut_help_urgency_title" text="DRINGLICHKEIT" />
+        <text name="ft_soilnut_help_urgency_body" text="Die Karten sind nach der Dringlichkeit von SoilFertilizer sortiert,&#10;so stehen die Felder, die zuerst Arbeit brauchen, oben.&#10;Linker Strich: grün OK · gelb BEOBACHTEN · rot DRINGEND." />
+        <text name="ft_soilnut_treatment" text="BEHANDLUNG" />
+        <text name="ft_soilnut_help_treatment_body" text="Die Vorgaben folgen dem Dialog Empfohlene Maßnahmen (%s)&#10;von Soil Fertilizer (Produktmengen + Schutzmaßnahmen).&#10;Krankheit bleibt Nicht erkundet, bis du das Feld erkundest." />
+        <text name="ft_soilnut_help_colours_body" text="Grün = im Ziel  |  Gelb = mittel  |  Rot = schlecht.&#10;Die Balken zeigen Ist / Soll (ppm für N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + HUMUS" />
+        <text name="ft_soilnut_help_ph_body" text="Optimaler pH-Wert ist 6.5 (Bereich ~6.0–7.5).&#10;Humus ist eine Bodenskala von 0–10 (kein Prozentwert).&#10;Der gesunde Bereich liegt etwa bei 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="FELDER  (%d)" />
+        <text name="ft_soilnut_fert" text="DÜNGEN" />
+        <text name="ft_soilnut_field_title_fmt" text="Feld #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Keine Bodendaten für dieses Feld." />
+        <text name="ft_soilnut_unscouted" text="Nicht erkundet" />
+        <text name="ft_soilnut_treatment_plan" text="BEHANDLUNGSPLAN" />
+        <text name="ft_soilnut_no_actions" text="Keine Maßnahmen - die Werte sehen gut aus." />
     </texts>
 
 </l10n>

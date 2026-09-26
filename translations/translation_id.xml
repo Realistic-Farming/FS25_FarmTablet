@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Baris redup didukung tetapi saat ini belum terpasang.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="NONAKTIF" />
         <text name="ft_auto_disabled_2" text="Dinonaktifkan" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Tampilan" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Tidak ada pekerjaan berjalan." />
         <text name="ft_auto_no_loads_recorded_yet" text="Belum ada muatan tercatat." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Tidak ada ladang milikmu ditemukan." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Data harga jual tidak ditemukan" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="versi dan nama pengembangnya sendiri." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="WARNA NUTRISI" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="terjadi. Intensitas (1-5) mengatur seberapa parah&#10;" />
         <text name="ft_auto_ocean_blue" text="Biru Samudra" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="wabah hama menggeser harga tanaman untuk sementara.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="DLC Precision Farming aktif" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="SEMATKAN" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Pupuk Tanah" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Mod Soil Fertilizer tidak terdeteksi." />
         <text name="ft_auto_soil_fertilizer_status" text="Status tanah dan pemupukan" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Premi penjualan: menunggu kontrak MDM" />
         <text name="ft_organic_market" text="PASAR" />
         <text name="ft_organic_market_na" text="tidak tersedia - menunggu premi organik / kontrak MDM" />
+        <text name="ft_soilnut_urgent" text="MENDESAK" />
+        <text name="ft_soilnut_watch" text="PANTAU" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Tidak ada data tanah" />
+        <text name="ft_soilnut_tr_lime" text="Taburkan KAPUR atau KAPUR CAIR untuk menaikkan pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Taburkan GIPS untuk menurunkan pH / memperbaiki struktur." />
+        <text name="ft_soilnut_om" text="BO" />
+        <text name="ft_soilnut_tr_om_low" text="Benamkan PUPUK KANDANG atau KOMPOS, atau cacah jerami." />
+        <text name="ft_soilnut_tr_om_monitor" text="Pantau. Pertahankan asupan organik." />
+        <text name="ft_soilnut_tr_urea" text="Berikan UREA atau UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Berikan AMONIUM SULFAT atau AMONIUM NITRAT" />
+        <text name="ft_soilnut_tr_map" text="Berikan MAP atau DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Tambah dengan MAP / DAP cair" />
+        <text name="ft_soilnut_tr_p_above" text="Di atas target - lewati produk P pada lintasan ini." />
+        <text name="ft_soilnut_tr_potash" text="Berikan KALIUM" />
+        <text name="ft_soilnut_tr_potash_topup" text="Tambah dengan KALIUM" />
+        <text name="ft_soilnut_weed" text="Gulma" />
+        <text name="ft_soilnut_tr_herbicide" text="Semprot HERBISIDA atau gunakan GARU GULMA/CANGKUL." />
+        <text name="ft_soilnut_pest" text="Hama" />
+        <text name="ft_soilnut_tr_insecticide" text="Segera semprot INSEKTISIDA." />
+        <text name="ft_soilnut_disease" text="Penyakit" />
+        <text name="ft_soilnut_tr_unscouted" text="Belum dipantau - pantau sebelum perawatan." />
+        <text name="ft_soilnut_tr_fungicide" text="Segera semprot FUNGISIDA." />
+        <text name="ft_soilnut_tr_all_clear" text="Semua aman - tidak perlu perawatan." />
+        <text name="ft_soilnut_help_what_body" text="Satu kartu per ladang milikmu: N / P / K / pH / BO /&#10;Gulma / Hama / Penyakit sebagai bilah saat ini / diharapkan,&#10;ditambah RENCANA PERAWATAN dengan dosis saat nutrisi&#10;atau tekanan butuh tindakan." />
+        <text name="ft_soilnut_help_urgency_title" text="URUTAN KEDESAKAN" />
+        <text name="ft_soilnut_help_urgency_body" text="Kartu diurutkan menurut kedesakan SoilFertilizer, sehingga&#10;ladang yang perlu perhatian lebih dulu naik ke atas.&#10;Tanda kiri: hijau OK · kuning PANTAU · merah MENDESAK." />
+        <text name="ft_soilnut_treatment" text="PERAWATAN" />
+        <text name="ft_soilnut_help_treatment_body" text="Resep mengikuti jendela Resep Perawatan&#10;(%s): dosis produk + tindakan perlindungan.&#10;Penyakit tetap Belum dipantau sampai kamu memantau ladang." />
+        <text name="ft_soilnut_help_colours_body" text="Hijau = sesuai target  |  Kuning = cukup  |  Merah = buruk.&#10;Bilah menunjukkan saat ini / diharapkan (ppm untuk N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + BAHAN ORGANIK" />
+        <text name="ft_soilnut_help_ph_body" text="pH optimal adalah 6.5 (rentang ~6.0–7.5).&#10;BO adalah skala tanah 0–10 (bukan persen).&#10;Rentang sehat sekitar 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="LADANG  (%d)" />
+        <text name="ft_soilnut_fert" text="PUPUK" />
+        <text name="ft_soilnut_field_title_fmt" text="Ladang #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Tidak ada data tanah untuk ladang ini." />
+        <text name="ft_soilnut_unscouted" text="Belum dipantau" />
+        <text name="ft_soilnut_treatment_plan" text="RENCANA PERAWATAN" />
+        <text name="ft_soilnut_no_actions" text="Tidak ada tindakan - tingkat terlihat baik." />
     </texts>
 
 </l10n>

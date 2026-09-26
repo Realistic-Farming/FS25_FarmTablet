@@ -72,11 +72,34 @@ const KEYS = [
 
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
-
+  "ft_auto_1f_ha": "ha, the base game's hectare symbol (unit_haShort) in every language here (ru and uk write га)",
+  "ft_soil_ppm_pair": "ppm, the unit every language here writes so (ru and uk write мг/кг)",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "br:ft_soilnut_ok": "OK is the Portuguese status word too",
+  "cz:ft_soilnut_ok": "OK is the Czech status word too",
+  "da:ft_soilnut_ok": "OK is the Danish status word too",
+  "de:ft_soilnut_ok": "OK is the German status word too",
+  "ea:ft_soilnut_ok": "OK is the Spanish status word too",
+  "es:ft_soilnut_ok": "OK is the Spanish status word too",
+  "fc:ft_soilnut_ok": "OK is the French status word too",
+  "fi:ft_soilnut_ok": "OK is the Finnish status word too",
+  "fr:ft_soilnut_ok": "OK is the French status word too",
+  "hu:ft_soilnut_ok": "OK is the Hungarian status word too",
+  "id:ft_soilnut_ok": "OK is the Indonesian status word too",
+  "it:ft_soilnut_ok": "OK is the Italian status word too",
+  "nl:ft_soilnut_ok": "OK is the Dutch status word too",
+  "no:ft_soilnut_ok": "OK is the Norwegian status word too",
+  "pl:ft_soilnut_ok": "OK is the Polish status word too",
+  "pt:ft_soilnut_ok": "OK is the Portuguese status word too",
+  "ro:ft_soilnut_ok": "OK is the Romanian status word too",
+  "sv:ft_soilnut_ok": "OK is the Swedish status word too",
+  "vi:ft_soilnut_ok": "OK is the Vietnamese status word too",
+  "fc:ft_soilnut_urgent": "URGENT is the French word",
+  "fr:ft_soilnut_urgent": "URGENT is the French word",
+  "ro:ft_soilnut_urgent": "URGENT is the Romanian word",
+  "tr:ft_soilnut_om": "OM is the Turkish abbreviation too (Organik Madde)",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").

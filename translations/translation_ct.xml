@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="變暗的列表示支援但目前未安裝。&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="已停用" />
         <text name="ft_auto_disabled_2" text="已停用" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="顯示" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="沒有進行中的作業。" />
         <text name="ft_auto_no_loads_recorded_yet" text="尚未記錄任何裝載。" />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="找不到自有田地。" />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="找不到售價資料" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="號碼與開發者名稱。" />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="養分顏色" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="發生的頻繁程度。強度（1-5）決定&#10;" />
         <text name="ft_auto_ocean_blue" text="海洋藍" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="蟲害爆發等事件會暫時影響作物價格。&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC 已啟用" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="釘選" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="土壤肥料" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="找不到 Soil Fertilizer 模組。" />
         <text name="ft_auto_soil_fertilizer_status" text="土壤與施肥狀態" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="銷售溢價：等待 MDM 合約" />
         <text name="ft_organic_market" text="市場" />
         <text name="ft_organic_market_na" text="無法使用 - 等待有機溢價 / MDM 合約" />
+        <text name="ft_soilnut_urgent" text="緊急" />
+        <text name="ft_soilnut_watch" text="注意" />
+        <text name="ft_soilnut_ok" text="良好" />
+        <text name="ft_soilnut_tr_no_data" text="無土壤資料" />
+        <text name="ft_soilnut_tr_lime" text="施用石灰或液態石灰以提高 pH。" />
+        <text name="ft_soilnut_tr_gypsum" text="施用石膏以降低 pH / 改善結構。" />
+        <text name="ft_soilnut_om" text="有機質" />
+        <text name="ft_soilnut_tr_om_low" text="翻入糞肥或堆肥，或切碎稻草。" />
+        <text name="ft_soilnut_tr_om_monitor" text="持續監測。維持有機質投入。" />
+        <text name="ft_soilnut_tr_urea" text="施用尿素或 UAN32" />
+        <text name="ft_soilnut_tr_ams" text="施用硫酸銨或硝酸銨" />
+        <text name="ft_soilnut_tr_map" text="施用 MAP 或 DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="以液態 MAP / DAP 追肥" />
+        <text name="ft_soilnut_tr_p_above" text="高於目標 - 這一趟略過 P 產品。" />
+        <text name="ft_soilnut_tr_potash" text="施用氯化鉀" />
+        <text name="ft_soilnut_tr_potash_topup" text="以氯化鉀追肥" />
+        <text name="ft_soilnut_weed" text="雜草" />
+        <text name="ft_soilnut_tr_herbicide" text="施用除草劑，或使用除草耙/鋤頭。" />
+        <text name="ft_soilnut_pest" text="害蟲" />
+        <text name="ft_soilnut_tr_insecticide" text="立即施用殺蟲劑。" />
+        <text name="ft_soilnut_disease" text="病害" />
+        <text name="ft_soilnut_tr_unscouted" text="未勘查 - 處理前請先勘查。" />
+        <text name="ft_soilnut_tr_fungicide" text="立即施用殺菌劑。" />
+        <text name="ft_soilnut_tr_all_clear" text="一切正常 - 不需處理。" />
+        <text name="ft_soilnut_help_what_body" text="每塊自有田地一張卡片: N / P / K / pH / 有機質 /&#10;雜草 / 害蟲 / 病害以目前 / 預期長條顯示，&#10;養分或壓力需要處理時，另附含施用量的&#10;處理計畫。" />
+        <text name="ft_soilnut_help_urgency_title" text="緊急順序" />
+        <text name="ft_soilnut_help_urgency_body" text="卡片依 SoilFertilizer 緊急度排序，因此&#10;最需要注意的田地會排在最上方。&#10;左側標記：綠 良好 · 黃 注意 · 紅 緊急。" />
+        <text name="ft_soilnut_treatment" text="處理" />
+        <text name="ft_soilnut_help_treatment_body" text="處方依照處理處方視窗 (%s)&#10;(產品施用量 + 防護作業)。&#10;病害在你勘查田地前都會維持未勘查。" />
+        <text name="ft_soilnut_help_colours_body" text="綠 = 達標  |  黃 = 普通  |  紅 = 不足。&#10;長條顯示目前 / 預期值 (N/P/K 以 ppm 表示)。" />
+        <text name="ft_soilnut_help_ph_title" text="pH + 有機質" />
+        <text name="ft_soilnut_help_ph_body" text="最佳 pH 為 6.5 (範圍 ~6.0–7.5)。&#10;有機質是 0–10 的土壤量表 (不是百分比)。&#10;健康範圍約在 3.5–5.0。" />
+        <text name="ft_soilnut_fields_fmt" text="田地  (%d)" />
+        <text name="ft_soilnut_fert" text="施肥" />
+        <text name="ft_soilnut_field_title_fmt" text="田地 #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="此田地沒有土壤資料。" />
+        <text name="ft_soilnut_unscouted" text="未勘查" />
+        <text name="ft_soilnut_treatment_plan" text="處理計畫" />
+        <text name="ft_soilnut_no_actions" text="無需處理 - 數值良好。" />
     </texts>
 
 </l10n>

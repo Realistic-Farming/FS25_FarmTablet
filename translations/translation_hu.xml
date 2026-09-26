@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="A halvány sorok támogatottak, de most nincsenek telepítve.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="LETILTVA" />
         <text name="ft_auto_disabled_2" text="Kikapcsolva" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Kijelző" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Nincs folyamatban lévő munka." />
         <text name="ft_auto_no_loads_recorded_yet" text="Még nincs rögzített rakomány." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Nem található saját tábla." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Nem található eladási ár" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="verziószámukat és fejlesztőjük nevét mutatják." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="TÁPANYAGSZÍNEK" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="legyenek események. Az erősség (1-5) szabja meg, mennyire&#10;" />
         <text name="ft_auto_ocean_blue" text="Óceánkék" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="kártevőjárványok ideiglenesen elmozdítják a terményárakat.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC aktív" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="RÖGZÍT" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Talajtrágyázás" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="A Soil Fertilizer mod nem található." />
         <text name="ft_auto_soil_fertilizer_status" text="A talaj és a trágyázás állapota" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Eladási prémium: MDM-szerződésre vár" />
         <text name="ft_organic_market" text="PIAC" />
         <text name="ft_organic_market_na" text="nem érhető el - bio prémiumra / MDM-szerződésre vár" />
+        <text name="ft_soilnut_urgent" text="SÜRGŐS" />
+        <text name="ft_soilnut_watch" text="FIGYELENDŐ" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Nincs talajadat" />
+        <text name="ft_soilnut_tr_lime" text="Juttass ki MESZET vagy FOLYÉKONY MESZET a pH emeléséhez." />
+        <text name="ft_soilnut_tr_gypsum" text="Juttass ki GIPSZET a pH csökkentéséhez / a szerkezet javításához." />
+        <text name="ft_soilnut_om" text="Humusz" />
+        <text name="ft_soilnut_tr_om_low" text="Dolgozz be TRÁGYÁT vagy KOMPOSZTOT, vagy aprítsd a szalmát." />
+        <text name="ft_soilnut_tr_om_monitor" text="Figyeld. Tartsd fenn a szerves bevitelt." />
+        <text name="ft_soilnut_tr_urea" text="Juttass ki KARBAMIDOT vagy UAN32-t" />
+        <text name="ft_soilnut_tr_ams" text="Juttass ki AMMÓNIUM-SZULFÁTOT vagy AMMÓNIUM-NITRÁTOT" />
+        <text name="ft_soilnut_tr_map" text="Juttass ki MAP-ot vagy DAP-ot" />
+        <text name="ft_soilnut_tr_liquid_map" text="Egészítsd ki folyékony MAP / DAP-pal" />
+        <text name="ft_soilnut_tr_p_above" text="A cél felett - ennél a menetnél hagyd ki a P-terméket." />
+        <text name="ft_soilnut_tr_potash" text="Juttass ki HAMUZSÍRT" />
+        <text name="ft_soilnut_tr_potash_topup" text="Egészítsd ki HAMUZSÍRRAL" />
+        <text name="ft_soilnut_weed" text="Gyom" />
+        <text name="ft_soilnut_tr_herbicide" text="Juttass ki GYOMIRTÓT vagy használj GYOMFÉSŰT/KAPÁT." />
+        <text name="ft_soilnut_pest" text="Kártevő" />
+        <text name="ft_soilnut_tr_insecticide" text="Azonnal juttass ki ROVARÖLŐ SZERT." />
+        <text name="ft_soilnut_disease" text="Betegség" />
+        <text name="ft_soilnut_tr_unscouted" text="Nincs felmérve - kezelés előtt mérd fel." />
+        <text name="ft_soilnut_tr_fungicide" text="Azonnal juttass ki GOMBAÖLŐ SZERT." />
+        <text name="ft_soilnut_tr_all_clear" text="Minden rendben - nincs szükség kezelésre." />
+        <text name="ft_soilnut_help_what_body" text="Egy kártya minden saját táblához: N / P / K / pH / humusz /&#10;gyom / kártevő / betegség jelenlegi / várt sávokként,&#10;plusz egy KEZELÉSI TERV adagokkal, ha egy tápanyag&#10;vagy nyomás munkát igényel." />
+        <text name="ft_soilnut_help_urgency_title" text="SÜRGŐSSÉGI SORREND" />
+        <text name="ft_soilnut_help_urgency_body" text="A kártyák a SoilFertilizer sürgőssége szerint rendeződnek, így&#10;az elsőként figyelmet igénylő táblák kerülnek felülre.&#10;Bal oldali jel: zöld OK · sárga FIGYELENDŐ · piros SÜRGŐS." />
+        <text name="ft_soilnut_treatment" text="KEZELÉS" />
+        <text name="ft_soilnut_help_treatment_body" text="Az előírások a Kezelési előírás ablakot követik&#10;(%s): termékadagok + védelmi lépések.&#10;A Betegség Nincs felmérve marad, amíg fel nem méred a táblát." />
+        <text name="ft_soilnut_help_colours_body" text="Zöld = célban  |  Sárga = közepes  |  Piros = gyenge.&#10;A sávok a jelenlegi / várt értéket mutatják (ppm: N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + HUMUSZ" />
+        <text name="ft_soilnut_help_ph_body" text="Az optimális pH 6.5 (sáv ~6.0–7.5).&#10;A humusz egy 0–10-es talajskála (nem százalék).&#10;Az egészséges sáv nagyjából 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="TÁBLÁK  (%d)" />
+        <text name="ft_soilnut_fert" text="TRÁGYÁZNI" />
+        <text name="ft_soilnut_field_title_fmt" text="%s. tábla  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Ehhez a táblához nincs talajadat." />
+        <text name="ft_soilnut_unscouted" text="Nincs felmérve" />
+        <text name="ft_soilnut_treatment_plan" text="KEZELÉSI TERV" />
+        <text name="ft_soilnut_no_actions" text="Nincs teendő - a szintek rendben vannak." />
     </texts>
 
 </l10n>

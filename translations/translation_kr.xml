@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="흐리게 표시된 행은 지원되지만 설치되지 않았습니다.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="비활성화" />
         <text name="ft_auto_disabled_2" text="꺼짐" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="화면" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="진행 중인 작업이 없습니다." />
         <text name="ft_auto_no_loads_recorded_yet" text="아직 기록된 적재가 없습니다." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="소유한 밭이 없습니다." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="판매 가격 데이터가 없습니다" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="번호와 개발자 이름을 표시합니다." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="양분 색상" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="일어나는지 정합니다. 강도(1-5)는&#10;" />
         <text name="ft_auto_ocean_blue" text="바다 파랑" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="병해충 발생 같은 이벤트는 작물 가격을 일시적으로 바꿉니다.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC 활성" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="고정" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="토양 비료" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer 모드를 찾을 수 없습니다." />
         <text name="ft_auto_soil_fertilizer_status" text="토양 및 시비 상태" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="판매 프리미엄: MDM 계약 대기 중" />
         <text name="ft_organic_market" text="시장" />
         <text name="ft_organic_market_na" text="사용 불가 - 유기 프리미엄 / MDM 계약 대기 중" />
+        <text name="ft_soilnut_urgent" text="긴급" />
+        <text name="ft_soilnut_watch" text="주의" />
+        <text name="ft_soilnut_ok" text="양호" />
+        <text name="ft_soilnut_tr_no_data" text="토양 데이터 없음" />
+        <text name="ft_soilnut_tr_lime" text="pH를 높이려면 석회 또는 액상 석회를 살포하세요." />
+        <text name="ft_soilnut_tr_gypsum" text="pH를 낮추고 구조를 개선하려면 석고를 살포하세요." />
+        <text name="ft_soilnut_om" text="유기물" />
+        <text name="ft_soilnut_tr_om_low" text="퇴비나 컴포스트를 갈아 넣거나 짚을 잘게 썰어 두세요." />
+        <text name="ft_soilnut_tr_om_monitor" text="계속 살피세요. 유기물 투입을 유지하세요." />
+        <text name="ft_soilnut_tr_urea" text="요소 또는 UAN32 살포" />
+        <text name="ft_soilnut_tr_ams" text="황산 암모늄 또는 질산 암모늄 살포" />
+        <text name="ft_soilnut_tr_map" text="MAP 또는 DAP 살포" />
+        <text name="ft_soilnut_tr_liquid_map" text="액상 MAP / DAP로 추비" />
+        <text name="ft_soilnut_tr_p_above" text="목표 초과 - 이번 작업에서는 P 제품을 건너뛰세요." />
+        <text name="ft_soilnut_tr_potash" text="칼리 살포" />
+        <text name="ft_soilnut_tr_potash_topup" text="칼리로 추비" />
+        <text name="ft_soilnut_weed" text="잡초" />
+        <text name="ft_soilnut_tr_herbicide" text="제초제를 살포하거나 제초 해로/괭이를 사용하세요." />
+        <text name="ft_soilnut_pest" text="해충" />
+        <text name="ft_soilnut_tr_insecticide" text="즉시 살충제를 살포하세요." />
+        <text name="ft_soilnut_disease" text="병해" />
+        <text name="ft_soilnut_tr_unscouted" text="미조사 - 처리 전에 조사하세요." />
+        <text name="ft_soilnut_tr_fungicide" text="즉시 살균제를 살포하세요." />
+        <text name="ft_soilnut_tr_all_clear" text="모두 양호 - 처리가 필요 없습니다." />
+        <text name="ft_soilnut_help_what_body" text="소유한 밭마다 카드 한 장: N / P / K / pH / 유기물 /&#10;잡초 / 해충 / 병해를 현재 / 기대 막대로 표시하고,&#10;양분이나 압력에 조치가 필요하면 살포량이 담긴&#10;처리 계획도 표시합니다." />
+        <text name="ft_soilnut_help_urgency_title" text="긴급도 순서" />
+        <text name="ft_soilnut_help_urgency_body" text="카드는 SoilFertilizer 긴급도 순으로 정렬되어&#10;먼저 살펴야 할 밭이 위로 올라옵니다.&#10;왼쪽 표시: 초록 양호 · 노랑 주의 · 빨강 긴급." />
+        <text name="ft_soilnut_treatment" text="처리" />
+        <text name="ft_soilnut_help_treatment_body" text="처방은 처리 처방전 창(%s)을 따릅니다&#10;(제품 살포량 + 방제 작업).&#10;병해는 밭을 조사할 때까지 미조사로 남습니다." />
+        <text name="ft_soilnut_help_colours_body" text="초록 = 목표 달성  |  노랑 = 보통  |  빨강 = 부족.&#10;막대는 현재 / 기대 값을 표시합니다 (N/P/K는 ppm)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + 유기물" />
+        <text name="ft_soilnut_help_ph_body" text="최적 pH는 6.5입니다 (범위 ~6.0–7.5).&#10;유기물은 0–10 토양 척도입니다 (퍼센트가 아님).&#10;건강한 범위는 약 3.5–5.0입니다." />
+        <text name="ft_soilnut_fields_fmt" text="밭  (%d)" />
+        <text name="ft_soilnut_fert" text="시비" />
+        <text name="ft_soilnut_field_title_fmt" text="밭 #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="이 밭의 토양 데이터가 없습니다." />
+        <text name="ft_soilnut_unscouted" text="미조사" />
+        <text name="ft_soilnut_treatment_plan" text="처리 계획" />
+        <text name="ft_soilnut_no_actions" text="조치 없음 - 수치가 양호합니다." />
     </texts>
 
 </l10n>

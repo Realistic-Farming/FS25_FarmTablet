@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Затенённые строки поддерживаются, но сейчас не установлены.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="ОТКЛЮЧЕНО" />
         <text name="ft_auto_disabled_2" text="Выключено" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Экран" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Работа не выполняется." />
         <text name="ft_auto_no_loads_recorded_yet" text="Загрузок пока нет." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Своих полей не найдено." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Данных о ценах продажи нет" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="номер версии и имя разработчика." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="ЦВЕТА ПИТАТЕЛЬНЫХ ВЕЩЕСТВ" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="происходят. Интенсивность (1-5) определяет, насколько сильны&#10;" />
         <text name="ft_auto_ocean_blue" text="Океанский синий" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="нашествий вредителей временно сдвигают цены на культуры.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC активно" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="ЗАКРЕПИТЬ" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Удобрение почвы" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Мод Soil Fertilizer не обнаружен." />
         <text name="ft_auto_soil_fertilizer_status" text="Состояние почвы и удобрения" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2884,7 +2884,7 @@
         <text name="ft_dairy_breed_waiting_server_hint" text="Сервер ещё не прислал записи пород этой фермы. Карточки хлевов скрыты до тех пор." />
         <text name="ft_dairy_breed_help_title" text="ЗАПИСИ ПОРОД" />
         <text name="ft_dairy_breed_help_body" text="Стадо сейчас считает дойных животных в хлеву.&#10;Молоко в танке следует за хранящимся молоком по породам,&#10;которые его дали. Новое стадо рядом со старым молоком -&#10;это нормально. Неизвестное молоко было до записи или&#10;пришло непроверенным путём. Породы здесь не оцениваются." />
-        <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_soil_ppm_pair" text="%d / %d мг/кг" />
         <text name="ft_notes_help_todo_body" text="Следите за задачами фермы.&#10;&#10;Выберите шаблон задачи и поле кнопками &lt; / &gt;,&#10;затем добавьте задачу в список кнопкой + Добавить задачу.&#10;Задачи сохраняются автоматически для каждого сохранения." />
         <text name="ft_notes_help_actions_body" text="Готово - отметить задачу выполненной (■)&#10;Отменить - снова отметить открытой (□)&#10;✕    - полностью удалить задачу&#10;Удалить готовые - убрать все выполненные задачи сразу" />
         <text name="ft_excavator_help_terrain_title" text="ДАННЫЕ О РЕЛЬЕФЕ" />
@@ -2958,6 +2958,45 @@
         <text name="ft_organic_sale_premium" text="Премия за продажу: ждёт контракта MDM" />
         <text name="ft_organic_market" text="РЫНОК" />
         <text name="ft_organic_market_na" text="недоступно - ждёт органической премии / контракта MDM" />
+        <text name="ft_soilnut_urgent" text="СРОЧНО" />
+        <text name="ft_soilnut_watch" text="НАБЛЮДАТЬ" />
+        <text name="ft_soilnut_ok" text="НОРМА" />
+        <text name="ft_soilnut_tr_no_data" text="Нет данных почвы" />
+        <text name="ft_soilnut_tr_lime" text="Внесите ИЗВЕСТЬ или ЖИДКУЮ ИЗВЕСТЬ для повышения pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Внесите ГИПС для понижения pH / улучшения структуры." />
+        <text name="ft_soilnut_om" text="Гумус" />
+        <text name="ft_soilnut_tr_om_low" text="Заделайте НАВОЗ или КОМПОСТ либо измельчите солому." />
+        <text name="ft_soilnut_tr_om_monitor" text="Наблюдайте. Поддерживайте внесение органики." />
+        <text name="ft_soilnut_tr_urea" text="Внесите КАРБАМИД или КАС-32" />
+        <text name="ft_soilnut_tr_ams" text="Внесите СУЛЬФАТ АММОНИЯ или АММИАЧНУЮ СЕЛИТРУ" />
+        <text name="ft_soilnut_tr_map" text="Внесите АММОФОС или ДИАММОФОС" />
+        <text name="ft_soilnut_tr_liquid_map" text="Подкормите жидким АММОФОСОМ / ДИАММОФОСОМ" />
+        <text name="ft_soilnut_tr_p_above" text="Выше цели - пропустите продукт P в этом проходе." />
+        <text name="ft_soilnut_tr_potash" text="Внесите ХЛОРИСТЫЙ КАЛИЙ" />
+        <text name="ft_soilnut_tr_potash_topup" text="Подкормите ХЛОРИСТЫМ КАЛИЕМ" />
+        <text name="ft_soilnut_weed" text="Сорняки" />
+        <text name="ft_soilnut_tr_herbicide" text="Внесите ГЕРБИЦИД или используйте ПРОПОЛОЧНУЮ БОРОНУ/МОТЫГУ." />
+        <text name="ft_soilnut_pest" text="Вредители" />
+        <text name="ft_soilnut_tr_insecticide" text="Немедленно внесите ИНСЕКТИЦИД." />
+        <text name="ft_soilnut_disease" text="Болезни" />
+        <text name="ft_soilnut_tr_unscouted" text="Не обследовано - обследуйте перед обработкой." />
+        <text name="ft_soilnut_tr_fungicide" text="Немедленно внесите ФУНГИЦИД." />
+        <text name="ft_soilnut_tr_all_clear" text="Всё в порядке - обработка не нужна." />
+        <text name="ft_soilnut_help_what_body" text="Одна карточка на каждое своё поле: N / P / K / pH / гумус /&#10;сорняки / вредители / болезни как полосы текущее / ожидаемое,&#10;плюс ПЛАН ОБРАБОТКИ с нормами, когда элементу питания&#10;или давлению нужна работа." />
+        <text name="ft_soilnut_help_urgency_title" text="ПОРЯДОК СРОЧНОСТИ" />
+        <text name="ft_soilnut_help_urgency_body" text="Карточки отсортированы по срочности SoilFertilizer, поэтому&#10;поля, которым внимание нужно в первую очередь, наверху.&#10;Метка слева: зелёная НОРМА · жёлтая НАБЛЮДАТЬ · красная СРОЧНО." />
+        <text name="ft_soilnut_treatment" text="ОБРАБОТКА" />
+        <text name="ft_soilnut_help_treatment_body" text="Предписания повторяют окно План лечения&#10;(%s): нормы продуктов + защитные меры.&#10;Болезни остаются Не обследовано, пока вы не обследуете поле." />
+        <text name="ft_soilnut_help_colours_body" text="Зелёный = в цели  |  Жёлтый = средне  |  Красный = плохо.&#10;Полосы показывают текущее / ожидаемое (мг/кг для N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + ГУМУС" />
+        <text name="ft_soilnut_help_ph_body" text="Оптимальный pH 6.5 (диапазон ~6.0–7.5).&#10;Гумус - это почвенная шкала 0–10 (не процент).&#10;Здоровый диапазон около 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="ПОЛЯ  (%d)" />
+        <text name="ft_soilnut_fert" text="УДОБРИТЬ" />
+        <text name="ft_soilnut_field_title_fmt" text="Поле №%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Нет данных почвы для этого поля." />
+        <text name="ft_soilnut_unscouted" text="Не обследовано" />
+        <text name="ft_soilnut_treatment_plan" text="ПЛАН ОБРАБОТКИ" />
+        <text name="ft_soilnut_no_actions" text="Действий нет - уровни в норме." />
     </texts>
 
 </l10n>

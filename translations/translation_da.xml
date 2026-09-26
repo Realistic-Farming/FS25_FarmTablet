@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Nedtonede rækker understøttes, men er ikke installeret.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="DEAKTIVERET" />
         <text name="ft_auto_disabled_2" text="Slået fra" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Visning" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Intet job i gang." />
         <text name="ft_auto_no_loads_recorded_yet" text="Ingen læs registreret endnu." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Ingen egne marker fundet." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Ingen salgspriser fundet" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="versionsnummer og udviklernavn." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="NÆRINGSSTOFFARVER" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="opstår. Styrken (1-5) styrer, hvor voldsomme&#10;" />
         <text name="ft_auto_ocean_blue" text="Havblå" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="skadedyrsangreb flytter afgrødepriserne midlertidigt.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC aktiv" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="FASTGØR" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Jordgødning" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer-mod ikke fundet." />
         <text name="ft_auto_soil_fertilizer_status" text="Jord- og gødningsstatus" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Salgspræmie: MDM-kontrakt afventer" />
         <text name="ft_organic_market" text="MARKED" />
         <text name="ft_organic_market_na" text="ikke tilgængelig - venter på økologisk præmie / MDM-kontrakt" />
+        <text name="ft_soilnut_urgent" text="HASTER" />
+        <text name="ft_soilnut_watch" text="HOLD ØJE" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Ingen jorddata" />
+        <text name="ft_soilnut_tr_lime" text="Udbring KALK eller FLYDENDE KALK for at hæve pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Udbring GIPS for at sænke pH / forbedre strukturen." />
+        <text name="ft_soilnut_om" text="OS" />
+        <text name="ft_soilnut_tr_om_low" text="Nedmuld GØDNING eller KOMPOST, eller hak halmen." />
+        <text name="ft_soilnut_tr_om_monitor" text="Hold øje. Bevar de organiske tilførsler." />
+        <text name="ft_soilnut_tr_urea" text="Udbring UREA eller UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Udbring AMMONIUMSULFAT eller AMMONIUMNITRAT" />
+        <text name="ft_soilnut_tr_map" text="Udbring MAP eller DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Suppler med flydende MAP / DAP" />
+        <text name="ft_soilnut_tr_p_above" text="Over målet - spring P-produktet over i denne kørsel." />
+        <text name="ft_soilnut_tr_potash" text="Udbring KALIUMKLORID" />
+        <text name="ft_soilnut_tr_potash_topup" text="Suppler med KALIUMKLORID" />
+        <text name="ft_soilnut_weed" text="Ukrudt" />
+        <text name="ft_soilnut_tr_herbicide" text="Udbring UKRUDTSMIDDEL eller brug UKRUDTSHARVE/RADRENSER." />
+        <text name="ft_soilnut_pest" text="Skadedyr" />
+        <text name="ft_soilnut_tr_insecticide" text="Udbring INSEKTICID med det samme." />
+        <text name="ft_soilnut_disease" text="Sygdom" />
+        <text name="ft_soilnut_tr_unscouted" text="Ikke undersøgt - undersøg før behandling." />
+        <text name="ft_soilnut_tr_fungicide" text="Udbring FUNGICID med det samme." />
+        <text name="ft_soilnut_tr_all_clear" text="Alt i orden - ingen behandling nødvendig." />
+        <text name="ft_soilnut_help_what_body" text="Et kort pr. egen mark: N / P / K / pH / OS /&#10;Ukrudt / Skadedyr / Sygdom som søjler nu / forventet,&#10;plus en BEHANDLINGSPLAN med mængder, når et næringsstof&#10;eller et tryk kræver arbejde." />
+        <text name="ft_soilnut_help_urgency_title" text="HASTEORDEN" />
+        <text name="ft_soilnut_help_urgency_body" text="Kortene sorteres efter SoilFertilizers hastegrad, så&#10;de marker, der kræver opmærksomhed først, står øverst.&#10;Streg til venstre: grøn OK · gul HOLD ØJE · rød HASTER." />
+        <text name="ft_soilnut_treatment" text="BEHANDLING" />
+        <text name="ft_soilnut_help_treatment_body" text="Anbefalingerne følger vinduet Behandlingsrecept&#10;(%s): produktmængder + beskyttelsestiltag.&#10;Sygdom forbliver Ikke undersøgt, til du undersøger marken." />
+        <text name="ft_soilnut_help_colours_body" text="Grøn = i mål  |  Gul = middel  |  Rød = dårlig.&#10;Søjlerne viser nu / forventet (ppm for N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + ORGANISK STOF" />
+        <text name="ft_soilnut_help_ph_body" text="Den optimale pH er 6.5 (bånd ~6.0–7.5).&#10;OS er en jordskala fra 0–10 (ikke en procent).&#10;Det sunde bånd ligger omkring 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="MARKER  (%d)" />
+        <text name="ft_soilnut_fert" text="GØDSK" />
+        <text name="ft_soilnut_field_title_fmt" text="Mark nr. %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Ingen jorddata for denne mark." />
+        <text name="ft_soilnut_unscouted" text="Ikke undersøgt" />
+        <text name="ft_soilnut_treatment_plan" text="BEHANDLINGSPLAN" />
+        <text name="ft_soilnut_no_actions" text="Ingen handlinger - niveauerne ser fine ud." />
     </texts>
 
 </l10n>
