@@ -2775,9 +2775,9 @@
         <text name="ft_fc_history_no_clock" text="Cần Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Cài Time Guard để ghi lịch sử hằng tháng. Các chỉ số trực tiếp vẫn có hiệu lực." />
         <text name="ft_irr_advisory_water_need" text="NHU CẦU NƯỚC (tư vấn)" />
-        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Mở khóa với hợp tác xã Pro Staff ở cấp 7" />
         <text name="ft_irr_advisory_forward_call" text="DỰ BÁO (tư vấn)" />
-        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Mở khóa với hợp tác xã Pro Staff ở cấp 18" />
         <text name="ft_irr_advisory_no_reads" text="Chưa có ruộng nào có chỉ số nước." />
         <text name="ft_irr_call_water_today" text="tưới hôm nay" />
         <text name="ft_irr_call_watch" text="theo dõi" />

@@ -2775,9 +2775,9 @@
         <text name="ft_fc_history_no_clock" text="Necesită Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Instalează Time Guard pentru a înregistra istoricul lunar. Indicatorii în timp real rămân valabili." />
         <text name="ft_irr_advisory_water_need" text="NECESITATE DE APĂ (consiliere)" />
-        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Deblocat cu cooperativa Pro Staff la nivelul 7" />
         <text name="ft_irr_advisory_forward_call" text="PREVIZIUNE (consiliere)" />
-        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Deblocat cu cooperativa Pro Staff la nivelul 18" />
         <text name="ft_irr_advisory_no_reads" text="Niciun câmp cu citiri de apă deocamdată." />
         <text name="ft_irr_call_water_today" text="udă astăzi" />
         <text name="ft_irr_call_watch" text="urmărește" />

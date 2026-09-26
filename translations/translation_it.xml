@@ -2775,9 +2775,9 @@
         <text name="ft_fc_history_no_clock" text="Richiede Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Installa Time Guard per registrare lo storico mensile. Gli indicatori in tempo reale restano validi." />
         <text name="ft_irr_advisory_water_need" text="FABBISOGNO IDRICO (consiglio)" />
-        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Sbloccato con la cooperativa Pro Staff al livello 7" />
         <text name="ft_irr_advisory_forward_call" text="PREVISIONE (consiglio)" />
-        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Sbloccato con la cooperativa Pro Staff al livello 18" />
         <text name="ft_irr_advisory_no_reads" text="Nessun campo con letture dell'acqua per ora." />
         <text name="ft_irr_call_water_today" text="irrigare oggi" />
         <text name="ft_irr_call_watch" text="osservare" />
