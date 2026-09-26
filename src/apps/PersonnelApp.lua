@@ -401,7 +401,8 @@ FarmTabletUI:registerDrawer(FT.APP.PERSONNEL, function(self)
 
     -- Transient status line (persists until the next action replaces it).
     if self._psMsg then
-        self.r:appText(x, bodyTop, FT.FONT.TINY, self._psMsg, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        -- Every message is the file's text (FT.l10n or FT.l10nFormat): drawn as it is.
+        self.r:appText(x, bodyTop, FT.FONT.TINY, self._psMsg, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         bodyTop = bodyTop - FT.py(14)
     end
 

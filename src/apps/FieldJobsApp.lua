@@ -624,8 +624,9 @@ function _drawStartView(self)
 
         -- Field display
         self.r:appRect(x + arrowW + FT.px(2), y, selW - FT.px(4), arrowH, {0.09,0.11,0.15,0.80})
+        -- The label is the file's text (FJFormat or FJText): drawn as it is.
         self.r:appText(x + arrowW + selW/2, y + arrowH/2 - FT.py(3),
-            FT.FONT.SMALL, label, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+            FT.FONT.SMALL, label, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
 
         -- Right arrow
         local rBtn = self.r:button(x + arrowW + selW + FT.px(4), y, arrowW, arrowH, ">",

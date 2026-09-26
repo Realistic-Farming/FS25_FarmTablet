@@ -235,9 +235,10 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             FT.l10nFormat("ft_organic_field_fmt", "Field #%s", tostring(sel)),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(14)
+        -- Every practice line is the file's text (FT.l10n or FT.l10nFormat): drawn as it is.
         for _, line in ipairs(_practiceLines(info)) do
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, line,
-                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
             y = y - FT.py(14)
         end
         y = y - FT.py(6)
@@ -352,8 +353,10 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                     local feedLabel = barn.feedDiseaseCropName or FT.l10n("ft_organic_elevated_risk", "Elevated risk")
                     self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
                         FT.l10n("ft_organic_feed_disease", "Feed disease"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+                    -- The fallback is the file's text, drawn as it is; DairyCore's disease name is the mod's text and
+                    -- keeps the renderer's pass.
                     self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
-                        tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE)
+                        tostring(feedLabel), RenderText.ALIGN_RIGHT, FT.C.NEGATIVE, barn.feedDiseaseCropName == nil)
                     y = y - FT.py(12)
                 end
                 y = y - FT.py(4)

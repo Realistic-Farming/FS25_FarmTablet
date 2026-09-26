@@ -2775,9 +2775,9 @@
         <text name="ft_fc_history_no_clock" text="Krever Time Guard" />
         <text name="ft_fc_history_no_clock_detail" text="Installer Time Guard for å registrere månedlig historikk. Live-indikatorene gjelder fortsatt." />
         <text name="ft_irr_advisory_water_need" text="VANNB EHOV (rådgivning)" />
-        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Låses opp med Pro Staff-kooperativet på nivå 7" />
         <text name="ft_irr_advisory_forward_call" text="PROGNOSE (rådgivning)" />
-        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Låses opp med Pro Staff-kooperativet på nivå 18" />
         <text name="ft_irr_advisory_no_reads" text="Ingen åkre med vannavlesninger ennå." />
         <text name="ft_irr_call_water_today" text="vanne i dag" />
         <text name="ft_irr_call_watch" text="følg med" />

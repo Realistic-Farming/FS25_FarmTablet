@@ -2775,9 +2775,9 @@
         <text name="ft_fc_history_no_clock" text="Time Guard 필요" />
         <text name="ft_fc_history_no_clock_detail" text="월별 기록을 남기려면 Time Guard를 설치하세요. 실시간 지표는 그대로 유효합니다." />
         <text name="ft_irr_advisory_water_need" text="물 필요량 (조언)" />
-        <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
+        <text name="ft_irr_advisory_locked_l7" text="Pro Staff 협동조합 7레벨에서 해제" />
         <text name="ft_irr_advisory_forward_call" text="전망 (조언)" />
-        <text name="ft_irr_advisory_locked_l18" text="[EN] Unlocks with Pro Staff Co-Op at level 18" />
+        <text name="ft_irr_advisory_locked_l18" text="Pro Staff 협동조합 18레벨에서 해제" />
         <text name="ft_irr_advisory_no_reads" text="아직 수분 측정이 있는 밭이 없습니다." />
         <text name="ft_irr_call_water_today" text="오늘 물을 주세요" />
         <text name="ft_irr_call_watch" text="관찰" />

@@ -597,6 +597,83 @@ for (const loc of ["de", "fr", "pl", "en"]) {
 lua(`E_FC.home(); g_currentMission.incomeManager = nil; E_FC.tick()`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
+// MAINTENANCE row 158's six named sites and Organic's practice lines (the final fc sweep), each reached by its drawer's own route, in German, French
+// and Polish: pens the engine's way (placeables with spec_husbandryAnimals; DataProvider names the type), a farmland the
+// real getOwnedFields reads (Field Jobs' start view, through its real buttons), Hotspot Manager's and Personnel's real
+// buttons (the message is set on the press and drawn on the next frame, where the FLAG row cannot attribute it: the
+// flag on the drawn text is the check), DairyCore's barn rows (a disease id is SoilFertilizer's, relayed as DairyCore
+// gives it), and FactoryWeekSchedule's day and time. The file's text is drawn as it is, with the flag; the mods' own
+// text keeps the renderer's pass (Organic's disease id, and FactoryWeekSchedule's day when no time comes with it).
+const expectLit = (label, res, want, lit = true) => {
+  eChecks++;
+  const i = want == null ? -1 : res.texts.indexOf(want);
+  if (i < 0) failures.push(`E ${label}: ${JSON.stringify(want)} is not drawn (${JSON.stringify(res.texts.slice(0, 8)).slice(0, 160)} ...)`);
+  else if (res.flagged[i] !== lit) failures.push(`E ${label}: ${JSON.stringify(want)} is drawn ${lit ? "without" : "with"} the flag`);
+};
+lua(`
+  HARNESS.setup = nil
+  E_RS = { placeables = g_currentMission.placeableSystem, farmland = g_farmlandManager }
+  local function pen(name, n, max)
+    return { spec_husbandry = {}, spec_husbandryAnimals = { animalType = { name = name } },
+      getOwnerFarmId = function() return 1 end,
+      getNumOfAnimals = function() return n end, getMaxNumOfAnimals = function() return max end }
+  end
+  g_currentMission.placeableSystem = { placeables = { pen("COW", 12, 20), pen("PIG", 0, 40) } }
+  g_farmlandManager = { farmlands = { { id = 4, farmId = 1, field = { getAreaHa = function() return 3.1 end } } } }
+  E_RS.soil = g_currentMission.soilFertilityManager
+  g_currentMission.soilFertilityManager = { soilSystem = { isInitialized = true, getFieldInfo = function() return nil end } }
+  g_currentMission.dairyCoreManager = { getBarnRows = function() return {
+    { barnId = 1, farmId = 1, herdHealth = 90, feedDiseaseFlag = true, feedDiseaseCropName = nil },
+    { barnId = 2, farmId = 1, herdHealth = 60, feedDiseaseFlag = true, feedDiseaseCropName = "stripe_rust" } } end }
+  g_currentMission.workerCostsManager = { settings = { enabled = true }, refreshRecruits = function() end,
+    getRosterSnapshot = function() return { authoritative = true, count = 0, working = 0,
+      levels = { novice = 0, experienced = 0, master = 0 }, workers = {}, recruits = {} } end }
+  g_currentMission.fws_weekSchedule = { getOpenFactoryCountForHud = function() return 0, 0 end,
+    hudDayName = "Montag", hudTimeText = "06:00", factoriesForHud = {} }
+`);
+for (const loc of ["de", "fr", "pl"]) {
+  t.setLocale(loc);
+  const f = (k) => file(loc, k);
+  const clean = (what, r) => {
+    const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+    eChecks++;
+    if (r.error) failures.push(`E ${loc} ${what}: ${r.error}`);
+    if (v.length) failures.push(`E ${loc} ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  };
+  // AnimalHusbandryApp: the pen header, a type name DataProvider resolved, a count or the file's "empty".
+  let r = t.draw("animals", false); clean("Animals", r);
+  expectLit(`${loc} Animals pen header`, r, `${f("ft_auto_animal_cow")}  (12 / 20)`);
+  expectLit(`${loc} Animals empty pen header`, r, `${f("ft_auto_animal_pig")}  (${f("ft_common_empty_lower")})`);
+  // FieldJobsApp: the start view's field label, from the field getOwnedFields builds (its crop word is the file's).
+  lua(`local h = FarmTabletUI._appBackHandlers["field_jobs"]; if h then h() end`);
+  const home = t.draw("field_jobs", false);
+  const walk = home.texts.includes(f("ft_fieldjobs_finish_job")) ? [f("ft_fieldjobs_finish_job"), f("ft_fieldjobs_start_job")] : [f("ft_fieldjobs_start_job")];
+  r = t.flow("field_jobs", walk); clean("Field Jobs start view", r);
+  expectLit(`${loc} Field Jobs field label`, r, fmt(f("ft_fieldjobs_field_label"), "4", f("ft_field_crop_empty")));
+  // HotspotManagerApp: ADD PIN HERE with no player position; the error is the file's.
+  r = t.flow("hotspot_manager", [f("ft_hotspot_add_pin")]); clean("Hotspot Manager status", r);
+  expectLit(`${loc} Hotspot Manager status message`, r, f("ft_hotspot_err_no_position"));
+  // PersonnelApp: HIRE, then REROLL; the message is the file's.
+  r = t.flow("personnel", [t.auto("HIRE"), t.auto("REROLL")]); clean("Personnel reroll", r);
+  expectLit(`${loc} Personnel reroll message`, r, f("ft_personnel_msg_rerolled"));
+  // OrganicApp: a feed disease with no name draws the file's fallback; with DairyCore's disease id, the mod's text.
+  r = t.draw("organic", false); clean("Organic barns", r);
+  expectLit(`${loc} Organic feed disease fallback`, r, f("ft_organic_elevated_risk"));
+  // The practice lines for the selected field (Soil Fertilizer has no data for it yet): the file's text.
+  expectLit(`${loc} Organic practice line`, r, f("ft_organic_practice_no_data"));
+  expectLit(`${loc} Organic feed disease (DairyCore's id keeps the pass)`, r, "stripe_rust", false);
+  // FactoryWeekSchedule: the day and time as the mod gives them ("06:00" not split); with no time, the day keeps the pass.
+  lua(`g_currentMission.fws_weekSchedule.hudTimeText = "06:00"`);
+  r = t.draw("factory_week_schedule", false); clean("FactoryWeekSchedule time", r);
+  expectLit(`${loc} FactoryWeekSchedule day and time`, r, "Montag 06:00");
+  lua(`g_currentMission.fws_weekSchedule.hudTimeText = nil`);
+  r = t.draw("factory_week_schedule", false); clean("FactoryWeekSchedule no time", r);
+  expectLit(`${loc} FactoryWeekSchedule day with no time`, r, "Montag -", false);
+}
+lua(`g_currentMission.placeableSystem = E_RS.placeables; g_farmlandManager = E_RS.farmland; g_currentMission.dairyCoreManager = nil
+  g_currentMission.soilFertilityManager = E_RS.soil; local h = FarmTabletUI._appBackHandlers["field_jobs"]; if h then h() end
+  g_currentMission.workerCostsManager = nil; g_currentMission.fws_weekSchedule = nil`);
+
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
 if (failures.length) {
   for (const f of failures.slice(0, 80)) console.log("  FAIL " + f);
