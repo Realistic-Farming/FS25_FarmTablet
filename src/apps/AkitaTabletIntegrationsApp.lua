@@ -130,8 +130,15 @@ end)
 FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
     local AC = FT.appColor(FT.APP.ANIMAL_VET)
     local avs = g_currentMission and (g_currentMission.animalVetSystem or g_currentMission.animalVet) or nil
-    local sick = avs and avs.sickStables or {}
-    local count = avs and (ftAkitaSafeCall(avs, "getActiveIllnessCount") or 0) or 0
+    -- F27 (MAINTENANCE row 156): the page counts what it draws. A case is a table entry of sickStables; the header, the
+    -- Active Illnesses row and the "no sick pens" line all read that one count. getActiveIllnessCount is not read: when
+    -- the method was missing, the page said "none" over the cards it drew.
+    local sick = avs and avs.sickStables or nil
+    if type(sick) ~= "table" then sick = {} end
+    local count = 0
+    for _, d in pairs(sick) do
+        if type(d) == "table" then count = count + 1 end
+    end
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_animal_vet_system", "AnimalVetSystem"),
         avs and (count == 1 and ftAkitaText("ft_vet_active_cases_one", "1 active case")
@@ -157,27 +164,29 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
         y = y - FT.py(6)
         y = self:drawSection(y, ftAkitaText("ft_vet_cases", "CASES"), true)
         for stableId, d in pairs(sick) do
-            local name = tostring(d.stableName or d.animalName or stableId or ftAkitaText("ft_vet_pen", "Pen"))
-            local illness = tostring(d.illnessName or ftAkitaText("ft_vet_illness", "Illness"))
-            local rem = math.max(0, math.floor((tonumber(d.remainingMs) or 0) / 60000))
-            local animals = tonumber(d.animalCount) or 0
-            local status = d.vetCalled and ftAkitaText("ft_vet_veterinarian", "Veterinarian")
-                or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
-                or d.treatmentMode == nil and ftAkitaText("ft_vet_self", "Self")
-            -- The tablet's own word is drawn as the file has it; the mod's treatment mode is the mod's text and keeps
-            -- the renderer's pass.
-            local statusLiteral = status ~= false
-            status = status or tostring(d.treatmentMode)
-            self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
-            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
-                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
-                FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT, statusLiteral)
-            self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
-                animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)
-                    or string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, animals, rem),
-                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
-            y = y - FT.py(60)
+            if type(d) == "table" then
+                local name = tostring(d.stableName or d.animalName or stableId or ftAkitaText("ft_vet_pen", "Pen"))
+                local illness = tostring(d.illnessName or ftAkitaText("ft_vet_illness", "Illness"))
+                local rem = math.max(0, math.floor((tonumber(d.remainingMs) or 0) / 60000))
+                local animals = tonumber(d.animalCount) or 0
+                local status = d.vetCalled and ftAkitaText("ft_vet_veterinarian", "Veterinarian")
+                    or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
+                    or d.treatmentMode == nil and ftAkitaText("ft_vet_self", "Self")
+                -- The tablet's own word is drawn as the file has it; the mod's treatment mode is the mod's text and keeps
+                -- the renderer's pass.
+                local statusLiteral = status ~= false
+                status = status or tostring(d.treatmentMode)
+                self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
+                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
+                    FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
+                    FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT, statusLiteral)
+                self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
+                    animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)
+                        or string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, animals, rem),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+                y = y - FT.py(60)
+            end
         end
     end
     self:setContentHeight(startY - y + FT.py(20))
@@ -292,9 +301,17 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
 
-    if rd == nil or fm == nil then
+    if rd == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_rd_not_detected", "RealisticDealer was not detected."),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+        self:setContentHeight(FT.py(80))
+        return
+    end
+    if fm == nil then
+        -- F27: the mod is installed (the header says Connected), but its finance data is not available here.
+        self.r:appText(x, y - FT.py(12), FT.FONT.SMALL,
+            ftAkitaText("ft_rd_no_finance", "RealisticDealer's finance data is not available."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self:setContentHeight(FT.py(80))
         return
@@ -309,14 +326,17 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
     local active = tonumber(data.active) or #contracts
     local debt = tonumber(data.debt) or ftAkitaSafeCall(fm, "getActiveDebt", farmId) or 0
     local credit = tonumber(data.creditScore) or ftAkitaSafeCall(fm, "getCreditScore", farmId) or 0
-    local overdue = tonumber(data.overdue) or 0
+    -- F27: Open Notices is the sum of the missed installments the contract cards show as "Notices: N" (UI-3 section 3.4: a
+    -- number presented as a count must be a count). data.overdue is not read: what it counts cannot be verified.
+    local overdue = 0
     local repoCount = 0
     for _, c in ipairs(contracts or {}) do
         if type(c) == "table" and (c.repossession == true or c.repossessionPending == true or tostring(c.enforcementStatus or "") == "repossession") then
             repoCount = repoCount + 1
         end
-        if type(c) == "table" and (tonumber(c.missedInstallments) or 0) > 0 then
-            overdue = math.max(overdue, 1)
+        local missedHere = type(c) == "table" and (tonumber(c.missedInstallments) or 0) or 0
+        if missedHere > 0 then
+            overdue = overdue + missedHere
         end
     end
 
