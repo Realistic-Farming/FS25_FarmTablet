@@ -1686,7 +1686,7 @@
         <text name="ft_auto_rain_3" text="Rain" />
         <text name="ft_auto_rain_4" text="rain" />
         <text name="ft_auto_rain_or_storm_intensity_shown_with_a_fill_bar" text="Rain or storm intensity shown with a fill bar.&#10;" />
-        <text name="ft_auto_rainy" text="Rainy" />
+        <text name="ft_auto_rainy" text="Yağmurlu" />
         <text name="ft_auto_random_world_events" text="Rastgele Dünya Olayları" />
         <text name="ft_auto_random_world_events_2" text="random_world_events" />
         <text name="ft_auto_random_world_events_is_not_installed" text="Random World Events kurulu değil." />
@@ -1928,7 +1928,7 @@
         <text name="ft_auto_storm" text="FIRTINA" />
         <text name="ft_auto_storm_2" text="Storm" />
         <text name="ft_auto_storm_3" text="storm" />
-        <text name="ft_auto_stormy" text="Stormy" />
+        <text name="ft_auto_stormy" text="Fırtınalı" />
         <text name="ft_auto_str" text="STR" />
         <text name="ft_auto_straw" text="Straw" />
         <text name="ft_auto_straw_clean_d" text="STRAW/CLEAN  %d%%" />

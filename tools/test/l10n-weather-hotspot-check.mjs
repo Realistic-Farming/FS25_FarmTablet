@@ -60,9 +60,9 @@ const KEYS = [
   "ft_auto_freezing", "ft_auto_heavy_storm", "ft_auto_hot", "ft_auto_hotspot_manager", "ft_auto_humidity",
   "ft_auto_loading", "ft_auto_mild", "ft_auto_mission", "ft_auto_mostly_cloudy", "ft_auto_other",
   "ft_auto_ovc", "ft_auto_overcast", "ft_auto_partly_cloudy", "ft_auto_pin_2", "ft_auto_player",
-  "ft_auto_precipitation_2", "ft_auto_present", "ft_auto_rain_2", "ft_auto_shop", "ft_auto_snow_2",
-  "ft_auto_storm", "ft_auto_temperature", "ft_auto_temperature_2", "ft_auto_tool", "ft_auto_tour",
-  "ft_auto_trailer", "ft_auto_unloading", "ft_auto_unnamed", "ft_auto_warm",
+  "ft_auto_precipitation_2", "ft_auto_present", "ft_auto_rain_2", "ft_auto_rainy", "ft_auto_shop",
+  "ft_auto_snow_2", "ft_auto_storm", "ft_auto_stormy", "ft_auto_temperature", "ft_auto_temperature_2",
+  "ft_auto_tool", "ft_auto_tour", "ft_auto_trailer", "ft_auto_unloading", "ft_auto_unnamed", "ft_auto_warm",
   "ft_auto_weather_data_unavailable", "ft_auto_what_is_this", "ft_auto_wind", "ft_auto_wind_speed",
   "ft_hotspot_add_failed", "ft_hotspot_add_pin", "ft_hotspot_all_cleared", "ft_hotspot_confirm_clear",
   "ft_hotspot_err_add", "ft_hotspot_err_api", "ft_hotspot_err_no_position", "ft_hotspot_help_clear_body",
@@ -177,7 +177,8 @@ const NO_KEY = {
 };
 // Keys this bar checks that no SOURCES file draws, each with its reason.
 const UNDRAWN = {
-
+  "ft_auto_stormy": "a forecast condition word the data provider supplies (DataProvider.lua); Weather draws it through FT.l10nAuto(f.condition)",
+  "ft_auto_rainy": "a forecast condition word the data provider supplies (DataProvider.lua); Weather draws it through FT.l10nAuto(f.condition)",
 };
 // Key helpers X1 does not run, each with its reason (e.g. a helper returning a table of lines).
 const X1_SKIP = {
