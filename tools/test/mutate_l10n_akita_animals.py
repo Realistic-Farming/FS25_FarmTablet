@@ -75,7 +75,7 @@ MUTATIONS = [
      one('animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)\n                    or ', ''),
      "the case line reads \"1 animals\" again: E (one animal)"),
     ("C9-an-not-a-whole-word", APP,
-     one('t = t:gsub(": An([^%a])", function(c) return ": " .. on .. c end)', 't = t:gsub(": An", function() return ": " .. on end)'),
+     one('t = t:gsub(": An([^%a\\128-\\255])", function(c) return ": " .. on .. c end)', 't = t:gsub(": An", function() return ": " .. on end)'),
      "\": An\" replaced inside a longer word (\": Anzahl\"), Bob's #201 MINOR: E (the Anzahl line)"),
     ("C10-lead-byte-not-a-letter", APP,
      one('t = t:gsub(": An([^%a\\128-\\255])", function(c) return ": " .. on .. c end)', 't = t:gsub(": An([^%a])", function(c) return ": " .. on .. c end)'),
