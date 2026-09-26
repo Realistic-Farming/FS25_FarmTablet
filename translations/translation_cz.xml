@@ -2094,7 +2094,7 @@
         <text name="ft_auto_up_to_6_vehicles_are_shown_at_a_time" text="Najednou se ukazuje až 6 vozidel." />
         <text name="ft_auto_upd" text="UPD" />
         <text name="ft_auto_update_fs25_soilfertilizer_to_a_build_that_ships_the_br" text="Aktualizuj FS25_SoilFertilizer na verzi, která obsahuje most." />
-        <text name="ft_auto_updates" text="Updates" />
+        <text name="ft_auto_updates" text="Aktualizace" />
         <text name="ft_auto_updates_2" text="updates" />
         <text name="ft_auto_updates_live_while_you_work" text="Updates live while you work." />
         <text name="ft_auto_usage_tabletapp_app_id_e_g_dashboard_weather_animals" text="Usage: TabletApp [app_id] (e.g., dashboard, weather, animals)" />
@@ -2595,71 +2595,71 @@
         <text name="ft_settings_all_settings" text="Všechna nastavení" />
         <text name="ft_settings_default_values" text="Výchozí hodnoty" />
         <text name="ft_settings_hint_reset_all" text="Obnoví všechna nastavení tabletu." />
-        <text name="ft_updates_help_history_title" text="VERSION HISTORY" />
-        <text name="ft_updates_help_history_body" text="Shows FarmTablet changes sorted by version." />
-        <text name="ft_updates_help_structure_title" text="STRUCTURE" />
-        <text name="ft_updates_help_structure_body" text="Each version is split into New, Improved and Fixed." />
-        <text name="ft_updates_version_history" text="Version history" />
-        <text name="ft_updates_version" text="Version" />
-        <text name="ft_updates_new" text="New" />
-        <text name="ft_updates_improved" text="Improved" />
-        <text name="ft_updates_fixed" text="Fixed" />
-        <text name="ft_changelog_251_new_1" text="Favorites page for frequently used apps" />
-        <text name="ft_changelog_251_new_2" text="Favorite app selection is saved per savegame" />
-        <text name="ft_changelog_251_new_3" text="Clearer Home and Back buttons" />
-        <text name="ft_changelog_251_new_4" text="App labels can be adjusted in settings" />
-        <text name="ft_changelog_251_imp_1" text="Reworked status bar with battery, signal and time" />
-        <text name="ft_changelog_251_imp_2" text="App icons optimized and loaded more cleanly" />
-        <text name="ft_changelog_251_imp_3" text="Worker list can be fully scrolled" />
-        <text name="ft_changelog_250_new_1" text="New tablet start screen with lock screen" />
-        <text name="ft_changelog_250_new_2" text="New app grid with dock and page indicator" />
-        <text name="ft_changelog_250_new_3" text="Apps open with a clean tablet animation" />
-        <text name="ft_changelog_250_new_4" text="Custom background via FTBackground folder" />
-        <text name="ft_changelog_250_imp_1" text="3D frame, screen glare and surface reworked" />
-        <text name="ft_changelog_250_imp_2" text="Fullscreen apps with Home and Back bar" />
-        <text name="ft_changelog_240_new_1" text="Personnel app for Pro Staff / Worker Costs" />
-        <text name="ft_changelog_240_new_2" text="Worker list with sorting and filters" />
-        <text name="ft_changelog_240_new_3" text="Hiring, dismissal and wage overview for staff" />
-        <text name="ft_changelog_240_imp_1" text="Multiplayer actions are synchronized through the host" />
-        <text name="ft_changelog_2324_new_1" text="Worker Costs app now shows staff, hours, jobs and fatigue" />
-        <text name="ft_changelog_2324_imp_1" text="Personnel area can be scrolled" />
-        <text name="ft_changelog_2323_fix_1" text="Arrows and toggles react immediately" />
-        <text name="ft_changelog_2323_fix_2" text="Production shows running processes correctly" />
-        <text name="ft_changelog_2323_fix_3" text="Vehicle camera no longer zooms when scrolling in the tablet" />
-        <text name="ft_changelog_2323_imp_1" text="Soil values now match the HUD" />
-        <text name="ft_changelog_220_new_1" text="Ukrainian translation added" />
-        <text name="ft_changelog_220_imp_1" text="Scroll help added for long app content" />
-        <text name="ft_changelog_219_new_1" text="Storage app saves historical best prices per savegame" />
-        <text name="ft_changelog_219_imp_1" text="Price comparison sorts selling stations by best price" />
-        <text name="ft_changelog_218_new_1" text="Time controls with time jumps" />
-        <text name="ft_changelog_218_new_2" text="Hotspot manager for map markers" />
-        <text name="ft_changelog_218_new_3" text="Notes app with todo list" />
-        <text name="ft_changelog_218_new_4" text="Farm Admin for money, time, repair and refuelling" />
-        <text name="ft_changelog_218_fix_1" text="Tablet content updates regularly while open" />
-        <text name="ft_changelog_217_new_1" text="Storage app" />
-        <text name="ft_changelog_217_new_2" text="Invoices app" />
-        <text name="ft_changelog_217_new_3" text="UsedPlus integration" />
-        <text name="ft_changelog_217_new_4" text="RoleplayPhone foundation" />
-        <text name="ft_changelog_217_fix_1" text="Camera and mouse remain locked correctly when the tablet is open" />
-        <text name="ft_changelog_215_new_1" text="Info area in settings" />
-        <text name="ft_changelog_215_fix_1" text="App Store and Updates can be fully scrolled" />
-        <text name="ft_changelog_214_new_1" text="Market Dynamics app" />
-        <text name="ft_changelog_214_new_2" text="Worker Costs app" />
-        <text name="ft_changelog_214_new_3" text="Random World Events app" />
-        <text name="ft_changelog_214_fix_1" text="Improved detection of other mods" />
-        <text name="ft_changelog_213_new_1" text="Colour selection for backgrounds" />
-        <text name="ft_changelog_213_fix_1" text="Missing translations in ZIP package" />
-        <text name="ft_changelog_213_fix_2" text="Settings key alignment" />
-        <text name="ft_changelog_212_new_1" text="26 languages" />
-        <text name="ft_changelog_212_new_2" text="Info icon per app" />
-        <text name="ft_changelog_212_new_3" text="Multiplayer and dedicated server support" />
-        <text name="ft_changelog_210_new_1" text="Complete V2 rebuild" />
-        <text name="ft_changelog_210_new_2" text="New interface" />
-        <text name="ft_changelog_210_new_3" text="Central drawing functions" />
-        <text name="ft_changelog_210_new_4" text="All apps reworked" />
-        <text name="ft_changelog_112_new_1" text="Soil Fertilizer, Seasonal Crop Stress and NPC Favor integration" />
-        <text name="ft_changelog_112_fix_1" text="Navigation buttons no longer overflow" />
-        <text name="ft_changelog_100_new_1" text="First release with dashboard, weather, fields, animals and workshop" />
+        <text name="ft_updates_help_history_title" text="HISTORIE VERZÍ" />
+        <text name="ft_updates_help_history_body" text="Zobrazuje změny FarmTabletu seřazené podle verzí." />
+        <text name="ft_updates_help_structure_title" text="STRUKTURA" />
+        <text name="ft_updates_help_structure_body" text="Každá verze je rozdělena na části Nové, Vylepšené a Opravené." />
+        <text name="ft_updates_version_history" text="Historie verzí" />
+        <text name="ft_updates_version" text="Verze" />
+        <text name="ft_updates_new" text="Nové" />
+        <text name="ft_updates_improved" text="Vylepšené" />
+        <text name="ft_updates_fixed" text="Opravené" />
+        <text name="ft_changelog_251_new_1" text="Stránka oblíbených pro často používané aplikace" />
+        <text name="ft_changelog_251_new_2" text="Výběr oblíbených aplikací se ukládá pro každou uloženou hru" />
+        <text name="ft_changelog_251_new_3" text="Přehlednější tlačítka Domů a Zpět" />
+        <text name="ft_changelog_251_new_4" text="Názvy aplikací lze upravit v nastavení" />
+        <text name="ft_changelog_251_imp_1" text="Přepracovaný stavový řádek s baterií, signálem a časem" />
+        <text name="ft_changelog_251_imp_2" text="Ikony aplikací optimalizovány a načítány čistěji" />
+        <text name="ft_changelog_251_imp_3" text="Seznam pracovníků lze celý posouvat" />
+        <text name="ft_changelog_250_new_1" text="Nová úvodní obrazovka tabletu se zamykací obrazovkou" />
+        <text name="ft_changelog_250_new_2" text="Nová mřížka aplikací s dokem a ukazatelem stránek" />
+        <text name="ft_changelog_250_new_3" text="Aplikace se otevírají s plynulou animací" />
+        <text name="ft_changelog_250_new_4" text="Vlastní pozadí přes složku FTBackground" />
+        <text name="ft_changelog_250_imp_1" text="Přepracovaný 3D rámeček, odlesky obrazovky a povrch" />
+        <text name="ft_changelog_250_imp_2" text="Aplikace na celou obrazovku s lištou Domů a Zpět" />
+        <text name="ft_changelog_240_new_1" text="Aplikace Personál pro Pro Staff / Worker Costs" />
+        <text name="ft_changelog_240_new_2" text="Seznam pracovníků s řazením a filtry" />
+        <text name="ft_changelog_240_new_3" text="Nábor, propouštění a přehled mezd personálu" />
+        <text name="ft_changelog_240_imp_1" text="Akce v multiplayeru se synchronizují přes hostitele" />
+        <text name="ft_changelog_2324_new_1" text="Aplikace Náklady na pracovníky nyní ukazuje personál, hodiny, zakázky a únavu" />
+        <text name="ft_changelog_2324_imp_1" text="Sekci personálu lze posouvat" />
+        <text name="ft_changelog_2323_fix_1" text="Šipky a přepínače reagují okamžitě" />
+        <text name="ft_changelog_2323_fix_2" text="Výroba správně zobrazuje běžící procesy" />
+        <text name="ft_changelog_2323_fix_3" text="Kamera vozidla už nepřibližuje při posouvání v tabletu" />
+        <text name="ft_changelog_2323_imp_1" text="Hodnoty půdy nyní odpovídají HUD" />
+        <text name="ft_changelog_220_new_1" text="Přidán ukrajinský překlad" />
+        <text name="ft_changelog_220_imp_1" text="Nápověda k posouvání pro dlouhý obsah aplikací" />
+        <text name="ft_changelog_219_new_1" text="Aplikace Sklad ukládá historicky nejlepší ceny pro každou uloženou hru" />
+        <text name="ft_changelog_219_imp_1" text="Porovnání cen řadí výkupní místa podle nejlepší ceny" />
+        <text name="ft_changelog_218_new_1" text="Ovládání času se skoky v čase" />
+        <text name="ft_changelog_218_new_2" text="Správce bodů pro značky na mapě" />
+        <text name="ft_changelog_218_new_3" text="Aplikace Poznámky se seznamem úkolů" />
+        <text name="ft_changelog_218_new_4" text="Správa farmy: peníze, čas, opravy a tankování" />
+        <text name="ft_changelog_218_fix_1" text="Obsah tabletu se pravidelně aktualizuje, když je otevřený" />
+        <text name="ft_changelog_217_new_1" text="Aplikace Sklad" />
+        <text name="ft_changelog_217_new_2" text="Aplikace Faktury" />
+        <text name="ft_changelog_217_new_3" text="Integrace UsedPlus" />
+        <text name="ft_changelog_217_new_4" text="Základ pro RoleplayPhone" />
+        <text name="ft_changelog_217_fix_1" text="Kamera a myš zůstávají při otevřeném tabletu správně zamčené" />
+        <text name="ft_changelog_215_new_1" text="Informační sekce v nastavení" />
+        <text name="ft_changelog_215_fix_1" text="Obchod s aplikacemi a Aktualizace lze celé posouvat" />
+        <text name="ft_changelog_214_new_1" text="Aplikace Dynamika trhu" />
+        <text name="ft_changelog_214_new_2" text="Aplikace Náklady na pracovníky" />
+        <text name="ft_changelog_214_new_3" text="Aplikace Náhodné události" />
+        <text name="ft_changelog_214_fix_1" text="Lepší rozpoznávání jiných modů" />
+        <text name="ft_changelog_213_new_1" text="Výběr barvy pozadí" />
+        <text name="ft_changelog_213_fix_1" text="Chybějící překlady v balíčku ZIP" />
+        <text name="ft_changelog_213_fix_2" text="Zarovnání klíčů nastavení" />
+        <text name="ft_changelog_212_new_1" text="26 jazyků" />
+        <text name="ft_changelog_212_new_2" text="Informační ikona u každé aplikace" />
+        <text name="ft_changelog_212_new_3" text="Podpora multiplayeru a dedikovaných serverů" />
+        <text name="ft_changelog_210_new_1" text="Kompletní přestavba V2" />
+        <text name="ft_changelog_210_new_2" text="Nové rozhraní" />
+        <text name="ft_changelog_210_new_3" text="Centrální vykreslovací funkce" />
+        <text name="ft_changelog_210_new_4" text="Všechny aplikace přepracovány" />
+        <text name="ft_changelog_112_new_1" text="Integrace Soil Fertilizer, Seasonal Crop Stress a NPC Favor" />
+        <text name="ft_changelog_112_fix_1" text="Navigační tlačítka už nepřetékají" />
+        <text name="ft_changelog_100_new_1" text="První vydání s přehledem, počasím, poli, zvířaty a dílnou" />
         <text name="ft_settings_scale_format" text="%.0f%% / šířka %.0f%%" />
         <text name="ft_signal_very_good" text="Velmi dobrý" />
         <text name="ft_signal_good" text="Dobrý" />
@@ -2955,6 +2955,14 @@
         <text name="ft_soilnut_unscouted" text="Neprozkoumáno" />
         <text name="ft_soilnut_treatment_plan" text="PLÁN OŠETŘENÍ" />
         <text name="ft_soilnut_no_actions" text="Žádné kroky - hodnoty vypadají dobře." />
+        <text name="ft_changelog_253_new_1" text="Aplikace Plánovač osevních postupů: plánujte osevní postupy podle doporučení Soil &amp; Fertilizer" />
+        <text name="ft_changelog_253_new_2" text="Aplikace Zavlažovací sada: přehled zavlažování ze Seasonal Crop Stress jen pro čtení" />
+        <text name="ft_changelog_253_new_3" text="Aplikace Počasí čte novou službu WeatherGuard: skutečnou předpověď a ukazatel Světového počasí" />
+        <text name="ft_changelog_253_new_4" text="Aplikace Finanční kokpit: stav celé farmy, živé ukazatele a měsíční historie" />
+        <text name="ft_changelog_253_imp_1" text="Text aplikací se nyní přizpůsobuje tabletu, s novým nastavením velikosti písma" />
+        <text name="ft_changelog_253_imp_2" text="Nové ikony aplikací Plánovač osevních postupů, Zavlažovací sada a Nastavení systému" />
+        <text name="ft_changelog_253_imp_3" text="Aplikace Půda přepracována s přehlednějšími kartami živin pro každé pole" />
+        <text name="ft_changelog_253_fix_1" text="Správcovský zámek Strážce polí se nyní při nejasných oprávněních ve výchozím stavu zavře" />
     </texts>
 
 </l10n>

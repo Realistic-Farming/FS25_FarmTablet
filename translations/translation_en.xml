@@ -2943,6 +2943,14 @@
         <text name="ft_soilnut_unscouted" text="Unscouted" />
         <text name="ft_soilnut_treatment_plan" text="TREATMENT PLAN" />
         <text name="ft_soilnut_no_actions" text="No actions - levels look fine." />
+        <text name="ft_changelog_253_new_1" text="Rotation Planner app: plan crop rotations using Soil &amp; Fertilizer's own recommendations" />
+        <text name="ft_changelog_253_new_2" text="Irrigation Suite app: a read-only operating picture for Seasonal Crop Stress irrigation" />
+        <text name="ft_changelog_253_new_3" text="Weather app reads the new WeatherGuard service: a real forecast plus a World Weather dial" />
+        <text name="ft_changelog_253_new_4" text="Financial Cockpit app: whole-farm health, live instruments and monthly history" />
+        <text name="ft_changelog_253_imp_1" text="App text now scales with the tablet, with a new font-size setting" />
+        <text name="ft_changelog_253_imp_2" text="New app icons for Rotation Planner, Irrigation Suite and System Settings" />
+        <text name="ft_changelog_253_imp_3" text="Soil app redesigned with cleaner per-field nutrient cards" />
+        <text name="ft_changelog_253_fix_1" text="FieldSentry admin gate is now fail-closed, so it locks down when permissions are unclear" />
     </texts>
 
 </l10n>

@@ -162,13 +162,13 @@ end
 FarmTabletUI:registerDrawer(FT.APP.UPDATES, function(self)
     local AC = FT.appColor(FT.APP.UPDATES)
 
-    if self:drawHelpPage("_updatesHelp", FT.APP.UPDATES, ftSafeText("ft_auto_updates", "Aktualisierungen"), AC, {
+    if self:drawHelpPage("_updatesHelp", FT.APP.UPDATES, ftSafeText("ft_auto_updates", "Updates"), AC, {
         { title = ftSafeText("ft_updates_help_history_title", "VERSION HISTORY"), body = ftSafeText("ft_updates_help_history_body", "Shows FarmTablet changes sorted by version."), literalTitle = true, literalBody = true },
         { title = ftSafeText("ft_updates_help_structure_title", "STRUCTURE"), body = ftSafeText("ft_updates_help_structure_body", "Each version is split into New, Improved and Fixed."), literalTitle = true, literalBody = true },
     }, true) then return end
 
     local scrollY  = self:getContentScrollY()
-    local afterHdr = self:drawAppHeader(ftSafeText("ft_auto_updates", "Aktualisierungen"), ftSafeText("ft_updates_version_history", "Version history"), true, true)
+    local afterHdr = self:drawAppHeader(ftSafeText("ft_auto_updates", "Updates"), ftSafeText("ft_updates_version_history", "Version history"), true, true)
     local x, _, cw, _ = self:contentInner()
     local y = afterHdr + scrollY
 

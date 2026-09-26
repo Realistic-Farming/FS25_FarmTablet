@@ -2606,60 +2606,60 @@
         <text name="ft_updates_fixed" text="Исправлено" />
         <text name="ft_changelog_251_new_1" text="Страница избранного для часто используемых приложений" />
         <text name="ft_changelog_251_new_2" text="Выбор избранных приложений сохраняется в сохранении" />
-        <text name="ft_changelog_251_new_3" text="Clearer Home and Back buttons" />
+        <text name="ft_changelog_251_new_3" text="Более понятные кнопки «Домой» и «Назад»" />
         <text name="ft_changelog_251_new_4" text="Подписи приложений настраиваются в настройках" />
-        <text name="ft_changelog_251_imp_1" text="Reworked status bar with battery, signal and time" />
-        <text name="ft_changelog_251_imp_2" text="App icons optimized and loaded more cleanly" />
-        <text name="ft_changelog_251_imp_3" text="Worker list can be fully scrolled" />
+        <text name="ft_changelog_251_imp_1" text="Переработанная строка состояния: батарея, сигнал и время" />
+        <text name="ft_changelog_251_imp_2" text="Значки приложений оптимизированы и загружаются аккуратнее" />
+        <text name="ft_changelog_251_imp_3" text="Список рабочих можно прокрутить целиком" />
         <text name="ft_changelog_250_new_1" text="Новый экран запуска с блокировкой" />
         <text name="ft_changelog_250_new_2" text="Новая сетка приложений с доком" />
         <text name="ft_changelog_250_new_3" text="Приложения открываются с чистой анимацией" />
         <text name="ft_changelog_250_new_4" text="Свой фон через папку FTBackground" />
         <text name="ft_changelog_250_imp_1" text="3D-рамка, блик и поверхность переработаны" />
         <text name="ft_changelog_250_imp_2" text="Полноэкранные приложения с панелью Домой/Назад" />
-        <text name="ft_changelog_240_new_1" text="Personnel app for Pro Staff / Worker Costs" />
-        <text name="ft_changelog_240_new_2" text="Worker list with sorting and filters" />
-        <text name="ft_changelog_240_new_3" text="Hiring, dismissal and wage overview for staff" />
-        <text name="ft_changelog_240_imp_1" text="Multiplayer actions are synchronized through the host" />
-        <text name="ft_changelog_2324_new_1" text="Worker Costs app now shows staff, hours, jobs and fatigue" />
-        <text name="ft_changelog_2324_imp_1" text="Personnel area can be scrolled" />
-        <text name="ft_changelog_2323_fix_1" text="Arrows and toggles react immediately" />
-        <text name="ft_changelog_2323_fix_2" text="Production shows running processes correctly" />
-        <text name="ft_changelog_2323_fix_3" text="Vehicle camera no longer zooms when scrolling in the tablet" />
-        <text name="ft_changelog_2323_imp_1" text="Soil values now match the HUD" />
-        <text name="ft_changelog_220_new_1" text="Ukrainian translation added" />
-        <text name="ft_changelog_220_imp_1" text="Scroll help added for long app content" />
-        <text name="ft_changelog_219_new_1" text="Storage app saves historical best prices per savegame" />
-        <text name="ft_changelog_219_imp_1" text="Price comparison sorts selling stations by best price" />
-        <text name="ft_changelog_218_new_1" text="Time controls with time jumps" />
-        <text name="ft_changelog_218_new_2" text="Hotspot manager for map markers" />
-        <text name="ft_changelog_218_new_3" text="Notes app with todo list" />
-        <text name="ft_changelog_218_new_4" text="Farm Admin for money, time, repair and refuelling" />
-        <text name="ft_changelog_218_fix_1" text="Tablet content updates regularly while open" />
-        <text name="ft_changelog_217_new_1" text="Storage app" />
-        <text name="ft_changelog_217_new_2" text="Invoices app" />
-        <text name="ft_changelog_217_new_3" text="UsedPlus integration" />
-        <text name="ft_changelog_217_new_4" text="RoleplayPhone foundation" />
-        <text name="ft_changelog_217_fix_1" text="Camera and mouse remain locked correctly when the tablet is open" />
-        <text name="ft_changelog_215_new_1" text="Info area in settings" />
-        <text name="ft_changelog_215_fix_1" text="App Store and Updates can be fully scrolled" />
-        <text name="ft_changelog_214_new_1" text="Market Dynamics app" />
-        <text name="ft_changelog_214_new_2" text="Worker Costs app" />
-        <text name="ft_changelog_214_new_3" text="Random World Events app" />
-        <text name="ft_changelog_214_fix_1" text="Improved detection of other mods" />
-        <text name="ft_changelog_213_new_1" text="Colour selection for backgrounds" />
-        <text name="ft_changelog_213_fix_1" text="Missing translations in ZIP package" />
-        <text name="ft_changelog_213_fix_2" text="Settings key alignment" />
-        <text name="ft_changelog_212_new_1" text="26 languages" />
-        <text name="ft_changelog_212_new_2" text="Info icon per app" />
-        <text name="ft_changelog_212_new_3" text="Multiplayer and dedicated server support" />
-        <text name="ft_changelog_210_new_1" text="Complete V2 rebuild" />
-        <text name="ft_changelog_210_new_2" text="New interface" />
-        <text name="ft_changelog_210_new_3" text="Central drawing functions" />
-        <text name="ft_changelog_210_new_4" text="All apps reworked" />
-        <text name="ft_changelog_112_new_1" text="Soil Fertilizer, Seasonal Crop Stress and NPC Favor integration" />
-        <text name="ft_changelog_112_fix_1" text="Navigation buttons no longer overflow" />
-        <text name="ft_changelog_100_new_1" text="First release with dashboard, weather, fields, animals and workshop" />
+        <text name="ft_changelog_240_new_1" text="Приложение «Персонал» для Pro Staff / Worker Costs" />
+        <text name="ft_changelog_240_new_2" text="Список рабочих с сортировкой и фильтрами" />
+        <text name="ft_changelog_240_new_3" text="Наём, увольнение и обзор зарплат персонала" />
+        <text name="ft_changelog_240_imp_1" text="Действия в сетевой игре синхронизируются через хост" />
+        <text name="ft_changelog_2324_new_1" text="Приложение «Расходы рабочих» теперь показывает персонал, часы, работы и усталость" />
+        <text name="ft_changelog_2324_imp_1" text="Раздел персонала можно прокручивать" />
+        <text name="ft_changelog_2323_fix_1" text="Стрелки и переключатели реагируют сразу" />
+        <text name="ft_changelog_2323_fix_2" text="«Производство» правильно показывает идущие процессы" />
+        <text name="ft_changelog_2323_fix_3" text="Камера техники больше не приближается при прокрутке в планшете" />
+        <text name="ft_changelog_2323_imp_1" text="Значения почвы теперь совпадают с HUD" />
+        <text name="ft_changelog_220_new_1" text="Добавлен украинский перевод" />
+        <text name="ft_changelog_220_imp_1" text="Подсказка прокрутки для длинного содержимого" />
+        <text name="ft_changelog_219_new_1" text="Приложение «Склад» сохраняет лучшие исторические цены для каждого сохранения" />
+        <text name="ft_changelog_219_imp_1" text="Сравнение цен сортирует точки продажи по лучшей цене" />
+        <text name="ft_changelog_218_new_1" text="Управление временем с перемоткой" />
+        <text name="ft_changelog_218_new_2" text="«Метки карты» для маркеров на карте" />
+        <text name="ft_changelog_218_new_3" text="Приложение «Заметки» со списком дел" />
+        <text name="ft_changelog_218_new_4" text="«Админ фермы»: деньги, время, ремонт и заправка" />
+        <text name="ft_changelog_218_fix_1" text="Содержимое планшета регулярно обновляется, пока он открыт" />
+        <text name="ft_changelog_217_new_1" text="Приложение «Склад»" />
+        <text name="ft_changelog_217_new_2" text="Приложение «Счета»" />
+        <text name="ft_changelog_217_new_3" text="Интеграция UsedPlus" />
+        <text name="ft_changelog_217_new_4" text="Основа для RoleplayPhone" />
+        <text name="ft_changelog_217_fix_1" text="Камера и мышь правильно блокируются, пока планшет открыт" />
+        <text name="ft_changelog_215_new_1" text="Информационный раздел в настройках" />
+        <text name="ft_changelog_215_fix_1" text="«Магазин приложений» и «Обновления» прокручиваются целиком" />
+        <text name="ft_changelog_214_new_1" text="Приложение «Динамика рынка»" />
+        <text name="ft_changelog_214_new_2" text="Приложение «Расходы рабочих»" />
+        <text name="ft_changelog_214_new_3" text="Приложение «Случайные события»" />
+        <text name="ft_changelog_214_fix_1" text="Улучшено распознавание других модов" />
+        <text name="ft_changelog_213_new_1" text="Выбор цвета фона" />
+        <text name="ft_changelog_213_fix_1" text="Недостающие переводы в ZIP-пакете" />
+        <text name="ft_changelog_213_fix_2" text="Выравнивание ключей настроек" />
+        <text name="ft_changelog_212_new_1" text="26 языков" />
+        <text name="ft_changelog_212_new_2" text="Значок информации для каждого приложения" />
+        <text name="ft_changelog_212_new_3" text="Поддержка сетевой игры и выделенного сервера" />
+        <text name="ft_changelog_210_new_1" text="Полная переработка V2" />
+        <text name="ft_changelog_210_new_2" text="Новый интерфейс" />
+        <text name="ft_changelog_210_new_3" text="Централизованные функции отрисовки" />
+        <text name="ft_changelog_210_new_4" text="Все приложения переработаны" />
+        <text name="ft_changelog_112_new_1" text="Интеграция Soil Fertilizer, Seasonal Crop Stress и NPC Favor" />
+        <text name="ft_changelog_112_fix_1" text="Кнопки навигации больше не выходят за границы" />
+        <text name="ft_changelog_100_new_1" text="Первый выпуск: сводка, погода, поля, животные и мастерская" />
         <text name="ft_settings_scale_format" text="%.0f%% / ширина %.0f%%" />
         <text name="ft_signal_very_good" text="Очень хороший" />
         <text name="ft_signal_good" text="Хороший" />
@@ -2997,6 +2997,14 @@
         <text name="ft_soilnut_unscouted" text="Не обследовано" />
         <text name="ft_soilnut_treatment_plan" text="ПЛАН ОБРАБОТКИ" />
         <text name="ft_soilnut_no_actions" text="Действий нет - уровни в норме." />
+        <text name="ft_changelog_253_new_1" text="Приложение «Планировщик севооборота»: планируйте севооборот по рекомендациям Soil &amp; Fertilizer" />
+        <text name="ft_changelog_253_new_2" text="Приложение «Система полива»: сводка полива Seasonal Crop Stress только для чтения" />
+        <text name="ft_changelog_253_new_3" text="Приложение «Погода» читает новую службу WeatherGuard: настоящий прогноз и шкала «Мировая погода»" />
+        <text name="ft_changelog_253_new_4" text="Приложение «Финансовая панель»: состояние всей фермы, приборы в реальном времени и помесячная история" />
+        <text name="ft_changelog_253_imp_1" text="Текст приложений теперь масштабируется вместе с планшетом, есть новая настройка размера шрифта" />
+        <text name="ft_changelog_253_imp_2" text="Новые значки для «Планировщика севооборота», «Системы полива» и «Системных настроек»" />
+        <text name="ft_changelog_253_imp_3" text="Приложение «Почва» переработано: более понятные карточки питательных веществ по полям" />
+        <text name="ft_changelog_253_fix_1" text="Админ-замок «Стража полей» теперь по умолчанию закрыт, если права неясны" />
     </texts>
 
 </l10n>

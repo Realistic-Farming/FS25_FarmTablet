@@ -2956,6 +2956,14 @@
         <text name="ft_soilnut_unscouted" text="Nicht erkundet" />
         <text name="ft_soilnut_treatment_plan" text="BEHANDLUNGSPLAN" />
         <text name="ft_soilnut_no_actions" text="Keine Maßnahmen - die Werte sehen gut aus." />
+        <text name="ft_changelog_253_new_1" text="Fruchtfolge-App: Fruchtfolgen mit den eigenen Empfehlungen von Soil &amp; Fertilizer planen" />
+        <text name="ft_changelog_253_new_2" text="Bewässerungs-App: eine schreibgeschützte Lageübersicht der Bewässerung aus Seasonal Crop Stress" />
+        <text name="ft_changelog_253_new_3" text="Die Wetter-App liest den neuen WeatherGuard-Dienst: eine echte Vorhersage plus eine Weltwetter-Anzeige" />
+        <text name="ft_changelog_253_new_4" text="Finanzen-App: Zustand des ganzen Hofs, Live-Instrumente und Monatsverlauf" />
+        <text name="ft_changelog_253_imp_1" text="App-Text skaliert jetzt mit dem Tablet, mit einer neuen Einstellung für die Schriftgröße" />
+        <text name="ft_changelog_253_imp_2" text="Neue App-Symbole für Fruchtfolge, Bewässerung und Globale Einstellungen" />
+        <text name="ft_changelog_253_imp_3" text="Boden-App neu gestaltet, mit übersichtlicheren Nährstoffkarten je Feld" />
+        <text name="ft_changelog_253_fix_1" text="Die Admin-Sperre des Feldmonitors schließt jetzt standardmäßig, wenn die Rechte unklar sind" />
     </texts>
 
 </l10n>
