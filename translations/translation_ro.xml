@@ -221,7 +221,7 @@
         <text name="ft_common_time" text="Ora" />
         <text name="ft_common_event" text="Eveniment" />
         <text name="ft_common_open" text="Deschide" />
-        <text name="ft_common_closed" text="Inchis" />
+        <text name="ft_common_closed" text="Închis" />
         <text name="ft_common_note" text="NOTA" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare nu a fost detectat." />
         <text name="ft_aac_overall" text="General" />
@@ -249,28 +249,28 @@
         <text name="ft_fws_factories_open" text="Fabrici deschise" />
         <text name="ft_fws_fire_system" text="Sistem antiincendiu" />
         <text name="ft_fws_factories" text="FABRICI" />
-        <text name="ft_fws_no_factories" text="Inca nu exista fabrici in cache-ul HUD FactoryWeekSchedule." />
+        <text name="ft_fws_no_factories" text="Încă nu există fabrici în cache-ul HUD FactoryWeekSchedule." />
         <text name="ft_fws_factory" text="Fabrica" />
         <text name="ft_fws_no_event" text="Niciun eveniment" />
-        <text name="ft_rd_status_repossession" text="Confiscare in curs" />
+        <text name="ft_rd_status_repossession" text="Confiscare în curs" />
         <text name="ft_rd_status_repossessed" text="Confiscat" />
-        <text name="ft_rd_status_paid" text="Platit" />
+        <text name="ft_rd_status_paid" text="Plătit" />
         <text name="ft_rd_status_overdue" text="Restant" />
         <text name="ft_rd_status_active" text="Activ" />
         <text name="ft_rd_not_detected" text="RealisticDealer nu a fost detectat." />
-        <text name="ft_rd_active_financing" text="Finantare activa" />
-        <text name="ft_rd_remaining_debt" text="Datorie ramasa" />
+        <text name="ft_rd_active_financing" text="Finanțare activă" />
+        <text name="ft_rd_remaining_debt" text="Datorie rămasă" />
         <text name="ft_rd_credit_score" text="Scor de credit" />
-        <text name="ft_rd_open_notices" text="Notificari deschise" />
-        <text name="ft_rd_repossessions" text="Confiscari" />
-        <text name="ft_rd_check_repo" text="Vezi confiscari" />
+        <text name="ft_rd_open_notices" text="Notificări deschise" />
+        <text name="ft_rd_repossessions" text="Confiscări" />
+        <text name="ft_rd_check_repo" text="Vezi confiscări" />
         <text name="ft_rd_contracts" text="CONTRACTE" />
-        <text name="ft_rd_no_contracts" text="Niciun contract de finantare activ." />
+        <text name="ft_rd_no_contracts" text="Niciun contract de finanțare activ." />
         <text name="ft_rd_vehicle" text="Vehicul" />
-        <text name="ft_rd_money_line" text="Ramas: %s | Rata: %s" />
+        <text name="ft_rd_money_line" text="Rămas: %s | Rata: %s" />
         <text name="ft_rd_installment_line" text="Rate: %d/%d" />
-        <text name="ft_rd_notices_line" text="Notificari: %d" />
-        <text name="ft_rd_server_note" text="Confiscarile de vehicule trec in continuare prin RealisticDealer pe partea de server." />
+        <text name="ft_rd_notices_line" text="Notificări: %d" />
+        <text name="ft_rd_server_note" text="Confiscările de vehicule trec în continuare prin RealisticDealer pe partea de server." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Rețea" />
         <text name="ft_network_choose_provider" text="Alege operatorul de rețea" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioritate" />
         <text name="ft_vet_active_cases_one" text="1 caz activ" />
         <text name="ft_vet_case_line_one" text="%s - 1 animal - aproximativ %d min" />
+        <text name="ft_fws_state_open" text="Deschis" />
     </texts>
 
 </l10n>

@@ -221,7 +221,7 @@
         <text name="ft_common_time" text="Saat" />
         <text name="ft_common_event" text="Etkinlik" />
         <text name="ft_common_open" text="Aç" />
-        <text name="ft_common_closed" text="Kapali" />
+        <text name="ft_common_closed" text="Kapalı" />
         <text name="ft_common_note" text="NOT" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare algılanmadı." />
         <text name="ft_aac_overall" text="Genel" />
@@ -244,33 +244,33 @@
         <text name="ft_vet_worker" text="İşçi" />
         <text name="ft_vet_self" text="Kendiniz" />
         <text name="ft_vet_case_line" text="%s - %d hayvan - yaklaşık %d dk" />
-        <text name="ft_fws_open_count" text="%d/%d acik" />
-        <text name="ft_fws_not_detected" text="FactoryWeekSchedule algilanmadi." />
-        <text name="ft_fws_factories_open" text="Acik fabrikalar" />
-        <text name="ft_fws_fire_system" text="Yangin sistemi" />
-        <text name="ft_fws_factories" text="FABRIKALAR" />
-        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD onbelleginde henuz fabrika yok." />
+        <text name="ft_fws_open_count" text="%d/%d açık" />
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule algılanmadı." />
+        <text name="ft_fws_factories_open" text="Açık fabrikalar" />
+        <text name="ft_fws_fire_system" text="Yangın sistemi" />
+        <text name="ft_fws_factories" text="FABRİKALAR" />
+        <text name="ft_fws_no_factories" text="FactoryWeekSchedule HUD önbelleğinde henüz fabrika yok." />
         <text name="ft_fws_factory" text="Fabrika" />
         <text name="ft_fws_no_event" text="Etkinlik yok" />
-        <text name="ft_rd_status_repossession" text="Haciz suruyor" />
+        <text name="ft_rd_status_repossession" text="Haciz sürüyor" />
         <text name="ft_rd_status_repossessed" text="Haczedildi" />
-        <text name="ft_rd_status_paid" text="Odendi" />
-        <text name="ft_rd_status_overdue" text="Gecikmis" />
+        <text name="ft_rd_status_paid" text="Ödendi" />
+        <text name="ft_rd_status_overdue" text="Gecikmiş" />
         <text name="ft_rd_status_active" text="Aktif" />
-        <text name="ft_rd_not_detected" text="RealisticDealer algilanmadi." />
+        <text name="ft_rd_not_detected" text="RealisticDealer algılanmadı." />
         <text name="ft_rd_active_financing" text="Aktif finansman" />
-        <text name="ft_rd_remaining_debt" text="Kalan borc" />
-        <text name="ft_rd_credit_score" text="Kredi puani" />
-        <text name="ft_rd_open_notices" text="Acik bildirimler" />
+        <text name="ft_rd_remaining_debt" text="Kalan borç" />
+        <text name="ft_rd_credit_score" text="Kredi puanı" />
+        <text name="ft_rd_open_notices" text="Açık bildirimler" />
         <text name="ft_rd_repossessions" text="Hacizler" />
-        <text name="ft_rd_check_repo" text="Hacizleri gor" />
-        <text name="ft_rd_contracts" text="SOZLESMELER" />
-        <text name="ft_rd_no_contracts" text="Aktif finansman sozlesmesi yok." />
-        <text name="ft_rd_vehicle" text="Arac" />
+        <text name="ft_rd_check_repo" text="Hacizleri gör" />
+        <text name="ft_rd_contracts" text="SÖZLEŞMELER" />
+        <text name="ft_rd_no_contracts" text="Aktif finansman sözleşmesi yok." />
+        <text name="ft_rd_vehicle" text="Araç" />
         <text name="ft_rd_money_line" text="Kalan: %s | Taksit: %s" />
         <text name="ft_rd_installment_line" text="Taksitler: %d/%d" />
         <text name="ft_rd_notices_line" text="Bildirimler: %d" />
-        <text name="ft_rd_server_note" text="Arac hacizleri hala sunucu tarafinda RealisticDealer uzerinden yurutulur." />
+        <text name="ft_rd_server_note" text="Araç hacizleri hâlâ sunucu tarafında RealisticDealer üzerinden yürütülür." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Ağ" />
         <text name="ft_network_choose_provider" text="Ağ sağlayıcısını seç" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Öncelik" />
         <text name="ft_vet_active_cases_one" text="1 aktif vaka" />
         <text name="ft_vet_case_line_one" text="%s - 1 hayvan - yaklaşık %d dk" />
+        <text name="ft_fws_state_open" text="Açık" />
     </texts>
 
 </l10n>

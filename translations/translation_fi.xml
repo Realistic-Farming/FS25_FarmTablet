@@ -247,30 +247,30 @@
         <text name="ft_fws_open_count" text="%d/%d auki" />
         <text name="ft_fws_not_detected" text="FactoryWeekScheduleta ei havaittu." />
         <text name="ft_fws_factories_open" text="Tehtaita auki" />
-        <text name="ft_fws_fire_system" text="Palojarjestelma" />
+        <text name="ft_fws_fire_system" text="Palojärjestelmä" />
         <text name="ft_fws_factories" text="TEHTAAT" />
-        <text name="ft_fws_no_factories" text="FactoryWeekSchedule-HUDin valimuistissa ei ole viela tehtaita." />
+        <text name="ft_fws_no_factories" text="FactoryWeekSchedule-HUDin välimuistissa ei ole vielä tehtaita." />
         <text name="ft_fws_factory" text="Tehdas" />
         <text name="ft_fws_no_event" text="Ei tapahtumaa" />
-        <text name="ft_rd_status_repossession" text="Takaisinotto kaynnissa" />
+        <text name="ft_rd_status_repossession" text="Takaisinotto käynnissä" />
         <text name="ft_rd_status_repossessed" text="Takaisinotettu" />
         <text name="ft_rd_status_paid" text="Maksettu" />
-        <text name="ft_rd_status_overdue" text="Erapaiva ohi" />
+        <text name="ft_rd_status_overdue" text="Eräpäivä ohi" />
         <text name="ft_rd_status_active" text="Aktiivinen" />
         <text name="ft_rd_not_detected" text="RealisticDealeria ei havaittu." />
         <text name="ft_rd_active_financing" text="Aktiivinen rahoitus" />
-        <text name="ft_rd_remaining_debt" text="Jaljella oleva velka" />
+        <text name="ft_rd_remaining_debt" text="Jäljellä oleva velka" />
         <text name="ft_rd_credit_score" text="Luottoluokitus" />
         <text name="ft_rd_open_notices" text="Avoimet ilmoitukset" />
         <text name="ft_rd_repossessions" text="Takaisinotot" />
-        <text name="ft_rd_check_repo" text="Nayta takaisinotot" />
+        <text name="ft_rd_check_repo" text="Näytä takaisinotot" />
         <text name="ft_rd_contracts" text="SOPIMUKSET" />
         <text name="ft_rd_no_contracts" text="Ei aktiivisia rahoitussopimuksia." />
         <text name="ft_rd_vehicle" text="Ajoneuvo" />
-        <text name="ft_rd_money_line" text="Jaljella: %s | Era: %s" />
-        <text name="ft_rd_installment_line" text="Erat: %d/%d" />
+        <text name="ft_rd_money_line" text="Jäljellä: %s | Erä: %s" />
+        <text name="ft_rd_installment_line" text="Erät: %d/%d" />
         <text name="ft_rd_notices_line" text="Ilmoitukset: %d" />
-        <text name="ft_rd_server_note" text="Ajoneuvojen takaisinotot kulkevat yha RealisticDealerin kautta palvelinpuolella." />
+        <text name="ft_rd_server_note" text="Ajoneuvojen takaisinotot kulkevat yhä RealisticDealerin kautta palvelinpuolella." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Verkko" />
         <text name="ft_network_choose_provider" text="Valitse verkko-operaattori" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioriteetti" />
         <text name="ft_vet_active_cases_one" text="1 aktiivinen tapaus" />
         <text name="ft_vet_case_line_one" text="%s - 1 eläin - noin %d min" />
+        <text name="ft_fws_state_open" text="Auki" />
     </texts>
 
 </l10n>

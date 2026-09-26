@@ -219,9 +219,9 @@
         <text name="ft_common_busy" text="Upptagen" />
         <text name="ft_common_available" text="Tillgänglig" />
         <text name="ft_common_time" text="Tid" />
-        <text name="ft_common_event" text="Handelse" />
+        <text name="ft_common_event" text="Händelse" />
         <text name="ft_common_open" text="Öppna" />
-        <text name="ft_common_closed" text="Stangd" />
+        <text name="ft_common_closed" text="Stängd" />
         <text name="ft_common_note" text="ANTECKNING" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare hittades inte." />
         <text name="ft_aac_overall" text="Totalt" />
@@ -244,33 +244,33 @@
         <text name="ft_vet_worker" text="Arbetare" />
         <text name="ft_vet_self" text="Själv" />
         <text name="ft_vet_case_line" text="%s - %d djur - cirka %d min" />
-        <text name="ft_fws_open_count" text="%d/%d oppna" />
+        <text name="ft_fws_open_count" text="%d/%d öppna" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule hittades inte." />
-        <text name="ft_fws_factories_open" text="Fabriker oppna" />
+        <text name="ft_fws_factories_open" text="Fabriker öppna" />
         <text name="ft_fws_fire_system" text="Brandsystem" />
         <text name="ft_fws_factories" text="FABRIKER" />
-        <text name="ft_fws_no_factories" text="Inga fabriker i FactoryWeekSchedule HUD-cachen annu." />
+        <text name="ft_fws_no_factories" text="Inga fabriker i FactoryWeekSchedule HUD-cachen ännu." />
         <text name="ft_fws_factory" text="Fabrik" />
-        <text name="ft_fws_no_event" text="Ingen handelse" />
-        <text name="ft_rd_status_repossession" text="Atertagning pagar" />
-        <text name="ft_rd_status_repossessed" text="Atertagen" />
+        <text name="ft_fws_no_event" text="Ingen händelse" />
+        <text name="ft_rd_status_repossession" text="Återtagning pågår" />
+        <text name="ft_rd_status_repossessed" text="Återtagen" />
         <text name="ft_rd_status_paid" text="Betald" />
-        <text name="ft_rd_status_overdue" text="Forfallen" />
+        <text name="ft_rd_status_overdue" text="Förfallen" />
         <text name="ft_rd_status_active" text="Aktiv" />
         <text name="ft_rd_not_detected" text="RealisticDealer hittades inte." />
         <text name="ft_rd_active_financing" text="Aktiv finansiering" />
-        <text name="ft_rd_remaining_debt" text="Aterstaende skuld" />
+        <text name="ft_rd_remaining_debt" text="Återstående skuld" />
         <text name="ft_rd_credit_score" text="Kreditbetyg" />
-        <text name="ft_rd_open_notices" text="Oppna aviseringar" />
-        <text name="ft_rd_repossessions" text="Atertagningar" />
-        <text name="ft_rd_check_repo" text="Se atertagning" />
+        <text name="ft_rd_open_notices" text="Öppna aviseringar" />
+        <text name="ft_rd_repossessions" text="Återtagningar" />
+        <text name="ft_rd_check_repo" text="Se återtagning" />
         <text name="ft_rd_contracts" text="AVTAL" />
         <text name="ft_rd_no_contracts" text="Inga aktiva finansieringsavtal." />
         <text name="ft_rd_vehicle" text="Fordon" />
-        <text name="ft_rd_money_line" text="Aterstar: %s | Avbetalning: %s" />
+        <text name="ft_rd_money_line" text="Återstår: %s | Avbetalning: %s" />
         <text name="ft_rd_installment_line" text="Avbetalningar: %d/%d" />
         <text name="ft_rd_notices_line" text="Aviseringar: %d" />
-        <text name="ft_rd_server_note" text="Atertagning av fordon gar fortfarande via RealisticDealer pa serversidan." />
+        <text name="ft_rd_server_note" text="Återtagning av fordon går fortfarande via RealisticDealer på serversidan." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Nätverk" />
         <text name="ft_network_choose_provider" text="Välj nätoperatör" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioritet" />
         <text name="ft_vet_active_cases_one" text="1 aktivt fall" />
         <text name="ft_vet_case_line_one" text="%s - 1 djur - cirka %d min" />
+        <text name="ft_fws_state_open" text="Öppen" />
     </texts>
 
 </l10n>

@@ -222,7 +222,7 @@
         <text name="ft_common_event" text="Begivenhed" />
         <text name="ft_common_open" text="Åbn" />
         <text name="ft_common_closed" text="Lukket" />
-        <text name="ft_common_note" text="NOTE" />
+        <text name="ft_common_note" text="BEMÆRK" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare blev ikke fundet." />
         <text name="ft_aac_overall" text="I alt" />
         <text name="ft_aac_food" text="Foder" />
@@ -244,9 +244,9 @@
         <text name="ft_vet_worker" text="Arbejder" />
         <text name="ft_vet_self" text="Selv" />
         <text name="ft_vet_case_line" text="%s - %d dyr - cirka %d min" />
-        <text name="ft_fws_open_count" text="%d/%d abne" />
+        <text name="ft_fws_open_count" text="%d/%d åbne" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule blev ikke fundet." />
-        <text name="ft_fws_factories_open" text="Fabrikker abne" />
+        <text name="ft_fws_factories_open" text="Fabrikker åbne" />
         <text name="ft_fws_fire_system" text="Brandsystem" />
         <text name="ft_fws_factories" text="FABRIKKER" />
         <text name="ft_fws_no_factories" text="Ingen fabrikker i FactoryWeekSchedule HUD-cachen endnu." />
@@ -259,18 +259,18 @@
         <text name="ft_rd_status_active" text="Aktiv" />
         <text name="ft_rd_not_detected" text="RealisticDealer blev ikke fundet." />
         <text name="ft_rd_active_financing" text="Aktiv finansiering" />
-        <text name="ft_rd_remaining_debt" text="Resterende gaeld" />
+        <text name="ft_rd_remaining_debt" text="Resterende gæld" />
         <text name="ft_rd_credit_score" text="Kreditscore" />
-        <text name="ft_rd_open_notices" text="Abne notifikationer" />
+        <text name="ft_rd_open_notices" text="Åbne notifikationer" />
         <text name="ft_rd_repossessions" text="Tilbagetagninger" />
         <text name="ft_rd_check_repo" text="Se tilbagetagning" />
         <text name="ft_rd_contracts" text="KONTRAKTER" />
         <text name="ft_rd_no_contracts" text="Ingen aktive finansieringskontrakter." />
-        <text name="ft_rd_vehicle" text="Koretoj" />
+        <text name="ft_rd_vehicle" text="Køretøj" />
         <text name="ft_rd_money_line" text="Resterende: %s | Afdrag: %s" />
         <text name="ft_rd_installment_line" text="Afdrag: %d/%d" />
         <text name="ft_rd_notices_line" text="Notifikationer: %d" />
-        <text name="ft_rd_server_note" text="Tilbagetagning af koretojer korer stadig via RealisticDealer pa serversiden." />
+        <text name="ft_rd_server_note" text="Tilbagetagning af køretøjer kører stadig via RealisticDealer på serversiden." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Netværk" />
         <text name="ft_network_choose_provider" text="Vælg netudbyder" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioritet" />
         <text name="ft_vet_active_cases_one" text="1 aktivt tilfælde" />
         <text name="ft_vet_case_line_one" text="%s - 1 dyr - cirka %d min" />
+        <text name="ft_fws_state_open" text="Åben" />
     </texts>
 
 </l10n>

@@ -245,32 +245,32 @@
         <text name="ft_vet_self" text="Tú mismo" />
         <text name="ft_vet_case_line" text="%s - %d animales - unos %d min" />
         <text name="ft_fws_open_count" text="%d/%d abiertas" />
-        <text name="ft_fws_not_detected" text="No se detecto FactoryWeekSchedule." />
-        <text name="ft_fws_factories_open" text="Fabricas abiertas" />
+        <text name="ft_fws_not_detected" text="No se detectó FactoryWeekSchedule." />
+        <text name="ft_fws_factories_open" text="Fábricas abiertas" />
         <text name="ft_fws_fire_system" text="Sistema de incendios" />
-        <text name="ft_fws_factories" text="FABRICAS" />
-        <text name="ft_fws_no_factories" text="Aun no hay fabricas en la cache del HUD de FactoryWeekSchedule." />
-        <text name="ft_fws_factory" text="Fabrica" />
+        <text name="ft_fws_factories" text="FÁBRICAS" />
+        <text name="ft_fws_no_factories" text="Aún no hay fábricas en la caché del HUD de FactoryWeekSchedule." />
+        <text name="ft_fws_factory" text="Fábrica" />
         <text name="ft_fws_no_event" text="Sin eventos" />
         <text name="ft_rd_status_repossession" text="Embargo en curso" />
         <text name="ft_rd_status_repossessed" text="Embargado" />
         <text name="ft_rd_status_paid" text="Pagado" />
         <text name="ft_rd_status_overdue" text="Vencido" />
         <text name="ft_rd_status_active" text="Activo" />
-        <text name="ft_rd_not_detected" text="No se detecto RealisticDealer." />
-        <text name="ft_rd_active_financing" text="Financiacion activa" />
+        <text name="ft_rd_not_detected" text="No se detectó RealisticDealer." />
+        <text name="ft_rd_active_financing" text="Financiación activa" />
         <text name="ft_rd_remaining_debt" text="Deuda restante" />
-        <text name="ft_rd_credit_score" text="Puntuacion de credito" />
+        <text name="ft_rd_credit_score" text="Puntuación de crédito" />
         <text name="ft_rd_open_notices" text="Avisos abiertos" />
         <text name="ft_rd_repossessions" text="Embargos" />
         <text name="ft_rd_check_repo" text="Ver embargos" />
         <text name="ft_rd_contracts" text="CONTRATOS" />
-        <text name="ft_rd_no_contracts" text="No hay contratos de financiacion activos." />
-        <text name="ft_rd_vehicle" text="Vehiculo" />
+        <text name="ft_rd_no_contracts" text="No hay contratos de financiación activos." />
+        <text name="ft_rd_vehicle" text="Vehículo" />
         <text name="ft_rd_money_line" text="Restante: %s | Cuota: %s" />
         <text name="ft_rd_installment_line" text="Cuotas: %d/%d" />
         <text name="ft_rd_notices_line" text="Avisos: %d" />
-        <text name="ft_rd_server_note" text="Los embargos de vehiculos siguen pasando por RealisticDealer en el servidor." />
+        <text name="ft_rd_server_note" text="Los embargos de vehículos siguen pasando por RealisticDealer en el servidor." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Red" />
         <text name="ft_network_choose_provider" text="Elige un operador de red" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioridad" />
         <text name="ft_vet_active_cases_one" text="1 caso activo" />
         <text name="ft_vet_case_line_one" text="%s - 1 animal - unos %d min" />
+        <text name="ft_fws_state_open" text="Abierto" />
     </texts>
 
 </l10n>
