@@ -72,6 +72,16 @@ MUTATIONS = [
         one('''        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)''',
             '''        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)'''))],
      "the form's translated preset drawn without the flag: E (the form's FLAG row)"),
+    # Income, Tax and Worker Costs (MAINTENANCE row 105, batch 12): the companion words, held by E's German draws.
+    ("M13-companion-value-unflagged", [("src/apps/IncomeApp.lua",
+        one('''    y = self:drawRow(y, "Wage Level", companionWord(wageLevel), nil, nil, nil, true)''',
+            '''    y = self:drawRow(y, "Wage Level", companionWord(wageLevel))'''))],
+     "a resolved companion word drawn without the flag: E (Worker Costs' FLAG row)"),
+    ("M14-worker-status-unflagged", [("src/apps/IncomeApp.lua",
+        one('''                self.r:appText(x + cw, y, FT.FONT.SMALL, companionWord(w.status or "idle"),
+                    RenderText.ALIGN_RIGHT, stColor, true)''', '''                self.r:appText(x + cw, y, FT.FONT.SMALL, companionWord(w.status or "idle"),
+                    RenderText.ALIGN_RIGHT, stColor)'''))],
+     "a roster status drawn without the flag: E (Worker Costs' FLAG row)"),
 ]
 
 

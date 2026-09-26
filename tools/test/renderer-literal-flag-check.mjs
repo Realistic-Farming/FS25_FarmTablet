@@ -315,6 +315,51 @@ t.setLocale("de");
   for (const k of ["ft_auto_paid", "ft_auto_pending_2", "ft_auto_pay", "ft_auto_delete", "ft_auto_receivable", "ft_auto_owed"]) expectIn(`de Invoices list ${k}`, made.texts, file("de", k));
 }
 lua(`g_currentMission.ftInvoiceManager = nil; g_currentMission.environment.currentDay = E_DAY`);
+// Income, Tax and Worker Costs (MAINTENANCE row 105, batch 12), in German. The companion mods' managers are
+// stand-ins whose getters return each mod's own English words, read from their sources: IncomeMod's
+// Settings:getPayModeName ("Hourly"), TaxMod's settings.taxRate id ("medium"), WorkerCosts' getWageLevelName
+// ("High") and getCostModeName ("Per Hectare"), and its getRosterSnapshot (WorkerRoster.levelName's "Experienced" /
+// "Novice", WorkerManager's "working, pinned" / "idle"). Each drawer's draw must pass FLAG and PASS.
+lua(`
+  HARNESS.setup = nil
+  g_currentMission.incomeManager = { settings = { enabled = true,
+    getPayModeName = function() return "Hourly" end, getPaymentAmount = function() return 500 end } }
+  g_currentMission.taxManager = { settings = { enabled = true, taxRate = "medium", returnPercentage = 20 },
+    stats = { totalTaxesPaid = 1500 } }
+  g_currentMission.workerCostsManager = {
+    settings = { enabled = true, getWageLevelName = function() return "High" end, getCostModeName = function() return "Per Hectare" end },
+    workerSystem = { getActiveWorkers = function() return {} end, monthlyCosts = {} },
+    getRosterSnapshot = function() return { authoritative = true, count = 2, working = 1,
+      levels = { novice = 1, experienced = 1, master = 0 },
+      workers = {
+        { name = "Anna", levelName = "Experienced", status = "working, pinned", totalHours = 12.5, totalJobs = 3, fatigue = 0.4, working = true },
+        { name = "Ben", levelName = "Novice", status = "idle", totalHours = 2, totalJobs = 0, fatigue = 0, working = false },
+      } } end,
+  }
+`);
+t.setLocale("de");
+{
+  const inc = t.draw("income_mod", false); const vInc = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  const tax = t.draw("tax_mod", false); const vTax = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  const wrk = t.draw("worker_costs", false); const vWrk = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  eChecks += 3;
+  for (const [what, r, v] of [["Income", inc, vInc], ["Tax", tax, vTax], ["Worker Costs", wrk, vWrk]]) {
+    if (r.error) failures.push(`E de ${what}: ${r.error}`);
+    if (v.length) failures.push(`E de ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  }
+  const pct = (s) => (s == null ? s : s.replace(/%%/g, "%"));
+  expectIn("de Income pay mode (IncomeMod's Hourly)", inc.texts, file("de", "ft_companion_hourly"));
+  expectIn("de Tax rate (TaxMod's medium id)", tax.texts, file("de", "ft_companion_medium"));
+  expectIn("de Worker Costs wage level (High)", wrk.texts, file("de", "ft_companion_high"));
+  expectIn("de Worker Costs cost mode (Per Hectare)", wrk.texts, file("de", "ft_companion_per_hectare"));
+  expectIn("de Worker Costs Pro-Staff heading", wrk.texts, fmt(file("de", "ft_wrk_prostaff_fmt"), 2));
+  expectIn("de Worker Costs level counts", wrk.texts, fmt(file("de", "ft_wrk_levels_fmt"), 1, 1, 0));
+  expectIn("de Worker Costs worker and level", wrk.texts, "Anna  [" + file("de", "ft_companion_experienced") + "]");
+  expectIn("de Worker Costs pinned status", wrk.texts, file("de", "ft_companion_working_pinned"));
+  expectIn("de Worker Costs idle status", wrk.texts, file("de", "ft_companion_idle"));
+  expectIn("de Worker Costs stats line", wrk.texts, pct(fmt(file("de", "ft_wrk_worker_stats_fmt"), "12.5", 3, 40)));
+}
+lua(`g_currentMission.incomeManager = nil; g_currentMission.taxManager = nil; g_currentMission.workerCostsManager = nil`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
