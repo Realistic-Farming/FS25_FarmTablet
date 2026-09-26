@@ -33,94 +33,94 @@
         <text name="ft_ui_app_organic" text="Hữu cơ" />
         <text name="ft_ui_app_irrigation_suite" text="Bộ công cụ tưới tiêu" />
         <text name="ft_ui_app_financial_cockpit" text="Bảng điều khiển tài chính" />
-        <text name="ft_fc_health" text="FARM HEALTH" />
-        <text name="ft_fc_band_green" text="Healthy" />
-        <text name="ft_fc_band_amber" text="Watch" />
-        <text name="ft_fc_band_red" text="Critical" />
-        <text name="ft_fc_band_partial" text="Partial / Estimated" />
-        <text name="ft_fc_band_neutral" text="Neutral" />
-        <text name="ft_fc_partial" text="PARTIAL" />
-        <text name="ft_fc_not_tracked" text="Not yet tracked" />
-        <text name="ft_fc_syncing" text="Syncing" />
-        <text name="ft_fc_unavailable" text="Unavailable" />
-        <text name="ft_fc_open" text="OPEN" />
-        <text name="ft_fc_months" text="months" />
-        <text name="ft_fc_month" text="Month" />
-        <text name="ft_fc_year" text="Year" />
-        <text name="ft_fc_balance" text="Balance" />
-        <text name="ft_fc_loan" text="Loan" />
-        <text name="ft_fc_net_worth" text="Net worth" />
-        <text name="ft_fc_clock" text="Economic clock" />
-        <text name="ft_fc_period" text="Period" />
-        <text name="ft_fc_days_per_period" text="Days / period" />
-        <text name="ft_fc_section_instruments" text="INSTRUMENTS" />
-        <text name="ft_fc_section_rhythm" text="RHYTHM" />
-        <text name="ft_fc_section_forecast" text="FORECAST" />
-        <text name="ft_fc_section_history" text="HISTORY" />
-        <text name="ft_fc_section_flows" text="FLOWS AND SIGNALS" />
-        <text name="ft_fc_section_vitals" text="VITALS" />
-        <text name="ft_fc_forecast_label" text="Projection" />
-        <text name="ft_fc_forecast_month_end" text="Month-end outlook" />
-        <text name="ft_fc_forecast_remaining" text="Period remaining" />
-        <text name="ft_fc_forecast_next_pay" text="Next income pulse" />
-        <text name="ft_fc_forecast_tax" text="Tax accumulated (annual)" />
-        <text name="ft_fc_forecast_wages" text="Wage burn (known)" />
-        <text name="ft_fc_forecast_fuel" text="Fuel spend" />
-        <text name="ft_fc_forecast_limited" text="Limited to readable flows" />
-        <text name="ft_fc_forecast_disclaimer" text="Projection only. Missing flows are not invented." />
-        <text name="ft_fc_history" text="Monthly record" />
-        <text name="ft_fc_history_host_only" text="Host-only in v1" />
-        <text name="ft_fc_history_host_only_detail" text="Monthly history is recorded on the host. Live cash and leverage still stand." />
-        <text name="ft_fc_history_dedicated" text="Unavailable on this server" />
-        <text name="ft_fc_history_no_ledger" text="No StateLedger (live vitals only)" />
-        <text name="ft_fc_history_wait_detail" text="A compact row is written each closed in-game month." />
-        <text name="ft_fc_no_history_yet" text="No history yet" />
-        <text name="ft_fc_recent_months" text="RECENT MONTHS" />
-        <text name="ft_fc_yearly_rollup" text="YEARLY ROLLUP" />
-        <text name="ft_fc_vital_cash" text="Cash position" />
-        <text name="ft_fc_vital_cash_detail" text="Available farm balance." />
-        <text name="ft_fc_vital_leverage" text="Leverage" />
-        <text name="ft_fc_vital_leverage_detail" text="Loan share of balance plus loan." />
-        <text name="ft_fc_vital_runway" text="Cash runway" />
-        <text name="ft_fc_vital_runway_partial" text="Needs a fuller cost picture before runway is confident." />
-        <text name="ft_fc_vital_runway_detail" text="Balance divided by known operating burn." />
-        <text name="ft_fc_vital_direction" text="Profit direction" />
-        <text name="ft_fc_vital_direction_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_direction_detail" text="Change in net worth across the last two closed months." />
-        <text name="ft_fc_vital_margin" text="Margin" />
-        <text name="ft_fc_vital_margin_wait" text="Needs a recorded month with flow totals." />
-        <text name="ft_fc_vital_margin_partial" text="Flow gaps remain; margin is estimated only." />
-        <text name="ft_fc_vital_trajectory" text="Net-worth trajectory" />
-        <text name="ft_fc_vital_trajectory_wait" text="Needs at least two monthly samples." />
-        <text name="ft_fc_vital_trajectory_detail" text="Net worth change over the recent recorded window." />
-        <text name="ft_fc_worst_rule" text="Heart color = worst vital that has data. Neutrals and partials do not count as healthy." />
-        <text name="ft_fc_pocket_vital" text="Health vital" />
-        <text name="ft_fc_pocket_history" text="Financial history" />
-        <text name="ft_fc_pocket_forecast" text="Forecast" />
-        <text name="ft_fc_pocket_flows" text="Flows and signals" />
-        <text name="ft_fc_flow_income" text="Income" />
-        <text name="ft_fc_flow_income_mode" text="Pay mode" />
-        <text name="ft_fc_flow_tax" text="Tax paid (total)" />
-        <text name="ft_fc_flow_wages" text="Wages (month)" />
-        <text name="ft_fc_flow_fuel" text="Fuel spend" />
-        <text name="ft_fc_flow_dairy_income" text="Dairy contract income" />
-        <text name="ft_fc_flow_rwe" text="World-event money" />
-        <text name="ft_fc_signal_coop" text="Co-Op level" />
-        <text name="ft_fc_signal_coop_note" text="Level only. Quantified savings wait on ProStaff benefit getters." />
-        <text name="ft_fc_signal_dairy" text="Dairy barns" />
-        <text name="ft_fc_signal_market" text="Market events" />
-        <text name="ft_fc_signal_rwe" text="World event" />
-        <text name="ft_fc_dollar_flows" text="DOLLAR FLOWS" />
-        <text name="ft_fc_signals" text="SIGNALS" />
-        <text name="ft_fc_honesty" text="Honesty" />
-        <text name="ft_fc_help_health_title" text="FARM HEALTH" />
-        <text name="ft_fc_help_health_body" text="One heart color from the worst vital that has data.&#10;Green / amber / red. Neutrals and partials never count as healthy.&#10;Tap the heart to open the vital that set the color." />
-        <text name="ft_fc_help_history_title" text="HISTORY" />
-        <text name="ft_fc_help_history_body" text="This page records a compact monthly row itself.&#10;Host / single-player only in v1. Gaps stay gaps." />
-        <text name="ft_fc_help_forecast_title" text="FORECAST" />
-        <text name="ft_fc_help_forecast_body" text="Labeled as a projection. PARTIAL when a flow is missing.&#10;Missing flows show not yet tracked, never a guess." />
-        <text name="ft_fc_help_readonly_title" text="READ-ONLY" />
-        <text name="ft_fc_help_readonly_body" text="The cockpit never moves money and never re-implements&#10;Income, Tax, Wages, or other owning apps." />
+        <text name="ft_fc_health" text="SỨC KHỎE TRANG TRẠI" />
+        <text name="ft_fc_band_green" text="Tốt" />
+        <text name="ft_fc_band_amber" text="Cần theo dõi" />
+        <text name="ft_fc_band_red" text="Nguy cấp" />
+        <text name="ft_fc_band_partial" text="Một phần / Ước tính" />
+        <text name="ft_fc_band_neutral" text="Trung tính" />
+        <text name="ft_fc_partial" text="MỘT PHẦN" />
+        <text name="ft_fc_not_tracked" text="Chưa được theo dõi" />
+        <text name="ft_fc_syncing" text="Đang đồng bộ" />
+        <text name="ft_fc_unavailable" text="Không khả dụng" />
+        <text name="ft_fc_open" text="MỞ" />
+        <text name="ft_fc_months" text="tháng" />
+        <text name="ft_fc_month" text="Tháng" />
+        <text name="ft_fc_year" text="Năm" />
+        <text name="ft_fc_balance" text="Số dư" />
+        <text name="ft_fc_loan" text="Khoản vay" />
+        <text name="ft_fc_net_worth" text="Giá trị ròng" />
+        <text name="ft_fc_clock" text="Đồng hồ kinh tế" />
+        <text name="ft_fc_period" text="Kỳ" />
+        <text name="ft_fc_days_per_period" text="Ngày / kỳ" />
+        <text name="ft_fc_section_instruments" text="CÔNG CỤ ĐO" />
+        <text name="ft_fc_section_rhythm" text="NHỊP ĐỘ" />
+        <text name="ft_fc_section_forecast" text="DỰ BÁO" />
+        <text name="ft_fc_section_history" text="LỊCH SỬ" />
+        <text name="ft_fc_section_flows" text="DÒNG TIỀN VÀ TÍN HIỆU" />
+        <text name="ft_fc_section_vitals" text="CHỈ SỐ" />
+        <text name="ft_fc_forecast_label" text="Dự phóng" />
+        <text name="ft_fc_forecast_month_end" text="Triển vọng cuối tháng" />
+        <text name="ft_fc_forecast_remaining" text="Phần còn lại của kỳ" />
+        <text name="ft_fc_forecast_next_pay" text="Khoản thu tiếp theo" />
+        <text name="ft_fc_forecast_tax" text="Thuế tích lũy (năm)" />
+        <text name="ft_fc_forecast_wages" text="Chi phí lương (đã biết)" />
+        <text name="ft_fc_forecast_fuel" text="Chi tiêu nhiên liệu" />
+        <text name="ft_fc_forecast_limited" text="Giới hạn ở các dòng tiền đọc được" />
+        <text name="ft_fc_forecast_disclaimer" text="Chỉ là dự phóng. Dòng tiền thiếu không được bịa ra." />
+        <text name="ft_fc_history" text="Sổ ghi hằng tháng" />
+        <text name="ft_fc_history_host_only" text="Chỉ máy chủ trong v1" />
+        <text name="ft_fc_history_host_only_detail" text="Lịch sử hằng tháng được ghi trên máy chủ. Tiền mặt và đòn bẩy trực tiếp vẫn có hiệu lực." />
+        <text name="ft_fc_history_dedicated" text="Không khả dụng trên máy chủ này" />
+        <text name="ft_fc_history_no_ledger" text="Không có StateLedger (chỉ chỉ số trực tiếp)" />
+        <text name="ft_fc_history_wait_detail" text="Mỗi tháng trong game đã khép lại được ghi một dòng gọn." />
+        <text name="ft_fc_no_history_yet" text="Chưa có lịch sử" />
+        <text name="ft_fc_recent_months" text="CÁC THÁNG GẦN ĐÂY" />
+        <text name="ft_fc_yearly_rollup" text="TỔNG KẾT NĂM" />
+        <text name="ft_fc_vital_cash" text="Vị thế tiền mặt" />
+        <text name="ft_fc_vital_cash_detail" text="Số dư khả dụng của trang trại." />
+        <text name="ft_fc_vital_leverage" text="Đòn bẩy" />
+        <text name="ft_fc_vital_leverage_detail" text="Tỷ lệ khoản vay trên số dư cộng khoản vay." />
+        <text name="ft_fc_vital_runway" text="Khả năng chi trả tiền mặt" />
+        <text name="ft_fc_vital_runway_partial" text="Cần bức tranh chi phí đầy đủ hơn trước khi khả năng chi trả đáng tin cậy." />
+        <text name="ft_fc_vital_runway_detail" text="Số dư chia cho chi phí vận hành đã biết." />
+        <text name="ft_fc_vital_direction" text="Xu hướng lợi nhuận" />
+        <text name="ft_fc_vital_direction_wait" text="Cần ít nhất hai mẫu hằng tháng." />
+        <text name="ft_fc_vital_direction_detail" text="Thay đổi giá trị ròng trong hai tháng đã khép lại gần nhất." />
+        <text name="ft_fc_vital_margin" text="Biên lợi nhuận" />
+        <text name="ft_fc_vital_margin_wait" text="Cần một tháng đã ghi có tổng dòng tiền." />
+        <text name="ft_fc_vital_margin_partial" text="Còn thiếu dòng tiền; biên lợi nhuận chỉ là ước tính." />
+        <text name="ft_fc_vital_trajectory" text="Quỹ đạo giá trị ròng" />
+        <text name="ft_fc_vital_trajectory_wait" text="Cần ít nhất hai mẫu hằng tháng." />
+        <text name="ft_fc_vital_trajectory_detail" text="Thay đổi giá trị ròng trong giai đoạn đã ghi gần đây." />
+        <text name="ft_fc_worst_rule" text="Màu tim = chỉ số tệ nhất có dữ liệu. Trung tính và một phần không được tính là tốt." />
+        <text name="ft_fc_pocket_vital" text="Chỉ số sức khỏe" />
+        <text name="ft_fc_pocket_history" text="Lịch sử tài chính" />
+        <text name="ft_fc_pocket_forecast" text="Dự báo" />
+        <text name="ft_fc_pocket_flows" text="Dòng tiền và tín hiệu" />
+        <text name="ft_fc_flow_income" text="Thu nhập" />
+        <text name="ft_fc_flow_income_mode" text="Chế độ trả" />
+        <text name="ft_fc_flow_tax" text="Thuế đã nộp (tổng)" />
+        <text name="ft_fc_flow_wages" text="Lương (tháng)" />
+        <text name="ft_fc_flow_fuel" text="Chi tiêu nhiên liệu" />
+        <text name="ft_fc_flow_dairy_income" text="Thu nhập hợp đồng sữa" />
+        <text name="ft_fc_flow_rwe" text="Tiền từ sự kiện thế giới" />
+        <text name="ft_fc_signal_coop" text="Cấp Co-Op" />
+        <text name="ft_fc_signal_coop_note" text="Chỉ cấp độ. Khoản tiết kiệm định lượng đang chờ getter lợi ích của ProStaff." />
+        <text name="ft_fc_signal_dairy" text="Chuồng bò sữa" />
+        <text name="ft_fc_signal_market" text="Sự kiện thị trường" />
+        <text name="ft_fc_signal_rwe" text="Sự kiện thế giới" />
+        <text name="ft_fc_dollar_flows" text="DÒNG TIỀN" />
+        <text name="ft_fc_signals" text="TÍN HIỆU" />
+        <text name="ft_fc_honesty" text="Minh bạch" />
+        <text name="ft_fc_help_health_title" text="SỨC KHỎE TRANG TRẠI" />
+        <text name="ft_fc_help_health_body" text="Một màu tim duy nhất theo chỉ số tệ nhất có dữ liệu.&#10;Xanh / vàng / đỏ. Trung tính và một phần không bao giờ được tính là tốt.&#10;Chạm vào tim để mở chỉ số đã quyết định màu." />
+        <text name="ft_fc_help_history_title" text="LỊCH SỬ" />
+        <text name="ft_fc_help_history_body" text="Trang này tự ghi một dòng hằng tháng gọn.&#10;Chỉ máy chủ / chơi đơn trong v1. Khoảng trống vẫn là khoảng trống." />
+        <text name="ft_fc_help_forecast_title" text="DỰ BÁO" />
+        <text name="ft_fc_help_forecast_body" text="Được ghi là dự phóng. MỘT PHẦN khi thiếu một dòng tiền.&#10;Dòng tiền thiếu hiện chưa được theo dõi, không bao giờ đoán." />
+        <text name="ft_fc_help_readonly_title" text="CHỈ ĐỌC" />
+        <text name="ft_fc_help_readonly_body" text="Bảng này không bao giờ chuyển tiền và không bao giờ làm lại&#10;Thu nhập, Thuế, Lương hay các ứng dụng sở hữu khác." />
         <text name="ft_ui_app_animals" text="Động vật" />
         <text name="ft_ui_app_dairy" text="Bò sữa" />
         <text name="ft_ui_app_weather" text="Thời tiết" />
@@ -2772,8 +2772,8 @@
         <text name="ft_usedplus_hour_left" text="còn %d giờ" />
         <text name="ft_usedplus_hours_left" text="còn %d giờ" />
         <text name="ft_usedplus_deal_detail_fmt" text="%s  •  %s/tháng  •  còn %d tháng" />
-        <text name="ft_fc_history_no_clock" text="Needs Time Guard" />
-        <text name="ft_fc_history_no_clock_detail" text="Install Time Guard to record monthly history. Live vitals still stand." />
+        <text name="ft_fc_history_no_clock" text="Cần Time Guard" />
+        <text name="ft_fc_history_no_clock_detail" text="Cài Time Guard để ghi lịch sử hằng tháng. Các chỉ số trực tiếp vẫn có hiệu lực." />
         <text name="ft_irr_advisory_water_need" text="NHU CẦU NƯỚC (tư vấn)" />
         <text name="ft_irr_advisory_locked_l7" text="[EN] Unlocks with Pro Staff Co-Op at level 7" />
         <text name="ft_irr_advisory_forward_call" text="DỰ BÁO (tư vấn)" />
@@ -3024,6 +3024,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 con - khoảng %d phút" />
         <text name="ft_fws_state_open" text="Mở" />
         <text name="ft_rd_no_finance" text="Không có dữ liệu tài chính của RealisticDealer." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Không có dữ liệu nợ vay khẩn cấp nên chưa thể hiển thị đòn bẩy tổng hợp." />
+        <text name="ft_fc_debt_native" text="Khoản vay ngân hàng" />
+        <text name="ft_fc_debt_emergency" text="Khẩn cấp" />
+        <text name="ft_fc_debt_total" text="Tổng nợ" />
+        <text name="ft_fc_emergency_loan" text="Khoản vay khẩn cấp" />
+        <text name="ft_fc_total_debt" text="Tổng nợ" />
+        <text name="ft_fc_open_loan" text="QUẢN LÝ KHOẢN VAY" />
     </texts>
 
 </l10n>
