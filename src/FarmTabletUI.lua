@@ -3120,11 +3120,14 @@ function FarmTabletUI:drawInfoIcon(stateKey, accentColor)
     return btn
 end
 
-function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries)
+-- literalHeader, and each entry's literalTitle / literalBody (MAINTENANCE row 154): true when that text is
+-- already localized, so the renderer draws it as handed (see FT_Renderer's literalText). A raw English
+-- title or body leaves its flag out and keeps FT.l10nAuto, line by line for a body.
+function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries, literalHeader)
     if not self[stateKey] then return false end
 
     local ac     = accentColor or FT.C.BRAND
-    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"))
+    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"), literalHeader, true)
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
@@ -3135,7 +3138,8 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
-        end }
+        end },
+        true
     )
     table.insert(self._contentBtns, backBtn)
 
@@ -3145,12 +3149,12 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
         if y < contentY + FT.py(12) then break end
 
         self.r:appRect(x - FT.px(4), y - FT.py(1), w + FT.px(8), FT.py(14), {ac[1], ac[2], ac[3], 0.12})
-        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, entry.literalTitle == true)
         y = y - FT.py(16)
 
         for line in ((entry.body or "") .. "\n"):gmatch("([^\n]*)\n") do
             if y < contentY + FT.py(8) then break end
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, entry.literalBody == true)
             y = y - FT.py(13)
         end
         y = y - FT.py(5)
@@ -3187,7 +3191,7 @@ function FarmTabletUI:drawScrollBar()
     self.r:appRect(barX, thumbY, barW, thumbH, {FT.C.BRAND[1], FT.C.BRAND[2], FT.C.BRAND[3], 0.80})
 
     self.r:appText(barX + barW + FT.px(4), barY + barH - FT.py(10),
-        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
 end
 
 function FarmTabletUI:content()
@@ -3203,7 +3207,8 @@ function FarmTabletUI:contentInner()
            FT.LAYOUT.contentH - py*2
 end
 
-function FarmTabletUI:drawAppHeader(title, subtitle)
+-- literalTitle / literalSubtitle (MAINTENANCE row 154): true when that text is already localized.
+function FarmTabletUI:drawAppHeader(title, subtitle, literalTitle, literalSubtitle)
     local x, y, w, h = self:contentInner()
     local topY = y + h - FT.py(2)
     local accent = FT.appColor(self.system.currentApp)
@@ -3213,16 +3218,16 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     end
 
     if self.r.appHeaderText then
-        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     else
-        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     end
 
     if subtitle then
         if self.r.appHeaderText then
-            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         else
-            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         end
     end
 
@@ -3239,15 +3244,17 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     return divY - FT.py(12)
 end
 
-function FarmTabletUI:drawRow(y, label, value, labelC, valueC)
+-- literalLabel / literalValue, literalText, literalA / literalB (MAINTENANCE row 154): true when that
+-- text is already localized; passed down to the renderer.
+function FarmTabletUI:drawRow(y, label, value, labelC, valueC, literalLabel, literalValue)
     local x, _, w, _ = self:contentInner()
-    self.r:row(x, y, w, label, value, labelC, valueC)
+    self.r:row(x, y, w, label, value, labelC, valueC, literalLabel, literalValue)
     return y - FT.py(FT.SP.ROW)
 end
 
-function FarmTabletUI:drawSection(y, label)
+function FarmTabletUI:drawSection(y, label, literalText)
     local x, _, w, _ = self:contentInner()
-    self.r:sectionHeader(x, y, w, label)
+    self.r:sectionHeader(x, y, w, label, literalText)
     return y - FT.py(18)
 end
 
@@ -3262,25 +3269,25 @@ function FarmTabletUI:drawBar(y, value, maxVal, color)
     return self.r:progressBar(x, y, w, value, maxVal, color)
 end
 
-function FarmTabletUI:drawButton(y, label, color, meta)
+function FarmTabletUI:drawButton(y, label, color, meta, literalText)
     local x, _, w, _ = self:contentInner()
     local txt = tostring(label or "")
     -- Lange deutsche Texte dürfen nicht aus dem Button links/rechts herauslaufen.
     -- Deshalb wird der Button je nach Text automatisch breiter, maximal bis zur Inhaltsbreite.
     local bw = math.min(w, math.max(FT.px(150), string.len(txt) * FT.px(4.8)))
     local bh = FT.py(22)
-    local btn = self.r:button(x, y, bw, bh, label, color, meta)
+    local btn = self.r:button(x, y, bw, bh, label, color, meta, literalText)
     table.insert(self._contentBtns, btn)
     return y - bh - FT.py(4), btn
 end
 
-function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB)
+function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB, literalA, literalB)
     local x, _, w, _ = self:contentInner()
     local bw = FT.px(100)
     local bh = FT.py(22)
     local gap = FT.px(8)
-    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA)
-    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB)
+    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA, literalA)
+    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB, literalB)
     table.insert(self._contentBtns, btnA)
     table.insert(self._contentBtns, btnB)
     return y - bh - FT.py(4), btnA, btnB

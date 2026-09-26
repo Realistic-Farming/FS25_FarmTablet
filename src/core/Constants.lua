@@ -1352,7 +1352,6 @@ FT.AUTO_L10N = FT.AUTO_L10N or {
     ["  OFFER"] = "ft_auto_offer",
     ["offer_pending"] = "ft_auto_offer_pending",
     ["offline"] = "ft_auto_offline",
-    ["ok"] = "ft_auto_ok",
     ["Older entries scroll off the bottom of the list."] = "ft_auto_older_entries_scroll_off_the_bottom_of_the_list",
     ["ON"] = "ft_auto_on",
     ["On"] = "ft_auto_on_2",
