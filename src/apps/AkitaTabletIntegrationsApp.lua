@@ -15,30 +15,31 @@ local function ftAkitaBool(v)
     return v == true and ftAkitaText("ft_common_on", "On") or ftAkitaText("ft_common_off", "Off")
 end
 
-local function ftAkitaCurrentLang()
-    local lang = ""
-    if g_languageShort ~= nil then lang = tostring(g_languageShort) end
-    if (lang == "" or lang == "nil") and g_i18n ~= nil then
-        lang = tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or "")
-    end
-    return string.lower(lang)
+-- AnimalAutoCare writes its log lines in German. Each German word it uses reaches the reader's language through the
+-- tablet's key (every other language used to get the English word; German keeps its own, the key's German value).
+local FT_AKITA_LINE_WORDS = {
+    { de = "Auffüllen ab",  key = "ft_aac_refill_below",     fallback = "Refill below" },
+    { de = "Zielfüllung",   key = "ft_aac_target_fill",      fallback = "Target fill" },
+    { de = "Letzte Aktion", key = "ft_aac_last_action_line", fallback = "Last action" },
+    { de = "Priorität",     key = "ft_aac_priority",         fallback = "Priority" },
+    { de = "Gesamt",        key = "ft_aac_overall",          fallback = "Overall" },
+    { de = "Futter",        key = "ft_aac_food",             fallback = "Food" },
+    { de = "Wasser",        key = "ft_aac_water",            fallback = "Water" },
+    { de = "Stroh",         key = "ft_aac_straw",            fallback = "Straw" },
+}
+
+-- A replacement text for gsub: a "%" in a translation must stay a "%".
+local function ftAkitaRepl(s)
+    return (tostring(s):gsub("%%", "%%%%"))
 end
 
 local function ftAkitaLineText(line)
     local t = tostring(line or "")
-    local lang = ftAkitaCurrentLang()
-    if lang:sub(1,2) ~= "de" then
-        t = t:gsub("Gesamt", "Overall")
-        t = t:gsub("Futter", "Food")
-        t = t:gsub("Wasser", "Water")
-        t = t:gsub("Stroh", "Straw")
-        t = t:gsub("Auffüllen ab", "Refill below")
-        t = t:gsub("Zielfüllung", "Target fill")
-        t = t:gsub("Priorität", "Priority")
-        t = t:gsub("Letzte Aktion", "Last action")
-        t = t:gsub(": An", ": On")
-        t = t:gsub(": Aus", ": Off")
+    for _, w in ipairs(FT_AKITA_LINE_WORDS) do
+        t = t:gsub(w.de, ftAkitaRepl(ftAkitaText(w.key, w.fallback)))
     end
+    t = t:gsub(": An", ftAkitaRepl(": " .. ftAkitaText("ft_common_on", "On")))
+    t = t:gsub(": Aus", ftAkitaRepl(": " .. ftAkitaText("ft_common_off", "Off")))
     return t
 end
 
@@ -106,7 +107,7 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
     for _, line in ipairs(lines) do
         line = tostring(line or "")
         if line ~= "" and not line:find("^Status:") and shown < 10 then
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, ftAkitaLineText(line), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, ftAkitaLineText(line), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
             y = y - FT.py(12)
             shown = shown + 1
         end
@@ -127,7 +128,8 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
     local count = avs and (ftAkitaSafeCall(avs, "getActiveIllnessCount") or 0) or 0
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_animal_vet_system", "AnimalVetSystem"),
-        avs and string.format(ftAkitaText("ft_vet_active_cases", "%d active cases"), count) or ftAkitaText("ft_common_inactive", "Inactive"), true, true
+        avs and (count == 1 and ftAkitaText("ft_vet_active_cases_one", "1 active case")
+            or string.format(ftAkitaText("ft_vet_active_cases", "%d active cases"), count)) or ftAkitaText("ft_common_inactive", "Inactive"), true, true
     )
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
@@ -152,16 +154,22 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
             local name = tostring(d.stableName or d.animalName or stableId or ftAkitaText("ft_vet_pen", "Pen"))
             local illness = tostring(d.illnessName or ftAkitaText("ft_vet_illness", "Illness"))
             local rem = math.max(0, math.floor((tonumber(d.remainingMs) or 0) / 60000))
+            local animals = tonumber(d.animalCount) or 0
             local status = d.vetCalled and ftAkitaText("ft_vet_veterinarian", "Veterinarian")
                 or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
-                or tostring(d.treatmentMode or ftAkitaText("ft_vet_self", "Self"))
+                or d.treatmentMode == nil and ftAkitaText("ft_vet_self", "Self")
+            -- The tablet's own word is drawn as the file has it; the mod's treatment mode is the mod's text and keeps
+            -- the renderer's pass.
+            local statusLiteral = status ~= false
+            status = status or tostring(d.treatmentMode)
             self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
             self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
                 FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
             self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
-                FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
+                FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT, statusLiteral)
             self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
-                string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, tonumber(d.animalCount) or 0, rem),
+                animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)
+                    or string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, animals, rem),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
             y = y - FT.py(60)
         end
