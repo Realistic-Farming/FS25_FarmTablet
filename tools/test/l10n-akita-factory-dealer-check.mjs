@@ -1,10 +1,10 @@
-// l10n-akita-animals-check.mjs - MAINTENANCE row 105's text bar for the Akita83 animal apps (batch 14 of the remaining
-// apps in the tablet translation wave; the pattern of l10n-npc-favor-check.mjs, #199).
+// l10n-akita-factory-dealer-check.mjs - MAINTENANCE row 105's text bar for the Akita83 FactoryWeekSchedule and
+// RealisticDealer apps (batch 15 of the remaining apps in the tablet translation wave, Akita's second; the pattern of
+// l10n-akita-animals-check.mjs, #201).
 //
-// Two drawers of AkitaTabletIntegrationsApp.lua: AnimalAutoCare and AnimalVetSystem, with the file's shared helpers.
-// AnimalAutoCare writes its log lines in German; the German words it uses reach the reader's language through
-// FT_AKITA_LINE_WORDS (a keyTables table). The file's FactoryWeekSchedule and RealisticDealer drawers and their helpers
-// are batch 15's: skipDrawers and skipFunctions keep them out of this bar.
+// Two drawers of AkitaTabletIntegrationsApp.lua: FactoryWeekSchedule and RealisticDealer, with ftRDStatusText. The
+// file's AnimalAutoCare and AnimalVetSystem drawers and the log-line helper are batch 14's
+// (l10n-akita-animals-check.mjs): skipDrawers and skipFunctions keep them out of this bar.
 // Drawn literals reach their keys through the renderer's FT.l10nAuto; built texts through FT.l10n,
 // FT.l10nFormat and an app's own helper. A SOURCES entry's drawnTables names a local table whose string
 // values the app draws through FT.l10nAuto, and drawnArgs a local function whose argument at an index it
@@ -27,15 +27,13 @@
 //     from English, so the rows above pass it; this row fails it. FarmTablet ships no
 //     translation_cs.xml, so the row covers ct, jp, kr, ru and uk until one is added.
 //
-// ACCENT row (this batch's named defect): the Akita83 import wrote these apps' values with every accent stripped
-// ("n'a pas ete detecte", "ULTIMA ACCION", "Dyrlaege") in 16 files. Each pair restored here must keep its accents: it
+// ACCENT row (this batch's named defect, as batch 14's): the Akita83 import wrote these apps' values with every
+// accent stripped ("Systeme incendie", "FABRICAS", "Koretoj") in 16 files. Each pair restored here must keep its accents: it
 // must differ from its own fold (NFKD with the marks removed; ae, o, l, d and i for the five letters that have no
 // decomposition). A value folded back to the import's text fails.
-// CASE row: the drawer's section headers are capitals in every file, as English's are (Russian's LAST ACTION was not).
-// LABEL row: in cz, pl, ro, ru and uk the noun after a count changes form with the number (2 to 4 against 5 and more;
-// Romanian's "de" from 20), so the vet's count lines put the count after a label ("Aktivní případy: %d").
-// DISTINCT row: Connected is not the file's On word (br and pt used Ligado for both, so the header and the rows read
-// one word for two things).
+// CASE row: the drawers' section headers are capitals in every file, as English's are.
+// STATE row: a factory's Open is its own key, not the Settings button's verb (ft_common_open, German "Öffnen", which the
+// card drew before). They differ in every file except where the language has one word for both (STATE_SAME).
 //
 // SCRIPT-OUT row (Bob's #202 BLOCKER): a file written in Latin letters holds no Han, kana, Hangul or Cyrillic letter.
 // fc is French Canadian (the engine picks the mod's file by g_languageShort; the base game's l10n_fc.xml is French),
@@ -62,7 +60,7 @@
 //       bar cannot run fails X1 until X1_SKIP names it with a reason.
 //   S5  a drawnArgs function draws that parameter through FT.l10nAuto (none in this batch).
 //
-// Usage:  node tools/test/l10n-akita-animals-check.mjs        Exit: 0 clean, 1 any failure.
+// Usage:  node tools/test/l10n-akita-factory-dealer-check.mjs        Exit: 0 clean, 1 any failure.
 import { readFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -71,13 +69,13 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DIR = join(ROOT, "translations");
 
 const KEYS = [
-  "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_food", "ft_aac_last_action", "ft_aac_last_action_line",
-  "ft_aac_no_action", "ft_aac_not_detected", "ft_aac_overall", "ft_aac_priority", "ft_aac_purchase_cost",
-  "ft_aac_refill_below", "ft_aac_straw", "ft_aac_target_fill", "ft_aac_water", "ft_common_available",
-  "ft_common_busy", "ft_common_connected", "ft_common_inactive", "ft_common_overview", "ft_common_status",
-  "ft_vet_active_cases", "ft_vet_active_cases_one", "ft_vet_active_illnesses", "ft_vet_case_line",
-  "ft_vet_case_line_one", "ft_vet_cases", "ft_vet_illness", "ft_vet_no_sick_pens", "ft_vet_not_detected",
-  "ft_vet_pen", "ft_vet_self", "ft_vet_veterinarian", "ft_vet_worker",
+  "ft_common_closed", "ft_common_event", "ft_common_note", "ft_common_time", "ft_fws_factories",
+  "ft_fws_factories_open", "ft_fws_factory", "ft_fws_fire_system", "ft_fws_no_event", "ft_fws_no_factories",
+  "ft_fws_not_detected", "ft_fws_open_count", "ft_fws_state_open", "ft_rd_active_financing", "ft_rd_check_repo",
+  "ft_rd_contracts", "ft_rd_credit_score", "ft_rd_installment_line", "ft_rd_money_line", "ft_rd_no_contracts",
+  "ft_rd_not_detected", "ft_rd_notices_line", "ft_rd_open_notices", "ft_rd_remaining_debt", "ft_rd_repossessions",
+  "ft_rd_server_note", "ft_rd_status_active", "ft_rd_status_overdue", "ft_rd_status_paid",
+  "ft_rd_status_repossessed", "ft_rd_status_repossession", "ft_rd_vehicle",
 ];
 
 // Keys whose text is the same in every language, with the reason.
@@ -86,14 +84,8 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-  "da:ft_common_status": "Status is the Danish word",
-  "de:ft_common_status": "Status is the German word",
-  "id:ft_common_status": "Status is the Indonesian word",
-  "nl:ft_common_status": "Status is the Dutch word",
-  "no:ft_common_status": "Status is the Norwegian word",
-  "pl:ft_common_status": "Status is the Polish word",
-  "sv:ft_common_status": "Status is the Swedish word",
-  "nl:ft_aac_water": "Water is the Dutch word",
+  "nl:ft_fws_open_count": "open is the Dutch word",
+  "nl:ft_fws_state_open": "Open is the Dutch word (the sign on a door)",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").
@@ -102,10 +94,14 @@ const SCRIPT_ALLOW = {
 };
 // Keys this app draws that another PR of the wave checks, with the PR.
 const OTHER_PR = {
-  "ft_ui_app_animal_auto_care": "another bar's key (l10n-home-check.mjs)",
-  "ft_ui_app_animal_vet_system": "another bar's key (l10n-home-check.mjs)",
+  "ft_ui_app_factory_week_schedule": "another bar's key (l10n-home-check.mjs)",
+  "ft_ui_app_realistic_dealer": "another bar's key (l10n-home-check.mjs)",
   "ft_common_on": "another bar's key (l10n-settings-check.mjs)",
   "ft_common_off": "another bar's key (l10n-settings-check.mjs)",
+  "ft_common_inactive": "another bar's key (l10n-akita-animals-check.mjs)",
+  "ft_common_status": "another bar's key (l10n-akita-animals-check.mjs)",
+  "ft_common_connected": "another bar's key (l10n-akita-animals-check.mjs)",
+  "ft_common_overview": "another bar's key (l10n-akita-animals-check.mjs)",
 };
 // Drawn literals with no key, each with its reason.
 const NO_KEY = {
@@ -126,8 +122,7 @@ const CONTAINS = [
 // a key. keyPrefix limits a shared file to this app's keys.
 const SOURCES = [
   {"file": "src/apps/AkitaTabletIntegrationsApp.lua", "keyFns": ["ftAkitaText", "l10n", "l10nFormat"], "literals": true,
-   "keyTables": {"FT_AKITA_LINE_WORDS": "ftAkitaText"},
-   "skipDrawers": ["FACTORY_WEEK", "REALISTIC_DEALER"], "skipFunctions": ["ftRDGetDealer", "ftRDStatusText"]},
+   "skipDrawers": ["ANIMAL_AUTO_CARE", "ANIMAL_VET"], "skipFunctions": ["ftAkitaLineText"]},
 ];
 const DRAWFN = new Set(["appText", "text", "drawRow", "drawSection", "button", "drawButton", "drawButtonPair",
   "drawAppHeader", "appHeaderText", "sectionHeader", "row", "badge", "l10nAuto", "infoRow", "actionRow", "section"]);
@@ -196,27 +191,27 @@ for (const loc of locales) {
   }
 }
 
-// ---- ACCENT (batch 14's named defect): each restored pair keeps its accents.
+// ---- ACCENT (batch 15's named defect, as batch 14's): each restored pair keeps its accents.
 {
   const FOLD = { "æ": "ae", "Æ": "AE", "ø": "o", "Ø": "O", "ł": "l", "Ł": "L", "đ": "d", "Đ": "D", "ı": "i" };
   const fold = (s) => [...s].map((c) => FOLD[c] ?? c).join("").normalize("NFKD").replace(/\p{M}/gu, "");
   const ACCENT = {
-    br: ["ft_common_available", "ft_aac_not_detected", "ft_aac_water", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_active_illnesses", "ft_vet_veterinarian", "ft_vet_illness", "ft_vet_self"],
-    cz: ["ft_common_connected", "ft_common_inactive", "ft_common_overview", "ft_common_busy", "ft_common_available", "ft_aac_overall", "ft_aac_straw", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_active_illnesses", "ft_vet_veterinarian", "ft_vet_no_sick_pens", "ft_vet_cases", "ft_vet_worker", "ft_vet_self"],
-    da: ["ft_common_available", "ft_aac_purchase_cost", "ft_vet_active_cases", "ft_vet_veterinarian", "ft_vet_cases"],
-    ea: ["ft_aac_not_detected", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_self"],
-    es: ["ft_aac_not_detected", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_self"],
-    fi: ["ft_aac_overall", "ft_aac_no_action", "ft_vet_veterinarian", "ft_vet_worker", "ft_vet_case_line"],
-    fr: ["ft_common_connected", "ft_common_status", "ft_common_overview", "ft_common_busy", "ft_aac_not_detected", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_veterinarian", "ft_vet_no_sick_pens", "ft_vet_self"],
-    hu: ["ft_common_inactive", "ft_common_status", "ft_common_overview", "ft_common_available", "ft_aac_not_detected", "ft_aac_overall", "ft_aac_food", "ft_aac_water", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_active_cases", "ft_vet_not_detected", "ft_vet_active_illnesses", "ft_vet_veterinarian", "ft_vet_no_sick_pens", "ft_vet_pen", "ft_vet_illness", "ft_vet_worker", "ft_vet_self", "ft_vet_case_line"],
-    it: ["ft_aac_not_detected", "ft_vet_not_detected"],
-    no: ["ft_aac_food", "ft_aac_purchase_cost", "ft_aac_care_now", "ft_aac_no_action", "ft_vet_veterinarian"],
-    pl: ["ft_common_connected", "ft_common_overview", "ft_common_busy", "ft_common_available", "ft_aac_overall", "ft_aac_straw", "ft_aac_care_now", "ft_aac_no_action", "ft_vet_no_sick_pens"],
-    pt: ["ft_common_available", "ft_aac_not_detected", "ft_aac_water", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_active_illnesses", "ft_vet_veterinarian", "ft_vet_illness", "ft_vet_self"],
-    ro: ["ft_aac_food", "ft_aac_water", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_no_sick_pens", "ft_vet_pen", "ft_vet_illness"],
-    sv: ["ft_common_overview", "ft_common_available", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_veterinarian", "ft_vet_self"],
-    tr: ["ft_common_connected", "ft_common_overview", "ft_common_busy", "ft_common_available", "ft_aac_not_detected", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_not_detected", "ft_vet_active_illnesses", "ft_vet_no_sick_pens", "ft_vet_pen", "ft_vet_illness", "ft_vet_worker", "ft_vet_case_line"],
-    vi: ["ft_common_connected", "ft_common_inactive", "ft_common_status", "ft_common_overview", "ft_common_busy", "ft_common_available", "ft_aac_not_detected", "ft_aac_overall", "ft_aac_food", "ft_aac_water", "ft_aac_straw", "ft_aac_purchase_cost", "ft_aac_care_cost", "ft_aac_care_now", "ft_aac_last_action", "ft_aac_no_action", "ft_vet_active_cases", "ft_vet_not_detected", "ft_vet_active_illnesses", "ft_vet_veterinarian", "ft_vet_no_sick_pens", "ft_vet_cases", "ft_vet_pen", "ft_vet_illness", "ft_vet_worker", "ft_vet_self", "ft_vet_case_line"],
+    br: ["ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_rd_status_repossession", "ft_rd_not_detected", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_vehicle", "ft_rd_server_note"],
+    cz: ["ft_common_time", "ft_common_event", "ft_common_closed", "ft_common_note", "ft_fws_open_count", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_fws_no_event", "ft_rd_status_repossession", "ft_rd_status_active", "ft_rd_active_financing", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_open_notices", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_no_contracts", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_notices_line", "ft_rd_server_note"],
+    da: ["ft_fws_open_count", "ft_fws_factories_open", "ft_rd_remaining_debt", "ft_rd_open_notices", "ft_rd_vehicle", "ft_rd_server_note"],
+    ea: ["ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_rd_not_detected", "ft_rd_active_financing", "ft_rd_credit_score", "ft_rd_no_contracts", "ft_rd_vehicle", "ft_rd_server_note"],
+    es: ["ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_rd_not_detected", "ft_rd_active_financing", "ft_rd_credit_score", "ft_rd_no_contracts", "ft_rd_vehicle", "ft_rd_server_note"],
+    fi: ["ft_fws_fire_system", "ft_fws_no_factories", "ft_rd_status_repossession", "ft_rd_status_overdue", "ft_rd_remaining_debt", "ft_rd_check_repo", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_server_note"],
+    fr: ["ft_common_event", "ft_common_closed", "ft_fws_not_detected", "ft_fws_fire_system", "ft_fws_no_event", "ft_rd_status_paid", "ft_rd_not_detected", "ft_rd_credit_score", "ft_rd_vehicle", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_server_note"],
+    hu: ["ft_common_time", "ft_common_event", "ft_common_closed", "ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_fws_no_event", "ft_rd_status_repossession", "ft_rd_status_overdue", "ft_rd_status_active", "ft_rd_not_detected", "ft_rd_active_financing", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_open_notices", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_contracts", "ft_rd_no_contracts", "ft_rd_vehicle", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_notices_line", "ft_rd_server_note"],
+    it: ["ft_fws_not_detected", "ft_rd_not_detected"],
+    no: ["ft_fws_open_count", "ft_fws_factories_open", "ft_fws_no_factories", "ft_rd_status_repossession", "ft_rd_remaining_debt", "ft_rd_open_notices", "ft_rd_vehicle", "ft_rd_money_line", "ft_rd_server_note"],
+    pl: ["ft_common_closed", "ft_fws_fire_system", "ft_fws_no_factories", "ft_rd_status_repossession", "ft_rd_status_repossessed", "ft_rd_status_paid", "ft_rd_status_overdue", "ft_rd_remaining_debt", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_no_contracts", "ft_rd_money_line", "ft_rd_server_note"],
+    pt: ["ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_rd_status_repossession", "ft_rd_not_detected", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_vehicle", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_server_note"],
+    ro: ["ft_common_closed", "ft_fws_no_factories", "ft_rd_status_repossession", "ft_rd_status_paid", "ft_rd_active_financing", "ft_rd_remaining_debt", "ft_rd_open_notices", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_no_contracts", "ft_rd_money_line", "ft_rd_notices_line", "ft_rd_server_note"],
+    sv: ["ft_common_event", "ft_common_closed", "ft_fws_open_count", "ft_fws_factories_open", "ft_fws_no_factories", "ft_fws_no_event", "ft_rd_status_repossession", "ft_rd_status_repossessed", "ft_rd_status_overdue", "ft_rd_remaining_debt", "ft_rd_open_notices", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_money_line", "ft_rd_server_note"],
+    tr: ["ft_common_closed", "ft_fws_open_count", "ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_rd_status_repossession", "ft_rd_status_paid", "ft_rd_status_overdue", "ft_rd_not_detected", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_open_notices", "ft_rd_check_repo", "ft_rd_contracts", "ft_rd_no_contracts", "ft_rd_vehicle", "ft_rd_server_note"],
+    vi: ["ft_common_time", "ft_common_event", "ft_common_closed", "ft_common_note", "ft_fws_open_count", "ft_fws_not_detected", "ft_fws_factories_open", "ft_fws_fire_system", "ft_fws_factories", "ft_fws_no_factories", "ft_fws_factory", "ft_fws_no_event", "ft_rd_status_repossession", "ft_rd_status_repossessed", "ft_rd_status_paid", "ft_rd_status_overdue", "ft_rd_status_active", "ft_rd_not_detected", "ft_rd_active_financing", "ft_rd_remaining_debt", "ft_rd_credit_score", "ft_rd_open_notices", "ft_rd_repossessions", "ft_rd_check_repo", "ft_rd_contracts", "ft_rd_no_contracts", "ft_rd_vehicle", "ft_rd_money_line", "ft_rd_installment_line", "ft_rd_notices_line", "ft_rd_server_note"],
   };
   let n = 0;
   for (const [loc, keys] of Object.entries(ACCENT)) {
@@ -230,10 +225,10 @@ for (const loc of locales) {
   console.log(`  ACCENT: ${n} restored pairs in ${Object.keys(ACCENT).length} files checked for their accents`);
 }
 
-// ---- CASE, LABEL and DISTINCT (batch 14).
+// ---- CASE and STATE (batch 15).
 {
-  const SECTIONS = ["ft_common_status", "ft_aac_last_action", "ft_common_overview", "ft_vet_cases"];
-  const LABEL = { ft_vet_active_cases: /: %d$/, ft_vet_case_line: /: %d / };
+  const SECTIONS = ["ft_fws_factories", "ft_rd_contracts", "ft_common_note"];
+  const STATE_SAME = { en: "Open is the verb and the state", id: "Buka is the verb and the state", vi: "Mở is the verb and the state" };
   for (const loc of ["en", ...locales]) {
     const L = ALL[loc];
     const val = (k) => unesc((L.inside.get(k) || [""])[0]);
@@ -241,10 +236,7 @@ for (const loc of locales) {
       const v = val(k);
       if (v !== v.toLocaleUpperCase(loc === "tr" ? "tr" : undefined)) failures.push(`CASE ${loc}: ${k} ${JSON.stringify(v)} is a section header in lower case`);
     }
-    if (["cz", "pl", "ro", "ru", "uk"].includes(loc)) {
-      for (const [k, re] of Object.entries(LABEL)) if (!re.test(val(k))) failures.push(`LABEL ${loc}: ${k} ${JSON.stringify(val(k))} puts the count before a noun whose form changes with it`);
-    }
-    if (val("ft_common_connected").toLowerCase() === val("ft_common_on").toLowerCase()) failures.push(`DISTINCT ${loc}: Connected reads ${JSON.stringify(val("ft_common_connected"))}, the file's On word`);
+    if (!STATE_SAME[loc] && val("ft_fws_state_open").toLowerCase() === val("ft_common_open").toLowerCase()) failures.push(`STATE ${loc}: a factory's Open reads ${JSON.stringify(val("ft_fws_state_open"))}, the Settings button's verb`);
   }
 }
 
@@ -581,7 +573,7 @@ const checked = KEYS.length * locales.length;
 if (failures.length > 0) {
   for (const f of failures.slice(0, 60)) console.log("  FAIL " + f);
   if (failures.length > 60) console.log(`  ... and ${failures.length - 60} more`);
-  console.log(`l10n-akita-animals: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
+  console.log(`l10n-akita-factory-dealer: ${failures.length} failure(s) over ${checked} entries (${KEYS.length} keys x ${locales.length} locales)`);
   process.exit(1);
 }
-console.log(`l10n-akita-animals: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} own names; script rule: ${scriptChecked} values in ${locales.filter((l) => SCRIPT[l]).join(", ")}`);
+console.log(`l10n-akita-factory-dealer: PASS - ${checked} entries checked (${KEYS.length} keys x ${locales.length} locales), ${Object.keys(ALLOW).length} allowed identical pairs, ${Object.keys(ALLOW_ALL).length} own names; script rule: ${scriptChecked} values in ${locales.filter((l) => SCRIPT[l]).join(", ")}`);

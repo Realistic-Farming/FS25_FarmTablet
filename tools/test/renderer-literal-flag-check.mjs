@@ -416,7 +416,7 @@ lua(`
   E_AAC = { getMCCData = function() return { isEnabled = true, autoFutterEnabled = true, autoWasserEnabled = false,
       autoStrohEnabled = true, lastNotKaufCost = 1200, lastWorkerCost = 300,
       lines = { "Status: ok", "Gesamt: An", "Futter: Auffüllen ab 20% | Zielfüllung 90%", "Wasser: Aus",
-        "Stroh: Priorität 2", "Letzte Aktion: 06:00" } } end }
+        "Stroh: Priorität 2", "Letzte Aktion: 06:00", "Wasser: Anzahl 4", "Stroh: Aus (manuell)", "Futter: Anästhesie 1" } } end }
   E_AVS_N = 3
   E_AVS = { vetBusy = true, getActiveIllnessCount = function() return E_AVS_N end,
     sickStables = { s1 = { stableName = "Kuhstall Nord", illnessName = "Mastitis", remainingMs = 600000, animalCount = 3, vetCalled = true },
@@ -443,6 +443,9 @@ for (const loc of ["de", "fr", "pl", "en"]) {
   expectIn(`${loc} AutoCare water line`, aac.texts, `${f("ft_aac_water")}: ${f("ft_common_off")}`);
   expectIn(`${loc} AutoCare straw line`, aac.texts, `${f("ft_aac_straw")}: ${f("ft_aac_priority")} 2`);
   expectIn(`${loc} AutoCare last action line`, aac.texts, `${f("ft_aac_last_action_line")}: 06:00`);
+  expectIn(`${loc} AutoCare Anzahl stays a word (Bob's #201 MINOR)`, aac.texts, `${f("ft_aac_water")}: Anzahl 4`);
+  expectIn(`${loc} AutoCare Aus before a space`, aac.texts, `${f("ft_aac_straw")}: ${f("ft_common_off")} (manuell)`);
+  expectIn(`${loc} AutoCare Anästhesie stays a word (Bob's #202 MINOR: a UTF-8 lead byte is a letter)`, aac.texts, `${f("ft_aac_food")}: Anästhesie 1`);
   expectIn(`${loc} AutoCare LAST ACTION section`, aac.texts, f("ft_aac_last_action"));
   expectIn(`${loc} Vet header`, vet.texts, fmt(f("ft_vet_active_cases"), 3));
   expectIn(`${loc} Vet header (one case)`, one.texts, f("ft_vet_active_cases_one"));
@@ -455,6 +458,50 @@ for (const loc of ["de", "fr", "pl", "en"]) {
 }
 if (!file("de", "ft_aac_refill_below") || file("de", "ft_aac_refill_below") !== "Auffüllen ab") failures.push(`E de: ft_aac_refill_below is not AnimalAutoCare's own German word, so a German log line would change`);
 lua(`g_currentMission.animalAutoCareCore = nil; g_currentMission.animalVetSystem = nil`);
+// Akita's FactoryWeekSchedule and RealisticDealer apps (MAINTENANCE row 105, batch 15), on stand-ins shaped like the
+// drawers' reads: a schedule with a named factory at work and a bare one (no name, no worker, no event), and a dealer
+// with an overdue contract carrying notices, a paid contract with no name, and one on the mod's own status. In German,
+// French, Polish and English each draw must pass FLAG and PASS, the tablet's own words (the fallback names, "No
+// event", the statuses, the installments line) are the file's, a factory's Open is its own key (German's Settings
+// verb "Öffnen" is not a state), and the mod's own texts are drawn as the mod gives them.
+lua(`
+  HARNESS.setup = nil
+  g_currentMission.fws_weekSchedule = { getOpenFactoryCountForHud = function(self) return 1, 2 end,
+    hudDayName = "Montag", hudTimeText = "06:00", fireAutoEnabled = true, hudEventSummaryText = "Streik",
+    factoriesForHud = { { displayName = "Molkerei Nord", isOpen = true, workerText = "3/5 Arbeiter" }, { isOpen = false } } }
+  g_currentMission.realisticDealer = { financeManager = { getFarmOSData = function(self, farmId) return {
+    active = 2, debt = 45000, creditScore = 72, overdue = 1, contracts = {
+      { name = "Fendt 942", remainingAmount = 30000, installmentAmount = 2500, paidInstallments = 3, totalInstallments = 12, missedInstallments = 2, status = "overdue" },
+      { remainingAmount = 0, installmentAmount = 1000, paidInstallments = 12, totalInstallments = 12, status = "paid" },
+      { name = "Claas Lexion", status = "Gestundet", paidInstallments = 1, totalInstallments = 6 } } } end } }
+`);
+for (const loc of ["de", "fr", "pl", "en"]) {
+  t.setLocale(loc);
+  const f = (k) => file(loc, k);
+  const fws = t.draw("factory_week_schedule", false); const vF = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  const rd = t.draw("realistic_dealer", false); const vR = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  eChecks += 2;
+  for (const [what, r, v] of [["FactoryWeekSchedule", fws, vF], ["RealisticDealer", rd, vR]]) {
+    if (r.error) failures.push(`E ${loc} ${what}: ${r.error}`);
+    if (v.length) failures.push(`E ${loc} ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  }
+  expectIn(`${loc} Factory header`, fws.texts, fmt(f("ft_fws_open_count"), 1, 2));
+  expectIn(`${loc} Factory fire system on`, fws.texts, f("ft_common_on"));
+  expectIn(`${loc} Factory open state`, fws.texts, f("ft_fws_state_open"));
+  expectIn(`${loc} Factory closed state`, fws.texts, f("ft_common_closed"));
+  expectIn(`${loc} Factory fallback name`, fws.texts, `${f("ft_fws_factory")} 2`);
+  expectIn(`${loc} Factory no event`, fws.texts, f("ft_fws_no_event"));
+  expectIn(`${loc} Factory the mod's worker text`, fws.texts, "3/5 Arbeiter");
+  expectIn(`${loc} Dealer overdue status`, rd.texts, f("ft_rd_status_overdue"));
+  expectIn(`${loc} Dealer paid status`, rd.texts, f("ft_rd_status_paid"));
+  expectIn(`${loc} Dealer the mod's own status`, rd.texts, "Gestundet");
+  expectIn(`${loc} Dealer fallback name`, rd.texts, f("ft_rd_vehicle"));
+  expectIn(`${loc} Dealer installments with notices`, rd.texts, `${fmt(f("ft_rd_installment_line"), 3, 12)} | ${fmt(f("ft_rd_notices_line"), 2)}`);
+  expectIn(`${loc} Dealer installments`, rd.texts, fmt(f("ft_rd_installment_line"), 12, 12));
+  expectIn(`${loc} Dealer server note`, rd.texts, f("ft_rd_server_note"));
+}
+if (file("de", "ft_fws_state_open") === file("de", "ft_common_open")) failures.push(`E de: a factory's Open is the Settings button's verb ${JSON.stringify(file("de", "ft_common_open"))}`);
+lua(`g_currentMission.fws_weekSchedule = nil; g_currentMission.realisticDealer = nil`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);

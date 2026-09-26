@@ -3023,6 +3023,7 @@
         <text name="ft_aac_priority" text="Priorität" />
         <text name="ft_vet_active_cases_one" text="1 aktiver Fall" />
         <text name="ft_vet_case_line_one" text="%s - 1 Tier - ca. %d min" />
+        <text name="ft_fws_state_open" text="Geöffnet" />
     </texts>
 
 </l10n>

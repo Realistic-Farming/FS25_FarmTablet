@@ -38,8 +38,14 @@ local function ftAkitaLineText(line)
     for _, w in ipairs(FT_AKITA_LINE_WORDS) do
         t = t:gsub(w.de, ftAkitaRepl(ftAkitaText(w.key, w.fallback)))
     end
-    t = t:gsub(": An", ftAkitaRepl(": " .. ftAkitaText("ft_common_on", "On")))
-    t = t:gsub(": Aus", ftAkitaRepl(": " .. ftAkitaText("ft_common_off", "Off")))
+    -- ": An" and ": Aus" as whole words only (": Anzahl" and ": Anästhesie" stay): at the end of the line, or before a
+    -- byte that is neither a letter nor part of a UTF-8 character (128 to 255). A function's return is used as written,
+    -- so a "%" in the file's word needs no escaping.
+    local on, off = ftAkitaText("ft_common_on", "On"), ftAkitaText("ft_common_off", "Off")
+    t = t:gsub(": An$", function() return ": " .. on end)
+    t = t:gsub(": An([^%a\128-\255])", function(c) return ": " .. on .. c end)
+    t = t:gsub(": Aus$", function() return ": " .. off end)
+    t = t:gsub(": Aus([^%a\128-\255])", function(c) return ": " .. off .. c end)
     return t
 end
 
@@ -231,18 +237,20 @@ FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
     end
     for i, fac in ipairs(list) do
         if type(fac) == "table" then
-            local name = tostring(fac.displayName or fac.name or fac.title or (ftAkitaText("ft_fws_factory", "Factory") .. " " .. i))
-            local state = fac.isOpen == true and ftAkitaText("ft_common_open", "Open") or ftAkitaText("ft_common_closed", "Closed")
+            local modName = fac.displayName or fac.name or fac.title
+            local name = modName ~= nil and tostring(modName) or (ftAkitaText("ft_fws_factory", "Factory") .. " " .. i)
+            local state = fac.isOpen == true and ftAkitaText("ft_fws_state_open", "Open") or ftAkitaText("ft_common_closed", "Closed")
             local worker = tostring(fac.workerText or fac.workersText or "")
             local event = tostring(fac.hudEventText or fac.eventText or "")
             self.r:appRect(x - FT.px(4), y - FT.py(48), cw + FT.px(8), FT.py(52), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
             self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
-                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, modName == nil)
             self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, state,
                 RenderText.ALIGN_RIGHT, fac.isOpen and FT.C.POSITIVE or FT.C.WARNING, true)
+            local noLine = worker == "" and event == ""
             local line = worker ~= "" and worker or (event ~= "" and event or ftAkitaText("ft_fws_no_event", "No event"))
             self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
-                FT_Renderer.truncate(line, 40), RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL)
+                FT_Renderer.truncate(line, 40), RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL, noLine)
             y = y - FT.py(58)
         end
     end
@@ -260,14 +268,16 @@ local function ftRDGetDealer()
     return nil
 end
 
+-- A contract's status, and whether it is the tablet's word (true) or the mod's own text (false, which keeps the
+-- renderer's pass).
 local function ftRDStatusText(c)
     local st = tostring((c and (c.statusText or c.enforcementStatus or c.status)) or "")
-    if st == "repossession" or (c and (c.repossession == true or c.repossessionPending == true)) then return ftAkitaText("ft_rd_status_repossession", "Repossession running") end
-    if st == "repossessed" or (c and c.repossessed == true) then return ftAkitaText("ft_rd_status_repossessed", "Repossessed") end
-    if st == "paid" then return ftAkitaText("ft_rd_status_paid", "Paid") end
-    if st == "overdue" or st == "defaulted" then return ftAkitaText("ft_rd_status_overdue", "Overdue") end
-    if st == "active" or st == "none" or st == "" then return ftAkitaText("ft_rd_status_active", "Active") end
-    return st
+    if st == "repossession" or (c and (c.repossession == true or c.repossessionPending == true)) then return ftAkitaText("ft_rd_status_repossession", "Repossession running"), true end
+    if st == "repossessed" or (c and c.repossessed == true) then return ftAkitaText("ft_rd_status_repossessed", "Repossessed"), true end
+    if st == "paid" then return ftAkitaText("ft_rd_status_paid", "Paid"), true end
+    if st == "overdue" or st == "defaulted" then return ftAkitaText("ft_rd_status_overdue", "Overdue"), true end
+    if st == "active" or st == "none" or st == "" then return ftAkitaText("ft_rd_status_active", "Active"), true end
+    return st, false
 end
 
 FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
@@ -339,19 +349,20 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
     else
         for _, c in ipairs(contracts) do
             if type(c) == "table" then
-                local name = tostring(c.name or c.vehicleName or c.itemKey or ftAkitaText("ft_rd_vehicle", "Vehicle"))
+                local modName = c.name or c.vehicleName or c.itemKey
+                local name = modName ~= nil and tostring(modName) or ftAkitaText("ft_rd_vehicle", "Vehicle")
                 local remaining = tonumber(c.remainingAmount or c.remainingDebt or c.remaining) or 0
                 local rate = tonumber(c.installmentAmount or c.rateAmount) or 0
                 local paid = tonumber(c.paidInstallments) or 0
                 local total = tonumber(c.totalInstallments or c.selectedInstallments) or 0
                 local missed = tonumber(c.missedInstallments) or 0
-                local status = ftRDStatusText(c)
+                local status, statusLiteral = ftRDStatusText(c)
                 local statusColor = (missed > 0 or c.repossession == true or c.repossessionPending == true) and FT.C.WARNING or FT.C.POSITIVE
                 if c.repossessed == true or tostring(c.status or "") == "repossessed" then statusColor = FT.C.NEGATIVE end
 
                 self.r:appRect(x - FT.px(4), y - FT.py(58), cw + FT.px(8), FT.py(62), {AC[1]*0.10, AC[2]*0.10, AC[3]*0.10, 0.85})
-                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, status, RenderText.ALIGN_RIGHT, statusColor)
+                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, modName == nil)
+                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, status, RenderText.ALIGN_RIGHT, statusColor, statusLiteral)
                 self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
                     string.format(ftAkitaText("ft_rd_money_line", "Remaining: %s | Rate: %s"), ftAkitaMoney(remaining), ftAkitaMoney(rate)),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
@@ -359,7 +370,7 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
                 if missed > 0 then
                     inst = inst .. " | " .. string.format(ftAkitaText("ft_rd_notices_line", "Notices: %d"), missed)
                 end
-                self.r:appText(x + FT.px(10), y - FT.py(44), FT.FONT.TINY, inst, RenderText.ALIGN_LEFT, missed > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+                self.r:appText(x + FT.px(10), y - FT.py(44), FT.FONT.TINY, inst, RenderText.ALIGN_LEFT, missed > 0 and FT.C.WARNING or FT.C.TEXT_DIM, true)
                 y = y - FT.py(68)
             end
         end

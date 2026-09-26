@@ -218,11 +218,11 @@
         <text name="ft_common_overview" text="TỔNG QUAN" />
         <text name="ft_common_busy" text="Bận" />
         <text name="ft_common_available" text="Sẵn sàng" />
-        <text name="ft_common_time" text="Thoi gian" />
-        <text name="ft_common_event" text="Su kien" />
+        <text name="ft_common_time" text="Thời gian" />
+        <text name="ft_common_event" text="Sự kiện" />
         <text name="ft_common_open" text="Mở" />
-        <text name="ft_common_closed" text="Dong" />
-        <text name="ft_common_note" text="GHI CHU" />
+        <text name="ft_common_closed" text="Đóng" />
+        <text name="ft_common_note" text="GHI CHÚ" />
         <text name="ft_aac_not_detected" text="Không phát hiện AnimalAutoCare." />
         <text name="ft_aac_overall" text="Tổng thể" />
         <text name="ft_aac_food" text="Thức ăn" />
@@ -244,33 +244,33 @@
         <text name="ft_vet_worker" text="Công nhân" />
         <text name="ft_vet_self" text="Tự làm" />
         <text name="ft_vet_case_line" text="%s - %d con - khoảng %d phút" />
-        <text name="ft_fws_open_count" text="%d/%d mo" />
-        <text name="ft_fws_not_detected" text="Khong phat hien FactoryWeekSchedule." />
-        <text name="ft_fws_factories_open" text="Nha may dang mo" />
-        <text name="ft_fws_fire_system" text="He thong chua chay" />
-        <text name="ft_fws_factories" text="NHA MAY" />
-        <text name="ft_fws_no_factories" text="Chua co nha may nao trong bo nho HUD FactoryWeekSchedule." />
-        <text name="ft_fws_factory" text="Nha may" />
-        <text name="ft_fws_no_event" text="Khong co su kien" />
-        <text name="ft_rd_status_repossession" text="Dang thu hoi" />
-        <text name="ft_rd_status_repossessed" text="Da thu hoi" />
-        <text name="ft_rd_status_paid" text="Da tra" />
-        <text name="ft_rd_status_overdue" text="Qua han" />
-        <text name="ft_rd_status_active" text="Hoat dong" />
-        <text name="ft_rd_not_detected" text="Khong phat hien RealisticDealer." />
-        <text name="ft_rd_active_financing" text="Tai chinh dang hoat dong" />
-        <text name="ft_rd_remaining_debt" text="No con lai" />
-        <text name="ft_rd_credit_score" text="Diem tin dung" />
-        <text name="ft_rd_open_notices" text="Thong bao dang mo" />
-        <text name="ft_rd_repossessions" text="Thu hoi" />
-        <text name="ft_rd_check_repo" text="Xem thu hoi" />
-        <text name="ft_rd_contracts" text="HOP DONG" />
-        <text name="ft_rd_no_contracts" text="Khong co hop dong tai chinh nao dang hoat dong." />
-        <text name="ft_rd_vehicle" text="Phuong tien" />
-        <text name="ft_rd_money_line" text="Con lai: %s | Ky tra: %s" />
-        <text name="ft_rd_installment_line" text="Ky tra: %d/%d" />
-        <text name="ft_rd_notices_line" text="Thong bao: %d" />
-        <text name="ft_rd_server_note" text="Viec thu hoi phuong tien van chay qua RealisticDealer o phia may chu." />
+        <text name="ft_fws_open_count" text="%d/%d mở" />
+        <text name="ft_fws_not_detected" text="Không phát hiện FactoryWeekSchedule." />
+        <text name="ft_fws_factories_open" text="Nhà máy đang mở" />
+        <text name="ft_fws_fire_system" text="Hệ thống chữa cháy" />
+        <text name="ft_fws_factories" text="NHÀ MÁY" />
+        <text name="ft_fws_no_factories" text="Chưa có nhà máy nào trong bộ nhớ HUD FactoryWeekSchedule." />
+        <text name="ft_fws_factory" text="Nhà máy" />
+        <text name="ft_fws_no_event" text="Không có sự kiện" />
+        <text name="ft_rd_status_repossession" text="Đang thu hồi" />
+        <text name="ft_rd_status_repossessed" text="Đã thu hồi" />
+        <text name="ft_rd_status_paid" text="Đã trả" />
+        <text name="ft_rd_status_overdue" text="Quá hạn" />
+        <text name="ft_rd_status_active" text="Hoạt động" />
+        <text name="ft_rd_not_detected" text="Không phát hiện RealisticDealer." />
+        <text name="ft_rd_active_financing" text="Tài chính đang hoạt động" />
+        <text name="ft_rd_remaining_debt" text="Nợ còn lại" />
+        <text name="ft_rd_credit_score" text="Điểm tín dụng" />
+        <text name="ft_rd_open_notices" text="Thông báo đang mở" />
+        <text name="ft_rd_repossessions" text="Thu hồi" />
+        <text name="ft_rd_check_repo" text="Xem thu hồi" />
+        <text name="ft_rd_contracts" text="HỢP ĐỒNG" />
+        <text name="ft_rd_no_contracts" text="Không có hợp đồng tài chính nào đang hoạt động." />
+        <text name="ft_rd_vehicle" text="Phương tiện" />
+        <text name="ft_rd_money_line" text="Còn lại: %s | Kỳ trả: %s" />
+        <text name="ft_rd_installment_line" text="Kỳ trả: %d/%d" />
+        <text name="ft_rd_notices_line" text="Thông báo: %d" />
+        <text name="ft_rd_server_note" text="Việc thu hồi phương tiện vẫn chạy qua RealisticDealer ở phía máy chủ." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Mạng" />
         <text name="ft_network_choose_provider" text="Chọn nhà mạng" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Ưu tiên" />
         <text name="ft_vet_active_cases_one" text="1 ca đang hoạt động" />
         <text name="ft_vet_case_line_one" text="%s - 1 con - khoảng %d phút" />
+        <text name="ft_fws_state_open" text="Mở" />
     </texts>
 
 </l10n>

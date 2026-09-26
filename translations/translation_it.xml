@@ -245,7 +245,7 @@
         <text name="ft_vet_self" text="Tu" />
         <text name="ft_vet_case_line" text="%s - %d animali - circa %d min" />
         <text name="ft_fws_open_count" text="%d/%d aperte" />
-        <text name="ft_fws_not_detected" text="FactoryWeekSchedule non e stato rilevato." />
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule non è stato rilevato." />
         <text name="ft_fws_factories_open" text="Fabbriche aperte" />
         <text name="ft_fws_fire_system" text="Sistema antincendio" />
         <text name="ft_fws_factories" text="FABBRICHE" />
@@ -257,7 +257,7 @@
         <text name="ft_rd_status_paid" text="Pagato" />
         <text name="ft_rd_status_overdue" text="Scaduto" />
         <text name="ft_rd_status_active" text="Attivo" />
-        <text name="ft_rd_not_detected" text="RealisticDealer non e stato rilevato." />
+        <text name="ft_rd_not_detected" text="RealisticDealer non è stato rilevato." />
         <text name="ft_rd_active_financing" text="Finanziamenti attivi" />
         <text name="ft_rd_remaining_debt" text="Debito residuo" />
         <text name="ft_rd_credit_score" text="Punteggio di credito" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Priorità" />
         <text name="ft_vet_active_cases_one" text="1 caso attivo" />
         <text name="ft_vet_case_line_one" text="%s - 1 animale - circa %d min" />
+        <text name="ft_fws_state_open" text="Aperto" />
     </texts>
 
 </l10n>

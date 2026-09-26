@@ -218,11 +218,11 @@
         <text name="ft_common_overview" text="PŘEHLED" />
         <text name="ft_common_busy" text="Zaneprázdněno" />
         <text name="ft_common_available" text="Dostupné" />
-        <text name="ft_common_time" text="Cas" />
-        <text name="ft_common_event" text="Udalost" />
+        <text name="ft_common_time" text="Čas" />
+        <text name="ft_common_event" text="Událost" />
         <text name="ft_common_open" text="Otevřít" />
-        <text name="ft_common_closed" text="Zavreno" />
-        <text name="ft_common_note" text="POZNAMKA" />
+        <text name="ft_common_closed" text="Zavřeno" />
+        <text name="ft_common_note" text="POZNÁMKA" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare nebyl nalezen." />
         <text name="ft_aac_overall" text="Celkově" />
         <text name="ft_aac_food" text="Krmivo" />
@@ -244,33 +244,33 @@
         <text name="ft_vet_worker" text="Pracovník" />
         <text name="ft_vet_self" text="Sám" />
         <text name="ft_vet_case_line" text="%s - zvířata: %d - asi %d min" />
-        <text name="ft_fws_open_count" text="%d/%d otevreno" />
+        <text name="ft_fws_open_count" text="%d/%d otevřeno" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule nebyl nalezen." />
-        <text name="ft_fws_factories_open" text="Otevrene tovarny" />
-        <text name="ft_fws_fire_system" text="Pozarni system" />
-        <text name="ft_fws_factories" text="TOVARNY" />
-        <text name="ft_fws_no_factories" text="V cache HUD FactoryWeekSchedule zatim nejsou zadne tovarny." />
-        <text name="ft_fws_factory" text="Tovarna" />
-        <text name="ft_fws_no_event" text="Zadna udalost" />
-        <text name="ft_rd_status_repossession" text="Probiha zabaveni" />
+        <text name="ft_fws_factories_open" text="Otevřené továrny" />
+        <text name="ft_fws_fire_system" text="Požární systém" />
+        <text name="ft_fws_factories" text="TOVÁRNY" />
+        <text name="ft_fws_no_factories" text="V cache HUD FactoryWeekSchedule zatím nejsou žádné továrny." />
+        <text name="ft_fws_factory" text="Továrna" />
+        <text name="ft_fws_no_event" text="Žádná událost" />
+        <text name="ft_rd_status_repossession" text="Probíhá zabavení" />
         <text name="ft_rd_status_repossessed" text="Zabaveno" />
         <text name="ft_rd_status_paid" text="Zaplaceno" />
         <text name="ft_rd_status_overdue" text="Po splatnosti" />
-        <text name="ft_rd_status_active" text="Aktivni" />
+        <text name="ft_rd_status_active" text="Aktivní" />
         <text name="ft_rd_not_detected" text="RealisticDealer nebyl nalezen." />
-        <text name="ft_rd_active_financing" text="Aktivni financovani" />
-        <text name="ft_rd_remaining_debt" text="Zbyvajici dluh" />
-        <text name="ft_rd_credit_score" text="Kreditni skore" />
-        <text name="ft_rd_open_notices" text="Otevrena upozorneni" />
-        <text name="ft_rd_repossessions" text="Zabaveni" />
-        <text name="ft_rd_check_repo" text="Zkontrolovat zabaveni" />
+        <text name="ft_rd_active_financing" text="Aktivní financování" />
+        <text name="ft_rd_remaining_debt" text="Zbývající dluh" />
+        <text name="ft_rd_credit_score" text="Kreditní skóre" />
+        <text name="ft_rd_open_notices" text="Otevřená upozornění" />
+        <text name="ft_rd_repossessions" text="Zabavení" />
+        <text name="ft_rd_check_repo" text="Zkontrolovat zabavení" />
         <text name="ft_rd_contracts" text="SMLOUVY" />
-        <text name="ft_rd_no_contracts" text="Zadne aktivni smlouvy o financovani." />
+        <text name="ft_rd_no_contracts" text="Žádné aktivní smlouvy o financování." />
         <text name="ft_rd_vehicle" text="Vozidlo" />
-        <text name="ft_rd_money_line" text="Zbyva: %s | Splatka: %s" />
-        <text name="ft_rd_installment_line" text="Splatky: %d/%d" />
-        <text name="ft_rd_notices_line" text="Upozorneni: %d" />
-        <text name="ft_rd_server_note" text="Zabaveni vozidel stale probiha pres RealisticDealer na strane serveru." />
+        <text name="ft_rd_money_line" text="Zbývá: %s | Splátka: %s" />
+        <text name="ft_rd_installment_line" text="Splátky: %d/%d" />
+        <text name="ft_rd_notices_line" text="Upozornění: %d" />
+        <text name="ft_rd_server_note" text="Zabavení vozidel stále probíhá přes RealisticDealer na straně serveru." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Síť" />
         <text name="ft_network_choose_provider" text="Vyber operátora sítě" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Priorita" />
         <text name="ft_vet_active_cases_one" text="1 aktivní případ" />
         <text name="ft_vet_case_line_one" text="%s - 1 zvíře - asi %d min" />
+        <text name="ft_fws_state_open" text="Otevřeno" />
     </texts>
 
 </l10n>

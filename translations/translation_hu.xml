@@ -218,10 +218,10 @@
         <text name="ft_common_overview" text="ÁTTEKINTÉS" />
         <text name="ft_common_busy" text="Foglalt" />
         <text name="ft_common_available" text="Elérhető" />
-        <text name="ft_common_time" text="Ido" />
-        <text name="ft_common_event" text="Esemeny" />
+        <text name="ft_common_time" text="Idő" />
+        <text name="ft_common_event" text="Esemény" />
         <text name="ft_common_open" text="Megnyitás" />
-        <text name="ft_common_closed" text="Zarva" />
+        <text name="ft_common_closed" text="Zárva" />
         <text name="ft_common_note" text="JEGYZET" />
         <text name="ft_aac_not_detected" text="Az AnimalAutoCare nem található." />
         <text name="ft_aac_overall" text="Összesen" />
@@ -245,32 +245,32 @@
         <text name="ft_vet_self" text="Saját maga" />
         <text name="ft_vet_case_line" text="%s - %d állat - kb. %d perc" />
         <text name="ft_fws_open_count" text="%d/%d nyitva" />
-        <text name="ft_fws_not_detected" text="A FactoryWeekSchedule nem talalhato." />
-        <text name="ft_fws_factories_open" text="Nyitott gyarak" />
-        <text name="ft_fws_fire_system" text="Tuzrendszer" />
-        <text name="ft_fws_factories" text="GYARAK" />
-        <text name="ft_fws_no_factories" text="Meg nincs gyar a FactoryWeekSchedule HUD gyorsitotaraban." />
-        <text name="ft_fws_factory" text="Gyar" />
-        <text name="ft_fws_no_event" text="Nincs esemeny" />
-        <text name="ft_rd_status_repossession" text="Elkobzas folyamatban" />
+        <text name="ft_fws_not_detected" text="A FactoryWeekSchedule nem található." />
+        <text name="ft_fws_factories_open" text="Nyitott gyárak" />
+        <text name="ft_fws_fire_system" text="Tűzrendszer" />
+        <text name="ft_fws_factories" text="GYÁRAK" />
+        <text name="ft_fws_no_factories" text="Még nincs gyár a FactoryWeekSchedule HUD gyorsítótárában." />
+        <text name="ft_fws_factory" text="Gyár" />
+        <text name="ft_fws_no_event" text="Nincs esemény" />
+        <text name="ft_rd_status_repossession" text="Elkobzás folyamatban" />
         <text name="ft_rd_status_repossessed" text="Elkobozva" />
         <text name="ft_rd_status_paid" text="Kifizetve" />
-        <text name="ft_rd_status_overdue" text="Lejart" />
-        <text name="ft_rd_status_active" text="Aktiv" />
-        <text name="ft_rd_not_detected" text="A RealisticDealer nem talalhato." />
-        <text name="ft_rd_active_financing" text="Aktiv finanszirozas" />
-        <text name="ft_rd_remaining_debt" text="Fennmarado tartozas" />
-        <text name="ft_rd_credit_score" text="Hitelpontszam" />
-        <text name="ft_rd_open_notices" text="Nyitott ertesitesek" />
-        <text name="ft_rd_repossessions" text="Elkobzasok" />
-        <text name="ft_rd_check_repo" text="Elkobzas megtekintese" />
-        <text name="ft_rd_contracts" text="SZERZODESEK" />
-        <text name="ft_rd_no_contracts" text="Nincs aktiv finanszirozasi szerzodes." />
-        <text name="ft_rd_vehicle" text="Jarmu" />
-        <text name="ft_rd_money_line" text="Fennmarado: %s | Reszlet: %s" />
-        <text name="ft_rd_installment_line" text="Reszletek: %d/%d" />
-        <text name="ft_rd_notices_line" text="Ertesitesek: %d" />
-        <text name="ft_rd_server_note" text="A jarmuvek elkobzasa tovabbra is a RealisticDealeren keresztul tortenik a szerveroldalon." />
+        <text name="ft_rd_status_overdue" text="Lejárt" />
+        <text name="ft_rd_status_active" text="Aktív" />
+        <text name="ft_rd_not_detected" text="A RealisticDealer nem található." />
+        <text name="ft_rd_active_financing" text="Aktív finanszírozás" />
+        <text name="ft_rd_remaining_debt" text="Fennmaradó tartozás" />
+        <text name="ft_rd_credit_score" text="Hitelpontszám" />
+        <text name="ft_rd_open_notices" text="Nyitott értesítések" />
+        <text name="ft_rd_repossessions" text="Elkobzások" />
+        <text name="ft_rd_check_repo" text="Elkobzás megtekintése" />
+        <text name="ft_rd_contracts" text="SZERZŐDÉSEK" />
+        <text name="ft_rd_no_contracts" text="Nincs aktív finanszírozási szerződés." />
+        <text name="ft_rd_vehicle" text="Jármű" />
+        <text name="ft_rd_money_line" text="Fennmaradó: %s | Részlet: %s" />
+        <text name="ft_rd_installment_line" text="Részletek: %d/%d" />
+        <text name="ft_rd_notices_line" text="Értesítések: %d" />
+        <text name="ft_rd_server_note" text="A járművek elkobzása továbbra is a RealisticDealeren keresztül történik a szerveroldalon." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Hálózat" />
         <text name="ft_network_choose_provider" text="Válassz szolgáltatót" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioritás" />
         <text name="ft_vet_active_cases_one" text="1 aktív eset" />
         <text name="ft_vet_case_line_one" text="%s - 1 állat - kb. %d perc" />
+        <text name="ft_fws_state_open" text="Nyitva" />
     </texts>
 
 </l10n>

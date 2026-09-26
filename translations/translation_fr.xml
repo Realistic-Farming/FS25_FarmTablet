@@ -219,10 +219,10 @@
         <text name="ft_common_busy" text="Occupé" />
         <text name="ft_common_available" text="Disponible" />
         <text name="ft_common_time" text="Heure" />
-        <text name="ft_common_event" text="Evenement" />
+        <text name="ft_common_event" text="Événement" />
         <text name="ft_common_open" text="Ouvrir" />
-        <text name="ft_common_closed" text="Ferme" />
-        <text name="ft_common_note" text="NOTE" />
+        <text name="ft_common_closed" text="Fermé" />
+        <text name="ft_common_note" text="REMARQUE" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare n'a pas été détecté." />
         <text name="ft_aac_overall" text="Global" />
         <text name="ft_aac_food" text="Nourriture" />
@@ -245,32 +245,32 @@
         <text name="ft_vet_self" text="Soi-même" />
         <text name="ft_vet_case_line" text="%s - %d animaux - environ %d min" />
         <text name="ft_fws_open_count" text="%d/%d ouvertes" />
-        <text name="ft_fws_not_detected" text="FactoryWeekSchedule n'a pas ete detecte." />
+        <text name="ft_fws_not_detected" text="FactoryWeekSchedule n'a pas été détecté." />
         <text name="ft_fws_factories_open" text="Usines ouvertes" />
-        <text name="ft_fws_fire_system" text="Systeme incendie" />
+        <text name="ft_fws_fire_system" text="Système incendie" />
         <text name="ft_fws_factories" text="USINES" />
         <text name="ft_fws_no_factories" text="Aucune usine dans le cache HUD de FactoryWeekSchedule." />
         <text name="ft_fws_factory" text="Usine" />
-        <text name="ft_fws_no_event" text="Aucun evenement" />
+        <text name="ft_fws_no_event" text="Aucun événement" />
         <text name="ft_rd_status_repossession" text="Saisie en cours" />
         <text name="ft_rd_status_repossessed" text="Saisi" />
-        <text name="ft_rd_status_paid" text="Paye" />
+        <text name="ft_rd_status_paid" text="Payé" />
         <text name="ft_rd_status_overdue" text="En retard" />
         <text name="ft_rd_status_active" text="Actif" />
-        <text name="ft_rd_not_detected" text="RealisticDealer n'a pas ete detecte." />
+        <text name="ft_rd_not_detected" text="RealisticDealer n'a pas été détecté." />
         <text name="ft_rd_active_financing" text="Financements actifs" />
         <text name="ft_rd_remaining_debt" text="Dette restante" />
-        <text name="ft_rd_credit_score" text="Cote de credit" />
+        <text name="ft_rd_credit_score" text="Cote de crédit" />
         <text name="ft_rd_open_notices" text="Avis ouverts" />
         <text name="ft_rd_repossessions" text="Saisies" />
         <text name="ft_rd_check_repo" text="Voir saisies" />
         <text name="ft_rd_contracts" text="CONTRATS" />
         <text name="ft_rd_no_contracts" text="Aucun contrat de financement actif." />
-        <text name="ft_rd_vehicle" text="Vehicule" />
-        <text name="ft_rd_money_line" text="Restant : %s | Mensualite : %s" />
-        <text name="ft_rd_installment_line" text="Echeances : %d/%d" />
+        <text name="ft_rd_vehicle" text="Véhicule" />
+        <text name="ft_rd_money_line" text="Restant : %s | Mensualité : %s" />
+        <text name="ft_rd_installment_line" text="Échéances : %d/%d" />
         <text name="ft_rd_notices_line" text="Avis : %d" />
-        <text name="ft_rd_server_note" text="Les saisies de vehicules passent toujours par RealisticDealer cote serveur." />
+        <text name="ft_rd_server_note" text="Les saisies de véhicules passent toujours par RealisticDealer côté serveur." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Réseau" />
         <text name="ft_network_choose_provider" text="Choisissez un opérateur réseau" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Priorité" />
         <text name="ft_vet_active_cases_one" text="1 cas actif" />
         <text name="ft_vet_case_line_one" text="%s - 1 animal - environ %d min" />
+        <text name="ft_fws_state_open" text="Ouvert" />
     </texts>
 
 </l10n>

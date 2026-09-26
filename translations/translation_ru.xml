@@ -3064,6 +3064,7 @@
         <text name="ft_aac_priority" text="Приоритет" />
         <text name="ft_vet_active_cases_one" text="1 активный случай" />
         <text name="ft_vet_case_line_one" text="%s - 1 животное - около %d мин" />
+        <text name="ft_fws_state_open" text="Открыто" />
     </texts>
 
 </l10n>

@@ -3010,6 +3010,7 @@
         <text name="ft_aac_priority" text="Priority" />
         <text name="ft_vet_active_cases_one" text="1 active case" />
         <text name="ft_vet_case_line_one" text="%s - 1 animal - about %d min" />
+        <text name="ft_fws_state_open" text="Open" />
     </texts>
 
 </l10n>

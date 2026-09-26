@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="우선순위" />
         <text name="ft_vet_active_cases_one" text="활성 사례 1건" />
         <text name="ft_vet_case_line_one" text="%s - 동물 1마리 - 약 %d분" />
+        <text name="ft_fws_state_open" text="가동 중" />
     </texts>
 
 </l10n>

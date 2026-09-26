@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="優先順序" />
         <text name="ft_vet_active_cases_one" text="1 個進行中病例" />
         <text name="ft_vet_case_line_one" text="%s - 1 隻動物 - 約 %d 分鐘" />
+        <text name="ft_fws_state_open" text="開放" />
     </texts>
 
 </l10n>

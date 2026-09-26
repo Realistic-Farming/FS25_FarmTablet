@@ -244,33 +244,33 @@
         <text name="ft_vet_worker" text="Arbeider" />
         <text name="ft_vet_self" text="Selv" />
         <text name="ft_vet_case_line" text="%s - %d dyr - ca. %d min" />
-        <text name="ft_fws_open_count" text="%d/%d apne" />
+        <text name="ft_fws_open_count" text="%d/%d åpne" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule ble ikke funnet." />
-        <text name="ft_fws_factories_open" text="Fabrikker apne" />
+        <text name="ft_fws_factories_open" text="Fabrikker åpne" />
         <text name="ft_fws_fire_system" text="Brannsystem" />
         <text name="ft_fws_factories" text="FABRIKKER" />
-        <text name="ft_fws_no_factories" text="Ingen fabrikker i FactoryWeekSchedule HUD-bufferen enna." />
+        <text name="ft_fws_no_factories" text="Ingen fabrikker i FactoryWeekSchedule HUD-bufferen ennå." />
         <text name="ft_fws_factory" text="Fabrikk" />
         <text name="ft_fws_no_event" text="Ingen hendelse" />
-        <text name="ft_rd_status_repossession" text="Tilbaketaking pagar" />
+        <text name="ft_rd_status_repossession" text="Tilbaketaking pågår" />
         <text name="ft_rd_status_repossessed" text="Tatt tilbake" />
         <text name="ft_rd_status_paid" text="Betalt" />
         <text name="ft_rd_status_overdue" text="Forfalt" />
         <text name="ft_rd_status_active" text="Aktiv" />
         <text name="ft_rd_not_detected" text="RealisticDealer ble ikke funnet." />
         <text name="ft_rd_active_financing" text="Aktiv finansiering" />
-        <text name="ft_rd_remaining_debt" text="Gjenstaende gjeld" />
+        <text name="ft_rd_remaining_debt" text="Gjenstående gjeld" />
         <text name="ft_rd_credit_score" text="Kredittscore" />
-        <text name="ft_rd_open_notices" text="Apne varsler" />
+        <text name="ft_rd_open_notices" text="Åpne varsler" />
         <text name="ft_rd_repossessions" text="Tilbaketakinger" />
         <text name="ft_rd_check_repo" text="Se tilbaketaking" />
         <text name="ft_rd_contracts" text="KONTRAKTER" />
         <text name="ft_rd_no_contracts" text="Ingen aktive finansieringskontrakter." />
-        <text name="ft_rd_vehicle" text="Kjoretoy" />
-        <text name="ft_rd_money_line" text="Gjenstaende: %s | Avdrag: %s" />
+        <text name="ft_rd_vehicle" text="Kjøretøy" />
+        <text name="ft_rd_money_line" text="Gjenstående: %s | Avdrag: %s" />
         <text name="ft_rd_installment_line" text="Avdrag: %d/%d" />
         <text name="ft_rd_notices_line" text="Varsler: %d" />
-        <text name="ft_rd_server_note" text="Tilbaketaking av kjoretoy gar fortsatt via RealisticDealer pa serversiden." />
+        <text name="ft_rd_server_note" text="Tilbaketaking av kjøretøy går fortsatt via RealisticDealer på serversiden." />
         <text name="ft_network_default_provider" text="Realistic Farming Mobile" />
         <text name="ft_network_title" text="Nettverk" />
         <text name="ft_network_choose_provider" text="Velg nettleverandør" />
@@ -3022,6 +3022,7 @@
         <text name="ft_aac_priority" text="Prioritet" />
         <text name="ft_vet_active_cases_one" text="1 aktivt tilfelle" />
         <text name="ft_vet_case_line_one" text="%s - 1 dyr - ca. %d min" />
+        <text name="ft_fws_state_open" text="Åpen" />
     </texts>
 
 </l10n>
