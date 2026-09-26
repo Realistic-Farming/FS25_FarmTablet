@@ -503,6 +503,77 @@ for (const loc of ["de", "fr", "pl", "en"]) {
 }
 if (file("de", "ft_fws_state_open") === file("de", "ft_common_open")) failures.push(`E de: a factory's Open is the Settings button's verb ${JSON.stringify(file("de", "ft_common_open"))}`);
 lua(`g_currentMission.fws_weekSchedule = nil; g_currentMission.realisticDealer = nil`);
+// Financial Cockpit (MAINTENANCE row 105, batch 16; FT-6, and RSF-F130's debt rows), through an IncomeManager stand-in
+// whose getEmergencyLoanView returns IncomeMod's own view shape (IncomeMod src/IncomeManager.lua:587, EmergencyLoan.lua
+// getView :831): COMPLETE (READY, 5250 outstanding), INCOMPLETE (no view yet: nil, "NO_VIEW_YET", the client's reply
+// before the host answers) and NATIVE_ONLY (no manager). The home page, and the vital pocket through the heart's real
+// button; the history modes through the reader's own probe (_historyMode: Time Guard absent, host, joined client,
+// dedicated). The app's real back handler returns it home after each walk. Each draw must pass FLAG and PASS, in de,
+// fr, pl and en, and F130's rows draw the file's text.
+lua(`
+  HARNESS.setup = nil
+  E_FC = {}
+  function E_FC.tick() g_currentMission.time = (g_currentMission.time or 0) + 600000 end
+  function E_FC.home() local h = FarmTabletUI._appBackHandlers[FT.APP.FINANCIAL_COCKPIT]; if h then h() end end
+  function E_FC.view(mode)
+    if mode == "COMPLETE" then
+      g_currentMission.incomeManager = { getEmergencyLoanView = function(self, farmId)
+        return { version = 1, farmId = 1, revision = 1, readiness = "READY", nativeLoan = 0, principal = 5000, accruedInterest = 250,
+          outstanding = 5250, drawCount = 1, effectiveMonthlyRate = 0.02, automaticRepaymentShare = 0.25,
+          canBorrow = false, borrowReason = "NO_ACTOR_CONTEXT", canRepay = false, repayReason = "NO_ACTOR_CONTEXT" } end }
+    elseif mode == "INCOMPLETE" then
+      g_currentMission.incomeManager = { getEmergencyLoanView = function(self, farmId) return nil, "NO_VIEW_YET" end }
+    else
+      g_currentMission.incomeManager = nil
+    end
+    E_FC.tick()
+  end
+  E_FC.isServer = g_currentMission.getIsServer
+`);
+for (const loc of ["de", "fr", "pl", "en"]) {
+  t.setLocale(loc);
+  const f = (k) => file(loc, k);
+  const clean = (what, r) => {
+    const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+    eChecks++;
+    if (r.error) failures.push(`E ${loc} Cockpit ${what}: ${r.error}`);
+    if (v.length) failures.push(`E ${loc} Cockpit ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  };
+  // COMPLETE: F130's emergency and total rows, the loan button, and the debt parts in the leverage vital.
+  lua(`E_FC.home(); E_FC.view("COMPLETE")`);
+  let r = t.draw("financial_cockpit", false); clean("home (COMPLETE)", r);
+  expectIn(`${loc} Cockpit emergency loan row`, r.texts, f("ft_fc_emergency_loan"));
+  expectIn(`${loc} Cockpit total debt row`, r.texts, f("ft_fc_total_debt"));
+  expectIn(`${loc} Cockpit manage loan button`, r.texts, f("ft_fc_open_loan"));
+  r = t.flow("financial_cockpit", [""]); clean("vital pocket (COMPLETE)", r);
+  const parts = r.texts.find((s) => s.includes(f("ft_fc_debt_emergency")) && s.includes(f("ft_fc_debt_total")));
+  eChecks++;
+  if (!parts || !parts.startsWith(f("ft_fc_debt_native"))) failures.push(`E ${loc} Cockpit debt parts: no "${f("ft_fc_debt_native")} ... ${f("ft_fc_debt_emergency")} ... ${f("ft_fc_debt_total")}" line (${JSON.stringify(r.texts).slice(0, 160)})`);
+  expectIn(`${loc} Cockpit vitals section`, r.texts, f("ft_fc_section_vitals"));
+  expectIn(`${loc} Cockpit worst rule`, r.texts, f("ft_fc_worst_rule"));
+  expectIn(`${loc} Cockpit no clock (Time Guard absent)`, r.texts, f("ft_fc_history_no_clock"));
+  // INCOMPLETE: the owner is present without a view; the combined figure is unknown, the loan button stays.
+  lua(`E_FC.home(); E_FC.view("INCOMPLETE")`);
+  r = t.draw("financial_cockpit", false); clean("home (INCOMPLETE)", r);
+  expectIn(`${loc} Cockpit unavailable (INCOMPLETE)`, r.texts, f("ft_fc_unavailable"));
+  expectIn(`${loc} Cockpit manage loan button (INCOMPLETE)`, r.texts, f("ft_fc_open_loan"));
+  r = t.flow("financial_cockpit", [""]); clean("vital pocket (INCOMPLETE)", r);
+  expectIn(`${loc} Cockpit leverage partial (INCOMPLETE)`, r.texts, f("ft_fc_partial"));
+  // NATIVE_ONLY: no owner, no F130 rows, no loan button.
+  lua(`E_FC.home(); E_FC.view("NATIVE_ONLY")`);
+  r = t.draw("financial_cockpit", false); clean("home (NATIVE_ONLY)", r);
+  eChecks++;
+  if (r.texts.includes(f("ft_fc_open_loan")) || r.texts.includes(f("ft_fc_emergency_loan"))) failures.push(`E ${loc} Cockpit NATIVE_ONLY draws F130's loan rows`);
+  // History modes through the reader's own probe: a joined client, then a dedicated server.
+  lua(`E_FC.home(); g_currentMission.timeGuard = {}; g_currentMission.getIsServer = function() return false end; E_FC.tick()`);
+  r = t.flow("financial_cockpit", [""]); clean("vital pocket (host only)", r);
+  expectIn(`${loc} Cockpit host only (joined client)`, r.texts, f("ft_fc_history_host_only"));
+  lua(`E_FC.home(); g_currentMission.isDedicatedServer = true; E_FC.tick()`);
+  r = t.flow("financial_cockpit", [""]); clean("vital pocket (dedicated)", r);
+  expectIn(`${loc} Cockpit dedicated`, r.texts, f("ft_fc_history_dedicated"));
+  lua(`E_FC.home(); g_currentMission.isDedicatedServer = nil; g_currentMission.timeGuard = nil; g_currentMission.getIsServer = E_FC.isServer; E_FC.tick()`);
+}
+lua(`E_FC.home(); g_currentMission.incomeManager = nil; E_FC.tick()`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
