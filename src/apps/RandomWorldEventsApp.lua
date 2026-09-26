@@ -105,7 +105,7 @@ FarmTabletUI:registerDrawer(FT.APP.RANDOM_EVENTS, function(self)
         if catWord then
             y = self:drawRow(y, "Category", catWord)
         end
-        y = self:drawRow(y, "Duration", string.format("%dm / %dm", remMin, durMin))
+        y = self:drawRow(y, "Duration", FT.l10nFormat("ft_rwe_duration_fmt", "%dm / %dm", remMin, durMin))
         y = y + FT.py(FT.SP.ROW) - FT.py(8)
         y = self:drawBar(y, remMin, durMin, FT.C.WARNING)
         y = y - FT.py(6)

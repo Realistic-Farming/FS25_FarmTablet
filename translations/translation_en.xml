@@ -2268,6 +2268,10 @@
         <text name="ft_contracts_badge_collect" text="%d COLLECT" />
         <text name="ft_contracts_game_time" text="Game time: %s" />
         <text name="ft_fleet_vehicles_fmt" text="%d vehicles" />
+        <text name="ft_rwe_duration_fmt" text="%dm / %dm" />
+        <text name="ft_md_volatility_fmt" text="%.1fx" />
+        <text name="ft_md_active_events_fmt" text="ACTIVE EVENTS  (%d)" />
+        <text name="ft_md_event_intensity_fmt" text="%d%%  |  %dm" />
         <text name="ft_rotation_help_what_1" text="Farm-wide crop rotation standing and a what-if compare&#10;" />
         <text name="ft_rotation_help_what_2" text="for the next crop on any field. Numbers come from Soil&#10;" />
         <text name="ft_rotation_help_what_3" text="Fertilizer's own rotation scoring, not a second model." />
