@@ -57,7 +57,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DIR = join(ROOT, "translations");
 
 const KEYS = [
-  "ft_auto_100k", "ft_auto_10k", "ft_auto_1k", "ft_auto_1m", "ft_auto_all", "ft_auto_base_rate",
+  "ft_auto_all", "ft_auto_base_rate",
   "ft_auto_cost_mode_2", "ft_auto_est_interval", "ft_auto_fill_fuel", "ft_auto_fire", "ft_auto_hire",
   "ft_auto_hire_tab", "ft_auto_hours", "ft_auto_idle",
   "ft_auto_install_fs25_workercosts_to_manage_personnel", "ft_auto_levels", "ft_auto_money",
@@ -69,8 +69,9 @@ const KEYS = [
   "ft_auto_syncing_roster_from_host", "ft_auto_the_roster_lives_on_the_host_and_is_loading",
   "ft_auto_time_scale", "ft_auto_vehicles_2", "ft_auto_wage_level_2", "ft_auto_wage_structure",
   "ft_auto_worker_costs_is_not_installed", "ft_auto_workers", "ft_auto_working", "ft_farmadmin_admin_only",
-  "ft_farmadmin_help_money_body", "ft_farmadmin_help_mp_body", "ft_farmadmin_help_scale_body",
+  "ft_farmadmin_help_money_fmt", "ft_farmadmin_help_mp_body", "ft_farmadmin_help_scale_body",
   "ft_farmadmin_help_skip_body", "ft_farmadmin_help_vehicles_body", "ft_farmadmin_host_only",
+  "ft_farmadmin_money_100k_fmt", "ft_farmadmin_money_10k_fmt", "ft_farmadmin_money_1k_fmt", "ft_farmadmin_money_1m_fmt",
   "ft_farmadmin_notice_1", "ft_farmadmin_notice_2", "ft_farmadmin_skip_6am", "ft_farmadmin_skip_6pm",
   "ft_farmadmin_skip_midnight", "ft_farmadmin_skip_noon", "ft_farmadmin_time_scale_fmt",
   "ft_farmadmin_vehicles_fmt", "ft_personnel_filter_fmt", "ft_personnel_help_hire_body",
@@ -87,10 +88,6 @@ const KEYS = [
 // Keys whose text is the same in every language, with the reason.
 const ALLOW_ALL = {
   "ft_auto_pro_staff_2": "the Pro-Staff feature's own name (FS25_WorkerCosts), kept in every language",
-  "ft_auto_1k": "a money amount in the tablet's shorthand (+$1K), written the same unless a locale spells it out",
-  "ft_auto_10k": "a money amount in the tablet's shorthand (+$10K), written the same unless a locale spells it out",
-  "ft_auto_100k": "a money amount in the tablet's shorthand (+$100K), written the same unless a locale spells it out",
-  "ft_auto_1m": "a money amount in the tablet's shorthand (+$1M), written the same unless a locale spells it out",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
