@@ -375,8 +375,6 @@
         <text name="ft_auto_0f_km_h" text="%.0f km/h" />
         <text name="ft_auto_0f_width_0f" text="%.0f%%  (width: %.0f%%)" />
         <text name="ft_auto_0ft" text="%.0ft" />
-        <text name="ft_auto_100k" text="+$100K" />
-        <text name="ft_auto_10k" text="+$10K" />
         <text name="ft_auto_12_pm" text="12 PM" />
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="1 項作業進行中" />
@@ -391,10 +389,8 @@
         <text name="ft_auto_1f_ha" text="%.1f ha" />
         <text name="ft_auto_1f_km_h" text="%.1f km/h" />
         <text name="ft_auto_1fh_d_jobs_fatigue_d" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
-        <text name="ft_auto_1k" text="+$1K" />
         <text name="ft_auto_1k_2" text="+1k" />
         <text name="ft_auto_1k_3" text="-1k" />
-        <text name="ft_auto_1m" text="+$1M" />
         <text name="ft_auto_2f_m" text="%.2f m" />
         <text name="ft_auto_30_days" text="30 days" />
         <text name="ft_auto_3g" text="3G" />
@@ -2729,7 +2725,11 @@
         <text name="ft_storage_silo_one" text="%d 座筒倉" />
         <text name="ft_storage_silos" text="%d 座筒倉" />
         <text name="ft_storage_peak_fmt" text="最高價：%s  (第 %d 天)" />
-        <text name="ft_farmadmin_help_money_body" text="為農場帳戶增加資金。&#10;金額：+$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_money_fmt" text="為農場帳戶增加資金。&#10;金額：%s" />
+        <text name="ft_farmadmin_money_1k_fmt" text="+%s1千" />
+        <text name="ft_farmadmin_money_10k_fmt" text="+%s1萬" />
+        <text name="ft_farmadmin_money_100k_fmt" text="+%s10萬" />
+        <text name="ft_farmadmin_money_1m_fmt" text="+%s100萬" />
         <text name="ft_farmadmin_help_scale_body" text="設定遊戲時間流逝的速度。&#10;「暫停」會停止時間。目前的速度會標示出來。&#10;取代舊的「時間控制」圖塊。" />
         <text name="ft_farmadmin_help_skip_body" text="將時鐘調到一天中的固定時刻。&#10;若今天已過該時刻，則跳到明天。" />
         <text name="ft_farmadmin_help_vehicles_body" text="全部維修 - 清除所有車輛的損傷。&#10;加滿燃料 - 將燃料（及 AdBlue）加到滿&#10;             適用於所有機動車輛。" />

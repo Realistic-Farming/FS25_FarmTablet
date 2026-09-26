@@ -375,8 +375,6 @@
         <text name="ft_auto_0f_km_h" text="%.0f km/h" />
         <text name="ft_auto_0f_width_0f" text="%.0f%%  (width: %.0f%%)" />
         <text name="ft_auto_0ft" text="%.0ft" />
-        <text name="ft_auto_100k" text="+$100K" />
-        <text name="ft_auto_10k" text="+$10K" />
         <text name="ft_auto_12_pm" text="12 PM" />
         <text name="ft_auto_14_days" text="14 days" />
         <text name="ft_auto_1_active_job" text="1 aktivt jobb" />
@@ -391,10 +389,8 @@
         <text name="ft_auto_1f_ha" text="%.1f ha" />
         <text name="ft_auto_1f_km_h" text="%.1f km/h" />
         <text name="ft_auto_1fh_d_jobs_fatigue_d" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
-        <text name="ft_auto_1k" text="+$1K" />
         <text name="ft_auto_1k_2" text="+1k" />
         <text name="ft_auto_1k_3" text="-1k" />
-        <text name="ft_auto_1m" text="+$1M" />
         <text name="ft_auto_2f_m" text="%.2f m" />
         <text name="ft_auto_30_days" text="30 days" />
         <text name="ft_auto_3g" text="3G" />
@@ -2729,7 +2725,11 @@
         <text name="ft_storage_silo_one" text="%d silo" />
         <text name="ft_storage_silos" text="%d silor" />
         <text name="ft_storage_peak_fmt" text="Topp: %s  (dag %d)" />
-        <text name="ft_farmadmin_help_money_body" text="Lägger till pengar på gårdens konto.&#10;Belopp: +$1K · +$10K · +$100K · +$1M" />
+        <text name="ft_farmadmin_help_money_fmt" text="Lägger till pengar på gårdens konto.&#10;Belopp: %s" />
+        <text name="ft_farmadmin_money_1k_fmt" text="+1 000 %s" />
+        <text name="ft_farmadmin_money_10k_fmt" text="+10 000 %s" />
+        <text name="ft_farmadmin_money_100k_fmt" text="+100 000 %s" />
+        <text name="ft_farmadmin_money_1m_fmt" text="+1 milj. %s" />
         <text name="ft_farmadmin_help_scale_body" text="Styr hur fort speltiden går.&#10;PAUS stoppar tiden. Den aktiva hastigheten är markerad.&#10;Ersätter den gamla rutan Tidsstyrning." />
         <text name="ft_farmadmin_help_skip_body" text="Ställer klockan på en fast tid på dygnet.&#10;Går vidare till i morgon om tiden redan har passerat." />
         <text name="ft_farmadmin_help_vehicles_body" text="REPARERA ALLA - nollställer skadorna på alla dina fordon.&#10;TANKA - fyller bränsle (och AdBlue) till max&#10;             på alla dina motorfordon." />
