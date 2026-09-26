@@ -597,17 +597,13 @@ for (const loc of ["de", "fr", "pl", "en"]) {
 lua(`E_FC.home(); g_currentMission.incomeManager = nil; E_FC.tick()`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
-// MAINTENANCE row 158's six named sites (the final fc sweep), each reached by its drawer's own route, in German, French
+// MAINTENANCE row 158's six named sites and Organic's practice lines (the final fc sweep), each reached by its drawer's own route, in German, French
 // and Polish: pens the engine's way (placeables with spec_husbandryAnimals; DataProvider names the type), a farmland the
 // real getOwnedFields reads (Field Jobs' start view, through its real buttons), Hotspot Manager's and Personnel's real
 // buttons (the message is set on the press and drawn on the next frame, where the FLAG row cannot attribute it: the
 // flag on the drawn text is the check), DairyCore's barn rows (a disease id is SoilFertilizer's, relayed as DairyCore
 // gives it), and FactoryWeekSchedule's day and time. The file's text is drawn as it is, with the flag; the mods' own
 // text keeps the renderer's pass (Organic's disease id, and FactoryWeekSchedule's day when no time comes with it).
-// Row 158's remainder (later, not queued) that these walks reach: named here, not flagged by this sweep. Organic's
-// practice lines (every line an FT.l10n or FT.l10nFormat output) draw without the flag once a field is selected.
-const ROW158_LATER = { "FLAG src/apps/OrganicApp.lua:239": "Organic's practice lines" };
-const row158Reached = new Set();
 const expectLit = (label, res, want, lit = true) => {
   eChecks++;
   const i = want == null ? -1 : res.texts.indexOf(want);
@@ -639,11 +635,7 @@ for (const loc of ["de", "fr", "pl"]) {
   t.setLocale(loc);
   const f = (k) => file(loc, k);
   const clean = (what, r) => {
-    const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]).filter((x) => {
-      const k = `${x[0]} ${x[1]}`;
-      if (ROW158_LATER[k]) { row158Reached.add(k); return false; }
-      return true;
-    });
+    const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
     eChecks++;
     if (r.error) failures.push(`E ${loc} ${what}: ${r.error}`);
     if (v.length) failures.push(`E ${loc} ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
@@ -667,6 +659,8 @@ for (const loc of ["de", "fr", "pl"]) {
   // OrganicApp: a feed disease with no name draws the file's fallback; with DairyCore's disease id, the mod's text.
   r = t.draw("organic", false); clean("Organic barns", r);
   expectLit(`${loc} Organic feed disease fallback`, r, f("ft_organic_elevated_risk"));
+  // The practice lines for the selected field (Soil Fertilizer has no data for it yet): the file's text.
+  expectLit(`${loc} Organic practice line`, r, f("ft_organic_practice_no_data"));
   expectLit(`${loc} Organic feed disease (DairyCore's id keeps the pass)`, r, "stripe_rust", false);
   // FactoryWeekSchedule: the day and time as the mod gives them ("06:00" not split); with no time, the day keeps the pass.
   lua(`g_currentMission.fws_weekSchedule.hudTimeText = "06:00"`);
@@ -680,7 +674,7 @@ lua(`g_currentMission.placeableSystem = E_RS.placeables; g_farmlandManager = E_R
   g_currentMission.soilFertilityManager = E_RS.soil; local h = FarmTabletUI._appBackHandlers["field_jobs"]; if h then h() end
   g_currentMission.workerCostsManager = nil; g_currentMission.fws_weekSchedule = nil`);
 
-console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks${row158Reached.size ? `; row 158's later remainder reached and named: ${[...row158Reached].map((k) => `${k.slice(9)} (${ROW158_LATER[k]})`).join(", ")}` : ""}`);
+console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
 if (failures.length) {
   for (const f of failures.slice(0, 80)) console.log("  FAIL " + f);
   if (failures.length > 80) console.log(`  ... and ${failures.length - 80} more`);

@@ -2,11 +2,11 @@
 # The work in this PR: French Canadian's remaining Chinese values in French (61, Irrigation Suite's among them) and
 # its modDesc input text, the 50 "[EN]"-stamped Irrigation Suite lock lines translated again (Wizard's English, the
 # Pro Staff Co-Op), Latin American Spanish's "financiación", and RSF-F166's flag on row 158's six named sites (the
-# Organic fallback only, and FactoryWeekSchedule's day and time only when a time comes with it). Each mutation undoes
-# one piece, and a bar must FAIL on a named row: tools/test/l10n-tree-check.mjs for the text rows,
-# tools/test/renderer-literal-flag-check.mjs for the drawers (its row 158 E case walks each site's real route). Both
-# bars run for every mutation. Each file is restored byte-identical (sha256-checked) after each run. Both bars must be
-# green before any run.
+# Organic fallback only, and FactoryWeekSchedule's day and time only when a time comes with it) and on Organic's
+# practice lines. Each mutation undoes one piece, and a bar must FAIL on a named row: tools/test/l10n-tree-check.mjs
+# for the text rows, tools/test/renderer-literal-flag-check.mjs for the drawers (its row 158 E case walks each
+# site's real route). Both bars run for every mutation. Each file is restored byte-identical (sha256-checked) after
+# each run. Both bars must be green before any run.
 # Usage: py tools/test/mutate_l10n_fc_sweep.py [id-prefix ...]
 import hashlib, os, subprocess, sys
 
@@ -38,6 +38,10 @@ MUTATIONS = [
     ("C5-organic-mod-text-flagged", "src/apps/OrganicApp.lua",
      one("FT.C.NEGATIVE, barn.feedDiseaseCropName == nil)", "FT.C.NEGATIVE, true)"),
      "DairyCore's disease id drawn with the flag, losing the pass the ruling keeps for mod text: E (DairyCore's id)"),
+    ("C9-organic-practice-line-flag-dropped", "src/apps/OrganicApp.lua",
+     one("FT.FONT.SMALL, line,\n                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)",
+         "FT.FONT.SMALL, line,\n                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)"),
+     "Organic's practice lines handed to the second pass: E (FLAG, practice line)"),
     ("C6-personnel-message-flag-dropped", "src/apps/PersonnelApp.lua",
      one("self._psMsg, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)", "self._psMsg, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)"),
      "Personnel's held message handed to the second pass: E (reroll message)"),

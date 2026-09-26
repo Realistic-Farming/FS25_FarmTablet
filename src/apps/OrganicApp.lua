@@ -235,9 +235,10 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             FT.l10nFormat("ft_organic_field_fmt", "Field #%s", tostring(sel)),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(14)
+        -- Every practice line is the file's text (FT.l10n or FT.l10nFormat): drawn as it is.
         for _, line in ipairs(_practiceLines(info)) do
             self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, line,
-                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
             y = y - FT.py(14)
         end
         y = y - FT.py(6)
