@@ -156,6 +156,17 @@ local function _privateSnapshot(self, scs)
     return systems, sources
 end
 
+--- The farm's owned fields for the moisture split, the forecast and the soil-risk lists, read with the
+--- strict farm id (Bob's MINOR on #207): nil when there is no strict farm, the same Unavailable as the
+--- private snapshot, never farm 1's fields by fallback. Returns the fields and the farm id.
+local function _ownedFields(self)
+    local data = self.system ~= nil and self.system.data or nil
+    if data == nil or type(data.getPlayerFarmIdStrict) ~= "function" then return nil, nil end
+    local farmId = data:getPlayerFarmIdStrict()
+    if farmId == nil then return nil, nil end
+    return data:getOwnedFields(farmId) or {}, farmId
+end
+
 local function _unavailable(self, x, y)
     self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
         _T("ft_irr_private_unavailable", "Unavailable: this farm's irrigation data cannot be read."),
@@ -636,8 +647,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
-        local farmId = self.system.data:getPlayerFarmId()
-        local fields = self.system.data:getOwnedFields(farmId) or {}
+        local fields = _ownedFields(self)
+        local fieldsUnavailable = fields == nil
+        if fieldsUnavailable then
+            y = _unavailable(self, x, y)
+            fields = {}
+        end
         local shown = 0
         for _, f in ipairs(fields) do
             local fid = f.id
@@ -678,7 +693,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 end
             end
         end
-        if shown == 0 then
+        if shown == 0 and not fieldsUnavailable then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
                 _T("ft_irr_no_moisture_reads", "No owned fields with moisture reads yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
@@ -714,8 +729,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
             y = y - FT.py(16)
         end
 
-        local farmId = self.system.data:getPlayerFarmId()
-        local fields = self.system.data:getOwnedFields(farmId) or {}
+        local fields, farmId = _ownedFields(self)
+        local fieldsUnavailable = fields == nil
+        if fieldsUnavailable then
+            y = _unavailable(self, x, y)
+            fields = {}
+        end
         local alerts = 0
         for _, f in ipairs(fields) do
             local fid = f.id
@@ -840,7 +859,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 y = y - FT.py(14)
                 shownNeed = shownNeed + 1
             end
-            if shownNeed == 0 then
+            if shownNeed == 0 and not fieldsUnavailable then
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                     _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
@@ -888,7 +907,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 y = y - FT.py(14)
                 shownFwd = shownFwd + 1
             end
-            if shownFwd == 0 then
+            if shownFwd == 0 and not fieldsUnavailable then
                 self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
                     _T("ft_irr_advisory_no_reads", "No owned fields with water reads yet."),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
@@ -964,8 +983,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
         else
-            local farmId = self.system.data:getPlayerFarmId()
-            local fields = self.system.data:getOwnedFields(farmId) or {}
+            local fields = _ownedFields(self)
+            local fieldsUnavailable = fields == nil
+            if fieldsUnavailable then
+                y = _unavailable(self, x, y)
+                fields = {}
+            end
             local n = 0
             for _, f in ipairs(fields) do
                 local fid = f.id
@@ -997,7 +1020,7 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     y = y - FT.py(15)
                 end
             end
-            if n == 0 then
+            if n == 0 and not fieldsUnavailable then
                 self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
                     _T("ft_irr_no_risk_reads", "No field risk reads yet."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(24)
