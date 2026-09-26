@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 ca đang hoạt động" />
         <text name="ft_vet_case_line_one" text="%s - 1 con - khoảng %d phút" />
         <text name="ft_fws_state_open" text="Mở" />
+        <text name="ft_rd_no_finance" text="Không có dữ liệu tài chính của RealisticDealer." />
     </texts>
 
 </l10n>

@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 cas actif" />
         <text name="ft_vet_case_line_one" text="%s - 1 animal - environ %d min" />
         <text name="ft_fws_state_open" text="Ouvert" />
+        <text name="ft_rd_no_finance" text="Données de financement RealisticDealer indisponibles." />
     </texts>
 
 </l10n>

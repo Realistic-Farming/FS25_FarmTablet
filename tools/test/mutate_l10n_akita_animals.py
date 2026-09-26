@@ -72,7 +72,7 @@ MUTATIONS = [
          'avs and (string.format('),
      "the vet header reads \"1 active cases\" again: E (one case)"),
     ("C8-one-animal-line-gone", APP,
-     one('animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)\n                    or ', ''),
+     one('animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)\n                        or ', ''),
      "the case line reads \"1 animals\" again: E (one animal)"),
     ("C9-an-not-a-whole-word", APP,
      one('t = t:gsub(": An([^%a\\128-\\255])", function(c) return ": " .. on .. c end)', 't = t:gsub(": An", function() return ": " .. on end)'),

@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 aktív eset" />
         <text name="ft_vet_case_line_one" text="%s - 1 állat - kb. %d perc" />
         <text name="ft_fws_state_open" text="Nyitva" />
+        <text name="ft_rd_no_finance" text="A RealisticDealer finanszírozási adatai nem érhetők el." />
     </texts>
 
 </l10n>
