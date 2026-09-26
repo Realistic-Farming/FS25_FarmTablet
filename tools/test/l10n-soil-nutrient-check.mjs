@@ -57,7 +57,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DIR = join(ROOT, "translations");
 
 const KEYS = [
-  "ft_auto_1f_ha", "ft_auto_disabled", "ft_auto_no_owned_fields_found", "ft_auto_nutrient_colours", "ft_auto_pf_dlc_active",
+  "ft_auto_1f_ha", "ft_auto_disabled", "ft_auto_no_owned_fields_found", "ft_auto_nutrient_colours", "ft_auto_pf_dlc_active", "ft_auto_ph",
   "ft_auto_soil_fertilizer_mod_not_detected", "ft_soil_ppm_pair", "ft_soilnut_disease", "ft_soilnut_fert",
   "ft_soilnut_field_title_fmt", "ft_soilnut_fields_fmt", "ft_soilnut_help_colours_body", "ft_soilnut_help_ph_body",
   "ft_soilnut_help_ph_title", "ft_soilnut_help_treatment_body", "ft_soilnut_help_urgency_body",
@@ -74,6 +74,7 @@ const KEYS = [
 const ALLOW_ALL = {
   "ft_auto_1f_ha": "ha, the base game's hectare symbol (unit_haShort) in every language here (ru and uk write га)",
   "ft_soil_ppm_pair": "ppm, the unit every language here writes so (ru and uk write мг/кг)",
+  "ft_auto_ph": "pH, the chemistry symbol every language here writes so (the metric bar and the treatment label)",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
@@ -117,7 +118,9 @@ const OTHER_PR = {
 };
 // Drawn literals with no key, each with its reason.
 const NO_KEY = {
-
+  "N": "the element symbol for nitrogen, written so in every language: FT.l10nAuto hands it back as it is",
+  "P": "the element symbol for phosphorus, written so in every language: FT.l10nAuto hands it back as it is",
+  "K": "the element symbol for potassium, written so in every language: FT.l10nAuto hands it back as it is",
 };
 // Keys this bar checks that no SOURCES file draws, each with its reason.
 const UNDRAWN = {
