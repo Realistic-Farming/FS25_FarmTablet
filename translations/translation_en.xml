@@ -2794,6 +2794,22 @@
         <text name="ft_dairy_breed_help_title" text="BREED RECORDS" />
         <text name="ft_dairy_breed_help_body" text="Herd now counts the milking animals in the barn.&#10;Milk in tank follows the stored milk by the breeds that&#10;produced it. A new herd beside old milk is normal. Unknown&#10;milk predates the record or arrived unproven. No breed is&#10;rated better here." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Keep track of farm tasks.&#10;&#10;Use &lt; / &gt; to select a task template and field,&#10;then + ADD to add it to the list.&#10;Todos are saved automatically per savegame." />
+        <text name="ft_notes_help_actions_body" text="DONE - mark a task as completed (■)&#10;UNDO - mark it pending again (□)&#10;✕    - remove the task entirely&#10;CLEAR COMPLETED - remove all done tasks at once" />
+        <text name="ft_excavator_help_terrain_title" text="TERRAIN READOUT" />
+        <text name="ft_excavator_help_terrain_body" text="Shows your current world position, vehicle name and&#10;speed, ground height, and how far above or below the&#10;terrain surface you are. Values refresh while this&#10;page is open." />
+        <text name="ft_excavator_help_bucket_title" text="BUCKET COUNTING" />
+        <text name="ft_excavator_help_bucket_body" text="Load counting runs in the background whenever you&#10;drive a wheel loader, excavator, or material handler.&#10;It keeps going if you leave this page or close the&#10;tablet. No setup required." />
+        <text name="ft_excavator_help_cards_body" text="LOADS = dump cycles recorded this session.&#10;WEIGHT = total material moved in tonnes.&#10;ITEMS = number of history entries kept." />
+        <text name="ft_excavator_help_history_body" text="Lists recent dump cycles with material name and&#10;estimated weight. Older rows scroll off the list." />
+        <text name="ft_excavator_help_reset_body" text="Clears load history and session totals. Use at the&#10;start of a new job to track productivity separately." />
+        <text name="ft_excavator_subtitle" text="Terrain + Bucket" />
+        <text name="ft_excavator_speed_fmt" text="%.1f km/h" />
+        <text name="ft_excavator_bucket_session" text="BUCKET SESSION" />
+        <text name="ft_excavator_active_bucket" text="ACTIVE BUCKET" />
+        <text name="ft_excavator_no_bucket" text="No bucket vehicle detected." />
+        <text name="ft_excavator_history_fmt" text="LOAD HISTORY  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>

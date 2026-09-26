@@ -51,31 +51,22 @@ end
 FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
     local AC = FT.appColor(FT.APP.EXCAVATOR)
 
-    if self:drawHelpPage("_excavatorHelp", FT.APP.EXCAVATOR, "Excavator", AC, {
-        { title = "TERRAIN READOUT",
-          body  = "Shows your current world position, vehicle name and\n" ..
-                  "speed, ground height, and how far above or below the\n" ..
-                  "terrain surface you are. Values refresh while this\n" ..
-                  "page is open." },
-        { title = "BUCKET COUNTING",
-          body  = "Load counting runs in the background whenever you\n" ..
-                  "drive a wheel loader, excavator, or material handler.\n" ..
-                  "It keeps going if you leave this page or close the\n" ..
-                  "tablet. No setup required." },
+    if self:drawHelpPage("_excavatorHelp", FT.APP.EXCAVATOR, FT.l10n("ft_ui_app_excavator", "Excavator"), AC, {
+        { title = FT.l10n("ft_excavator_help_terrain_title", "TERRAIN READOUT"),
+          body  = FT.l10n("ft_excavator_help_terrain_body", "Shows your current world position, vehicle name and\nspeed, ground height, and how far above or below the\nterrain surface you are. Values refresh while this\npage is open.") },
+        { title = FT.l10n("ft_excavator_help_bucket_title", "BUCKET COUNTING"),
+          body  = FT.l10n("ft_excavator_help_bucket_body", "Load counting runs in the background whenever you\ndrive a wheel loader, excavator, or material handler.\nIt keeps going if you leave this page or close the\ntablet. No setup required.") },
         { title = "SUMMARY CARDS",
-          body  = "LOADS = dump cycles recorded this session.\n" ..
-                  "WEIGHT = total material moved in tonnes.\n" ..
-                  "ITEMS = number of history entries kept." },
+          body  = FT.l10n("ft_excavator_help_cards_body", "LOADS = dump cycles recorded this session.\nWEIGHT = total material moved in tonnes.\nITEMS = number of history entries kept.") },
         { title = "LOAD HISTORY",
-          body  = "Lists recent dump cycles with material name and\n" ..
-                  "estimated weight. Older rows scroll off the list." },
+          body  = FT.l10n("ft_excavator_help_history_body", "Lists recent dump cycles with material name and\nestimated weight. Older rows scroll off the list.") },
         { title = "RESET",
-          body  = "Clears load history and session totals. Use at the\n" ..
-                  "start of a new job to track productivity separately." },
+          body  = FT.l10n("ft_excavator_help_reset_body", "Clears load history and session totals. Use at the\nstart of a new job to track productivity separately.") },
     }) then return end
 
     local bt = self.system.bucket
-    local startY = self:drawAppHeader("Excavator", "Terrain + Bucket")
+    local startY = self:drawAppHeader(FT.l10n("ft_ui_app_excavator", "Excavator"),
+        FT.l10n("ft_excavator_subtitle", "Terrain + Bucket"))
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -101,7 +92,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         if FT.utf8Len(nm) > 20 then nm = FT.utf8Sub(nm, 18) .. ".." end
         y = self:drawRow(y, "Name", nm)
         if vehicle.lastSpeed then
-            y = self:drawRow(y, "Speed", string.format("%.1f km/h", math.abs(vehicle.lastSpeed) * 3600))
+            y = self:drawRow(y, "Speed", FT.l10nFormat("ft_excavator_speed_fmt", "%.1f km/h", math.abs(vehicle.lastSpeed) * 3600))
         end
         if vehicle.getAttachedImplements then
             local impls = vehicle:getAttachedImplements()
@@ -109,7 +100,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
                 local names = {}
                 for _, imp in ipairs(impls) do
                     if imp.object then
-                        local iname = (imp.object.getFullName and imp.object:getFullName()) or "Implement"
+                        local iname = (imp.object.getFullName and imp.object:getFullName()) or FT.l10nAuto("Implement")
                         if FT.utf8Len(iname) > 16 then iname = FT.utf8Sub(iname, 14) .. ".." end
                         table.insert(names, iname)
                         if #names >= 2 then break end
@@ -141,7 +132,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
 
     y = y - FT.py(6)
     y = self:drawRule(y, 0.35)
-    y = self:drawSection(y, "BUCKET SESSION")
+    y = self:drawSection(y, FT.l10n("ft_excavator_bucket_session", "BUCKET SESSION"))
 
     y = y - FT.py(4)
     local cardW = (cw - FT.px(8)) / 3
@@ -164,7 +155,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         local fi = self.system:_getBucketFillInfo(bt.vehicle)
         local nm = (bt.vehicle.getFullName and bt.vehicle:getFullName()) or "Unknown"
         if FT.utf8Len(nm) > 22 then nm = FT.utf8Sub(nm, 20) .. ">" end
-        y = self:drawSection(y, "ACTIVE BUCKET")
+        y = self:drawSection(y, FT.l10n("ft_excavator_active_bucket", "ACTIVE BUCKET"))
         y = self:drawRow(y, "Vehicle", nm)
         y = self:drawRow(y, "Fill",
             string.format("%.0f / %.0f L  (%s)", fi.total, fi.cap, fi.name), nil, FT.C.TEXT_ACCENT)
@@ -172,14 +163,14 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         y = self:drawBar(y, fi.total, fi.cap, FT.C.BRAND)
         y = y - FT.py(4)
     else
-        y = self:drawSection(y, "ACTIVE BUCKET")
-        self.r:appText(x, y, FT.FONT.SMALL, "No bucket vehicle detected.",
+        y = self:drawSection(y, FT.l10n("ft_excavator_active_bucket", "ACTIVE BUCKET"))
+        self.r:appText(x, y, FT.FONT.SMALL, FT.l10n("ft_excavator_no_bucket", "No bucket vehicle detected."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         y = y - FT.py(20)
     end
 
     y = self:drawRule(y, 0.35)
-    y = self:drawSection(y, "LOAD HISTORY  (" .. #bt.history .. ")")
+    y = self:drawSection(y, FT.l10nFormat("ft_excavator_history_fmt", "LOAD HISTORY  (%d)", #bt.history))
     local minY = contentY + FT.py(32)
 
     if #bt.history == 0 then
@@ -198,7 +189,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
             self.r:appText(x + FT.px(20), y, FT.FONT.SMALL, load.typeName or "Unknown",
                 RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
             self.r:appText(x + cw,        y, FT.FONT.SMALL,
-                string.format("%.0f kg", load.weight or 0),
+                FT.l10nFormat("ft_excavator_kg_fmt", "%.0f kg", load.weight or 0),
                 RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
             y = y - FT.py(18)
         end
