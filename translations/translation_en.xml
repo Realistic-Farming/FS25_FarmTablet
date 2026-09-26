@@ -3012,6 +3012,13 @@
         <text name="ft_vet_case_line_one" text="%s - 1 animal - about %d min" />
         <text name="ft_fws_state_open" text="Open" />
         <text name="ft_rd_no_finance" text="RealisticDealer's finance data is not available." />
+        <text name="ft_fc_vital_leverage_unavailable" text="Emergency-loan debt is unavailable, so combined leverage can't be shown yet." />
+        <text name="ft_fc_debt_native" text="Bank loan" />
+        <text name="ft_fc_debt_emergency" text="Emergency" />
+        <text name="ft_fc_debt_total" text="Total debt" />
+        <text name="ft_fc_emergency_loan" text="Emergency loan" />
+        <text name="ft_fc_total_debt" text="Total debt" />
+        <text name="ft_fc_open_loan" text="MANAGE LOAN" />
     </texts>
 
 </l10n>

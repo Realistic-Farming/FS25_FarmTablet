@@ -943,8 +943,9 @@ local function _drawHeart(self, x, y, w, snap, AC)
         end
     end
     if worstLabel ~= "" then
+        -- The vital's label is already the file's text (_T): drawn as it is (RSF-F166's flag).
         self.r:appText(x + w - FT.px(10), y - FT.py(18), FT.FONT.TINY,
-            FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     end
 
     _pocketBtn(self, x, y - h, w, h, "", {0, 0, 0, 0}, function()
