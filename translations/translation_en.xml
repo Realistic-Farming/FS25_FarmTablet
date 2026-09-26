@@ -3019,6 +3019,66 @@
         <text name="ft_fc_emergency_loan" text="Emergency loan" />
         <text name="ft_fc_total_debt" text="Total debt" />
         <text name="ft_fc_open_loan" text="MANAGE LOAN" />
+        <text name="ft_irr_mins" text="%d min" />
+        <text name="ft_irr_hours" text="%.1f h" />
+        <text name="ft_irr_na" text="n/a" />
+        <text name="ft_irr_schedule_na" text="schedule n/a" />
+        <text name="ft_irr_day_mon" text="Mon" />
+        <text name="ft_irr_day_tue" text="Tue" />
+        <text name="ft_irr_day_wed" text="Wed" />
+        <text name="ft_irr_day_thu" text="Thu" />
+        <text name="ft_irr_day_fri" text="Fri" />
+        <text name="ft_irr_day_sat" text="Sat" />
+        <text name="ft_irr_day_sun" text="Sun" />
+        <text name="ft_irr_no_active_days" text="no active days" />
+        <text name="ft_irr_every_day" text="every day" />
+        <text name="ft_irr_no_coverage" text="No coverage polygons available." />
+        <text name="ft_irr_trend_watering" text="trend: watering now" />
+        <text name="ft_irr_trend_drying" text="trend: drying - consider a window" />
+        <text name="ft_irr_trend_wet" text="trend: wet - holding may waterlog" />
+        <text name="ft_irr_trend_steady" text="trend: steady" />
+        <text name="ft_irr_help_what_title" text="WHAT THIS IS" />
+        <text name="ft_irr_help_what_body" text="Farm-wide irrigation picture from Seasonal Crop Stress:&#10;which systems run, what they cover, moisture split,&#10;a short trend, and usage plus soil risk when Soil Fertilizer&#10;is present. Read-only mirror. No second moisture model." />
+        <text name="ft_irr_help_ops_title" text="OPERATIONS" />
+        <text name="ft_irr_help_ops_body" text="Active systems, schedules, coverage outline, and per-field&#10;irrigation-versus-rain split from live SCS reads." />
+        <text name="ft_irr_help_forecast_title" text="FORECAST" />
+        <text name="ft_irr_help_forecast_body" text="Current moisture and drought stress plus a clearly labeled&#10;trend. Not a simulated future. Farm-wide advisory when SCS&#10;publishes one." />
+        <text name="ft_irr_help_usage_title" text="USAGE AND RISK" />
+        <text name="ft_irr_help_usage_body" text="What SCS is charging per active hour when costs are on.&#10;Compaction / OM / disease from Soil Fertilizer when present.&#10;Unscouted disease reads Unscouted, never a false all-clear." />
+        <text name="ft_irr_scs_not_detected" text="Seasonal Crop Stress not detected." />
+        <text name="ft_irr_scs_install" text="Install FS25_SeasonalCropStress. This app stays hidden when absent." />
+        <text name="ft_irr_systems" text="SYSTEMS" />
+        <text name="ft_irr_no_systems" text="No irrigation systems registered." />
+        <text name="ft_irr_idle" text="idle" />
+        <text name="ft_irr_no_schedule" text="no schedule" />
+        <text name="ft_irr_system_line" text="%s  ·  fields %d  ·  flow %.2f/h" />
+        <text name="ft_irr_coverage_outline" text="COVERAGE OUTLINE" />
+        <text name="ft_irr_moisture_split" text="FIELD MOISTURE SPLIT" />
+        <text name="ft_irr_more_fields" text="… more fields omitted" />
+        <text name="ft_irr_watering" text="watering" />
+        <text name="ft_irr_field_tag" text="Field #%s  %s" />
+        <text name="ft_irr_split_line" text="pivot ~%s   sky/other ~%s" />
+        <text name="ft_irr_moisture_na" text="moisture not available" />
+        <text name="ft_irr_no_moisture_reads" text="No owned fields with moisture reads yet." />
+        <text name="ft_irr_farm_advisory" text="FARM ADVISORY" />
+        <text name="ft_irr_trend_header" text="CURRENT + LABELED TREND (not a forecast model)" />
+        <text name="ft_irr_air_line" text="Air %s C   drying x%s" />
+        <text name="ft_irr_field" text="Field #%s" />
+        <text name="ft_irr_moist_line" text="moist %s  dry-stress %s" />
+        <text name="ft_irr_alerts_capped" text="Alert set capped - check SCS for more detail." />
+        <text name="ft_irr_covered_gap" text="covered %d  ·  gap %d" />
+        <text name="ft_irr_usage_header" text="SYSTEM USAGE (SCS CHARGING)" />
+        <text name="ft_irr_costs_off" text="Irrigation costs are off in Seasonal Crop Stress." />
+        <text name="ft_irr_no_systems_price" text="No systems to price." />
+        <text name="ft_irr_usage_line" text="%s / hour active   flow %.2f   ~%d schedule hours / week" />
+        <text name="ft_irr_soil_risk_header" text="SOIL RISK (when Soil Fertilizer present)" />
+        <text name="ft_irr_soil_na" text="Soil Fertilizer not available - risk rows hidden." />
+        <text name="ft_irr_unscouted" text="Unscouted" />
+        <text name="ft_irr_soil_line" text="compaction %s   OM %s   disease %s" />
+        <text name="ft_irr_no_risk_reads" text="No field risk reads yet." />
+        <text name="ft_irr_mode_operations" text="Operations" />
+        <text name="ft_irr_mode_forecast" text="Forecast" />
+        <text name="ft_irr_mode_usage" text="Usage" />
     </texts>
 
 </l10n>
