@@ -108,7 +108,37 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "br:ft_auto_1f_ha": "the base game writes the hectare sign ha in br too (unit_haShort, dataS/l10n/l10n_br.xml)",
+  "ct:ft_auto_1f_ha": "the base game writes the hectare sign ha in ct too (unit_haShort, dataS/l10n/l10n_ct.xml)",
+  "cz:ft_auto_1f_ha": "the base game writes the hectare sign ha in cz too (unit_haShort, dataS/l10n/l10n_cz.xml)",
+  "da:ft_auto_1f_ha": "the base game writes the hectare sign ha in da too (unit_haShort, dataS/l10n/l10n_da.xml)",
+  "de:ft_auto_1f_ha": "the base game writes the hectare sign ha in de too (unit_haShort, dataS/l10n/l10n_de.xml)",
+  "ea:ft_auto_1f_ha": "the base game writes the hectare sign ha in ea too (unit_haShort, dataS/l10n/l10n_ea.xml)",
+  "es:ft_auto_1f_ha": "the base game writes the hectare sign ha in es too (unit_haShort, dataS/l10n/l10n_es.xml)",
+  "fc:ft_auto_1f_ha": "the base game writes the hectare sign ha in fc too (unit_haShort, dataS/l10n/l10n_fc.xml)",
+  "fi:ft_auto_1f_ha": "the base game writes the hectare sign ha in fi too (unit_haShort, dataS/l10n/l10n_fi.xml)",
+  "fr:ft_auto_1f_ha": "the base game writes the hectare sign ha in fr too (unit_haShort, dataS/l10n/l10n_fr.xml)",
+  "hu:ft_auto_1f_ha": "the base game writes the hectare sign ha in hu too (unit_haShort, dataS/l10n/l10n_hu.xml)",
+  "id:ft_auto_1f_ha": "the base game writes the hectare sign ha in id too (unit_haShort, dataS/l10n/l10n_id.xml)",
+  "it:ft_auto_1f_ha": "the base game writes the hectare sign ha in it too (unit_haShort, dataS/l10n/l10n_it.xml)",
+  "jp:ft_auto_1f_ha": "the base game writes the hectare sign ha in jp too (unit_haShort, dataS/l10n/l10n_jp.xml)",
+  "kr:ft_auto_1f_ha": "the base game writes the hectare sign ha in kr too (unit_haShort, dataS/l10n/l10n_kr.xml)",
+  "nl:ft_auto_1f_ha": "the base game writes the hectare sign ha in nl too (unit_haShort, dataS/l10n/l10n_nl.xml)",
+  "no:ft_auto_1f_ha": "the base game writes the hectare sign ha in no too (unit_haShort, dataS/l10n/l10n_no.xml)",
+  "pl:ft_auto_1f_ha": "the base game writes the hectare sign ha in pl too (unit_haShort, dataS/l10n/l10n_pl.xml)",
+  "pt:ft_auto_1f_ha": "the base game writes the hectare sign ha in pt too (unit_haShort, dataS/l10n/l10n_pt.xml)",
+  "ro:ft_auto_1f_ha": "the base game writes the hectare sign ha in ro too (unit_haShort, dataS/l10n/l10n_ro.xml)",
+  "sv:ft_auto_1f_ha": "the base game writes the hectare sign ha in sv too (unit_haShort, dataS/l10n/l10n_sv.xml)",
+  "tr:ft_auto_1f_ha": "the base game writes the hectare sign ha in tr too (unit_haShort, dataS/l10n/l10n_tr.xml)",
+  "vi:ft_auto_1f_ha": "the base game writes the hectare sign ha in vi too (unit_haShort, dataS/l10n/l10n_vi.xml)",
+  "ea:ft_auto_no": "No is the Spanish word",
+  "es:ft_auto_no": "No is the Spanish word",
+  "it:ft_auto_no": "No is the Italian word",
+  "fc:ft_auto_production": "Production is the French word",
+  "fr:ft_auto_production": "Production is the French word",
+  "id:ft_auto_status_2": "Status is the Indonesian word",
+  "ro:ft_auto_economic": "Economic is the Romanian word",
+  "ro:ft_auto_special": "Special is the Romanian word",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").

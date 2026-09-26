@@ -443,7 +443,7 @@
         <text name="ft_auto_active_s" text="Aktiv: %s." />
         <text name="ft_auto_active_sale_listings" text="Aktive Verkäufe" />
         <text name="ft_auto_active_simulated_normally" text="AKTIV = wird normal simuliert.&#10;" />
-        <text name="ft_auto_active_stalled" text="Verzögert" />
+        <text name="ft_auto_active_stalled" text="AKTIV / ANGEHALTEN" />
         <text name="ft_auto_active_vehicle" text="Aktive Fahrzeuge" />
         <text name="ft_auto_active_workers" text="Aktive Mitarbeiter" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="Aktive Globale Ereignisse, Einfluss auf den Marktpreis (Börse),&#10;" />
@@ -732,7 +732,7 @@
         <text name="ft_auto_current_balance" text="AKTUELLER KONTOSTAND" />
         <text name="ft_auto_current_balance_2" text="Aktueller Kontostand" />
         <text name="ft_auto_current_conditions_and_forecast" text="Aktuelles Wetter und Vorhersage" />
-        <text name="ft_auto_current_event" text="CURRENT EVENT" />
+        <text name="ft_auto_current_event" text="AKTUELLES EREIGNIS" />
         <text name="ft_auto_category" text="Kategorie" />
         <text name="ft_auto_cooldown" text="Abklingzeit" />
         <text name="ft_auto_economic" text="Wirtschaft" />
@@ -740,7 +740,7 @@
         <text name="ft_auto_event_types" text="Ereignistypen" />
         <text name="ft_auto_market_movers_per_1_000_l" text="MARKTBEWEGUNGEN  (pro 1.000 L)" />
         <text name="ft_auto_special" text="Spezial" />
-        <text name="ft_auto_volatility" text="Verdunstung" />
+        <text name="ft_auto_volatility" text="Schwankung" />
         <text name="ft_auto_wildlife" text="Wildtiere" />
         <text name="ft_auto_current_fuel_as_a_percentage_of_tank_capacity" text="Aktueller Kraftstoff in Prozent des Tankvolumens.&#10;" />
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Aktueller in-game Tag, Jahreszeit (Wenn die Jahreszeiten aktiv sind),&#10;" />
@@ -806,7 +806,7 @@
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Farm Tablet deaktiveren" />
         <text name="ft_auto_disabled" text="DISABLED" />
-        <text name="ft_auto_disabled_2" text="Disabled" />
+        <text name="ft_auto_disabled_2" text="Deaktiviert" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Anzeige" />
         <text name="ft_auto_display_damage" text="DISPLAYSCHADEN" />
@@ -817,7 +817,7 @@
         <text name="ft_auto_display_in_stock_duration_approx_1_in_game_hour" text="Ersatzteil auf Lager - Dauer für den Austausch: vorraussichtlich 1 in-game Stunde" />
         <text name="ft_auto_display_ordered_duration_approx_1_in_game_day" text="Ersatzteil bestellt - Dauer für den Austausch: vorraussichtlich 1 in-game Tag" />
         <text name="ft_auto_display_position_scale" text="ANZEIGE - POSITION &amp; SKALIERUNG" />
-        <text name="ft_auto_displays_fs25_marketdynamics_status" text="Anzeige FS25_MarktDynamics status:&#10;" />
+        <text name="ft_auto_displays_fs25_marketdynamics_status" text="Zeigt den Status von FS25_MarketDynamics:&#10;" />
         <text name="ft_auto_displays_fs25_randomworldevents_status" text="Anzeige FS25_RandomWorldEvents status:&#10;" />
         <text name="ft_auto_displays_fs25_workercosts_status" text="Anzeige FS25_WorkerCosts status:&#10;" />
         <text name="ft_auto_displays_the_current_status_of_fs25_incomemod" text="zeigt den aktuellen Status der FS25_IncomeMod.&#10;" />
@@ -846,7 +846,7 @@
         <text name="ft_auto_each_crop_you_have_in_storage" text="Kultur die du eingelagert hast.&#10;" />
         <text name="ft_auto_each_entry_shows_field_vehicle_task_day_started" text="Jeder Eintrag zeigt welches Fahrzeug an welchem Tag welche Aufgabe auf welchem Feld begonnen wurde&#10;" />
         <text name="ft_auto_each_entry_shows_predicted_condition_and_max_temperatur" text="Jeder Eintrag zeigt die vorraussichtliche Wetterlage und maximale Temperatur." />
-        <text name="ft_auto_each_entry_shows_the_building_name_and_how_many_of_its" text="Jeder Eintrag zeigt den Gebäudenamen und wie viele davon&#10;" />
+        <text name="ft_auto_each_entry_shows_the_building_name_and_how_many_of_its" text="Jeder Eintrag zeigt den Gebäudenamen und wie viele seiner&#10;" />
         <text name="ft_auto_each_favor_shows_npc_name_description_completion" text="Jeder Gefallen zeigt den Namen des NPC, eine Beschreibung und den Fortschritt&#10;" />
         <text name="ft_auto_each_row_shows_field_id_crop_type_moisture" text="Jede Zeile zeigt die ID des Felds, die angebaute Kultur, die Feuchtigkeit in %,&#10;" />
         <text name="ft_auto_edgetabcontext_browser_tab" text="EdgeTabContext / browser tab" />
@@ -861,7 +861,7 @@
         <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
         <text name="ft_auto_enable_disable_notifications" text="Benachrichtigungen (De-)aktivieren" />
         <text name="ft_auto_enable_farm_tablet" text="Farm Tablet Aktivieren" />
-        <text name="ft_auto_enabled" text="Enabled" />
+        <text name="ft_auto_enabled" text="Aktiviert" />
         <text name="ft_auto_enabled_2" text="enabled" />
         <text name="ft_auto_enabled_s" text="%s&#10; wurde aktiviert" />
         <text name="ft_auto_enables_verbose_console_logging_for_troubleshooting" text="Schreibt ausführliche Meldungen in die Konsole" />
@@ -1068,7 +1068,7 @@
         <text name="ft_auto_freezing" text="Frost" />
         <text name="ft_auto_freezing_0_cold_8_cool_16_mild_24" text="Frost (&lt;0)  Kalt (&lt;8)  Kühl (&lt;16)  Raumtemperatur (&lt;24)&#10;" />
         <text name="ft_auto_frequency" text="Häufigkeit" />
-        <text name="ft_auto_frequency_1_10_controls_how_often_events" text="Häufigkeit (1-10) stellt ein wie oft Ereignisse auftreten&#10;" />
+        <text name="ft_auto_frequency_1_10_controls_how_often_events" text="Die Häufigkeit (1-10) steuert, wie oft Ereignisse&#10;" />
         <text name="ft_auto_frequency_intensity" text="HÄUFIGKEIT / INTENSITÄT" />
         <text name="ft_auto_frequent" text="Häufig" />
         <text name="ft_auto_frequent_2" text="häufig" />
@@ -1237,7 +1237,7 @@
         <text name="ft_auto_inputs_outputs" text="EINGABEN / AUSGABEN" />
         <text name="ft_auto_install" text="Installiere " />
         <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Installiere FS25_IncomeMod, um die App zu nutzen." />
-        <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Installiere FS25_MarktDynamics, um die App zu nutzen." />
+        <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Installiere FS25_MarketDynamics, um diese App zu nutzen." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Installiere FS25_NPCFavor, um die App zu nutzen." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Installiere FS25_RandomWorldEvents, um die App zu nutzen." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Installiere FS25_SeasonalFruchtStress, um die App zu nutzen." />
@@ -1252,7 +1252,7 @@
         <text name="ft_auto_integrated" text="Eingebunden" />
         <text name="ft_auto_integrates_with_fs25_seasonalcropstress_to_display" text="Bindet die Mod FS25_SeasonalCropStress ein, um anzuzeigen&#10;" />
         <text name="ft_auto_integrates_with_fs25_soilfertilizer_to_display" text="Bindet die Mod FS25_SoilFertilizer ein, um anzuzeigen&#10;" />
-        <text name="ft_auto_integration" text="Integration" />
+        <text name="ft_auto_integration" text="Anbindung" />
         <text name="ft_auto_intensity" text="Intensität" />
         <text name="ft_auto_intensity_2" text="Intensität: " />
         <text name="ft_auto_intensity_and_event_counter" text="Intensität, und Anzahl an Ereignissen." />
@@ -1397,7 +1397,7 @@
         <text name="ft_auto_needs_fertilizer_flag" text="NEEDS FERTILIZER FLAG" />
         <text name="ft_auto_net_p_l" text="Netto G/V" />
         <text name="ft_auto_net_p_l_income_minus_expenses" text="Net P/L: Einkommen abzüglich der Ausgaben." />
-        <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Net P/L = Einkommen abzüglich der Ausgaben für die aktuelle Spiel-Sitzung." />
+        <text name="ft_auto_net_p_l_income_minus_expenses_for_the_session" text="Netto G/V = Einnahmen minus Ausgaben der Sitzung." />
         <text name="ft_auto_net_pl" text="net_pl" />
         <text name="ft_auto_net_savings" text="Netto Einsparungen" />
         <text name="ft_auto_net_surcharge" text="Netto Kontoüberziehung" />
@@ -1665,7 +1665,7 @@
         <text name="ft_auto_production_building_chains_inputs_outputs_active_status" text="Produktionsketten - Eingänge, Ausgänge, Status" />
         <text name="ft_auto_production_buildings" text="production_buildings" />
         <text name="ft_auto_production_buildings_must_be_owned_by_your_farm" text="Das Produktionsgebäude muss deinem Hof gehören.&#10;" />
-        <text name="ft_auto_production_lines_are_currently_active" text="Produktionslinien sind derzeit inaktiv." />
+        <text name="ft_auto_production_lines_are_currently_active" text="Produktionslinien gerade aktiv sind." />
         <text name="ft_auto_production_production_buildings_you_own" text="Produktion: Produktionen die dir gehören." />
         <text name="ft_auto_productivity" text="PRODUKTIVITÄT" />
         <text name="ft_auto_productivity_separately" text="Produktivität seperat." />
@@ -1809,7 +1809,7 @@
         <text name="ft_auto_sent_to_the_host_and_the_result_syncs_back_to" text="an den Host gesendet und das Ergebnis wird zurück synchronisiert nach&#10;" />
         <text name="ft_auto_sentry" text="MONITOR" />
         <text name="ft_auto_service_fee" text="Gebühr" />
-        <text name="ft_auto_session_p_l" text="SITZUNG P&amp;L" />
+        <text name="ft_auto_session_p_l" text="SITZUNG G&amp;V" />
         <text name="ft_auto_set" text="SET" />
         <text name="ft_auto_set_an_amount_greater_than_0_to_create" text="Wähle zum erstellen eine Anzahl größer als 0." />
         <text name="ft_auto_set_startup_app_id" text="Set startup app ID" />
@@ -1893,7 +1893,7 @@
         <text name="ft_auto_square_brackets_next_to_their_name" text="eckige Klammern neben ihren Namen." />
         <text name="ft_auto_staff" text="PERSONAL" />
         <text name="ft_auto_stalled" text="Angehalten" />
-        <text name="ft_auto_stalled_no_productions_are_enabled_check_the_building" text="Angehalten: Keine Produktionen aktiviert (Gebäude prüfen)" />
+        <text name="ft_auto_stalled_no_productions_are_enabled_check_the_building" text="Angehalten: keine Produktion eingeschaltet (prüfe das&#10;" />
         <text name="ft_auto_start" text="Start" />
         <text name="ft_auto_start_job" text="AUFTRAG STARTEN" />
         <text name="ft_auto_start_job_2" text="Auftrag starten" />
@@ -1912,7 +1912,7 @@
         <text name="ft_auto_stations_are_sorted_best_price_first" text="Stationen sind nach dem besten Preis sortiert.&#10;" />
         <text name="ft_auto_stats" text="Statistiken" />
         <text name="ft_auto_status" text="STATUS" />
-        <text name="ft_auto_status_2" text="Status" />
+        <text name="ft_auto_status_2" text="Zustand" />
         <text name="ft_auto_status_3" text="^Status:" />
         <text name="ft_auto_status_4" text="Status" />
         <text name="ft_auto_status_banner" text="STATUSBANNER" />
@@ -2267,6 +2267,10 @@
         <text name="ft_contracts_badge_collect" text="%d ABHOLEN" />
         <text name="ft_contracts_game_time" text="Spielzeit: %s" />
         <text name="ft_fleet_vehicles_fmt" text="%d Fahrzeuge" />
+        <text name="ft_rwe_duration_fmt" text="%d Min. / %d Min." />
+        <text name="ft_md_volatility_fmt" text="%.1fx" />
+        <text name="ft_md_active_events_fmt" text="AKTIVE EREIGNISSE  (%d)" />
+        <text name="ft_md_event_intensity_fmt" text="%d%%  |  %d Min." />
         <text name="ft_rotation_help_what_1" text="Hofweiter Stand der Fruchtfolge und ein Was-wäre-wenn-Vergleich&#10;" />
         <text name="ft_rotation_help_what_2" text="für die nächste Frucht auf jedem Feld. Die Zahlen stammen aus&#10;" />
         <text name="ft_rotation_help_what_3" text="der Fruchtfolgewertung von Soil Fertilizer, kein zweites Modell." />
