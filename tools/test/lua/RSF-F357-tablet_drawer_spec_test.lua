@@ -26,17 +26,18 @@ end
 --- The tablet UI as the drawer sees it: the real FarmTabletUI behind a recorder.
 local function tablet()
     local ui = setmetatable({ isOpen = true, system = { currentApp = FT.APP.NPC_FAVOR }, rows = {}, texts = {}, sections = {} }, { __index = FarmTabletUI })
-    -- Every drawn text goes through FT.l10nAuto, as the real renderer's appText and row do
-    -- (Renderer.lua:77, :131), so a mapped literal is recorded in the reader's language.
-    local function auto(s) return FT.l10nAuto(tostring(s)) end
-    ui.r = { appText = function(_, x, y, font, text) ui.texts[#ui.texts + 1] = auto(text) end, appRect = function() end }
+    -- Every drawn text is recorded as the real renderer queues it (Renderer.lua appText and row): through
+    -- FT.l10nAuto, unless the caller passes the literal flag (RSF-F166's literalText, exactly true;
+    -- MAINTENANCE row 154), which draws it as handed. drawRow takes the flag for label and value apart.
+    local function auto(s, literal) if literal == true then return tostring(s) end return FT.l10nAuto(tostring(s)) end
+    ui.r = { appText = function(_, x, y, font, text, align, color, literal) ui.texts[#ui.texts + 1] = auto(text, literal) end, appRect = function() end }
     function ui:drawHelpPage() return false end
     function ui:drawAppHeader() return 500 end
     function ui:contentInner() return 0, 0, 200, 0 end
     function ui:getContentScrollY() return 0 end
     function ui:drawRule(y) return y - 4 end
     function ui:drawSection(y, label) self.sections[#self.sections + 1] = tostring(label) return y - 10 end
-    function ui:drawRow(y, label, value) self.rows[#self.rows + 1] = auto(label) .. "=" .. auto(value) return y - 10 end
+    function ui:drawRow(y, label, value, labelC, valueC, literalLabel, literalValue) self.rows[#self.rows + 1] = auto(label, literalLabel) .. "=" .. auto(value, literalValue) return y - 10 end
     function ui:drawBar(y) return y - 6 end
     function ui:setContentHeight() end
     function ui:drawInfoIcon() end
