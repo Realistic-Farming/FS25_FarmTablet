@@ -212,37 +212,37 @@
         <text name="ft_desc_app_realistic_dealer" text="RealisticDealer: financiamento, prestacoes e estado de apreensoes" />
         <text name="ft_common_on" text="Ligado" />
         <text name="ft_common_off" text="Desligado" />
-        <text name="ft_common_connected" text="Ligado" />
+        <text name="ft_common_connected" text="Conectado" />
         <text name="ft_common_inactive" text="Inativo" />
         <text name="ft_common_status" text="ESTADO" />
         <text name="ft_common_overview" text="VISTA GERAL" />
         <text name="ft_common_busy" text="Ocupado" />
-        <text name="ft_common_available" text="Disponivel" />
+        <text name="ft_common_available" text="Disponível" />
         <text name="ft_common_time" text="Hora" />
         <text name="ft_common_event" text="Evento" />
         <text name="ft_common_open" text="Abrir" />
         <text name="ft_common_closed" text="Fechado" />
         <text name="ft_common_note" text="NOTA" />
-        <text name="ft_aac_not_detected" text="AnimalAutoCare nao foi detectado." />
+        <text name="ft_aac_not_detected" text="AnimalAutoCare não foi detectado." />
         <text name="ft_aac_overall" text="Geral" />
         <text name="ft_aac_food" text="Comida" />
-        <text name="ft_aac_water" text="Agua" />
+        <text name="ft_aac_water" text="Água" />
         <text name="ft_aac_straw" text="Palha" />
         <text name="ft_aac_purchase_cost" text="Custo de compra" />
         <text name="ft_aac_care_cost" text="Custo de cuidado" />
         <text name="ft_aac_care_now" text="Cuidar agora" />
-        <text name="ft_aac_last_action" text="ULTIMA ACAO" />
-        <text name="ft_aac_no_action" text="Nenhuma acao foi registrada ainda." />
+        <text name="ft_aac_last_action" text="ÚLTIMA AÇÃO" />
+        <text name="ft_aac_no_action" text="Nenhuma ação foi registrada ainda." />
         <text name="ft_vet_active_cases" text="%d casos ativos" />
-        <text name="ft_vet_not_detected" text="AnimalVetSystem nao foi detectado." />
-        <text name="ft_vet_active_illnesses" text="Doencas ativas" />
-        <text name="ft_vet_veterinarian" text="Veterinario" />
+        <text name="ft_vet_not_detected" text="AnimalVetSystem não foi detectado." />
+        <text name="ft_vet_active_illnesses" text="Doenças ativas" />
+        <text name="ft_vet_veterinarian" text="Veterinário" />
         <text name="ft_vet_no_sick_pens" text="Nenhum curral doente reportado." />
         <text name="ft_vet_cases" text="CASOS" />
         <text name="ft_vet_pen" text="Curral" />
-        <text name="ft_vet_illness" text="Doenca" />
+        <text name="ft_vet_illness" text="Doença" />
         <text name="ft_vet_worker" text="Trabalhador" />
-        <text name="ft_vet_self" text="Voce mesmo" />
+        <text name="ft_vet_self" text="Você mesmo" />
         <text name="ft_vet_case_line" text="%s - %d animais - cerca de %d min" />
         <text name="ft_fws_open_count" text="%d/%d abertas" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule nao foi detectado." />
@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="trabalhador" />
         <text name="ft_npc_role_farmhand" text="peão" />
         <text name="ft_npc_role_agronomist" text="agrônomo" />
+        <text name="ft_aac_refill_below" text="Reabastecer abaixo de" />
+        <text name="ft_aac_target_fill" text="Nível alvo" />
+        <text name="ft_aac_last_action_line" text="Última ação" />
+        <text name="ft_aac_priority" text="Prioridade" />
+        <text name="ft_vet_active_cases_one" text="1 caso ativo" />
+        <text name="ft_vet_case_line_one" text="%s - 1 animal - cerca de %d min" />
     </texts>
 
 </l10n>

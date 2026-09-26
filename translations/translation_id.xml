@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="pekerja" />
         <text name="ft_npc_role_farmhand" text="buruh tani" />
         <text name="ft_npc_role_agronomist" text="agronom" />
+        <text name="ft_aac_refill_below" text="Isi ulang di bawah" />
+        <text name="ft_aac_target_fill" text="Target pengisian" />
+        <text name="ft_aac_last_action_line" text="Tindakan terakhir" />
+        <text name="ft_aac_priority" text="Prioritas" />
+        <text name="ft_vet_active_cases_one" text="1 kasus aktif" />
+        <text name="ft_vet_case_line_one" text="%s - 1 hewan - sekitar %d mnt" />
     </texts>
 
 </l10n>

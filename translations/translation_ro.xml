@@ -225,25 +225,25 @@
         <text name="ft_common_note" text="NOTA" />
         <text name="ft_aac_not_detected" text="AnimalAutoCare nu a fost detectat." />
         <text name="ft_aac_overall" text="General" />
-        <text name="ft_aac_food" text="Hrana" />
-        <text name="ft_aac_water" text="Apa" />
+        <text name="ft_aac_food" text="Hrană" />
+        <text name="ft_aac_water" text="Apă" />
         <text name="ft_aac_straw" text="Paie" />
-        <text name="ft_aac_purchase_cost" text="Cost de achizitie" />
-        <text name="ft_aac_care_cost" text="Cost de ingrijire" />
-        <text name="ft_aac_care_now" text="Ingrijeste acum" />
-        <text name="ft_aac_last_action" text="ULTIMA ACTIUNE" />
-        <text name="ft_aac_no_action" text="Nicio actiune inregistrata inca." />
-        <text name="ft_vet_active_cases" text="%d cazuri active" />
+        <text name="ft_aac_purchase_cost" text="Cost de achiziție" />
+        <text name="ft_aac_care_cost" text="Cost de îngrijire" />
+        <text name="ft_aac_care_now" text="Îngrijește acum" />
+        <text name="ft_aac_last_action" text="ULTIMA ACȚIUNE" />
+        <text name="ft_aac_no_action" text="Nicio acțiune înregistrată încă." />
+        <text name="ft_vet_active_cases" text="Cazuri active: %d" />
         <text name="ft_vet_not_detected" text="AnimalVetSystem nu a fost detectat." />
         <text name="ft_vet_active_illnesses" text="Boli active" />
         <text name="ft_vet_veterinarian" text="Veterinar" />
-        <text name="ft_vet_no_sick_pens" text="Niciun tarc bolnav raportat." />
+        <text name="ft_vet_no_sick_pens" text="Niciun țarc bolnav raportat." />
         <text name="ft_vet_cases" text="CAZURI" />
-        <text name="ft_vet_pen" text="Tarc" />
-        <text name="ft_vet_illness" text="Boala" />
+        <text name="ft_vet_pen" text="Țarc" />
+        <text name="ft_vet_illness" text="Boală" />
         <text name="ft_vet_worker" text="Muncitor" />
         <text name="ft_vet_self" text="Singur" />
-        <text name="ft_vet_case_line" text="%s - %d animale - aproximativ %d min" />
+        <text name="ft_vet_case_line" text="%s - animale: %d - aproximativ %d min" />
         <text name="ft_fws_open_count" text="%d/%d deschise" />
         <text name="ft_fws_not_detected" text="FactoryWeekSchedule nu a fost detectat." />
         <text name="ft_fws_factories_open" text="Fabrici deschise" />
@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="muncitor" />
         <text name="ft_npc_role_farmhand" text="argat" />
         <text name="ft_npc_role_agronomist" text="agronom" />
+        <text name="ft_aac_refill_below" text="Reumplere sub" />
+        <text name="ft_aac_target_fill" text="Umplere țintă" />
+        <text name="ft_aac_last_action_line" text="Ultima acțiune" />
+        <text name="ft_aac_priority" text="Prioritate" />
+        <text name="ft_vet_active_cases_one" text="1 caz activ" />
+        <text name="ft_vet_case_line_one" text="%s - 1 animal - aproximativ %d min" />
     </texts>
 
 </l10n>

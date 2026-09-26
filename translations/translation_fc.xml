@@ -3016,6 +3016,12 @@
         <text name="ft_npc_role_worker" text="ouvrier" />
         <text name="ft_npc_role_farmhand" text="ouvrier agricole" />
         <text name="ft_npc_role_agronomist" text="agronome" />
+        <text name="ft_aac_refill_below" text="补充阈值" />
+        <text name="ft_aac_target_fill" text="目标填充量" />
+        <text name="ft_aac_last_action_line" text="上次操作" />
+        <text name="ft_aac_priority" text="优先级" />
+        <text name="ft_vet_active_cases_one" text="1 个活动病例" />
+        <text name="ft_vet_case_line_one" text="%s - 1 只动物 - 约 %d 分钟" />
     </texts>
 
 </l10n>
