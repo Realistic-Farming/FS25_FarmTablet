@@ -2951,6 +2951,15 @@
         <text name="ft_changelog_253_imp_2" text="New app icons for Rotation Planner, Irrigation Suite and System Settings" />
         <text name="ft_changelog_253_imp_3" text="Soil app redesigned with cleaner per-field nutrient cards" />
         <text name="ft_changelog_253_fix_1" text="FieldSentry admin gate is now fail-closed, so it locks down when permissions are unclear" />
+        <text name="ft_rpphone_help_tracker_body" text="Tracks money you owe others (OUTGOING) and&#10;money others owe you (INCOMING).&#10;Statuses: PENDING, PAID, OVERDUE / REJECTED." />
+        <text name="ft_rpphone_help_phone_body" text="If FS25_RoleplayPhone v0.4.0+ is installed,&#10;invoices created on the phone appear here&#10;automatically via its public API.&#10;Without it, use the built-in invoice system." />
+        <text name="ft_rpphone_help_summary_body" text="Top of the app shows total receivable (green)&#10;and total owed (red) across all pending invoices." />
+        <text name="ft_rpphone_help_new_body" text="Tap + NEW to open the creation form.&#10;Only available in built-in mode.&#10;Use the RoleplayPhone app to create invoices&#10;when that mod is installed." />
+        <text name="ft_rpphone_due_date_fmt" text="Due: %s" />
+        <text name="ft_rpphone_overdue_one" text="Overdue by 1 day" />
+        <text name="ft_rpphone_overdue_fmt" text="Overdue by %d days" />
+        <text name="ft_rpphone_due_in_one" text="Due in 1 day" />
+        <text name="ft_rpphone_due_in_fmt" text="Due in %d days" />
     </texts>
 
 </l10n>
