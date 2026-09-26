@@ -409,7 +409,7 @@
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
         <text name="ft_auto_a_rotating_recruitment_pool_each_candidate_has" text="A rotating recruitment pool. Each candidate has&#10;" />
         <text name="ft_auto_aac" text="AAC" />
-        <text name="ft_auto_above_ground" text="Above Ground" />
+        <text name="ft_auto_above_ground" text="Zeminin üstünde" />
         <text name="ft_auto_above_ground_how_far_above_or_below_the_terrain" text="Above Ground: how far above (or below) the terrain&#10;" />
         <text name="ft_auto_abs" text="abs:" />
         <text name="ft_auto_accent" text="ACCENT" />
@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="Alan: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Alan: sahip olunan toplam tarım arazisi, hektar olarak.&#10;" />
         <text name="ft_auto_at" text=" saat " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="Bağlı" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="Tarla Nöbetçisi, toprak simülasyonunun hangi tarlalarda&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="Tarla Nöbetçisi kullanılamıyor." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - tarla bazlı toprak, uyku ve çayır" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Doluluk" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Dolu kısım = geçen süre. Teklif, ilan süresinin&#10;" />
@@ -1141,7 +1141,7 @@
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
         <text name="ft_auto_green_positive_red_overdrawn" text="Yeşil = artıda, kırmızı = ekside.&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
-        <text name="ft_auto_ground_level" text="Ground Level" />
+        <text name="ft_auto_ground_level" text="Zemin seviyesi" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
         <text name="ft_auto_grouped_into_built_in_farming_and" text="bunlar Yerleşik, Tarım ve&#10;" />
         <text name="ft_auto_grow" text="GROW" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Ekipman" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1270,7 +1270,7 @@
         <text name="ft_auto_invoices_phone" text="Faturalar / Telefon" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
-        <text name="ft_auto_items" text="ITEMS" />
+        <text name="ft_auto_items" text="KAYITLAR" />
         <text name="ft_auto_items_number_of_individual_load_entries_in_history" text="ITEMS = number of individual load entries in history." />
         <text name="ft_auto_job" text=" iş" />
         <text name="ft_auto_jobs" text="JOBS" />
@@ -1304,11 +1304,11 @@
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Binanın tükettiği ve ürettiği ürünleri listeler.&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="Kalan litre ve toplam kapasite çubuğun yanında gösterilir.&#10;" />
         <text name="ft_auto_live_updates" text="LIVE UPDATES" />
-        <text name="ft_auto_load_history" text="LOAD HISTORY" />
+        <text name="ft_auto_load_history" text="YÜK GEÇMİŞİ" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
         <text name="ft_auto_loading" text="Yükleme" />
-        <text name="ft_auto_loads" text="LOADS" />
+        <text name="ft_auto_loads" text="YÜKLER" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="KREDİ" />
         <text name="ft_auto_loan_2" text="Kredi" />
@@ -1341,7 +1341,7 @@
         <text name="ft_auto_marketplace" text="Pazar Yeri" />
         <text name="ft_auto_master_toggle_for_all_tablet_sounds" text="Master toggle for all tablet sounds.&#10;" />
         <text name="ft_auto_matching_mod_is_loaded_in_your_savegame" text="yüklendiğinde uygulamalar kendiliğinden görünür." />
-        <text name="ft_auto_material" text="MATERIAL" />
+        <text name="ft_auto_material" text="MALZEME" />
         <text name="ft_auto_materialhandler" text="materialhandler" />
         <text name="ft_auto_matter_levels_for_each_of_your_owned_fields" text="matter levels for each of your owned fields." />
         <text name="ft_auto_maximises_milk_eggs_wool_and_manure_output" text="maximises milk, eggs, wool, and manure output." />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Çiftliğim" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="Yok" />
+        <text name="ft_auto_name" text="Ad" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1474,7 +1474,7 @@
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
         <text name="ft_auto_no_job_running" text="Süren iş yok." />
-        <text name="ft_auto_no_loads_recorded_yet" text="No loads recorded yet." />
+        <text name="ft_auto_no_loads_recorded_yet" text="Henüz yük kaydedilmedi." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
         <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="mağazadan satın al, burada gör." />
         <text name="ft_auto_player" text="Oyuncu" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="Oyuncu konumu yok." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1737,7 +1737,7 @@
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
         <text name="ft_auto_reroll" text="REROLL" />
-        <text name="ft_auto_reset" text="RESET" />
+        <text name="ft_auto_reset" text="SIFIRLA" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
         <text name="ft_auto_reset_button" text="RESET BUTTON" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="Ekim" />
         <text name="ft_auto_sowing_planting" text="Ekim / Dikim" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="Hız" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="İlaçlama" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="ÖZET KARTLARI" />
         <text name="ft_auto_summer" text="Yaz" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2010,7 +2010,7 @@
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="SICAKLIK" />
         <text name="ft_auto_temperature_2" text="Sıcaklık" />
-        <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
+        <text name="ft_auto_terrain_at_position" text="KONUMDAKİ ARAZİ" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
         <text name="ft_auto_the_app_shown_first_every_time_you_open_the_tablet" text="The app shown first every time you open the tablet.&#10;" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="Ot temizleme" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
-        <text name="ft_auto_weight" text="WEIGHT" />
+        <text name="ft_auto_weight" text="AĞIRLIK" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="Hoş geldin! Başlamak için bir uygulamaya dokun." />
         <text name="ft_auto_what_counts_as_a_silo" text="SİLO NE SAYILIR?" />
@@ -2682,7 +2682,7 @@
         <text name="ft_ai_active_short" text="YARDIMCI" />
         <text name="ft_settings_battery_drain" text="Pil tüketimi" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Süren iş yok." /><text name="ft_fieldjobs_start_job" text="İşi başlat" /><text name="ft_fieldjobs_recent_jobs" text="Son işler" /><text name="ft_fieldjobs_no_completed" text="Henüz bitmiş iş yok." /><text name="ft_fieldjobs_no_job_short" text="aktif iş yok" /><text name="ft_common_history" text="Geçmiş" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Kapalı" />
+    <text name="ft_notes_template_harvest" text="Hasat yap" /><text name="ft_notes_template_sow" text="Ek" /><text name="ft_notes_template_fertilize" text="Gübrele" /><text name="ft_notes_template_plow" text="Sür / işle" /><text name="ft_notes_template_spray" text="Tarlaları ilaçla" /><text name="ft_notes_template_sell" text="Hasadı sat" /><text name="ft_notes_template_refuel" text="Araçlara yakıt al" /><text name="ft_notes_template_repair" text="Araçları onar" /><text name="ft_notes_template_feed" text="Hayvanları besle" /><text name="ft_notes_template_clean" text="Ağılları temizle" /><text name="ft_notes_template_mow" text="Çim biç" /><text name="ft_notes_template_bale" text="Saman / ot balyala" /><text name="ft_notes_template_collect_bales" text="Balyaları topla" /><text name="ft_notes_template_contracts" text="Sözleşmelere bak" /><text name="ft_notes_template_shop" text="Mağazaya git" /><text name="ft_notes_template_collect_prod" text="Üretimi topla" /><text name="ft_notes_template_buy" text="Ekipman satın al" /><text name="ft_notes_template_water" text="Ekinleri sula" /><text name="ft_notes_template_weather" text="Havaya bak" /><text name="ft_notes_template_field_maint" text="Tarla bakımı" /><text name="ft_app_notes" text="Notlar" /><text name="ft_notes_todo_list" text="Yapılacaklar" /><text name="ft_notes_actions" text="Eylemler" /><text name="ft_notes_all_done" text="Hepsi bitti!" /><text name="ft_notes_pending_fmt" text="%d açık" /><text name="ft_notes_new_task" text="Yeni görev" /><text name="ft_notes_no_fields" text="Sahip olunan tarla yok" /><text name="ft_notes_any_field" text="Herhangi bir tarla" /><text name="ft_common_field" text="Tarla" /><text name="ft_notes_add" text="+ Görev ekle" /><text name="ft_notes_list_count_fmt" text="Görev listesi (%d açık - %d bitti)" /><text name="ft_notes_empty" text="Henüz görev yok - yukarıdan bir tane ekle" /><text name="ft_common_undo" text="Geri al" /><text name="ft_common_done" text="Bitti" /><text name="ft_notes_clear_completed_fmt" text="%d tamamlananı temizle" /><text name="ft_fieldjobs_no_job" text="Süren iş yok." /><text name="ft_fieldjobs_start_job" text="İşi başlat" /><text name="ft_fieldjobs_recent_jobs" text="Son işler" /><text name="ft_fieldjobs_no_completed" text="Henüz bitmiş iş yok." /><text name="ft_fieldjobs_no_job_short" text="aktif iş yok" /><text name="ft_common_history" text="Geçmiş" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Kapalı" />
     <text name="ft_fieldjobs_confirm_start" text="İŞ ZAMANLAYICISINI BAŞLAT" />
     <text name="ft_fieldjobs_purpose" text="İşlerinin süresini tutar ve kaydeder. İşçi göndermez." />
     <text name="ft_fieldjobs_finish_job" text="İŞİ BİTİR" />
@@ -2806,6 +2806,22 @@
         <text name="ft_dairy_breed_help_title" text="IRK KAYITLARI" />
         <text name="ft_dairy_breed_help_body" text="Şu anki sürü ahırdaki sağmal hayvanları sayar.&#10;Tanktaki süt, depolanan sütü onu üreten ırklara göre&#10;izler. Eski sütün yanında yeni bir sürü normaldir.&#10;Bilinmeyen süt kayıttan öncedir ya da kanıtlanmamış bir&#10;yoldan gelmiştir. Burada hiçbir ırk derecelendirilmez." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Çiftlik görevlerini takip et.&#10;&#10;&lt; / &gt; ile bir görev şablonu ve tarla seç,&#10;sonra + Görev ekle ile listeye ekle.&#10;Görevler her kayıt için otomatik kaydedilir." />
+        <text name="ft_notes_help_actions_body" text="Bitti - görevi tamamlandı olarak işaretler (■)&#10;Geri al - görevi yeniden açık yapar (□)&#10;✕    - görevi tamamen siler&#10;Tamamlananları temizle - bitmiş tüm görevleri bir kerede siler" />
+        <text name="ft_excavator_help_terrain_title" text="ARAZİ BİLGİSİ" />
+        <text name="ft_excavator_help_terrain_body" text="Dünyadaki güncel konumunu, aracın adını ve&#10;hızını, zemin yüksekliğini ve arazi yüzeyinin ne kadar&#10;üstünde ya da altında olduğunu gösterir. Değerler&#10;bu sayfa açıkken güncellenir." />
+        <text name="ft_excavator_help_bucket_title" text="KEPÇE SAYIMI" />
+        <text name="ft_excavator_help_bucket_body" text="Yük sayımı, bir lastikli yükleyici, ekskavatör ya da&#10;malzeme taşıyıcı kullandığında arka planda çalışır.&#10;Bu sayfadan çıksan ya da tableti kapatsan da&#10;sürer. Kurulum gerekmez." />
+        <text name="ft_excavator_help_cards_body" text="YÜKLER = bu oturumda kaydedilen boşaltmalar.&#10;AĞIRLIK = ton olarak taşınan toplam malzeme.&#10;KAYITLAR = geçmişte tutulan kayıt sayısı." />
+        <text name="ft_excavator_help_history_body" text="Son boşaltmaları malzeme adı ve tahmini&#10;ağırlıkla listeler. Eski satırlar listeden çıkar." />
+        <text name="ft_excavator_help_reset_body" text="Yük geçmişini ve oturum toplamlarını siler. Verimliliği ayrı&#10;izlemek için yeni bir işin başında kullan." />
+        <text name="ft_excavator_subtitle" text="Arazi + kepçe" />
+        <text name="ft_excavator_speed_fmt" text="%.1f km/sa" />
+        <text name="ft_excavator_bucket_session" text="KEPÇE OTURUMU" />
+        <text name="ft_excavator_active_bucket" text="ETKİN KEPÇE" />
+        <text name="ft_excavator_no_bucket" text="Kepçeli araç bulunamadı." />
+        <text name="ft_excavator_history_fmt" text="YÜK GEÇMİŞİ  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>

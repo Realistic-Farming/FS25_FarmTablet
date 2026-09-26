@@ -409,7 +409,7 @@
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
         <text name="ft_auto_a_rotating_recruitment_pool_each_candidate_has" text="A rotating recruitment pool. Each candidate has&#10;" />
         <text name="ft_auto_aac" text="AAC" />
-        <text name="ft_auto_above_ground" text="Above Ground" />
+        <text name="ft_auto_above_ground" text="Sobre el suelo" />
         <text name="ft_auto_above_ground_how_far_above_or_below_the_terrain" text="Above Ground: how far above (or below) the terrain&#10;" />
         <text name="ft_auto_abs" text="abs:" />
         <text name="ft_auto_accent" text="ACCENT" />
@@ -552,7 +552,7 @@
         <text name="ft_auto_area_2" text="Área: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Superficie: terreno total en propiedad, en hectáreas.&#10;" />
         <text name="ft_auto_at" text=" a las " />
-        <text name="ft_auto_attached" text="Attached" />
+        <text name="ft_auto_attached" text="Enganchado" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
         <text name="ft_auto_automatic_detection" text="AUTOMATIC DETECTION" />
@@ -1009,7 +1009,7 @@
         <text name="ft_auto_fieldsentry_decides_which_fields_the_soil_simulation_ru" text="El Centinela de campo decide en qué campos se ejecuta la simulación&#10;" />
         <text name="ft_auto_fieldsentry_is_not_available" text="El Centinela de campo no está disponible." />
         <text name="ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow" text="FieldSentry - simulación del suelo por campo, reposo y pradera" />
-        <text name="ft_auto_fill" text="Fill" />
+        <text name="ft_auto_fill" text="Llenado" />
         <text name="ft_auto_fill_fuel" text="FILL FUEL" />
         <text name="ft_auto_fill_fuel_fills_fuel_and_adblue_to_max" text="FILL FUEL  - fills fuel (and AdBlue) to max&#10;" />
         <text name="ft_auto_filled_time_elapsed_an_offer_can_arrive_any_time" text="Relleno = tiempo transcurrido. Una oferta puede llegar en cualquier&#10;" />
@@ -1141,7 +1141,7 @@
         <text name="ft_auto_green_good_yellow_fair_red_poor" text="Green = Good  |  Yellow = Fair  |  Red = Poor.&#10;" />
         <text name="ft_auto_green_positive_red_overdrawn" text="Verde = positivo, rojo = en descubierto.&#10;" />
         <text name="ft_auto_green_ready_to_harvest_blue_growing_normally_yellow_nee" text="Green  = Ready to harvest.&#10;Blue   = Growing normally.&#10;Yellow = Needs attention (fertilise, plough, roll, etc.).&#10;Grey   = Fallow / empty field." />
-        <text name="ft_auto_ground_level" text="Ground Level" />
+        <text name="ft_auto_ground_level" text="Nivel del suelo" />
         <text name="ft_auto_ground_level_the_terrain_height_in_metres_at_your" text="Ground Level: the terrain height in metres at your&#10;" />
         <text name="ft_auto_grouped_into_built_in_farming_and" text="agrupadas en las categorías Integradas, Agricultura e&#10;" />
         <text name="ft_auto_grow" text="GROW" />
@@ -1212,7 +1212,7 @@
         <text name="ft_auto_illness" text="Illness" />
         <text name="ft_auto_image_s_in_ftbackground_click_to_cycle" text=" image(s) in FTBackground  |  click to cycle" />
         <text name="ft_auto_img" text="img:" />
-        <text name="ft_auto_implement" text="Implement" />
+        <text name="ft_auto_implement" text="Apero" />
         <text name="ft_auto_improved_progress_bars_with_glow_effects" text="Improved progress bars with glow effects" />
         <text name="ft_auto_improvement_added_scroll_helper_to_support_all_apps_wit" text="Improvement: Added Scroll helper to support all apps with long content" />
         <text name="ft_auto_in_each_version_newest_first" text="in each version, newest first." />
@@ -1270,7 +1270,7 @@
         <text name="ft_auto_invoices_phone" text="Facturas / Teléfono" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
         <text name="ft_auto_it_advances_to_tomorrow_at_that_time" text="it advances to tomorrow at that time." />
-        <text name="ft_auto_items" text="ITEMS" />
+        <text name="ft_auto_items" text="ENTRADAS" />
         <text name="ft_auto_items_number_of_individual_load_entries_in_history" text="ITEMS = number of individual load entries in history." />
         <text name="ft_auto_job" text=" trabajo" />
         <text name="ft_auto_jobs" text="JOBS" />
@@ -1304,11 +1304,11 @@
         <text name="ft_auto_lists_the_fill_types_the_building_consumes_and_produces" text="Lista los productos que el edificio consume y produce.&#10;" />
         <text name="ft_auto_litres_remaining_and_total_capacity_shown_beside_the_ba" text="Litros restantes y capacidad total junto a la barra.&#10;" />
         <text name="ft_auto_live_updates" text="LIVE UPDATES" />
-        <text name="ft_auto_load_history" text="LOAD HISTORY" />
+        <text name="ft_auto_load_history" text="HISTORIAL DE CARGAS" />
         <text name="ft_auto_load_history_2" text="LOAD HISTORY  (" />
         <text name="ft_auto_loader" text="loader" />
         <text name="ft_auto_loading" text="Carga" />
-        <text name="ft_auto_loads" text="LOADS" />
+        <text name="ft_auto_loads" text="CARGAS" />
         <text name="ft_auto_loads_total_dump_cycles_recorded_this_session" text="LOADS = total dump cycles recorded this session.&#10;" />
         <text name="ft_auto_loan" text="PRÉSTAMO" />
         <text name="ft_auto_loan_2" text="Préstamo" />
@@ -1385,8 +1385,8 @@
         <text name="ft_auto_municipality" text="Municipality" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Mi granja" />
-        <text name="ft_auto_n_a" text="N/A" />
-        <text name="ft_auto_name" text="Name" />
+        <text name="ft_auto_n_a" text="N/D" />
+        <text name="ft_auto_name" text="Nombre" />
         <text name="ft_auto_name_2" text="name" />
         <text name="ft_auto_name_and_estimated_weight_per_load" text="name and estimated weight per load.&#10;" />
         <text name="ft_auto_ne" text="NE" />
@@ -1474,7 +1474,7 @@
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
         <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
         <text name="ft_auto_no_job_running" text="Ningún trabajo en marcha." />
-        <text name="ft_auto_no_loads_recorded_yet" text="No loads recorded yet." />
+        <text name="ft_auto_no_loads_recorded_yet" text="Aún no hay cargas registradas." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
         <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
@@ -1630,7 +1630,7 @@
         <text name="ft_auto_placeable_from_the_shop_to_see_it_here" text="en la tienda para verlo aquí." />
         <text name="ft_auto_player" text="Jugador" />
         <text name="ft_auto_player_etc_removing_system_hotspots_missions" text="Player, etc. Removing system hotspots (Missions,&#10;" />
-        <text name="ft_auto_player_position_unavailable" text="Player position unavailable." />
+        <text name="ft_auto_player_position_unavailable" text="Posición del jugador no disponible." />
         <text name="ft_auto_plays_a_click_when_switching_apps_in_the_sidebar" text="Plays a click when switching apps in the sidebar" />
         <text name="ft_auto_plays_a_paging_sound_when_the_in_game_help_panel_opens" text="Plays a paging sound when the in-game help panel opens/closes" />
         <text name="ft_auto_plays_a_sound_when_you_open_or_close_the_tablet_t_key" text="Plays a sound when you open or close the tablet (T key)" />
@@ -1737,7 +1737,7 @@
         <text name="ft_auto_repossession_running" text="Repossession running" />
         <text name="ft_auto_repossessions" text="Repossessions" />
         <text name="ft_auto_reroll" text="REROLL" />
-        <text name="ft_auto_reset" text="RESET" />
+        <text name="ft_auto_reset" text="REINICIAR" />
         <text name="ft_auto_reset_all_settings_to_defaults" text="Reset all settings to defaults" />
         <text name="ft_auto_reset_all_to_defaults" text="RESET ALL TO DEFAULTS" />
         <text name="ft_auto_reset_button" text="RESET BUTTON" />
@@ -1884,7 +1884,7 @@
         <text name="ft_auto_sow_seeds" text="Sow seeds" />
         <text name="ft_auto_sowing" text="Siembra" />
         <text name="ft_auto_sowing_planting" text="Siembra / Plantación" />
-        <text name="ft_auto_speed" text="Speed" />
+        <text name="ft_auto_speed" text="Velocidad" />
         <text name="ft_auto_speed_km_h_are_shown_here" text="speed (km/h) are shown here.&#10;" />
         <text name="ft_auto_spray_fields" text="Spray fields" />
         <text name="ft_auto_spraying" text="Pulverización" />
@@ -1938,7 +1938,7 @@
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
         <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
-        <text name="ft_auto_summary_cards" text="SUMMARY CARDS" />
+        <text name="ft_auto_summary_cards" text="TARJETAS DE RESUMEN" />
         <text name="ft_auto_summer" text="Verano" />
         <text name="ft_auto_supplier" text="Supplier" />
         <text name="ft_auto_sure" text="SURE?" />
@@ -2010,7 +2010,7 @@
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="TEMPERATURA" />
         <text name="ft_auto_temperature_2" text="Temperatura" />
-        <text name="ft_auto_terrain_at_position" text="TERRAIN AT POSITION" />
+        <text name="ft_auto_terrain_at_position" text="TERRENO EN LA POSICIÓN" />
         <text name="ft_auto_the_active_job_badge_shows_on_the_home_screen" text="The active job badge shows on the Home screen." />
         <text name="ft_auto_the_active_speed_is_highlighted" text="The active speed is highlighted." />
         <text name="ft_auto_the_app_shown_first_every_time_you_open_the_tablet" text="The app shown first every time you open the tablet.&#10;" />
@@ -2183,7 +2183,7 @@
         <text name="ft_auto_weather_hero_card_with_condition_icon" text="Weather hero card with condition icon" />
         <text name="ft_auto_weeding" text="Deshierbe" />
         <text name="ft_auto_weekly_once_per_in_game_week" text="Weekly = once per in-game week." />
-        <text name="ft_auto_weight" text="WEIGHT" />
+        <text name="ft_auto_weight" text="PESO" />
         <text name="ft_auto_weight_total_material_moved_in_tonnes" text="WEIGHT = total material moved in tonnes.&#10;" />
         <text name="ft_auto_welcome_tap_an_app_to_begin" text="¡Bienvenido! Toca una aplicación para empezar." />
         <text name="ft_auto_what_counts_as_a_silo" text="¿QUÉ CUENTA COMO SILO?" />
@@ -2682,7 +2682,7 @@
         <text name="ft_ai_active_short" text="AYUDANTE" />
         <text name="ft_settings_battery_drain" text="Consumo de batería" />
         <text name="ft_settings_hint_battery_drain" text="Controls whether the tablet battery drains over time." />
-    <text name="ft_notes_template_harvest" text="Harvest crops" /><text name="ft_notes_template_sow" text="Sow seeds" /><text name="ft_notes_template_fertilize" text="Apply fertilizer" /><text name="ft_notes_template_plow" text="Plow / cultivate" /><text name="ft_notes_template_spray" text="Spray fields" /><text name="ft_notes_template_sell" text="Sell crops" /><text name="ft_notes_template_refuel" text="Refuel vehicles" /><text name="ft_notes_template_repair" text="Repair vehicles" /><text name="ft_notes_template_feed" text="Feed animals" /><text name="ft_notes_template_clean" text="Clean animal pens" /><text name="ft_notes_template_mow" text="Mow grass" /><text name="ft_notes_template_bale" text="Bale hay / straw" /><text name="ft_notes_template_collect_bales" text="Collect bales" /><text name="ft_notes_template_contracts" text="Check contracts" /><text name="ft_notes_template_shop" text="Visit shop" /><text name="ft_notes_template_collect_prod" text="Collect productions" /><text name="ft_notes_template_buy" text="Buy equipment" /><text name="ft_notes_template_water" text="Water crops" /><text name="ft_notes_template_weather" text="Check weather" /><text name="ft_notes_template_field_maint" text="Field maintenance" /><text name="ft_app_notes" text="Notes" /><text name="ft_notes_todo_list" text="Todo list" /><text name="ft_notes_actions" text="Actions" /><text name="ft_notes_all_done" text="All done!" /><text name="ft_notes_pending_fmt" text="%d open" /><text name="ft_notes_new_task" text="New task" /><text name="ft_notes_no_fields" text="No fields owned" /><text name="ft_notes_any_field" text="Any field" /><text name="ft_common_field" text="Field" /><text name="ft_notes_add" text="+ Add task" /><text name="ft_notes_list_count_fmt" text="Task list (%d open - %d done)" /><text name="ft_notes_empty" text="No tasks yet - add one above" /><text name="ft_common_undo" text="Undo" /><text name="ft_common_done" text="Done" /><text name="ft_notes_clear_completed_fmt" text="Clear %d completed" /><text name="ft_fieldjobs_no_job" text="Ningún trabajo en marcha." /><text name="ft_fieldjobs_start_job" text="Iniciar trabajo" /><text name="ft_fieldjobs_recent_jobs" text="Trabajos recientes" /><text name="ft_fieldjobs_no_completed" text="Aún no hay trabajos terminados." /><text name="ft_fieldjobs_no_job_short" text="sin trabajo activo" /><text name="ft_common_history" text="Historial" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Desactivado" />
+    <text name="ft_notes_template_harvest" text="Cosechar" /><text name="ft_notes_template_sow" text="Sembrar" /><text name="ft_notes_template_fertilize" text="Aplicar fertilizante" /><text name="ft_notes_template_plow" text="Arar / cultivar" /><text name="ft_notes_template_spray" text="Pulverizar campos" /><text name="ft_notes_template_sell" text="Vender la cosecha" /><text name="ft_notes_template_refuel" text="Repostar vehículos" /><text name="ft_notes_template_repair" text="Reparar vehículos" /><text name="ft_notes_template_feed" text="Alimentar animales" /><text name="ft_notes_template_clean" text="Limpiar corrales" /><text name="ft_notes_template_mow" text="Segar hierba" /><text name="ft_notes_template_bale" text="Empacar heno / paja" /><text name="ft_notes_template_collect_bales" text="Recoger pacas" /><text name="ft_notes_template_contracts" text="Revisar contratos" /><text name="ft_notes_template_shop" text="Visitar la tienda" /><text name="ft_notes_template_collect_prod" text="Recoger producciones" /><text name="ft_notes_template_buy" text="Comprar equipo" /><text name="ft_notes_template_water" text="Regar cultivos" /><text name="ft_notes_template_weather" text="Consultar el tiempo" /><text name="ft_notes_template_field_maint" text="Mantenimiento de campos" /><text name="ft_app_notes" text="Notas" /><text name="ft_notes_todo_list" text="Lista de tareas" /><text name="ft_notes_actions" text="Acciones" /><text name="ft_notes_all_done" text="¡Todo hecho!" /><text name="ft_notes_pending_fmt" text="%d abiertas" /><text name="ft_notes_new_task" text="Nueva tarea" /><text name="ft_notes_no_fields" text="No tienes campos" /><text name="ft_notes_any_field" text="Cualquier campo" /><text name="ft_common_field" text="Campo" /><text name="ft_notes_add" text="+ Añadir tarea" /><text name="ft_notes_list_count_fmt" text="Lista de tareas (%d abiertas - %d hechas)" /><text name="ft_notes_empty" text="Aún no hay tareas - añade una arriba" /><text name="ft_common_undo" text="Deshacer" /><text name="ft_common_done" text="Hecho" /><text name="ft_notes_clear_completed_fmt" text="Borrar %d completadas" /><text name="ft_fieldjobs_no_job" text="Ningún trabajo en marcha." /><text name="ft_fieldjobs_start_job" text="Iniciar trabajo" /><text name="ft_fieldjobs_recent_jobs" text="Trabajos recientes" /><text name="ft_fieldjobs_no_completed" text="Aún no hay trabajos terminados." /><text name="ft_fieldjobs_no_job_short" text="sin trabajo activo" /><text name="ft_common_history" text="Historial" /><text name="ft_app_production" text="Production" /><text name="ft_production_one_building" text="1 building" /><text name="ft_production_buildings_fmt" text="%d buildings" /><text name="ft_production_none" text="No production buildings owned." /><text name="ft_production_buy_hint" text="Purchase a production placeable to track it here." /><text name="ft_production_active_fmt" text="%d/%d active" /><text name="ft_production_stalled" text="stalled" /><text name="ft_production_inputs" text="INPUTS" /><text name="ft_production_outputs" text="OUTPUTS" />        <text name="ft_battery_mode_off" text="Desactivado" />
     <text name="ft_fieldjobs_confirm_start" text="INICIAR CRONÓMETRO" />
     <text name="ft_fieldjobs_purpose" text="Cronometra y registra tus trabajos. No envía ningún trabajador." />
     <text name="ft_fieldjobs_finish_job" text="TERMINAR TRABAJO" />
@@ -2806,6 +2806,22 @@
         <text name="ft_dairy_breed_help_title" text="REGISTROS DE RAZAS" />
         <text name="ft_dairy_breed_help_body" text="Rebaño actual cuenta los animales lecheros del establo.&#10;Leche en tanque sigue la leche almacenada por las razas&#10;que la produjeron. Un rebaño nuevo junto a leche antigua&#10;es normal. La leche desconocida es anterior al registro o&#10;llegó por una vía no probada. Ninguna raza se valora aquí." />
         <text name="ft_soil_ppm_pair" text="%d / %d ppm" />
+        <text name="ft_notes_help_todo_body" text="Lleva el control de las tareas de la granja.&#10;&#10;Elige una plantilla de tarea y un campo con &lt; / &gt;,&#10;y añádela a la lista con + Añadir tarea.&#10;Las tareas se guardan automáticamente por partida." />
+        <text name="ft_notes_help_actions_body" text="Hecho - marca una tarea como completada (■)&#10;Deshacer - vuelve a marcarla pendiente (□)&#10;✕    - elimina la tarea por completo&#10;Borrar completadas - quita todas las tareas hechas a la vez" />
+        <text name="ft_excavator_help_terrain_title" text="LECTURA DEL TERRENO" />
+        <text name="ft_excavator_help_terrain_body" text="Muestra tu posición en el mundo, el nombre y la velocidad&#10;del vehículo, la altura del suelo y cuánto estás por encima&#10;o por debajo de la superficie. Los valores se actualizan&#10;mientras esta página está abierta." />
+        <text name="ft_excavator_help_bucket_title" text="CONTEO DE CAZOS" />
+        <text name="ft_excavator_help_bucket_body" text="El conteo de cargas funciona en segundo plano cuando&#10;conduces una cargadora, una excavadora o una manipuladora.&#10;Sigue contando si sales de esta página o cierras&#10;la tableta. No hace falta configurar nada." />
+        <text name="ft_excavator_help_cards_body" text="CARGAS = ciclos de descarga registrados en esta sesión.&#10;PESO = material total movido en toneladas.&#10;ENTRADAS = número de entradas guardadas en el historial." />
+        <text name="ft_excavator_help_history_body" text="Muestra los últimos ciclos de descarga con el material&#10;y el peso estimado. Las filas antiguas salen de la lista." />
+        <text name="ft_excavator_help_reset_body" text="Borra el historial de cargas y los totales de la sesión. Úsalo al&#10;empezar un trabajo nuevo para medir la productividad aparte." />
+        <text name="ft_excavator_subtitle" text="Terreno + cazo" />
+        <text name="ft_excavator_speed_fmt" text="%.1f km/h" />
+        <text name="ft_excavator_bucket_session" text="SESIÓN DE CAZO" />
+        <text name="ft_excavator_active_bucket" text="CAZO ACTIVO" />
+        <text name="ft_excavator_no_bucket" text="No se detecta ningún vehículo con cazo." />
+        <text name="ft_excavator_history_fmt" text="HISTORIAL DE CARGAS  (%d)" />
+        <text name="ft_excavator_kg_fmt" text="%.0f kg" />
     </texts>
 
 </l10n>
