@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Kontrolliert wie Einkommen gezahlt wird:&#10;" />
         <text name="ft_auto_cool" text="Kühl" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="KOSTENMODUS" />
         <text name="ft_auto_cost_mode_2" text="Kostenmodus" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Anzahl von angenommenen Aufträgen die derzeit in Bearbeitung sind.&#10;" />
         <text name="ft_auto_create" text="ERSTELLEN" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Dimmed rows werden unterstützt sind aber derzeit nicht installiert.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="DEAKTIVIEREN" />
         <text name="ft_auto_disable_farm_tablet" text="Farm Tablet deaktiveren" />
         <text name="ft_auto_disabled" text="DEAKTIVIERT" />
         <text name="ft_auto_disabled_2" text="Deaktiviert" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Leer" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Leere Ställe werden ausgegraut dargstellt." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="AKTIVIEREN" />
+        <text name="ft_auto_enable_disable" text="AKTIVIEREN / DEAKTIVIEREN" />
         <text name="ft_auto_enable_disable_notifications" text="Benachrichtigungen (De-)aktivieren" />
         <text name="ft_auto_enable_farm_tablet" text="Farm Tablet Aktivieren" />
         <text name="ft_auto_enabled" text="Aktiviert" />
@@ -2973,6 +2973,37 @@
         <text name="ft_rpphone_overdue_fmt" text="Seit %d Tagen überfällig" />
         <text name="ft_rpphone_due_in_one" text="Fällig in 1 Tag" />
         <text name="ft_rpphone_due_in_fmt" text="Fällig in %d Tagen" />
+        <text name="ft_companion_hourly" text="Stündlich" />
+        <text name="ft_companion_daily" text="Täglich" />
+        <text name="ft_companion_per_hectare" text="Pro Hektar" />
+        <text name="ft_companion_low" text="Niedrig" />
+        <text name="ft_companion_medium" text="Mittel" />
+        <text name="ft_companion_high" text="Hoch" />
+        <text name="ft_companion_novice" text="Anfänger" />
+        <text name="ft_companion_experienced" text="Erfahren" />
+        <text name="ft_companion_master" text="Meister" />
+        <text name="ft_companion_legendary" text="Legendär" />
+        <text name="ft_companion_working" text="arbeitet" />
+        <text name="ft_companion_idle" text="untätig" />
+        <text name="ft_companion_working_pinned" text="arbeitet, angeheftet" />
+        <text name="ft_companion_idle_pinned" text="untätig, angeheftet" />
+        <text name="ft_income_help_what_body" text="Zeigt den aktuellen Status von FS25_IncomeMod.&#10;Die Mod zahlt einstellbare regelmäßige Einnahmen&#10;als Ergänzung zu den Erträgen deines Hofs." />
+        <text name="ft_income_help_mode_body" text="Legt fest, wann das Einkommen ausgezahlt wird:&#10;Stündlich = jede Spielstunde.&#10;Täglich = einmal pro Spieltag.&#10;Wöchentlich = einmal pro Spielwoche." />
+        <text name="ft_income_help_amount_body" text="Der Betrag, der pro Zahlungszyklus deinem Konto gutgeschrieben wird.&#10;Einstellbar in den Optionen der Income Mod." />
+        <text name="ft_companion_help_toggle_body" text="Schaltet die Mod ein oder aus, ohne sie zu deinstallieren.&#10;Änderungen gelten sofort." />
+        <text name="ft_tax_help_what_body" text="Zeigt den Status von FS25_TaxMod.&#10;Die Mod zieht regelmäßig Steuern von deinem Konto ab&#10;und erstattet einen einstellbaren Prozentsatz zurück." />
+        <text name="ft_tax_help_rate_body" text="Wie viel Steuer pro Zyklus fällig wird.&#10;Die Stufen Niedrig / Mittel / Hoch stellst du in der Mod ein.&#10;Hier angezeigt, damit du deine Liquidität planen kannst." />
+        <text name="ft_tax_help_return_body" text="Anteil der gezahlten Steuer, der zurückgegeben wird.&#10;Eine Rückgabe von 20% heißt, du zahlst effektiv 80%&#10;des angegebenen Steuersatzes." />
+        <text name="ft_tax_help_total_body" text="Insgesamt gezahlte Steuer in der aktuellen Sitzung.&#10;In Orange, weil es laufende Kosten sind." />
+        <text name="ft_wrk_help_what_body" text="Zeigt den Status von FS25_WorkerCosts:&#10;Lohnstufe, Kostenmodus, aktive&#10;Mitarbeiter und die Kosten dieses Monats.&#10;Weiter unten folgt das Pro-Staff-Team." />
+        <text name="ft_wrk_help_wage_body" text="Legt den Stundenlohn für angestellte Mitarbeiter fest.&#10;Die Stufen Niedrig / Mittel / Hoch stellst du in&#10;den Optionen der Worker-Costs-Mod ein." />
+        <text name="ft_wrk_help_mode_body" text="Legt fest, wie Löhne berechnet werden:&#10;Stündlich = jede Spielstunde abgerechnet.&#10;Monatlich = gesammelt und am Monatsende abgerechnet." />
+        <text name="ft_wrk_help_month_body" text="Die in diesem Monat aufgelaufenen Löhne.&#10;Wird nach der Monatslohnzahlung zurückgesetzt." />
+        <text name="ft_wrk_help_roster_body" text="Deine angestellten Mitarbeiter mit ihrer Stufe&#10;(Anfänger / Erfahren / Meister), Gesamtstunden,&#10;erledigten Aufträgen und aktueller Erschöpfung.&#10;Diese Ansicht ist schreibgeschützt: Einstellen, Entlassen und Zuweisen&#10;über das Bewerberportal im Spiel (ALT+H)&#10;oder die Konsolenbefehle von WorkerCosts." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="Das Team verwaltet der Host: wird bald synchronisiert." />
+        <text name="ft_wrk_levels_fmt" text="%dA / %dE / %dM" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d Aufträge  -  Erschöpfung %d%%" />
     </texts>
 
 </l10n>

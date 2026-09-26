@@ -15,26 +15,58 @@
 -- sidebar when autoDetect() has confirmed the mod is loaded.
 -- =========================================================
 
+-- ── The companion mods' words ─────────────────────────────
+-- What the companion mods' getters return, in English (their own settings ids): IncomeMod's pay mode
+-- (Settings:getPayModeName), TaxMod's rate id (settings.taxRate), WorkerCosts' wage level and cost mode
+-- (Settings:getWageLevelName / getCostModeName) and its roster's level and status (getRosterSnapshot).
+-- Each known word reaches the tablet's key here; a word this table does not know keeps the map's pass.
+local COMPANION_WORD = {
+    ["Hourly"]          = function() return FT.l10n("ft_companion_hourly", "Hourly") end,
+    ["Daily"]           = function() return FT.l10n("ft_companion_daily", "Daily") end,
+    ["Per Hectare"]     = function() return FT.l10n("ft_companion_per_hectare", "Per Hectare") end,
+    ["Low"]             = function() return FT.l10n("ft_companion_low", "Low") end,
+    ["Medium"]          = function() return FT.l10n("ft_companion_medium", "Medium") end,
+    ["High"]            = function() return FT.l10n("ft_companion_high", "High") end,
+    ["low"]             = function() return FT.l10n("ft_companion_low", "Low") end,
+    ["medium"]          = function() return FT.l10n("ft_companion_medium", "Medium") end,
+    ["high"]            = function() return FT.l10n("ft_companion_high", "High") end,
+    ["Novice"]          = function() return FT.l10n("ft_companion_novice", "Novice") end,
+    ["Experienced"]     = function() return FT.l10n("ft_companion_experienced", "Experienced") end,
+    ["Master"]          = function() return FT.l10n("ft_companion_master", "Master") end,
+    ["Legendary"]       = function() return FT.l10n("ft_companion_legendary", "Legendary") end,
+    ["working"]         = function() return FT.l10n("ft_companion_working", "working") end,
+    ["idle"]            = function() return FT.l10n("ft_companion_idle", "idle") end,
+    ["working, pinned"] = function() return FT.l10n("ft_companion_working_pinned", "working, pinned") end,
+    ["idle, pinned"]    = function() return FT.l10n("ft_companion_idle_pinned", "idle, pinned") end,
+}
+
+--- A companion mod's word in the reader's language, resolved where it is read (drawn with the literal flag).
+local function companionWord(word)
+    local f = COMPANION_WORD[tostring(word)]
+    if f ~= nil then return f() end
+    return FT.l10nAuto(word)
+end
+
 -- ── INCOME MOD ────────────────────────────────────────────
 FarmTabletUI:registerDrawer(FT.APP.INCOME, function(self)
     local AC = FT.appColor(FT.APP.INCOME)
 
     if self:drawHelpPage("_incomeHelp", FT.APP.INCOME, "Income Mod", AC, {
         { title = "WHAT THIS APP SHOWS",
-          body  = "Displays the current status of FS25_IncomeMod.\n" ..
+          body  = FT.l10n("ft_income_help_what_body", "Displays the current status of FS25_IncomeMod.\n" ..
                   "The mod adds configurable periodic income payments\n" ..
-                  "to supplement your farm earnings." },
+                  "to supplement your farm earnings."), literalBody = true },
         { title = "PAYMENT MODE",
-          body  = "Controls when income is paid out:\n" ..
+          body  = FT.l10n("ft_income_help_mode_body", "Controls when income is paid out:\n" ..
                   "Hourly = every in-game hour.\n" ..
                   "Daily = once per in-game day.\n" ..
-                  "Weekly = once per in-game week." },
+                  "Weekly = once per in-game week."), literalBody = true },
         { title = "AMOUNT",
-          body  = "The money added to your balance per payment cycle.\n" ..
-                  "Configure this in the Income Mod settings." },
+          body  = FT.l10n("ft_income_help_amount_body", "The money added to your balance per payment cycle.\n" ..
+                  "Configure this in the Income Mod settings."), literalBody = true },
         { title = "ENABLE / DISABLE",
-          body  = "Toggles the mod on or off without uninstalling it.\n" ..
-                  "Changes take effect immediately." },
+          body  = FT.l10n("ft_companion_help_toggle_body", "Toggles the mod on or off without uninstalling it.\n" ..
+                  "Changes take effect immediately."), literalBody = true },
     }) then return end
 
     local startY = self:drawAppHeader("Income Mod", "Integration")
@@ -58,7 +90,7 @@ FarmTabletUI:registerDrawer(FT.APP.INCOME, function(self)
     y = self:drawSection(y, "STATUS")
     y = self:drawRow(y, "Status", enabled and "Enabled" or "Disabled", nil,
         enabled and FT.C.POSITIVE or FT.C.NEGATIVE)
-    y = self:drawRow(y, "Payment Mode", mode)
+    y = self:drawRow(y, "Payment Mode", companionWord(mode), nil, nil, nil, true)
     y = self:drawRow(y, "Amount",
         (g_i18n and g_i18n:formatMoney(amount, 0, true, true)) or tostring(amount))
 
@@ -94,23 +126,23 @@ FarmTabletUI:registerDrawer(FT.APP.TAX, function(self)
 
     if self:drawHelpPage("_taxHelp", FT.APP.TAX, "Tax Mod", AC, {
         { title = "WHAT THIS APP SHOWS",
-          body  = "Displays the status of FS25_TaxMod.\n" ..
+          body  = FT.l10n("ft_tax_help_what_body", "Displays the status of FS25_TaxMod.\n" ..
                   "The mod deducts periodic tax from your balance\n" ..
-                  "and returns a configurable percentage as a rebate." },
+                  "and returns a configurable percentage as a rebate."), literalBody = true },
         { title = "TAX RATE",
-          body  = "How much tax is charged per cycle.\n" ..
+          body  = FT.l10n("ft_tax_help_rate_body", "How much tax is charged per cycle.\n" ..
                   "Low / Medium / High tiers are set in the mod settings.\n" ..
-                  "Shown here so you can plan your cash flow." },
+                  "Shown here so you can plan your cash flow."), literalBody = true },
         { title = "RETURN %",
-          body  = "Percentage of tax paid that is returned as a rebate.\n" ..
+          body  = FT.l10n("ft_tax_help_return_body", "Percentage of tax paid that is returned as a rebate.\n" ..
                   "A 20% return means you effectively pay 80% of the\n" ..
-                  "stated tax rate." },
+                  "stated tax rate."), literalBody = true },
         { title = "TOTAL PAID",
-          body  = "Cumulative tax paid across the current session.\n" ..
-                  "Shown in orange as it represents an ongoing cost." },
+          body  = FT.l10n("ft_tax_help_total_body", "Cumulative tax paid across the current session.\n" ..
+                  "Shown in orange as it represents an ongoing cost."), literalBody = true },
         { title = "ENABLE / DISABLE",
-          body  = "Toggles the mod on or off without uninstalling it.\n" ..
-                  "Changes take effect immediately." },
+          body  = FT.l10n("ft_companion_help_toggle_body", "Toggles the mod on or off without uninstalling it.\n" ..
+                  "Changes take effect immediately."), literalBody = true },
     }) then return end
 
     local data   = self.system.data
@@ -136,7 +168,7 @@ FarmTabletUI:registerDrawer(FT.APP.TAX, function(self)
     y = self:drawSection(y, "STATUS")
     y = self:drawRow(y, "Status", enabled and "Enabled" or "Disabled", nil,
         enabled and FT.C.POSITIVE or FT.C.NEGATIVE)
-    y = self:drawRow(y, "Tax Rate",   rate)
+    y = self:drawRow(y, "Tax Rate",   companionWord(rate), nil, nil, nil, true)
     y = self:drawRow(y, "Return %",   tostring(retPct) .. "%")
     if total then
         y = self:drawRow(y, "Total Paid", data:formatMoney(total), nil, FT.C.WARNING, nil, true)
@@ -478,28 +510,28 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
 
     if self:drawHelpPage("_wrkHelp", FT.APP.WORKER_COSTS, "Worker Costs", AC, {
         { title = "WHAT THIS APP SHOWS",
-          body  = "Displays FS25_WorkerCosts status:\n" ..
+          body  = FT.l10n("ft_wrk_help_what_body", "Displays FS25_WorkerCosts status:\n" ..
                   "current wage level, cost mode, active\n" ..
                   "workers, and month-to-date costs.\n" ..
-                  "Scroll down for the Pro-Staff roster." },
+                  "Scroll down for the Pro-Staff roster."), literalBody = true },
         { title = "WAGE LEVEL",
-          body  = "Sets the per-hour wage rate for hired workers.\n" ..
+          body  = FT.l10n("ft_wrk_help_wage_body", "Sets the per-hour wage rate for hired workers.\n" ..
                   "Low / Medium / High tiers are configured in\n" ..
-                  "the Worker Costs mod settings." },
+                  "the Worker Costs mod settings."), literalBody = true },
         { title = "COST MODE",
-          body  = "Controls how wages are calculated:\n" ..
+          body  = FT.l10n("ft_wrk_help_mode_body", "Controls how wages are calculated:\n" ..
                   "Hourly = charged every in-game hour.\n" ..
-                  "Monthly = accumulated and charged at month end." },
+                  "Monthly = accumulated and charged at month end."), literalBody = true },
         { title = "MONTH COSTS",
-          body  = "Total wages accumulated this month.\n" ..
-                  "Resets after the monthly salary is paid." },
+          body  = FT.l10n("ft_wrk_help_month_body", "Total wages accumulated this month.\n" ..
+                  "Resets after the monthly salary is paid."), literalBody = true },
         { title = "PRO-STAFF ROSTER",
-          body  = "Your hired workers with their level\n" ..
+          body  = FT.l10n("ft_wrk_help_roster_body", "Your hired workers with their level\n" ..
                   "(Novice / Experienced / Master), lifetime hours,\n" ..
                   "jobs completed, and current fatigue bar.\n" ..
-                  "This view is read-only — hire, fire, and assign\n" ..
+                  "This view is read-only - hire, fire, and assign\n" ..
                   "workers from the in-game roster panel (ALT+H)\n" ..
-                  "or the WorkerCosts console commands." },
+                  "or the WorkerCosts console commands."), literalBody = true },
     }) then return end
 
     local startY = self:drawAppHeader("Worker Costs", "Integration")
@@ -526,8 +558,8 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
     y = self:drawSection(y, "STATUS")
     y = self:drawRow(y, "Status",     enabled and "Enabled" or "Disabled", nil,
         enabled and FT.C.POSITIVE or FT.C.NEGATIVE)
-    y = self:drawRow(y, "Wage Level", wageLevel)
-    y = self:drawRow(y, "Cost Mode",  costMode)
+    y = self:drawRow(y, "Wage Level", companionWord(wageLevel), nil, nil, nil, true)
+    y = self:drawRow(y, "Cost Mode",  companionWord(costMode), nil, nil, nil, true)
 
     -- Active workers
     local activeWorkers = {}
@@ -558,13 +590,13 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
     if snap then
         y = y - FT.py(6)
         y = self:drawRule(y, 0.3)
-        y = self:drawSection(y, "PRO-STAFF  (" .. tostring(snap.count) .. ")")
+        y = self:drawSection(y, FT.l10nFormat("ft_wrk_prostaff_fmt", "PRO-STAFF  (%d)", tonumber(snap.count) or 0), true)
 
         if not snap.authoritative then
             -- Multiplayer client: the roster lives on the host and isn't synced yet.
             self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
-                "Roster is host-managed — syncs to clients soon.",
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.l10n("ft_wrk_roster_host", "Roster is host-managed - syncs to clients soon."),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(16)
         elseif snap.count == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
@@ -574,8 +606,8 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
         else
             y = self:drawRow(y, "Working Now", tostring(snap.working), nil,
                 snap.working > 0 and FT.C.POSITIVE or FT.C.TEXT_DIM)
-            y = self:drawRow(y, "Levels", string.format("%dN / %dE / %dM",
-                snap.levels.novice, snap.levels.experienced, snap.levels.master))
+            y = self:drawRow(y, "Levels", FT.l10nFormat("ft_wrk_levels_fmt", "%dN / %dE / %dM",
+                snap.levels.novice, snap.levels.experienced, snap.levels.master), nil, nil, nil, true)
             y = y - FT.py(2)
 
             -- Draw every worker. The renderer clips rows that fall outside the
@@ -591,16 +623,16 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
                 if FT.utf8Len(nm) > 18 then nm = FT.utf8Sub(nm, 16) .. ">" end
 
                 self.r:appText(x, y, FT.FONT.SMALL,
-                    nm .. "  [" .. (w.levelName or "Novice") .. "]",
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-                self.r:appText(x + cw, y, FT.FONT.SMALL, w.status or "idle",
-                    RenderText.ALIGN_RIGHT, stColor)
+                    nm .. "  [" .. companionWord(w.levelName or "Novice") .. "]",
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+                self.r:appText(x + cw, y, FT.FONT.SMALL, companionWord(w.status or "idle"),
+                    RenderText.ALIGN_RIGHT, stColor, true)
                 y = y - FT.py(13)
 
                 self.r:appText(x, y, FT.FONT.TINY,
-                    string.format("%.1fh  -  %d jobs  -  fatigue %d%%",
+                    FT.l10nFormat("ft_wrk_worker_stats_fmt", "%.1fh  -  %d jobs  -  fatigue %d%%",
                         w.totalHours or 0, w.totalJobs or 0, fatPct),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(11)
 
                 local fatColor = fatPct >= 70 and FT.C.NEGATIVE

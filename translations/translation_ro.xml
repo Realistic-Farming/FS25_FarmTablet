@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="ACTIV = simulat normal.&#10;" />
         <text name="ft_auto_active_stalled" text="ACTIV / OPRIT" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Muncitori activi" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="evenimentele mondiale active, modificatorii de preț&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="SUMĂ" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Sumă" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Cantități în litri, de la cea mai mare.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Răcoare" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="MOD DE COST" />
         <text name="ft_auto_cost_mode_2" text="Mod de cost" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Numărul contractelor acceptate în desfășurare.&#10;" />
         <text name="ft_auto_create" text="CREEAZĂ" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Rândurile estompate sunt acceptate, dar nu sunt instalate.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="DEZACTIVEAZĂ" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="DEZACTIVAT" />
         <text name="ft_auto_disabled_2" text="Dezactivat" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Gol" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="ACTIVEAZĂ" />
+        <text name="ft_auto_enable_disable" text="ACTIVEAZĂ / DEZACTIVEAZĂ" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Activat" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Comenzi și statistici pentru modul de venituri" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod nu este instalat." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Venituri: bani câștigați. Cheltuieli: bani cheltuiți.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="INTRĂRI  (bani care ți se datorează)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="INTRĂRI / IEȘIRI" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Instalează FS25_IncomeMod ca să folosești această aplicație." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Instalează FS25_MarketDynamics ca să folosești aplicația." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Instalează FS25_RandomWorldEvents ca să folosești aplicația." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Instalează FS25_SoilFertilizer ca să folosești această aplicație." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Instalează FS25_TaxMod ca să folosești această aplicație." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Instalează FS25_UsedPlus pentru a folosi această aplicație." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Instalează FS25_WorkerCosts ca să gestionezi personalul." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Instalează FS25_WorkerCosts ca să folosești această aplicație." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="BANI" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="COSTURILE LUNII" />
         <text name="ft_auto_month_to_date" text="Luna până acum" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total lunar" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Niciun vehicul" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Niciun vehicul la mai puțin de 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Niciun muncitor încă. Angajează din panoul echipei (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Încă nu ai muncitori. Deschide fila ANGAJEAZĂ ca să recrutezi." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Niciun atelier în această fermă  (reparații dezactivate)" />
         <text name="ft_auto_none" text="niciunul" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="PLĂTEȘTE" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="MOD DE PLATĂ" />
+        <text name="ft_auto_payment_mode_2" text="Mod de plată" />
         <text name="ft_auto_payroll" text="SALARII" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="FILA SALARII" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="IMPACT PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="ECHIPA PRO-STAFF" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Producție" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="RAMBURSARE %" />
+        <text name="ft_auto_return_2" text="Rambursare %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Mod taxe" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod nu este instalat." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Starea și comutatorul modului de taxe" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="COTĂ DE IMPOZIT" />
+        <text name="ft_auto_tax_rate_2" text="Cotă de impozit" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="TEMPERATURĂ" />
         <text name="ft_auto_temperature_2" text="Temperatură" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Aplicațiile însoțitoare de la terți își afișează propriul&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Este o scurtătură - poți atinge oricând și pictograma din&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="LUNA ACEASTA" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="agentului și cât a trecut din perioada anunțului." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="TOTAL PLĂTIT" />
+        <text name="ft_auto_total_paid_2" text="Total plătit" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Tur" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Mergi la NPC-ul de pe hartă ca să închizi contractul și&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="NIVEL SALARIAL" />
         <text name="ft_auto_wage_level_2" text="Nivel salarial" />
         <text name="ft_auto_wage_structure" text="STRUCTURA SALARIALĂ" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Salarii acumulate" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="TREZIRE" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="La lucru" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Lucrează acum" />
         <text name="ft_auto_workshop" text="Atelier" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2969,9 +2969,40 @@
         <text name="ft_rpphone_help_new_body" text="Atinge + NOUĂ ca să deschizi formularul.&#10;Disponibil doar în modul integrat.&#10;Când modul RoleplayPhone este instalat,&#10;creează facturile în aplicația lui." />
         <text name="ft_rpphone_due_date_fmt" text="Scadență: %s" />
         <text name="ft_rpphone_overdue_one" text="Restantă de 1 zi" />
-        <text name="ft_rpphone_overdue_fmt" text="Restantă de %d zile" />
+        <text name="ft_rpphone_overdue_fmt" text="Zile de întârziere: %d" />
         <text name="ft_rpphone_due_in_one" text="Scadentă în 1 zi" />
-        <text name="ft_rpphone_due_in_fmt" text="Scadentă în %d zile" />
+        <text name="ft_rpphone_due_in_fmt" text="Zile până la scadență: %d" />
+        <text name="ft_companion_hourly" text="Pe oră" />
+        <text name="ft_companion_daily" text="Zilnic" />
+        <text name="ft_companion_per_hectare" text="Pe hectar" />
+        <text name="ft_companion_low" text="Scăzut" />
+        <text name="ft_companion_medium" text="Mediu" />
+        <text name="ft_companion_high" text="Ridicat" />
+        <text name="ft_companion_novice" text="Începător" />
+        <text name="ft_companion_experienced" text="Experimentat" />
+        <text name="ft_companion_master" text="Maestru" />
+        <text name="ft_companion_legendary" text="Legendar" />
+        <text name="ft_companion_working" text="lucrează" />
+        <text name="ft_companion_idle" text="inactiv" />
+        <text name="ft_companion_working_pinned" text="lucrează, fixat" />
+        <text name="ft_companion_idle_pinned" text="inactiv, fixat" />
+        <text name="ft_income_help_what_body" text="Afișează starea actuală a FS25_IncomeMod.&#10;Modul adaugă plăți de venit periodice configurabile&#10;în completarea câștigurilor fermei." />
+        <text name="ft_income_help_mode_body" text="Stabilește când se plătește venitul:&#10;Pe oră = la fiecare oră de joc.&#10;Zilnic = o dată pe zi de joc.&#10;Săptămânal = o dată pe săptămână de joc." />
+        <text name="ft_income_help_amount_body" text="Banii adăugați la sold la fiecare ciclu de plată.&#10;Setează-i în opțiunile Income Mod." />
+        <text name="ft_companion_help_toggle_body" text="Pornește sau oprește modul fără să-l dezinstalezi.&#10;Modificările se aplică imediat." />
+        <text name="ft_tax_help_what_body" text="Afișează starea FS25_TaxMod.&#10;Modul reține periodic un impozit din sold&#10;și returnează un procent configurabil ca rambursare." />
+        <text name="ft_tax_help_rate_body" text="Cât impozit se reține la fiecare ciclu.&#10;Nivelurile Scăzut / Mediu / Ridicat se setează în mod.&#10;Afișat aici ca să-ți planifici fluxul de numerar." />
+        <text name="ft_tax_help_return_body" text="Procentul din impozitul plătit care se rambursează.&#10;O rambursare de 20% înseamnă că plătești de fapt 80%&#10;din cota de impozit afișată." />
+        <text name="ft_tax_help_total_body" text="Impozitul total plătit în sesiunea curentă.&#10;Afișat cu portocaliu, fiind un cost continuu." />
+        <text name="ft_wrk_help_what_body" text="Afișează starea FS25_WorkerCosts:&#10;nivelul salarial, modul de cost, muncitorii&#10;activi și costurile lunii până acum.&#10;Derulează în jos pentru echipa Pro-Staff." />
+        <text name="ft_wrk_help_wage_body" text="Stabilește salariul pe oră al muncitorilor angajați.&#10;Nivelurile Scăzut / Mediu / Ridicat se setează&#10;în opțiunile modului Worker Costs." />
+        <text name="ft_wrk_help_mode_body" text="Stabilește cum se calculează salariile:&#10;Pe oră = taxat la fiecare oră de joc.&#10;Lunar = cumulat și taxat la sfârșitul lunii." />
+        <text name="ft_wrk_help_month_body" text="Totalul salariilor acumulate luna aceasta.&#10;Se resetează după plata salariului lunar." />
+        <text name="ft_wrk_help_roster_body" text="Muncitorii tăi angajați cu nivelul lor&#10;(Începător / Experimentat / Maestru), ore totale,&#10;lucrări finalizate și bara de oboseală actuală.&#10;Această vedere e doar pentru citire: angajează, concediază și repartizează&#10;muncitori din panoul echipei din joc (ALT+H)&#10;sau cu comenzile de consolă WorkerCosts." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="Echipa e gestionată de gazdă: se sincronizează în curând." />
+        <text name="ft_wrk_levels_fmt" text="%dÎ / %dE / %dM" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f h  -  %d lucrări  -  oboseală %d%%" />
     </texts>
 
 </l10n>

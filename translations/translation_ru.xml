@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="АКТИВНО = симулируется как обычно.&#10;" />
         <text name="ft_auto_active_stalled" text="АКТИВНО / ПРОСТОЙ" />
         <text name="ft_auto_active_vehicle" text="АКТИВНАЯ ТЕХНИКА" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Активные рабочие" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="активные мировые события, модификаторы рыночных цен&#10;" />
         <text name="ft_auto_add_todo" text="+ ДОБАВИТЬ" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="СУММА" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Сумма" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Количество в литрах, по убыванию.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Прохладно" />
         <text name="ft_auto_core" text="ОСНОВНЫЕ" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="РЕЖИМ РАСХОДОВ" />
         <text name="ft_auto_cost_mode_2" text="Режим затрат" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Число принятых контрактов в работе.&#10;" />
         <text name="ft_auto_create" text="СОЗДАТЬ" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Копать" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Затенённые строки поддерживаются, но сейчас не установлены.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="ВЫКЛЮЧИТЬ" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="ОТКЛЮЧЕНО" />
         <text name="ft_auto_disabled_2" text="Выключено" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Пусто" />
         <text name="ft_auto_empty_4" text="пусто" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="ВКЛЮЧИТЬ" />
+        <text name="ft_auto_enable_disable" text="ВКЛЮЧИТЬ / ВЫКЛЮЧИТЬ" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Включено" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Управление и статистика мода дохода" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod не установлен." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Доходы: заработанные деньги. Расходы: потраченные.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="ВХОДЯЩИЕ  (деньги, которые должны вам)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="ВХОДЫ" />
         <text name="ft_auto_inputs_outputs" text="СЫРЬЁ / ПРОДУКЦИЯ" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Установите FS25_IncomeMod, чтобы пользоваться приложением." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Установите FS25_MarketDynamics, чтобы пользоваться приложением." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Установите FS25_RandomWorldEvents, чтобы пользоваться приложением." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Установите FS25_SoilFertilizer, чтобы пользоваться приложением." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Установите FS25_TaxMod, чтобы пользоваться приложением." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Установите FS25_UsedPlus, чтобы пользоваться приложением." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Установите FS25_WorkerCosts, чтобы управлять персоналом." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Установите FS25_WorkerCosts, чтобы пользоваться приложением." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="ДЕНЬГИ" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="РАСХОДЫ ЗА МЕСЯЦ" />
         <text name="ft_auto_month_to_date" text="С начала месяца" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Итого в месяц" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Нет техники" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Нет техники в радиусе 35 м." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Рабочих пока нет. Нанимайте в панели состава (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Работников пока нет. Откройте вкладку НАНЯТЬ, чтобы набрать людей." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="На этой ферме нет мастерской  (ремонт отключён)" />
         <text name="ft_auto_none" text="нет" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="ОПЛАТИТЬ" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="РЕЖИМ ВЫПЛАТ" />
+        <text name="ft_auto_payment_mode_2" text="Режим выплат" />
         <text name="ft_auto_payroll" text="ЗАРПЛАТА" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="ВКЛАДКА ЗАРПЛАТА" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="ВЛИЯНИЕ PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="СОСТАВ PRO-STAFF" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Производство" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="ВОЗВРАТ %" />
+        <text name="ft_auto_return_2" text="Возврат %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Налоговый мод" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod не установлен." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Состояние и переключатель налогового мода" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="СТАВКА НАЛОГА" />
+        <text name="ft_auto_tax_rate_2" text="Ставка налога" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="ТЕМПЕРАТУРА" />
         <text name="ft_auto_temperature_2" text="Температура" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Приложения-компаньоны сторонних авторов показывают свой&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Это ярлык - также можно в любой момент нажать значок на&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="ЭТОТ МЕСЯЦ" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="агента и сколько прошло от срока объявления." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="ВСЕГО УПЛАЧЕНО" />
+        <text name="ft_auto_total_paid_2" text="Всего уплачено" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Экскурсия" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Посетите NPC на карте, чтобы закрыть контракт и забрать&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="УРОВЕНЬ ОПЛАТЫ" />
         <text name="ft_auto_wage_level_2" text="Уровень оплаты" />
         <text name="ft_auto_wage_structure" text="СТРУКТУРА ОПЛАТЫ" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Начисленная зарплата" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="РАЗБУДИТЬ" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="Работают" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Сейчас работает" />
         <text name="ft_auto_workshop" text="Мастерская" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -3014,6 +3014,37 @@
         <text name="ft_rpphone_overdue_fmt" text="Просрочен на %d дн." />
         <text name="ft_rpphone_due_in_one" text="Срок через 1 день" />
         <text name="ft_rpphone_due_in_fmt" text="Срок через %d дн." />
+        <text name="ft_companion_hourly" text="Почасово" />
+        <text name="ft_companion_daily" text="Ежедневно" />
+        <text name="ft_companion_per_hectare" text="За гектар" />
+        <text name="ft_companion_low" text="Низкий" />
+        <text name="ft_companion_medium" text="Средний" />
+        <text name="ft_companion_high" text="Высокий" />
+        <text name="ft_companion_novice" text="Новичок" />
+        <text name="ft_companion_experienced" text="Опытный" />
+        <text name="ft_companion_master" text="Мастер" />
+        <text name="ft_companion_legendary" text="Легендарный" />
+        <text name="ft_companion_working" text="работает" />
+        <text name="ft_companion_idle" text="простаивает" />
+        <text name="ft_companion_working_pinned" text="работает, закреплён" />
+        <text name="ft_companion_idle_pinned" text="простаивает, закреплён" />
+        <text name="ft_income_help_what_body" text="Показывает текущее состояние FS25_IncomeMod.&#10;Мод добавляет настраиваемые периодические выплаты дохода&#10;в дополнение к заработку фермы." />
+        <text name="ft_income_help_mode_body" text="Определяет, когда выплачивается доход:&#10;Почасово = каждый игровой час.&#10;Ежедневно = раз в игровой день.&#10;Еженедельно = раз в игровую неделю." />
+        <text name="ft_income_help_amount_body" text="Сумма, добавляемая к балансу за каждый цикл выплат.&#10;Настраивается в параметрах Income Mod." />
+        <text name="ft_companion_help_toggle_body" text="Включает или выключает мод без удаления.&#10;Изменения действуют сразу." />
+        <text name="ft_tax_help_what_body" text="Показывает состояние FS25_TaxMod.&#10;Мод периодически списывает налог с баланса&#10;и возвращает настраиваемый процент как возврат." />
+        <text name="ft_tax_help_rate_body" text="Сколько налога списывается за цикл.&#10;Уровни Низкий / Средний / Высокий задаются в моде.&#10;Показано здесь, чтобы планировать денежный поток." />
+        <text name="ft_tax_help_return_body" text="Доля уплаченного налога, которая возвращается.&#10;Возврат 20% значит, что фактически вы платите 80%&#10;от указанной ставки налога." />
+        <text name="ft_tax_help_total_body" text="Налог, уплаченный за текущую сессию.&#10;Показан оранжевым, так как это постоянный расход." />
+        <text name="ft_wrk_help_what_body" text="Показывает состояние FS25_WorkerCosts:&#10;уровень оплаты, режим расходов, активных&#10;рабочих и расходы с начала месяца.&#10;Прокрутите вниз к составу Pro-Staff." />
+        <text name="ft_wrk_help_wage_body" text="Задаёт почасовую ставку нанятых рабочих.&#10;Уровни Низкий / Средний / Высокий задаются&#10;в настройках мода Worker Costs." />
+        <text name="ft_wrk_help_mode_body" text="Определяет расчёт зарплаты:&#10;Почасово = списывается каждый игровой час.&#10;Ежемесячно = копится и списывается в конце месяца." />
+        <text name="ft_wrk_help_month_body" text="Всего начислено зарплаты за месяц.&#10;Обнуляется после выплаты месячной зарплаты." />
+        <text name="ft_wrk_help_roster_body" text="Нанятые рабочие с их уровнем&#10;(Новичок / Опытный / Мастер), общими часами,&#10;выполненными работами и шкалой усталости.&#10;Этот экран только для чтения: нанимайте, увольняйте и назначайте&#10;рабочих в панели состава в игре (ALT+H)&#10;или консольными командами WorkerCosts." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="Составом управляет хост: скоро синхронизируется." />
+        <text name="ft_wrk_levels_fmt" text="%dН / %dО / %dМ" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f ч  -  %d работ  -  усталость %d%%" />
     </texts>
 
 </l10n>

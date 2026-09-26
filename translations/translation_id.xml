@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="AKTIF = disimulasikan seperti biasa.&#10;" />
         <text name="ft_auto_active_stalled" text="AKTIF / MACET" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="Pekerja aktif" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="peristiwa dunia aktif, pengubah harga pasar,&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="JUMLAH" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="Jumlah" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Jumlah dalam liter, dari yang terbesar.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="Sejuk" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="MODE BIAYA" />
         <text name="ft_auto_cost_mode_2" text="Mode biaya" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Jumlah kontrak diterima yang sedang berjalan.&#10;" />
         <text name="ft_auto_create" text="BUAT" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Baris redup didukung tetapi saat ini belum terpasang.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="NONAKTIFKAN" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="NONAKTIF" />
         <text name="ft_auto_disabled_2" text="Dinonaktifkan" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="Kosong" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="AKTIFKAN" />
+        <text name="ft_auto_enable_disable" text="AKTIFKAN / NONAKTIFKAN" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="Diaktifkan" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="Kontrol dan statistik mod pendapatan" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod belum terpasang." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Pemasukan: uang didapat. Pengeluaran: uang dipakai.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="MASUK  (uang yang menjadi hakmu)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="MASUKAN / KELUARAN" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Pasang FS25_IncomeMod untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="Pasang FS25_MarketDynamics untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="Pasang FS25_RandomWorldEvents untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="Pasang FS25_SoilFertilizer untuk memakai aplikasi ini." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Pasang FS25_TaxMod untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="Pasang FS25_UsedPlus untuk memakai aplikasi ini." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="Pasang FS25_WorkerCosts untuk mengelola personalia." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Pasang FS25_WorkerCosts untuk memakai aplikasi ini." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="UANG" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="BIAYA BULAN INI" />
         <text name="ft_auto_month_to_date" text="Bulan berjalan" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="Total bulanan" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Tidak ada kendaraan" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Tidak ada kendaraan dalam 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Belum ada pekerja. Rekrut dari panel tim (ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Belum ada pekerja. Buka tab REKRUT untuk merekrut." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Tidak ada bengkel di pertanian ini  (perbaikan nonaktif)" />
         <text name="ft_auto_none" text="tidak ada" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="BAYAR" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="MODE PEMBAYARAN" />
+        <text name="ft_auto_payment_mode_2" text="Mode pembayaran" />
         <text name="ft_auto_payroll" text="PENGGAJIAN" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="TAB PENGGAJIAN" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="DAMPAK PRO-STAFF" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="TIM PRO-STAFF" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="Produksi" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="PENGEMBALIAN %" />
+        <text name="ft_auto_return_2" text="Pengembalian %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="Mod Pajak" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod belum terpasang." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="Status dan sakelar mod pajak" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="TARIF PAJAK" />
+        <text name="ft_auto_tax_rate_2" text="Tarif pajak" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="SUHU" />
         <text name="ft_auto_temperature_2" text="Suhu" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="Aplikasi pendamping pihak ketiga menampilkan nomor&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="Ini jalan pintas - kamu juga bisa mengetuk ikonnya di&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="BULAN INI" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="agen, dan sejauh mana periode iklan berjalan." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="TOTAL DIBAYAR" />
+        <text name="ft_auto_total_paid_2" text="Total dibayar" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="Tur" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="Datangi NPC di peta untuk menutupnya dan mengambil&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="TINGKAT UPAH" />
         <text name="ft_auto_wage_level_2" text="Tingkat gaji" />
         <text name="ft_auto_wage_structure" text="STRUKTUR GAJI" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="Upah terkumpul" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="BANGUN" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="Bekerja" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="Sedang bekerja" />
         <text name="ft_auto_workshop" text="Bengkel" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2972,6 +2972,37 @@
         <text name="ft_rpphone_overdue_fmt" text="Terlambat %d hari" />
         <text name="ft_rpphone_due_in_one" text="Jatuh tempo dalam 1 hari" />
         <text name="ft_rpphone_due_in_fmt" text="Jatuh tempo dalam %d hari" />
+        <text name="ft_companion_hourly" text="Per jam" />
+        <text name="ft_companion_daily" text="Harian" />
+        <text name="ft_companion_per_hectare" text="Per hektar" />
+        <text name="ft_companion_low" text="Rendah" />
+        <text name="ft_companion_medium" text="Sedang" />
+        <text name="ft_companion_high" text="Tinggi" />
+        <text name="ft_companion_novice" text="Pemula" />
+        <text name="ft_companion_experienced" text="Berpengalaman" />
+        <text name="ft_companion_master" text="Ahli" />
+        <text name="ft_companion_legendary" text="Legendaris" />
+        <text name="ft_companion_working" text="bekerja" />
+        <text name="ft_companion_idle" text="menganggur" />
+        <text name="ft_companion_working_pinned" text="bekerja, disematkan" />
+        <text name="ft_companion_idle_pinned" text="menganggur, disematkan" />
+        <text name="ft_income_help_what_body" text="Menampilkan status FS25_IncomeMod saat ini.&#10;Mod ini menambahkan pembayaran pendapatan berkala&#10;yang dapat diatur untuk menambah penghasilan pertanianmu." />
+        <text name="ft_income_help_mode_body" text="Mengatur kapan pendapatan dibayarkan:&#10;Per jam = setiap jam permainan.&#10;Harian = sekali per hari permainan.&#10;Mingguan = sekali per minggu permainan." />
+        <text name="ft_income_help_amount_body" text="Uang yang ditambahkan ke saldomu tiap siklus pembayaran.&#10;Atur ini di pengaturan Income Mod." />
+        <text name="ft_companion_help_toggle_body" text="Menyalakan atau mematikan mod tanpa mencopotnya.&#10;Perubahan langsung berlaku." />
+        <text name="ft_tax_help_what_body" text="Menampilkan status FS25_TaxMod.&#10;Mod ini memotong pajak berkala dari saldomu&#10;dan mengembalikan persentase yang dapat diatur." />
+        <text name="ft_tax_help_rate_body" text="Berapa pajak yang ditarik tiap siklus.&#10;Tingkat Rendah / Sedang / Tinggi diatur di mod.&#10;Ditampilkan di sini agar kamu bisa merencanakan arus kas." />
+        <text name="ft_tax_help_return_body" text="Persentase pajak dibayar yang dikembalikan.&#10;Pengembalian 20% berarti kamu sebenarnya membayar 80%&#10;dari tarif pajak yang tertera." />
+        <text name="ft_tax_help_total_body" text="Total pajak yang dibayar dalam sesi ini.&#10;Ditampilkan oranye karena merupakan biaya berjalan." />
+        <text name="ft_wrk_help_what_body" text="Menampilkan status FS25_WorkerCosts:&#10;tingkat upah, mode biaya, pekerja&#10;aktif, dan biaya bulan berjalan.&#10;Gulir ke bawah untuk tim Pro-Staff." />
+        <text name="ft_wrk_help_wage_body" text="Mengatur upah per jam pekerja yang direkrut.&#10;Tingkat Rendah / Sedang / Tinggi diatur di&#10;pengaturan mod Worker Costs." />
+        <text name="ft_wrk_help_mode_body" text="Mengatur cara upah dihitung:&#10;Per jam = ditagih setiap jam permainan.&#10;Bulanan = dikumpulkan dan ditagih di akhir bulan." />
+        <text name="ft_wrk_help_month_body" text="Total upah yang terkumpul bulan ini.&#10;Direset setelah gaji bulanan dibayar." />
+        <text name="ft_wrk_help_roster_body" text="Pekerjamu yang direkrut beserta tingkatnya&#10;(Pemula / Berpengalaman / Ahli), total jam,&#10;pekerjaan selesai, dan bilah kelelahan saat ini.&#10;Tampilan ini hanya-baca: rekrut, pecat, dan tugaskan&#10;pekerja dari panel tim dalam game (ALT+H)&#10;atau perintah konsol WorkerCosts." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="Tim dikelola oleh host: segera disinkronkan." />
+        <text name="ft_wrk_levels_fmt" text="%dP / %dB / %dA" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f jam  -  %d pekerjaan  -  kelelahan %d%%" />
     </texts>
 
 </l10n>

@@ -441,7 +441,7 @@
         <text name="ft_auto_active_simulated_normally" text="활성 = 평소대로 시뮬레이션.&#10;" />
         <text name="ft_auto_active_stalled" text="가동 중 / 정지" />
         <text name="ft_auto_active_vehicle" text="ACTIVE VEHICLE" />
-        <text name="ft_auto_active_workers" text="Active Workers" />
+        <text name="ft_auto_active_workers" text="활동 중인 작업자" />
         <text name="ft_auto_active_world_events_market_price_modifiers" text="진행 중인 월드 이벤트, 시장 가격 보정,&#10;" />
         <text name="ft_auto_add_todo" text="+ ADD TODO" />
         <text name="ft_auto_added_background_color_picker_in_settings" text="Added background color picker in Settings" />
@@ -484,7 +484,7 @@
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
         <text name="ft_auto_amount_2" text="금액" />
-        <text name="ft_auto_amount_3" text="Amount" />
+        <text name="ft_auto_amount_3" text="금액" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="양은 리터 단위이며 많은 순서로 정렬됩니다.&#10;" />
         <text name="ft_auto_an_empty_bar_means_the_field_is_critically_dry" text="An empty bar means the field is critically dry." />
@@ -708,7 +708,7 @@
         <text name="ft_auto_controls_when_income_is_paid_out" text="Controls when income is paid out:&#10;" />
         <text name="ft_auto_cool" text="서늘함" />
         <text name="ft_auto_core" text="CORE" />
-        <text name="ft_auto_cost_mode" text="COST MODE" />
+        <text name="ft_auto_cost_mode" text="비용 방식" />
         <text name="ft_auto_cost_mode_2" text="비용 모드" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="수락하여 진행 중인 계약 수입니다.&#10;" />
         <text name="ft_auto_create" text="만들기" />
@@ -799,7 +799,7 @@
         <text name="ft_auto_digging" text="Digging" />
         <text name="ft_auto_digging_2" text="digging" />
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="흐리게 표시된 행은 지원되지만 설치되지 않았습니다.&#10;" />
-        <text name="ft_auto_disable" text="DISABLE" />
+        <text name="ft_auto_disable" text="끄기" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
         <text name="ft_auto_disabled" text="비활성화" />
         <text name="ft_auto_disabled_2" text="꺼짐" />
@@ -853,8 +853,8 @@
         <text name="ft_auto_empty_3" text="비어 있음" />
         <text name="ft_auto_empty_4" text="empty" />
         <text name="ft_auto_empty_pens_are_shown_dimmed" text="Empty pens are shown dimmed." />
-        <text name="ft_auto_enable" text="ENABLE" />
-        <text name="ft_auto_enable_disable" text="ENABLE / DISABLE" />
+        <text name="ft_auto_enable" text="켜기" />
+        <text name="ft_auto_enable_disable" text="켜기 / 끄기" />
         <text name="ft_auto_enable_disable_notifications" text="Enable/disable notifications" />
         <text name="ft_auto_enable_farm_tablet" text="Enable Farm Tablet" />
         <text name="ft_auto_enabled" text="켜짐" />
@@ -1223,7 +1223,7 @@
         <text name="ft_auto_income_mod_2" text="income_mod" />
         <text name="ft_auto_income_mod_controls_and_statistics" text="수입 모드 제어 및 통계" />
         <text name="ft_auto_income_mod_integration_app" text="Income Mod integration app" />
-        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
+        <text name="ft_auto_income_mod_is_not_installed" text="Income Mod가 설치되지 않았습니다." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="수입: 번 돈. 지출: 쓴 돈.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
         <text name="ft_auto_incoming_money_owed_to_you" text="수입  (받을 돈)" />
@@ -1232,16 +1232,16 @@
         <text name="ft_auto_inputs" text="INPUTS" />
         <text name="ft_auto_inputs_outputs" text="원료 / 제품" />
         <text name="ft_auto_install" text="Install " />
-        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="Install FS25_IncomeMod to use this app." />
+        <text name="ft_auto_install_fs25_incomemod_to_use_this_app" text="이 앱을 사용하려면 FS25_IncomeMod를 설치하세요." />
         <text name="ft_auto_install_fs25_marketdynamics_to_use_this_app" text="이 앱을 쓰려면 FS25_MarketDynamics를 설치하세요." />
         <text name="ft_auto_install_fs25_npcfavor_to_use_this_app" text="Install FS25_NPCFavor to use this app." />
         <text name="ft_auto_install_fs25_randomworldevents_to_use_this_app" text="이 앱을 쓰려면 FS25_RandomWorldEvents를 설치하세요." />
         <text name="ft_auto_install_fs25_seasonalcropstress_to_use_this_app" text="Install FS25_SeasonalCropStress to use this app." />
         <text name="ft_auto_install_fs25_soilfertilizer_to_use_this_app" text="이 앱을 쓰려면 FS25_SoilFertilizer를 설치하세요." />
-        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="Install FS25_TaxMod to use this app." />
+        <text name="ft_auto_install_fs25_taxmod_to_use_this_app" text="이 앱을 사용하려면 FS25_TaxMod를 설치하세요." />
         <text name="ft_auto_install_fs25_usedplus_to_use_this_app" text="이 앱을 쓰려면 FS25_UsedPlus를 설치하세요." />
         <text name="ft_auto_install_fs25_workercosts_to_manage_personnel" text="인사를 관리하려면 FS25_WorkerCosts를 설치하세요." />
-        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="Install FS25_WorkerCosts to use this app." />
+        <text name="ft_auto_install_fs25_workercosts_to_use_this_app" text="이 앱을 사용하려면 FS25_WorkerCosts를 설치하세요." />
         <text name="ft_auto_install_that_mod_and_open_its_own_help_section_for" text="Install that mod and open its own Help section for&#10;" />
         <text name="ft_auto_installed" text=" installed" />
         <text name="ft_auto_installments_d_d" text="Installments: %d/%d" />
@@ -1365,7 +1365,7 @@
         <text name="ft_auto_moisture_data_not_yet_available" text="Moisture data not yet available." />
         <text name="ft_auto_money" text="자금" />
         <text name="ft_auto_money_others_owe_you_incoming" text="money others owe you (INCOMING).&#10;" />
-        <text name="ft_auto_month_costs" text="MONTH COSTS" />
+        <text name="ft_auto_month_costs" text="이번 달 비용" />
         <text name="ft_auto_month_to_date" text="이번 달 누계" />
         <text name="ft_auto_monthly_accumulated_and_charged_at_month_end" text="Monthly = accumulated and charged at month end." />
         <text name="ft_auto_monthly_total" text="월 합계" />
@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="차량 없음" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="35m 안에 차량이 없습니다." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="아직 작업자가 없습니다. 명단 패널에서 고용하세요(ALT+H)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="아직 작업자가 없습니다. 고용 탭을 열어 채용하세요." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="이 농장에 정비소가 없습니다  (수리 꺼짐)" />
         <text name="ft_auto_none" text="없음" />
@@ -1592,8 +1592,8 @@
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
         <text name="ft_auto_pay" text="지불" />
-        <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
-        <text name="ft_auto_payment_mode_2" text="Payment Mode" />
+        <text name="ft_auto_payment_mode" text="지급 방식" />
+        <text name="ft_auto_payment_mode_2" text="지급 방식" />
         <text name="ft_auto_payroll" text="급여" />
         <text name="ft_auto_payroll_2" text="payroll" />
         <text name="ft_auto_payroll_tab" text="급여 탭" />
@@ -1652,7 +1652,7 @@
         <text name="ft_auto_pro_staff_2" text="Pro-Staff" />
         <text name="ft_auto_pro_staff_impact" text="PRO-STAFF 영향" />
         <text name="ft_auto_pro_staff_personnel_management_hire_fire_assign_payroll" text="Pro-Staff personnel management - hire, fire, assign, payroll" />
-        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF ROSTER" />
+        <text name="ft_auto_pro_staff_roster" text="PRO-STAFF 명단" />
         <text name="ft_auto_prod" text="PROD" />
         <text name="ft_auto_prod_2" text="prod_" />
         <text name="ft_auto_production" text="생산" />
@@ -1742,8 +1742,8 @@
         <text name="ft_auto_respected" text="Respected" />
         <text name="ft_auto_respected_70_neutral_40_poor_40" text="Respected &gt;= 70  |  Neutral &gt;= 40  |  Poor &lt; 40.&#10;" />
         <text name="ft_auto_restores_every_setting_to_its_factory_value" text="Restores every setting to its factory value,&#10;" />
-        <text name="ft_auto_return" text="RETURN %" />
-        <text name="ft_auto_return_2" text="Return %" />
+        <text name="ft_auto_return" text="환급 %" />
+        <text name="ft_auto_return_2" text="환급 %" />
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
@@ -1998,10 +1998,10 @@
         <text name="ft_auto_tax_mod" text="세금 모드" />
         <text name="ft_auto_tax_mod_2" text="tax_mod" />
         <text name="ft_auto_tax_mod_integration_app" text="Tax Mod integration app" />
-        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod is not installed." />
+        <text name="ft_auto_tax_mod_is_not_installed" text="Tax Mod가 설치되지 않았습니다." />
         <text name="ft_auto_tax_mod_status_and_toggle" text="세금 모드 상태 및 켜기/끄기" />
-        <text name="ft_auto_tax_rate" text="TAX RATE" />
-        <text name="ft_auto_tax_rate_2" text="Tax Rate" />
+        <text name="ft_auto_tax_rate" text="세율" />
+        <text name="ft_auto_tax_rate_2" text="세율" />
         <text name="ft_auto_telehandler" text="telehandler" />
         <text name="ft_auto_temperature" text="기온" />
         <text name="ft_auto_temperature_2" text="기온" />
@@ -2034,7 +2034,7 @@
         <text name="ft_auto_third_party_companion_apps_show_their_own_version" text="타사 연동 앱은 자체 버전&#10;" />
         <text name="ft_auto_this_app_is_a_favourite" text="this app is a favourite" />
         <text name="ft_auto_this_is_a_shortcut_you_can_also_click_the_icon_in" text="이것은 바로 가기입니다 - 언제든지&#10;" />
-        <text name="ft_auto_this_month" text="THIS MONTH" />
+        <text name="ft_auto_this_month" text="이번 달" />
         <text name="ft_auto_this_view_is_read_only_hire_fire_and_assign" text="This view is read-only - hire, fire, and assign&#10;" />
         <text name="ft_auto_tier_and_how_far_through_the_listing_period_you_are" text="등급, 등록 기간 진행도를 보여 줍니다." />
         <text name="ft_auto_time" text="TIME" />
@@ -2065,8 +2065,8 @@
         <text name="ft_auto_top_of_the_screen_shows_totals_ready_fields_that_can_be" text="Top of the screen shows totals: READY fields that can&#10;be harvested, GROW fields with crops growing, and EMPTY&#10;fields with no active crop." />
         <text name="ft_auto_total" text=" total" />
         <text name="ft_auto_total_earned" text="Total Earned" />
-        <text name="ft_auto_total_paid" text="TOTAL PAID" />
-        <text name="ft_auto_total_paid_2" text="Total Paid" />
+        <text name="ft_auto_total_paid" text="총 납부액" />
+        <text name="ft_auto_total_paid_2" text="총 납부액" />
         <text name="ft_auto_total_wages_accumulated_this_month" text="Total wages accumulated this month.&#10;" />
         <text name="ft_auto_tour" text="투어" />
         <text name="ft_auto_town_reputation" text="TOWN REPUTATION" />
@@ -2145,11 +2145,11 @@
         <text name="ft_auto_visit_the_npc_on_the_map_to_dismiss_and_collect" text="지도의 NPC를 찾아가 계약을 마치고&#10;" />
         <text name="ft_auto_visual_fill_bar_below_each_row" text="Visual fill bar below each row.&#10;" />
         <text name="ft_auto_w" text="%W" />
-        <text name="ft_auto_wage_level" text="WAGE LEVEL" />
+        <text name="ft_auto_wage_level" text="임금 수준" />
         <text name="ft_auto_wage_level_2" text="급여 수준" />
         <text name="ft_auto_wage_structure" text="급여 구조" />
         <text name="ft_auto_wage_structure_the_running_cost_estimate_and" text="Wage structure, the running cost estimate, and&#10;" />
-        <text name="ft_auto_wages_accrued" text="Wages Accrued" />
+        <text name="ft_auto_wages_accrued" text="누적 임금" />
         <text name="ft_auto_wait_for_fields_to_initialize" text="Wait for fields to initialize." />
         <text name="ft_auto_wake" text="깨우기" />
         <text name="ft_auto_wake_2" text="wake" />
@@ -2226,7 +2226,7 @@
         <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
         <text name="ft_auto_working" text="작업 중" />
         <text name="ft_auto_working_2" text="working" />
-        <text name="ft_auto_working_now" text="Working Now" />
+        <text name="ft_auto_working_now" text="지금 작업 중" />
         <text name="ft_auto_workshop" text="정비소" />
         <text name="ft_auto_workshop_2" text="workshop" />
         <text name="ft_auto_workshop_vehicle_selection_with_diagnostics" text="Workshop: vehicle selection with diagnostics" />
@@ -2972,6 +2972,37 @@
         <text name="ft_rpphone_overdue_fmt" text="%d일 연체" />
         <text name="ft_rpphone_due_in_one" text="1일 후 기한" />
         <text name="ft_rpphone_due_in_fmt" text="%d일 후 기한" />
+        <text name="ft_companion_hourly" text="시간당" />
+        <text name="ft_companion_daily" text="일별" />
+        <text name="ft_companion_per_hectare" text="헥타르당" />
+        <text name="ft_companion_low" text="낮음" />
+        <text name="ft_companion_medium" text="보통" />
+        <text name="ft_companion_high" text="높음" />
+        <text name="ft_companion_novice" text="초보" />
+        <text name="ft_companion_experienced" text="숙련" />
+        <text name="ft_companion_master" text="마스터" />
+        <text name="ft_companion_legendary" text="전설" />
+        <text name="ft_companion_working" text="작업 중" />
+        <text name="ft_companion_idle" text="대기 중" />
+        <text name="ft_companion_working_pinned" text="작업 중, 고정됨" />
+        <text name="ft_companion_idle_pinned" text="대기 중, 고정됨" />
+        <text name="ft_income_help_what_body" text="FS25_IncomeMod의 현재 상태를 표시합니다.&#10;이 모드는 설정 가능한 정기 수입을 추가해&#10;농장 수익을 보충합니다." />
+        <text name="ft_income_help_mode_body" text="수입 지급 시점을 정합니다:&#10;시간당 = 게임 시간 1시간마다.&#10;일별 = 게임 하루에 한 번.&#10;주별 = 게임 한 주에 한 번." />
+        <text name="ft_income_help_amount_body" text="지급 주기마다 잔액에 더해지는 금액입니다.&#10;Income Mod 설정에서 바꿀 수 있습니다." />
+        <text name="ft_companion_help_toggle_body" text="제거하지 않고 모드를 켜거나 끕니다.&#10;변경 사항은 바로 적용됩니다." />
+        <text name="ft_tax_help_what_body" text="FS25_TaxMod의 상태를 표시합니다.&#10;이 모드는 잔액에서 정기적으로 세금을 떼고&#10;설정한 비율을 환급으로 돌려줍니다." />
+        <text name="ft_tax_help_rate_body" text="주기마다 부과되는 세금입니다.&#10;낮음 / 보통 / 높음 단계는 모드 설정에서 정합니다.&#10;자금 계획을 위해 여기에 표시됩니다." />
+        <text name="ft_tax_help_return_body" text="낸 세금 중 환급되는 비율입니다.&#10;20% 환급이면 실제로는 표시된 세율의&#10;80%만 내는 셈입니다." />
+        <text name="ft_tax_help_total_body" text="현재 세션 동안 낸 세금의 합계입니다.&#10;계속 드는 비용이므로 주황색으로 표시됩니다." />
+        <text name="ft_wrk_help_what_body" text="FS25_WorkerCosts 상태를 표시합니다:&#10;임금 수준, 비용 방식, 활동 중인&#10;작업자, 이번 달 비용.&#10;아래로 스크롤하면 Pro-Staff 명단이 있습니다." />
+        <text name="ft_wrk_help_wage_body" text="고용한 작업자의 시급을 정합니다.&#10;낮음 / 보통 / 높음 단계는&#10;Worker Costs 모드 설정에서 정합니다." />
+        <text name="ft_wrk_help_mode_body" text="임금 계산 방식을 정합니다:&#10;시간당 = 게임 시간 1시간마다 청구.&#10;월별 = 누적해서 월말에 청구." />
+        <text name="ft_wrk_help_month_body" text="이번 달 누적 임금 합계입니다.&#10;월급을 지급하면 초기화됩니다." />
+        <text name="ft_wrk_help_roster_body" text="고용한 작업자와 등급&#10;(초보 / 숙련 / 마스터), 누적 시간,&#10;완료한 작업, 현재 피로도 막대.&#10;이 화면은 읽기 전용입니다: 고용, 해고, 배정은&#10;게임 속 명단 패널(ALT+H)이나&#10;WorkerCosts 콘솔 명령으로 하세요." />
+        <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
+        <text name="ft_wrk_roster_host" text="명단은 호스트가 관리합니다: 곧 동기화됩니다." />
+        <text name="ft_wrk_levels_fmt" text="초보 %d / 숙련 %d / 마스터 %d" />
+        <text name="ft_wrk_worker_stats_fmt" text="%.1f시간  -  %d건  -  피로도 %d%%" />
     </texts>
 
 </l10n>
