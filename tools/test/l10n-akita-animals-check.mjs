@@ -37,6 +37,10 @@
 // DISTINCT row: Connected is not the file's On word (br and pt used Ligado for both, so the header and the rows read
 // one word for two things).
 //
+// SCRIPT-OUT row (Bob's #202 BLOCKER): a file written in Latin letters holds no Han, kana, Hangul or Cyrillic letter.
+// fc is French Canadian (the engine picks the mod's file by g_languageShort; the base game's l10n_fc.xml is French),
+// and the Akita83 import had written Simplified Chinese into it, which the script row above cannot see.
+//
 // Draw-site rows (below the text rows), over the real source files in SOURCES:
 //   S1  every key a SOURCES file passes as a literal to one of its text functions (KEYFN) is one of
 //       KEYS or named in OTHER_PR, and translation_en.xml carries it;
@@ -242,6 +246,22 @@ for (const loc of locales) {
     }
     if (val("ft_common_connected").toLowerCase() === val("ft_common_on").toLowerCase()) failures.push(`DISTINCT ${loc}: Connected reads ${JSON.stringify(val("ft_common_connected"))}, the file's On word`);
   }
+}
+
+// ---- SCRIPT-OUT (Bob's #202 BLOCKER): no other script's letters in a Latin-script file.
+{
+  const FOREIGN = /[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff\uac00-\ud7af\u0400-\u04ff]/;
+  let n = 0;
+  for (const loc of ["en", ...locales]) {
+    if (SCRIPT[loc]) continue;
+    for (const key of KEYS) {
+      const v = (ALL[loc].inside.get(key) || [])[0];
+      if (v == null) continue;
+      n++;
+      if (FOREIGN.test(unesc(v))) failures.push(`SCRIPT-OUT ${loc}: ${key} ${JSON.stringify(unesc(v))} holds another script's letters in a Latin-script file`);
+    }
+  }
+  console.log(`  SCRIPT-OUT: ${n} values in the Latin-script files checked for Han, kana, Hangul and Cyrillic letters`);
 }
 
 // ---- Draw-site rows, over the real source.

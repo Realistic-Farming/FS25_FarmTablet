@@ -416,7 +416,7 @@ lua(`
   E_AAC = { getMCCData = function() return { isEnabled = true, autoFutterEnabled = true, autoWasserEnabled = false,
       autoStrohEnabled = true, lastNotKaufCost = 1200, lastWorkerCost = 300,
       lines = { "Status: ok", "Gesamt: An", "Futter: Auffüllen ab 20% | Zielfüllung 90%", "Wasser: Aus",
-        "Stroh: Priorität 2", "Letzte Aktion: 06:00", "Wasser: Anzahl 4", "Stroh: Aus (manuell)" } } end }
+        "Stroh: Priorität 2", "Letzte Aktion: 06:00", "Wasser: Anzahl 4", "Stroh: Aus (manuell)", "Futter: Anästhesie 1" } } end }
   E_AVS_N = 3
   E_AVS = { vetBusy = true, getActiveIllnessCount = function() return E_AVS_N end,
     sickStables = { s1 = { stableName = "Kuhstall Nord", illnessName = "Mastitis", remainingMs = 600000, animalCount = 3, vetCalled = true },
@@ -445,6 +445,7 @@ for (const loc of ["de", "fr", "pl", "en"]) {
   expectIn(`${loc} AutoCare last action line`, aac.texts, `${f("ft_aac_last_action_line")}: 06:00`);
   expectIn(`${loc} AutoCare Anzahl stays a word (Bob's #201 MINOR)`, aac.texts, `${f("ft_aac_water")}: Anzahl 4`);
   expectIn(`${loc} AutoCare Aus before a space`, aac.texts, `${f("ft_aac_straw")}: ${f("ft_common_off")} (manuell)`);
+  expectIn(`${loc} AutoCare Anästhesie stays a word (Bob's #202 MINOR: a UTF-8 lead byte is a letter)`, aac.texts, `${f("ft_aac_food")}: Anästhesie 1`);
   expectIn(`${loc} AutoCare LAST ACTION section`, aac.texts, f("ft_aac_last_action"));
   expectIn(`${loc} Vet header`, vet.texts, fmt(f("ft_vet_active_cases"), 3));
   expectIn(`${loc} Vet header (one case)`, one.texts, f("ft_vet_active_cases_one"));
