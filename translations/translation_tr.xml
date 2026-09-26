@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Taranmadı" />
         <text name="ft_irr_soil_line" text="sıkışma %s   OM %s   hastalık %s" />
         <text name="ft_irr_no_risk_reads" text="Henüz tarla risk okuması yok." />
+        <text name="ft_irr_private_unavailable" text="Kullanılamıyor: bu çiftliğin sulama verileri okunamıyor." />
+        <text name="ft_irr_fitted_path" text="yağmur sensörü yolu, programlı hizmetten ayrı" />
     </texts>
 
 </l10n>

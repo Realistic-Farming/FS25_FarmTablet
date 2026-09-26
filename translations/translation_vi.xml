@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Chưa khảo sát" />
         <text name="ft_irr_soil_line" text="nén chặt %s   CHC %s   bệnh %s" />
         <text name="ft_irr_no_risk_reads" text="Chưa có chỉ số rủi ro ruộng." />
+        <text name="ft_irr_private_unavailable" text="Không khả dụng: không đọc được dữ liệu tưới của nông trại này." />
+        <text name="ft_irr_fitted_path" text="nhánh cảm biến mưa, tách khỏi lịch tưới" />
     </texts>
 
 </l10n>

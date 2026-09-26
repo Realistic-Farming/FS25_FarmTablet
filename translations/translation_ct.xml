@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="未勘查" />
         <text name="ft_irr_soil_line" text="壓實 %s   有機質 %s   病害 %s" />
         <text name="ft_irr_no_risk_reads" text="尚無田地風險讀數。" />
+        <text name="ft_irr_private_unavailable" text="無法使用：無法讀取此農場的灌溉資料。" />
+        <text name="ft_irr_fitted_path" text="雨量感測器路徑，與排程灌溉分開" />
     </texts>
 
 </l10n>

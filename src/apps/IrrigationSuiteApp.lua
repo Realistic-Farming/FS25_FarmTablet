@@ -83,13 +83,16 @@ end
 --- store is not empty, and showing 0 there would read as dry at a glance. A
 --- source that cannot be read says so rather than being guessed at, because a
 --- fabricated zero is the one answer a farmer would act on wrongly.
+--- [SCS-023 v2.2 §2a] The host's canonical keys (isUnlimited, waterCapacity, waterRemaining,
+--- hasWater); the legacy aliases (unlimited, capacity) are not read. A finite source with a
+--- readable zero remainder is Dry.
 local function _waterHours(src)
     if src == nil then return _T("ft_water_na", "Not available") end
-    if src.unlimited == true then return _T("ft_water_unlimited", "Unlimited") end
-    local cap = tonumber(src.capacity)
+    if src.isUnlimited == true then return _T("ft_water_unlimited", "Unlimited") end
+    local cap = tonumber(src.waterCapacity)
     local rem = tonumber(src.waterRemaining)
     if cap == nil or rem == nil then return _T("ft_water_na", "Not available") end
-    if src.hasWater == false then return _T("ft_water_dry", "Dry") end
+    if rem <= 0 or src.hasWater == false then return _T("ft_water_dry", "Dry") end
     return string.format(_T("ft_water_hours", "%.1f / %.1f h"), rem, cap)
 end
 
@@ -131,6 +134,33 @@ local function _pcall(fn, ...)
     local ok, a, b, c, d = pcall(fn, ...)
     if not ok then return nil end
     return a, b, c, d
+end
+
+--- [SCS-023 v2.2 §2a, §3] The farm's private irrigation snapshot: one strict-farm read of its
+--- systems and one of its sources. Returns nil, nil (Unavailable) when there is no strict farm,
+--- a getter is missing, a call fails, or either getter answers nil (a pure client whose farm is
+--- not yet current): never an empty farm and never zero water. {} is a current farm with nothing
+--- placed. The public no-argument list is never read here; FarmTabletManager's edge
+--- notifications are its only reader.
+local function _privateSnapshot(self, scs)
+    local data = self.system ~= nil and self.system.data or nil
+    if scs == nil or data == nil or type(data.getPlayerFarmIdStrict) ~= "function" then return nil, nil end
+    local farmId = data:getPlayerFarmIdStrict()
+    if farmId == nil then return nil, nil end
+    if type(scs.getIrrigationSystems) ~= "function" or type(scs.getIrrigationWaterSources) ~= "function" then
+        return nil, nil
+    end
+    local systems = _pcall(function() return scs:getIrrigationSystems(farmId) end)
+    local sources = _pcall(function() return scs:getIrrigationWaterSources(farmId) end)
+    if type(systems) ~= "table" or type(sources) ~= "table" then return nil, nil end
+    return systems, sources
+end
+
+local function _unavailable(self, x, y)
+    self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
+        _T("ft_irr_private_unavailable", "Unavailable: this farm's irrigation data cannot be read."),
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+    return y - FT.py(20)
 end
 
 local function _pct(v)
@@ -417,110 +447,63 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
     local y = tabY - FT.py(10) + scrollY
     y = self:drawRule(y, 0.35)
 
-    local systems = _pcall(function() return scs:getIrrigationSystems() end) or {}
-    if type(systems) ~= "table" then systems = {} end
+    -- [SCS-023 v2.2 §2a] Operations, Usage and the coverage outline read this one private snapshot.
+    local systems, sources = _privateSnapshot(self, scs)
 
     ------------------------------------------------------------------
     -- OPERATIONS
     ------------------------------------------------------------------
     if mode == "operations" then
-        -- [BUILD 19:44] HOURS OF WATER.
-        --
-        -- Probe first: an older Crop Stress has no getIrrigationWaterSources, and
-        -- the honest answer there is to omit the whole area rather than draw an
-        -- empty frame that implies the farm has no water. The rain-key list below
-        -- is unaffected either way.
-        local stopById = {}
-        local scsHasWater = scs ~= nil and type(scs.getIrrigationWaterSources) == "function"
-        if scsHasWater then
-            local farmId = nil
-            if self.system ~= nil and self.system.data ~= nil
-               and type(self.system.data.getPlayerFarmId) == "function" then
-                farmId = self.system.data:getPlayerFarmId()
-            end
-
-            if farmId ~= nil and farmId > 0 then
-                -- Stop reasons come from the farmId shape of getIrrigationSystems,
-                -- which is a DIFFERENT table from the no-arg one used for rain-key
-                -- chrome above: it drops the rain-key fields. It is read here only
-                -- for stopReason and merged onto the no-arg rows by system id, so
-                -- the two shapes can never be confused for one another.
-                -- BUILD 22:59: _pcall hands back the payload as its FIRST value (nil on
-                -- failure), the same single-value shape the SYSTEMS read above uses.
-                -- Unpacking it as (ok, payload) put the table in ok and nil in payload,
-                -- so this merge and the WATER SOURCES block below never ran.
-                local farmRows = _pcall(function() return scs:getIrrigationSystems(farmId) end)
-                if type(farmRows) == "table" then
-                    for _, r in ipairs(farmRows) do
-                        local id = r.systemId or r.id
-                        if id ~= nil and r.stopReason ~= nil then stopById[id] = r.stopReason end
-                    end
-                end
-
-                local sources = _pcall(function() return scs:getIrrigationWaterSources(farmId) end)
-                if type(sources) == "table" then
-                    self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                        _T("ft_water_header", "WATER SOURCES"),
-                        RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
-                    y = y - FT.py(16)
-
-                    if #sources == 0 then
-                        self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
-                            _T("ft_water_none", "No water sources on this farm."),
-                            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
-                        y = y - FT.py(20)
-                    else
-                        for _, src in ipairs(sources) do
-                            local hours = _waterHours(src)
-                            local dry = (src.unlimited ~= true) and (src.hasWater == false)
-                            local col = dry and FT.C.TEXT_ACCENT or FT.C.TEXT
-                            local label = tostring(src.label or _T("ft_water_source", "Water source"))
-                            -- The fallback label is the tablet's word; SCS's own label keeps the renderer's pass.
-                            self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
-                                FT_Renderer.truncate(string.format("%s #%s",
-                                    label, tostring(src.id or "?")), 22),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT, src.label == nil)
-                            self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, hours,
-                                RenderText.ALIGN_RIGHT, col, true)
-                            y = y - FT.py(14)
-                            local n = #(src.connectedSystems or {})
-                            self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                                string.format(_T("ft_water_connected", "%d connected"), n),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
-                            y = y - FT.py(16)
-                        end
-                    end
-                    y = self:drawRule(y, 0.3)
-                end
+        -- [BUILD 19:44] HOURS OF WATER, from the farm's private source rows (SCS-023 v2.2 §2).
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
+            _T("ft_water_header", "WATER SOURCES"),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
+        y = y - FT.py(16)
+        if sources == nil then
+            y = _unavailable(self, x, y)
+        elseif #sources == 0 then
+            self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
+                _T("ft_water_none", "No water sources on this farm."),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+            y = y - FT.py(20)
+        else
+            for _, src in ipairs(sources) do
+                local hours = _waterHours(src)
+                local dry = (src.isUnlimited ~= true)
+                    and (src.hasWater == false or (tonumber(src.waterRemaining) or 1) <= 0)
+                local col = dry and FT.C.TEXT_ACCENT or FT.C.TEXT
+                local label = tostring(src.label or _T("ft_water_source", "Water source"))
+                -- The fallback label is the tablet's word; SCS's own label keeps the renderer's pass.
+                self.r:appText(x, y - FT.py(2), FT.FONT.BODY,
+                    FT_Renderer.truncate(string.format("%s #%s",
+                        label, tostring(src.id or "?")), 22),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT, src.label == nil)
+                self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL, hours,
+                    RenderText.ALIGN_RIGHT, col, true)
+                y = y - FT.py(14)
+                local n = #(src.connectedSystemIds or {})
+                self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                    string.format(_T("ft_water_connected", "%d connected"), n),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+                y = y - FT.py(16)
             end
         end
+        y = self:drawRule(y, 0.3)
 
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_systems", "SYSTEMS"),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(16)
 
-        if #systems == 0 then
+        if systems == nil then
+            y = _unavailable(self, x, y) - FT.py(8)
+        elseif #systems == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
                 _T("ft_irr_no_systems", "No irrigation systems registered."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(28)
         else
-            -- [SCS-046] Detailed rows are limited to the player's authorized
-            -- farm. Another farm's pivot may still animate in the world from
-            -- public activity, but its private configuration is not exposed
-            -- here. A snapshot with no ownerFarmId (single player, or an older
-            -- SCS that predates the field) is shown, because hiding everything
-            -- on absence would be a worse lie than showing what we have.
-            local viewerFarmId = nil
-            if self.system ~= nil and self.system.data ~= nil
-               and type(self.system.data.getPlayerFarmId) == "function" then
-                viewerFarmId = self.system.data:getPlayerFarmId()
-            end
-
+            -- [SCS-023 v2.2 §2a] These are the farm's own private rows: another farm's systems are never
+            -- in them, so no viewer filter is needed over them.
             for _, sys in ipairs(systems) do
-                local ownerFarmId = sys.ownerFarmId
-                local mayShowDetail = (ownerFarmId == nil) or (viewerFarmId == nil)
-                                      or (ownerFarmId == viewerFarmId)
-
                 -- Activity comes from the snapshot when SCS supplies it. A row
                 -- that says RAIN_PAUSED must never be drawn as RUNNING off
                 -- isActive alone, which is exactly the disagreement the pair
@@ -562,10 +545,12 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                 y = y - FT.py(14)
 
-                -- [SCS-046] Rain-key line. Answers, in order: is a key fitted,
-                -- what is the sensor doing, how much has collected against this
-                -- machine's trip amount, and what wakes it next.
-                if mayShowDetail and sys.rainKeyState ~= nil then
+                if sys.rainKeyFitted == true then
+                    -- [SCS-046] Rain-key line. Answers, in order: what is the sensor doing,
+                    -- how much has collected against this machine's trip amount, and what
+                    -- wakes it next. [SCS-023 v2.2 §5] A fitted pivot runs on the separate
+                    -- rain-key path, never as ordinary scheduled service from its source, so
+                    -- no source stop reason is drawn for it; its settlement state is F200's.
                     local keyState = sys.rainKeyState
                     local keyTxt = _lookup(RAIN_KEY_STATE_TEXT, keyState,
                                            "ft_rainKey_unknownState", "rain key state unknown")
@@ -575,47 +560,55 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                     elseif keyState == "INPUT_UNAVAILABLE" then
                         keyCol = FT.C.MUTED
                     end
+                    self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                        _T("ft_irr_fitted_path", "rain-key path, apart from scheduled service"),
+                        RenderText.ALIGN_LEFT, FT.C.MUTED, true)
+                    y = y - FT.py(13)
 
-                    if sys.rainKeyFitted == true then
-                        -- Collected against trip, both in modelled mm and both
-                        -- honest about absence.
-                        local collected = _mm(sys.rainKeyAccumulatedMm)
-                        local trip      = _mm(sys.rainKeyTripMm)
-                        if sys.weatherReadable == false then
-                            collected = _T("ft_rainKey_unknown", "unknown")
-                        end
+                    -- Collected against trip, both in modelled mm and both honest about absence.
+                    local collected = _mm(sys.rainKeyAccumulatedMm)
+                    local trip      = _mm(sys.rainKeyTripMm)
+                    if sys.weatherReadable == false then
+                        collected = _T("ft_rainKey_unknown", "unknown")
+                    end
+                    self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                        FT_Renderer.truncate(string.format("%s  ·  %s %s / %s %s",
+                            keyTxt,
+                            _T("ft_rainKey_collected", "collected"), collected,
+                            _T("ft_rainKey_trip", "trip"), trip), 46),
+                        RenderText.ALIGN_LEFT, keyCol, true)
+                    y = y - FT.py(13)
+
+                    -- Why it is not running, then what happens next. Only printed when the
+                    -- snapshot actually says something.
+                    local bits = {}
+                    local reason = sys.pauseReason
+                    if reason ~= nil and reason ~= "NONE" and activity ~= "RUNNING" then
+                        bits[#bits + 1] = _lookup(PAUSE_REASON_TEXT, reason,
+                                                  "ft_rainKey_whyUnknown", "reason unavailable")
+                    end
+                    local nextTxt = _nextWakeText(sys)
+                    if nextTxt ~= nil then bits[#bits + 1] = nextTxt end
+                    if #bits > 0 then
                         self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                            FT_Renderer.truncate(string.format("%s  ·  %s %s / %s %s",
-                                keyTxt,
-                                _T("ft_rainKey_collected", "collected"), collected,
-                                _T("ft_rainKey_trip", "trip"), trip), 46),
-                            RenderText.ALIGN_LEFT, keyCol, true)
+                            FT_Renderer.truncate(table.concat(bits, "  ·  "), 46),
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
                         y = y - FT.py(13)
-
-                        -- Why it is not running, then what happens next. Only
-                        -- printed when the snapshot actually says something.
-                        local bits = {}
-                        local reason = sys.pauseReason
-                        if reason ~= nil and reason ~= "NONE" and activity ~= "RUNNING" then
-                            bits[#bits + 1] = _lookup(PAUSE_REASON_TEXT, reason,
-                                                      "ft_rainKey_whyUnknown", "reason unavailable")
-                        end
-                        local nextTxt = _nextWakeText(sys)
-                        if nextTxt ~= nil then bits[#bits + 1] = nextTxt end
-                        -- [BUILD 19:44] Why a stopped system is stopped, in words
-                        -- rather than colour alone. Merged by system id from the
-                        -- farmId shape; nil simply says nothing.
-                        local stopTxt = _stopWords(stopById[sys.systemId or sys.id])
-                        if stopTxt ~= nil then bits[#bits + 1] = stopTxt end
-                        if #bits > 0 then
-                            self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
-                                FT_Renderer.truncate(table.concat(bits, "  ·  "), 46),
-                                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
-                            y = y - FT.py(13)
-                        end
-                    else
-                        self.r:appText(x, y - FT.py(1), FT.FONT.SMALL, keyTxt,
-                            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
+                    end
+                else
+                    -- Ordinary scheduled service from the source: no rain key, and why the
+                    -- system cannot run, in words (the host's stopReason, never recomputed).
+                    local bits = {}
+                    if sys.rainKeyState ~= nil then
+                        bits[#bits + 1] = _lookup(RAIN_KEY_STATE_TEXT, sys.rainKeyState,
+                                                  "ft_rainKey_unknownState", "rain key state unknown")
+                    end
+                    local stopTxt = _stopWords(sys.stopReason)
+                    if stopTxt ~= nil then bits[#bits + 1] = stopTxt end
+                    if #bits > 0 then
+                        self.r:appText(x, y - FT.py(1), FT.FONT.SMALL,
+                            FT_Renderer.truncate(table.concat(bits, "  ·  "), 46),
+                            RenderText.ALIGN_LEFT, stopTxt ~= nil and FT.C.TEXT_ACCENT or FT.C.MUTED, true)
                         y = y - FT.py(13)
                     end
                 end
@@ -627,12 +620,16 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_coverage_outline", "COVERAGE OUTLINE"),
             RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
         y = y - FT.py(14)
-        local polyCache = _cacheCoveragePolys(scs, systems)
-        -- Slightly shorter map so the moisture list stays inside the frame.
-        local mapH = FT.py(96)
-        local mapW = cw - FT.px(6)
-        _drawCoverageMap(self, x, y, mapW, mapH, polyCache, AC)
-        y = y - mapH - FT.py(10)
+        if systems == nil then
+            y = _unavailable(self, x, y)
+        else
+            local polyCache = _cacheCoveragePolys(scs, systems)
+            -- Slightly shorter map so the moisture list stays inside the frame.
+            local mapH = FT.py(96)
+            local mapW = cw - FT.px(6)
+            _drawCoverageMap(self, x, y, mapW, mapH, polyCache, AC)
+            y = y - mapH - FT.py(10)
+        end
 
         y = self:drawRule(y, 0.3)
         self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, _T("ft_irr_moisture_split", "FIELD MOISTURE SPLIT"),
@@ -920,6 +917,8 @@ FarmTabletUI:registerDrawer(FT.APP.IRRIGATION_SUITE, function(self)
                 _T("ft_irr_costs_off", "Irrigation costs are off in Seasonal Crop Stress."),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(24)
+        elseif systems == nil then
+            y = _unavailable(self, x, y)
         elseif #systems == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.BODY,
                 _T("ft_irr_no_systems_price", "No systems to price."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Oinventerad" />
         <text name="ft_irr_soil_line" text="packning %s   mullhalt %s   sjukdom %s" />
         <text name="ft_irr_no_risk_reads" text="Inga riskavläsningar för fält än." />
+        <text name="ft_irr_private_unavailable" text="Otillgängligt: gårdens bevattningsdata kan inte läsas." />
+        <text name="ft_irr_fitted_path" text="regnsensorns väg, skild från schemalagd drift" />
     </texts>
 
 </l10n>

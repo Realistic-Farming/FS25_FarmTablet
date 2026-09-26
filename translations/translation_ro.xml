@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Neinspectat" />
         <text name="ft_irr_soil_line" text="compactare %s   MO %s   boli %s" />
         <text name="ft_irr_no_risk_reads" text="Încă nu există citiri de risc pentru câmpuri." />
+        <text name="ft_irr_private_unavailable" text="Indisponibil: datele de irigare ale acestei ferme nu pot fi citite." />
+        <text name="ft_irr_fitted_path" text="calea senzorului de ploaie, separată de serviciul programat" />
     </texts>
 
 </l10n>

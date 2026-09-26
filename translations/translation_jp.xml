@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="未調査" />
         <text name="ft_irr_soil_line" text="締固め %s   有機物 %s   病気 %s" />
         <text name="ft_irr_no_risk_reads" text="圃場のリスク値はまだありません。" />
+        <text name="ft_irr_private_unavailable" text="利用できません：この農場の灌漑データを読み取れません。" />
+        <text name="ft_irr_fitted_path" text="雨センサー経路、スケジュール運転とは別" />
     </texts>
 
 </l10n>

@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Sin inspeccionar" />
         <text name="ft_irr_soil_line" text="compactación %s   MO %s   enfermedad %s" />
         <text name="ft_irr_no_risk_reads" text="Aún no hay lecturas de riesgo de campos." />
+        <text name="ft_irr_private_unavailable" text="No disponible: los datos de riego de esta granja no se pueden leer." />
+        <text name="ft_irr_fitted_path" text="ruta del sensor de lluvia, aparte del servicio programado" />
     </texts>
 
 </l10n>

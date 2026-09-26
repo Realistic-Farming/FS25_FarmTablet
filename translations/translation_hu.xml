@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Nincs felmérve" />
         <text name="ft_irr_soil_line" text="tömörödés %s   humusz %s   betegség %s" />
         <text name="ft_irr_no_risk_reads" text="Még nincsenek tábla-kockázati adatok." />
+        <text name="ft_irr_private_unavailable" text="Nem elérhető: a gazdaság öntözési adatai nem olvashatók." />
+        <text name="ft_irr_fitted_path" text="esőérzékelős út, külön a menetrend szerinti üzemtől" />
     </texts>
 
 </l10n>

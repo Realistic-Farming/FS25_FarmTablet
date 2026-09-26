@@ -3133,6 +3133,8 @@
         <text name="ft_irr_unscouted" text="Не обследовано" />
         <text name="ft_irr_soil_line" text="уплотнение %s   гумус %s   болезни %s" />
         <text name="ft_irr_no_risk_reads" text="Пока нет данных о рисках полей." />
+        <text name="ft_irr_private_unavailable" text="Недоступно: данные полива этой фермы не читаются." />
+        <text name="ft_irr_fitted_path" text="путь датчика дождя, отдельно от полива по графику" />
     </texts>
 
 </l10n>

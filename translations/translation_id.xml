@@ -3091,6 +3091,8 @@
         <text name="ft_irr_unscouted" text="Belum disurvei" />
         <text name="ft_irr_soil_line" text="pemadatan %s   BO %s   penyakit %s" />
         <text name="ft_irr_no_risk_reads" text="Belum ada pembacaan risiko lahan." />
+        <text name="ft_irr_private_unavailable" text="Tidak tersedia: data irigasi pertanian ini tidak dapat dibaca." />
+        <text name="ft_irr_fitted_path" text="jalur sensor hujan, terpisah dari layanan terjadwal" />
     </texts>
 
 </l10n>
