@@ -38,13 +38,14 @@ local function ftAkitaLineText(line)
     for _, w in ipairs(FT_AKITA_LINE_WORDS) do
         t = t:gsub(w.de, ftAkitaRepl(ftAkitaText(w.key, w.fallback)))
     end
-    -- ": An" and ": Aus" as whole words only (": Anzahl" stays): at the end of the line, or before a non-letter. A
-    -- function's return is used as written, so a "%" in the file's word needs no escaping.
+    -- ": An" and ": Aus" as whole words only (": Anzahl" and ": Anästhesie" stay): at the end of the line, or before a
+    -- byte that is neither a letter nor part of a UTF-8 character (128 to 255). A function's return is used as written,
+    -- so a "%" in the file's word needs no escaping.
     local on, off = ftAkitaText("ft_common_on", "On"), ftAkitaText("ft_common_off", "Off")
     t = t:gsub(": An$", function() return ": " .. on end)
-    t = t:gsub(": An([^%a])", function(c) return ": " .. on .. c end)
+    t = t:gsub(": An([^%a\128-\255])", function(c) return ": " .. on .. c end)
     t = t:gsub(": Aus$", function() return ": " .. off end)
-    t = t:gsub(": Aus([^%a])", function(c) return ": " .. off .. c end)
+    t = t:gsub(": Aus([^%a\128-\255])", function(c) return ": " .. off .. c end)
     return t
 end
 
