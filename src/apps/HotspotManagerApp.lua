@@ -7,30 +7,30 @@
 
 local function hs_getCategoryLabel(cat)
     if MapHotspot then
-        if cat == MapHotspot.CATEGORY_FIELD      then return "Field"      end
-        if cat == MapHotspot.CATEGORY_ANIMAL     then return "Animal"     end
-        if cat == MapHotspot.CATEGORY_MISSION    then return "Mission"    end
-        if cat == MapHotspot.CATEGORY_STEERABLE  then return "Vehicle"    end
-        if cat == MapHotspot.CATEGORY_COMBINE    then return "Combine"    end
-        if cat == MapHotspot.CATEGORY_TRAILER    then return "Trailer"    end
-        if cat == MapHotspot.CATEGORY_TOOL       then return "Tool"       end
-        if cat == MapHotspot.CATEGORY_UNLOADING  then return "Unloading"  end
-        if cat == MapHotspot.CATEGORY_LOADING    then return "Loading"    end
-        if cat == MapHotspot.CATEGORY_PRODUCTION then return "Production" end
-        if cat == MapHotspot.CATEGORY_SHOP       then return "Shop"       end
-        if cat == MapHotspot.CATEGORY_AI         then return "AI"         end
-        if cat == MapHotspot.CATEGORY_PLAYER     then return "Player"     end
-        if cat == MapHotspot.CATEGORY_TOUR       then return "Tour"       end
-        if cat == MapHotspot.CATEGORY_OTHER      then return "Other"      end
+        if cat == MapHotspot.CATEGORY_FIELD      then return FT.l10nAuto("Field")      end
+        if cat == MapHotspot.CATEGORY_ANIMAL     then return FT.l10nAuto("Animal")     end
+        if cat == MapHotspot.CATEGORY_MISSION    then return FT.l10nAuto("Mission")    end
+        if cat == MapHotspot.CATEGORY_STEERABLE  then return FT.l10nAuto("Vehicle")    end
+        if cat == MapHotspot.CATEGORY_COMBINE    then return FT.l10nAuto("Combine")    end
+        if cat == MapHotspot.CATEGORY_TRAILER    then return FT.l10nAuto("Trailer")    end
+        if cat == MapHotspot.CATEGORY_TOOL       then return FT.l10nAuto("Tool")       end
+        if cat == MapHotspot.CATEGORY_UNLOADING  then return FT.l10nAuto("Unloading")  end
+        if cat == MapHotspot.CATEGORY_LOADING    then return FT.l10nAuto("Loading")    end
+        if cat == MapHotspot.CATEGORY_PRODUCTION then return FT.l10nAuto("Production") end
+        if cat == MapHotspot.CATEGORY_SHOP       then return FT.l10nAuto("Shop")       end
+        if cat == MapHotspot.CATEGORY_AI         then return FT.l10nAuto("AI")         end
+        if cat == MapHotspot.CATEGORY_PLAYER     then return FT.l10nAuto("Player")     end
+        if cat == MapHotspot.CATEGORY_TOUR       then return FT.l10nAuto("Tour")       end
+        if cat == MapHotspot.CATEGORY_OTHER      then return FT.l10nAuto("Other")      end
     end
-    return "Pin"
+    return FT.l10nAuto("Pin")
 end
 
 local function hs_getName(hotspot)
     local ok, name = pcall(function() return hotspot:getName() end)
     if ok and name and name ~= "" then return name end
     if hotspot.name and hotspot.name ~= "" then return hotspot.name end
-    return "(unnamed)"
+    return FT.l10nAuto("(unnamed)")
 end
 
 local function hs_getIngameMap()
@@ -75,30 +75,30 @@ local function hs_addPinAtPlayer()
         local ok, x, _, z = pcall(getWorldTranslation, g_currentMission.player.rootNode)
         if ok and x then px, pz = x, z end
     end
-    if px == nil then return false, "No player position" end
+    if px == nil then return false, FT.l10n("ft_hotspot_err_no_position", "No player position") end
 
     local hotspot = nil
     local okCreate = pcall(function()
         if PlaceableHotspot ~= nil and PlaceableHotspot.new then
             hotspot = PlaceableHotspot.new()
-            if hotspot.setName then hotspot:setName("Farm Tablet pin") end
+            if hotspot.setName then hotspot:setName(FT.l10n("ft_hotspot_pin_name", "Farm Tablet pin")) end
             if hotspot.setWorldPosition then hotspot:setWorldPosition(px, pz) end
             if PlaceableHotspot.TYPE and PlaceableHotspot.TYPE.EXCLAMATION_MARK then
                 hotspot.placeableType = PlaceableHotspot.TYPE.EXCLAMATION_MARK
             end
         elseif MapHotspot ~= nil and MapHotspot.new then
             local cat = MapHotspot.CATEGORY_OTHER or MapHotspot.CATEGORY_DEFAULT
-            hotspot = MapHotspot.new("Farm Tablet pin", cat)
+            hotspot = MapHotspot.new(FT.l10n("ft_hotspot_pin_name", "Farm Tablet pin"), cat)
             if hotspot.setWorldPosition then
                 hotspot:setWorldPosition(px, pz)
             elseif hotspot.setPosition then
                 hotspot:setPosition(px, pz)
             end
-            if hotspot.setText then hotspot:setText("Farm Tablet pin") end
+            if hotspot.setText then hotspot:setText(FT.l10n("ft_hotspot_pin_name", "Farm Tablet pin")) end
         end
     end)
     if not okCreate or hotspot == nil then
-        return false, "Hotspot API unavailable"
+        return false, FT.l10n("ft_hotspot_err_api", "Hotspot API unavailable")
     end
 
     local okAdd = pcall(function()
@@ -113,7 +113,7 @@ local function hs_addPinAtPlayer()
     end)
     if not okAdd then
         pcall(function() if hotspot.delete then hotspot:delete() end end)
-        return false, "Could not add pin"
+        return false, FT.l10n("ft_hotspot_err_add", "Could not add pin")
     end
     return true, nil
 end
@@ -133,16 +133,9 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
 
     if self:drawHelpPage("_hotspotHelp", FT.APP.HOTSPOT_MGR, "Hotspot Manager", AC, {
         { title = "WHAT IS THIS?",
-          body  = "Shows all active map hotspots / pins.\n" ..
-                  "Tick the checkbox beside a pin, then REMOVE SELECTED.\n" ..
-                  "ADD PIN HERE drops a custom pin at your feet.\n\n" ..
-                  "Removing system hotspots (Missions, Shops) may break\n" ..
-                  "game features — be careful. System pins can return\n" ..
-                  "after a map re-sync." },
+          body  = FT.l10n("ft_hotspot_help_what_body", "Shows all active map hotspots / pins.\nTick the checkbox beside a pin, then REMOVE SELECTED.\nADD PIN HERE drops a custom pin at your feet.\n\nRemoving system hotspots (Missions, Shops) may break\ngame features - be careful. System pins can return\nafter a map re-sync.") },
         { title = "CLEAR ALL",
-          body  = "Press CLEAR ALL once — it turns red and asks\n" ..
-                  "for confirmation. Press it again within 4 seconds\n" ..
-                  "to remove every hotspot from the map." },
+          body  = FT.l10n("ft_hotspot_help_clear_body", "Press CLEAR ALL once - it turns red and asks\nfor confirmation. Press it again within 4 seconds\nto remove every hotspot from the map.") },
     }) then return end
 
     local im = hs_getIngameMap()
@@ -170,7 +163,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     end
 
     local startY = self:drawAppHeader("Hotspot Manager",
-        total > 0 and (total .. " total") or "Empty")
+        total > 0 and FT.l10nFormat("ft_hotspot_total_fmt", "%d total", total) or FT.l10nAuto("Empty"))
     local x, cy, cw, ch = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -183,22 +176,24 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     local gapX = FT.px(4)
     local btnW = (cw - gapX * 2) / 3
 
-    local btnAdd = self.r:button(x, y - BTN_H, btnW, BTN_H, "ADD PIN HERE", FT.C.BTN_PRIMARY, {
+    local btnAdd = self.r:button(x, y - BTN_H, btnW, BTN_H, FT.l10n("ft_hotspot_add_pin", "ADD PIN HERE"), FT.C.BTN_PRIMARY, {
         onClick = function()
             local ok, err = hs_addPinAtPlayer()
-            _statusMsg = ok and "Pin added at your position." or (err or "Add failed")
+            _statusMsg = ok and FT.l10n("ft_hotspot_pin_added", "Pin added at your position.")
+                or (err or FT.l10n("ft_hotspot_add_failed", "Add failed"))
             _statusTimer = 180
         end
     })
     table.insert(self._contentBtns, btnAdd)
 
     local rmLabel = selectedCount > 0
-        and string.format("REMOVE (%d)", selectedCount) or "REMOVE"
+        and FT.l10nFormat("ft_hotspot_remove_fmt", "REMOVE (%d)", selectedCount)
+        or FT.l10n("ft_hotspot_remove", "REMOVE")
     local rmColor = selectedCount > 0 and FT.C.BTN_DANGER or FT.C.BTN_NEUTRAL
     local btnRmSel = self.r:button(x + btnW + gapX, y - BTN_H, btnW, BTN_H, rmLabel, rmColor, {
         onClick = function()
             if selectedCount == 0 then
-                _statusMsg = "Tick pins to remove first."
+                _statusMsg = FT.l10n("ft_hotspot_tick_first", "Tick pins to remove first.")
                 _statusTimer = 120
                 return
             end
@@ -212,7 +207,8 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                 hs_removeHotspot(hs)
                 _selected[hs_hotspotKey(hs)] = nil
             end
-            _statusMsg = string.format("Removed %d pin(s).", #toRemove)
+            _statusMsg = (#toRemove == 1) and FT.l10nFormat("ft_hotspot_removed_one", "Removed %d pin.", #toRemove)
+                or FT.l10nFormat("ft_hotspot_removed", "Removed %d pins.", #toRemove)
             _statusTimer = 180
         end
     })
@@ -220,7 +216,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
 
     if total > 0 then
         local clearLabel = _confirmClear
-            and "CONFIRM CLEAR" or "CLEAR ALL"
+            and FT.l10n("ft_hotspot_confirm_clear", "CONFIRM CLEAR") or FT.l10nAuto("CLEAR ALL")
         local clearColor = _confirmClear and FT.C.BTN_DANGER or FT.C.BTN_NEUTRAL
         local btnClear = self.r:button(x + (btnW + gapX) * 2, y - BTN_H, btnW, BTN_H,
             clearLabel, clearColor, {
@@ -232,7 +228,7 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
                     _selected = {}
                     _confirmClear = false
                     _confirmTimer = 0
-                    _statusMsg = "All pins cleared."
+                    _statusMsg = FT.l10n("ft_hotspot_all_cleared", "All pins cleared.")
                     _statusTimer = 180
                 else
                     _confirmClear = true
@@ -253,12 +249,12 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
     -- ── Hotspot list with checkboxes ──────────────────────
     y = self:drawRule(y - FT.py(2), 0.3)
     y = y - FT.py(6)
-    y = self:drawSection(y, "HOTSPOTS  (tick to select)")
+    y = self:drawSection(y, FT.l10n("ft_hotspot_list_heading", "HOTSPOTS  (tick to select)"))
     y = y - GAP
 
     if total == 0 then
         self.r:appText(x + cw / 2, y - FT.py(12), FT.FONT.SMALL,
-            "No hotspots on the map — use ADD PIN HERE.",
+            FT.l10n("ft_hotspot_none", "No hotspots on the map - use ADD PIN HERE."),
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         y = y - FT.py(24)
     else
