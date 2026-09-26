@@ -105,7 +105,25 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "br:ft_fleet_hours_fmt": "the hour symbol: Portuguese writes %d h",
+  "ea:ft_fleet_hours_fmt": "the hour symbol: Spanish writes %d h",
+  "es:ft_fleet_hours_fmt": "the hour symbol: Spanish writes %d h",
+  "fc:ft_fleet_hours_fmt": "the hour symbol: French writes %d h",
+  "fr:ft_fleet_hours_fmt": "the hour symbol: French writes %d h",
+  "it:ft_fleet_hours_fmt": "the hour symbol: Italian writes %d h",
+  "pt:ft_fleet_hours_fmt": "the hour symbol: Portuguese writes %d h",
+  "da:ft_auto_transport": "the same word: Danish writes Transport",
+  "de:ft_auto_transport": "the same word: German writes Transport",
+  "fc:ft_auto_transport": "the same word: French writes Transport",
+  "fr:ft_auto_transport": "the same word: French writes Transport",
+  "nl:ft_auto_transport": "the same word: Dutch writes Transport",
+  "no:ft_auto_transport": "the same word: Norwegian writes Transport",
+  "pl:ft_auto_transport": "the same word: Polish writes Transport",
+  "ro:ft_auto_transport": "the same word: Romanian writes Transport",
+  "sv:ft_auto_transport": "the same word: Swedish writes Transport",
+  "nl:ft_auto_water": "the same word: Dutch writes Water",
+  "nl:ft_auto_contract": "the same word: Dutch writes Contract",
+  "ro:ft_auto_contract": "the same word: Romanian writes Contract",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").
