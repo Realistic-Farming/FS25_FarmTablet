@@ -483,7 +483,7 @@
         <text name="ft_auto_all_owned_vehicles_fuel_wear_operating_hours" text="Alle eigenen Fahrzeuge mit Kraftstofffüllstand, Verschleiß und Betriebsstunden" />
         <text name="ft_auto_always_active" text="(immer aktiv)" />
         <text name="ft_auto_amount" text="$amount" />
-        <text name="ft_auto_amount_2" text="AMOUNT" />
+        <text name="ft_auto_amount_2" text="BETRAG" />
         <text name="ft_auto_amount_3" text="Betrag" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Betrag: +1.000 € · +10.000 € · +100.000 € · +1.000.000 €" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Beträge angezeigt in Litern, Höchstmenge zuerst.&#10;" />
@@ -711,13 +711,13 @@
         <text name="ft_auto_cost_mode" text="COST MODE" />
         <text name="ft_auto_cost_mode_2" text="Kostenmodus" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Anzahl von angenommenen Aufträgen die derzeit in Bearbeitung sind.&#10;" />
-        <text name="ft_auto_create" text="CREATE" />
+        <text name="ft_auto_create" text="ERSTELLEN" />
         <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Erstelle Rechnungen mit der RoleplayPhone App." />
         <text name="ft_auto_credit" text="BONITÄT" />
         <text name="ft_auto_credit_score" text="KREDITWÜRDIGKEIT" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
         <text name="ft_auto_crop" text="Kultur" />
-        <text name="ft_auto_crop_sale" text="Kulturverkauf" />
+        <text name="ft_auto_crop_sale" text="Ernteverkauf" />
         <text name="ft_auto_crop_stress" text="Pflanzenstress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
         <text name="ft_auto_crop_stress_mod_not_detected" text="FS25_SeasonalCropStress mod nicht erkannt." />
@@ -742,9 +742,9 @@
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Aktueller in-game Tag, Jahreszeit (Wenn die Jahreszeiten aktiv sind),&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="aktuelle Gehaltsstufe, derzeit aktiver Kostenmodus&#10;" />
         <text name="ft_auto_current_x_z_position" text="aktuelle horizontale/vertikale Position.&#10;" />
-        <text name="ft_auto_custom" text="Custom" />
+        <text name="ft_auto_custom" text="Eigene" />
         <text name="ft_auto_custom_2" text="custom" />
-        <text name="ft_auto_custom_set_via_console" text="Custom (setze über die Konsole)" />
+        <text name="ft_auto_custom_set_via_console" text="Eigene (über die Konsole festlegen)" />
         <text name="ft_auto_customising_widgets" text="WIDGETS ANPASSEN" />
         <text name="ft_auto_customize" text="customize" />
         <text name="ft_auto_customize_widgets" text="Benutzerdefinierte Widgets" />
@@ -793,7 +793,7 @@
         <text name="ft_auto_default_2" text="default" />
         <text name="ft_auto_defaulted" text="defaulted" />
         <text name="ft_auto_delete" text="LÖSCHEN" />
-        <text name="ft_auto_description" text="DESCRIPTION" />
+        <text name="ft_auto_description" text="BESCHREIBUNG" />
         <text name="ft_auto_diagnostics" text="DIAGNOSE" />
         <text name="ft_auto_dig" text="DIG" />
         <text name="ft_auto_digging" text="Digging" />
@@ -1125,7 +1125,7 @@
         <text name="ft_auto_github_or_kingmods_to_get_new_features_and_fixes" text="GitHub oder KingMods für neue Funktionen und Fehlerbehebungen." />
         <text name="ft_auto_gold" text="GOLD" />
         <text name="ft_auto_good" text="Gut" />
-        <text name="ft_auto_grain_elevator" text="Getreide-Förderband" />
+        <text name="ft_auto_grain_elevator" text="Getreidesilo" />
         <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="Getreidesilos, Fahrsilos, Silagegruben, Mistlager,&#10;" />
         <text name="ft_auto_grapple" text="grapple" />
         <text name="ft_auto_grass" text="GRAS" />
@@ -1586,7 +1586,7 @@
         <text name="ft_auto_paid_2" text="Bezahlt" />
         <text name="ft_auto_paid_3" text="bezahlt" />
         <text name="ft_auto_partly_cloudy" text="teilweise Bewölkt" />
-        <text name="ft_auto_party" text="PARTY" />
+        <text name="ft_auto_party" text="PARTNER" />
         <text name="ft_auto_party_2" text="party" />
         <text name="ft_auto_pause" text="⏸ PAUSE" />
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE hält die Zeit an. Aktive Geschwindigkeit hervorgehoben." />
@@ -1697,7 +1697,7 @@
         <text name="ft_auto_realisticdealer" text="RealisticDealer" />
         <text name="ft_auto_realisticdealer_financing_installments_and_repossession" text="RealisticDealer Finanzierung, Installationen und Stand der Rückabwicklung" />
         <text name="ft_auto_realisticdealer_was_not_detected" text="RealisticDealer wurde nicht gefunden." />
-        <text name="ft_auto_receivable" text="ERHÄLTLICH" />
+        <text name="ft_auto_receivable" text="FORDERUNGEN" />
         <text name="ft_auto_recent_jobs" text="Kürzliche Aufträge" />
         <text name="ft_auto_reception" text="Erhalten" />
         <text name="ft_auto_record_is_saved_to_the_history_list" text="Aufzeichnung wurde in der Historie gespeichert." />
@@ -1747,7 +1747,7 @@
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Rechtsklick oder ESC drücken zum verlassen." />
         <text name="ft_auto_ripening" text="Reifen" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
-        <text name="ft_auto_roleplay_phone_integration" text="ROLEPLAY PHONE INTEGRATION" />
+        <text name="ft_auto_roleplay_phone_integration" text="ROLEPLAY-PHONE-INTEGRATION" />
         <text name="ft_auto_roleplayphone" text="RoleplayPhone" />
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
@@ -1806,7 +1806,7 @@
         <text name="ft_auto_service_fee" text="Gebühr" />
         <text name="ft_auto_session_p_l" text="SITZUNG G&amp;V" />
         <text name="ft_auto_set" text="SET" />
-        <text name="ft_auto_set_an_amount_greater_than_0_to_create" text="Wähle zum erstellen eine Anzahl größer als 0." />
+        <text name="ft_auto_set_an_amount_greater_than_0_to_create" text="Zum Erstellen einen Betrag über 0 wählen." />
         <text name="ft_auto_set_startup_app_id" text="Set startup app ID" />
         <text name="ft_auto_set_tablet_keybind" text="Set tablet keybind" />
         <text name="ft_auto_set_time_scale_and_skip_to_a_time_of_day" text="Zeitskalierung ändern und zu Uhrzeit springen" />
@@ -2964,6 +2964,15 @@
         <text name="ft_changelog_253_imp_2" text="Neue App-Symbole für Fruchtfolge, Bewässerung und Globale Einstellungen" />
         <text name="ft_changelog_253_imp_3" text="Boden-App neu gestaltet, mit übersichtlicheren Nährstoffkarten je Feld" />
         <text name="ft_changelog_253_fix_1" text="Die Admin-Sperre des Feldmonitors schließt jetzt standardmäßig, wenn die Rechte unklar sind" />
+        <text name="ft_rpphone_help_tracker_body" text="Verfolgt Geld, das du anderen schuldest (AUSGEHEND), und&#10;Geld, das andere dir schulden (EINGEHEND).&#10;Status: AUSSTEHEND, BEZAHLT, ÜBERFÄLLIG / ABGELEHNT." />
+        <text name="ft_rpphone_help_phone_body" text="Ist FS25_RoleplayPhone v0.4.0+ installiert,&#10;erscheinen auf dem Telefon erstellte Rechnungen&#10;hier automatisch über seine öffentliche API.&#10;Ohne die Mod nutzt du das eingebaute Rechnungssystem." />
+        <text name="ft_rpphone_help_summary_body" text="Oben zeigt die App die offenen Forderungen (grün)&#10;und die offenen Schulden (rot) aller ausstehenden Rechnungen." />
+        <text name="ft_rpphone_help_new_body" text="Tippe auf + NEU, um das Formular zu öffnen.&#10;Nur im eingebauten Modus verfügbar.&#10;Ist die RoleplayPhone-Mod installiert,&#10;erstelle Rechnungen in deren App." />
+        <text name="ft_rpphone_due_date_fmt" text="Fällig: %s" />
+        <text name="ft_rpphone_overdue_one" text="Seit 1 Tag überfällig" />
+        <text name="ft_rpphone_overdue_fmt" text="Seit %d Tagen überfällig" />
+        <text name="ft_rpphone_due_in_one" text="Fällig in 1 Tag" />
+        <text name="ft_rpphone_due_in_fmt" text="Fällig in %d Tagen" />
     </texts>
 
 </l10n>

@@ -376,7 +376,7 @@
         <text name="ft_auto_0f_width_0f" text="%.0f%%  (width: %.0f%%)" />
         <text name="ft_auto_0ft" text="%.0ft" />
         <text name="ft_auto_12_pm" text="12 PM" />
-        <text name="ft_auto_14_days" text="14 days" />
+        <text name="ft_auto_14_days" text="14 dager" />
         <text name="ft_auto_1_active_job" text="1 aktiv jobb" />
         <text name="ft_auto_1_building" text="1 building" />
         <text name="ft_auto_1_real_time_60_fast_forward" text="1× = real-time  ·  60× = fast-forward&#10;" />
@@ -389,17 +389,17 @@
         <text name="ft_auto_1f_ha" text="%.1f ha" />
         <text name="ft_auto_1f_km_h" text="%.1f km/h" />
         <text name="ft_auto_1fh_d_jobs_fatigue_d" text="%.1fh  -  %d jobs  -  fatigue %d%%" />
-        <text name="ft_auto_1k_2" text="+1k" />
-        <text name="ft_auto_1k_3" text="-1k" />
+        <text name="ft_auto_1k_2" text="+1 000" />
+        <text name="ft_auto_1k_3" text="-1 000" />
         <text name="ft_auto_2f_m" text="%.2f m" />
-        <text name="ft_auto_30_days" text="30 days" />
+        <text name="ft_auto_30_days" text="30 dager" />
         <text name="ft_auto_3g" text="3G" />
         <text name="ft_auto_4g" text="4G" />
-        <text name="ft_auto_60_days" text="60 days" />
+        <text name="ft_auto_60_days" text="60 dager" />
         <text name="ft_auto_6_am" text="6 AM" />
         <text name="ft_auto_6_pm" text="6 PM" />
-        <text name="ft_auto_7_days" text="7 days" />
-        <text name="ft_auto_90_days" text="90 days" />
+        <text name="ft_auto_7_days" text="7 dager" />
+        <text name="ft_auto_90_days" text="90 dager" />
         <text name="ft_auto_a_20_return_means_you_effectively_pay_80_of_the" text="A 20% return means you effectively pay 80% of the&#10;" />
         <text name="ft_auto_a_level_and_a_one_off_signing_cost_hire_to_add" text="a level and a one-off signing cost. HIRE to add&#10;" />
         <text name="ft_auto_a_personnel_command_center_for_fs25_workercosts" text="A personnel command center for FS25_WorkerCosts.&#10;" />
@@ -483,7 +483,7 @@
         <text name="ft_auto_all_owned_vehicles_fuel_wear_operating_hours" text="Alle kjøretøyene dine - drivstoff, slitasje, driftstimer" />
         <text name="ft_auto_always_active" text="(always active)" />
         <text name="ft_auto_amount" text="$amount" />
-        <text name="ft_auto_amount_2" text="AMOUNT" />
+        <text name="ft_auto_amount_2" text="BELØP" />
         <text name="ft_auto_amount_3" text="Amount" />
         <text name="ft_auto_amounts_1k_10k_100k_1m" text="Amounts: +$1K · +$10K · +$100K · +$1M" />
         <text name="ft_auto_amounts_shown_in_litres_sorted_largest_first" text="Mengder i liter, største først.&#10;" />
@@ -504,7 +504,7 @@
         <text name="ft_auto_ani" text="ANI" />
         <text name="ft_auto_animal" text="Dyr" />
         <text name="ft_auto_animal_auto_care" text="animal_auto_care" />
-        <text name="ft_auto_animal_care" text="Animal Care" />
+        <text name="ft_auto_animal_care" text="Dyrestell" />
         <text name="ft_auto_animal_pens" text="Dyrebinger" />
         <text name="ft_auto_animal_pens_food_water_cleanliness" text="Dyrebinger - fôr, vann, renhold" />
         <text name="ft_auto_animal_pens_with_per_metric_color_bars" text="Animal pens with per-metric color bars" />
@@ -600,7 +600,7 @@
         <text name="ft_auto_busy" text="Busy" />
         <text name="ft_auto_buy_equipment" text="Buy equipment" />
         <text name="ft_auto_c" text="-- C" />
-        <text name="ft_auto_cancel" text="CANCEL" />
+        <text name="ft_auto_cancel" text="AVBRYT" />
         <text name="ft_auto_canola" text="CANOLA" />
         <text name="ft_auto_capacity_e_g_78_390l_500l" text="tankkapasiteten (f.eks. 78%  (390 L / 500 L)).&#10;" />
         <text name="ft_auto_care_cost" text="Care Cost" />
@@ -694,9 +694,9 @@
         <text name="ft_auto_consolecommandtabletsetstartupapp" text="consoleCommandTabletSetStartupApp" />
         <text name="ft_auto_consolecommandtabletshowsettings" text="consoleCommandTabletShowSettings" />
         <text name="ft_auto_consolecommandtablettoggle" text="consoleCommandTabletToggle" />
-        <text name="ft_auto_consulting" text="Consulting" />
+        <text name="ft_auto_consulting" text="Rådgivning" />
         <text name="ft_auto_contract" text="Kontrakt" />
-        <text name="ft_auto_contractor" text="Contractor" />
+        <text name="ft_auto_contractor" text="Leiekjører" />
         <text name="ft_auto_contracts" text="CONTRACTS" />
         <text name="ft_auto_contracts_2" text="Kontrakter" />
         <text name="ft_auto_contracts_3" text="contracts" />
@@ -711,13 +711,13 @@
         <text name="ft_auto_cost_mode" text="COST MODE" />
         <text name="ft_auto_cost_mode_2" text="Kostnadsmodus" />
         <text name="ft_auto_count_of_accepted_contracts_currently_in_progress" text="Antall aksepterte kontrakter som pågår.&#10;" />
-        <text name="ft_auto_create" text="CREATE" />
-        <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Create invoices via the RoleplayPhone app." />
+        <text name="ft_auto_create" text="OPPRETT" />
+        <text name="ft_auto_create_invoices_via_the_roleplayphone_app" text="Opprett fakturaer i RoleplayPhone-appen." />
         <text name="ft_auto_credit" text="KREDITT" />
         <text name="ft_auto_credit_score" text="KREDITTSCORE" />
         <text name="ft_auto_credit_score_2" text="Credit Score" />
         <text name="ft_auto_crop" text="AVLING" />
-        <text name="ft_auto_crop_sale" text="Crop Sale" />
+        <text name="ft_auto_crop_sale" text="Avlingssalg" />
         <text name="ft_auto_crop_stress" text="Crop Stress" />
         <text name="ft_auto_crop_stress_2" text="crop_stress" />
         <text name="ft_auto_crop_stress_mod_not_detected" text="Crop Stress mod not detected." />
@@ -742,9 +742,9 @@
         <text name="ft_auto_current_in_game_day_season_if_seasons_mod_is_active" text="Gjeldende spilldag, årstid (hvis modden Seasons er aktiv)&#10;" />
         <text name="ft_auto_current_wage_level_cost_mode_active" text="current wage level, cost mode, active&#10;" />
         <text name="ft_auto_current_x_z_position" text="current X/Z position.&#10;" />
-        <text name="ft_auto_custom" text="Custom" />
+        <text name="ft_auto_custom" text="Egendefinert" />
         <text name="ft_auto_custom_2" text="custom" />
-        <text name="ft_auto_custom_set_via_console" text="Custom (set via console)" />
+        <text name="ft_auto_custom_set_via_console" text="Egendefinert (via konsollen)" />
         <text name="ft_auto_customising_widgets" text="TILPASSE MODULER" />
         <text name="ft_auto_customize" text="customize" />
         <text name="ft_auto_customize_widgets" text="Tilpass moduler" />
@@ -792,8 +792,8 @@
         <text name="ft_auto_default" text="DEFAULT" />
         <text name="ft_auto_default_2" text="default" />
         <text name="ft_auto_defaulted" text="defaulted" />
-        <text name="ft_auto_delete" text="DELETE" />
-        <text name="ft_auto_description" text="DESCRIPTION" />
+        <text name="ft_auto_delete" text="SLETT" />
+        <text name="ft_auto_description" text="BESKRIVELSE" />
         <text name="ft_auto_diagnostics" text="DIAGNOSE" />
         <text name="ft_auto_dig" text="DIG" />
         <text name="ft_auto_digging" text="Digging" />
@@ -829,9 +829,9 @@
         <text name="ft_auto_drag_the_body_to_reposition_it_anywhere_on_screen" text="Drag the body to reposition it anywhere on screen.&#10;" />
         <text name="ft_auto_drop_png_files_into_the_ftbackground_folder_inside_your" text="Drop PNG files into the FTBackground folder inside your&#10;" />
         <text name="ft_auto_due" text="Due: " />
-        <text name="ft_auto_due_date" text="DUE DATE" />
+        <text name="ft_auto_due_date" text="FORFALLSDATO" />
         <text name="ft_auto_due_in_d_day_s" text="Due in %d day%s" />
-        <text name="ft_auto_due_today" text="Due today" />
+        <text name="ft_auto_due_today" text="Forfaller i dag" />
         <text name="ft_auto_dur" text="VARIGH." />
         <text name="ft_auto_duration" text="Varighet" />
         <text name="ft_auto_duration_d_in_game_hours" text="DURATION: %d IN-GAME HOURS" />
@@ -864,8 +864,8 @@
         <text name="ft_auto_enter_a_vehicle_first_then_pin" text="Enter a vehicle first, then PIN" />
         <text name="ft_auto_enter_edit_mode" text="ENTER EDIT MODE" />
         <text name="ft_auto_environment_not_loaded_yet" text="Omgivelsene er ikke lastet ennå." />
-        <text name="ft_auto_equipment_dealer" text="Equipment Dealer" />
-        <text name="ft_auto_equipment_rental" text="Equipment Rental" />
+        <text name="ft_auto_equipment_dealer" text="Maskinforhandler" />
+        <text name="ft_auto_equipment_rental" text="Maskinutleie" />
         <text name="ft_auto_error_app_s_not_found_or_not_enabled" text="Error: App '%s' not found or not enabled" />
         <text name="ft_auto_error_farm_tablet_not_initialized" text="Error: Farm Tablet not initialized" />
         <text name="ft_auto_est_interval" text="Anslått intervall" />
@@ -905,7 +905,7 @@
         <text name="ft_auto_farm_overview_balance_fields_vehicles_world_state" text="Gårdsoversikt: saldo, jorder, kjøretøy, verden" />
         <text name="ft_auto_farm_stats" text="Gårdsstatistikk" />
         <text name="ft_auto_farm_stats_2" text="farm_stats" />
-        <text name="ft_auto_farm_supply" text="Farm Supply" />
+        <text name="ft_auto_farm_supply" text="Landbruksforretning" />
         <text name="ft_auto_farm_tablet" text="Farm Tablet" />
         <text name="ft_auto_farm_tablet_2" text="Farm Tablet: " />
         <text name="ft_auto_farm_tablet_console_commands" text="=== Farm Tablet Console Commands ===&#10;" />
@@ -993,7 +993,7 @@
         <text name="ft_auto_field_sentry" text="Jordevakt" />
         <text name="ft_auto_field_sentry_2" text="field_sentry" />
         <text name="ft_auto_field_status" text="field_status" />
-        <text name="ft_auto_field_work" text="Field Work" />
+        <text name="ft_auto_field_work" text="Markarbeid" />
         <text name="ft_auto_fieldcount" text="fieldcount_" />
         <text name="ft_auto_fields" text="FIELDS" />
         <text name="ft_auto_fields_2" text="FIELDS  (" />
@@ -1125,7 +1125,7 @@
         <text name="ft_auto_github_or_kingmods_to_get_new_features_and_fixes" text="GitHub or KingMods to get new features and fixes." />
         <text name="ft_auto_gold" text="GOLD" />
         <text name="ft_auto_good" text="Good" />
-        <text name="ft_auto_grain_elevator" text="Grain Elevator" />
+        <text name="ft_auto_grain_elevator" text="Kornsilo" />
         <text name="ft_auto_grain_silos_bunker_silos_silage_pits_manure_stores" text="kornsiloer, plansiloer, surfôrgroper, gjødselkjellere,&#10;" />
         <text name="ft_auto_grapple" text="grapple" />
         <text name="ft_auto_grass" text="GRASS" />
@@ -1226,7 +1226,7 @@
         <text name="ft_auto_income_mod_is_not_installed" text="Income Mod is not installed." />
         <text name="ft_auto_income_money_earned_expenses_money_spent" text="Inntekter: tjente penger. Utgifter: brukte penger.&#10;" />
         <text name="ft_auto_incoming" text="incoming" />
-        <text name="ft_auto_incoming_money_owed_to_you" text="INCOMING  (money owed to you)" />
+        <text name="ft_auto_incoming_money_owed_to_you" text="INNGÅENDE  (penger du har til gode)" />
         <text name="ft_auto_info" text="Info" />
         <text name="ft_auto_initial_release" text="Initial release" />
         <text name="ft_auto_inputs" text="INPUTS" />
@@ -1259,9 +1259,9 @@
         <text name="ft_auto_invalid_value_use_true_or_false" text="Invalid value. Use 'true' or 'false'" />
         <text name="ft_auto_inventory" text="BEHOLDNING" />
         <text name="ft_auto_invoice" text="invoice" />
-        <text name="ft_auto_invoice_tracker" text="INVOICE TRACKER" />
+        <text name="ft_auto_invoice_tracker" text="FAKTURAOVERSIKT" />
         <text name="ft_auto_invoice_tracker_built_in_roleplayphone_integration" text="Fakturaoversikt - innebygd + RoleplayPhone-integrasjon" />
-        <text name="ft_auto_invoices" text="Invoices" />
+        <text name="ft_auto_invoices" text="Fakturaer" />
         <text name="ft_auto_invoices_created_on_the_phone_appear_here" text="invoices created on the phone appear here&#10;" />
         <text name="ft_auto_invoices_phone" text="Fakturaer / Telefon" />
         <text name="ft_auto_irrigate_those_fields_immediately_to_stop_yield_loss" text="Irrigate those fields immediately to stop yield loss." />
@@ -1279,7 +1279,7 @@
         <text name="ft_auto_kein_netz" text="INGEN NETTVERK" />
         <text name="ft_auto_label_color" text="LABEL COLOR: " />
         <text name="ft_auto_label_size" text="LABEL SIZE: " />
-        <text name="ft_auto_land_lease" text="Land Lease" />
+        <text name="ft_auto_land_lease" text="Jordleie" />
         <text name="ft_auto_landnetz" text="LandNetz" />
         <text name="ft_auto_landnetz_2" text="landnetz" />
         <text name="ft_auto_large" text="LARGE" />
@@ -1313,7 +1313,7 @@
         <text name="ft_auto_loan_amount" text="Lånebeløp" />
         <text name="ft_auto_loan_amount_shown_alongside_balance_if_active" text="Har du lån, vises beløpet ved siden av saldoen." />
         <text name="ft_auto_loan_outstanding_loan_amount_0_if_debt_free" text="Lån: utestående lånebeløp (0 uten gjeld).&#10;" />
-        <text name="ft_auto_loan_payment" text="Loan Payment" />
+        <text name="ft_auto_loan_payment" text="Avdrag på lån" />
         <text name="ft_auto_lock" text="lock" />
         <text name="ft_auto_log_field_work_sessions_field_vehicle_task_duration" text="Logg jordarbeid - jorde, kjøretøy, oppgave, varighet" />
         <text name="ft_auto_longer_bar_more_moisture_in_the_soil" text="Longer bar = more moisture in the soil.&#10;" />
@@ -1322,9 +1322,9 @@
         <text name="ft_auto_low_medium_high_tiers_are_set_in_the_mod_settings" text="Low / Medium / High tiers are set in the mod settings.&#10;" />
         <text name="ft_auto_m" text="m  " />
         <text name="ft_auto_m_left" text="m left" />
-        <text name="ft_auto_maintenance" text="Maintenance" />
+        <text name="ft_auto_maintenance" text="Vedlikehold" />
         <text name="ft_auto_maize" text="MAIZE" />
-        <text name="ft_auto_manage_via_roleplayphone_app" text="Manage via RoleplayPhone app" />
+        <text name="ft_auto_manage_via_roleplayphone_app" text="Administrer i RoleplayPhone-appen" />
         <text name="ft_auto_manage_your_pro_staff_roster_review_hire" text="Manage your Pro-Staff roster: review, hire,&#10;" />
         <text name="ft_auto_management_menu_to_turn_them_on" text="bygningens administrasjonsmeny for å slå dem på)." />
         <text name="ft_auto_manual_you_put_it_to_sleep" text="MANUELL = du har lagt den i dvale.&#10;" />
@@ -1378,7 +1378,7 @@
         <text name="ft_auto_multi" text="^multi" />
         <text name="ft_auto_multi_day_outlook_day_1_through_day_5" text="Multi-day outlook - Day +1 through Day +5.&#10;" />
         <text name="ft_auto_multiplayer" text="FLERSPILLER" />
-        <text name="ft_auto_municipality" text="Municipality" />
+        <text name="ft_auto_municipality" text="Kommune" />
         <text name="ft_auto_must_be_run_by_the_session_host" text="must be run by the session host." />
         <text name="ft_auto_my_farm" text="Min gård" />
         <text name="ft_auto_n_a" text="-" />
@@ -1407,7 +1407,7 @@
         <text name="ft_auto_netzst" text="netzst" />
         <text name="ft_auto_netzwerk" text="NETZWERK" />
         <text name="ft_auto_neutral" text="Neutral" />
-        <text name="ft_auto_new" text="+ NEW" />
+        <text name="ft_auto_new" text="+ NY" />
         <text name="ft_auto_new_about_section_in_settings_with_version_links" text="New: About section in Settings with version + links" />
         <text name="ft_auto_new_added_ukrainian_translation" text="New: Added Ukrainian translation" />
         <text name="ft_auto_new_apps_open_full_screen_with_a_home_back_bar_redesign" text="New: apps open full-screen with a Home/Back bar; redesigned 3D frame, screen gloss + wallpaper" />
@@ -1421,8 +1421,8 @@
         <text name="ft_auto_new_glossy_app_icons_for_every_app_built_in_integrated" text="New: glossy app icons for every app (built-in + integrated mods), on a paged grid with a dock" />
         <text name="ft_auto_new_hire_tab_recruitment_pool_with_per_candidate_level" text="New: Hire tab - recruitment pool with per-candidate level and signing cost; reroll candidates" />
         <text name="ft_auto_new_hotspot_manager_list_remove_map_pins_clear_all_conf" text="New: Hotspot Manager - list/remove map pins, clear all (confirm)" />
-        <text name="ft_auto_new_invoice" text="NEW INVOICE" />
-        <text name="ft_auto_new_invoice_2" text="New Invoice" />
+        <text name="ft_auto_new_invoice" text="NY FAKTURA" />
+        <text name="ft_auto_new_invoice_2" text="Ny faktura" />
         <text name="ft_auto_new_invoices_app_with_in_tablet_creation_form" text="New: Invoices app with in-tablet creation form" />
         <text name="ft_auto_new_job" text="Ny jobb" />
         <text name="ft_auto_new_market_dynamics_integration_app" text="New: Market Dynamics integration app" />
@@ -1461,14 +1461,14 @@
         <text name="ft_auto_no_contracts_showing" text="INGEN KONTRAKTER VISES" />
         <text name="ft_auto_no_crop_stress_data_yet" text="No crop stress data yet." />
         <text name="ft_auto_no_data_for_field" text="No data for Field " />
-        <text name="ft_auto_no_due_date" text="No due date" />
+        <text name="ft_auto_no_due_date" text="Ingen forfallsdato" />
         <text name="ft_auto_no_event" text="No event" />
         <text name="ft_auto_no_event_currently_active" text="Ingen hendelse er aktiv nå." />
         <text name="ft_auto_no_factories_are_in_the_factoryweekschedule_hud_cache_y" text="No factories are in the FactoryWeekSchedule HUD cache yet." />
         <text name="ft_auto_no_favourites_yet" text="Ingen favoritter ennå" />
         <text name="ft_auto_no_fields_owned" text="No fields owned" />
         <text name="ft_auto_no_hotspots_on_the_map" text="No hotspots on the map" />
-        <text name="ft_auto_no_invoices_yet" text="No invoices yet." />
+        <text name="ft_auto_no_invoices_yet" text="Ingen fakturaer ennå." />
         <text name="ft_auto_no_job_running" text="Ingen jobb pågår." />
         <text name="ft_auto_no_loads_recorded_yet" text="Ingen lass registrert ennå." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
@@ -1564,7 +1564,7 @@
         <text name="ft_auto_outages_s" text="OUTAGES: %s" />
         <text name="ft_auto_outages_s_2" text="Outages: %s." />
         <text name="ft_auto_outgoing" text="outgoing" />
-        <text name="ft_auto_outgoing_money_you_owe" text="OUTGOING  (money you owe)" />
+        <text name="ft_auto_outgoing_money_you_owe" text="UTGÅENDE  (penger du skylder)" />
         <text name="ft_auto_outputs" text="OUTPUTS" />
         <text name="ft_auto_outputs_pile_up_if_the_unloading_station_is_full_check" text="Produktene hoper seg opp hvis avlessingsstasjonen er full - sjekk&#10;" />
         <text name="ft_auto_outside_this_range_nutrient_uptake_is_reduced_even" text="Outside this range nutrient uptake is reduced even&#10;" />
@@ -1574,24 +1574,24 @@
         <text name="ft_auto_overall_standing_with_the_local_community_0_100" text="Overall standing with the local community (0-100).&#10;" />
         <text name="ft_auto_overcast" text="Overskyet" />
         <text name="ft_auto_overcast_2" text="overcast" />
-        <text name="ft_auto_overdue" text="OVERDUE" />
+        <text name="ft_auto_overdue" text="FORFALT" />
         <text name="ft_auto_overdue_2" text="Overdue" />
         <text name="ft_auto_overdue_3" text="overdue" />
         <text name="ft_auto_overdue_by_d_day_s" text="Overdue by %d day%s" />
         <text name="ft_auto_overview" text="OVERVIEW" />
         <text name="ft_auto_overwrite" text="overwrite" />
-        <text name="ft_auto_owed" text="OWED" />
+        <text name="ft_auto_owed" text="SKYLDIG" />
         <text name="ft_auto_paging" text="paging" />
-        <text name="ft_auto_paid" text="PAID" />
+        <text name="ft_auto_paid" text="BETALT" />
         <text name="ft_auto_paid_2" text="Paid" />
         <text name="ft_auto_paid_3" text="paid" />
         <text name="ft_auto_partly_cloudy" text="Lettskyet" />
-        <text name="ft_auto_party" text="PARTY" />
+        <text name="ft_auto_party" text="PART" />
         <text name="ft_auto_party_2" text="party" />
         <text name="ft_auto_pause" text="⏸ PAUSE" />
         <text name="ft_auto_pause_freezes_time_active_speed_highlighted" text="⏸ PAUSE freezes time. Active speed highlighted." />
         <text name="ft_auto_pause_freezes_time_completely" text="⏸ PAUSE freezes time completely.&#10;" />
-        <text name="ft_auto_pay" text="PAY" />
+        <text name="ft_auto_pay" text="BETAL" />
         <text name="ft_auto_payment_mode" text="PAYMENT MODE" />
         <text name="ft_auto_payment_mode_2" text="Payment Mode" />
         <text name="ft_auto_payroll" text="LØNN" />
@@ -1603,7 +1603,7 @@
         <text name="ft_auto_pen_capacity_e_g_cows_12_20" text="pen capacity (e.g. Cows  (12 / 20)).&#10;" />
         <text name="ft_auto_pen_cards" text="PEN CARDS" />
         <text name="ft_auto_pending" text=" pending" />
-        <text name="ft_auto_pending_2" text="PENDING" />
+        <text name="ft_auto_pending_2" text="VENTER" />
         <text name="ft_auto_pending_3" text="pending" />
         <text name="ft_auto_pens" text=" pens" />
         <text name="ft_auto_per_worker_base" text="PER WORKER  (base " />
@@ -1697,7 +1697,7 @@
         <text name="ft_auto_realisticdealer" text="RealisticDealer" />
         <text name="ft_auto_realisticdealer_financing_installments_and_repossession" text="RealisticDealer - finansiering, avdrag og tilbaketaking" />
         <text name="ft_auto_realisticdealer_was_not_detected" text="RealisticDealer was not detected." />
-        <text name="ft_auto_receivable" text="RECEIVABLE" />
+        <text name="ft_auto_receivable" text="TIL GODE" />
         <text name="ft_auto_recent_jobs" text="Recent Jobs" />
         <text name="ft_auto_reception" text="Reception" />
         <text name="ft_auto_record_is_saved_to_the_history_list" text="record is saved to the History list." />
@@ -1707,7 +1707,7 @@
         <text name="ft_auto_recruitment_pool_rerolled" text="Recruitment pool rerolled" />
         <text name="ft_auto_refill_before_hitting_red_to_maintain_productivity" text="Refill before hitting red to maintain productivity." />
         <text name="ft_auto_refuel_vehicles" text="Refuel vehicles" />
-        <text name="ft_auto_rejected" text="REJECTED" />
+        <text name="ft_auto_rejected" text="AVVIST" />
         <text name="ft_auto_rejected_2" text="rejected" />
         <text name="ft_auto_relationship_score_higher_scores_unlock_exclusive" text="relationship score. Higher scores unlock exclusive&#10;" />
         <text name="ft_auto_relationships" text="RELATIONSHIPS" />
@@ -1747,7 +1747,7 @@
         <text name="ft_auto_right_click_or_press_esc_to_exit" text="Right-click or press Esc to exit." />
         <text name="ft_auto_ripening" text="Ripening" />
         <text name="ft_auto_roleplay_phone" text="roleplay_phone" />
-        <text name="ft_auto_roleplay_phone_integration" text="ROLEPLAY PHONE INTEGRATION" />
+        <text name="ft_auto_roleplay_phone_integration" text="ROLEPLAY PHONE-INTEGRASJON" />
         <text name="ft_auto_roleplayphone" text="RoleplayPhone" />
         <text name="ft_auto_roleplayphone_checkinstalled" text="RoleplayPhone_checkInstalled" />
         <text name="ft_auto_roleplayphone_getinvoices" text="RoleplayPhone_getInvoices" />
@@ -1803,10 +1803,10 @@
         <text name="ft_auto_selten" text="selten" />
         <text name="ft_auto_sent_to_the_host_and_the_result_syncs_back_to" text="sent to the host and the result syncs back to&#10;" />
         <text name="ft_auto_sentry" text="SENTRY" />
-        <text name="ft_auto_service_fee" text="Service Fee" />
+        <text name="ft_auto_service_fee" text="Servicegebyr" />
         <text name="ft_auto_session_p_l" text="ØKTENS RESULTAT" />
         <text name="ft_auto_set" text="SET" />
-        <text name="ft_auto_set_an_amount_greater_than_0_to_create" text="Set an amount greater than 0 to create." />
+        <text name="ft_auto_set_an_amount_greater_than_0_to_create" text="Angi et beløp over 0 for å opprette." />
         <text name="ft_auto_set_startup_app_id" text="Set startup app ID" />
         <text name="ft_auto_set_tablet_keybind" text="Set tablet keybind" />
         <text name="ft_auto_set_time_scale_and_skip_to_a_time_of_day" text="Set time scale and skip to a time of day" />
@@ -1932,10 +1932,10 @@
         <text name="ft_auto_stress_the_value_row_ends_with_xx_in_red" text="stress, the value row ends with  !XX%  in red.&#10;" />
         <text name="ft_auto_string" text="string" />
         <text name="ft_auto_summary_badges" text="SUMMARY BADGES" />
-        <text name="ft_auto_summary_bar" text="SUMMARY BAR" />
+        <text name="ft_auto_summary_bar" text="OVERSIKTSLINJE" />
         <text name="ft_auto_summary_cards" text="OVERSIKTSKORT" />
         <text name="ft_auto_summer" text="Sommer" />
-        <text name="ft_auto_supplier" text="Supplier" />
+        <text name="ft_auto_supplier" text="Leverandør" />
         <text name="ft_auto_sure" text="SIKKER?" />
         <text name="ft_auto_surface_you_are_standing_negative_values_mean_you" text="surface you are standing. Negative values mean you&#10;" />
         <text name="ft_auto_sw" text="SW" />
@@ -2102,7 +2102,7 @@
         <text name="ft_auto_usage_tabletsetstartupapp_app_id_e_g_dashboard_weather" text="Usage: TabletSetStartupApp [app_id] (e.g., dashboard, weather, animals)" />
         <text name="ft_auto_use_enter_edit_mode_for_visual_drag_and_resize" text="Use ENTER EDIT MODE for visual drag-and-resize,&#10;" />
         <text name="ft_auto_use_it_to_monitor_depth_while_operating_an_excavator" text="Use it to monitor depth while operating an excavator." />
-        <text name="ft_auto_use_new_to_create_your_first_invoice" text="Use + NEW to create your first invoice." />
+        <text name="ft_auto_use_new_to_create_your_first_invoice" text="Bruk + NY for å opprette din første faktura." />
         <text name="ft_auto_use_the_roleplayphone_app_to_create_invoices" text="Use the RoleplayPhone app to create invoices&#10;" />
         <text name="ft_auto_use_to_select_a_task_template_and_field" text="Use &lt; / &gt; to select a task template and field,&#10;" />
         <text name="ft_auto_use_your_own_image_behind_the_home_and_lock_screens" text="Use your own image behind the home and lock screens.&#10;" />
@@ -2134,7 +2134,7 @@
         <text name="ft_auto_version_developer" text="VERSJON / UTVIKLER" />
         <text name="ft_auto_version_entries" text="VERSION ENTRIES" />
         <text name="ft_auto_vet" text="VET" />
-        <text name="ft_auto_vet_2" text="Vet" />
+        <text name="ft_auto_vet_2" text="Veterinær" />
         <text name="ft_auto_veterinarian" text="Veterinarian" />
         <text name="ft_auto_view_and_remove_map_hotspots" text="Se og fjern steder på kartet" />
         <text name="ft_auto_view_only_admin_needed" text="Bare visning (krever admin)" />
@@ -2963,6 +2963,15 @@
         <text name="ft_changelog_253_imp_2" text="Nye appikoner for Vekstskifteplanlegger, Vanningspakke og Systeminnstillinger" />
         <text name="ft_changelog_253_imp_3" text="Jordappen er redesignet med tydeligere næringskort per jorde" />
         <text name="ft_changelog_253_fix_1" text="Jordevakts admin-sperre låser nå som standard når rettighetene er uklare" />
+        <text name="ft_rpphone_help_tracker_body" text="Holder oversikt over penger du skylder andre (UTGÅENDE) og&#10;penger andre skylder deg (INNGÅENDE).&#10;Statuser: VENTER, BETALT, FORFALT / AVVIST." />
+        <text name="ft_rpphone_help_phone_body" text="Hvis FS25_RoleplayPhone v0.4.0+ er installert,&#10;vises fakturaer opprettet på telefonen her&#10;automatisk via det offentlige API-et.&#10;Uten den brukes det innebygde fakturasystemet." />
+        <text name="ft_rpphone_help_summary_body" text="Øverst viser appen totalt til gode (grønn)&#10;og totalt skyldig (rød) for alle ventende fakturaer." />
+        <text name="ft_rpphone_help_new_body" text="Trykk på + NY for å åpne skjemaet.&#10;Kun tilgjengelig i innebygd modus.&#10;Er RoleplayPhone-modden installert,&#10;opprett fakturaer i den appen." />
+        <text name="ft_rpphone_due_date_fmt" text="Forfall: %s" />
+        <text name="ft_rpphone_overdue_one" text="Forfalt for 1 dag siden" />
+        <text name="ft_rpphone_overdue_fmt" text="Forfalt for %d dager siden" />
+        <text name="ft_rpphone_due_in_one" text="Forfaller om 1 dag" />
+        <text name="ft_rpphone_due_in_fmt" text="Forfaller om %d dager" />
     </texts>
 
 </l10n>
