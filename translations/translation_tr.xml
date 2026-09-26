@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Soluk satırlar desteklenir ama şu anda yüklü değildir.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="DEVRE DIŞI" />
         <text name="ft_auto_disabled_2" text="Kapalı" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Ekran" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Süren iş yok." />
         <text name="ft_auto_no_loads_recorded_yet" text="Henüz yük kaydedilmedi." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Sahip olunan tarla bulunamadı." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Satış fiyatı bulunamadı" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="numarasını ve geliştirici adını gösterir." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="BESİN RENKLERİ" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="olacağını belirler. Şiddet (1-5) etkilerinin ne kadar&#10;" />
         <text name="ft_auto_ocean_blue" text="Okyanus Mavisi" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="zararlı salgınları gibi olaylar ürün fiyatlarını geçici değiştirir.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC etkin" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="SABİTLE" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Toprak Gübresi" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer modu algılanmadı." />
         <text name="ft_auto_soil_fertilizer_status" text="Toprak ve gübreleme durumu" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Satış primi: MDM sözleşmesi bekleniyor" />
         <text name="ft_organic_market" text="PAZAR" />
         <text name="ft_organic_market_na" text="yok - organik prim / MDM sözleşmesi bekleniyor" />
+        <text name="ft_soilnut_urgent" text="ACİL" />
+        <text name="ft_soilnut_watch" text="İZLE" />
+        <text name="ft_soilnut_ok" text="İYİ" />
+        <text name="ft_soilnut_tr_no_data" text="Toprak verisi yok" />
+        <text name="ft_soilnut_tr_lime" text="pH'ı yükseltmek için KİREÇ veya SIVI KİREÇ uygula." />
+        <text name="ft_soilnut_tr_gypsum" text="pH'ı düşürmek / yapıyı iyileştirmek için ALÇITAŞI uygula." />
+        <text name="ft_soilnut_om" text="OM" />
+        <text name="ft_soilnut_tr_om_low" text="GÜBRE veya KOMPOST karıştır ya da samanı parçala." />
+        <text name="ft_soilnut_tr_om_monitor" text="İzle. Organik girdileri sürdür." />
+        <text name="ft_soilnut_tr_urea" text="ÜRE veya UAN32 uygula" />
+        <text name="ft_soilnut_tr_ams" text="AMONYUM SÜLFAT veya AMONYUM NİTRAT uygula" />
+        <text name="ft_soilnut_tr_map" text="MAP veya DAP uygula" />
+        <text name="ft_soilnut_tr_liquid_map" text="Sıvı MAP / DAP ile takviye et" />
+        <text name="ft_soilnut_tr_p_above" text="Hedefin üstünde - bu geçişte P ürününü atla." />
+        <text name="ft_soilnut_tr_potash" text="POTAS uygula" />
+        <text name="ft_soilnut_tr_potash_topup" text="POTAS ile takviye et" />
+        <text name="ft_soilnut_weed" text="Yabani ot" />
+        <text name="ft_soilnut_tr_herbicide" text="HERBİSİT uygula veya YABANİ OT TIRMIĞI/ÇAPA kullan." />
+        <text name="ft_soilnut_pest" text="Zararlı" />
+        <text name="ft_soilnut_tr_insecticide" text="Hemen İNSEKTİSİT uygula." />
+        <text name="ft_soilnut_disease" text="Hastalık" />
+        <text name="ft_soilnut_tr_unscouted" text="İncelenmedi - ilaçlamadan önce incele." />
+        <text name="ft_soilnut_tr_fungicide" text="Hemen FUNGİSİT uygula." />
+        <text name="ft_soilnut_tr_all_clear" text="Her şey yolunda - uygulama gerekmiyor." />
+        <text name="ft_soilnut_help_what_body" text="Sahip olunan her tarla için bir kart: N / P / K / pH / OM /&#10;Yabani ot / Zararlı / Hastalık mevcut / beklenen çubukları,&#10;artı bir besin ya da baskı iş gerektirdiğinde dozlarıyla&#10;bir UYGULAMA PLANI." />
+        <text name="ft_soilnut_help_urgency_title" text="ACİLİYET SIRASI" />
+        <text name="ft_soilnut_help_urgency_body" text="Kartlar SoilFertilizer aciliyetine göre sıralanır, böylece&#10;önce ilgi gereken tarlalar en üste çıkar.&#10;Sol işaret: yeşil İYİ · sarı İZLE · kırmızı ACİL." />
+        <text name="ft_soilnut_treatment" text="UYGULAMA" />
+        <text name="ft_soilnut_help_treatment_body" text="Reçeteler Tedavi Reçetesi penceresini izler&#10;(%s): ürün dozları + koruma işlemleri.&#10;Hastalık, tarlayı inceleyene kadar İncelenmedi kalır." />
+        <text name="ft_soilnut_help_colours_body" text="Yeşil = hedefte  |  Sarı = orta  |  Kırmızı = zayıf.&#10;Çubuklar mevcut / beklenen değeri gösterir (N/P/K için ppm)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + ORGANİK MADDE" />
+        <text name="ft_soilnut_help_ph_body" text="En uygun pH 6.5'tir (aralık ~6.0–7.5).&#10;OM 0–10 arası bir toprak ölçeğidir (yüzde değil).&#10;Sağlıklı aralık yaklaşık 3.5–5.0'dır." />
+        <text name="ft_soilnut_fields_fmt" text="TARLALAR  (%d)" />
+        <text name="ft_soilnut_fert" text="GÜBRELE" />
+        <text name="ft_soilnut_field_title_fmt" text="Tarla #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Bu tarla için toprak verisi yok." />
+        <text name="ft_soilnut_unscouted" text="İncelenmedi" />
+        <text name="ft_soilnut_treatment_plan" text="UYGULAMA PLANI" />
+        <text name="ft_soilnut_no_actions" text="İşlem yok - seviyeler iyi görünüyor." />
     </texts>
 
 </l10n>

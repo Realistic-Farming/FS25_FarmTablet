@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Ztlumené řádky jsou podporované, ale nejsou nainstalované.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="VYPNUTO" />
         <text name="ft_auto_disabled_2" text="Vypnuto" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Zobrazení" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Žádná práce neběží." />
         <text name="ft_auto_no_loads_recorded_yet" text="Zatím žádné zaznamenané náklady." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Nenalezena žádná vlastní pole." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Nenalezeny žádné prodejní ceny" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="verze a jméno vývojáře." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="BARVY ŽIVIN" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="nastávají. Síla (1-5) určuje, jak silné&#10;" />
         <text name="ft_auto_ocean_blue" text="Oceánská modrá" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="přemnožení škůdců dočasně posouvají ceny plodin.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="DLC Precision Farming aktivní" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="PŘIPNOUT" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Hnojení půdy" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Mod Soil Fertilizer nebyl nalezen." />
         <text name="ft_auto_soil_fertilizer_status" text="Stav půdy a hnojení" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Prodejní prémie: čeká se na smlouvu MDM" />
         <text name="ft_organic_market" text="TRH" />
         <text name="ft_organic_market_na" text="nedostupné - čeká na bio prémii / smlouvu MDM" />
+        <text name="ft_soilnut_urgent" text="NALÉHAVÉ" />
+        <text name="ft_soilnut_watch" text="SLEDOVAT" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Žádná data o půdě" />
+        <text name="ft_soilnut_tr_lime" text="Aplikujte VÁPNO nebo TEKUTÉ VÁPNO pro zvýšení pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Aplikujte SÁDROVEC pro snížení pH / zlepšení struktury." />
+        <text name="ft_soilnut_om" text="Humus" />
+        <text name="ft_soilnut_tr_om_low" text="Zapravte HNŮJ nebo KOMPOST, nebo rozdrťte slámu." />
+        <text name="ft_soilnut_tr_om_monitor" text="Sledujte. Udržujte organické vstupy." />
+        <text name="ft_soilnut_tr_urea" text="Aplikujte MOČOVINU nebo DAM-390" />
+        <text name="ft_soilnut_tr_ams" text="Aplikujte SÍRAN AMONNÝ nebo DUSIČNAN AMONNÝ" />
+        <text name="ft_soilnut_tr_map" text="Aplikujte MAP nebo DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Doplňte tekutým MAP / DAP" />
+        <text name="ft_soilnut_tr_p_above" text="Nad cílem - v tomto přejezdu vynechte produkt P." />
+        <text name="ft_soilnut_tr_potash" text="Aplikujte DRASELNÉ HNOJIVO" />
+        <text name="ft_soilnut_tr_potash_topup" text="Doplňte DRASELNÝM HNOJIVEM" />
+        <text name="ft_soilnut_weed" text="Plevel" />
+        <text name="ft_soilnut_tr_herbicide" text="Aplikujte HERBICID nebo použijte PRUTOVOU BRÁNU/PLEČKU." />
+        <text name="ft_soilnut_pest" text="Škůdci" />
+        <text name="ft_soilnut_tr_insecticide" text="Ihned aplikujte INSEKTICID." />
+        <text name="ft_soilnut_disease" text="Choroba" />
+        <text name="ft_soilnut_tr_unscouted" text="Neprozkoumáno - před ošetřením pole prozkoumejte." />
+        <text name="ft_soilnut_tr_fungicide" text="Ihned aplikujte FUNGICID." />
+        <text name="ft_soilnut_tr_all_clear" text="Vše v pořádku - ošetření není potřeba." />
+        <text name="ft_soilnut_help_what_body" text="Jedna karta na každé vlastní pole: N / P / K / pH / humus /&#10;plevel / škůdci / choroba jako pruhy aktuální / očekávané,&#10;plus PLÁN OŠETŘENÍ s dávkami, když živina&#10;nebo tlak vyžaduje práci." />
+        <text name="ft_soilnut_help_urgency_title" text="POŘADÍ NALÉHAVOSTI" />
+        <text name="ft_soilnut_help_urgency_body" text="Karty jsou seřazeny podle naléhavosti SoilFertilizer, takže&#10;pole, která potřebují pozornost nejdřív, jsou nahoře.&#10;Proužek vlevo: zelená OK · žlutá SLEDOVAT · červená NALÉHAVÉ." />
+        <text name="ft_soilnut_treatment" text="OŠETŘENÍ" />
+        <text name="ft_soilnut_help_treatment_body" text="Předpisy odpovídají oknu Předpis ošetření&#10;(%s): dávky produktů + ochranné zásahy.&#10;Choroba zůstává Neprozkoumáno, dokud pole neprozkoumáte." />
+        <text name="ft_soilnut_help_colours_body" text="Zelená = v cíli  |  Žlutá = průměr  |  Červená = slabé.&#10;Pruhy ukazují aktuální / očekávané (ppm pro N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + HUMUS" />
+        <text name="ft_soilnut_help_ph_body" text="Optimální pH je 6.5 (pásmo ~6.0–7.5).&#10;Humus je půdní stupnice 0–10 (ne procenta).&#10;Zdravé pásmo je kolem 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="POLE  (%d)" />
+        <text name="ft_soilnut_fert" text="HNOJIT" />
+        <text name="ft_soilnut_field_title_fmt" text="Pole č. %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Pro toto pole nejsou data o půdě." />
+        <text name="ft_soilnut_unscouted" text="Neprozkoumáno" />
+        <text name="ft_soilnut_treatment_plan" text="PLÁN OŠETŘENÍ" />
+        <text name="ft_soilnut_no_actions" text="Žádné kroky - hodnoty vypadají dobře." />
     </texts>
 
 </l10n>

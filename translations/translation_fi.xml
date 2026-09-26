@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Himmennetyt rivit ovat tuettuja, mutta niitä ei ole asennettu.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="POIS KÄYTÖSTÄ" />
         <text name="ft_auto_disabled_2" text="Pois käytöstä" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Näyttö" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Ei työtä käynnissä." />
         <text name="ft_auto_no_loads_recorded_yet" text="Kuormia ei ole vielä kirjattu." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Omia peltoja ei löytynyt." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Myyntihintoja ei löytynyt" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="versionumeronsa ja kehittäjänsä nimen." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="RAVINNEVÄRIT" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="sattuu. Voimakkuus (1-5) säätää, kuinka rajuja&#10;" />
         <text name="ft_auto_ocean_blue" text="Merensininen" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="tuholaisesiintymät muuttavat satohintoja väliaikaisesti.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="Precision Farming DLC aktiivinen" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="KIINNITÄ" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Maaperän lannoitus" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer -modia ei löydetty." />
         <text name="ft_auto_soil_fertilizer_status" text="Maaperän ja lannoituksen tila" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Myyntipreemio: MDM-sopimus odottaa" />
         <text name="ft_organic_market" text="MARKKINAT" />
         <text name="ft_organic_market_na" text="ei käytettävissä - odottaa luomupreemiota / MDM-sopimusta" />
+        <text name="ft_soilnut_urgent" text="KIIREELLINEN" />
+        <text name="ft_soilnut_watch" text="SEURAA" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Ei maaperätietoja" />
+        <text name="ft_soilnut_tr_lime" text="Levitä KALKKIA tai NESTEKALKKIA pH:n nostamiseksi." />
+        <text name="ft_soilnut_tr_gypsum" text="Levitä KIPSIÄ pH:n laskemiseksi / rakenteen parantamiseksi." />
+        <text name="ft_soilnut_om" text="Multavuus" />
+        <text name="ft_soilnut_tr_om_low" text="Muokkaa LANTAA tai KOMPOSTIA maahan tai silppua olki." />
+        <text name="ft_soilnut_tr_om_monitor" text="Seuraa. Pidä orgaaniset lisäykset yllä." />
+        <text name="ft_soilnut_tr_urea" text="Levitä UREAA tai UAN32:ta" />
+        <text name="ft_soilnut_tr_ams" text="Levitä AMMONIUMSULFAATTIA tai AMMONIUMNITRAATTIA" />
+        <text name="ft_soilnut_tr_map" text="Levitä MAP:ia tai DAP:ia" />
+        <text name="ft_soilnut_tr_liquid_map" text="Täydennä nestemäisellä MAP / DAP:lla" />
+        <text name="ft_soilnut_tr_p_above" text="Yli tavoitteen - jätä P-tuote pois tältä ajokerralta." />
+        <text name="ft_soilnut_tr_potash" text="Levitä KALIUMSUOLAA" />
+        <text name="ft_soilnut_tr_potash_topup" text="Täydennä KALIUMSUOLALLA" />
+        <text name="ft_soilnut_weed" text="Rikkakasvit" />
+        <text name="ft_soilnut_tr_herbicide" text="Levitä RIKKAKASVIMYRKKYÄ tai käytä RIKKAÄESTÄ/KUOKKAA." />
+        <text name="ft_soilnut_pest" text="Tuholaiset" />
+        <text name="ft_soilnut_tr_insecticide" text="Levitä HYÖNTEISMYRKKYÄ heti." />
+        <text name="ft_soilnut_disease" text="Tauti" />
+        <text name="ft_soilnut_tr_unscouted" text="Tarkastamatta - tarkasta ennen käsittelyä." />
+        <text name="ft_soilnut_tr_fungicide" text="Levitä SIENIMYRKKYÄ heti." />
+        <text name="ft_soilnut_tr_all_clear" text="Kaikki kunnossa - käsittelyä ei tarvita." />
+        <text name="ft_soilnut_help_what_body" text="Yksi kortti kutakin omaa peltoa kohden: N / P / K / pH / multavuus /&#10;rikkakasvit / tuholaiset / tauti palkkeina nyt / odotettu,&#10;lisäksi KÄSITTELYSUUNNITELMA määrineen, kun ravinne&#10;tai paine vaatii toimia." />
+        <text name="ft_soilnut_help_urgency_title" text="KIIREJÄRJESTYS" />
+        <text name="ft_soilnut_help_urgency_body" text="Kortit lajitellaan SoilFertilizerin kiireellisyyden mukaan, joten&#10;huomiota ensin vaativat pellot nousevat ylös.&#10;Vasen merkki: vihreä OK · keltainen SEURAA · punainen KIIREELLINEN." />
+        <text name="ft_soilnut_treatment" text="KÄSITTELY" />
+        <text name="ft_soilnut_help_treatment_body" text="Suositukset seuraavat Hoitosuositus-ikkunaa&#10;(%s): tuotemäärät + suojatoimet.&#10;Tauti pysyy tilassa Tarkastamatta, kunnes tarkastat pellon." />
+        <text name="ft_soilnut_help_colours_body" text="Vihreä = tavoitteessa  |  Keltainen = kohtalainen  |  Punainen = huono.&#10;Palkit näyttävät nyt / odotettu (ppm: N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + MULTAVUUS" />
+        <text name="ft_soilnut_help_ph_body" text="Optimaalinen pH on 6.5 (vyöhyke ~6.0–7.5).&#10;Multavuus on maaperän asteikko 0–10 (ei prosentti).&#10;Terve vyöhyke on noin 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="PELLOT  (%d)" />
+        <text name="ft_soilnut_fert" text="LANNOITA" />
+        <text name="ft_soilnut_field_title_fmt" text="Pelto nro %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Tälle pellolle ei ole maaperätietoja." />
+        <text name="ft_soilnut_unscouted" text="Tarkastamatta" />
+        <text name="ft_soilnut_treatment_plan" text="KÄSITTELYSUUNNITELMA" />
+        <text name="ft_soilnut_no_actions" text="Ei toimenpiteitä - tasot näyttävät hyviltä." />
     </texts>
 
 </l10n>

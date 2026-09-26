@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Rândurile estompate sunt acceptate, dar nu sunt instalate.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="DEZACTIVAT" />
         <text name="ft_auto_disabled_2" text="Dezactivat" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Afișare" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Nicio lucrare în curs." />
         <text name="ft_auto_no_loads_recorded_yet" text="Nicio încărcătură înregistrată încă." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Nu s-au găsit câmpuri deținute." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Nu s-au găsit prețuri de vânzare" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="număr de versiune și numele dezvoltatorului." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="CULORILE NUTRIENȚILOR" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="apar evenimentele. Intensitatea (1-5) stabilește cât de grave&#10;" />
         <text name="ft_auto_ocean_blue" text="Albastru ocean" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="invaziile de dăunători mută temporar prețurile recoltelor.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="DLC Precision Farming activ" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="FIXEAZĂ" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Fertilizarea solului" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Modul Soil Fertilizer nu a fost detectat." />
         <text name="ft_auto_soil_fertilizer_status" text="Starea solului și a fertilizării" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Primă de vânzare: contract MDM în așteptare" />
         <text name="ft_organic_market" text="PIAȚĂ" />
         <text name="ft_organic_market_na" text="indisponibil - se așteaptă prima ecologică / contractul MDM" />
+        <text name="ft_soilnut_urgent" text="URGENT" />
+        <text name="ft_soilnut_watch" text="DE URMĂRIT" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Fără date de sol" />
+        <text name="ft_soilnut_tr_lime" text="Aplică VAR sau VAR LICHID pentru a crește pH-ul." />
+        <text name="ft_soilnut_tr_gypsum" text="Aplică IPSOS pentru a scădea pH-ul / a îmbunătăți structura." />
+        <text name="ft_soilnut_om" text="MO" />
+        <text name="ft_soilnut_tr_om_low" text="Încorporează GUNOI DE GRAJD sau COMPOST, ori toacă paiele." />
+        <text name="ft_soilnut_tr_om_monitor" text="Urmărește. Menține aporturile organice." />
+        <text name="ft_soilnut_tr_urea" text="Aplică UREE sau UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Aplică SULFAT DE AMONIU sau AZOTAT DE AMONIU" />
+        <text name="ft_soilnut_tr_map" text="Aplică MAP sau DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Completează cu MAP / DAP lichid" />
+        <text name="ft_soilnut_tr_p_above" text="Peste țintă - sari peste produsul P la această trecere." />
+        <text name="ft_soilnut_tr_potash" text="Aplică POTASIU" />
+        <text name="ft_soilnut_tr_potash_topup" text="Completează cu POTASIU" />
+        <text name="ft_soilnut_weed" text="Buruieni" />
+        <text name="ft_soilnut_tr_herbicide" text="Aplică ERBICID sau folosește GRAPA CU COLȚI/PRAȘITOAREA." />
+        <text name="ft_soilnut_pest" text="Dăunători" />
+        <text name="ft_soilnut_tr_insecticide" text="Aplică imediat INSECTICID." />
+        <text name="ft_soilnut_disease" text="Boală" />
+        <text name="ft_soilnut_tr_unscouted" text="Neinspectat - inspectează înainte de tratament." />
+        <text name="ft_soilnut_tr_fungicide" text="Aplică imediat FUNGICID." />
+        <text name="ft_soilnut_tr_all_clear" text="Totul e în regulă - nu e nevoie de tratament." />
+        <text name="ft_soilnut_help_what_body" text="Câte o fișă pentru fiecare câmp deținut: N / P / K / pH / MO /&#10;Buruieni / Dăunători / Boală ca bare actual / așteptat,&#10;plus un PLAN DE TRATAMENT cu doze când un nutrient&#10;sau o presiune necesită intervenție." />
+        <text name="ft_soilnut_help_urgency_title" text="ORDINE DE URGENȚĂ" />
+        <text name="ft_soilnut_help_urgency_body" text="Fișele sunt sortate după urgența SoilFertilizer, astfel&#10;câmpurile care au nevoie de atenție primele urcă sus.&#10;Marcaj stânga: verde OK · galben DE URMĂRIT · roșu URGENT." />
+        <text name="ft_soilnut_treatment" text="TRATAMENT" />
+        <text name="ft_soilnut_help_treatment_body" text="Prescripțiile urmează fereastra Prescripție Tratament&#10;(%s): doze de produse + acțiuni de protecție.&#10;Boală rămâne Neinspectat până inspectezi câmpul." />
+        <text name="ft_soilnut_help_colours_body" text="Verde = în țintă  |  Galben = mediu  |  Roșu = slab.&#10;Barele arată actual / așteptat (ppm pentru N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + MATERIE ORGANICĂ" />
+        <text name="ft_soilnut_help_ph_body" text="pH-ul optim este 6.5 (interval ~6.0–7.5).&#10;MO este o scară a solului de 0–10 (nu un procent).&#10;Intervalul sănătos este în jur de 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="CÂMPURI  (%d)" />
+        <text name="ft_soilnut_fert" text="FERTILIZARE" />
+        <text name="ft_soilnut_field_title_fmt" text="Câmpul nr. %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Fără date de sol pentru acest câmp." />
+        <text name="ft_soilnut_unscouted" text="Neinspectat" />
+        <text name="ft_soilnut_treatment_plan" text="PLAN DE TRATAMENT" />
+        <text name="ft_soilnut_no_actions" text="Nicio acțiune - nivelurile arată bine." />
     </texts>
 
 </l10n>

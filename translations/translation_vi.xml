@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Các hàng mờ được hỗ trợ nhưng hiện chưa cài đặt.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="ĐÃ TẮT" />
         <text name="ft_auto_disabled_2" text="Đã tắt" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Hiển thị" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Không có công việc nào đang chạy." />
         <text name="ft_auto_no_loads_recorded_yet" text="Chưa ghi nhận chuyến nào." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Không tìm thấy cánh đồng sở hữu." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Không tìm thấy dữ liệu giá bán" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="và tên nhà phát triển riêng." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="MÀU DƯỠNG CHẤT" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="xảy ra thường xuyên đến đâu. Cường độ (1-5) quyết định&#10;" />
         <text name="ft_auto_ocean_blue" text="Xanh đại dương" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="dịch sâu bệnh tạm thời làm thay đổi giá nông sản.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="DLC Precision Farming đang bật" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="GHIM" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Phân bón đất" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Không phát hiện mod Soil Fertilizer." />
         <text name="ft_auto_soil_fertilizer_status" text="Trạng thái đất và bón phân" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Phụ phí bán: đang chờ hợp đồng MDM" />
         <text name="ft_organic_market" text="THỊ TRƯỜNG" />
         <text name="ft_organic_market_na" text="không có - đang chờ phụ phí hữu cơ / hợp đồng MDM" />
+        <text name="ft_soilnut_urgent" text="KHẨN CẤP" />
+        <text name="ft_soilnut_watch" text="THEO DÕI" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Không có dữ liệu đất" />
+        <text name="ft_soilnut_tr_lime" text="Bón VÔI hoặc VÔI LỎNG để tăng pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Bón THẠCH CAO để giảm pH / cải thiện cấu trúc." />
+        <text name="ft_soilnut_om" text="CHC" />
+        <text name="ft_soilnut_tr_om_low" text="Vùi PHÂN CHUỒNG hoặc PHÂN Ủ, hoặc băm rơm." />
+        <text name="ft_soilnut_tr_om_monitor" text="Theo dõi. Duy trì bổ sung hữu cơ." />
+        <text name="ft_soilnut_tr_urea" text="Bón URÊ hoặc UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Bón AMONI SUNFAT hoặc AMONI NITRAT" />
+        <text name="ft_soilnut_tr_map" text="Bón MAP hoặc DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Bổ sung MAP / DAP lỏng" />
+        <text name="ft_soilnut_tr_p_above" text="Vượt mục tiêu - bỏ qua sản phẩm P lượt này." />
+        <text name="ft_soilnut_tr_potash" text="Bón KALI" />
+        <text name="ft_soilnut_tr_potash_topup" text="Bổ sung KALI" />
+        <text name="ft_soilnut_weed" text="Cỏ dại" />
+        <text name="ft_soilnut_tr_herbicide" text="Phun THUỐC DIỆT CỎ hoặc dùng BỪA CỎ/CUỐC." />
+        <text name="ft_soilnut_pest" text="Sâu hại" />
+        <text name="ft_soilnut_tr_insecticide" text="Phun THUỐC TRỪ SÂU ngay." />
+        <text name="ft_soilnut_disease" text="Bệnh" />
+        <text name="ft_soilnut_tr_unscouted" text="Chưa khảo sát - hãy khảo sát trước khi xử lý." />
+        <text name="ft_soilnut_tr_fungicide" text="Phun THUỐC TRỪ NẤM ngay." />
+        <text name="ft_soilnut_tr_all_clear" text="Mọi thứ ổn - không cần xử lý." />
+        <text name="ft_soilnut_help_what_body" text="Mỗi cánh đồng sở hữu một thẻ: N / P / K / pH / CHC /&#10;Cỏ dại / Sâu hại / Bệnh dạng thanh hiện tại / kỳ vọng,&#10;cùng KẾ HOẠCH XỬ LÝ kèm liều lượng khi một dưỡng chất&#10;hoặc áp lực cần xử lý." />
+        <text name="ft_soilnut_help_urgency_title" text="THỨ TỰ KHẨN CẤP" />
+        <text name="ft_soilnut_help_urgency_body" text="Thẻ được sắp theo mức khẩn cấp của SoilFertilizer, nên&#10;cánh đồng cần chú ý trước sẽ ở trên cùng.&#10;Vạch trái: xanh OK · vàng THEO DÕI · đỏ KHẨN CẤP." />
+        <text name="ft_soilnut_treatment" text="XỬ LÝ" />
+        <text name="ft_soilnut_help_treatment_body" text="Chỉ định theo cửa sổ Kê đơn xử lý&#10;(%s): liều lượng sản phẩm + biện pháp bảo vệ.&#10;Bệnh vẫn là Chưa khảo sát cho đến khi bạn khảo sát cánh đồng." />
+        <text name="ft_soilnut_help_colours_body" text="Xanh = đạt mục tiêu  |  Vàng = trung bình  |  Đỏ = kém.&#10;Thanh hiển thị hiện tại / kỳ vọng (ppm cho N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + CHẤT HỮU CƠ" />
+        <text name="ft_soilnut_help_ph_body" text="pH tối ưu là 6.5 (khoảng ~6.0–7.5).&#10;CHC là thang đất 0–10 (không phải phần trăm).&#10;Khoảng khỏe mạnh vào tầm 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="CÁNH ĐỒNG  (%d)" />
+        <text name="ft_soilnut_fert" text="BÓN PHÂN" />
+        <text name="ft_soilnut_field_title_fmt" text="Cánh đồng số %s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Không có dữ liệu đất cho cánh đồng này." />
+        <text name="ft_soilnut_unscouted" text="Chưa khảo sát" />
+        <text name="ft_soilnut_treatment_plan" text="KẾ HOẠCH XỬ LÝ" />
+        <text name="ft_soilnut_no_actions" text="Không cần làm gì - các mức đều tốt." />
     </texts>
 
 </l10n>

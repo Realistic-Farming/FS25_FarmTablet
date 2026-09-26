@@ -43,6 +43,22 @@ MUTATIONS = [
     ("M5-help-title-flagged-with-body", [("src/FarmTabletUI.lua",
         one('''FT.C.TEXT_ACCENT, entry.literalTitle == true)''', '''FT.C.TEXT_ACCENT, entry.literalBody == true)'''))],
      "drawHelpPage flags an entry's title with its body, so a raw English title stops translating: H"),
+    # Soil Nutrient (MAINTENANCE row 105, batch 9): the card draws F cannot reach, held by E's named case.
+    ("M6-soil-treatment-line-unflagged", [("src/apps/SoilNutrientApp.lua",
+        one('''                        self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)''', '''                        self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)'''))],
+     "a Soil Nutrient treatment line drawn without the flag: E (the card's FLAG row)"),
+    ("M7-soil-urgency-second-pass", [("src/apps/SoilNutrientApp.lua",
+        one('''        _chip(self, cx, chipY, urgencyTxt, uCol)''', '''        _chip(self, cx, chipY, FT.l10nAuto(urgencyTxt), uCol)'''))],
+     "the resolved urgency word handed to FT.l10nAuto again: E (the card's PASS row)"),
+    ("M8-soil-crop-raw", [("src/apps/SoilNutrientApp.lua",
+        one('''crop = (info and info.lastCrop and FT.l10nAuto(info.lastCrop)) or''', '''crop = (info and info.lastCrop) or'''))],
+     "Soil Fertilizer's internal crop name drawn raw in the flagged title: E (the card title)"),
+    ("M9-soil-help-body-unflagged", [("src/apps/SoilNutrientApp.lua",
+        one('''"Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true, literalBody = true },''',
+            '''"Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true },'''))],
+     "a resolved Soil Nutrient help body drawn without the flag: F (FLAG)"),
 ]
 
 

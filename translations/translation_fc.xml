@@ -801,7 +801,7 @@
         <text name="ft_auto_dimmed_rows_are_supported_but_not_currently_installed" text="Les lignes grisées sont prises en charge mais pas installées.&#10;" />
         <text name="ft_auto_disable" text="DISABLE" />
         <text name="ft_auto_disable_farm_tablet" text="Disable Farm Tablet" />
-        <text name="ft_auto_disabled" text="DISABLED" />
+        <text name="ft_auto_disabled" text="DÉSACTIVÉ" />
         <text name="ft_auto_disabled_2" text="Désactivé" />
         <text name="ft_auto_disabled_3" text="disabled" />
         <text name="ft_auto_display" text="Affichage" />
@@ -1472,7 +1472,7 @@
         <text name="ft_auto_no_job_running" text="Aucun travail en cours." />
         <text name="ft_auto_no_loads_recorded_yet" text="Aucune charge enregistrée." />
         <text name="ft_auto_no_npcs_spawned_yet" text="No NPCs spawned yet." />
-        <text name="ft_auto_no_owned_fields_found" text="No owned fields found." />
+        <text name="ft_auto_no_owned_fields_found" text="Aucun champ possédé trouvé." />
         <text name="ft_auto_no_production_buildings_owned" text="No production buildings owned." />
         <text name="ft_auto_no_reception_at_this_location" text="No reception at this location." />
         <text name="ft_auto_no_sell_price_data_found" text="Aucun prix de vente trouvé" />
@@ -1518,7 +1518,7 @@
         <text name="ft_auto_number_and_developer_name" text="numéro de version et le nom du développeur." />
         <text name="ft_auto_number_of_favors_currently_in_progress" text="Number of favors currently in progress.&#10;" />
         <text name="ft_auto_nutrient_availability_increased_by_crop_rotation" text="nutrient availability. Increased by crop rotation&#10;" />
-        <text name="ft_auto_nutrient_colours" text="NUTRIENT COLOURS" />
+        <text name="ft_auto_nutrient_colours" text="COULEURS DES NUTRIMENTS" />
         <text name="ft_auto_nw" text="NW" />
         <text name="ft_auto_occur_intensity_1_5_controls_how_severe" text="se produisent. L'intensité (1-5) règle la gravité de&#10;" />
         <text name="ft_auto_ocean_blue" text="Bleu océan" />
@@ -1615,7 +1615,7 @@
         <text name="ft_auto_personnel" text="Personnel" />
         <text name="ft_auto_personnel_2" text="personnel" />
         <text name="ft_auto_pest_outbreaks_temporarily_shift_crop_prices" text="les invasions de ravageurs font varier les prix pour un temps.&#10;" />
-        <text name="ft_auto_pf_dlc_active" text="PF DLC active" />
+        <text name="ft_auto_pf_dlc_active" text="DLC Precision Farming actif" />
         <text name="ft_auto_ph" text="pH" />
         <text name="ft_auto_phosphorus" text="Phosphorus" />
         <text name="ft_auto_pin" text="ÉPINGLER" />
@@ -1863,7 +1863,7 @@
         <text name="ft_auto_soil_data_field" text="SOIL DATA  - Field " />
         <text name="ft_auto_soil_fertilizer" text="Fertilisation des sols" />
         <text name="ft_auto_soil_fertilizer_2" text="soil_fertilizer" />
-        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Soil Fertilizer mod not detected." />
+        <text name="ft_auto_soil_fertilizer_mod_not_detected" text="Mod Soil Fertilizer non détecté." />
         <text name="ft_auto_soil_fertilizer_status" text="État du sol et de la fertilisation" />
         <text name="ft_auto_soil_moisture_and_drought_stress_per_field" text="soil moisture and drought stress per field.&#10;" />
         <text name="ft_auto_soil_profile_in_the_panel_below_the_list" text="soil profile in the panel below the list.&#10;" />
@@ -2916,6 +2916,45 @@
         <text name="ft_organic_sale_premium" text="Prime de vente : contrat MDM en attente" />
         <text name="ft_organic_market" text="MARCHÉ" />
         <text name="ft_organic_market_na" text="indisponible - en attente de la prime bio / du contrat MDM" />
+        <text name="ft_soilnut_urgent" text="URGENT" />
+        <text name="ft_soilnut_watch" text="SURVEILLER" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="Aucune donnée de sol" />
+        <text name="ft_soilnut_tr_lime" text="Appliquer de la CHAUX ou de la CHAUX LIQUIDE pour augmenter le pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Appliquer du GYPSE pour baisser le pH / améliorer la structure." />
+        <text name="ft_soilnut_om" text="MO" />
+        <text name="ft_soilnut_tr_om_low" text="Enfouir du FUMIER, du COMPOST, ou broyer la paille." />
+        <text name="ft_soilnut_tr_om_monitor" text="Surveiller. Maintenir les apports organiques." />
+        <text name="ft_soilnut_tr_urea" text="Appliquer de l'URÉE ou de l'UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Appliquer du SULFATE D'AMMONIUM ou de l'AMMONITRATE" />
+        <text name="ft_soilnut_tr_map" text="Appliquer du MAP ou du DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Compléter avec du MAP / DAP liquide" />
+        <text name="ft_soilnut_tr_p_above" text="Au-dessus de la cible - pas de produit P à ce passage." />
+        <text name="ft_soilnut_tr_potash" text="Appliquer de la POTASSE" />
+        <text name="ft_soilnut_tr_potash_topup" text="Compléter avec de la POTASSE" />
+        <text name="ft_soilnut_weed" text="Adventices" />
+        <text name="ft_soilnut_tr_herbicide" text="Appliquer un HERBICIDE ou passer la HERSE ÉTRILLE/BINEUSE." />
+        <text name="ft_soilnut_pest" text="Ravageurs" />
+        <text name="ft_soilnut_tr_insecticide" text="Appliquer un INSECTICIDE immédiatement." />
+        <text name="ft_soilnut_disease" text="Maladie" />
+        <text name="ft_soilnut_tr_unscouted" text="Non inspecté - inspecter avant de traiter." />
+        <text name="ft_soilnut_tr_fungicide" text="Appliquer un FONGICIDE immédiatement." />
+        <text name="ft_soilnut_tr_all_clear" text="Tout va bien - aucun traitement nécessaire." />
+        <text name="ft_soilnut_help_what_body" text="Une fiche par champ possédé : N / P / K / pH / MO /&#10;Adventices / Ravageurs / Maladie en barres actuel / attendu,&#10;avec un PLAN DE TRAITEMENT et ses doses quand un nutriment&#10;ou une pression demande une action." />
+        <text name="ft_soilnut_help_urgency_title" text="ORDRE D'URGENCE" />
+        <text name="ft_soilnut_help_urgency_body" text="Les fiches sont triées selon l'urgence SoilFertilizer, donc&#10;les champs à traiter en premier remontent en haut.&#10;Trait à gauche : vert OK · jaune SURVEILLER · rouge URGENT." />
+        <text name="ft_soilnut_treatment" text="TRAITEMENT" />
+        <text name="ft_soilnut_help_treatment_body" text="Les prescriptions suivent la fenêtre Prescription de traitement&#10;(%s) : doses de produits + actions de protection.&#10;Maladie reste Non inspecté tant que le champ n'est pas inspecté." />
+        <text name="ft_soilnut_help_colours_body" text="Vert = dans la cible  |  Jaune = moyen  |  Rouge = faible.&#10;Les barres montrent actuel / attendu (ppm pour N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + MATIÈRE ORGANIQUE" />
+        <text name="ft_soilnut_help_ph_body" text="Le pH optimal est 6.5 (plage ~6.0–7.5).&#10;La MO est une échelle de sol de 0 à 10 (pas un pourcentage).&#10;La plage saine se situe vers 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="CHAMPS  (%d)" />
+        <text name="ft_soilnut_fert" text="ENGRAIS" />
+        <text name="ft_soilnut_field_title_fmt" text="Champ n°%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="Aucune donnée de sol pour ce champ." />
+        <text name="ft_soilnut_unscouted" text="Non inspecté" />
+        <text name="ft_soilnut_treatment_plan" text="PLAN DE TRAITEMENT" />
+        <text name="ft_soilnut_no_actions" text="Aucune action - les niveaux sont bons." />
     </texts>
 
 </l10n>
