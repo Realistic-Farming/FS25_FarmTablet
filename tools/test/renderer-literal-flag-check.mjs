@@ -406,6 +406,55 @@ t.setLocale("de");
   expectIn("de NPC Favor role (roster view)", rep.texts, "Anna  [" + file("de", "ft_npc_role_farmer") + "]");
 }
 lua(`g_currentMission.npcFavorSystem = nil`);
+// Akita's animal apps (MAINTENANCE row 105, batch 14), on stand-ins shaped like the drawers' reads: an AnimalAutoCare
+// core whose log lines are German (the mod writes them so; its "Status:" line is skipped), and an AnimalVetSystem with
+// a pen the vet was called to, a pen of one animal a worker treats, and a pen on the mod's own treatment mode. In
+// German, French, Polish and English each draw must pass FLAG and PASS, each log line reads the file's words (German's
+// are the mod's own, so a German line is unchanged), and the counts take their one-case forms.
+lua(`
+  HARNESS.setup = nil
+  E_AAC = { getMCCData = function() return { isEnabled = true, autoFutterEnabled = true, autoWasserEnabled = false,
+      autoStrohEnabled = true, lastNotKaufCost = 1200, lastWorkerCost = 300,
+      lines = { "Status: ok", "Gesamt: An", "Futter: Auffüllen ab 20% | Zielfüllung 90%", "Wasser: Aus",
+        "Stroh: Priorität 2", "Letzte Aktion: 06:00" } } end }
+  E_AVS_N = 3
+  E_AVS = { vetBusy = true, getActiveIllnessCount = function() return E_AVS_N end,
+    sickStables = { s1 = { stableName = "Kuhstall Nord", illnessName = "Mastitis", remainingMs = 600000, animalCount = 3, vetCalled = true },
+      s2 = { stableName = "Schafe", illnessName = "Grippe", remainingMs = 120000, animalCount = 1, workerTreatment = true },
+      s3 = { stableName = "Ziegen", illnessName = "Husten", remainingMs = 60000, animalCount = 4, treatmentMode = "Quarantaene" } } }
+  g_currentMission.animalAutoCareCore = E_AAC
+  g_currentMission.animalVetSystem = E_AVS
+`);
+for (const loc of ["de", "fr", "pl", "en"]) {
+  t.setLocale(loc);
+  const f = (k) => file(loc, k);
+  lua(`E_AVS_N = 3`);
+  const aac = t.draw("animal_auto_care", false); const vA = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  const vet = t.draw("animal_vet_system", false); const vV = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  lua(`E_AVS_N = 1`);
+  const one = t.draw("animal_vet_system", false); const vO = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  eChecks += 3;
+  for (const [what, r, v] of [["AnimalAutoCare", aac, vA], ["AnimalVetSystem", vet, vV], ["AnimalVetSystem (one case)", one, vO]]) {
+    if (r.error) failures.push(`E ${loc} ${what}: ${r.error}`);
+    if (v.length) failures.push(`E ${loc} ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  }
+  expectIn(`${loc} AutoCare overall line`, aac.texts, `${f("ft_aac_overall")}: ${f("ft_common_on")}`);
+  expectIn(`${loc} AutoCare food line`, aac.texts, `${f("ft_aac_food")}: ${f("ft_aac_refill_below")} 20% | ${f("ft_aac_target_fill")} 90%`);
+  expectIn(`${loc} AutoCare water line`, aac.texts, `${f("ft_aac_water")}: ${f("ft_common_off")}`);
+  expectIn(`${loc} AutoCare straw line`, aac.texts, `${f("ft_aac_straw")}: ${f("ft_aac_priority")} 2`);
+  expectIn(`${loc} AutoCare last action line`, aac.texts, `${f("ft_aac_last_action_line")}: 06:00`);
+  expectIn(`${loc} AutoCare LAST ACTION section`, aac.texts, f("ft_aac_last_action"));
+  expectIn(`${loc} Vet header`, vet.texts, fmt(f("ft_vet_active_cases"), 3));
+  expectIn(`${loc} Vet header (one case)`, one.texts, f("ft_vet_active_cases_one"));
+  expectIn(`${loc} Vet busy`, vet.texts, f("ft_common_busy"));
+  expectIn(`${loc} Vet case status (vet called)`, vet.texts, f("ft_vet_veterinarian"));
+  expectIn(`${loc} Vet case status (worker)`, vet.texts, f("ft_vet_worker"));
+  expectIn(`${loc} Vet case status (the mod's mode)`, vet.texts, "Quarantaene");
+  expectIn(`${loc} Vet case line`, vet.texts, fmt(f("ft_vet_case_line"), "Mastitis", 3, 10));
+  expectIn(`${loc} Vet case line (one animal)`, vet.texts, fmt(f("ft_vet_case_line_one"), "Grippe", 2));
+}
+if (!file("de", "ft_aac_refill_below") || file("de", "ft_aac_refill_below") !== "Auffüllen ab") failures.push(`E de: ft_aac_refill_below is not AnimalAutoCare's own German word, so a German log line would change`);
+lua(`g_currentMission.animalAutoCareCore = nil; g_currentMission.animalVetSystem = nil`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
