@@ -189,24 +189,17 @@ end
 FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     local AC = FT.appColor(FT.APP.FARM_ADMIN)
 
-    if self:drawHelpPage("_adminHelp", FT.APP.FARM_ADMIN, "Farm Admin", AC, {
+    if self:drawHelpPage("_adminHelp", FT.APP.FARM_ADMIN, FT.l10n("ft_ui_app_farm_admin", "Farm Admin"), AC, {
         { title = "MONEY",
-          body  = "Adds funds to your farm account.\n" ..
-                  "Amounts: +$1K · +$10K · +$100K · +$1M" },
+          body  = FT.l10n("ft_farmadmin_help_money_body", "Adds funds to your farm account.\nAmounts: +$1K · +$10K · +$100K · +$1M") },
         { title = "TIME SCALE",
-          body  = "Sets how fast game time passes.\n" ..
-                  "PAUSE freezes time. Active speed highlighted.\n" ..
-                  "Absorbed the old Time Controls hub tile." },
+          body  = FT.l10n("ft_farmadmin_help_scale_body", "Sets how fast game time passes.\nPAUSE freezes time. Active speed highlighted.\nAbsorbed the old Time Controls hub tile.") },
         { title = "SKIP TO",
-          body  = "Jumps the clock to a preset time of day.\n" ..
-                  "Advances to tomorrow if time has passed today." },
+          body  = FT.l10n("ft_farmadmin_help_skip_body", "Jumps the clock to a preset time of day.\nAdvances to tomorrow if time has passed today.") },
         { title = "VEHICLES",
-          body  = "REPAIR ALL - resets damage on all your vehicles.\n" ..
-                  "FILL FUEL  - fills fuel (and AdBlue) to max\n" ..
-                  "             on all your motorized vehicles." },
+          body  = FT.l10n("ft_farmadmin_help_vehicles_body", "REPAIR ALL - resets damage on all your vehicles.\nFILL FUEL  - fills fuel (and AdBlue) to max\n             on all your motorized vehicles.") },
         { title = "MULTIPLAYER",
-          body  = "Usable by the host, and by a server admin (master\n" ..
-                  "user) on a dedicated server. Changes run on the server." },
+          body  = FT.l10n("ft_farmadmin_help_mp_body", "Usable by the host, and by a server admin (master\nuser) on a dedicated server. Changes run on the server.") },
     }) then return end
 
     -- Time / money / vehicle changes are server-authoritative. The host (and SP)
@@ -217,8 +210,8 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     local balance  = fa_getBalance()
     local curScale = fa_getScale()
     local vehicles = fa_getVehicles(fa_getFarmId())
-    local startY   = self:drawAppHeader("Farm Admin",
-        canUse and fa_formatMoney(balance) or "Admin only")
+    local startY   = self:drawAppHeader(FT.l10n("ft_ui_app_farm_admin", "Farm Admin"),
+        canUse and fa_formatMoney(balance) or FT.l10n("ft_farmadmin_admin_only", "Admin only"))
     local x, cy, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y       = startY + scrollY
@@ -228,12 +221,12 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     -- Show notice and bail out for players who are neither host nor admin.
     if not canUse then
         self.r:appText(x + cw / 2, y - FT.py(14), FT.FONT.NORMAL,
-            "Host or server admin only", RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+            FT.l10n("ft_farmadmin_host_only", "Host or server admin only"), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self.r:appText(x + cw / 2, y - FT.py(30), FT.FONT.SMALL,
-            "These controls affect all players. Log in as",
+            FT.l10n("ft_farmadmin_notice_1", "These controls affect all players. Log in as"),
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self.r:appText(x + cw / 2, y - FT.py(43), FT.FONT.SMALL,
-            "a server admin to use them.",
+            FT.l10n("ft_farmadmin_notice_2", "a server admin to use them."),
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
         self:setContentHeight(FT.py(60))
         return
@@ -264,7 +257,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     -- ── TIME SCALE ────────────────────────────────────────
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
-    y = self:drawSection(y, "TIME SCALE  ·  now: " .. fa_getTimeStr())
+    y = self:drawSection(y, FT.l10nFormat("ft_farmadmin_time_scale_fmt", "TIME SCALE  ·  now: %s", fa_getTimeStr()))
     y = y - GAP
 
     local FA_SCALES = {
@@ -296,10 +289,10 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     y = y - GAP
 
     local TIMES = {
-        {h = 6,  label = "6 AM"},
-        {h = 12, label = "12 PM"},
-        {h = 18, label = "6 PM"},
-        {h = 0,  label = "MIDNIGHT"},
+        {h = 6,  label = FT.l10n("ft_farmadmin_skip_6am", "6 AM")},
+        {h = 12, label = FT.l10n("ft_farmadmin_skip_noon", "12 PM")},
+        {h = 18, label = FT.l10n("ft_farmadmin_skip_6pm", "6 PM")},
+        {h = 0,  label = FT.l10n("ft_farmadmin_skip_midnight", "MIDNIGHT")},
     }
     local halfW = (cw - FT.px(4)) / 2
     for i, t in ipairs(TIMES) do
@@ -320,7 +313,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     y = self:drawRule(y - FT.py(4), 0.3)
     y = y - FT.py(6)
     y = self:drawSection(y,
-        string.format("VEHICLES  ·  %d owned", #vehicles))
+        FT.l10nFormat("ft_farmadmin_vehicles_fmt", "VEHICLES  ·  %d owned", #vehicles))
     y = y - GAP
 
     local btnRepair = self.r:button(x, y - BTN_H, halfW, BTN_H,
