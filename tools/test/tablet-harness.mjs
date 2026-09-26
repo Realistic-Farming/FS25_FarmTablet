@@ -265,6 +265,37 @@ export function makeTablet(readFile, opts = {}) {
       end
       return ""
     end
+    -- A player's walk on ONE tablet: draw, then press each drawn button in order (its real onClick) and
+    -- redraw; "label#n" is the n-th button drawn with that label. The last draw's texts come back, with
+    -- HARNESS.REC and HARNESS.V holding that draw only.
+    function HARNESS.flow(appId, labels)
+      local ui = tablet(appId, false)
+      local ok, e = pcall(FarmTabletUI._appDrawers[appId], ui)
+      if not ok then return "\\1" .. tostring(e) end
+      for step in (labels .. "\\1"):gmatch("([^\\1]*)\\1") do
+        local label, nth = step:match("^(.-)#(%d+)$")
+        if label == nil then label, nth = step, 1 else nth = tonumber(nth) end
+        local seen, hit = 0, false
+        local list = ui.r._buttons or {}
+        for i, b in ipairs(list) do
+          if not b._isText and b.meta and b.meta.onClick and list[i - 1] and list[i - 1]._isText and tostring(list[i - 1].text) == label then
+            seen = seen + 1
+            if seen == nth then
+              local okc, err = pcall(b.meta.onClick)
+              if not okc then return "\\1press " .. step .. ": " .. tostring(err) end
+              hit = true
+              break
+            end
+          end
+        end
+        if not hit then return "\\1no button " .. step end
+        ui.r = FT_Renderer.new()
+        HARNESS.REC, HARNESS.V = {}, {}
+        ok, e = pcall(FarmTabletUI._appDrawers[appId], ui)
+        if not ok then return "\\1" .. tostring(e) end
+      end
+      return table.concat(collect(ui), "\\n")
+    end
     function HARNESS.chrome(name)
       HARNESS.REC, HARNESS.V = {}, {}
       local ui = tablet("dashboard", false)
@@ -309,5 +340,6 @@ export function makeTablet(readFile, opts = {}) {
     setSources: (list) => callStr("setSources", list.join("\u0001")),
     auto: (s) => callStr("auto", s),
     press: (appId, label) => callStr("press", appId, label),
+    flow: (appId, labels) => split(callStr("flow", appId, labels.join("\u0001"))),
   };
 }

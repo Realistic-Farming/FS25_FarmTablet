@@ -59,6 +59,19 @@ MUTATIONS = [
         one('''"Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true, literalBody = true },''',
             '''"Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true },'''))],
      "a resolved Soil Nutrient help body drawn without the flag: F (FLAG)"),
+    # Invoices (MAINTENANCE row 105, batch 11): the card and form draws F cannot reach, held by E's walks.
+    ("M10-invoice-party-unflagged", [("src/apps/RoleplayPhoneApp.lua",
+        one('''                FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)''',
+            '''                FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)'''))],
+     "an invoice's translated party drawn without the flag: E (the list's FLAG row)"),
+    ("M11-invoice-due-unflagged", [("src/apps/RoleplayPhoneApp.lua",
+        one('''                    FT.FONT.TINY, dueStr, RenderText.ALIGN_LEFT, dueColor, true)''',
+            '''                    FT.FONT.TINY, dueStr, RenderText.ALIGN_LEFT, dueColor)'''))],
+     "the resolved due line drawn without the flag: E (the list's FLAG row)"),
+    ("M12-cycler-value-unflagged", [("src/apps/RoleplayPhoneApp.lua",
+        one('''        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)''',
+            '''        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)'''))],
+     "the form's translated preset drawn without the flag: E (the form's FLAG row)"),
 ]
 
 

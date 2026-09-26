@@ -54,6 +54,12 @@ local DESC_PRESETS = {
     "Land Lease", "Animal Care", "Custom",
 }
 
+-- What the cycler shows for the "Custom" preset (the invoice stores "Custom").
+local CUSTOM_SHOWN = { label = "Custom (set via console)" }
+
+-- The status badge's words, drawn through the renderer's FT.l10nAuto.
+local STATUS_LABEL = { paid = "PAID", rejected = "REJECTED", overdue = "OVERDUE", pending = "PENDING" }
+
 local DUE_OPTIONS = {
     { label = "No due date", days = 0  },
     { label = "7 days",      days = 7  },
@@ -130,12 +136,13 @@ local function drawCycler(self, y, label, value, onChange)
 
     local valX = ctrlX + arrowW + FT.px(4)
     local valW = ctrlW - arrowW * 2 - FT.px(8)
-    local valStr = tostring(value)
+    -- Translated before the cut (a preset is stored in English; an NPC name has no entry and comes back as it is).
+    local valStr = FT.l10nAuto(value)
     -- Keep long party / description names out of the arrow buttons.
     local maxChars = math.max(10, math.floor(valW / FT.px(6.5)))
     if FT.utf8Len(valStr) > maxChars then valStr = FT.utf8Sub(valStr, math.max(1, maxChars - 1)) .. "…" end
     self.r:appText(valX + valW * 0.5, y + FT.py(4),
-        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        FT.FONT.SMALL, valStr, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
 
     local btnR = self.r:button(ctrlX + ctrlW - arrowW, y, arrowW, rowH, "►", FT.C.BTN_NEUTRAL, {
         onClick = function()
@@ -213,15 +220,15 @@ local function drawInvoiceForm(self)
     y = y - FT.py(4)
 
     local partyList = form.partyList
-    local partyVal  = partyList[form.partyIdx] or "—"
-    if partyVal == "Custom" then partyVal = "Custom (set via console)" end
+    local partyVal  = partyList[form.partyIdx] or "-"
+    if partyVal == "Custom" then partyVal = CUSTOM_SHOWN.label end
     y = drawCycler(self, y, FT.l10nAuto("PARTY"), partyVal, function(dir)
         form.partyIdx = ((form.partyIdx - 1 + dir + #partyList) % #partyList) + 1
     end)
     y = y - FT.py(4)
 
-    local descVal = DESC_PRESETS[form.descIdx] or "—"
-    if descVal == "Custom" then descVal = "Custom (set via console)" end
+    local descVal = DESC_PRESETS[form.descIdx] or "-"
+    if descVal == "Custom" then descVal = CUSTOM_SHOWN.label end
     y = drawCycler(self, y, FT.l10nAuto("DESCRIPTION"), descVal, function(dir)
         form.descIdx = ((form.descIdx - 1 + dir + #DESC_PRESETS) % #DESC_PRESETS) + 1
     end)
@@ -261,9 +268,9 @@ local function drawInvoiceForm(self)
                 local today  = (g_currentMission and g_currentMission.environment and g_currentMission.environment.currentDay) or 0
                 local dueDay = dueOpt.days > 0 and (today + dueOpt.days) or 0
                 local party  = partyList[form.partyIdx] or ""
-                if party == "Custom (set via console)" then party = "Custom" end
+                if party == CUSTOM_SHOWN.label then party = "Custom" end
                 local desc = DESC_PRESETS[form.descIdx] or ""
-                if desc == "Custom (set via console)" then desc = "Custom" end
+                if desc == CUSTOM_SHOWN.label then desc = "Custom" end
                 invoiceMgr:addInvoice({
                     invoiceType = FT_InvoiceManager.TYPE.OUTGOING,
                     party       = party,
@@ -342,22 +349,22 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
     -- ── Sub-view: help page ───────────────────────────────
     if self:drawHelpPage("_rpPhoneHelp", FT.APP.ROLEPLAY_PHONE, "Invoices", AC, {
         { title = "INVOICE TRACKER",
-          body  = "Tracks money you owe others (OUTGOING) and\n" ..
+          body  = FT.l10n("ft_rpphone_help_tracker_body", "Tracks money you owe others (OUTGOING) and\n" ..
                   "money others owe you (INCOMING).\n" ..
-                  "Statuses: PENDING, PAID, OVERDUE / REJECTED." },
+                  "Statuses: PENDING, PAID, OVERDUE / REJECTED."), literalBody = true },
         { title = "ROLEPLAY PHONE INTEGRATION",
-          body  = "If FS25_RoleplayPhone v0.4.0+ is installed,\n" ..
+          body  = FT.l10n("ft_rpphone_help_phone_body", "If FS25_RoleplayPhone v0.4.0+ is installed,\n" ..
                   "invoices created on the phone appear here\n" ..
                   "automatically via its public API.\n" ..
-                  "Without it, use the built-in invoice system." },
+                  "Without it, use the built-in invoice system."), literalBody = true },
         { title = "SUMMARY BAR",
-          body  = "Top of the app shows total receivable (green)\n" ..
-                  "and total owed (red) across all pending invoices." },
+          body  = FT.l10n("ft_rpphone_help_summary_body", "Top of the app shows total receivable (green)\n" ..
+                  "and total owed (red) across all pending invoices."), literalBody = true },
         { title = "NEW INVOICE",
-          body  = "Tap + NEW to open the creation form.\n" ..
+          body  = FT.l10n("ft_rpphone_help_new_body", "Tap + NEW to open the creation form.\n" ..
                   "Only available in built-in mode.\n" ..
                   "Use the RoleplayPhone app to create invoices\n" ..
-                  "when that mod is installed." },
+                  "when that mod is installed."), literalBody = true },
     }) then return end
 
     -- ── Detect data source ────────────────────────────────
@@ -441,20 +448,22 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             local hasDue, dueStr, dueColor = false, nil, FT.C.TEXT_DIM
             if inv.dueDateStr then
                 hasDue  = true
-                dueStr  = "Due: " .. inv.dueDateStr
+                dueStr  = FT.l10nFormat("ft_rpphone_due_date_fmt", "Due: %s", inv.dueDateStr)
             elseif (inv.dueDay or 0) > 0 then
                 hasDue = true
                 local today    = (g_currentMission and g_currentMission.environment
                                   and g_currentMission.environment.currentDay) or 0
                 local daysLeft = inv.dueDay - today
                 if daysLeft < 0 then
-                    dueStr   = string.format("Overdue by %d day%s", -daysLeft, -daysLeft ~= 1 and "s" or "")
+                    dueStr   = (daysLeft == -1) and FT.l10n("ft_rpphone_overdue_one", "Overdue by 1 day")
+                        or FT.l10nFormat("ft_rpphone_overdue_fmt", "Overdue by %d days", -daysLeft)
                     dueColor = FT.C.NEGATIVE
                 elseif daysLeft == 0 then
-                    dueStr   = "Due today"
+                    dueStr   = FT.l10n("ft_auto_due_today", "Due today")
                     dueColor = FT.C.WARNING
                 else
-                    dueStr   = string.format("Due in %d day%s", daysLeft, daysLeft ~= 1 and "s" or "")
+                    dueStr   = (daysLeft == 1) and FT.l10n("ft_rpphone_due_in_one", "Due in 1 day")
+                        or FT.l10nFormat("ft_rpphone_due_in_fmt", "Due in %d days", daysLeft)
                     dueColor = daysLeft <= 3 and FT.C.WARNING or FT.C.TEXT_DIM
                 end
             end
@@ -462,13 +471,13 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             -- Badge
             local badgeColor, statusLabel
             if isPaid then
-                badgeColor, statusLabel = FT.C.POSITIVE, "PAID"
+                badgeColor, statusLabel = FT.C.POSITIVE, STATUS_LABEL.paid
             elseif isRejected then
-                badgeColor, statusLabel = FT.C.NEGATIVE, "REJECTED"
+                badgeColor, statusLabel = FT.C.NEGATIVE, STATUS_LABEL.rejected
             elseif isOverdue then
-                badgeColor, statusLabel = FT.C.NEGATIVE, "OVERDUE"
+                badgeColor, statusLabel = FT.C.NEGATIVE, STATUS_LABEL.overdue
             else
-                badgeColor, statusLabel = FT.C.WARNING, "PENDING"
+                badgeColor, statusLabel = FT.C.WARNING, STATUS_LABEL.pending
             end
 
             -- Card geometry
@@ -487,22 +496,22 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             self.r:appRect(x - FT.px(4), y - FT.py(4), w + FT.px(8), cardH, FT.C.BG_CARD)
 
             -- Line 1: party + badge (truncate party so it cannot run into PENDING/PAID)
-            local party = (inv.party and inv.party ~= "") and inv.party or "Unknown"
+            local party = FT.l10nAuto((inv.party and inv.party ~= "") and inv.party or "Unknown")
             local badgeReserve = FT.px(72)
             local partyMax = math.max(8, math.floor((w - badgeReserve) / FT.px(7)))
             if FT.utf8Len(party) > partyMax then party = FT.utf8Sub(party, math.max(1, partyMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line1Y,
-                FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                FT.FONT.BODY, party, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
             self.r:appText(x + w - FT.px(4), line1Y,
                 FT.FONT.TINY, statusLabel, RenderText.ALIGN_RIGHT, badgeColor)
 
             -- Line 2: description + amount
-            local desc = inv.description or ""
+            local desc = FT.l10nAuto(inv.description or "")
             local amtReserve = FT.px(70)
             local descMax = math.max(10, math.floor((w - amtReserve) / FT.px(6)))
             if FT.utf8Len(desc) > descMax then desc = FT.utf8Sub(desc, math.max(1, descMax - 1)) .. "…" end
             self.r:appText(x + FT.px(4), line2Y,
-                FT.FONT.SMALL, desc, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                FT.FONT.SMALL, desc, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             self.r:appText(x + w - FT.px(4), line2Y,
                 FT.FONT.SMALL, data:formatMoney(inv.amount or 0),
                 RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL, true)
@@ -510,7 +519,7 @@ FarmTabletUI:registerDrawer(FT.APP.ROLEPLAY_PHONE, function(self)
             -- Line 3: due date
             if hasDue and dueStr then
                 self.r:appText(x + FT.px(4), dueLineY,
-                    FT.FONT.TINY, dueStr, RenderText.ALIGN_LEFT, dueColor)
+                    FT.FONT.TINY, dueStr, RenderText.ALIGN_LEFT, dueColor, true)
             end
 
             -- Action buttons
