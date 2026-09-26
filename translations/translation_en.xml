@@ -2904,6 +2904,45 @@
         <text name="ft_organic_sale_premium" text="Sale premium: pending MDM contract" />
         <text name="ft_organic_market" text="MARKET" />
         <text name="ft_organic_market_na" text="not available - waiting on organic premium / MDM contract" />
+        <text name="ft_soilnut_urgent" text="URGENT" />
+        <text name="ft_soilnut_watch" text="WATCH" />
+        <text name="ft_soilnut_ok" text="OK" />
+        <text name="ft_soilnut_tr_no_data" text="No soil data" />
+        <text name="ft_soilnut_tr_lime" text="Apply LIME or LIQUID LIME to raise pH." />
+        <text name="ft_soilnut_tr_gypsum" text="Apply GYPSUM to lower pH / improve structure." />
+        <text name="ft_soilnut_om" text="OM" />
+        <text name="ft_soilnut_tr_om_low" text="Plow in MANURE, COMPOST, or chop straw." />
+        <text name="ft_soilnut_tr_om_monitor" text="Monitor. Maintain organic inputs." />
+        <text name="ft_soilnut_tr_urea" text="Apply UREA or UAN32" />
+        <text name="ft_soilnut_tr_ams" text="Apply AMS or AN" />
+        <text name="ft_soilnut_tr_map" text="Apply MAP or DAP" />
+        <text name="ft_soilnut_tr_liquid_map" text="Top-up with Liquid MAP / DAP" />
+        <text name="ft_soilnut_tr_p_above" text="Above target - skip P product this pass." />
+        <text name="ft_soilnut_tr_potash" text="Apply POTASH" />
+        <text name="ft_soilnut_tr_potash_topup" text="Top-up with POTASH" />
+        <text name="ft_soilnut_weed" text="Weed" />
+        <text name="ft_soilnut_tr_herbicide" text="Apply HERBICIDE or use WEEDER/HOE." />
+        <text name="ft_soilnut_pest" text="Pest" />
+        <text name="ft_soilnut_tr_insecticide" text="Apply INSECTICIDE immediately." />
+        <text name="ft_soilnut_disease" text="Disease" />
+        <text name="ft_soilnut_tr_unscouted" text="Unscouted - scout before treating." />
+        <text name="ft_soilnut_tr_fungicide" text="Apply FUNGICIDE immediately." />
+        <text name="ft_soilnut_tr_all_clear" text="All clear - no treatment needed." />
+        <text name="ft_soilnut_help_what_body" text="One card per owned field: N / P / K / pH / OM /&#10;Weed / Pest / Disease as current vs expected bars,&#10;plus a TREATMENT plan with rates when a nutrient&#10;or pressure needs work." />
+        <text name="ft_soilnut_help_urgency_title" text="URGENCY ORDER" />
+        <text name="ft_soilnut_help_urgency_body" text="Cards are sorted by SoilFertilizer urgency so the&#10;fields that need attention first rise to the top.&#10;Left tick: green OK · yellow WATCH · red URGENT." />
+        <text name="ft_soilnut_treatment" text="TREATMENT" />
+        <text name="ft_soilnut_help_treatment_body" text="Prescriptions mirror the %s Soil Treatment&#10;dialog (product rates + protection actions).&#10;Disease stays Unscouted until you scout the field." />
+        <text name="ft_soilnut_help_colours_body" text="Green = on target  |  Yellow = fair  |  Red = poor.&#10;Bars show current / expected (ppm for N/P/K)." />
+        <text name="ft_soilnut_help_ph_title" text="pH + ORGANIC MATTER" />
+        <text name="ft_soilnut_help_ph_body" text="Optimal pH is 6.5 (band ~6.0–7.5).&#10;OM is a 0–10 soil scale (not a percent).&#10;Healthy band sits around 3.5–5.0." />
+        <text name="ft_soilnut_fields_fmt" text="FIELDS  (%d)" />
+        <text name="ft_soilnut_fert" text="FERT" />
+        <text name="ft_soilnut_field_title_fmt" text="Field #%s  ·  %s" />
+        <text name="ft_soilnut_no_soil_data_field" text="No soil data for this field." />
+        <text name="ft_soilnut_unscouted" text="Unscouted" />
+        <text name="ft_soilnut_treatment_plan" text="TREATMENT PLAN" />
+        <text name="ft_soilnut_no_actions" text="No actions - levels look fine." />
     </texts>
 
 </l10n>

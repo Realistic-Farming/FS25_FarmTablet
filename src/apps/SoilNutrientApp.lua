@@ -5,7 +5,7 @@
 -- (N/P/K/pH/OM/Weed/Pest/Disease) + TREATMENT prescriptions.
 -- Mirrors SoilTreatmentDialog rate/action rules (local copy —
 -- those helpers are file-local in SF and not exportable yet).
--- English body strings; title via ft_ui_app_soil_fertilizer.
+-- Every drawn text goes through a key (MAINTENANCE row 105, batch 9).
 -- =========================================================
 
 local PRESSURE_ACTION_THRESH = 20
@@ -37,7 +37,7 @@ end
 --- Wider chip than Renderer:badge (fixed 36px clips "URGENT").
 local function _chipWidth(label)
     local text = tostring(label or "")
-    return math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
+    return math.max(FT.px(36), FT.px(8) + FT.utf8Len(text) * FT.px(5.2))
 end
 
 local function _chip(self, x, y, label, color)
@@ -123,9 +123,9 @@ end
 
 local function _urgencyLabel(u)
     u = tonumber(u) or 0
-    if u >= 0.55 then return "URGENT" end
-    if u >= 0.30 then return "WATCH" end
-    return "OK"
+    if u >= 0.55 then return FT.l10n("ft_soilnut_urgent", "URGENT") end
+    if u >= 0.30 then return FT.l10n("ft_soilnut_watch", "WATCH") end
+    return FT.l10n("ft_soilnut_ok", "OK")
 end
 
 --- "PRODUCT 220 kg/ha (1056 kg)" — mirrors SoilTreatmentDialog._rateString
@@ -169,7 +169,7 @@ local function _nutrientActionText(SC, currentVal, targetVal, rrMult, fieldArea,
     local parts = {}
     for _, prod in ipairs(products) do
         local s = _rateString(SC, prod[1], prod[2], deficit, rrMult, fieldArea)
-        if s then parts[#parts + 1] = s end
+        if s then parts[#parts + 1] = FT.l10nAuto(s) end
     end
     if #parts == 0 then return staticFallback end
     return table.concat(parts, "  ·  ")
@@ -181,7 +181,7 @@ end
 local function _buildTreatments(info, SC, settings)
     local rows = {}
     if info == nil then
-        return { { label = "—", text = "No soil data", color = FT.C.MUTED } }
+        return { { label = "-", text = FT.l10n("ft_soilnut_tr_no_data", "No soil data"), color = FT.C.MUTED } }
     end
 
     local thresh = (SC and SC.STATUS_THRESHOLDS) or {}
@@ -205,67 +205,67 @@ local function _buildTreatments(info, SC, settings)
 
     local ph = math.floor(((info.pH or 7.0) * 10) + 0.5) / 10
     if ph < 6.5 then
-        add("pH", "Apply LIME or LIQUID LIME to raise pH.", FT.C.NEGATIVE)
+        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_lime", "Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE)
     elseif ph > 7.5 then
-        add("pH", "Apply GYPSUM to lower pH / improve structure.", FT.C.WARNING)
+        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_gypsum", "Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING)
     end
 
     local om = info.organicMatter or 3.5
     if om < 3.0 then
-        add("OM", "Plow in MANURE, COMPOST, or chop straw.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_om", "OM"), FT.l10n("ft_soilnut_tr_om_low", "Plow in MANURE, COMPOST, or chop straw."), FT.C.NEGATIVE)
     elseif om < 4.0 then
-        add("OM", "Monitor. Maintain organic inputs.", FT.C.WARNING)
+        add(FT.l10n("ft_soilnut_om", "OM"), FT.l10n("ft_soilnut_tr_om_monitor", "Monitor. Maintain organic inputs."), FT.C.WARNING)
     end
 
     -- Match the bars above: treat against crop target (fallback = fair threshold).
     local nVal = info.nitrogen and info.nitrogen.value or 0
     local nNeed = targetN or (nT.fair or 50)
     if nVal < nNeed * 0.60 then
-        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
-            { { "UREA", "N" }, { "UAN32", "N" } }, "Apply UREA or UAN32"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("N"), _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
+            { { "UREA", "N" }, { "UAN32", "N" } }, FT.l10n("ft_soilnut_tr_urea", "Apply UREA or UAN32")), FT.C.NEGATIVE)
     elseif nVal < nNeed then
-        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
-            { { "AMS", "N" }, { "AN", "N" } }, "Apply AMS or AN"), FT.C.WARNING)
+        add(FT.l10nAuto("N"), _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
+            { { "AMS", "N" }, { "AN", "N" } }, FT.l10n("ft_soilnut_tr_ams", "Apply AMS or AN")), FT.C.WARNING)
     end
 
     local pVal = info.phosphorus and info.phosphorus.value or 0
     local pNeed = targetP or (pT.fair or 40)
     if pVal < pNeed * 0.60 then
-        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
-            { { "MAP", "P" }, { "DAP", "P" } }, "Apply MAP or DAP"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("P"), _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
+            { { "MAP", "P" }, { "DAP", "P" } }, FT.l10n("ft_soilnut_tr_map", "Apply MAP or DAP")), FT.C.NEGATIVE)
     elseif pVal < pNeed then
-        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
-            { { "LIQUID_MAP", "P" }, { "LIQUID_DAP", "P" } }, "Top-up with Liquid MAP / DAP"), FT.C.WARNING)
+        add(FT.l10nAuto("P"), _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
+            { { "LIQUID_MAP", "P" }, { "LIQUID_DAP", "P" } }, FT.l10n("ft_soilnut_tr_liquid_map", "Top-up with Liquid MAP / DAP")), FT.C.WARNING)
     elseif pVal > pNeed * 1.15 then
-        add("P", "Above target - skip P product this pass.", FT.C.WARNING)
+        add(FT.l10nAuto("P"), FT.l10n("ft_soilnut_tr_p_above", "Above target - skip P product this pass."), FT.C.WARNING)
     end
 
     local kVal = info.potassium and info.potassium.value or 0
     local kNeed = targetK or (kT.fair or 40)
     if kVal < kNeed * 0.60 then
-        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
-            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Apply POTASH"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("K"), _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
+            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, FT.l10n("ft_soilnut_tr_potash", "Apply POTASH")), FT.C.NEGATIVE)
     elseif kVal < kNeed then
-        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
-            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Top-up with POTASH"), FT.C.WARNING)
+        add(FT.l10nAuto("K"), _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
+            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, FT.l10n("ft_soilnut_tr_potash_topup", "Top-up with POTASH")), FT.C.WARNING)
     end
 
     if (info.weedPressure or 0) >= PRESSURE_ACTION_THRESH then
-        add("Weed", "Apply HERBICIDE or use WEEDER/HOE.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_weed", "Weed"), FT.l10n("ft_soilnut_tr_herbicide", "Apply HERBICIDE or use WEEDER/HOE."), FT.C.NEGATIVE)
     end
     if (info.pestPressure or 0) >= PRESSURE_ACTION_THRESH then
-        add("Pest", "Apply INSECTICIDE immediately.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_pest", "Pest"), FT.l10n("ft_soilnut_tr_insecticide", "Apply INSECTICIDE immediately."), FT.C.NEGATIVE)
     end
 
     local shownD = info.shownDiseasePressure
     if shownD == nil then
-        add("Disease", "Unscouted — scout before treating.", FT.C.MUTED)
+        add(FT.l10n("ft_soilnut_disease", "Disease"), FT.l10n("ft_soilnut_tr_unscouted", "Unscouted - scout before treating."), FT.C.MUTED)
     elseif shownD >= PRESSURE_ACTION_THRESH then
-        add("Disease", "Apply FUNGICIDE immediately.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_disease", "Disease"), FT.l10n("ft_soilnut_tr_fungicide", "Apply FUNGICIDE immediately."), FT.C.NEGATIVE)
     end
 
     if #rows == 0 then
-        add("—", "All clear — no treatment needed.", FT.C.POSITIVE)
+        add("-", FT.l10n("ft_soilnut_tr_all_clear", "All clear - no treatment needed."), FT.C.POSITIVE)
     end
     return rows
 end
@@ -320,26 +320,27 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
     if self:drawHelpPage("_soilHelp", FT.APP.SOIL_FERT, "Soil Fertilizer", AC, {
         { title = "WHAT THIS APP SHOWS",
-          body  = "One card per owned field: N / P / K / pH / OM /\n" ..
+          body  = FT.l10n("ft_soilnut_help_what_body", "One card per owned field: N / P / K / pH / OM /\n" ..
                   "Weed / Pest / Disease as current vs expected bars,\n" ..
                   "plus a TREATMENT plan with rates when a nutrient\n" ..
-                  "or pressure needs work." },
-        { title = "URGENCY ORDER",
-          body  = "Cards are sorted by SoilFertilizer urgency so the\n" ..
+                  "or pressure needs work."), literalBody = true },
+        { title = FT.l10n("ft_soilnut_help_urgency_title", "URGENCY ORDER"),
+          body  = FT.l10n("ft_soilnut_help_urgency_body", "Cards are sorted by SoilFertilizer urgency so the\n" ..
                   "fields that need attention first rise to the top.\n" ..
-                  "Left tick: green OK · yellow WATCH · red URGENT." },
-        { title = "TREATMENT",
+                  "Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true, literalBody = true },
+        { title = FT.l10n("ft_soilnut_treatment", "TREATMENT"),
           -- [FT-LB] live SF_TREATMENT chord, not a hardcoded default.
-          body  = "Prescriptions mirror the " .. _liveChord("SF_TREATMENT", "Right Shift+T") .. " Soil Treatment\n" ..
+          body  = FT.l10nFormat("ft_soilnut_help_treatment_body", "Prescriptions mirror the %s Soil Treatment\n" ..
                   "dialog (product rates + protection actions).\n" ..
-                  "Disease stays Unscouted until you scout the field." },
+                  "Disease stays Unscouted until you scout the field.", _liveChord("SF_TREATMENT", "Right Shift+T")),
+          literalTitle = true, literalBody = true },
         { title = "NUTRIENT COLOURS",
-          body  = "Green = on target  |  Yellow = fair  |  Red = poor.\n" ..
-                  "Bars show current / expected (ppm for N/P/K)." },
-        { title = "pH + ORGANIC MATTER",
-          body  = "Optimal pH is 6.5 (band ~6.0–7.5).\n" ..
+          body  = FT.l10n("ft_soilnut_help_colours_body", "Green = on target  |  Yellow = fair  |  Red = poor.\n" ..
+                  "Bars show current / expected (ppm for N/P/K)."), literalBody = true },
+        { title = FT.l10n("ft_soilnut_help_ph_title", "pH + ORGANIC MATTER"),
+          body  = FT.l10n("ft_soilnut_help_ph_body", "Optimal pH is 6.5 (band ~6.0–7.5).\n" ..
                   "OM is a 0–10 soil scale (not a percent).\n" ..
-                  "Healthy band sits around 3.5–5.0." },
+                  "Healthy band sits around 3.5–5.0."), literalTitle = true, literalBody = true },
     }) then return end
 
     local startY = self:drawAppHeader("Soil Fertilizer", "", nil, true)
@@ -417,7 +418,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             cards[#cards + 1] = {
                 id = f.id,
                 area = f.area or (info and info.fieldArea) or 0,
-                crop = (info and info.lastCrop) or f.cropName or "Empty",
+                crop = (info and info.lastCrop and FT.l10nAuto(info.lastCrop)) or f.cropName or FT.l10n("ft_auto_empty_3", "Empty"),
                 info = info,
                 urgency = tonumber(urgency) or 0,
             }
@@ -430,7 +431,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         self.system._soilCardCache = cache
     end
 
-    y = self:drawSection(y, string.format("FIELDS  (%d)", #cache.cards))
+    y = self:drawSection(y, FT.l10nFormat("ft_soilnut_fields_fmt", "FIELDS  (%d)", #cache.cards), true)
 
     for _, card in ipairs(cache.cards) do
         local info = card.info
@@ -460,10 +461,11 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         -- Header band: Field # left, URGENT/FERT chips right (no second overlapping line).
         local urgencyTxt = _urgencyLabel(card.urgency)
         local showFert = info ~= nil and info.needsFertilization
+        local fertTxt = FT.l10n("ft_soilnut_fert", "FERT")
         local chipGap = FT.px(5)
         local chipsW = _chipWidth(urgencyTxt)
         if showFert then
-            chipsW = chipsW + chipGap + _chipWidth("FERT")
+            chipsW = chipsW + chipGap + _chipWidth(fertTxt)
         end
         local rightEdge = x + cw - FT.px(6)
         local chipsLeft = rightEdge - chipsW
@@ -473,32 +475,32 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             titleMaxChars = math.max(10, math.floor(titleBudget / FT.px(6.5)))
         end
         local crop = _truncate(card.crop, math.max(6, titleMaxChars - 10))
-        local title = string.format("Field #%s  ·  %s", tostring(card.id), crop)
+        local title = FT.l10nFormat("ft_soilnut_field_title_fmt", "Field #%s  ·  %s", tostring(card.id), crop)
         self.r:appText(innerX, y - FT.py(2), FT.FONT.BODY, title,
-            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
 
         local chipY = y - FT.py(4)
         local cx = rightEdge
         if showFert then
-            local fw = _chipWidth("FERT")
+            local fw = _chipWidth(fertTxt)
             cx = cx - fw
-            _chip(self, cx, chipY, FT.l10nAuto("FERT"), FT.C.WARNING)
+            _chip(self, cx, chipY, fertTxt, FT.C.WARNING)
             cx = cx - chipGap
         end
         local uw = _chipWidth(urgencyTxt)
         cx = cx - uw
-        _chip(self, cx, chipY, FT.l10nAuto(urgencyTxt), uCol)
+        _chip(self, cx, chipY, urgencyTxt, uCol)
 
-        local haTxt = (card.area and card.area > 0) and string.format("%.1f ha", card.area) or ""
+        local haTxt = (card.area and card.area > 0) and FT.l10nFormat("ft_auto_1f_ha", "%.1f ha", card.area) or ""
         if haTxt ~= "" then
             self.r:appText(innerX, y - FT.py(18), FT.FONT.SMALL, haTxt,
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         end
         y = y - headerH
 
         if info == nil then
-            self.r:appText(innerX, y, FT.FONT.SMALL, "No soil data for this field.",
-                RenderText.ALIGN_LEFT, FT.C.MUTED)
+            self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soilnut_no_soil_data_field", "No soil data for this field."),
+                RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
             local ct = info.cropTargets
@@ -533,48 +535,48 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
             local om = info.organicMatter or 0
             local omCol = (om >= 3.5) and FT.C.POSITIVE or ((om >= 3.0) and FT.C.WARNING or FT.C.NEGATIVE)
-            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("OM"),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_om", "OM"),
                 string.format("%.1f / %.1f", om, OM_TARGET), om / OM_MAX, omCol)
 
             local weed = info.weedPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Weed"),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_weed", "Weed"),
                 string.format("%.0f / <%d", weed, PRESSURE_ACTION_THRESH),
                 weed / 100, _barColor(weed / 100, true))
 
             local pest = info.pestPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Pest"),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_pest", "Pest"),
                 string.format("%.0f / <%d", pest, PRESSURE_ACTION_THRESH),
                 pest / 100, _barColor(pest / 100, true))
 
             local shownD = info.shownDiseasePressure
             if shownD == nil then
-                y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Disease"),
-                    FT.l10nAuto("Unscouted"), 0, FT.C.MUTED)
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_disease", "Disease"),
+                    FT.l10n("ft_soilnut_unscouted", "Unscouted"), 0, FT.C.MUTED)
             else
-                y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("Disease"),
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_disease", "Disease"),
                     string.format("%.0f / <%d", shownD, PRESSURE_ACTION_THRESH),
                     shownD / 100, _barColor(shownD / 100, true))
             end
 
             y = y - FT.py(4)
-            self.r:appText(innerX, y, FT.FONT.SMALL, "TREATMENT PLAN",
-                RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+            self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soilnut_treatment_plan", "TREATMENT PLAN"),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
             y = y - treatLineH
             if #treats == 0 then
                 self.r:appText(innerX, y, FT.FONT.SMALL,
-                    "No actions — levels look fine.",
-                    RenderText.ALIGN_LEFT, FT.C.POSITIVE)
+                    FT.l10n("ft_soilnut_no_actions", "No actions - levels look fine."),
+                    RenderText.ALIGN_LEFT, FT.C.POSITIVE, true)
                 y = y - treatLineH
             else
                 for _, row in ipairs(treats) do
                     self.r:appText(innerX, y, FT.FONT.SMALL, row.label,
-                        RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM)
+                        RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM, true)
                     y = y - treatLineH
                     local products = _splitProducts(row.text)
                     for _, part in ipairs(products) do
                         -- Full rate strings (no 42-char truncate) — one product per line.
                         self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
-                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
                         y = y - treatLineH
                     end
                 end
