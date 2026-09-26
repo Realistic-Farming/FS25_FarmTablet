@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 активний випадок" />
         <text name="ft_vet_case_line_one" text="%s - 1 тварина - близько %d хв" />
         <text name="ft_fws_state_open" text="Відкрито" />
+        <text name="ft_rd_no_finance" text="Фінансові дані RealisticDealer недоступні." />
     </texts>
 
 </l10n>

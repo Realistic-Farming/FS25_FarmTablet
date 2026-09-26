@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 aktif vaka" />
         <text name="ft_vet_case_line_one" text="%s - 1 hayvan - yaklaşık %d dk" />
         <text name="ft_fws_state_open" text="Açık" />
+        <text name="ft_rd_no_finance" text="RealisticDealer finansman verileri kullanılamıyor." />
     </texts>
 
 </l10n>

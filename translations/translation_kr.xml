@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="활성 사례 1건" />
         <text name="ft_vet_case_line_one" text="%s - 동물 1마리 - 약 %d분" />
         <text name="ft_fws_state_open" text="가동 중" />
+        <text name="ft_rd_no_finance" text="RealisticDealer 금융 데이터를 사용할 수 없습니다." />
     </texts>
 
 </l10n>

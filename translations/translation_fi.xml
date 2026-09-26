@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 aktiivinen tapaus" />
         <text name="ft_vet_case_line_one" text="%s - 1 eläin - noin %d min" />
         <text name="ft_fws_state_open" text="Auki" />
+        <text name="ft_rd_no_finance" text="RealisticDealerin rahoitustiedot eivät ole saatavilla." />
     </texts>
 
 </l10n>

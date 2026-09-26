@@ -3023,6 +3023,7 @@
         <text name="ft_vet_active_cases_one" text="1 aktivt tilfælde" />
         <text name="ft_vet_case_line_one" text="%s - 1 dyr - cirka %d min" />
         <text name="ft_fws_state_open" text="Åben" />
+        <text name="ft_rd_no_finance" text="RealisticDealers finansieringsdata er ikke tilgængelige." />
     </texts>
 
 </l10n>
