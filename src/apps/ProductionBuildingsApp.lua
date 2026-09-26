@@ -27,7 +27,7 @@ FarmTabletUI:registerDrawer(FT.APP.PRODUCTION, function(self)
         { title = "INPUTS / OUTPUTS",
           body  = "Lists the fill types the building consumes and produces.\n" ..
                   "Check your Storage app to ensure inputs are stocked.\n" ..
-                  "Outputs pile up if the unloading station is full — check\n" ..
+                  "Outputs pile up if the unloading station is full - check\n" ..
                   "your silo capacity." },
         { title = "NO BUILDINGS SHOWN",
           body  = "Production buildings must be owned by your farm.\n" ..

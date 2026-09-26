@@ -11,7 +11,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
         { title = "FINANCES",
           body  = "Balance: your current available money.\n" ..
                   "Loan: outstanding loan amount (0 if debt-free).\n" ..
-                  "Net Worth: balance minus loan — your true financial position." },
+                  "Net Worth: balance minus loan - your true financial position." },
         { title = "SESSION P&L",
           body  = "Income and expenses tracked since this session started\n" ..
                   "(since the last time the savegame was loaded).\n" ..
@@ -85,7 +85,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_STATS, function(self)
     y = self:drawRow(y, "Fields",     tostring(fieldCount),
         nil, FT.C.TEXT_NORMAL)
     y = self:drawRow(y, "Area",
-        string.format("%.1f ha", farmArea),
+        FT.l10nFormat("ft_auto_1f_ha", "%.1f ha", farmArea),
         nil, FT.C.TEXT_NORMAL)
     y = self:drawRow(y, "Vehicles",   tostring(vehCount),
         nil, FT.C.TEXT_NORMAL)
