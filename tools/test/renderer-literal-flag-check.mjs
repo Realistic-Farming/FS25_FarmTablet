@@ -233,6 +233,46 @@ t.setLocale("fr");
   const want = chars.length > 58 ? chars.slice(0, 57).join("") + "." : msg;
   expectIn("fr outage toast", drawn(t.chrome("_drawSignalToast")), want);
 }
+// Soil Nutrient cards (MAINTENANCE row 105, batch 9): a Soil Fertilizer manager whose fields need lime, urea
+// (with Soil Fertilizer's rates), organic matter and herbicide, drawn in German through the real drawer.
+// Every text of that draw must pass the FLAG and PASS rows too, which F cannot reach without the manager.
+// One owned field: a second identical card hands FT.l10nAuto the same English rate string the first card's
+// call already recorded, which the PASS row would count as a second translation.
+lua(`
+  HARNESS.setup = nil
+  FT_DataProvider.getOwnedFields = function() return { { id = 1, area = 2.5, name = "Field 1" } } end
+  g_currentMission.soilFertilityManager = {
+    settings = { enabled = true },
+    SoilConstants = {
+      FERTILIZER_PROFILES = { UREA = { N = 0.5 }, UAN32 = { N = 0.4 } },
+      SPRAYER_RATE = { BASE_RATES = { UREA = { unit = "dry" }, UAN32 = { unit = "liquid" } } },
+    },
+    soilSystem = {
+      isInitialized = true,
+      getFieldUrgency = function() return 0.8 end,
+      getFieldInfo = function() return {
+        nitrogen = { value = 10, status = "poor" }, phosphorus = { value = 30, status = "fair" },
+        potassium = { value = 30, status = "fair" }, pH = 5.6, organicMatter = 2.5, weedPressure = 80,
+        pestPressure = 10, needsFertilization = true, fieldArea = 2.5, lastCrop = "WHEAT" } end,
+    },
+  }
+`);
+t.setLocale("de");
+{
+  const sn = t.draw("soil_fertilizer", false);
+  // Read before any expected value is computed: t.auto runs FT.l10nAuto in the same instrumented world.
+  const v = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  const texts = drawn(sn);
+  for (const k of ["ft_soilnut_tr_lime", "ft_soilnut_om", "ft_soilnut_urgent", "ft_soilnut_fert", "ft_soilnut_treatment_plan",
+    "ft_soilnut_tr_om_low", "ft_soilnut_tr_herbicide", "ft_soilnut_weed", "ft_soilnut_tr_unscouted"]) expectIn(`de Soil Nutrient ${k}`, texts, file("de", k));
+  expectIn("de Soil Nutrient FIELDS", texts, fmt(file("de", "ft_soilnut_fields_fmt"), 1));
+  expectIn("de Soil Nutrient area", texts, fmt(file("de", "ft_auto_1f_ha"), "2.5"));
+  expectIn("de Soil Nutrient urea rate", texts, t.auto("UREA 80000 kg/ha (200000 kg)"));
+  expectIn("de Soil Nutrient UAN32 rate", texts, t.auto("UAN32 100000 L/ha (250000 L)"));
+  expectIn("de Soil Nutrient card title", texts, fmt(file("de", "ft_soilnut_field_title_fmt"), "1", t.auto("WHEAT")));
+  eChecks++;
+  if (v.length) failures.push(`E de Soil Nutrient card: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+}
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
