@@ -108,12 +108,36 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
-
+  "br:ft_storage_silo_one": "silo is the Portuguese word too",
+  "cz:ft_storage_silo_one": "silo is the Czech word too",
+  "da:ft_storage_silo_one": "silo is the Danish word too",
+  "ea:ft_storage_silo_one": "silo is the Spanish word too",
+  "es:ft_storage_silo_one": "silo is the Spanish word too",
+  "fc:ft_storage_silo_one": "silo is the French word too",
+  "fr:ft_storage_silo_one": "silo is the French word too",
+  "id:ft_storage_silo_one": "silo is the Indonesian word too",
+  "it:ft_storage_silo_one": "silo is the Italian word too",
+  "nl:ft_storage_silo_one": "silo is the Dutch word too",
+  "no:ft_storage_silo_one": "silo is the Norwegian word too",
+  "pt:ft_storage_silo_one": "silo is the Portuguese word too",
+  "sv:ft_storage_silo_one": "silo is the Swedish word too",
+  "tr:ft_storage_silo_one": "silo is the Turkish word too",
+  "vi:ft_storage_silo_one": "silo is the Vietnamese word too",
+  "br:ft_storage_silos": "silos is the Portuguese plural too",
+  "ea:ft_storage_silos": "silos is the Spanish plural too",
+  "es:ft_storage_silos": "silos is the Spanish plural too",
+  "fc:ft_storage_silos": "silos is the French plural too",
+  "fr:ft_storage_silos": "silos is the French plural too",
+  "it:ft_storage_silos": "silos is the Italian plural too",
+  "pt:ft_storage_silos": "silos is the Portuguese plural too",
+  "ro:ft_auto_credit": "CREDIT is the Romanian word",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from
 // English, each with its reason (a unit symbol the language writes that way, such as jp "ha").
 const SCRIPT_ALLOW = {
-
+  "ct:ft_workshop_fuel_fmt": "numbers and the litre sign, which the base game writes in Latin letters in ct too (unit_literShort, dataS/l10n/l10n_ct.xml)",
+  "jp:ft_workshop_fuel_fmt": "numbers and the litre sign, which the base game writes in Latin letters in jp too (unit_literShort, dataS/l10n/l10n_jp.xml)",
+  "kr:ft_workshop_fuel_fmt": "numbers and the litre sign, which the base game writes in Latin letters in kr too (unit_literShort, dataS/l10n/l10n_kr.xml)",
 };
 // Keys this app draws that another PR of the wave checks, with the PR.
 const OTHER_PR = {
