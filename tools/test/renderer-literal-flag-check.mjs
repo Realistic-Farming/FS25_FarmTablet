@@ -171,7 +171,7 @@ t.setLocale("en");
 if (t.auto("OK") !== "OK") failures.push(`K "OK" draws ${JSON.stringify(t.auto("OK"))} in English`);
 
 // ---- E: the named cases.
-const fmt = (s, ...a) => { let i = 0; return s.replace(/%[-+ #0]*\d*(?:\.\d+)?[sdif]/g, () => String(a[i++])); };
+const fmt = (s, ...a) => { if (s == null) return s; let i = 0; return s.replace(/%[-+ #0]*\d*(?:\.\d+)?[sdif]/g, () => String(a[i++])); };
 const file = (loc, key) => localeTexts(workingTree, loc).get(key);
 const drawn = (res) => res.texts;
 let eChecks = 0;
@@ -273,6 +273,48 @@ t.setLocale("de");
   eChecks++;
   if (v.length) failures.push(`E de Soil Nutrient card: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
 }
+// Invoices (MAINTENANCE row 105, batch 11), built-in mode, in German. The invoice manager is installed as
+// FarmTabletManager installs it (FT_InvoiceManager.new() on the mission); invoices come from the real
+// addInvoice, three directly (overdue by 2 days, due in 1 day, paid) and one through the form a player walks:
+// + NEU, +1.000, the due-date arrow once (7 days), ERSTELLEN. Each walk's last draw must pass FLAG and PASS.
+lua(`
+  HARNESS.setup = nil
+  -- Day 10: a due line shows only for a due day above 0, so an overdue one needs a later today.
+  E_DAY = g_currentMission.environment.currentDay
+  g_currentMission.environment.currentDay = 10
+  E_INV = FT_InvoiceManager.new()
+  g_currentMission.ftInvoiceManager = E_INV
+  local T, S = FT_InvoiceManager.TYPE, FT_InvoiceManager.STATUS
+  E_INV:addInvoice({ invoiceType = T.INCOMING, party = "Grain Elevator", description = "Crop Sale", amount = 5000, status = S.PENDING, dueDay = 8 })
+  E_INV:addInvoice({ invoiceType = T.OUTGOING, party = "Vet", description = "Animal Care", amount = 300, status = S.PENDING, dueDay = 11 })
+  E_INV:addInvoice({ invoiceType = T.OUTGOING, party = "Bank", description = "Loan Payment", amount = 1200, status = S.PAID, dueDay = 0 })
+`);
+t.setLocale("de");
+{
+  const newBtn = file("de", "ft_auto_new"), k1 = file("de", "ft_auto_1k_2");
+  const form = t.flow("roleplay_phone", [newBtn, k1]);
+  const vForm = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  if (form.error) failures.push(`E de Invoices form: ${form.error}`);
+  const made = t.flow("roleplay_phone", [newBtn, k1, "►#3", file("de", "ft_auto_create")]);
+  const vList = t.violations().filter((x) => !F_ALLOW[`${x[0]} ${x[1]}`]);
+  if (made.error) failures.push(`E de Invoices list: ${made.error}`);
+  eChecks += 2;
+  for (const [what, v] of [["form", vForm], ["list", vList]]) {
+    if (v.length) failures.push(`E de Invoices ${what}: ${v.length} violation(s), first ${v[0][0]} ${v[0][1]} ${JSON.stringify(v[0][2]).slice(0, 80)}`);
+  }
+  for (const k of ["ft_auto_party", "ft_auto_description", "ft_auto_amount_2", "ft_auto_due_date", "ft_auto_create", "ft_auto_cancel"]) expectIn(`de Invoices form ${k}`, form.texts, file("de", k));
+  expectIn("de Invoices form party preset", form.texts, t.auto("Contractor"));
+  expectIn("de Invoices form description preset", form.texts, t.auto("Equipment Rental"));
+  expectIn("de Invoices form due preset", form.texts, t.auto("No due date"));
+  expectIn("de Invoices overdue by 2 days", made.texts, fmt(file("de", "ft_rpphone_overdue_fmt"), 2));
+  expectIn("de Invoices due in 1 day", made.texts, file("de", "ft_rpphone_due_in_one"));
+  expectIn("de Invoices due in 7 days (made through the form)", made.texts, fmt(file("de", "ft_rpphone_due_in_fmt"), 7));
+  expectIn("de Invoices party translated at the draw", made.texts, t.auto("Grain Elevator"));
+  expectIn("de Invoices party made through the form", made.texts, t.auto("Contractor"));
+  expectIn("de Invoices description", made.texts, t.auto("Crop Sale"));
+  for (const k of ["ft_auto_paid", "ft_auto_pending_2", "ft_auto_pay", "ft_auto_delete", "ft_auto_receivable", "ft_auto_owed"]) expectIn(`de Invoices list ${k}`, made.texts, file("de", k));
+}
+lua(`g_currentMission.ftInvoiceManager = nil; g_currentMission.environment.currentDay = E_DAY`);
 lua(`FT_DataProvider.getOwnedFields = E_OWNED; g_currentMission.soilFertilityManager = nil; HARNESS.setup = nil`);
 
 console.log(`  T/H: 4 surfaces x 8 texts x 6 flag values, 9 helpers; F: ${draws} draws (${ids.length} drawers x main/help + ${CHROME.length} chrome x ${locales.length} locales), ${allTexts} texts, ${flaggedTexts} drawn with the flag; E: ${eChecks} named-case checks`);
