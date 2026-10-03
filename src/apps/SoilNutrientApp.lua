@@ -365,15 +365,6 @@ local TGT_REASON = {
     DOUBLED_AMOUNT_ACTIVE       = { key = "ft_soiltgt_r_doubled",          fallback = "AUTO paused: double rate is on" },
     FOOTPRINT_PRIMING           = { key = "ft_soiltgt_r_priming",          fallback = "AUTO: preparing the footprint" },
 }
--- Two machines pausing on one field: the earlier reason in Soil's display order is named, so
--- the choice never rests on the order the vehicle list is walked in.
-local TGT_REASON_RANK = {}
-for i, r in ipairs({ "FARM_ACCESS", "UNKNOWN_PRODUCT", "OUTSIDE_MAP", "UNKNOWN_GROUND", "MIXED_FIELD", "MIXED_CROP",
-                     "UNSUPPORTED_CROP", "CULTIVATION_NO_TARGET", "SOURCE_CONTRACT_UNAVAILABLE", "DOUBLED_AMOUNT_ACTIVE",
-                     "NOZZLE_PARTIAL", "CELL_OVERLAP", "SOWABILITY_UNKNOWN", "FOOTPRINT_PRIMING" }) do
-    TGT_REASON_RANK[r] = i
-end
-
 --- One guarded, protected read from Soil: nil when the method is absent (an older Soil) or fails.
 local function _soilRead(soilSys, name, ...)
     local fn = soilSys and soilSys[name]
@@ -381,6 +372,17 @@ local function _soilRead(soilSys, name, ...)
     local ok, r = pcall(fn, soilSys, ...)
     if ok then return r end
     return nil
+end
+
+--- Two machines pausing on one field: Soil itself names the reason its own surfaces put first
+--- (its published read over both reasons), so the choice never rests on the order the vehicle
+--- list is walked in, and no copy of Soil's order lives here.
+local function _firstReason(soilSys, a, b)
+    if a == nil then return b end
+    if b == nil or a == b then return a end
+    local pick = _soilRead(soilSys, "getTargetPrimaryReason", { reasons = { a, b } })
+    if pick == a or pick == b then return pick end
+    return (a < b) and a or b
 end
 
 --- The farmland under the local player (the vehicle's position while driving), or nil.
@@ -408,9 +410,8 @@ local function _livePauses(soilSys, farmId)
             local r = _soilRead(soilSys, "getApplicationTargetResult", v)
             if type(r) == "table" and r.active == true and type(r.fieldId) == "number" then
                 local reason = _soilRead(soilSys, "getTargetPrimaryReason", r)
-                local rank = reason and TGT_REASON_RANK[reason]
-                if rank ~= nil and (out[r.fieldId] == nil or rank < TGT_REASON_RANK[out[r.fieldId]]) then
-                    out[r.fieldId] = reason
+                if reason ~= nil and TGT_REASON[reason] ~= nil then
+                    out[r.fieldId] = _firstReason(soilSys, out[r.fieldId], reason)
                 end
             end
         end
@@ -505,10 +506,7 @@ local function _targetBlock(soilSys, card, here, live)
     end
     -- A pause one of the farm's machines is in now, on this field.
     local reason = nil
-    for _, id in ipairs(members) do
-        local r = live[id]
-        if r ~= nil and (reason == nil or TGT_REASON_RANK[r] < TGT_REASON_RANK[reason]) then reason = r end
-    end
+    for _, id in ipairs(members) do reason = _firstReason(soilSys, reason, live[id]) end
     if reason ~= nil then
         local e = TGT_REASON[reason]
         add(_tgtText(e.key, e.fallback), reason == "FOOTPRINT_PRIMING" and FT.C.TEXT_DIM or FT.C.WARNING)

@@ -349,6 +349,10 @@ if (process.env.BASE_REF) {
      (block(merged) || []).slice(1, 4), ["Last pass: target reached", "One footprint, not the whole field", "Planned 4.00 L, applied 4.00 L"]);
   const pause11 = card(draw(`FIX.results[FIX.v.b] = FIX.result("INACTIVE", 11, nil, { "UNSUPPORTED_CROP" }, true)`), 8);
   eq("P9 and a machine paused on member 11 shows on lead 8's card", (block(pause11) || []).slice(-1), [HOST.UNSUPPORTED_CROP]);
+  const twoMembers = card(draw(`FIX.results[FIX.v.a] = FIX.result("INACTIVE", 8, nil, { "UNSUPPORTED_CROP" }, true)
+    FIX.results[FIX.v.b] = FIX.result("INACTIVE", 11, nil, { "MIXED_CROP" }, true)`), 8);
+  eq("P12 two machines on a merged field's two farmlands: Soil's own read picks the reason it puts first",
+     (block(twoMembers) || []).slice(-1), [HOST.MIXED_CROP]);
   const w1a = card(draw(`FIX.noPassRead = true\n${PASS_REACHED}`), 7);
   ok("P10 NAMED: a Soil with no pass read draws no pass line (never 'none' for a read it lacks)",
      block(w1a) !== null && !block(w1a).some((x) => x.startsWith("Last pass")), JSON.stringify(block(w1a)));

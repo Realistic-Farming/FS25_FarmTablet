@@ -12,6 +12,8 @@
 #   - the call site's pcall itself: no Soil shape the bar can build makes _targetBlock throw (X1 pins a read
 #     that throws, which _soilRead's own pcall catches);
 #   - _playerFarmland's id > 0 test: farmland 0 is no card's member, so it draws nothing either way;
+#   - _firstReason's own fallbacks (one reason missing, the same reason twice, Soil naming neither): Soil names
+#     one of two reasons it knows, and every reason the tablet words is one it knows;
 #   - the local line's knowledgeState test: Soil sets a nutrient's grainMetres only when it is KNOWN;
 #   - the block's height (tgtH): layout, not text (the in-game check names overlap);
 #   - the colours: presentation (the in-game check);
@@ -40,11 +42,12 @@ MUTATIONS = [
          'if type(r) == "table" and type(r.fieldId) == "number" then'),
      "a parked machine's last result drawn as a current pause (R3)"),
     ("M03-later-reason-wins", APP,
-     one("(out[r.fieldId] == nil or rank < TGT_REASON_RANK[out[r.fieldId]])",
-         "(out[r.fieldId] == nil or rank > TGT_REASON_RANK[out[r.fieldId]])"),
-     "two machines: the later reason in Soil's order (R5)"),
+     one("    if pick == a or pick == b then return pick end\n",
+         "    if pick == a or pick == b then return (pick == a) and b or a end\n"),
+     "two machines: the reason Soil puts second (R5, P12)"),
     ("M04-list-order-decides", APP,
-     one("(out[r.fieldId] == nil or rank < TGT_REASON_RANK[out[r.fieldId]])", "(true)"),
+     one("                    out[r.fieldId] = _firstReason(soilSys, out[r.fieldId], reason)\n",
+         "                    out[r.fieldId] = reason\n"),
      "two machines: whichever the list walks last (R5)"),
     ("M05-window-always", APP,
      one('    if rel.cropKey ~= nil and type(rel.nutrients) == "table" then\n',
@@ -83,8 +86,9 @@ MUTATIONS = [
      one('            elseif pass.doseState == "APPLICATION_FAILED" then\n', '            elseif false then\n'),
      "a failed write loses 'not confirmed' (P5)"),
     ("M16-lead-only-pause", APP,
-     one("    local reason = nil\n    for _, id in ipairs(members) do\n", "    local reason = nil\n    for _, id in ipairs({ card.id }) do\n"),
-     "a machine paused on a member never reaches the lead's card (P9)"),
+     one("    for _, id in ipairs(members) do reason = _firstReason(soilSys, reason, live[id]) end\n",
+         "    for _, id in ipairs({ card.id }) do reason = _firstReason(soilSys, reason, live[id]) end\n"),
+     "a machine paused on a member never reaches the lead's card (P9, P12)"),
     ("M17-block-unflagged", APP,
      one("RenderText.ALIGN_LEFT, line.color or FT.C.TEXT_NORMAL, true)", "RenderText.ALIGN_LEFT, line.color or FT.C.TEXT_NORMAL)"),
      "resolved block text handed to the renderer without the literal flag (F1)"),
