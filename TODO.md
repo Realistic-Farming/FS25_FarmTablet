@@ -22,6 +22,7 @@
 - [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
+- [x] SF-73 W1c, the Soil app's AUTO target block (#209, 2026-10-03): the crop window as a field report, the local soil reading with its cell size, the field's last confirmed AUTO pass with its litres, and a current pause of one of the farm's own machines, all from Soil's guarded reads; the plan beside a confirmed dose reads as an estimate. Bar: `tools/test/soil-target-block-check.mjs` (entry-point row E, the real tablet load). In-game check: TESTING row 408.
 - [x] Organic app compost display (OM-201, 2026-08-18): the COMPOST stub in `OrganicApp` now renders live batch rows from SF's `CompostManager` (`getBatchRows`), with READY/remaining days, output litres and the organic-safe tag. Requires the SF cross-mod handle (`mission.compostManager`, PR alongside). Read-only display.
 - [~] TabletForceRepair console command (TEMPORARY): force-completes a display repair for a fixed 3000 fee so the player can use the tablet again. To be removed and replaced by the real repair station when it ships.
 - [x] Irrigation Suite app (FT #100): a read-only SCS operating picture (coverage overlay + system status), built to Wizard's UI brief and merged; real frame-cache for the coverage overlay (03a6198).

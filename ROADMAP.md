@@ -40,3 +40,6 @@
 
 ## 2026-08-31 (Fred): weather dial refusal made visible (issue #140)
 - [x] The World Weather chips no longer swallow the WeatherGuard result. A refused or errored change now draws a notice above the dial instead of silently doing nothing (admin-only wording for non-admins, WeatherGuard-refused wording otherwise). In-game verification pending.
+
+## 2026-10-03 (Fred): SF-73 W1c, the Soil app shows Soil Fertilizer's AUTO target (#209)
+- [x] FarmTablet's optional depth for SF-73 section 7. When Soil Fertilizer answers (its Experimental Systems on), each owned field's card in the Soil app shows the crop window as a field report, the soil reading where the player stands with its cell size, the field's last confirmed AUTO target pass for its current crop with planned and applied litres, and a pause one of the farm's own machines is in now, in Soil's own words. Beside a confirmed dose the treatment plan reads "TREATMENT PLAN (estimate)". Read only and guarded: a locked or older Soil draws the card as before. 35 keys in all 26 locales, 32 of them Soil's own text and translations. In-game verification pending (TESTING row 408).
