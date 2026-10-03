@@ -12,6 +12,10 @@ local KNOWN_INTEGRATIONS = {
     { appId = FT.APP.INCOME,         label = "Income Mod",         mod = "FS25_IncomeMod"            },
     { appId = FT.APP.TAX,            label = "Tax Mod",             mod = "FS25_TaxMod"               },
     { appId = FT.APP.NPC_FAVOR,      label = "NPC Favor",           mod = "FS25_NPCFavor"             },
+    -- Seasonal Crop Stress has no tile of its own any more, so this row opens its tablet door,
+    -- Irrigation Suite. The list shows integrations whether or not the mod is active, so dropping
+    -- the row would hide a mod the suite still integrates with.
+    { appId = FT.APP.IRRIGATION_SUITE, label = "Seasonal Crop Stress", mod = "FS25_SeasonalCropStress"  },
     { appId = FT.APP.SOIL_FERT,      label = "Soil Fertilizer",     mod = "FS25_SoilFertilizer"       },
     { appId = FT.APP.MARKET_DYNAMICS,label = "Market Dynamics",     mod = "FS25_MarketDynamics"       },
     { appId = FT.APP.WORKER_COSTS,   label = "Worker Costs",        mod = "FS25_WorkerCosts"          },
