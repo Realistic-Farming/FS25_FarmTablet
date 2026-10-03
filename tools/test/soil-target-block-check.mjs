@@ -417,6 +417,11 @@ FIX.throwPass = true`), 7);
   const mergedVsPass = card(draw(`FIX.pauses[11] = FIX.pause(11, "barley", 6000)
     FIX.passes[8] = FIX.result("REACHED", 8, "barley", {}, false, { plannedLitres = 2, physicalLitres = 2, notedAt = 7000 })`), 8);
   eq("Q9 and a newer pass on another farmland of it wins", (block(mergedVsPass) || []).slice(1, 2), ["Last pass: target reached"]);
+  const newestPause = card(draw(`FIX.pauses[8] = FIX.pause(8, "barley", 5000)
+    FIX.pauses[11] = FIX.pause(11, "barley", 7000)
+    FIX.passes[8] = FIX.result("REACHED", 8, "barley", {}, false, { plannedLitres = 2, physicalLitres = 2, notedAt = 6000 })`), 8);
+  eq("Q13 NAMED: it is the NEWEST pause that meets the pass: 11's (7000) beats the pass (6000), 8's (5000) would not",
+     (block(newestPause) || []).slice(1), PAUSE);
   const noRead = card(draw(`FIX.noPauseRead = true\nFIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
   eq("Q10 NAMED: a Soil without the pause read draws as before (W1c)", (block(noRead) || []).slice(2), ["Last pass: none on this crop"]);
   const locked = card(draw(`FIX.locked = true\nFIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
