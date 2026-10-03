@@ -365,6 +365,13 @@ local TGT_REASON = {
     DOUBLED_AMOUNT_ACTIVE       = { key = "ft_soiltgt_r_doubled",          fallback = "AUTO paused: double rate is on" },
     FOOTPRINT_PRIMING           = { key = "ft_soiltgt_r_priming",          fallback = "AUTO: preparing the footprint" },
 }
+-- The field's last no-crop pause, the PDA card's own words (Soil's sf_tgt_pda_state_paused and
+-- sf_tgt_pda_pause_hint): a pause, never a pass, with the manual hint and no litres.
+local TGT_PAUSE = {
+    line = { key = "ft_soiltgt_state_paused", fallback = "Last pause: no growing crop" },
+    note = { key = "ft_soiltgt_pause_hint",   fallback = "Turn AUTO off to apply manually" },
+}
+
 --- One guarded, protected read from Soil: nil when the method is absent (an older Soil) or fails.
 local function _soilRead(soilSys, name, ...)
     local fn = soilSys and soilSys[name]
@@ -474,8 +481,9 @@ local function _targetBlock(soilSys, card, here, live)
     -- The field's last confirmed pass, for its current crop only (the newest over the field's
     -- farmlands); drawn only when this Soil keeps one.
     local hasPass = false
-    if type(soilSys.getLastTargetPassForField) == "function" then
-        local pass = nil
+    local passRead = type(soilSys.getLastTargetPassForField) == "function"
+    local pass = nil
+    if passRead then
         for _, id in ipairs(members) do
             local p = _soilRead(soilSys, "getLastTargetPassForField", id)
             if type(p) == "table" and TGT_STATE[p.doseState] ~= nil and p.cropKey ~= nil and p.cropKey == rel.cropKey
@@ -483,6 +491,32 @@ local function _targetBlock(soilSys, card, here, live)
                 pass = p
             end
         end
+    end
+    -- The field's last no-crop pause, under the PDA card's rules (Soil #1090): its stamp is the field
+    -- report's crop when it was noted, it shows only when newer than the pass (a tie goes to the
+    -- pass), and a pause naming denied access is never this farm's (Soil records none; this is the
+    -- farm-scope rule kept on our side too). Read only when this Soil keeps pauses.
+    local pause = nil
+    if type(soilSys.getLastTargetPauseForField) == "function" then
+        for _, id in ipairs(members) do
+            local q = _soilRead(soilSys, "getLastTargetPauseForField", id)
+            local denied = false
+            for _, x in ipairs(type(q) == "table" and type(q.reasons) == "table" and q.reasons or {}) do
+                if x == "FARM_ACCESS" then denied = true end
+            end
+            if type(q) == "table" and not denied and q.fieldCrop ~= nil and q.fieldCrop == rel.cropKey
+               and (pause == nil or (tonumber(q.notedAt) or 0) > (tonumber(pause.notedAt) or 0)) then
+                pause = q
+            end
+        end
+        if pause ~= nil and pass ~= nil and not ((tonumber(pause.notedAt) or 0) > (tonumber(pass.notedAt) or 0)) then
+            pause = nil
+        end
+    end
+    if pause ~= nil then
+        add(_tgtText(TGT_PAUSE.line.key, TGT_PAUSE.line.fallback), FT.C.WARNING)
+        add(_tgtText(TGT_PAUSE.note.key, TGT_PAUSE.note.fallback), FT.C.TEXT_DIM)
+    elseif passRead then
         if pass ~= nil then
             hasPass = true
             local s = TGT_STATE[pass.doseState]

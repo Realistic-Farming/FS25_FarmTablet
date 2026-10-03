@@ -78,6 +78,8 @@ const KEYS = [
   "ft_soiltgt_r_farm_access", "ft_soiltgt_r_unknown_product", "ft_soiltgt_r_sowability", "ft_soiltgt_r_nozzle_partial",
   "ft_soiltgt_r_cell_overlap", "ft_soiltgt_r_cultivation", "ft_soiltgt_r_source_contract", "ft_soiltgt_r_doubled",
   "ft_soiltgt_r_priming",
+  // SF-73 the Tablet's last pause (the PDA card's own words)
+  "ft_soiltgt_state_paused", "ft_soiltgt_pause_hint",
 ];
 
 // Keys whose text is the same in every language, with the reason.
@@ -154,7 +156,7 @@ const CONTAINS = [
 // a key. keyPrefix limits a shared file to this app's keys.
 const SOURCES = [
   {"file": "src/apps/SoilNutrientApp.lua", "keyFns": ["l10n", "l10nFormat"], "literals": true,
-   "keyTables": {"TGT_REL": "_tgtText", "TGT_STATE": "_tgtText", "TGT_NOTE": "_tgtText", "TGT_REASON": "_tgtText"}},
+   "keyTables": {"TGT_REL": "_tgtText", "TGT_STATE": "_tgtText", "TGT_NOTE": "_tgtText", "TGT_REASON": "_tgtText", "TGT_PAUSE": "_tgtText"}},
 ];
 const DRAWFN = new Set(["appText", "text", "drawRow", "drawSection", "button", "drawButton", "drawButtonPair",
   "drawAppHeader", "appHeaderText", "sectionHeader", "row", "badge", "l10nAuto", "infoRow", "actionRow", "section"]);

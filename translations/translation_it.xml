@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Ultimo passaggio: sotto un gradino" />
         <text name="ft_soiltgt_state_failed" text="Ultimo passaggio: prodotto consumato" />
         <text name="ft_soiltgt_state_none" text="Ultimo passaggio: nessuno su questa coltura" />
+        <text name="ft_soiltgt_state_paused" text="Ultima pausa: nessuna coltura in crescita" />
+        <text name="ft_soiltgt_pause_hint" text="Disattiva AUTO per l'applicazione manuale" />
         <text name="ft_soiltgt_scope" text="Un'impronta, non tutto il campo" />
         <text name="ft_soiltgt_binding" text="Di più supererebbe %s" />
         <text name="ft_soiltgt_failed" text="N/P/K locale non confermato." />

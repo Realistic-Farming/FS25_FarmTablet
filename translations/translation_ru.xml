@@ -3011,6 +3011,8 @@
         <text name="ft_soiltgt_state_quantized" text="Последний проход: ниже шага" />
         <text name="ft_soiltgt_state_failed" text="Последний проход: продукт израсходован" />
         <text name="ft_soiltgt_state_none" text="Последний проход: нет для культуры" />
+        <text name="ft_soiltgt_state_paused" text="Последняя пауза: нет растущей культуры" />
+        <text name="ft_soiltgt_pause_hint" text="Выключите АВТО для ручного внесения" />
         <text name="ft_soiltgt_scope" text="Один след, не всё поле" />
         <text name="ft_soiltgt_binding" text="Больше превысило бы %s" />
         <text name="ft_soiltgt_failed" text="Локальные N/P/K не подтверждены." />

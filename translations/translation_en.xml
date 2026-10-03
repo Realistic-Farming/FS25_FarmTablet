@@ -2957,6 +2957,8 @@
         <text name="ft_soiltgt_state_quantized" text="Last pass: short, under a map step" />
         <text name="ft_soiltgt_state_failed" text="Last pass: product spent" />
         <text name="ft_soiltgt_state_none" text="Last pass: none on this crop" />
+        <text name="ft_soiltgt_state_paused" text="Last pause: no growing crop" />
+        <text name="ft_soiltgt_pause_hint" text="Turn AUTO off to apply manually" />
         <text name="ft_soiltgt_scope" text="One footprint, not the whole field" />
         <text name="ft_soiltgt_binding" text="More would overshoot %s" />
         <text name="ft_soiltgt_failed" text="Local N/P/K is not confirmed." />

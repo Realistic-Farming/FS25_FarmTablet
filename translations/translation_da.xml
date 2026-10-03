@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Seneste kørsel: under et korttrin" />
         <text name="ft_soiltgt_state_failed" text="Seneste kørsel: produkt brugt" />
         <text name="ft_soiltgt_state_none" text="Seneste kørsel: ingen for afgrøden" />
+        <text name="ft_soiltgt_state_paused" text="Seneste pause: intet i vækst" />
+        <text name="ft_soiltgt_pause_hint" text="Slå AUTO fra for manuel spredning" />
         <text name="ft_soiltgt_scope" text="Én arbejdsflade, ikke hele marken" />
         <text name="ft_soiltgt_binding" text="Mere ville overskride %s" />
         <text name="ft_soiltgt_failed" text="Lokal N/P/K er ikke bekræftet." />

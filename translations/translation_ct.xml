@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="上次作業：低於一級" />
         <text name="ft_soiltgt_state_failed" text="上次作業：產品已消耗" />
         <text name="ft_soiltgt_state_none" text="上次作業：此作物暫無" />
+        <text name="ft_soiltgt_state_paused" text="上次暫停：沒有生長中的作物" />
+        <text name="ft_soiltgt_pause_hint" text="關閉自動即可手動施用" />
         <text name="ft_soiltgt_scope" text="一條作業軌跡，並非整塊田地" />
         <text name="ft_soiltgt_binding" text="再多會超過 %s" />
         <text name="ft_soiltgt_failed" text="本地 N/P/K 未確認。" />

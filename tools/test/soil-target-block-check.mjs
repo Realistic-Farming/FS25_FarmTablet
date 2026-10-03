@@ -27,6 +27,8 @@
 //   H  the local line: only on the player's field (a member counts), no reading, off every farmland
 //   W  no crop window
 //   X  a Soil read that throws is caught
+//   Q  the last pause (Soil #1090's read, the PDA card's rules): newer than the pass, a tie to the pass, the
+//      field report's crop, a merged field's members, never denied access, a Soil without the read
 //   N  nothing written: only Soil's reads are called, and Soil's state is unchanged
 //   D  another locale draws its file's text
 //   F  every block line is drawn with the literal flag
@@ -52,7 +54,7 @@ const HOST = {
 // field 9, two vehicles per farm, the player on field 7.
 const WORLD = `
 FieldState = nil
-FIX = { calls = {}, locked = false, older = false, noPassRead = false, results = {}, passes = {}, rel = {}, localRel = {},
+FIX = { calls = {}, locked = false, older = false, noPassRead = false, noPauseRead = false, results = {}, passes = {}, pauses = {}, rel = {}, localRel = {},
         info = {}, px = 1, pz = 1, merge = true }
 local OUTCOME = { REACHED = true, SHORT_BINDING = true, SHORT_HARDWARE = true, SHORT_SUPPLY = true,
                   SHORT_QUANTIZED = true, APPLICATION_FAILED = true }
@@ -98,6 +100,10 @@ function FIX.result(doseState, fieldId, cropKey, reasons, active, extra)
   for k2, v in pairs(extra or {}) do r[k2] = v end
   return r
 end
+-- A no-crop pause as Soil's getLastTargetPauseForField returns it (TA:getLastPauseForField at #1090)
+function FIX.pause(fieldId, stamp, notedAt, reasons)
+  return FIX.result("INACTIVE", fieldId, nil, reasons or { "UNSUPPORTED_CROP" }, true, { notedAt = notedAt, fieldCrop = stamp })
+end
 local SOIL = {}
 function SOIL:getFieldInfo(id) rec("getFieldInfo") return copy(FIX.info[id]) end
 function SOIL:getFieldUrgency(id) rec("getFieldUrgency") return 0 end
@@ -119,6 +125,12 @@ function READS:getLastTargetPassForField(fieldId)
   if FIX.locked then return nil end
   return copy(FIX.passes[fieldId])
 end
+-- SoilFertilitySystem:getLastTargetPauseForField (#1090): a copy of the stored refusal with notedAt and its fieldCrop stamp
+function READS:getLastTargetPauseForField(fieldId)
+  rec("getLastTargetPauseForField")
+  if FIX.locked then return nil end
+  return copy(FIX.pauses[fieldId])
+end
 function READS:getTargetPrimaryReason(result)
   rec("getTargetPrimaryReason")
   if FIX.locked then return nil end
@@ -131,6 +143,7 @@ function FIX.install()
   if not FIX.older then
     for k, v in pairs(READS) do cls[k] = v end
     if FIX.noPassRead then cls.getLastTargetPassForField = nil end
+    if FIX.noPauseRead then cls.getLastTargetPauseForField = nil end
   end
   FIX.ss = setmetatable({ isInitialized = true }, { __index = cls })
   g_currentMission.soilFertilityManager = { settings = { enabled = true }, soilSystem = FIX.ss }
@@ -180,7 +193,8 @@ FIX.localRel[11] = FIX.localReading(11, "barley", "BELOW", "IDEAL", "IDEAL", 2, 
 -- Before each row: the default world, then the row's own changes
 function FIX.reset()
   FIX.calls, FIX.locked, FIX.older, FIX.noPassRead, FIX.merge, FIX.throwPass = {}, false, false, false, true, false
-  FIX.results, FIX.passes, FIX.px, FIX.pz = {}, {}, 1, 1
+  FIX.noPauseRead = false
+  FIX.results, FIX.passes, FIX.pauses, FIX.px, FIX.pz = {}, {}, {}, 1, 1
 end
 -- Soil's whole state, as text, for the no-write row
 function FIX.state()
@@ -196,7 +210,7 @@ function FIX.state()
       end
     end
   end
-  dump(FIX.info, "info."); dump(FIX.rel, "rel."); dump(FIX.localRel, "local."); dump(FIX.passes, "passes.")
+  dump(FIX.info, "info."); dump(FIX.rel, "rel."); dump(FIX.localRel, "local."); dump(FIX.passes, "passes."); dump(FIX.pauses, "pauses.")
   for name, v in pairs(FIX.v) do if FIX.results[v] then dump(FIX.results[v], "result." .. name .. ".") end end
   local keys = {}
   for k in pairs(FIX.ss) do keys[#keys + 1] = tostring(k) end
@@ -381,6 +395,41 @@ FIX.throwPass = true`), 7);
   eq("X1 NAMED: a Soil read that throws is caught: the card draws, the pass reads as none", (block(c) || []).slice(2, 3), ["Last pass: none on this crop"]);
 }
 
+// ---- Q: the last pause (Soil #1090's read under the PDA card's rules)
+{
+  const PAUSE = ["Last pause: no growing crop", "Turn AUTO off to apply manually"];
+  const q1 = card(draw(`FIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
+  eq("Q1 NAMED: Tyson's stubble field after a refused pass: the card reads the pause, as the PDA does, with no litres",
+     (block(q1) || []).slice(2), PAUSE);
+  eq("Q2 and the plan title is today's (a pause is no confirmed dose)", planTitle(q1), "TREATMENT PLAN");
+  const newer = card(draw(`${PASS_REACHED}\nFIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
+  eq("Q3 NAMED: a pause newer than the pass is the field's state", (block(newer) || []).slice(2), PAUSE);
+  const older = card(draw(`${PASS_REACHED}\nFIX.pauses[7] = FIX.pause(7, "wheat", 4000)`), 7);
+  eq("Q4 NAMED: a pass newer than the pause is the field's state", (block(older) || []).slice(2, 3), ["Last pass: target reached"]);
+  const tie = card(draw(`${PASS_REACHED}\nFIX.pauses[7] = FIX.pause(7, "wheat", 5000)`), 7);
+  eq("Q5 NAMED: a tie goes to the pass", (block(tie) || []).slice(2, 3), ["Last pass: target reached"]);
+  const resown = card(draw(`FIX.pauses[7] = FIX.pause(7, "barley", 6000)`), 7);
+  eq("Q6 NAMED: a pause noted under another crop (the field was resown) is not this crop's", (block(resown) || []).slice(2), ["Last pass: none on this crop"]);
+  const denied = card(draw(`FIX.pauses[7] = FIX.pause(7, "wheat", 6000, { "FARM_ACCESS", "UNSUPPORTED_CROP" })`), 7);
+  eq("Q7 NAMED: a pause naming denied access is never this farm's", (block(denied) || []).slice(2), ["Last pass: none on this crop"]);
+  const merged = card(draw(`FIX.pauses[8] = FIX.pause(8, "barley", 6000)\nFIX.pauses[11] = FIX.pause(11, "barley", 7000)`), 8);
+  eq("Q8 a merged field: the newest pause over its farmlands (11's, on lead 8's card)", (block(merged) || []).slice(1), PAUSE);
+  const mergedVsPass = card(draw(`FIX.pauses[11] = FIX.pause(11, "barley", 6000)
+    FIX.passes[8] = FIX.result("REACHED", 8, "barley", {}, false, { plannedLitres = 2, physicalLitres = 2, notedAt = 7000 })`), 8);
+  eq("Q9 and a newer pass on another farmland of it wins", (block(mergedVsPass) || []).slice(1, 2), ["Last pass: target reached"]);
+  const noRead = card(draw(`FIX.noPauseRead = true\nFIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
+  eq("Q10 NAMED: a Soil without the pause read draws as before (W1c)", (block(noRead) || []).slice(2), ["Last pass: none on this crop"]);
+  const locked = card(draw(`FIX.locked = true\nFIX.pauses[7] = FIX.pause(7, "wheat", 6000)`), 7);
+  ok("Q11 locked: no block and no pause", block(locked) === null && !locked.texts.includes(PAUSE[0]));
+  T.setLocale("de");
+  const de = localeTexts(workingTree, "de");
+  const dq = draw(`FIX.pauses[7] = FIX.pause(7, "wheat", 6000)`);
+  const di = dq.texts.indexOf(de.get("ft_soiltgt_title"));
+  eq("Q12 German: the pause reads the de file's text", di < 0 ? [] : dq.texts.slice(di + 3, di + 5),
+     [de.get("ft_soiltgt_state_paused"), de.get("ft_soiltgt_pause_hint")]);
+  T.setLocale("en");
+}
+
 // ---- W: no crop window
 {
   const none = draw(`FIX.rel[7] = FIX.report(7, nil, "UNDETERMINED", "UNDETERMINED", "UNDETERMINED")`);
@@ -400,7 +449,8 @@ FIX.throwPass = true`), 7);
   const e = T.run(`
     assert(FIX.state() == N_BEFORE, "Soil's state changed")
     local READ = { getFieldInfo = true, getFieldUrgency = true, getCropNutrientRelationship = true,
-                   getApplicationTargetResult = true, getLastTargetPassForField = true, getTargetPrimaryReason = true }
+                   getApplicationTargetResult = true, getLastTargetPassForField = true, getTargetPrimaryReason = true,
+                   getLastTargetPauseForField = true }
     for _, c in ipairs(FIX.calls) do assert(READ[c], "called " .. c) end`, "@row");
   ok("N1 NAMED: two draws call only Soil's reads and leave Soil's state exactly as it was", e === null, e);
 }

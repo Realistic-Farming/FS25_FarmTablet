@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Son geçiş: bir adımın altında" />
         <text name="ft_soiltgt_state_failed" text="Son geçiş: ürün harcandı" />
         <text name="ft_soiltgt_state_none" text="Son geçiş: bu üründe yok" />
+        <text name="ft_soiltgt_state_paused" text="Son duraklama: ürün büyümüyor" />
+        <text name="ft_soiltgt_pause_hint" text="Manuel için OTO'yu kapatın" />
         <text name="ft_soiltgt_scope" text="Tek iz, tüm tarla değil" />
         <text name="ft_soiltgt_binding" text="Fazlası %s değerini aşar" />
         <text name="ft_soiltgt_failed" text="Yerel N/P/K doğrulanmadı." />

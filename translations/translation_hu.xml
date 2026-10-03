@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Utolsó menet: lépés alatt" />
         <text name="ft_soiltgt_state_failed" text="Utolsó menet: termék elhasználva" />
         <text name="ft_soiltgt_state_none" text="Utolsó menet: nincs erre a kultúrára" />
+        <text name="ft_soiltgt_state_paused" text="Utolsó szünet: nincs növekvő kultúra" />
+        <text name="ft_soiltgt_pause_hint" text="Kézi kijuttatáshoz: AUTO ki" />
         <text name="ft_soiltgt_scope" text="Egy munkasáv, nem az egész tábla" />
         <text name="ft_soiltgt_binding" text="Több túllépné ezt: %s" />
         <text name="ft_soiltgt_failed" text="A helyi N/P/K nincs igazolva." />

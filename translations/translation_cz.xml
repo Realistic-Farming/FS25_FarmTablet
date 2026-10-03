@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Poslední průjezd: pod krokem mapy" />
         <text name="ft_soiltgt_state_failed" text="Poslední průjezd: produkt spotřebován" />
         <text name="ft_soiltgt_state_none" text="Poslední průjezd: žádný pro plodinu" />
+        <text name="ft_soiltgt_state_paused" text="Poslední pauza: bez rostoucí plodiny" />
+        <text name="ft_soiltgt_pause_hint" text="Pro ruční aplikaci vypněte AUTO" />
         <text name="ft_soiltgt_scope" text="Jedna stopa, ne celé pole" />
         <text name="ft_soiltgt_binding" text="Více by překročilo %s" />
         <text name="ft_soiltgt_failed" text="Místní N/P/K není potvrzeno." />

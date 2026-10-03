@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Senaste körning: under ett kartsteg" />
         <text name="ft_soiltgt_state_failed" text="Senaste körning: produkt förbrukad" />
         <text name="ft_soiltgt_state_none" text="Senaste körning: ingen för grödan" />
+        <text name="ft_soiltgt_state_paused" text="Senaste paus: ingen växande gröda" />
+        <text name="ft_soiltgt_pause_hint" text="Stäng av AUTO för manuell spridning" />
         <text name="ft_soiltgt_scope" text="En arbetsyta, inte hela fältet" />
         <text name="ft_soiltgt_binding" text="Mer skulle överskrida %s" />
         <text name="ft_soiltgt_failed" text="Lokal N/P/K är inte bekräftad." />

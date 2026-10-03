@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Lượt gần nhất: dưới một bậc" />
         <text name="ft_soiltgt_state_failed" text="Lượt gần nhất: đã tiêu hao" />
         <text name="ft_soiltgt_state_none" text="Lượt gần nhất: chưa có cho cây này" />
+        <text name="ft_soiltgt_state_paused" text="Lần dừng cuối: không có cây mọc" />
+        <text name="ft_soiltgt_pause_hint" text="Tắt TỰ ĐỘNG để bón thủ công" />
         <text name="ft_soiltgt_scope" text="Một vệt, không phải cả ruộng" />
         <text name="ft_soiltgt_binding" text="Thêm sẽ vượt quá %s" />
         <text name="ft_soiltgt_failed" text="N/P/K tại chỗ chưa được xác nhận." />

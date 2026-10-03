@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Siste runde: under et karttrinn" />
         <text name="ft_soiltgt_state_failed" text="Siste runde: produkt brukt" />
         <text name="ft_soiltgt_state_none" text="Siste runde: ingen for avlingen" />
+        <text name="ft_soiltgt_state_paused" text="Siste pause: ingen avling vokser" />
+        <text name="ft_soiltgt_pause_hint" text="Slå av AUTO for manuell spredning" />
         <text name="ft_soiltgt_scope" text="Én arbeidsflate, ikke hele jordet" />
         <text name="ft_soiltgt_binding" text="Mer ville overskride %s" />
         <text name="ft_soiltgt_failed" text="Lokal N/P/K er ikke bekreftet." />

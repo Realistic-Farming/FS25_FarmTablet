@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="前回: 1段階未満" />
         <text name="ft_soiltgt_state_failed" text="前回: 資材を消費済み" />
         <text name="ft_soiltgt_state_none" text="前回: この作物ではなし" />
+        <text name="ft_soiltgt_state_paused" text="前回の一時停止: 生育中の作物なし" />
+        <text name="ft_soiltgt_pause_hint" text="手動散布するには自動をオフにしてください" />
         <text name="ft_soiltgt_scope" text="作業跡1つ、フィールド全体ではない" />
         <text name="ft_soiltgt_binding" text="さらに使うと %s を超過" />
         <text name="ft_soiltgt_failed" text="局所的な N/P/K は確認されていません。" />
