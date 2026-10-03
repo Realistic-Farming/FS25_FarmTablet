@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Tidak ada data tanah untuk ladang ini." />
         <text name="ft_soilnut_unscouted" text="Belum dipantau" />
         <text name="ft_soilnut_treatment_plan" text="RENCANA PERAWATAN" />
+        <text name="ft_soiltgt_title" text="Target AUTO" />
+        <text name="ft_soiltgt_window" text="Laporan ladang: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Laporan ladang: tanpa jendela" />
+        <text name="ft_soiltgt_rel_below" text="rendah" />
+        <text name="ft_soiltgt_rel_near" text="dekat" />
+        <text name="ft_soiltgt_rel_ok" text="pas" />
+        <text name="ft_soiltgt_rel_high" text="tinggi" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Lintasan terakhir: target tercapai" />
+        <text name="ft_soiltgt_state_binding" text="Lintasan terakhir: kurang, campuran" />
+        <text name="ft_soiltgt_state_hardware" text="Lintasan terakhir: kurang, mesin" />
+        <text name="ft_soiltgt_state_supply" text="Lintasan terakhir: kurang, habis" />
+        <text name="ft_soiltgt_state_quantized" text="Lintasan terakhir: di bawah langkah" />
+        <text name="ft_soiltgt_state_failed" text="Lintasan terakhir: produk terpakai" />
+        <text name="ft_soiltgt_state_none" text="Lintasan terakhir: belum untuk tanaman ini" />
+        <text name="ft_soiltgt_scope" text="Satu jejak, bukan seluruh ladang" />
+        <text name="ft_soiltgt_binding" text="Lebih banyak akan melampaui %s" />
+        <text name="ft_soiltgt_failed" text="N/P/K lokal belum dikonfirmasi." />
+        <text name="ft_soiltgt_litres" text="Rencana %s L, diaplikasikan %s L" />
+        <text name="ft_soiltgt_local" text="Di sini, sel %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Di sini: tidak ada pembacaan tanah" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO dijeda: tidak ada tanaman tumbuh" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO dijeda: target tidak tersedia" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO dijeda: batas tanaman" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO dijeda: batas ladang" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO dijeda: tidak ada akses ke lahan ini" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO dijeda: produk tidak valid" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO dijeda: menabur tanpa pupuk target" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO dijeda: tidak semua seksi menyala" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO dijeda: area kerja tumpang tindih" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO dijeda: tidak ada target pada kultivator" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO dijeda: jalur pasokan tidak didukung" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO dijeda: dosis ganda aktif" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: menyiapkan jejak kerja" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="RENCANA PERAWATAN (perkiraan)" />
         <text name="ft_soilnut_no_actions" text="Tidak ada tindakan - tingkat terlihat baik." />
         <text name="ft_changelog_253_new_1" text="Aplikasi Perencana Rotasi: rencanakan rotasi tanaman dengan rekomendasi Soil &amp; Fertilizer sendiri" />
         <text name="ft_changelog_253_new_2" text="Aplikasi Paket Irigasi: gambaran baca-saja irigasi Seasonal Crop Stress" />

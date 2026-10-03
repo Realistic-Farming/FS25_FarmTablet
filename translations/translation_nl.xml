@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Geen bodemgegevens voor dit veld." />
         <text name="ft_soilnut_unscouted" text="Niet verkend" />
         <text name="ft_soilnut_treatment_plan" text="BEHANDELPLAN" />
+        <text name="ft_soiltgt_title" text="AUTO-doel" />
+        <text name="ft_soiltgt_window" text="Perceelrapport: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Perceelrapport: geen gewasvenster" />
+        <text name="ft_soiltgt_rel_below" text="laag" />
+        <text name="ft_soiltgt_rel_near" text="bijna" />
+        <text name="ft_soiltgt_rel_ok" text="goed" />
+        <text name="ft_soiltgt_rel_high" text="hoog" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Laatste gang: doel bereikt" />
+        <text name="ft_soiltgt_state_binding" text="Laatste gang: tekort, mengsel" />
+        <text name="ft_soiltgt_state_hardware" text="Laatste gang: tekort, machine" />
+        <text name="ft_soiltgt_state_supply" text="Laatste gang: tekort, op" />
+        <text name="ft_soiltgt_state_quantized" text="Laatste gang: onder een kaartstap" />
+        <text name="ft_soiltgt_state_failed" text="Laatste gang: product verbruikt" />
+        <text name="ft_soiltgt_state_none" text="Laatste gang: geen bij dit gewas" />
+        <text name="ft_soiltgt_scope" text="Eén werkstrook, niet het perceel" />
+        <text name="ft_soiltgt_binding" text="Meer zou %s overschrijden" />
+        <text name="ft_soiltgt_failed" text="Lokale N/P/K niet bevestigd." />
+        <text name="ft_soiltgt_litres" text="Gepland %s L, toegediend %s L" />
+        <text name="ft_soiltgt_local" text="Hier, cellen van %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Hier: geen bodemmeting" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO gepauzeerd: geen groeiend gewas" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO gepauzeerd: doel niet beschikbaar" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO gepauzeerd: gewasgrens" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO gepauzeerd: perceelgrens" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO gepauzeerd: geen toegang tot dit land" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO gepauzeerd: ongeldig product" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO gepauzeerd: zaaien zonder doelbemesting" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO gepauzeerd: niet alle secties aan" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO gepauzeerd: werkgebieden overlappen" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO gepauzeerd: geen doel op een cultivator" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO gepauzeerd: toevoerroute niet ondersteund" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO gepauzeerd: dubbele dosis staat aan" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: werkstrook wordt voorbereid" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="BEHANDELPLAN (schatting)" />
         <text name="ft_soilnut_no_actions" text="Geen acties - de niveaus zien er goed uit." />
         <text name="ft_changelog_253_new_1" text="App Rotatieplanner: plan gewasrotaties met de eigen adviezen van Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="App Irrigatiepakket: een alleen-lezen overzicht van de irrigatie van Seasonal Crop Stress" />

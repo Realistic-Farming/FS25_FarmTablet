@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Ingen jorddata for dette jordet." />
         <text name="ft_soilnut_unscouted" text="Ikke undersøkt" />
         <text name="ft_soilnut_treatment_plan" text="BEHANDLINGSPLAN" />
+        <text name="ft_soiltgt_title" text="AUTO-mål" />
+        <text name="ft_soiltgt_window" text="Jorderapport: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Jorderapport: intet avlingsvindu" />
+        <text name="ft_soiltgt_rel_below" text="lav" />
+        <text name="ft_soiltgt_rel_near" text="nær" />
+        <text name="ft_soiltgt_rel_ok" text="bra" />
+        <text name="ft_soiltgt_rel_high" text="høy" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Siste runde: mål nådd" />
+        <text name="ft_soiltgt_state_binding" text="Siste runde: for lite, blanding" />
+        <text name="ft_soiltgt_state_hardware" text="Siste runde: for lite, maskin" />
+        <text name="ft_soiltgt_state_supply" text="Siste runde: for lite, tom" />
+        <text name="ft_soiltgt_state_quantized" text="Siste runde: under et karttrinn" />
+        <text name="ft_soiltgt_state_failed" text="Siste runde: produkt brukt" />
+        <text name="ft_soiltgt_state_none" text="Siste runde: ingen for avlingen" />
+        <text name="ft_soiltgt_scope" text="Én arbeidsflate, ikke hele jordet" />
+        <text name="ft_soiltgt_binding" text="Mer ville overskride %s" />
+        <text name="ft_soiltgt_failed" text="Lokal N/P/K er ikke bekreftet." />
+        <text name="ft_soiltgt_litres" text="Planlagt %s L, spredt %s L" />
+        <text name="ft_soiltgt_local" text="Her, celler på %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Her: ingen jordmåling" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO på pause: ingen voksende avling" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO på pause: mål ikke tilgjengelig" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO på pause: avlingsgrense" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO på pause: jordegrense" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO på pause: ingen tilgang til denne jorden" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO på pause: ugyldig produkt" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO på pause: såing uten målgjødsling" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO på pause: ikke alle seksjoner er på" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO på pause: arbeidsområder overlapper" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO på pause: ingen mål på en kultivator" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO på pause: forsyningsvei støttes ikke" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO på pause: dobbel dose er på" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: forbereder arbeidsflaten" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="BEHANDLINGSPLAN (anslag)" />
         <text name="ft_soilnut_no_actions" text="Ingen tiltak - nivåene ser bra ut." />
         <text name="ft_changelog_253_new_1" text="Appen Vekstskifteplanlegger: planlegg vekstskifte med Soil &amp; Fertilizers egne anbefalinger" />
         <text name="ft_changelog_253_new_2" text="Appen Vanningspakke: et skrivebeskyttet oversiktsbilde av vanning i Seasonal Crop Stress" />

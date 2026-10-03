@@ -315,6 +315,205 @@ local function _truncate(str, maxLen)
     return FT.utf8Sub(str, math.max(1, maxLen - 1)) .. "…"
 end
 
+-- ── SF-73 section 7, W1c: the card's AUTO target block ─────────────────────
+-- Optional depth over Soil's own host reads (SoilFertilitySystem): the crop window as a field
+-- report, the reading where the player stands with its soil cell size, the field's last
+-- confirmed AUTO target pass, and a pause one of the farm's machines is in right now. Each
+-- read is guarded and protected, and Soil answers nil while SF-73 is locked; an older Soil
+-- lacks the method. Either way the card is today's card. The wording is the host's (Soil's
+-- HUD and PDA card), in FarmTablet's own keys. Read only: nothing here writes to Soil, toggles
+-- AUTO or changes another app's field status.
+
+local function _tgtText(key, fallback) return FT.l10n(key, fallback) end
+
+-- The crop window's relationship words (Soil's PDA card words).
+local TGT_REL = {
+    BELOW        = { key = "ft_soiltgt_rel_below", fallback = "low" },
+    APPROACHING  = { key = "ft_soiltgt_rel_near",  fallback = "near" },
+    IDEAL        = { key = "ft_soiltgt_rel_ok",    fallback = "ok" },
+    ABOVE        = { key = "ft_soiltgt_rel_high",  fallback = "high" },
+    UNDETERMINED = { key = "ft_soiltgt_rel_unknown", fallback = "?" },
+}
+-- One line per confirmed footprint outcome, then its note (the host's kinds; never a field claim).
+local TGT_STATE = {
+    REACHED            = { key = "ft_soiltgt_state_reached",   fallback = "Last pass: target reached" },
+    SHORT_BINDING      = { key = "ft_soiltgt_state_binding",   fallback = "Last pass: short, blend limit" },
+    SHORT_HARDWARE     = { key = "ft_soiltgt_state_hardware",  fallback = "Last pass: short, machine limit" },
+    SHORT_SUPPLY       = { key = "ft_soiltgt_state_supply",    fallback = "Last pass: short, ran out" },
+    SHORT_QUANTIZED    = { key = "ft_soiltgt_state_quantized", fallback = "Last pass: short, under a map step" },
+    APPLICATION_FAILED = { key = "ft_soiltgt_state_failed",    fallback = "Last pass: product spent" },
+}
+local TGT_NOTE = {
+    scope   = { key = "ft_soiltgt_scope",   fallback = "One footprint, not the whole field" },
+    binding = { key = "ft_soiltgt_binding", fallback = "More would overshoot %s" },
+    failed  = { key = "ft_soiltgt_failed",  fallback = "Local N/P/K is not confirmed." },
+}
+-- A machine's pause, by the reason Soil's surfaces name (the host's own words for each).
+local TGT_REASON = {
+    UNSUPPORTED_CROP            = { key = "ft_soiltgt_r_unsupported_crop", fallback = "AUTO paused: no growing crop" },
+    UNKNOWN_GROUND              = { key = "ft_soiltgt_r_unavailable",      fallback = "AUTO paused: target unavailable" },
+    OUTSIDE_MAP                 = { key = "ft_soiltgt_r_unavailable",      fallback = "AUTO paused: target unavailable" },
+    MIXED_CROP                  = { key = "ft_soiltgt_r_mixed_crop",       fallback = "AUTO paused: crop boundary" },
+    MIXED_FIELD                 = { key = "ft_soiltgt_r_mixed_field",      fallback = "AUTO paused: field boundary" },
+    FARM_ACCESS                 = { key = "ft_soiltgt_r_farm_access",      fallback = "AUTO paused: no access to this land" },
+    UNKNOWN_PRODUCT             = { key = "ft_soiltgt_r_unknown_product",  fallback = "AUTO paused: invalid product" },
+    SOWABILITY_UNKNOWN          = { key = "ft_soiltgt_r_sowability",       fallback = "AUTO paused: sowing without target fertilizer" },
+    NOZZLE_PARTIAL              = { key = "ft_soiltgt_r_nozzle_partial",   fallback = "AUTO paused: not all boom sections on" },
+    CELL_OVERLAP                = { key = "ft_soiltgt_r_cell_overlap",     fallback = "AUTO paused: work areas overlap" },
+    CULTIVATION_NO_TARGET       = { key = "ft_soiltgt_r_cultivation",      fallback = "AUTO paused: no target on a cultivator" },
+    SOURCE_CONTRACT_UNAVAILABLE = { key = "ft_soiltgt_r_source_contract",  fallback = "AUTO paused: supply route not supported" },
+    DOUBLED_AMOUNT_ACTIVE       = { key = "ft_soiltgt_r_doubled",          fallback = "AUTO paused: double rate is on" },
+    FOOTPRINT_PRIMING           = { key = "ft_soiltgt_r_priming",          fallback = "AUTO: preparing the footprint" },
+}
+--- One guarded, protected read from Soil: nil when the method is absent (an older Soil) or fails.
+local function _soilRead(soilSys, name, ...)
+    local fn = soilSys and soilSys[name]
+    if type(fn) ~= "function" then return nil end
+    local ok, r = pcall(fn, soilSys, ...)
+    if ok then return r end
+    return nil
+end
+
+--- Two machines pausing on one field: Soil itself names the reason its own surfaces put first
+--- (its published read over both reasons), so the choice never rests on the order the vehicle
+--- list is walked in, and no copy of Soil's order lives here.
+local function _firstReason(soilSys, a, b)
+    if a == nil then return b end
+    if b == nil or a == b then return a end
+    local pick = _soilRead(soilSys, "getTargetPrimaryReason", { reasons = { a, b } })
+    if pick == a or pick == b then return pick end
+    return (a < b) and a or b
+end
+
+--- The farmland under the local player (the vehicle's position while driving), or nil.
+local function _playerFarmland()
+    if g_localPlayer == nil or type(g_localPlayer.getPosition) ~= "function" or g_farmlandManager == nil then return nil end
+    local ok, px, _, pz = pcall(g_localPlayer.getPosition, g_localPlayer)
+    if not ok or type(px) ~= "number" or type(pz) ~= "number" then return nil end
+    local okF, id = pcall(g_farmlandManager.getFarmlandIdAtWorldPosition, g_farmlandManager, px, pz)
+    if not okF or type(id) ~= "number" or id <= 0 then return nil end
+    return { id = id, x = px, z = pz }
+end
+
+--- The pauses the farm's own machines are in right now, by the field each result names. Only a
+--- current result counts (active): a parked machine's last result is not a field's state.
+local function _livePauses(soilSys, farmId)
+    local out = {}
+    if type(soilSys.getApplicationTargetResult) ~= "function" or type(soilSys.getTargetPrimaryReason) ~= "function" then
+        return out
+    end
+    local vehicles = g_currentMission and g_currentMission.vehicleSystem and g_currentMission.vehicleSystem.vehicles
+    if type(vehicles) ~= "table" then return out end
+    for _, v in pairs(vehicles) do
+        local okO, owner = pcall(function() return v:getOwnerFarmId() end)
+        if okO and owner == farmId then
+            local r = _soilRead(soilSys, "getApplicationTargetResult", v)
+            if type(r) == "table" and r.active == true and type(r.fieldId) == "number" then
+                local reason = _soilRead(soilSys, "getTargetPrimaryReason", r)
+                if reason ~= nil and TGT_REASON[reason] ~= nil then
+                    out[r.fieldId] = _firstReason(soilSys, out[r.fieldId], reason)
+                end
+            end
+        end
+    end
+    return out
+end
+
+local function _relWords(rel)
+    local words = {}
+    for _, n in ipairs({ "N", "P", "K" }) do
+        local x = type(rel.nutrients) == "table" and rel.nutrients[n] or nil
+        local e = TGT_REL[x and x.relationship or "UNDETERMINED"] or TGT_REL.UNDETERMINED
+        words[#words + 1] = _tgtText(e.key, e.fallback)
+    end
+    return words
+end
+
+local function _litres(x)
+    if type(x) ~= "number" or x ~= x or x == math.huge or x == -math.huge then return "?" end
+    return string.format(math.abs(x) < 10 and "%.2f" or "%.1f", x)
+end
+
+--- The card's target block, or nil when Soil does not answer (locked, an older Soil, no record).
+--- lines: { text, color }; hasPass: the card shows a confirmed dose, so the plan below is labelled
+--- an estimate (never placed beside it as if they agreed).
+local function _targetBlock(soilSys, card, here, live)
+    local rel = _soilRead(soilSys, "getCropNutrientRelationship", card.id)
+    if type(rel) ~= "table" then return nil end
+    local lines = {}
+    local function add(text, color) lines[#lines + 1] = { text = text, color = color } end
+    if rel.cropKey ~= nil and type(rel.nutrients) == "table" then
+        local w = _relWords(rel)
+        add(FT.l10nFormat("ft_soiltgt_window", "Field report: N %s, P %s, K %s", w[1], w[2], w[3]), FT.C.TEXT_NORMAL)
+    else
+        add(FT.l10n("ft_soiltgt_window_none", "Field report: crop window unavailable"), FT.C.MUTED)
+    end
+    local members = card.memberIds or { card.id }
+    local isMember = {}
+    for _, id in ipairs(members) do isMember[id] = true end
+    -- Where the player stands: Soil's LOCAL map reading at its soil cell size.
+    if here ~= nil and isMember[here.id] then
+        local loc = _soilRead(soilSys, "getCropNutrientRelationship", here.id, here.x, here.z)
+        local grain = nil
+        if type(loc) == "table" and type(loc.nutrients) == "table" then
+            for _, n in ipairs({ "N", "P", "K" }) do
+                local x = loc.nutrients[n]
+                if x and x.knowledgeState == "KNOWN" and type(x.grainMetres) == "number" and x.grainMetres > 0 then
+                    grain = grain or x.grainMetres
+                end
+            end
+        end
+        if grain ~= nil then
+            local w = _relWords(loc)
+            add(FT.l10nFormat("ft_soiltgt_local", "Here, %s m cells: N %s, P %s, K %s",
+                string.format("%.1f", grain), w[1], w[2], w[3]), FT.C.TEXT_NORMAL)
+        else
+            add(FT.l10n("ft_soiltgt_local_none", "Here: no soil reading"), FT.C.MUTED)
+        end
+    end
+    -- The field's last confirmed pass, for its current crop only (the newest over the field's
+    -- farmlands); drawn only when this Soil keeps one.
+    local hasPass = false
+    if type(soilSys.getLastTargetPassForField) == "function" then
+        local pass = nil
+        for _, id in ipairs(members) do
+            local p = _soilRead(soilSys, "getLastTargetPassForField", id)
+            if type(p) == "table" and TGT_STATE[p.doseState] ~= nil and p.cropKey ~= nil and p.cropKey == rel.cropKey
+               and (pass == nil or (tonumber(p.notedAt) or 0) > (tonumber(pass.notedAt) or 0)) then
+                pass = p
+            end
+        end
+        if pass ~= nil then
+            hasPass = true
+            local s = TGT_STATE[pass.doseState]
+            local color = (pass.doseState == "REACHED" and FT.C.POSITIVE)
+                or (pass.doseState == "APPLICATION_FAILED" and FT.C.NEGATIVE) or FT.C.WARNING
+            add(_tgtText(s.key, s.fallback), color)
+            local note
+            if pass.doseState == "SHORT_BINDING" then
+                note = string.format(_tgtText(TGT_NOTE.binding.key, TGT_NOTE.binding.fallback), tostring(pass.binding or "?"))
+            elseif pass.doseState == "APPLICATION_FAILED" then
+                note = _tgtText(TGT_NOTE.failed.key, TGT_NOTE.failed.fallback)
+            else
+                note = _tgtText(TGT_NOTE.scope.key, TGT_NOTE.scope.fallback)
+            end
+            add(note, FT.C.TEXT_DIM)
+            add(FT.l10nFormat("ft_soiltgt_litres", "Planned %s L, applied %s L",
+                _litres(pass.plannedLitres), _litres(pass.physicalLitres)), FT.C.TEXT_DIM)
+        else
+            add(FT.l10n("ft_soiltgt_state_none", "Last pass: none on this crop"), FT.C.MUTED)
+        end
+    end
+    -- A pause one of the farm's machines is in now, on this field.
+    local reason = nil
+    for _, id in ipairs(members) do reason = _firstReason(soilSys, reason, live[id]) end
+    if reason ~= nil then
+        local e = TGT_REASON[reason]
+        add(_tgtText(e.key, e.fallback), reason == "FOOTPRINT_PRIMING" and FT.C.TEXT_DIM or FT.C.WARNING)
+    end
+    return { lines = lines, hasPass = hasPass }
+end
+
 FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
     local AC = FT.appColor(FT.APP.SOIL_FERT)
 
@@ -409,19 +608,29 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         or (cache.at ~= nil and (now - cache.at) > 2000)
     if stale then
         local cards = {}
+        -- SF-73 (W1c): read once per refresh, for every card.
+        local here = _playerFarmland()
+        local live = _livePauses(soilSys, farmId)
         for _, f in ipairs(ownedFields) do
             local info = _pcall(function() return soilSys:getFieldInfo(f.id) end)
             local urgency = 0
             if type(soilSys.getFieldUrgency) == "function" then
                 urgency = _pcall(function() return soilSys:getFieldUrgency(f.id) end) or 0
             end
-            cards[#cards + 1] = {
+            local card = {
                 id = f.id,
+                memberIds = f.memberIds,
                 area = f.area or (info and info.fieldArea) or 0,
                 crop = (info and info.lastCrop and FT.l10nAuto(info.lastCrop)) or f.cropName or FT.l10n("ft_auto_empty_3", "Empty"),
                 info = info,
                 urgency = tonumber(urgency) or 0,
             }
+            -- Optional depth: a fault here never takes the card down (it draws as today).
+            if info ~= nil then
+                local okT, tgt = pcall(_targetBlock, soilSys, card, here, live)
+                if okT then card.tgt = tgt end
+            end
+            cards[#cards + 1] = card
         end
         table.sort(cards, function(a, b)
             if a.urgency == b.urgency then return a.id < b.id end
@@ -452,7 +661,10 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         else
             treatH = FT.py(20)
         end
-        local cardH = headerH + metricH + treatH + FT.py(14)
+        -- SF-73 (W1c): the target block's title and lines, only when Soil answered.
+        local tgt = card.tgt
+        local tgtH = (tgt ~= nil) and (FT.py(4) + (1 + #tgt.lines) * treatLineH) or 0
+        local cardH = headerH + metricH + tgtH + treatH + FT.py(14)
         local cardBottom = y - cardH
 
         self.r:appRect(x - FT.px(2), cardBottom, cw + FT.px(4), cardH, FT.C.BG_CARD)
@@ -558,8 +770,24 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
                     shownD / 100, _barColor(shownD / 100, true))
             end
 
+            if tgt ~= nil then
+                y = y - FT.py(4)
+                self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soiltgt_title", "AUTO target"),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
+                y = y - treatLineH
+                for _, line in ipairs(tgt.lines) do
+                    self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, line.text,
+                        RenderText.ALIGN_LEFT, line.color or FT.C.TEXT_NORMAL, true)
+                    y = y - treatLineH
+                end
+            end
+
             y = y - FT.py(4)
-            self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soilnut_treatment_plan", "TREATMENT PLAN"),
+            -- Beside a confirmed AUTO dose, the plan's rates are labelled the estimate they are.
+            local planTitle = (tgt ~= nil and tgt.hasPass)
+                and FT.l10n("ft_soilnut_treatment_plan_estimate", "TREATMENT PLAN (estimate)")
+                or FT.l10n("ft_soilnut_treatment_plan", "TREATMENT PLAN")
+            self.r:appText(innerX, y, FT.FONT.SMALL, planTitle,
                 RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
             y = y - treatLineH
             if #treats == 0 then

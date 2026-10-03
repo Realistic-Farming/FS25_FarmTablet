@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Pro toto pole nejsou data o půdě." />
         <text name="ft_soilnut_unscouted" text="Neprozkoumáno" />
         <text name="ft_soilnut_treatment_plan" text="PLÁN OŠETŘENÍ" />
+        <text name="ft_soiltgt_title" text="AUTO cíl" />
+        <text name="ft_soiltgt_window" text="Zpráva pole: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Zpráva pole: okno plodiny chybí" />
+        <text name="ft_soiltgt_rel_below" text="nízko" />
+        <text name="ft_soiltgt_rel_near" text="blízko" />
+        <text name="ft_soiltgt_rel_ok" text="v normě" />
+        <text name="ft_soiltgt_rel_high" text="vysoko" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Poslední průjezd: cíl dosažen" />
+        <text name="ft_soiltgt_state_binding" text="Poslední průjezd: málo, směs" />
+        <text name="ft_soiltgt_state_hardware" text="Poslední průjezd: málo, stroj" />
+        <text name="ft_soiltgt_state_supply" text="Poslední průjezd: málo, došlo" />
+        <text name="ft_soiltgt_state_quantized" text="Poslední průjezd: pod krokem mapy" />
+        <text name="ft_soiltgt_state_failed" text="Poslední průjezd: produkt spotřebován" />
+        <text name="ft_soiltgt_state_none" text="Poslední průjezd: žádný pro plodinu" />
+        <text name="ft_soiltgt_scope" text="Jedna stopa, ne celé pole" />
+        <text name="ft_soiltgt_binding" text="Více by překročilo %s" />
+        <text name="ft_soiltgt_failed" text="Místní N/P/K není potvrzeno." />
+        <text name="ft_soiltgt_litres" text="Plánováno %s L, aplikováno %s L" />
+        <text name="ft_soiltgt_local" text="Zde, buňky %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Zde: žádné měření půdy" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO pozastaveno: žádná rostoucí plodina" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO pozastaveno: cíl není dostupný" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO pozastaveno: hranice plodin" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO pozastaveno: hranice pole" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO pozastaveno: žádný přístup k této půdě" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO pozastaveno: neplatný produkt" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO pozastaveno: setí bez cíleného hnojení" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO pozastaveno: nejsou zapnuté všechny sekce" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO pozastaveno: pracovní oblasti se překrývají" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO pozastaveno: kultivátor nemá cíl" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO pozastaveno: způsob zásobování není podporován" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO pozastaveno: zapnutá dvojitá dávka" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: příprava pracovní stopy" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="PLÁN OŠETŘENÍ (odhad)" />
         <text name="ft_soilnut_no_actions" text="Žádné kroky - hodnoty vypadají dobře." />
         <text name="ft_changelog_253_new_1" text="Aplikace Plánovač osevních postupů: plánujte osevní postupy podle doporučení Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="Aplikace Zavlažovací sada: přehled zavlažování ze Seasonal Crop Stress jen pro čtení" />

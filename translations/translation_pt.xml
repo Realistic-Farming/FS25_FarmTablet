@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Sem dados de solo para este campo." />
         <text name="ft_soilnut_unscouted" text="Não inspecionado" />
         <text name="ft_soilnut_treatment_plan" text="PLANO DE TRATAMENTO" />
+        <text name="ft_soiltgt_title" text="AUTO alvo" />
+        <text name="ft_soiltgt_window" text="Relatório do campo: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Relatório do campo: sem janela" />
+        <text name="ft_soiltgt_rel_below" text="baixo" />
+        <text name="ft_soiltgt_rel_near" text="perto" />
+        <text name="ft_soiltgt_rel_ok" text="bom" />
+        <text name="ft_soiltgt_rel_high" text="alto" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Última passagem: alvo atingido" />
+        <text name="ft_soiltgt_state_binding" text="Última passagem: insuficiente, mistura" />
+        <text name="ft_soiltgt_state_hardware" text="Última passagem: insuficiente, máquina" />
+        <text name="ft_soiltgt_state_supply" text="Última passagem: insuficiente, acabou" />
+        <text name="ft_soiltgt_state_quantized" text="Última passagem: abaixo de um passo" />
+        <text name="ft_soiltgt_state_failed" text="Última passagem: produto gasto" />
+        <text name="ft_soiltgt_state_none" text="Última passagem: nenhuma nesta cultura" />
+        <text name="ft_soiltgt_scope" text="Uma pegada, não o campo todo" />
+        <text name="ft_soiltgt_binding" text="Mais ultrapassaria %s" />
+        <text name="ft_soiltgt_failed" text="N/P/K local não confirmado." />
+        <text name="ft_soiltgt_litres" text="Previsto %s L, aplicado %s L" />
+        <text name="ft_soiltgt_local" text="Aqui, células de %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Aqui: sem leitura do solo" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO em pausa: sem cultura em crescimento" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO em pausa: alvo indisponível" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO em pausa: limite de cultura" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO em pausa: limite de campo" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO em pausa: sem acesso a este terreno" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO em pausa: produto inválido" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO em pausa: sementeira sem fertilização alvo" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO em pausa: nem todas as secções ativas" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO em pausa: áreas de trabalho sobrepostas" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO em pausa: sem alvo num cultivador" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO em pausa: via de abastecimento não suportada" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO em pausa: dose dupla ativa" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: a preparar a pegada" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="PLANO DE TRATAMENTO (estimativa)" />
         <text name="ft_soilnut_no_actions" text="Nenhuma ação - os níveis estão bons." />
         <text name="ft_changelog_253_new_1" text="App Planeador de rotação: planeie rotações de culturas com as recomendações do Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="App Central de rega: uma visão só de leitura da rega do Seasonal Crop Stress" />

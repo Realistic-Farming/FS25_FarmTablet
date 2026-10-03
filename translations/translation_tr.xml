@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Bu tarla için toprak verisi yok." />
         <text name="ft_soilnut_unscouted" text="İncelenmedi" />
         <text name="ft_soilnut_treatment_plan" text="UYGULAMA PLANI" />
+        <text name="ft_soiltgt_title" text="OTO hedef" />
+        <text name="ft_soiltgt_window" text="Tarla raporu: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Tarla raporu: ürün aralığı yok" />
+        <text name="ft_soiltgt_rel_below" text="düşük" />
+        <text name="ft_soiltgt_rel_near" text="yakın" />
+        <text name="ft_soiltgt_rel_ok" text="iyi" />
+        <text name="ft_soiltgt_rel_high" text="yüksek" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Son geçiş: hedefe ulaşıldı" />
+        <text name="ft_soiltgt_state_binding" text="Son geçiş: eksik, karışım" />
+        <text name="ft_soiltgt_state_hardware" text="Son geçiş: eksik, makine" />
+        <text name="ft_soiltgt_state_supply" text="Son geçiş: eksik, bitti" />
+        <text name="ft_soiltgt_state_quantized" text="Son geçiş: bir adımın altında" />
+        <text name="ft_soiltgt_state_failed" text="Son geçiş: ürün harcandı" />
+        <text name="ft_soiltgt_state_none" text="Son geçiş: bu üründe yok" />
+        <text name="ft_soiltgt_scope" text="Tek iz, tüm tarla değil" />
+        <text name="ft_soiltgt_binding" text="Fazlası %s değerini aşar" />
+        <text name="ft_soiltgt_failed" text="Yerel N/P/K doğrulanmadı." />
+        <text name="ft_soiltgt_litres" text="Planlanan %s L, uygulanan %s L" />
+        <text name="ft_soiltgt_local" text="Burada, %s m hücreler: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Burada: toprak okuması yok" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="OTO duraklatıldı: büyüyen ürün yok" />
+        <text name="ft_soiltgt_r_unavailable" text="OTO duraklatıldı: hedef kullanılamıyor" />
+        <text name="ft_soiltgt_r_mixed_crop" text="OTO duraklatıldı: ürün sınırı" />
+        <text name="ft_soiltgt_r_mixed_field" text="OTO duraklatıldı: tarla sınırı" />
+        <text name="ft_soiltgt_r_farm_access" text="OTO duraklatıldı: bu araziye erişim yok" />
+        <text name="ft_soiltgt_r_unknown_product" text="OTO duraklatıldı: geçersiz ürün" />
+        <text name="ft_soiltgt_r_sowability" text="OTO duraklatıldı: hedef gübresiz ekim" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="OTO duraklatıldı: tüm seksiyonlar açık değil" />
+        <text name="ft_soiltgt_r_cell_overlap" text="OTO duraklatıldı: çalışma alanları çakışıyor" />
+        <text name="ft_soiltgt_r_cultivation" text="OTO duraklatıldı: kültivatörde hedef yok" />
+        <text name="ft_soiltgt_r_source_contract" text="OTO duraklatıldı: besleme yolu desteklenmiyor" />
+        <text name="ft_soiltgt_r_doubled" text="OTO duraklatıldı: çift doz açık" />
+        <text name="ft_soiltgt_r_priming" text="OTO: çalışma izi hazırlanıyor" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="UYGULAMA PLANI (tahmin)" />
         <text name="ft_soilnut_no_actions" text="İşlem yok - seviyeler iyi görünüyor." />
         <text name="ft_changelog_253_new_1" text="Ekim Nöbeti Planlayıcı uygulaması: Soil &amp; Fertilizer'ın kendi önerileriyle ekim nöbeti planlayın" />
         <text name="ft_changelog_253_new_2" text="Sulama Paketi uygulaması: Seasonal Crop Stress sulaması için salt okunur bir durum görünümü" />

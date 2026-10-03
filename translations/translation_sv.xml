@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Inga markdata för detta fält." />
         <text name="ft_soilnut_unscouted" text="Ej inventerat" />
         <text name="ft_soilnut_treatment_plan" text="BEHANDLINGSPLAN" />
+        <text name="ft_soiltgt_title" text="AUTO-mål" />
+        <text name="ft_soiltgt_window" text="Fältrapport: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Fältrapport: inget grödfönster" />
+        <text name="ft_soiltgt_rel_below" text="låg" />
+        <text name="ft_soiltgt_rel_near" text="nära" />
+        <text name="ft_soiltgt_rel_ok" text="bra" />
+        <text name="ft_soiltgt_rel_high" text="hög" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Senaste körning: målet nått" />
+        <text name="ft_soiltgt_state_binding" text="Senaste körning: för lite, blandning" />
+        <text name="ft_soiltgt_state_hardware" text="Senaste körning: för lite, maskin" />
+        <text name="ft_soiltgt_state_supply" text="Senaste körning: för lite, slut" />
+        <text name="ft_soiltgt_state_quantized" text="Senaste körning: under ett kartsteg" />
+        <text name="ft_soiltgt_state_failed" text="Senaste körning: produkt förbrukad" />
+        <text name="ft_soiltgt_state_none" text="Senaste körning: ingen för grödan" />
+        <text name="ft_soiltgt_scope" text="En arbetsyta, inte hela fältet" />
+        <text name="ft_soiltgt_binding" text="Mer skulle överskrida %s" />
+        <text name="ft_soiltgt_failed" text="Lokal N/P/K är inte bekräftad." />
+        <text name="ft_soiltgt_litres" text="Planerat %s L, spritt %s L" />
+        <text name="ft_soiltgt_local" text="Här, celler på %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Här: ingen markavläsning" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO pausad: ingen växande gröda" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO pausad: mål ej tillgängligt" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO pausad: grödgräns" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO pausad: fältgräns" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO pausad: ingen åtkomst till marken" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO pausad: ogiltig produkt" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO pausad: sådd utan målgödsling" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO pausad: inte alla sektioner på" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO pausad: arbetsområden överlappar" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO pausad: inget mål på en kultivator" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO pausad: försörjningsväg stöds inte" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO pausad: dubbel dos är på" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: förbereder arbetsytan" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="BEHANDLINGSPLAN (uppskattning)" />
         <text name="ft_soilnut_no_actions" text="Inga åtgärder - nivåerna ser bra ut." />
         <text name="ft_changelog_253_new_1" text="Appen Växtföljdsplanerare: planera växtföljder med Soil &amp; Fertilizers egna rekommendationer" />
         <text name="ft_changelog_253_new_2" text="Appen Bevattningssvit: en skrivskyddad lägesbild av bevattningen i Seasonal Crop Stress" />
