@@ -68,6 +68,16 @@ const KEYS = [
   "ft_soilnut_tr_om_monitor", "ft_soilnut_tr_p_above", "ft_soilnut_tr_potash", "ft_soilnut_tr_potash_topup",
   "ft_soilnut_tr_unscouted", "ft_soilnut_tr_urea", "ft_soilnut_treatment", "ft_soilnut_treatment_plan",
   "ft_soilnut_unscouted", "ft_soilnut_urgent", "ft_soilnut_watch", "ft_soilnut_weed",
+  // SF-73 W1c: the card's AUTO target block (Soil's host wording, in FarmTablet's own keys)
+  "ft_soilnut_treatment_plan_estimate", "ft_soiltgt_title", "ft_soiltgt_window", "ft_soiltgt_window_none",
+  "ft_soiltgt_rel_below", "ft_soiltgt_rel_near", "ft_soiltgt_rel_ok", "ft_soiltgt_rel_high", "ft_soiltgt_rel_unknown",
+  "ft_soiltgt_state_reached", "ft_soiltgt_state_binding", "ft_soiltgt_state_hardware", "ft_soiltgt_state_supply",
+  "ft_soiltgt_state_quantized", "ft_soiltgt_state_failed", "ft_soiltgt_state_none", "ft_soiltgt_scope",
+  "ft_soiltgt_binding", "ft_soiltgt_failed", "ft_soiltgt_litres", "ft_soiltgt_local", "ft_soiltgt_local_none",
+  "ft_soiltgt_r_unsupported_crop", "ft_soiltgt_r_unavailable", "ft_soiltgt_r_mixed_crop", "ft_soiltgt_r_mixed_field",
+  "ft_soiltgt_r_farm_access", "ft_soiltgt_r_unknown_product", "ft_soiltgt_r_sowability", "ft_soiltgt_r_nozzle_partial",
+  "ft_soiltgt_r_cell_overlap", "ft_soiltgt_r_cultivation", "ft_soiltgt_r_source_contract", "ft_soiltgt_r_doubled",
+  "ft_soiltgt_r_priming",
 ];
 
 // Keys whose text is the same in every language, with the reason.
@@ -75,6 +85,7 @@ const ALLOW_ALL = {
   "ft_auto_1f_ha": "ha, the base game's hectare symbol (unit_haShort) in every language here (ru and uk write га)",
   "ft_soil_ppm_pair": "ppm, the unit every language here writes so (ru and uk write мг/кг)",
   "ft_auto_ph": "pH, the chemistry symbol every language here writes so (the metric bar and the treatment label)",
+  "ft_soiltgt_rel_unknown": "?, the unknown sign of Soil's PDA card, the same in every language (Soil's own bench excepts it too)",
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
@@ -142,7 +153,8 @@ const CONTAINS = [
 // The source files the draw-site rows read, and in each the text functions whose first argument is
 // a key. keyPrefix limits a shared file to this app's keys.
 const SOURCES = [
-  {"file": "src/apps/SoilNutrientApp.lua", "keyFns": ["l10n", "l10nFormat"], "literals": true},
+  {"file": "src/apps/SoilNutrientApp.lua", "keyFns": ["l10n", "l10nFormat"], "literals": true,
+   "keyTables": {"TGT_REL": "_tgtText", "TGT_STATE": "_tgtText", "TGT_NOTE": "_tgtText", "TGT_REASON": "_tgtText"}},
 ];
 const DRAWFN = new Set(["appText", "text", "drawRow", "drawSection", "button", "drawButton", "drawButtonPair",
   "drawAppHeader", "appHeaderText", "sectionHeader", "row", "badge", "l10nAuto", "infoRow", "actionRow", "section"]);

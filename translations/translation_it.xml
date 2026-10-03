@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Nessun dato del suolo per questo campo." />
         <text name="ft_soilnut_unscouted" text="Non ispezionato" />
         <text name="ft_soilnut_treatment_plan" text="PIANO DI TRATTAMENTO" />
+        <text name="ft_soiltgt_title" text="AUTO mirato" />
+        <text name="ft_soiltgt_window" text="Rapporto campo: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Rapporto campo: finestra non disponibile" />
+        <text name="ft_soiltgt_rel_below" text="basso" />
+        <text name="ft_soiltgt_rel_near" text="vicino" />
+        <text name="ft_soiltgt_rel_ok" text="giusto" />
+        <text name="ft_soiltgt_rel_high" text="alto" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Ultimo passaggio: obiettivo raggiunto" />
+        <text name="ft_soiltgt_state_binding" text="Ultimo passaggio: scarso, miscela" />
+        <text name="ft_soiltgt_state_hardware" text="Ultimo passaggio: scarso, macchina" />
+        <text name="ft_soiltgt_state_supply" text="Ultimo passaggio: scarso, finito" />
+        <text name="ft_soiltgt_state_quantized" text="Ultimo passaggio: sotto un gradino" />
+        <text name="ft_soiltgt_state_failed" text="Ultimo passaggio: prodotto consumato" />
+        <text name="ft_soiltgt_state_none" text="Ultimo passaggio: nessuno su questa coltura" />
+        <text name="ft_soiltgt_scope" text="Un'impronta, non tutto il campo" />
+        <text name="ft_soiltgt_binding" text="Di più supererebbe %s" />
+        <text name="ft_soiltgt_failed" text="N/P/K locale non confermato." />
+        <text name="ft_soiltgt_litres" text="Previsto %s L, applicato %s L" />
+        <text name="ft_soiltgt_local" text="Qui, celle da %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Qui: nessuna lettura del suolo" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO in pausa: nessuna coltura in crescita" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO in pausa: obiettivo non disponibile" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO in pausa: confine di coltura" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO in pausa: confine di campo" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO in pausa: nessun accesso a questo terreno" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO in pausa: prodotto non valido" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO in pausa: semina senza concimazione mirata" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO in pausa: non tutte le sezioni attive" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO in pausa: aree di lavoro sovrapposte" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO in pausa: nessun obiettivo su un coltivatore" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO in pausa: alimentazione non supportata" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO in pausa: dose doppia attiva" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: preparazione dell'impronta" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="PIANO DI TRATTAMENTO (stima)" />
         <text name="ft_soilnut_no_actions" text="Nessuna azione - i livelli sono buoni." />
         <text name="ft_changelog_253_new_1" text="App Pianificatore di rotazione: pianifica le rotazioni colturali con i consigli di Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="App Suite di irrigazione: un quadro in sola lettura dell'irrigazione di Seasonal Crop Stress" />

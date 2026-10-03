@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Ehhez a táblához nincs talajadat." />
         <text name="ft_soilnut_unscouted" text="Nincs felmérve" />
         <text name="ft_soilnut_treatment_plan" text="KEZELÉSI TERV" />
+        <text name="ft_soiltgt_title" text="AUTO cél" />
+        <text name="ft_soiltgt_window" text="Táblajelentés: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Táblajelentés: nincs kultúraablak" />
+        <text name="ft_soiltgt_rel_below" text="alacsony" />
+        <text name="ft_soiltgt_rel_near" text="közel" />
+        <text name="ft_soiltgt_rel_ok" text="jó" />
+        <text name="ft_soiltgt_rel_high" text="magas" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Utolsó menet: cél elérve" />
+        <text name="ft_soiltgt_state_binding" text="Utolsó menet: kevés, keverék" />
+        <text name="ft_soiltgt_state_hardware" text="Utolsó menet: kevés, gép" />
+        <text name="ft_soiltgt_state_supply" text="Utolsó menet: kevés, elfogyott" />
+        <text name="ft_soiltgt_state_quantized" text="Utolsó menet: lépés alatt" />
+        <text name="ft_soiltgt_state_failed" text="Utolsó menet: termék elhasználva" />
+        <text name="ft_soiltgt_state_none" text="Utolsó menet: nincs erre a kultúrára" />
+        <text name="ft_soiltgt_scope" text="Egy munkasáv, nem az egész tábla" />
+        <text name="ft_soiltgt_binding" text="Több túllépné ezt: %s" />
+        <text name="ft_soiltgt_failed" text="A helyi N/P/K nincs igazolva." />
+        <text name="ft_soiltgt_litres" text="Tervezett %s L, kijuttatott %s L" />
+        <text name="ft_soiltgt_local" text="Itt, %s m-es cellák: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Itt: nincs talajmérés" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO szünetel: nincs növekvő kultúra" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO szünetel: cél nem elérhető" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO szünetel: kultúrahatár" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO szünetel: táblahatár" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO szünetel: nincs hozzáférés ehhez a földhöz" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO szünetel: érvénytelen termék" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO szünetel: vetés célzott trágyázás nélkül" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO szünetel: nem minden szakasz aktív" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO szünetel: átfedő munkaterületek" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO szünetel: kultivátoron nincs cél" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO szünetel: nem támogatott ellátási mód" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO szünetel: dupla adag bekapcsolva" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: munkasáv előkészítése" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="KEZELÉSI TERV (becslés)" />
         <text name="ft_soilnut_no_actions" text="Nincs teendő - a szintek rendben vannak." />
         <text name="ft_changelog_253_new_1" text="Vetésforgó-tervező alkalmazás: vetésforgó tervezése a Soil &amp; Fertilizer saját ajánlásaival" />
         <text name="ft_changelog_253_new_2" text="Öntözőcsomag alkalmazás: csak olvasható áttekintés a Seasonal Crop Stress öntözéséről" />

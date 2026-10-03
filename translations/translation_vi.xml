@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Không có dữ liệu đất cho cánh đồng này." />
         <text name="ft_soilnut_unscouted" text="Chưa khảo sát" />
         <text name="ft_soilnut_treatment_plan" text="KẾ HOẠCH XỬ LÝ" />
+        <text name="ft_soiltgt_title" text="Mục tiêu TỰ ĐỘNG" />
+        <text name="ft_soiltgt_window" text="Báo cáo ruộng: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Báo cáo ruộng: không có khoảng" />
+        <text name="ft_soiltgt_rel_below" text="thấp" />
+        <text name="ft_soiltgt_rel_near" text="gần" />
+        <text name="ft_soiltgt_rel_ok" text="đạt" />
+        <text name="ft_soiltgt_rel_high" text="cao" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Lượt gần nhất: đạt mục tiêu" />
+        <text name="ft_soiltgt_state_binding" text="Lượt gần nhất: thiếu, hỗn hợp" />
+        <text name="ft_soiltgt_state_hardware" text="Lượt gần nhất: thiếu, máy" />
+        <text name="ft_soiltgt_state_supply" text="Lượt gần nhất: thiếu, hết" />
+        <text name="ft_soiltgt_state_quantized" text="Lượt gần nhất: dưới một bậc" />
+        <text name="ft_soiltgt_state_failed" text="Lượt gần nhất: đã tiêu hao" />
+        <text name="ft_soiltgt_state_none" text="Lượt gần nhất: chưa có cho cây này" />
+        <text name="ft_soiltgt_scope" text="Một vệt, không phải cả ruộng" />
+        <text name="ft_soiltgt_binding" text="Thêm sẽ vượt quá %s" />
+        <text name="ft_soiltgt_failed" text="N/P/K tại chỗ chưa được xác nhận." />
+        <text name="ft_soiltgt_litres" text="Dự kiến %s L, đã bón %s L" />
+        <text name="ft_soiltgt_local" text="Tại đây, ô %s m: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Tại đây: không có số đo đất" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="TỰ ĐỘNG tạm dừng: không có cây đang phát triển" />
+        <text name="ft_soiltgt_r_unavailable" text="TỰ ĐỘNG tạm dừng: mục tiêu không khả dụng" />
+        <text name="ft_soiltgt_r_mixed_crop" text="TỰ ĐỘNG tạm dừng: ranh giới cây trồng" />
+        <text name="ft_soiltgt_r_mixed_field" text="TỰ ĐỘNG tạm dừng: ranh giới ruộng" />
+        <text name="ft_soiltgt_r_farm_access" text="TỰ ĐỘNG tạm dừng: không có quyền vào đất này" />
+        <text name="ft_soiltgt_r_unknown_product" text="TỰ ĐỘNG tạm dừng: sản phẩm không hợp lệ" />
+        <text name="ft_soiltgt_r_sowability" text="TỰ ĐỘNG tạm dừng: gieo không bón phân mục tiêu" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="TỰ ĐỘNG tạm dừng: không phải mọi đoạn đều bật" />
+        <text name="ft_soiltgt_r_cell_overlap" text="TỰ ĐỘNG tạm dừng: vùng làm việc chồng nhau" />
+        <text name="ft_soiltgt_r_cultivation" text="TỰ ĐỘNG tạm dừng: máy xới không có mục tiêu" />
+        <text name="ft_soiltgt_r_source_contract" text="TỰ ĐỘNG tạm dừng: nguồn cấp không được hỗ trợ" />
+        <text name="ft_soiltgt_r_doubled" text="TỰ ĐỘNG tạm dừng: đang bật liều gấp đôi" />
+        <text name="ft_soiltgt_r_priming" text="TỰ ĐỘNG: đang chuẩn bị vệt làm việc" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="KẾ HOẠCH XỬ LÝ (ước tính)" />
         <text name="ft_soilnut_no_actions" text="Không cần làm gì - các mức đều tốt." />
         <text name="ft_changelog_253_new_1" text="Ứng dụng Lập kế hoạch luân canh: lập kế hoạch luân canh theo khuyến nghị của Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="Ứng dụng Bộ công cụ tưới tiêu: bức tranh tưới tiêu chỉ đọc của Seasonal Crop Stress" />

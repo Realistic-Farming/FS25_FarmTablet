@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="此田地沒有土壤資料。" />
         <text name="ft_soilnut_unscouted" text="未勘查" />
         <text name="ft_soilnut_treatment_plan" text="處理計畫" />
+        <text name="ft_soiltgt_title" text="自動目標" />
+        <text name="ft_soiltgt_window" text="田地報告：N %s，P %s，K %s" />
+        <text name="ft_soiltgt_window_none" text="田地報告：無作物範圍" />
+        <text name="ft_soiltgt_rel_below" text="偏低" />
+        <text name="ft_soiltgt_rel_near" text="接近" />
+        <text name="ft_soiltgt_rel_ok" text="適宜" />
+        <text name="ft_soiltgt_rel_high" text="偏高" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="上次作業：已達目標" />
+        <text name="ft_soiltgt_state_binding" text="上次作業：不足，混合肥" />
+        <text name="ft_soiltgt_state_hardware" text="上次作業：不足，機器" />
+        <text name="ft_soiltgt_state_supply" text="上次作業：不足，已用完" />
+        <text name="ft_soiltgt_state_quantized" text="上次作業：低於一級" />
+        <text name="ft_soiltgt_state_failed" text="上次作業：產品已消耗" />
+        <text name="ft_soiltgt_state_none" text="上次作業：此作物暫無" />
+        <text name="ft_soiltgt_scope" text="一條作業軌跡，並非整塊田地" />
+        <text name="ft_soiltgt_binding" text="再多會超過 %s" />
+        <text name="ft_soiltgt_failed" text="本地 N/P/K 未確認。" />
+        <text name="ft_soiltgt_litres" text="計畫 %s 公升，已施用 %s 公升" />
+        <text name="ft_soiltgt_local" text="此處，%s 公尺單元：N %s，P %s，K %s" />
+        <text name="ft_soiltgt_local_none" text="此處：沒有土壤讀數" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="自動已暫停：沒有生長中的作物" />
+        <text name="ft_soiltgt_r_unavailable" text="自動已暫停：目標無法使用" />
+        <text name="ft_soiltgt_r_mixed_crop" text="自動已暫停：作物邊界" />
+        <text name="ft_soiltgt_r_mixed_field" text="自動已暫停：田地邊界" />
+        <text name="ft_soiltgt_r_farm_access" text="自動已暫停：無權進入此土地" />
+        <text name="ft_soiltgt_r_unknown_product" text="自動已暫停：產品無效" />
+        <text name="ft_soiltgt_r_sowability" text="自動已暫停：播種不帶目標施肥" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="自動已暫停：並非所有分段都開啟" />
+        <text name="ft_soiltgt_r_cell_overlap" text="自動已暫停：作業區域重疊" />
+        <text name="ft_soiltgt_r_cultivation" text="自動已暫停：中耕機沒有目標" />
+        <text name="ft_soiltgt_r_source_contract" text="自動已暫停：不支援的供給方式" />
+        <text name="ft_soiltgt_r_doubled" text="自動已暫停：雙倍用量已開啟" />
+        <text name="ft_soiltgt_r_priming" text="自動：正在準備作業軌跡" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="處理計畫（估算）" />
         <text name="ft_soilnut_no_actions" text="無需處理 - 數值良好。" />
         <text name="ft_changelog_253_new_1" text="輪作規劃應用程式：依 Soil &amp; Fertilizer 自身的建議規劃作物輪作" />
         <text name="ft_changelog_253_new_2" text="灌溉套件應用程式：Seasonal Crop Stress 灌溉的唯讀作業概況" />

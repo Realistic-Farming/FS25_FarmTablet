@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="この畑の土壌データはありません。" />
         <text name="ft_soilnut_unscouted" text="未調査" />
         <text name="ft_soilnut_treatment_plan" text="処理計画" />
+        <text name="ft_soiltgt_title" text="自動目標" />
+        <text name="ft_soiltgt_window" text="フィールド報告: N %s、P %s、K %s" />
+        <text name="ft_soiltgt_window_none" text="フィールド報告: 適正範囲なし" />
+        <text name="ft_soiltgt_rel_below" text="不足" />
+        <text name="ft_soiltgt_rel_near" text="接近" />
+        <text name="ft_soiltgt_rel_ok" text="適正" />
+        <text name="ft_soiltgt_rel_high" text="超過" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="前回: 目標達成" />
+        <text name="ft_soiltgt_state_binding" text="前回: 未達、配合" />
+        <text name="ft_soiltgt_state_hardware" text="前回: 未達、機械" />
+        <text name="ft_soiltgt_state_supply" text="前回: 未達、資材切れ" />
+        <text name="ft_soiltgt_state_quantized" text="前回: 1段階未満" />
+        <text name="ft_soiltgt_state_failed" text="前回: 資材を消費済み" />
+        <text name="ft_soiltgt_state_none" text="前回: この作物ではなし" />
+        <text name="ft_soiltgt_scope" text="作業跡1つ、フィールド全体ではない" />
+        <text name="ft_soiltgt_binding" text="さらに使うと %s を超過" />
+        <text name="ft_soiltgt_failed" text="局所的な N/P/K は確認されていません。" />
+        <text name="ft_soiltgt_litres" text="計画 %s L、散布 %s L" />
+        <text name="ft_soiltgt_local" text="現在地、%s m セル: N %s、P %s、K %s" />
+        <text name="ft_soiltgt_local_none" text="現在地: 土壌データなし" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="自動一時停止: 生育中の作物なし" />
+        <text name="ft_soiltgt_r_unavailable" text="自動一時停止: 目標を利用できません" />
+        <text name="ft_soiltgt_r_mixed_crop" text="自動一時停止: 作物の境界" />
+        <text name="ft_soiltgt_r_mixed_field" text="自動一時停止: フィールドの境界" />
+        <text name="ft_soiltgt_r_farm_access" text="自動一時停止: この土地に立ち入れません" />
+        <text name="ft_soiltgt_r_unknown_product" text="自動一時停止: 無効な資材" />
+        <text name="ft_soiltgt_r_sowability" text="自動一時停止: 目標施肥なしで播種" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="自動一時停止: 一部のセクションがオフ" />
+        <text name="ft_soiltgt_r_cell_overlap" text="自動一時停止: 作業範囲が重複" />
+        <text name="ft_soiltgt_r_cultivation" text="自動一時停止: カルチベーターに目標なし" />
+        <text name="ft_soiltgt_r_source_contract" text="自動一時停止: 対応していない供給方法" />
+        <text name="ft_soiltgt_r_doubled" text="自動一時停止: 倍量散布がオン" />
+        <text name="ft_soiltgt_r_priming" text="自動: 作業跡を準備中" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="処理計画（推定）" />
         <text name="ft_soilnut_no_actions" text="対処不要 - 数値は良好です。" />
         <text name="ft_changelog_253_new_1" text="輪作プランナーアプリ：Soil &amp; Fertilizer 自身の推奨に基づいて輪作を計画" />
         <text name="ft_changelog_253_new_2" text="灌漑スイートアプリ：Seasonal Crop Stress の灌漑を読み取り専用で把握" />

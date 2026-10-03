@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Tälle pellolle ei ole maaperätietoja." />
         <text name="ft_soilnut_unscouted" text="Tarkastamatta" />
         <text name="ft_soilnut_treatment_plan" text="KÄSITTELYSUUNNITELMA" />
+        <text name="ft_soiltgt_title" text="AUTO-tavoite" />
+        <text name="ft_soiltgt_window" text="Peltoraportti: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Peltoraportti: ei kasvi-ikkunaa" />
+        <text name="ft_soiltgt_rel_below" text="alhainen" />
+        <text name="ft_soiltgt_rel_near" text="lähellä" />
+        <text name="ft_soiltgt_rel_ok" text="hyvä" />
+        <text name="ft_soiltgt_rel_high" text="korkea" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Viimeisin ajo: tavoite saavutettu" />
+        <text name="ft_soiltgt_state_binding" text="Viimeisin ajo: vajaa, seos" />
+        <text name="ft_soiltgt_state_hardware" text="Viimeisin ajo: vajaa, kone" />
+        <text name="ft_soiltgt_state_supply" text="Viimeisin ajo: vajaa, loppui" />
+        <text name="ft_soiltgt_state_quantized" text="Viimeisin ajo: alle karttaportaan" />
+        <text name="ft_soiltgt_state_failed" text="Viimeisin ajo: tuote kulutettu" />
+        <text name="ft_soiltgt_state_none" text="Viimeisin ajo: ei tälle kasville" />
+        <text name="ft_soiltgt_scope" text="Yksi työala, ei koko peltoa" />
+        <text name="ft_soiltgt_binding" text="Enemmän ylittäisi ravinteen %s" />
+        <text name="ft_soiltgt_failed" text="Paikallista N/P/K:ta ei ole vahvistettu." />
+        <text name="ft_soiltgt_litres" text="Suunniteltu %s L, levitetty %s L" />
+        <text name="ft_soiltgt_local" text="Tässä, %s m solut: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Tässä: ei maaperälukemaa" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="AUTO tauolla: ei kasvavaa viljelykasvia" />
+        <text name="ft_soiltgt_r_unavailable" text="AUTO tauolla: tavoite ei saatavilla" />
+        <text name="ft_soiltgt_r_mixed_crop" text="AUTO tauolla: kasvien raja" />
+        <text name="ft_soiltgt_r_mixed_field" text="AUTO tauolla: pellon raja" />
+        <text name="ft_soiltgt_r_farm_access" text="AUTO tauolla: ei pääsyä tälle maalle" />
+        <text name="ft_soiltgt_r_unknown_product" text="AUTO tauolla: virheellinen tuote" />
+        <text name="ft_soiltgt_r_sowability" text="AUTO tauolla: kylvö ilman kohdelannoitusta" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="AUTO tauolla: kaikki lohkot eivät ole päällä" />
+        <text name="ft_soiltgt_r_cell_overlap" text="AUTO tauolla: työalueet menevät päällekkäin" />
+        <text name="ft_soiltgt_r_cultivation" text="AUTO tauolla: kultivaattorilla ei tavoitetta" />
+        <text name="ft_soiltgt_r_source_contract" text="AUTO tauolla: syöttöreittiä ei tueta" />
+        <text name="ft_soiltgt_r_doubled" text="AUTO tauolla: kaksinkertainen annos päällä" />
+        <text name="ft_soiltgt_r_priming" text="AUTO: työalaa valmistellaan" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="KÄSITTELYSUUNNITELMA (arvio)" />
         <text name="ft_soilnut_no_actions" text="Ei toimenpiteitä - tasot näyttävät hyviltä." />
         <text name="ft_changelog_253_new_1" text="Viljelykierron suunnittelu -sovellus: suunnittele viljelykierto Soil &amp; Fertilizerin omien suositusten avulla" />
         <text name="ft_changelog_253_new_2" text="Kastelukeskus-sovellus: vain luku -tilannekuva Seasonal Crop Stressin kastelusta" />

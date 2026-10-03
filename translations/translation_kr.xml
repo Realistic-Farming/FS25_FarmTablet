@@ -2954,6 +2954,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="이 밭의 토양 데이터가 없습니다." />
         <text name="ft_soilnut_unscouted" text="미조사" />
         <text name="ft_soilnut_treatment_plan" text="처리 계획" />
+        <text name="ft_soiltgt_title" text="자동 목표" />
+        <text name="ft_soiltgt_window" text="필드 보고: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="필드 보고: 적정 범위 없음" />
+        <text name="ft_soiltgt_rel_below" text="부족" />
+        <text name="ft_soiltgt_rel_near" text="근접" />
+        <text name="ft_soiltgt_rel_ok" text="적정" />
+        <text name="ft_soiltgt_rel_high" text="초과" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="지난 작업: 목표 도달" />
+        <text name="ft_soiltgt_state_binding" text="지난 작업: 미달, 혼합물" />
+        <text name="ft_soiltgt_state_hardware" text="지난 작업: 미달, 기계" />
+        <text name="ft_soiltgt_state_supply" text="지난 작업: 미달, 소진" />
+        <text name="ft_soiltgt_state_quantized" text="지난 작업: 한 단계 미만" />
+        <text name="ft_soiltgt_state_failed" text="지난 작업: 제품 소모됨" />
+        <text name="ft_soiltgt_state_none" text="지난 작업: 이 작물 없음" />
+        <text name="ft_soiltgt_scope" text="작업 흔적 하나, 필드 전체 아님" />
+        <text name="ft_soiltgt_binding" text="더 쓰면 %s 초과" />
+        <text name="ft_soiltgt_failed" text="국소 N/P/K가 확인되지 않았습니다." />
+        <text name="ft_soiltgt_litres" text="계획 %s L, 살포 %s L" />
+        <text name="ft_soiltgt_local" text="현재 위치, %s m 셀: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="현재 위치: 토양 측정값 없음" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="자동 일시 중지: 자라는 작물 없음" />
+        <text name="ft_soiltgt_r_unavailable" text="자동 일시 중지: 목표 사용 불가" />
+        <text name="ft_soiltgt_r_mixed_crop" text="자동 일시 중지: 작물 경계" />
+        <text name="ft_soiltgt_r_mixed_field" text="자동 일시 중지: 필드 경계" />
+        <text name="ft_soiltgt_r_farm_access" text="자동 일시 중지: 이 토지에 접근 불가" />
+        <text name="ft_soiltgt_r_unknown_product" text="자동 일시 중지: 잘못된 제품" />
+        <text name="ft_soiltgt_r_sowability" text="자동 일시 중지: 목표 시비 없이 파종" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="자동 일시 중지: 일부 구간 꺼짐" />
+        <text name="ft_soiltgt_r_cell_overlap" text="자동 일시 중지: 작업 영역 겹침" />
+        <text name="ft_soiltgt_r_cultivation" text="자동 일시 중지: 컬티베이터에는 목표 없음" />
+        <text name="ft_soiltgt_r_source_contract" text="자동 일시 중지: 지원되지 않는 공급 방식" />
+        <text name="ft_soiltgt_r_doubled" text="자동 일시 중지: 두 배 살포 켜짐" />
+        <text name="ft_soiltgt_r_priming" text="자동: 작업 흔적 준비 중" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="처리 계획 (추정)" />
         <text name="ft_soilnut_no_actions" text="조치 없음 - 수치가 양호합니다." />
         <text name="ft_changelog_253_new_1" text="윤작 계획 앱: Soil &amp; Fertilizer 자체 권장 사항으로 작물 윤작 계획" />
         <text name="ft_changelog_253_new_2" text="관개 도구 앱: Seasonal Crop Stress 관개를 읽기 전용으로 보여 주는 현황" />

@@ -2996,6 +2996,41 @@
         <text name="ft_soilnut_no_soil_data_field" text="Нет данных почвы для этого поля." />
         <text name="ft_soilnut_unscouted" text="Не обследовано" />
         <text name="ft_soilnut_treatment_plan" text="ПЛАН ОБРАБОТКИ" />
+        <text name="ft_soiltgt_title" text="АВТО цель" />
+        <text name="ft_soiltgt_window" text="Отчёт поля: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_window_none" text="Отчёт поля: окна культуры нет" />
+        <text name="ft_soiltgt_rel_below" text="низко" />
+        <text name="ft_soiltgt_rel_near" text="близко" />
+        <text name="ft_soiltgt_rel_ok" text="норма" />
+        <text name="ft_soiltgt_rel_high" text="высоко" />
+        <text name="ft_soiltgt_rel_unknown" text="?" />
+        <text name="ft_soiltgt_state_reached" text="Последний проход: цель достигнута" />
+        <text name="ft_soiltgt_state_binding" text="Последний проход: мало, смесь" />
+        <text name="ft_soiltgt_state_hardware" text="Последний проход: мало, машина" />
+        <text name="ft_soiltgt_state_supply" text="Последний проход: мало, кончилось" />
+        <text name="ft_soiltgt_state_quantized" text="Последний проход: ниже шага" />
+        <text name="ft_soiltgt_state_failed" text="Последний проход: продукт израсходован" />
+        <text name="ft_soiltgt_state_none" text="Последний проход: нет для культуры" />
+        <text name="ft_soiltgt_scope" text="Один след, не всё поле" />
+        <text name="ft_soiltgt_binding" text="Больше превысило бы %s" />
+        <text name="ft_soiltgt_failed" text="Локальные N/P/K не подтверждены." />
+        <text name="ft_soiltgt_litres" text="План %s л, внесено %s л" />
+        <text name="ft_soiltgt_local" text="Здесь, ячейки %s м: N %s, P %s, K %s" />
+        <text name="ft_soiltgt_local_none" text="Здесь: нет данных почвы" />
+        <text name="ft_soiltgt_r_unsupported_crop" text="АВТО на паузе: нет растущей культуры" />
+        <text name="ft_soiltgt_r_unavailable" text="АВТО на паузе: цель недоступна" />
+        <text name="ft_soiltgt_r_mixed_crop" text="АВТО на паузе: граница культур" />
+        <text name="ft_soiltgt_r_mixed_field" text="АВТО на паузе: граница поля" />
+        <text name="ft_soiltgt_r_farm_access" text="АВТО на паузе: нет доступа к этой земле" />
+        <text name="ft_soiltgt_r_unknown_product" text="АВТО на паузе: недопустимый продукт" />
+        <text name="ft_soiltgt_r_sowability" text="АВТО на паузе: посев без целевого удобрения" />
+        <text name="ft_soiltgt_r_nozzle_partial" text="АВТО на паузе: включены не все секции" />
+        <text name="ft_soiltgt_r_cell_overlap" text="АВТО на паузе: рабочие зоны перекрываются" />
+        <text name="ft_soiltgt_r_cultivation" text="АВТО на паузе: у культиватора нет цели" />
+        <text name="ft_soiltgt_r_source_contract" text="АВТО на паузе: способ подачи не поддерживается" />
+        <text name="ft_soiltgt_r_doubled" text="АВТО на паузе: включена двойная доза" />
+        <text name="ft_soiltgt_r_priming" text="АВТО: подготовка рабочего следа" />
+        <text name="ft_soilnut_treatment_plan_estimate" text="ПЛАН ОБРАБОТКИ (оценка)" />
         <text name="ft_soilnut_no_actions" text="Действий нет - уровни в норме." />
         <text name="ft_changelog_253_new_1" text="Приложение «Планировщик севооборота»: планируйте севооборот по рекомендациям Soil &amp; Fertilizer" />
         <text name="ft_changelog_253_new_2" text="Приложение «Система полива»: сводка полива Seasonal Crop Stress только для чтения" />
