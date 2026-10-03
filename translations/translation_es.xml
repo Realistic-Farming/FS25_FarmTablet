@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Última pasada: bajo un paso del mapa" />
         <text name="ft_soiltgt_state_failed" text="Última pasada: producto gastado" />
         <text name="ft_soiltgt_state_none" text="Última pasada: ninguna en este cultivo" />
+        <text name="ft_soiltgt_state_paused" text="Última pausa: sin cultivo creciendo" />
+        <text name="ft_soiltgt_pause_hint" text="Desactiva AUTO para aplicar a mano" />
         <text name="ft_soiltgt_scope" text="Una huella, no todo el campo" />
         <text name="ft_soiltgt_binding" text="Más superaría %s" />
         <text name="ft_soiltgt_failed" text="N/P/K local no confirmado." />

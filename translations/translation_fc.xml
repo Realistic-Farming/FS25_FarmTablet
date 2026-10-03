@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Dernier passage : sous un palier" />
         <text name="ft_soiltgt_state_failed" text="Dernier passage : produit consommé" />
         <text name="ft_soiltgt_state_none" text="Dernier passage : aucun sur cette culture" />
+        <text name="ft_soiltgt_state_paused" text="Dernière pause : rien en croissance" />
+        <text name="ft_soiltgt_pause_hint" text="Désactivez AUTO pour un épandage manuel" />
         <text name="ft_soiltgt_scope" text="Une empreinte, pas tout le champ" />
         <text name="ft_soiltgt_binding" text="Plus dépasserait %s" />
         <text name="ft_soiltgt_failed" text="N/P/K local non confirmé." />

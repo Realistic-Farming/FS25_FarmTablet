@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Lintasan terakhir: di bawah langkah" />
         <text name="ft_soiltgt_state_failed" text="Lintasan terakhir: produk terpakai" />
         <text name="ft_soiltgt_state_none" text="Lintasan terakhir: belum untuk tanaman ini" />
+        <text name="ft_soiltgt_state_paused" text="Jeda terakhir: tidak ada tanaman tumbuh" />
+        <text name="ft_soiltgt_pause_hint" text="Matikan AUTO untuk aplikasi manual" />
         <text name="ft_soiltgt_scope" text="Satu jejak, bukan seluruh ladang" />
         <text name="ft_soiltgt_binding" text="Lebih banyak akan melampaui %s" />
         <text name="ft_soiltgt_failed" text="N/P/K lokal belum dikonfirmasi." />

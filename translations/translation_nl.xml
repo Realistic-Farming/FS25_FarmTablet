@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Laatste gang: onder een kaartstap" />
         <text name="ft_soiltgt_state_failed" text="Laatste gang: product verbruikt" />
         <text name="ft_soiltgt_state_none" text="Laatste gang: geen bij dit gewas" />
+        <text name="ft_soiltgt_state_paused" text="Laatste pauze: geen gewas groeit" />
+        <text name="ft_soiltgt_pause_hint" text="AUTO uit voor handmatig toedienen" />
         <text name="ft_soiltgt_scope" text="Eén werkstrook, niet het perceel" />
         <text name="ft_soiltgt_binding" text="Meer zou %s overschrijden" />
         <text name="ft_soiltgt_failed" text="Lokale N/P/K niet bevestigd." />

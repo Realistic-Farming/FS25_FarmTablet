@@ -2970,6 +2970,8 @@
         <text name="ft_soiltgt_state_quantized" text="Letzte Fahrt: unter Kartenstufe" />
         <text name="ft_soiltgt_state_failed" text="Letzte Fahrt: Produkt verbraucht" />
         <text name="ft_soiltgt_state_none" text="Letzte Fahrt: keine für diese Kultur" />
+        <text name="ft_soiltgt_state_paused" text="Letzte Pause: keine wachsende Kultur" />
+        <text name="ft_soiltgt_pause_hint" text="Zielautomatik aus, dann manuell" />
         <text name="ft_soiltgt_scope" text="Eine Arbeitsfläche, nicht das Feld" />
         <text name="ft_soiltgt_binding" text="Mehr würde %s überschreiten" />
         <text name="ft_soiltgt_failed" text="Lokales N/P/K ist nicht bestätigt." />

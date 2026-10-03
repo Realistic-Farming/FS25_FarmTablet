@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Viimeisin ajo: alle karttaportaan" />
         <text name="ft_soiltgt_state_failed" text="Viimeisin ajo: tuote kulutettu" />
         <text name="ft_soiltgt_state_none" text="Viimeisin ajo: ei tälle kasville" />
+        <text name="ft_soiltgt_state_paused" text="Viimeisin tauko: ei kasvavaa kasvustoa" />
+        <text name="ft_soiltgt_pause_hint" text="Kytke AUTO pois käsilevitystä varten" />
         <text name="ft_soiltgt_scope" text="Yksi työala, ei koko peltoa" />
         <text name="ft_soiltgt_binding" text="Enemmän ylittäisi ravinteen %s" />
         <text name="ft_soiltgt_failed" text="Paikallista N/P/K:ta ei ole vahvistettu." />

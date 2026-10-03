@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Останній прохід: нижче кроку" />
         <text name="ft_soiltgt_state_failed" text="Останній прохід: продукт витрачено" />
         <text name="ft_soiltgt_state_none" text="Останній прохід: немає для культури" />
+        <text name="ft_soiltgt_state_paused" text="Остання пауза: ніщо не росте" />
+        <text name="ft_soiltgt_pause_hint" text="Вимкніть АВТО для ручного внесення" />
         <text name="ft_soiltgt_scope" text="Один слід, не все поле" />
         <text name="ft_soiltgt_binding" text="Більше перевищило б %s" />
         <text name="ft_soiltgt_failed" text="Локальні N/P/K не підтверджено." />

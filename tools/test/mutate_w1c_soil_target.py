@@ -1,4 +1,4 @@
-# SF-73 section 7, W1c: the Soil app's AUTO target block, targeted mutation battery (Tyson, 2026-09-25 and
+# SF-73 section 7, W1c and its last-pause follow-on: the Soil app's AUTO target block, targeted mutation battery (Tyson, 2026-09-25 and
 # 2026-09-30: only the lines this PR adds). Each mutation undoes one piece of src/apps/SoilNutrientApp.lua, and a bar
 # must FAIL on a named row: tools/test/soil-target-block-check.mjs (the block, drawn through the real registry over
 # a recorder of Soil's reads) and tools/test/l10n-soil-nutrient-check.mjs (the text rows). Both bars run for every
@@ -17,6 +17,7 @@
 #   - the local line's knowledgeState test: Soil sets a nutrient's grainMetres only when it is KNOWN;
 #   - the block's height (tgtH): layout, not text (the in-game check names overlap);
 #   - the colours: presentation (the in-game check);
+#   - the pause read's method check: without it, _soilRead answers nil the same way (Q10 pins the older Soil);
 #   - comments and the header.
 import hashlib, os, subprocess, sys
 
@@ -67,11 +68,11 @@ MUTATIONS = [
      one("(tonumber(p.notedAt) or 0) > (tonumber(pass.notedAt) or 0)", "(tonumber(p.notedAt) or 0) < (tonumber(pass.notedAt) or 0)"),
      "a merged field shows its oldest pass (P8)"),
     ("M10-lead-only-pass", APP,
-     one('        local pass = nil\n        for _, id in ipairs(members) do\n',
-         '        local pass = nil\n        for _, id in ipairs({ card.id }) do\n'),
+     one('    if passRead then\n        for _, id in ipairs(members) do\n',
+         '    if passRead then\n        for _, id in ipairs({ card.id }) do\n'),
      "a member's pass never reaches the lead's card (P8)"),
     ("M11-none-without-the-read", APP,
-     one('    if type(soilSys.getLastTargetPassForField) == "function" then\n', "    if true then\n"),
+     one('    local passRead = type(soilSys.getLastTargetPassForField) == "function"\n', "    local passRead = true\n"),
      "a Soil without the pass read draws 'none' (P10)"),
     ("M12-no-estimate-label", APP,
      one("            hasPass = true\n", ""),
@@ -102,6 +103,34 @@ MUTATIONS = [
     ("M20-local-needs-a-crop", APP,
      one("        if grain ~= nil then\n", "        if grain ~= nil and loc.cropKey ~= nil then\n"),
      "a map reading where nothing grows said as no reading (H5)"),
+    # the Tablet's last pause (Soil #1090's read, the PDA card's rules)
+    ("M21-denied-access-pause", APP,
+     one('                if x == "FARM_ACCESS" then denied = true end\n', '                if false then denied = true end\n'),
+     "a pause naming denied access drawn as this farm's (Q7)"),
+    ("M22-pause-any-crop", APP,
+     one(" and not denied and q.fieldCrop ~= nil and q.fieldCrop == rel.cropKey\n", " and not denied\n"),
+     "a pause noted under another crop drawn on the resown field (Q6)"),
+    ("M23-pause-always-wins", APP,
+     one("        if pause ~= nil and pass ~= nil and not ((tonumber(pause.notedAt) or 0) > (tonumber(pass.notedAt) or 0)) then\n"
+         "            pause = nil\n        end\n", ""),
+     "an older pause hides a newer pass (Q4, Q5)"),
+    ("M24-tie-to-the-pause", APP,
+     one("not ((tonumber(pause.notedAt) or 0) > (tonumber(pass.notedAt) or 0))", "not ((tonumber(pause.notedAt) or 0) >= (tonumber(pass.notedAt) or 0))"),
+     "a tie goes to the pause (Q5)"),
+    ("M25-oldest-pause", APP,
+     one("(pause == nil or (tonumber(q.notedAt) or 0) > (tonumber(pause.notedAt) or 0))", "(pause == nil or (tonumber(q.notedAt) or 0) < (tonumber(pause.notedAt) or 0))"),
+     "a merged field shows its oldest pause (Q13)"),
+    ("M26-pause-reads-as-none", APP,
+     one('    line = { key = "ft_soiltgt_state_paused", fallback = "Last pause: no growing crop" },',
+         '    line = { key = "ft_soiltgt_state_none", fallback = "Last pass: none on this crop" },'),
+     "the pause line reads as no pass (Q1, Q3)"),
+    ("M27-pause-is-a-dose", APP,
+     one("        add(_tgtText(TGT_PAUSE.note.key, TGT_PAUSE.note.fallback), FT.C.TEXT_DIM)\n",
+         "        add(_tgtText(TGT_PAUSE.note.key, TGT_PAUSE.note.fallback), FT.C.TEXT_DIM)\n        hasPass = true\n"),
+     "a pause labels the plan an estimate as if a dose were confirmed (Q2)"),
+    ("M28-pause-unflagged-note", APP,
+     one("        add(_tgtText(TGT_PAUSE.note.key, TGT_PAUSE.note.fallback), FT.C.TEXT_DIM)\n", ""),
+     "the pause loses its manual hint (Q1)"),
 ]
 
 def sha(path):

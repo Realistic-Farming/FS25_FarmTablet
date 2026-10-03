@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Ostatni przejazd: poniżej kroku" />
         <text name="ft_soiltgt_state_failed" text="Ostatni przejazd: produkt zużyty" />
         <text name="ft_soiltgt_state_none" text="Ostatni przejazd: brak dla tej uprawy" />
+        <text name="ft_soiltgt_state_paused" text="Ostatnia pauza: brak rosnącej uprawy" />
+        <text name="ft_soiltgt_pause_hint" text="Wyłącz AUTO, aby aplikować ręcznie" />
         <text name="ft_soiltgt_scope" text="Jeden ślad, nie całe pole" />
         <text name="ft_soiltgt_binding" text="Więcej przekroczyłoby %s" />
         <text name="ft_soiltgt_failed" text="Lokalne N/P/K niepotwierdzone." />

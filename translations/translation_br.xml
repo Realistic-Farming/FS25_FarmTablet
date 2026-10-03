@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Última passada: abaixo de um passo" />
         <text name="ft_soiltgt_state_failed" text="Última passada: produto gasto" />
         <text name="ft_soiltgt_state_none" text="Última passada: nenhuma nesta cultura" />
+        <text name="ft_soiltgt_state_paused" text="Última pausa: nada em crescimento" />
+        <text name="ft_soiltgt_pause_hint" text="Desligue o AUTO para aplicação manual" />
         <text name="ft_soiltgt_scope" text="Uma pegada, não o campo todo" />
         <text name="ft_soiltgt_binding" text="Mais passaria de %s" />
         <text name="ft_soiltgt_failed" text="N/P/K local não confirmado." />

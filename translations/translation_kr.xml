@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="지난 작업: 한 단계 미만" />
         <text name="ft_soiltgt_state_failed" text="지난 작업: 제품 소모됨" />
         <text name="ft_soiltgt_state_none" text="지난 작업: 이 작물 없음" />
+        <text name="ft_soiltgt_state_paused" text="지난 일시 중지: 자라는 작물 없음" />
+        <text name="ft_soiltgt_pause_hint" text="수동 살포하려면 자동을 끄세요" />
         <text name="ft_soiltgt_scope" text="작업 흔적 하나, 필드 전체 아님" />
         <text name="ft_soiltgt_binding" text="더 쓰면 %s 초과" />
         <text name="ft_soiltgt_failed" text="국소 N/P/K가 확인되지 않았습니다." />

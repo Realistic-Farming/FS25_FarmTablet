@@ -2969,6 +2969,8 @@
         <text name="ft_soiltgt_state_quantized" text="Ultima trecere: sub un pas" />
         <text name="ft_soiltgt_state_failed" text="Ultima trecere: produs consumat" />
         <text name="ft_soiltgt_state_none" text="Ultima trecere: niciuna pe cultură" />
+        <text name="ft_soiltgt_state_paused" text="Ultima pauză: nimic nu crește" />
+        <text name="ft_soiltgt_pause_hint" text="Oprește AUTO pentru aplicare manuală" />
         <text name="ft_soiltgt_scope" text="O amprentă, nu tot câmpul" />
         <text name="ft_soiltgt_binding" text="Mai mult ar depăși %s" />
         <text name="ft_soiltgt_failed" text="N/P/K local neconfirmat." />
