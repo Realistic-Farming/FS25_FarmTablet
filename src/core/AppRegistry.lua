@@ -205,6 +205,12 @@ function AppRegistry.resolve(id)
     if id == FT.APP.TIME_CONTROLS then
         return FT.APP.FARM_ADMIN
     end
+    -- The Crop Stress tile is gone; Irrigation Suite covers that mod. switchApp resolves an id
+    -- BEFORE it checks registration, so this is what stops a saved startupApp, a favourite or a
+    -- tile left on the rail in a running session from opening nothing at all.
+    if id == FT.APP.CROP_STRESS then
+        return FT.APP.IRRIGATION_SUITE
+    end
     if id == FT.APP.DIGGING or id == FT.APP.BUCKET then
         return FT.APP.EXCAVATOR
     end
