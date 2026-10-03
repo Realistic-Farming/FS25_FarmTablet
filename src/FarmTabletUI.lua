@@ -3131,10 +3131,22 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
+    -- BUILD 17:48 (George CLOSED DESIGN 17:40 item 6): Back used to sit at startY + 2, which is
+    -- inside the first section band. That band is drawn at y - 1 with a height of 14 from a y of
+    -- startY - 10, so it painted straight over the button on every Help page in the tablet.
+    --
+    -- It moves into the header row, into the clear gap between the divider and the header text.
+    -- drawAppHeader puts its divider 18px above the value it returns, so this band is empty by
+    -- construction, and the first section band starts below the divider and can never reach it.
+    -- Deviation worth naming: George asked for it left of the "Help" subtitle on the same line.
+    -- That needs the rendered width of the subtitle, and this renderer exposes no text measurement,
+    -- so guessing a clearance would risk overlapping that word at some resolutions. Sitting just
+    -- above the divider is in the same header block, is clear of the subtitle by construction
+    -- rather than by arithmetic, and meets the requirement the band must not cover it.
     local bw = FT.px(52)
-    local bh = FT.py(18)
+    local bh = FT.py(16)
     local backBtn = self.r:button(
-        x + w - bw, startY + FT.py(2), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
+        x + w - bw, startY + FT.py(13), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
