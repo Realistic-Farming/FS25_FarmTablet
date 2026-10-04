@@ -46,3 +46,9 @@
 
 ## 2026-10-03 (Fred): SF-73, the Soil app shows a field's last no-crop pause
 - [x] The Soil app also reads Soil Fertilizer's last-pause read (getLastTargetPauseForField, Soil #1090), feature-detected, so a stubble field after a refused AUTO pass reads "Last pause: no growing crop" with the manual hint, as the PDA card does, instead of "Last pass: none on this crop". The PDA card's rules hold: only while the field reports the crop the pause was noted under, only when newer than the last pass (a tie goes to the pass), the newest over a merged field's farmlands, never a pause naming denied access. A Soil without the read draws as before. Two keys in all 26 locales, Soil's own text. In-game verification pending.
+
+## 2026-10-04 (Fred): the Organic app names its barns, and Market Movers prices animals per head (Wizard, #213 and #217)
+
+- [x] Organic app (#213, merged at 262b62f3): a barn card shows the barn's name, by the same ladder the Dairy app uses (the row's own name, then the placeable's, then the existing barn label with a short id cut by characters), never its 32-character internal id. On a pure client the name resolves only when DairyCore's barn id is the client's own placeable id; otherwise the short id shows, as on the Dairy card.
+- [x] Market Movers (#217, merged at 38bd868e): an animal's per-head price is no longer multiplied by 1,000; a row counts as per head when the animal system knows its fill type, and a save without an animal system takes the old path.
+- The "(per 1,000 L)" heading still sits above animal rows: rewording it needs three translated strings, a follow-up Wizard names in #217. The in-game checks are TESTING rows 425 and 426. Docs by Fred's catch-up, on Tyson's word of 2026-10-04.
