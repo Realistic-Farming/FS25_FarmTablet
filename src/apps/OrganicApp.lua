@@ -74,6 +74,46 @@ local function _practiceLines(info)
     return lines
 end
 
+--- The same ladder DairyApp walks, so the two cards name a barn the same way. The card used to print barn.barnId raw, which is a 32-character
+--- uniqueId and means nothing to a player. Every step is pcall-guarded because a placeable can be
+--- mid-delete, and the last resort is a TRUNCATED id rather than the whole thing.
+local function _organicBarnLabel(row)
+    if row == nil then
+        return FT.l10nFormat("ft_organic_barn_fmt", "Barn %s", "?")
+    end
+    local human = row.nameCustom or row.displayName or row.barnName or row.name
+    if type(human) == "string" and human ~= "" then
+        return human
+    end
+    local barnId = row.barnId
+    local ps = (g_currentMission ~= nil) and g_currentMission.placeableSystem or nil
+    if barnId ~= nil and ps ~= nil and type(ps.getPlaceableByUniqueId) == "function" then
+        local ok, placeable = pcall(function() return ps:getPlaceableByUniqueId(barnId) end)
+        if ok and placeable ~= nil then
+            if type(placeable.getName) == "function" then
+                local okName, n = pcall(function() return placeable:getName() end)
+                if okName and type(n) == "string" and n ~= "" then return n end
+            end
+            if type(placeable.nameCustom) == "string" and placeable.nameCustom ~= "" then
+                return placeable.nameCustom
+            end
+            if type(placeable.nameL10n) == "string" and placeable.nameL10n ~= "" then
+                return placeable.nameL10n
+            end
+            local si = placeable.storeItem
+            if si ~= nil and type(si.name) == "string" and si.name ~= "" then
+                return si.name
+            end
+        end
+    end
+    local id = tostring(barnId or "?")
+    -- Characters, not bytes: a byte cut can split a multi-byte sequence.
+    if FT.utf8Len(id) > 24 then
+        id = FT.utf8Sub(id, 22) .. "..."
+    end
+    return FT.l10nFormat("ft_organic_barn_fmt", "Barn %s", id)
+end
+
 FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
     local AC = FT.appColor(FT.APP.ORGANIC)
 
@@ -331,7 +371,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
                 local feedFlag = barn.feedDiseaseFlag == true
 
                 self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-                    FT.l10nFormat("ft_organic_barn_fmt", "Barn %s", tostring(barn.barnId)),
+                    _organicBarnLabel(barn),
                     RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
                 y = y - FT.py(14)
 
