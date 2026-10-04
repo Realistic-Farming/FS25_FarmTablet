@@ -5,8 +5,6 @@
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## Bugs
-- [x] 2026-10-04: **Seasonal Crop Stress had no row in MOD INTEGRATIONS.** That list shows an entry whether or not the mod is installed, so with the row gone the suite stopped saying it integrates with the mod at all. The row is back and opens Irrigation Suite, which is the page that covers it. Bar: `tools/test/appstore-integration-row-check.mjs`.
-
 - [x] 2026-08-31: **Weather dial refusal now visible (issue #140).** The World Weather chips called `WeatherGuard:requestWeatherMode` inside a bare `pcall` and discarded the result, so on a dedicated server a refused or errored change looked like "nothing happened" with no message. The chip handler now captures the return, clears any stale notice on success, and on failure draws a notice line above the dial: admin-only wording when the player is not a host or master user, WeatherGuard-refused wording otherwise. In-game verification pending.
 
 - [x] 2026-07-30: `src/apps/ProStaffApp.lua:111` failed to COMPILE - `...` referenced from inside an anonymous function ("cannot use '...' outside of a vararg function"). Lua 5.1 does not let a nested closure see the enclosing function's vararg. The whole file was rejected, so the ProStaff app was dead in every session. `safeGet` now passes the varargs straight to `pcall` (no inner closure) and guards a missing method.

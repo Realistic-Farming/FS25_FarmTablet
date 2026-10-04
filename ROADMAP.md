@@ -46,6 +46,3 @@
 
 ## 2026-10-03 (Fred): SF-73, the Soil app shows a field's last no-crop pause
 - [x] The Soil app also reads Soil Fertilizer's last-pause read (getLastTargetPauseForField, Soil #1090), feature-detected, so a stubble field after a refused AUTO pass reads "Last pause: no growing crop" with the manual hint, as the PDA card does, instead of "Last pass: none on this crop". The PDA card's rules hold: only while the field reports the crop the pause was noted under, only when newer than the last pass (a tie goes to the pass), the newest over a merged field's farmlands, never a pause naming denied access. A Soil without the read draws as before. Two keys in all 26 locales, Soil's own text. In-game verification pending.
-
-## 2026-10-04: the App Store lists Seasonal Crop Stress again, pointing at Irrigation Suite (#214)
-- That list shows an entry whether or not the mod is installed, so with the row gone the suite stopped saying it integrates with the mod at all. The row is back and opens Irrigation Suite, which is the page that covers it. Bar: `tools/test/appstore-integration-row-check.mjs`.
