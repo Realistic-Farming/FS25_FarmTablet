@@ -125,7 +125,21 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
                 if math.abs(pct) >= 0.05 then
                     local title = mdmFillTypeTitle(idx)
                     if title then
-                        table.insert(movers, { name = title, price = entry.current, pct = pct })
+                        -- An animal is priced PER HEAD, so the per-1,000 L scaling below must not
+                        -- touch it. Without this an Angus at about twelve thousand a head printed
+                        -- as twelve million.
+                        local perHead = false
+                        local mission = g_currentMission
+                        local animals = mission ~= nil and mission.animalSystem or nil
+                        if animals ~= nil and type(animals.getSubTypeByFillTypeIndex) == "function" then
+                            local okA, sub = pcall(function()
+                                return animals:getSubTypeByFillTypeIndex(idx)
+                            end)
+                            perHead = okA and sub ~= nil
+                        end
+                        table.insert(movers, {
+                            name = title, price = entry.current, pct = pct, perHead = perHead,
+                        })
                     end
                 end
             end
@@ -143,7 +157,15 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     else
         for i = 1, math.min(8, #movers) do
             local m = movers[i]
-            local moneyStr = self.system.data:formatMoney(math.floor(m.price * 1000 + 0.5))
+            -- An animal price is already per head, so it must not take the per-1,000 L
+            -- scaling. The heading above still names only the volume unit; labelling each
+            -- row needs new translated text, which is not in this change.
+            local moneyStr
+            if m.perHead then
+                moneyStr = self.system.data:formatMoney(math.floor(m.price + 0.5))
+            else
+                moneyStr = self.system.data:formatMoney(math.floor(m.price * 1000 + 0.5))
+            end
             y = self:drawRow(y, m.name,
                 string.format("%s  %+.1f%%", moneyStr, m.pct), nil,
                 m.pct >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, nil, true)
