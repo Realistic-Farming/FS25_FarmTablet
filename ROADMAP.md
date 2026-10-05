@@ -52,3 +52,8 @@
 - [x] Organic app (#213, merged at 262b62f3): a barn card shows the barn's name, by the same ladder the Dairy app uses (the row's own name, then the placeable's, then the existing barn label with a short id cut by characters), never its 32-character internal id. On a pure client the name resolves only when DairyCore's barn id is the client's own placeable id; otherwise the short id shows, as on the Dairy card.
 - [x] Market Movers (#217, merged at 38bd868e): an animal's per-head price is no longer multiplied by 1,000; a row counts as per head when the animal system knows its fill type, and a save without an animal system takes the old path.
 - The "(per 1,000 L)" heading still sits above animal rows: rewording it needs three translated strings, a follow-up Wizard names in #217. The in-game checks are TESTING rows 425 and 426. Docs by Fred's catch-up, on Tyson's word of 2026-10-04.
+
+## 2026-10-05 (Fred via Desk): Help pages show their Back control (Wizard, #215)
+
+- [x] Help pages (#215, merged at 33937f2): the Back control is drawn on the fixed header layer, just above the accent divider at the right, so the body clip no longer hides it. Before, it sat under the clip: a culled sliver with no label that still answered clicks. New renderer call `headerButton`, the header-layer twin of `button`; bar `tools/test/help-back-visible-check.mjs`.
+- The control sits above the divider rather than beside the "Help" subtitle as first asked, because the renderer has no text measurement (declared in #215). The in-game check is TESTING row 439. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.

@@ -22,6 +22,7 @@
 - [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
+- [x] Help pages draw their Back control on the header layer, so the body clip no longer hides it (Wizard, #215, 2026-10-05). In-game check pending (TESTING row 439).
 - [x] Market Movers no longer scales an animal's per-head price by 1,000 (Wizard, #217, 2026-10-04); the heading over animal rows stays loose until its strings are translated. In-game check pending (TESTING row 426).
 - [x] The Organic app names each barn instead of printing its internal id (Wizard, #213, 2026-10-04). In-game check pending (TESTING row 425).
 - [x] SF-73, the Soil app's last pause (2026-10-03): a stubble field after a refused AUTO pass reads "Last pause: no growing crop", as the PDA does, from Soil's guarded getLastTargetPauseForField under the PDA card's rules. Bar: `tools/test/soil-target-block-check.mjs` rows Q1 to Q13; battery `tools/test/mutate_w1c_soil_target.py` M21 to M28.
