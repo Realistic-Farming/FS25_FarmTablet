@@ -22,6 +22,8 @@
 - [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
+- [x] The retired Crop Stress app id opens Irrigation Suite instead of nothing (Wizard, #216, 2026-10-05). In-game check pending (TESTING row 442).
+- [x] The App Store keeps a Seasonal Crop Stress row that opens Irrigation Suite (Wizard, #214, 2026-10-05). In-game check pending (TESTING row 441).
 - [x] Help pages draw their Back control on the header layer, so the body clip no longer hides it (Wizard, #215, 2026-10-05). In-game check pending (TESTING row 439).
 - [x] Market Movers no longer scales an animal's per-head price by 1,000 (Wizard, #217, 2026-10-04); the heading over animal rows stays loose until its strings are translated. In-game check pending (TESTING row 426).
 - [x] The Organic app names each barn instead of printing its internal id (Wizard, #213, 2026-10-04). In-game check pending (TESTING row 425).

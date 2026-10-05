@@ -57,3 +57,9 @@
 
 - [x] Help pages (#215, merged at 33937f2): the Back control is drawn on the fixed header layer, just above the accent divider at the right, so the body clip no longer hides it. Before, it sat under the clip: a culled sliver with no label that still answered clicks. New renderer call `headerButton`, the header-layer twin of `button`; bar `tools/test/help-back-visible-check.mjs`.
 - The control sits above the divider rather than beside the "Help" subtitle as first asked, because the renderer has no text measurement (declared in #215). The in-game check is TESTING row 439. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-05 (Fred via Desk): the App Store keeps a Seasonal Crop Stress row, and the retired Crop Stress id opens Irrigation Suite (Wizard, #214 and #216)
+
+- [x] App Store (#214, merged at 90ced81): MOD INTEGRATIONS keeps a "Seasonal Crop Stress" row whose OPEN goes to Irrigation Suite, so a player looking for that mod still finds it. This partly reverses the App Store listing removal of #159 under the 2026-09-08 ruling; merged on Tyson's word. Bar `tools/test/appstore-integration-row-check.mjs`.
+- [x] Retired id (#216, merged at 7f91b71): `crop_stress` is back in `FT.APP` as a legacy id beside `DIGGING` and `BUCKET`, and `AppRegistry.resolve` sends it to Irrigation Suite, so a saved startup app, favourite or rail tile holding it opens Irrigation Suite instead of nothing. Bar `tools/test/app-resolve-check.mjs`.
+- The in-game checks are TESTING rows 441 and 442. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
