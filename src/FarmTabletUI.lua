@@ -381,7 +381,10 @@ function FarmTabletUI:_keybindLabel()
             return label
         end
     end
-    return (InputHandler ~= nil and InputHandler.DEFAULT_KEY_LABEL) or "Right Ctrl + T"
+    if LiveKeyLabel ~= nil and type(LiveKeyLabel.get) == "function" and InputHandler ~= nil then
+        return LiveKeyLabel.get(InputHandler.ACTION_NAME)
+    end
+    return (LiveKeyLabel and LiveKeyLabel.unavailableText and LiveKeyLabel.unavailableText()) or "unavailable"
 end
 
 function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress, ...)
@@ -1579,7 +1582,11 @@ function FarmTabletUI:draw()
 
     -- 3. Screen content (app content, labels, text)
     local clipY, clipH = nil, nil
-    if self.uiState == "app" then clipY = L.contentY; clipH = L.contentH end
+    if self.uiState == "app" then
+        local _, floor = self:contentInner()
+        clipY = floor
+        clipH = L.contentH - (floor - L.contentY)
+    end
     self.r:flushContent(clipY, clipH)
 
     -- 4. App icons
@@ -3083,29 +3090,32 @@ function FarmTabletUI:getContentScrollY()
 end
 
 function FarmTabletUI:drawInfoIcon(stateKey, accentColor)
-    local x, contentY, w, _ = self:contentInner()
+    local x, _, w, _ = self:contentInner()
+    -- [eyes-on 2] The raw content box, NOT contentInner's floor: that floor was raised by
+    -- this icon's own reserve, so reading it here would walk the icon up with the content.
+    local contentY = FT.LAYOUT.contentY + FT.py(12)
     local ac = accentColor or FT.C.BRAND
 
     local iSz = FT.px(18)
     local iX  = x + w - iSz
     local iY  = contentY
 
-    self.r:appRect(iX, iY, iSz, iSz, {ac[1], ac[2], ac[3], 0.18})
+    self.r:appHeaderRect(iX, iY, iSz, iSz, {ac[1], ac[2], ac[3], 0.18})
 
     local bdr = FT.px(1.2)
     local bc  = {ac[1], ac[2], ac[3], 0.65}
-    self.r:appRect(iX,             iY,              iSz, bdr, bc)
-    self.r:appRect(iX,             iY + iSz - bdr,  iSz, bdr, bc)
-    self.r:appRect(iX,             iY,              bdr, iSz, bc)
-    self.r:appRect(iX + iSz - bdr, iY,              bdr, iSz, bc)
+    self.r:appHeaderRect(iX,             iY,              iSz, bdr, bc)
+    self.r:appHeaderRect(iX,             iY + iSz - bdr,  iSz, bdr, bc)
+    self.r:appHeaderRect(iX,             iY,              bdr, iSz, bc)
+    self.r:appHeaderRect(iX + iSz - bdr, iY,              bdr, iSz, bc)
 
     local dotW = FT.px(3)
     local dotH = FT.py(3)
-    self.r:appRect(iX + (iSz - dotW) * 0.5, iY + iSz - FT.py(5) - dotH, dotW, dotH, {ac[1], ac[2], ac[3], 1.00})
+    self.r:appHeaderRect(iX + (iSz - dotW) * 0.5, iY + iSz - FT.py(5) - dotH, dotW, dotH, {ac[1], ac[2], ac[3], 1.00})
 
     local stW = FT.px(2.5)
     local stH = FT.py(5.5)
-    self.r:appRect(iX + (iSz - stW) * 0.5, iY + FT.py(3.5), stW, stH, {ac[1], ac[2], ac[3], 1.00})
+    self.r:appHeaderRect(iX + (iSz - stW) * 0.5, iY + FT.py(3.5), stW, stH, {ac[1], ac[2], ac[3], 1.00})
 
     local sk    = stateKey
     local appId = self.system.currentApp
@@ -3131,27 +3141,33 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
-    -- Back used to sit at startY + 2, which is inside the first section band, and ALSO under the body
-    -- clip: drawAppHeader sets FT.LAYOUT.bodyClipTop to startY + py(6) (:3256 against the value it
-    -- returns at :3257), and flushContent culls the app layer above that (Renderer.lua:313-316). On
-    -- development only the 4px between py(2) and py(6) survived and the label was culled outright,
-    -- while hitTest kept answering, which is an invisible click target.
+    -- Back used to sit at startY + 2, which is inside the first section band and ALSO under the
+    -- body clip, so on development the label was culled outright while hitTest kept answering:
+    -- an invisible click target. #215 moved it into the header row and onto the header layer,
+    -- which flushContent renders with no cull at all. This keeps that fix and only changes how
+    -- the position is derived.
     --
-    -- So it moves into the header row AND onto the header layer, which flushContent renders with no
-    -- cull at all. drawAppHeader puts its divider 12px BELOW the value it returns (divY - FT.py(12)
-    -- at :3257; the 18px at :3247 is the divider's distance below the TITLE, not above the return).
-    -- The band between the divider and the title row is 18px and this button is 16px, so it fits by
-    -- construction, and the subtitle is drawn on the title line above it (:3243), not beside it.
-    -- Deviation worth naming: the design asked for it left of the "Help" subtitle on the same
-    -- line. That needs the rendered width of the subtitle, and this renderer exposes no text
-    -- measurement, so guessing a clearance would risk overlapping that word at some resolutions.
-    -- Sitting just above the divider is in the same header block, is clear of the subtitle by
-    -- construction rather than by arithmetic, and meets the requirement that the band must not
-    -- cover it.
+    -- #215 wrote the offset as startY + py(13), which is one pixel above the divider ONLY while
+    -- drawAppHeader returns divY - py(12). This tree returns divY - py(22) (see the comment at
+    -- that return: at py(12) the first section band's top landed on the underline and was clipped
+    -- by it), and against that header the same literal resolves to divY - py(9) -- below
+    -- bodyClipTop at divY - py(6), which reintroduces exactly the bug #215 removed.
+    --
+    -- So it anchors to FT.LAYOUT.headerDivY, which drawAppHeader sets to divY itself. The button
+    -- sits one pixel above the divider by construction and survives any later change to the body
+    -- offset. The fallback keeps the historic literal for any caller that draws Help before
+    -- drawAppHeader has run.
+    --
+    -- Deviation worth naming, unchanged from #215: the design asked for it left of the "Help"
+    -- subtitle on the same line. That needs the rendered width of the subtitle, and this renderer
+    -- exposes no text measurement, so guessing a clearance would risk overlapping that word at
+    -- some resolutions. Sitting just above the divider is in the same header block and is clear of
+    -- the subtitle by construction rather than by arithmetic.
     local bw = FT.px(52)
     local bh = FT.py(16)
     local backBtn = self.r:headerButton(
-        x + w - bw, startY + FT.py(13), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
+        x + w - bw, (FT.LAYOUT.headerDivY or (startY + FT.py(12))) + FT.py(1), bw, bh,
+        ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
@@ -3193,7 +3209,9 @@ function FarmTabletUI:drawScrollBar()
     if scrollMax <= 0 then return end
 
     local cx, cy, cw, ch = self:contentInner()
-    local barX     = cx + cw + FT.px(4)
+    -- [eyes-on 4] px(8), not px(4): cards are drawn cw + px(8) wide from x - px(4), so
+    -- at px(4) the bar started exactly on a card's right edge. Rows were always clear.
+    local barX     = cx + cw + FT.px(8)
     local barY     = cy
     local barH     = ch
     local barW     = FT.px(4)
@@ -3218,16 +3236,19 @@ end
 function FarmTabletUI:contentInner()
     local px = FT.px(16)
     local py = FT.py(12)
+    -- [eyes-on 2] Reserve the bottom-right info icon's strip so scrolled content cannot
+    -- run under it. FarmTabletUI:drawInfoIcon anchors itself below this floor.
+    local reserve = FT.py(FT.SP.ROW)
     return FT.LAYOUT.contentX + px,
-           FT.LAYOUT.contentY + py,
+           FT.LAYOUT.contentY + py + reserve,
            FT.LAYOUT.contentW - px*2,
-           FT.LAYOUT.contentH - py*2
+           FT.LAYOUT.contentH - py*2 - reserve
 end
 
 -- literalTitle / literalSubtitle (MAINTENANCE row 154): true when that text is already localized.
 function FarmTabletUI:drawAppHeader(title, subtitle, literalTitle, literalSubtitle)
     local x, y, w, h = self:contentInner()
-    local topY = y + h - FT.py(2)
+    local topY = y + h + FT.py(9) - FT.FONT.TITLE * ((FT.LAYOUT and FT.LAYOUT.fontScale) or 1)
     local accent = FT.appColor(self.system.currentApp)
 
     if self._signalOutageActive == true then
@@ -3258,7 +3279,15 @@ function FarmTabletUI:drawAppHeader(title, subtitle, literalTitle, literalSubtit
     end
 
     FT.LAYOUT.bodyClipTop = divY - FT.py(6)
-    return divY - FT.py(12)
+    FT.LAYOUT.headerDivY = divY
+    -- [eyes-on 1] The caller draws its first section header AT this y, and
+    -- FT_Renderer:sectionHeader puts that band's TOP edge at y + FT.py(13) (boxY = y -
+    -- py(3), boxH = py(16)). At py(12) the band top landed at divY + py(1): one pixel
+    -- above the divider, and 7px of it above bodyClipTop, so the first header was both
+    -- touching the underline and clipped by it. py(22) puts the band top at divY - py(9),
+    -- 3px clear of bodyClipTop, and leaves the same visual gap for apps that open with a
+    -- plain row instead of a header.
+    return divY - FT.py(22)
 end
 
 -- literalLabel / literalValue, literalText, literalA / literalB (MAINTENANCE row 154): true when that

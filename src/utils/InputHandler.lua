@@ -14,18 +14,46 @@ local InputHandler_mt = Class(InputHandler)
 --- Must match the <action name=...> in modDesc.xml.
 InputHandler.ACTION_NAME = "FT_TOGGLE_TABLET"
 
---- Label of last resort, used only when the engine offers no way to ask what the
---- key currently is. Must match the default binding in modDesc.xml.
----
---- BUILD 15:39 (PB-12): Right Ctrl + T, the single locked authority. Must match
---- the binding in modDesc.xml. Never plain T, which is chat, and never an F-key.
-InputHandler.DEFAULT_KEY_LABEL = "Right Ctrl + T"
+--- Factory documentation chord only (modDesc default). Never used as a live
+--- Controls label. Live reading goes through LiveKeyLabel / getKeybindString.
+--- BUILD 15:39 (PB-12): Right Ctrl + T remains the locked factory authority.
+InputHandler.FACTORY_KEY_LABEL = "Right Ctrl + T"
+--- Deprecated alias kept for any external references; do not use as live text.
+InputHandler.DEFAULT_KEY_LABEL = InputHandler.FACTORY_KEY_LABEL
 
 function InputHandler.new(tabletManager)
     local self = setmetatable({}, InputHandler_mt)
     self.tabletManager = tabletManager
     self.eventId = nil
+    self._bindingsUnsub = nil
+    self._cachedKeybind = nil
+    self:subscribeBindingsChanged()
     return self
+end
+
+function InputHandler:subscribeBindingsChanged()
+    self:unsubscribeBindingsChanged()
+    if LiveKeyLabel == nil or type(LiveKeyLabel.subscribe) ~= "function" then
+        return
+    end
+    self._bindingsUnsub = LiveKeyLabel.subscribe(self, InputHandler.onInputBindingsChanged)
+end
+
+function InputHandler:unsubscribeBindingsChanged()
+    if type(self._bindingsUnsub) == "function" then
+        pcall(self._bindingsUnsub)
+    end
+    self._bindingsUnsub = nil
+end
+
+function InputHandler:onInputBindingsChanged()
+    self._cachedKeybind = nil
+end
+
+function InputHandler:delete()
+    self:unsubscribeBindingsChanged()
+    self.eventId = nil
+    self._cachedKeybind = nil
 end
 
 --- Called by the action, not by a key scan.
@@ -87,7 +115,7 @@ function InputHandler:register()
     -- only failures, so a silent log left "the action never registered" and "the
     -- action registered and the chord never fired" looking identical from outside.
     Logging.info("[FarmTablet v2] %s registered in player context (default %s)",
-        InputHandler.ACTION_NAME, InputHandler.DEFAULT_KEY_LABEL)
+        InputHandler.ACTION_NAME, InputHandler.FACTORY_KEY_LABEL)
     return true
 end
 
@@ -135,24 +163,36 @@ function InputHandler:update(dt)
     end
 end
 
---- The key the player would actually press, read live wherever the engine will
---- tell us. No display-name helper for a bound action could be verified against
---- the local reference, so each candidate is tried behind a type check and the
---- shipped default is the fallback. It is never the old hardcoded "T".
+--- Live Controls chord for FT_TOGGLE_TABLET. Never falls back to factory default.
+--- Unbound / unavailable / keyboard-unbound are localized status strings from LiveKeyLabel.
+--- Cache only durable live chords when INPUT_BINDINGS_CHANGED subscription is active.
+--- Status labels are never cached, so early unavailable can become live without a
+--- fictional Controls notification. Missing subscription is reattached on demand.
 function InputHandler:getKeybindString()
-    if g_inputBinding ~= nil and InputAction ~= nil
-        and InputAction[InputHandler.ACTION_NAME] ~= nil then
-
-        local action = InputAction[InputHandler.ACTION_NAME]
-        for _, name in ipairs({ "getDisplayKeyNamesOfDigitalAction", "getDisplayKeyNames" }) do
-            if type(g_inputBinding[name]) == "function" then
-                local ok, text = pcall(g_inputBinding[name], g_inputBinding, action)
-                if ok and type(text) == "string" and text ~= "" then
-                    return text
-                end
-            end
-        end
+    if self._bindingsUnsub == nil then
+        self:subscribeBindingsChanged()
     end
+    if self._cachedKeybind ~= nil then
+        return self._cachedKeybind
+    end
+    local label, kind
+    if LiveKeyLabel ~= nil and type(LiveKeyLabel.resolve) == "function" then
+        label, kind = LiveKeyLabel.resolve(InputHandler.ACTION_NAME)
+    elseif LiveKeyLabel ~= nil and type(LiveKeyLabel.get) == "function" then
+        label = LiveKeyLabel.get(InputHandler.ACTION_NAME)
+        kind = nil
+    else
+        label = (LiveKeyLabel and LiveKeyLabel.unavailableText and LiveKeyLabel.unavailableText())
+            or "unavailable"
+        kind = "unavailable"
+    end
+    if kind == "live" and self._bindingsUnsub ~= nil then
+        self._cachedKeybind = label
+    end
+    return label
+end
 
-    return InputHandler.DEFAULT_KEY_LABEL
+--- Explicit factory documentation string (modDesc default). Not a live label.
+function InputHandler:getFactoryKeybindString()
+    return InputHandler.FACTORY_KEY_LABEL
 end

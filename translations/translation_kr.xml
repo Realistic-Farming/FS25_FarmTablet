@@ -547,7 +547,7 @@
         <text name="ft_auto_area" text="면적" />
         <text name="ft_auto_area_2" text="면적: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="면적: 소유한 농지 전체(헥타르).&#10;" />
-        <text name="ft_auto_at" text=" " />
+        <text name="ft_auto_at" text=" 에 " />
         <text name="ft_auto_attached" text="연결됨" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />

@@ -175,6 +175,136 @@ local function _nutrientActionText(SC, currentVal, targetVal, rrMult, fieldArea,
     return table.concat(parts, "  ·  ")
 end
 
+-- SF-79 pH read. Never substitute 7.0. This app still calls getFieldInfo(fieldId) only.
+local function _finitePH(v)
+    local n = tonumber(v)
+    if n == nil then return nil end
+    if n ~= n then return nil end
+    if n == math.huge or n == -math.huge then return nil end
+    return n
+end
+
+local function _roundPH(n)
+    return math.floor((n * 10) + 0.5) / 10
+end
+
+--- mode, currentPh, lastKnown.
+--- currentPh is set only when it may drive the bar and lime/gypsum advice.
+--- lastKnown is a named previous figure. It never drives advice or the bar fill.
+local function _classifyPH(info)
+    if type(info) ~= "table" then
+        return "unavailable", nil, nil
+    end
+    local ph = _finitePH(info.pH)
+    local lastKnown = _finitePH(info.pHLastKnown)
+    if lastKnown ~= nil then
+        lastKnown = _roundPH(lastKnown)
+    end
+    local status = info.pHStatus
+    if status == nil then
+        if ph ~= nil then
+            return "legacy", ph, nil
+        end
+        return "unavailable", nil, lastKnown
+    end
+    if status == "FIELD_REPORT" and ph ~= nil then
+        return "field", ph, nil
+    end
+    if status == "LOCAL" and ph ~= nil then
+        return "local", ph, nil
+    end
+    if status == "APPROXIMATE" and ph ~= nil then
+        return "approx", ph, nil
+    end
+    if status == "STALE" then
+        return "stale", nil, lastKnown
+    end
+    return "unavailable", nil, lastKnown
+end
+
+local function _phAdvice(mode, ph)
+    if ph == nil then return nil, nil end
+    if mode ~= "legacy" and mode ~= "field" and mode ~= "local" and mode ~= "approx" then
+        return nil, nil
+    end
+    local rounded = _roundPH(ph)
+    local kind = nil
+    if rounded < 6.5 then
+        kind = "lime"
+    elseif rounded > 7.5 then
+        kind = "gypsum"
+    else
+        return nil, nil
+    end
+    if mode == "legacy" then
+        -- BOB-JOB-161: these two returned RAW English with no key and no FT.AUTO_L10N entry, so the
+        -- legacy path (pHStatus nil, which an older Soil Fertilizer build produces) drew English in
+        -- every locale. The exact strings are already the values of ft_soilnut_tr_lime and
+        -- ft_soilnut_tr_gypsum, present in all shipped locales, so they are drawn through those
+        -- existing keys. No new key, no runtime table, and the fallback text is unchanged.
+        if kind == "lime" then
+            return FT.l10n("ft_soilnut_tr_lime", "Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE
+        end
+        return FT.l10n("ft_soilnut_tr_gypsum", "Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING
+    end
+    if mode == "field" then
+        if kind == "lime" then
+            return FT.l10n("ft_soil_ph_lime_field",
+                "Field summary, not every patch. Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE
+        end
+        return FT.l10n("ft_soil_ph_gypsum_field",
+            "Field summary, not every patch. Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING
+    end
+    if mode == "local" then
+        if kind == "lime" then
+            return FT.l10n("ft_soil_ph_lime_local",
+                "Local sample. Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE
+        end
+        return FT.l10n("ft_soil_ph_gypsum_local",
+            "Local sample. Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING
+    end
+    if kind == "lime" then
+        return FT.l10n("ft_soil_ph_lime_approx",
+            "Approximate, not an exact local sample. Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE
+    end
+    return FT.l10n("ft_soil_ph_gypsum_approx",
+        "Approximate, not an exact local sample. Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING
+end
+
+local function _phBar(mode, ph, lastKnown, phOpt)
+    if ph ~= nil and (mode == "legacy" or mode == "field" or mode == "local" or mode == "approx") then
+        local ratio = 1.0 - math.min(1.0, math.abs(ph - phOpt) / 2.0)
+        local col = (ph >= 6.0 and ph <= 7.5) and FT.C.POSITIVE
+            or ((ph >= 5.5 and ph <= 8.0) and FT.C.WARNING or FT.C.NEGATIVE)
+        local text
+        if mode == "legacy" then
+            text = string.format("%.1f / %.1f", ph, phOpt)
+        elseif mode == "field" then
+            text = FT.l10nFormat("ft_soil_ph_field_value", "%.1f / %.1f field summary", ph, phOpt)
+        elseif mode == "local" then
+            text = FT.l10nFormat("ft_soil_ph_local_value", "%.1f / %.1f local sample", ph, phOpt)
+        else
+            text = FT.l10nFormat("ft_soil_ph_approx_value", "%.1f / %.1f approximate", ph, phOpt)
+        end
+        return text, ratio, col
+    end
+    local text
+    if mode == "stale" then
+        if lastKnown ~= nil then
+            text = FT.l10nFormat("ft_soil_ph_stale_last", "Stale. Last known %.1f", lastKnown)
+        else
+            text = FT.l10n("ft_soil_ph_stale", "Stale")
+        end
+    else
+        if lastKnown ~= nil then
+            text = FT.l10nFormat("ft_soil_ph_unavailable_last", "Unavailable. Last known %.1f", lastKnown)
+        else
+            text = FT.l10n("ft_soil_ph_unavailable", "Unavailable")
+        end
+    end
+    return text, 0, FT.C.MUTED
+end
+
 --- Build TREATMENT rows mirroring SoilTreatmentDialog:_populateData.
 --- Disease uses discovery-gated shownDiseasePressure (nil = Unscouted).
 --- When SoilConstants is invisible from FT, still emit action text (no rates).
@@ -203,11 +333,12 @@ local function _buildTreatments(info, SC, settings)
         rows[#rows + 1] = { label = label, text = text, color = color }
     end
 
-    local ph = math.floor(((info.pH or 7.0) * 10) + 0.5) / 10
-    if ph < 6.5 then
-        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_lime", "Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE)
-    elseif ph > 7.5 then
-        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_gypsum", "Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING)
+    local phMode, phVal = _classifyPH(info)
+    local phText, phColor = _phAdvice(phMode, phVal)
+    if phText ~= nil then
+        add(FT.l10nAuto("pH"), phText, phColor)
+    elseif phMode == "stale" or phMode == "unavailable" then
+        add(FT.l10nAuto("pH"), FT.l10n("ft_soil_ph_advice_unavailable", "pH advice unavailable"), FT.C.MUTED)
     end
 
     local om = info.organicMatter or 3.5
@@ -264,7 +395,8 @@ local function _buildTreatments(info, SC, settings)
         add(FT.l10n("ft_soilnut_disease", "Disease"), FT.l10n("ft_soilnut_tr_fungicide", "Apply FUNGICIDE immediately."), FT.C.NEGATIVE)
     end
 
-    if #rows == 0 then
+    -- Unknown or stale pH must not paint the green all-clear.
+    if #rows == 0 and phMode ~= "stale" and phMode ~= "unavailable" then
         add("-", FT.l10n("ft_soilnut_tr_all_clear", "All clear - no treatment needed."), FT.C.POSITIVE)
     end
     return rows
@@ -282,8 +414,9 @@ local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     local barW = cw - FT.px(12)
     local fill = math.max(0, math.min(1, tonumber(ratio) or 0))
     self.r:progressBar(x + FT.px(6), barY, barW, fill, 1.0, color)
-    -- progressBar bottom is barY; height ~5px upward. Advance past it + gap.
-    return barY - FT.py(10)
+    -- progressBar bottom is barY; height ~5px upward. Advance past it, reserving the next
+    -- label's own rendered height so the gap holds at every content-font scale.
+    return barY - FT.FONT.SMALL * ((FT.LAYOUT and FT.LAYOUT.fontScale) or 1) - FT.py(6)
 end
 
 --- [FT-LB] Live chord for a Soil action (BUILD 22:36 hint sweep). Prefers
@@ -292,21 +425,18 @@ end
 --- string when the action carries no binding. The help table below is rebuilt
 --- per draw, so a rebind shows the next time the page renders.
 local function _liveChord(actionName, default)
-    if RfLiveBinding ~= nil and RfLiveBinding.getChord ~= nil then
-        local c = RfLiveBinding.getChord(actionName)
-        if c then return c end
-    end
-    if g_inputDisplayManager ~= nil and InputAction ~= nil and InputAction[actionName] ~= nil then
-        local ok, help = pcall(function()
-            return g_inputDisplayManager:getControllerSymbolOverlays(InputAction[actionName], "", "", false)
-        end)
-        if ok and help and help.keys and #help.keys > 0 then
-            local parts = {}
-            for _, k in ipairs(help.keys) do parts[#parts + 1] = tostring(k) end
-            return table.concat(parts, "+")
+    -- ASH-150: LiveKeyLabel full-chord contract. `default` kept for call-site
+    -- signature only; never presented as live.
+    if LiveKeyLabel ~= nil and type(LiveKeyLabel.resolve) == "function" then
+        local label, kind = LiveKeyLabel.resolve(actionName)
+        if type(label) == "string" and label ~= "" then
+            return label
         end
     end
-    return default
+    if LiveKeyLabel ~= nil and type(LiveKeyLabel.unavailableText) == "function" then
+        return LiveKeyLabel.unavailableText()
+    end
+    return "unavailable"
 end
 
 local function _truncate(str, maxLen)
@@ -772,12 +902,10 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
                 FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
                 kVal / math.max(tK, 1), _statusColor(info.potassium and info.potassium.status))
 
-            local ph = info.pH or 7.0
-            local phRatio = 1.0 - math.min(1.0, math.abs(ph - phOpt) / 2.0)
-            local phCol = (ph >= 6.0 and ph <= 7.5) and FT.C.POSITIVE
-                or ((ph >= 5.5 and ph <= 8.0) and FT.C.WARNING or FT.C.NEGATIVE)
+            local phMode, phVal, phLast = _classifyPH(info)
+            local phText, phRatio, phCol = _phBar(phMode, phVal, phLast, phOpt)
             y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("pH"),
-                string.format("%.1f / %.1f", ph, phOpt), phRatio, phCol)
+                phText, phRatio, phCol)
 
             local om = info.organicMatter or 0
             local omCol = (om >= 3.5) and FT.C.POSITIVE or ((om >= 3.0) and FT.C.WARNING or FT.C.NEGATIVE)
@@ -835,10 +963,14 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
                         RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM, true)
                     y = y - treatLineH
                     local products = _splitProducts(row.text)
+                    local bodyColor = FT.C.TEXT_NORMAL
+                    if row.label == "pH" and row.color == FT.C.MUTED then
+                        bodyColor = FT.C.MUTED
+                    end
                     for _, part in ipairs(products) do
                         -- Full rate strings (no 42-char truncate) — one product per line.
                         self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
-                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+                            RenderText.ALIGN_LEFT, bodyColor, true)
                         y = y - treatLineH
                     end
                 end

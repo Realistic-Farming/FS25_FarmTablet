@@ -136,7 +136,7 @@ local function drawRoster(self, snap, bodyTop, AC)
             FT.l10nFormat("ft_personnel_filter_fmt", "FILTER: %s", FT.l10nAuto(FILTER_LABEL[self._psFilter] or "All")), FT.C.BTN_NEUTRAL,
             function() self._psFilter = nextInCycle(FILTER_ORDER, self._psFilter) end)
     end
-    y = y - ctlH - FT.py(8)
+    y = y - ctlH - FT.py(20)
 
     if (snap.count or 0) == 0 then
         if visTop(y) then
@@ -160,7 +160,8 @@ local function drawRoster(self, snap, bodyTop, AC)
             local nm = tostring(w.name or "Worker")
             if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
             self.r:appText(x, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + FT.px(96), y, FT.FONT.TINY, "[" .. (w.levelName or "Novice") .. "]",
+            local lvlX = math.min(x + FT.px(96), x + FT.px(6) + FT.utf8Len(nm) * FT.px(5))
+            self.r:appText(lvlX, y, FT.FONT.TINY, "[" .. (w.levelName or "Novice") .. "]",
                 RenderText.ALIGN_LEFT, levelColor(w.level))
 
             local fireX = x + cw - smallW

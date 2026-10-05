@@ -282,7 +282,7 @@ FarmTabletUI:registerDrawer(FT.APP.FARM_ADMIN, function(self)
     y = y - GAP
 
     local FA_SCALES = {
-        {val = 0,   label = "⏸"},
+        {val = 0,   label = "0×"},
         {val = 1,   label = "1×"},
         {val = 3,   label = "3×"},
         {val = 10,  label = "10×"},

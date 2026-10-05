@@ -473,7 +473,7 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
         self.r:appText(x, y - FT.py(2), FT.FONT.TINY,
             FT.l10n("ft_organic_sale_premium", "Sale premium: pending MDM contract"),
             RenderText.ALIGN_LEFT, FT.C.MUTED, true)
-        y = y - FT.py(14)
+        y = y - FT.py(22)
     end
 
     y = self:drawSection(y, FT.l10n("ft_organic_market", "MARKET"), true)

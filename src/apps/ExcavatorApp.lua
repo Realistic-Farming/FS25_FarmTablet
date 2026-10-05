@@ -149,7 +149,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         self.r:appText(cx + cardW / 2, y - FT.py(28), FT.FONT.TINY, card.label,
             RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
     end
-    y = y - FT.py(40)
+    y = y - FT.py(50)
 
     if bt.vehicle then
         local fi = self.system:_getBucketFillInfo(bt.vehicle)
@@ -159,7 +159,7 @@ FarmTabletUI:registerDrawer(FT.APP.EXCAVATOR, function(self)
         y = self:drawRow(y, "Vehicle", nm)
         y = self:drawRow(y, "Fill",
             string.format("%.0f / %.0f L  (%s)", fi.total, fi.cap, fi.name), nil, FT.C.TEXT_ACCENT)
-        y = y + FT.py(FT.SP.ROW) - FT.py(8)
+        y = y + FT.py(FT.SP.ROW) - FT.py(16)
         y = self:drawBar(y, fi.total, fi.cap, FT.C.BRAND)
         y = y - FT.py(4)
     else

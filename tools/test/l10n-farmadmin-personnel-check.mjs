@@ -126,7 +126,7 @@ const OTHER_PR = {
 };
 // Drawn literals with no key, each with its reason.
 const NO_KEY = {
-  "⏸": "the pause symbol on the time-scale button",
+  "0×": "a time-scale multiplier, a number and the multiplication sign",
   "1×": "a time-scale multiplier, a number and the multiplication sign",
   "3×": "a time-scale multiplier, a number and the multiplication sign",
   "10×": "a time-scale multiplier, a number and the multiplication sign",

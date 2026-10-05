@@ -388,8 +388,7 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
         FT.l10nFormat("ft_npc_town_rep_fmt", "Town Reputation: %s", repLabel), RenderText.ALIGN_LEFT, repColor, true)
     self.r:appText(x + cw, y - FT.py(18), FT.FONT.SMALL,
         tostring(math.floor(townRep)) .. " / 100", RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
-    y = y - FT.py(26)
-    y = y + FT.py(FT.SP.ROW) - FT.py(8)
+    y = y - FT.py(30)
     y = self:drawBar(y, townRep, 100, repColor)
     y = y - FT.py(8)
 
@@ -455,12 +454,15 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                 "No NPCs spawned yet.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         else
             for _, r in ipairs(live) do
-                if y <= minY + FT.py(16) then break end
+                -- No break: see #81. Breaking here zeroes the scroll range, which is
+                -- what hid rows 9..11 and the scrollbar with them. Off-screen rows cost
+                -- arithmetic and are dropped by the renderer's own cull.
                 local rel      = math.floor(math.min(math.max(r.trust, 0), 100))
                 local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
                 local relLabel = rel >= 70 and FT.l10n("ft_auto_friend", "Friend")
                               or rel >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_npc_rel_cold", "Cold")
                 local nm       = tostring(r.name or "Unknown")
+                nm = nm:match("^[^,]+") or nm
                 if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
                 self.r:appText(x, y, FT.FONT.SMALL,
                     nm .. "  [" .. npcRoleWord(r.roleLabel or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
@@ -472,8 +474,11 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
                 y = y - FT.py(4)
             end
             for _, r in ipairs(others) do
-                if y <= minY + FT.py(16) then break end
+                -- No break: see #81. Breaking here zeroes the scroll range, which is
+                -- what hid rows 9..11 and the scrollbar with them. Off-screen rows cost
+                -- arithmetic and are dropped by the renderer's own cull.
                 local nm = tostring(r.name or "Unknown")
+                nm = nm:match("^[^,]+") or nm
                 if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
                 -- The name on the left, the tag as its own mapped literal on the right
                 -- (where a live person's score sits), never composed into one string.
@@ -496,12 +501,13 @@ FarmTabletUI:registerDrawer(FT.APP.NPC_FAVOR, function(self)
         table.sort(sorted, function(a, b) return (a.relationship or 0) > (b.relationship or 0) end)
 
         for _, npc in ipairs(sorted) do
-            if y <= minY + FT.py(16) then break end
+            -- No break: see #81, same as the roster loops above.
             local rel      = math.floor(math.min(math.max(npc.relationship or 0, 0), 100))
             local relColor = rel >= 70 and FT.C.POSITIVE or rel >= 40 and FT.C.WARNING or FT.C.NEGATIVE
             local relLabel = rel >= 70 and FT.l10n("ft_auto_friend", "Friend")
                           or rel >= 40 and FT.l10n("ft_auto_neutral", "Neutral") or FT.l10n("ft_npc_rel_cold", "Cold")
             local nm       = tostring(npc.name or "Unknown")
+            nm = nm:match("^[^,]+") or nm
             if FT.utf8Len(nm) > 16 then nm = FT.utf8Sub(nm, 14) .. ">" end
             self.r:appText(x, y, FT.FONT.SMALL,
                 nm .. "  [" .. npcRoleWord(npc.role or "?") .. "]", RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)

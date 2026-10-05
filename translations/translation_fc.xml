@@ -184,7 +184,7 @@
         <text name="ft_help_a3_bucket_text" text="Bucket Tracker s’active automatiquement lorsque vous conduisez une chargeuse sur pneus, une excavatrice ou une machine de manutention. Il compte chaque cycle de vidage et tient un journal du type de matériau et du poids estimé par charge. Utilisez-le pour suivre la productivité des travaux de terrassement, d’épandage de fumier ou de manutention de matériaux en vrac." />
         <text name="ft_help_m1_title" text="Mods de revenu et d'impôt" />
         <text name="ft_help_m1_income_title" text="Mod de revenu FS25" />
-        <text name="ft_help_m1_income_text" text="Quand FS25_IncomeMod est actif, l'appli Revenus apparaît sur l'écran d'accueil. Elle affiche le mode et le montant de paiement, et permet d'activer ou désactiver le mod sans quitter la tablette. Les changements sont immédiats." />
+        <text name="ft_help_m1_income_text" text="Lorsque le mod FS25_IncomeMod est activé, l'application Revenus apparaît sur l'écran d'accueil. Elle affiche le mode et le montant des paiements, et vous permet d'activer ou de désactiver le mod sans quitter la tablette. Les modifications sont prises en compte immédiatement." />
         <text name="ft_help_m1_tax_title" text="Mod fiscal FS25" />
         <text name="ft_help_m1_tax_text" text="Lorsque FS25_TaxMod est actif, l'application Taxe affiche votre taux d'imposition actuel, le pourcentage de retour et le total des taxes payées pour cette session. Vous pouvez activer ou désactiver le mod depuis la tablette et voir votre solde minimum requis en un coup d'œil." />
         <text name="ft_help_m2_title" text="Stress des cultures et engrais du sol" />
@@ -206,7 +206,7 @@
         <text name="ft_ui_app_animal_vet_system" text="Vétérinaire" />
         <text name="ft_ui_app_factory_week_schedule" text="Semaine de l'usine" />
         <text name="ft_ui_app_realistic_dealer" text="RealisticDealer" />
-        <text name="ft_desc_app_animal_auto_care" text="État d'AnimalAutoCare et déclencheur de soins sûrs" />
+        <text name="ft_desc_app_animal_auto_care" text="État d'AnimalAutoCare et déclencheur de soins sécuritaires" />
         <text name="ft_desc_app_animal_vet_system" text="Suivi des maladies et traitements d'AnimalVetSystem" />
         <text name="ft_desc_app_factory_week_schedule" text="Aperçu FactoryWeekSchedule : ouvriers, événements et incendies" />
         <text name="ft_desc_app_realistic_dealer" text="RealisticDealer : financements, échéances et saisies" />
@@ -281,8 +281,8 @@
         <text name="ft_network_no_signal_short" text="Pas de signal" />
         <text name="ft_network_weak_short" text="Faible" />
         <text name="ft_network_recovered" text="%s : signal rétabli." />
-        <text name="ft_network_outage_msg" text="%s : panne réseau, environ 2 heures en jeu." />
-        <text name="ft_network_no_signal_msg" text="%s : aucun signal ici." />
+        <text name="ft_network_outage_msg" text="%s : panne de réseau, environ 2 heures de jeu." />
+        <text name="ft_network_no_signal_msg" text="%s : aucun signal ici." />
         <text name="ft_network_weak_msg" text="%s : signal faible." />
         <text name="ft_battery_empty" text="Batterie de la tablette vide" />
         <text name="ft_battery_charging" text="Tablette en charge..." />
@@ -2802,7 +2802,7 @@
         <text name="ft_rainKey_rainPaused" text="PAUSE PLUIE" />
         <text name="ft_rainKey_off" text="arrêt" />
         <text name="ft_rainKey_unknownState" text="état du capteur inconnu" />
-        <text name="ft_rainKey_dryResetIn" text="réinitialisation dans %s" />
+        <text name="ft_rainKey_dryResetIn" text="Réinitialisation à sec dans %s" />
         <text name="ft_rainKey_dryResetPending" text="réinitialisation dès l'arrêt de la pluie" />
         <text name="ft_rainKey_nextCheckIn" text="prochain contrôle %s" />
         <text name="ft_rainKey_nextCheck" text="éligible au prochain contrôle du programme" />
@@ -2810,8 +2810,8 @@
         <text name="ft_rainKey_collected" text="collecté" />
         <text name="ft_rainKey_trip" text="seuil" />
         <text name="ft_rainKey_notifyTitle" text="Irrigation" />
-        <text name="ft_rainKey_notifyPaused" text="Le pivot #%s s'est arrêté car le capteur de pluie a déclenché" />
-        <text name="ft_rainKey_notifyResumed" text="Le pivot #%s sera de nouveau éligible au prochain contrôle" />
+        <text name="ft_rainKey_notifyPaused" text="Le pivot #%s s'est arrêté parce que la clé de pluie a été déclenchée." />
+        <text name="ft_rainKey_notifyResumed" text="Le pivot #%s est de nouveau admissible lors de la prochaine vérification du calendrier." />
         <text name="ft_water_header" text="SOURCES D'EAU" />
         <text name="ft_water_unlimited" text="Illimité" />
         <text name="ft_water_hours" text="%.1f / %.1f h" />
@@ -2819,7 +2819,7 @@
         <text name="ft_water_na" text="Indisponible" />
         <text name="ft_water_none" text="Aucune source d'eau sur cette ferme." />
         <text name="ft_water_source" text="Source d'eau" />
-        <text name="ft_water_connected" text="%d connectés" />
+        <text name="ft_water_connected" text="%d connecté" />
         <text name="ft_water_stop_dry" text="Source à sec" />
         <text name="ft_water_stop_nosource" text="Aucune source" />
         <text name="ft_dairy_breed_herd" text="TROUPEAU ACTUEL" />
@@ -3130,6 +3130,7 @@
         <text name="ft_irr_no_risk_reads" text="Aucun relevé de risque de parcelle pour l'instant." />
         <text name="ft_irr_private_unavailable" text="Indisponible : les données d'irrigation de cette ferme ne sont pas lisibles." />
         <text name="ft_irr_fitted_path" text="circuit du capteur de pluie, hors service programmé" />
+        <text name="ft_settings_factory_open_key" text="Clé d'ouverture d'usine"/>
     </texts>
 
 </l10n>

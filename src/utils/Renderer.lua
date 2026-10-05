@@ -216,6 +216,8 @@ function FT_Renderer:sectionHeader(x, y, contentW, label, literalText)
     local boxY = y - FT.py(3)
     self:appRect(x, boxY, contentW, boxH, FT.C.BG_CARD)
     self:appRect(x, boxY, FT.px(3), boxH, FT.C.BRAND)
+    -- Optional literalText (true only) preserves finished localized headings.
+    -- Omitted/false keeps historic auto-localization for all existing callers.
     self:appText(x + FT.px(10), y, FT.FONT.SMALL, label,
         RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, literalText == true)
 end
@@ -337,9 +339,28 @@ function FT_Renderer:flushContent(clipY, clipH)
     local cx2 = doClip and (FT.LAYOUT.contentX + FT.LAYOUT.contentW) or nil
     local cy2 = doClip and bodyClipTop or nil
 
+    -- Overlays are cut by the native clip rect above, so a partly-visible rect is fine
+    -- and this test only has to reject what is entirely outside.
     local function inView(oy, oh)
         if not doClip then return true end
         return (oy + oh) >= clipBottom and oy <= (bodyClipTop or clipTop)
+    end
+
+    -- [eyes-on 3] TEXT has no clip rect: renderText draws the whole line or nothing. Under
+    -- the loose test a line whose top edge was barely inside still rendered IN FULL, below
+    -- the body and onto the tablet bezel - "Sorghum:" on the Storage page and
+    -- "Actions / Use Esc Stock Guard" on Stock Guard. So the BASELINE must be inside the
+    -- body: a line that would start below it is not drawn at all.
+    --
+    -- Deliberately strict at the bottom only. Requiring (ty + th) to fit under bodyClipTop
+    -- as well would mix units: FT.FONT sizes are screen fractions (BODY 0.011) while the
+    -- header margin is FT.py(16), scaled reference pixels. At the default scale the first
+    -- line clears by about two reference pixels, so a player running a larger font setting
+    -- would lose the first line of EVERY app. The top never overflowed anyway - the fixed
+    -- header layer draws over it.
+    local function textInView(ty, th)
+        if not doClip then return true end
+        return ty >= clipBottom and ty <= (bodyClipTop or clipTop)
     end
 
     -- 2. App overlays (scrolled content, clipped via native clip rect)
@@ -377,7 +398,7 @@ function FT_Renderer:flushContent(clipY, clipH)
                 -- Guard: skip corrupt entries; they would crash renderText with nil arg
                 Logging.devWarning("FarmTablet Renderer: skipped nil text entry — text=%s x=%s y=%s",
                     tostring(t.text), tostring(t.x), tostring(t.y))
-            elseif not doClip or inView(t.y, t.size * fs) then
+            elseif not doClip or textInView(t.y, t.size * fs) then
                 setTextAlignment(t.align)
                 setTextColor(unpack(t.color))
                 renderText(t.x, t.y, t.size * fs, t.text)
