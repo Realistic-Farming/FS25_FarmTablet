@@ -57,6 +57,8 @@ end
 -- the fallback monogram tile is deliberately not used here.
 local ICON_ALIAS = {
     excavator  = "digging",           -- merge source: same earth/sand tile
+    stock_guard = "storage",          -- no baked tile; storage is the stock tile and is what its
+                                      -- own registration already asks for (AppRegistry icon = "storage")
     dairy      = "animals",
     dairy_core = "animals",
     prostaff   = "personnel",         -- co-op staff, same people tile

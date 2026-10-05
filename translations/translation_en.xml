@@ -3118,6 +3118,64 @@
         <text name="ft_irr_mode_usage" text="Usage" />
         <text name="ft_irr_private_unavailable" text="Unavailable: this farm's irrigation data cannot be read." />
         <text name="ft_irr_fitted_path" text="rain-key path, apart from scheduled service" />
+        <text name="ft_auto_market_movers" text="MARKET MOVERS"/>
+        <text name="ft_auto_stock_guard" text="Read-only Stock Guard client view (Esc remains command surface)."/>
+        <text name="ft_fc_basis_fallback" text="Fallback figure"/>
+        <text name="ft_fc_basis_half" text="Half the period gross"/>
+        <text name="ft_fc_cost_basis" text="Basis"/>
+        <text name="ft_fc_cost_basis_current" text="Current accrual"/>
+        <text name="ft_fc_cost_basis_history" text="History"/>
+        <text name="ft_fc_cost_basis_last" text="Last period operating"/>
+        <text name="ft_fc_cost_basis_payroll" text="Payroll"/>
+        <text name="ft_fc_cost_basis_tax" text="Tax"/>
+        <text name="ft_fc_cost_due_day" text="Due day"/>
+        <text name="ft_fc_cost_due_time" text="Due time"/>
+        <text name="ft_fc_cost_source" text="Source"/>
+        <text name="ft_fc_cost_source_operating" text="Operating"/>
+        <text name="ft_fc_expected_gross" text="Expected gross"/>
+        <text name="ft_fc_expected_net" text="Expected net"/>
+        <text name="ft_fc_history_basis" text="Not compared. Debt records do not match."/>
+        <text name="ft_fc_history_own_detail" text="No trusted history for this farm."/>
+        <text name="ft_fc_history_own_unavailable" text="History unavailable"/>
+        <text name="ft_fc_horizon_period" text="This period only"/>
+        <text name="ft_fc_leverage_cash" text="Owner cash is unavailable, so leverage can't be shown."/>
+        <text name="ft_fc_miss_unknown" text="Missing coverage"/>
+        <text name="ft_fc_no_farm" text="No farm selected"/>
+        <text name="ft_fc_outlook" text="One-period outlook"/>
+        <text name="ft_fc_outlook_minimum" text="Lowest cash %s"/>
+        <text name="ft_fc_outlook_minimum_label" text="Lowest cash"/>
+        <text name="ft_fc_outlook_no_shortage" text="No shortage predicted this period"/>
+        <text name="ft_fc_outlook_partial" text="Partial outlook"/>
+        <text name="ft_fc_outlook_shortfall" text="Shortage %s"/>
+        <text name="ft_fc_outlook_shortfall_label" text="Shortage"/>
+        <text name="ft_fc_outlook_sleep" text="Scheduled payments skipped while sleeping are not guaranteed receipts."/>
+        <text name="ft_fc_outlook_unavailable" text="Outlook unavailable"/>
+        <text name="ft_fc_working_cash" text="Working cash"/>
+        <text name="ft_settings_factory_open_key" text="Factory open key"/>
+        <text name="ft_soil_ph_advice_unavailable" text="pH advice unavailable"/>
+        <text name="ft_soil_ph_approx_value" text="%.1f / %.1f approximate"/>
+        <text name="ft_soil_ph_field_value" text="%.1f / %.1f field summary"/>
+        <text name="ft_soil_ph_gypsum_approx" text="Approximate, not an exact local sample. Apply GYPSUM to lower pH / improve structure."/>
+        <text name="ft_soil_ph_gypsum_field" text="Field summary, not every patch. Apply GYPSUM to lower pH / improve structure."/>
+        <text name="ft_soil_ph_gypsum_local" text="Local sample. Apply GYPSUM to lower pH / improve structure."/>
+        <text name="ft_soil_ph_lime_approx" text="Approximate, not an exact local sample. Apply LIME or LIQUID LIME to raise pH."/>
+        <text name="ft_soil_ph_lime_field" text="Field summary, not every patch. Apply LIME or LIQUID LIME to raise pH."/>
+        <text name="ft_soil_ph_lime_local" text="Local sample. Apply LIME or LIQUID LIME to raise pH."/>
+        <text name="ft_soil_ph_local_value" text="%.1f / %.1f local sample"/>
+        <text name="ft_soil_ph_stale" text="Stale"/>
+        <text name="ft_soil_ph_stale_last" text="Stale. Last known %.1f"/>
+        <text name="ft_soil_ph_unavailable" text="Unavailable"/>
+        <text name="ft_soil_ph_unavailable_last" text="Unavailable. Last known %.1f"/>
+        <text name="ft_store_help_domains_body" text="Every installed app is listed once, under the same domain\n"/>
+        <text name="ft_store_help_domains_title" text="DOMAINS"/>
+        <text name="ft_store_help_missing_body" text="A supported companion that is not loaded is listed once,\n"/>
+        <text name="ft_store_help_missing_title" text="NOT INSTALLED"/>
+        <text name="ft_store_help_open_body" text="Click OPEN to switch to that app.\n"/>
+        <text name="ft_store_help_open_title" text="OPEN"/>
+        <text name="ft_store_help_version_body" text="The version sits on the right\n"/>
+        <text name="ft_store_help_version_title" text="VERSION"/>
+        <text name="ft_store_not_installed" text="Not installed"/>
+        <text name="ft_store_unnamed" text="App"/>
     </texts>
 
 </l10n>

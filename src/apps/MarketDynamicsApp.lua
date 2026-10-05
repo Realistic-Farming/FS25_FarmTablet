@@ -104,7 +104,7 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     if #activeEvents == 0 then
         self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
             "No active market events.", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        y = y - FT.py(18)
+        y = y - FT.py(26)
     else
         local now = mdmGameTimeMs()
         for _, evt in ipairs(activeEvents) do
@@ -148,26 +148,32 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     table.sort(movers, function(a, b) return math.abs(a.pct) > math.abs(b.pct) end)
 
     y = y - FT.py(4)
-    y = self:drawSection(y, "MARKET MOVERS  (per 1,000 L)")
+    -- BUILD 17:48: the heading no longer claims one unit for rows that carry two. Crops are per
+    -- 1,000 L and animals are per head, and each row now says which it is.
+    -- BUILD 17:48 shortened this heading from "MARKET MOVERS  (per 1,000 L)" but left the old
+    -- literal mapped and the new one unmapped, so it read English in all 26 locales. Drawn through
+    -- the auto map now, with literalText set because l10nAuto returns resolved text.
+    y = self:drawSection(y, FT.l10nAuto("MARKET MOVERS"), true)
 
     if #movers == 0 then
         self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
             "No sell price data found", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
-        y = y - FT.py(18)
+        y = y - FT.py(26)
     else
         for i = 1, math.min(8, #movers) do
             local m = movers[i]
-            -- An animal price is already per head, so it must not take the per-1,000 L
-            -- scaling. The heading above still names only the volume unit; labelling each
-            -- row needs new translated text, which is not in this change.
-            local moneyStr
+            -- Per head as it stands, per 1,000 L scaled. The unit is printed either way, because a
+            -- number this size is only readable if the player knows what it is counting.
+            local moneyStr, unit
             if m.perHead then
                 moneyStr = self.system.data:formatMoney(math.floor(m.price + 0.5))
+                unit = "/head"
             else
                 moneyStr = self.system.data:formatMoney(math.floor(m.price * 1000 + 0.5))
+                unit = "/1,000 L"
             end
             y = self:drawRow(y, m.name,
-                string.format("%s  %+.1f%%", moneyStr, m.pct), nil,
+                string.format("%s%s  %+.1f%%", moneyStr, unit, m.pct), nil,
                 m.pct >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, nil, true)
         end
     end

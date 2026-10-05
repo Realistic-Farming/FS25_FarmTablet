@@ -71,7 +71,9 @@ local function effectText(proj)
     local RP = _rp()
     if RP ~= nil and RP.effectText ~= nil then return RP.effectText(proj) end
     if proj == nil or proj.status == nil then return FT.l10n("ft_rotation_no_change", "no change") end
-    return tostring(proj.status)
+    -- Without Soil's own effectText there is no consequence sentence to give, and the status
+    -- word is already the middle column. Returning it printed every row twice.
+    return nil
 end
 
 local function statusWord(status)
@@ -188,7 +190,8 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
             self.r:appText(x, y - FT.py(2), FT.FONT.SMALL, label, RenderText.ALIGN_LEFT, col)
 
             local by = y - FT.py(2)
-            local btn = self.r:button(bx, by, btnW, btnH, FT.l10nAuto(isSel and "VIEW" or "SELECT"), AC, {
+            local btn = self.r:button(bx, by, btnW, btnH, FT.l10nAuto(isSel and "VIEW" or "SELECT"),
+                isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL, {
                 onClick = function()
                     self.system.rotationPlannerSelectedField = field.id
                 end
@@ -232,8 +235,10 @@ FarmTabletUI:registerDrawer(FT.APP.ROTATION_PLANNER, function(self)
                     cropLabel(cand), RenderText.ALIGN_LEFT, FT.C.TEXT)
                 self.r:appText(x + FT.px(140), y - FT.py(14), FT.FONT.SMALL,
                     sw, RenderText.ALIGN_LEFT, scol)
-                self.r:appText(x + cw, y - FT.py(14), FT.FONT.SMALL,
-                    effect, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                if effect ~= nil and effect ~= sw then
+                    self.r:appText(x + cw, y - FT.py(14), FT.FONT.SMALL,
+                        effect, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+                end
                 y = y - FT.py(20)
             end
         end

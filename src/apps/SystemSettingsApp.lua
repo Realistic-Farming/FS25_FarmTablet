@@ -34,6 +34,34 @@ local function fmtValue(setting, live)
     if setting.type == "float" and type(v) == "number" then
         return string.format("%.2f", v)
     end
+    -- BUILD 17:48 (George CLOSED DESIGN 17:40 item 4): an enum's LIVE value comes back from the hub
+    -- as float32, so the 0.80 the schema declares arrives as 0.800000011920929 and fell straight
+    -- through to tostring. Snap to the nearest declared option, which is the value the player
+    -- actually chose, and when every option is a ratio paint it as the percent it means.
+    if setting.type == "enum" and type(setting.values) == "table" and type(v) == "number" then
+        local best, bestDiff, allRatios, anyFraction = nil, nil, true, false
+        for _, option in ipairs(setting.values) do
+            local o = tonumber(option)
+            if o == nil then
+                allRatios = false
+            else
+                if o < 0 or o > 1 then allRatios = false end
+                if o ~= math.floor(o) then anyFraction = true end
+                local d = math.abs(o - v)
+                if bestDiff == nil or d < bestDiff then
+                    best, bestDiff = o, d
+                end
+            end
+        end
+        if best ~= nil then
+            -- Ratios only. A {0, 1, 2} enum is a list of numbers, not percentages, and the
+            -- fraction test keeps an on/off style {0, 1} out of it too.
+            if allRatios and anyFraction then
+                return string.format("%d%%", math.floor(best * 100 + 0.5))
+            end
+            return tostring(best)
+        end
+    end
     return tostring(v)
 end
 
@@ -205,7 +233,15 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
     for _, mod in ipairs(modules) do
         local modId    = tostring(mod.modId)
         local settings = mod.settings or {}
-        local isCol    = collapsed[modId] == true
+        -- BUILD 17:48 (item 2): groups start CLOSED. An unseen mod is nil here and nil ~= false,
+        -- so it reads as collapsed. The seed is what makes the first tap work: the toggle below is
+        -- `collapsed[modId] = not collapsed[modId]`, and `not nil` is true, so without it the first
+        -- tap on a never-opened group would set collapsed to true and leave it shut. Session
+        -- memory is unchanged; a group you open stays open until you close it.
+        if collapsed[modId] == nil then
+            collapsed[modId] = true
+        end
+        local isCol    = collapsed[modId] ~= false
 
         y = y - FT.py(6)   -- gap before each module
 

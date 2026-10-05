@@ -431,7 +431,7 @@ FarmTabletUI:registerDrawer(FT.APP.DAIRY, function(self)
         self.r:appRect(x - FT.px(4), cardBottom, cw + FT.px(8), cardH, FT.C.BG_CARD)
 
         local header = barnLabel(row)
-        self.r:appText(x + pad, y - FT.py(6), FT.FONT.BODY, header,
+        self.r:appText(x + pad, y - FT.py(14), FT.FONT.BODY, header,
             RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
 
         local rowY = y - headerH

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="106">
     <author>TisonK, Akita83</author>
-    <version>2.6.0.11</version>
+    <version>2.6.0.24</version>
     <modName>FS25_FarmTablet</modName>
     <title>
         <en>Farm Tablet</en>
@@ -16,12 +16,49 @@
         <ru>Фермерский планшет</ru>
         <cn>农场平板</cn>
         <da>Farm Tablet</da>
+            <ct><![CDATA[Farm Tablet]]></ct>
+        <ea><![CDATA[Farm Tablet]]></ea>
+        <fc><![CDATA[Farm Tablet]]></fc>
+        <fi><![CDATA[Farm Tablet]]></fi>
+        <hu><![CDATA[Farm Tablet]]></hu>
+        <id><![CDATA[Farm Tablet]]></id>
+        <jp><![CDATA[Farm Tablet]]></jp>
+        <kr><![CDATA[Farm Tablet]]></kr>
+        <nl><![CDATA[Farm Tablet]]></nl>
+        <no><![CDATA[Farm Tablet]]></no>
+        <pt><![CDATA[Farm Tablet]]></pt>
+        <ro><![CDATA[Farm Tablet]]></ro>
+        <sv><![CDATA[Farm Tablet]]></sv>
+        <tr><![CDATA[Farm Tablet]]></tr>
+        <vi><![CDATA[Farm Tablet]]></vi>
     </title>
     <description>
         <en>Farm Tablet v2 - Complete overhaul. Central tablet interface for farm management with sidebar navigation, rich data visualisation and modular app system.</en>
         <de>Farm Tablet v2 – Komplette Überarbeitung. Zentrale Tablet-Oberfläche mit Sidebar-Navigation, reichhaltiger Datenvisualisierung und modularem App-System.</de>
         <fr>Farm Tablet v2 - Refonte complète. Interface tablette centrale avec navigation latérale, visualisation de données avancée et système d'applications modulaire.</fr>
         <da>Farm Tablet v2 - Komplet redesign. Central tabletgrænseflade til styring af gården med navigation i sidebjælken, detaljeret datavisualisering og et modulært app-system.</da>
+            <br><![CDATA[Farm Tablet v2 - Reformulação completa. Interface centralizada para gestão da fazenda com navegação lateral, visualização de dados avançada e sistema de aplicativos modular.]]></br>
+        <ct><![CDATA[農場平板電腦 v2 - 全面升級。集中式平板電腦介面，用於農場管理，配備側邊欄導航、豐富的數據視覺化和模組化應用程式系統。]]></ct>
+        <cz><![CDATA[Farm Tablet v2 - Kompletní přepracování. Centrální rozhraní tabletu pro správu farmy s postranní navigací, bohatou vizualizací dat a modulárním systémem aplikací.]]></cz>
+        <ea><![CDATA[Farm Tablet v2: renovación completa. Interfaz central tipo tableta para la gestión de la explotación agrícola con navegación lateral, visualización de datos avanzada y sistema de aplicaciones modular.]]></ea>
+        <es><![CDATA[Farm Tablet v2: renovación completa. Interfaz central tipo tableta para la gestión de la explotación agrícola con navegación lateral, visualización de datos avanzada y sistema de aplicaciones modular.]]></es>
+        <fc><![CDATA[Tablette agricole v2 - Révision complète. Interface tablette centralisée pour la gestion de l'exploitation avec navigation latérale, visualisation des données enrichie et système d'applications modulaires.]]></fc>
+        <fi><![CDATA[Farm Tablet v2 - Täydellinen uudistus. Keskitetty tablettikäyttöliittymä tilan hallintaan sivupalkilla, monipuolisella datan visualisoinnilla ja modulaarisella sovellusjärjestelmällä.]]></fi>
+        <hu><![CDATA[Farm Tablet v2 - Teljes körű átalakítás. Központi tabletfelület a gazdaságok kezeléséhez oldalsávos navigációval, gazdag adatvizualizációval és moduláris alkalmazásrendszerrel.]]></hu>
+        <id><![CDATA[Farm Tablet v2 - Perombakan total. Antarmuka tablet pusat untuk manajemen pertanian dengan navigasi sidebar, visualisasi data yang kaya, dan sistem aplikasi modular.]]></id>
+        <it><![CDATA[Farm Tablet v2 - Riprogettazione completa. Interfaccia tablet centralizzata per la gestione aziendale agricola con navigazione tramite barra laterale, visualizzazione avanzata dei dati e sistema di app modulari.]]></it>
+        <jp><![CDATA[ファームタブレットv2 - 全面的な改良。サイドバーナビゲーション、豊富なデータ視覚化、モジュール式アプリシステムを備えた、農場管理のための中心的なタブレットインターフェース。]]></jp>
+        <kr><![CDATA[팜 태블릿 v2 - 전면적인 개편. 사이드바 탐색, 풍부한 데이터 시각화 및 모듈형 앱 시스템을 갖춘 농장 관리용 중앙 태블릿 인터페이스.]]></kr>
+        <nl><![CDATA[Farm Tablet v2 - Volledig vernieuwd. Centrale tabletinterface voor bedrijfsbeheer met zijbalknavigatie, uitgebreide datavisualisatie en een modulair app-systeem.]]></nl>
+        <no><![CDATA[Farm Tablet v2 – Fullstendig overhaling. Sentralt nettbrettgrensesnitt for gårdsadministrasjon med sidefeltnavigasjon, omfattende datavisualisering og modulært appsystem.]]></no>
+        <pl><![CDATA[Farm Tablet v2 – Całkowita przebudowa. Centralny interfejs tabletu do zarządzania gospodarstwem z nawigacją boczną, bogatą wizualizacją danych i modułowym systemem aplikacji.]]></pl>
+        <pt><![CDATA[Farm Tablet v2 - Reformulação completa. Interface centralizado para a gestão da exploração com navegação lateral, visualização de dados avançada e sistema de aplicações modular.]]></pt>
+        <ro><![CDATA[Tabletă agricolă v2 - Revizie completă. Interfață centrală pentru tabletă pentru gestionarea fermei, cu navigare laterală, vizualizare bogată a datelor și sistem modular de aplicații.]]></ro>
+        <ru><![CDATA[Farm Tablet v2 — Полная переработка. Централизованный интерфейс для управления фермой с боковой навигацией, расширенными возможностями визуализации данных и модульной системой приложений.]]></ru>
+        <sv><![CDATA[Farm Tablet v2 – Fullständig översyn. Centralt surfplattagränssnitt för gårdshantering med sidofältsnavigering, omfattande datavisualisering och modulärt appsystem.]]></sv>
+        <tr><![CDATA[Çiftlik Tableti v2 - Tamamen yenilenmiş sürüm. Yan menü navigasyonu, zengin veri görselleştirmesi ve modüler uygulama sistemi ile çiftlik yönetimi için merkezi tablet arayüzü.]]></tr>
+        <uk><![CDATA[Планшет Farm Tablet v2 – Повне оновлення. Централізований інтерфейс планшета для управління фермою з бічною панеллю навігації, розширеною візуалізацією даних та модульною системою додатків.]]></uk>
+        <vi><![CDATA[Farm Tablet v2 - Phiên bản nâng cấp toàn diện. Giao diện máy tính bảng tập trung để quản lý trang trại với thanh điều hướng bên, trực quan hóa dữ liệu phong phú và hệ thống ứng dụng dạng mô-đun.]]></vi>
     </description>
     <iconFilename>icon.dds</iconFilename>
 

@@ -94,9 +94,9 @@ function Settings:validateSettings()
         self.startupApp = STARTUP_MAP[self.startupApp] or "dashboard"
     end
 
-    -- Digging + Bucket Tracker merged into Excavator
-    if self.startupApp == "digging" or self.startupApp == "bucket_tracker" then
-        self.startupApp = "excavator"
+    -- Retired ids resolve here, then duplicates drop. One list, not a second map.
+    if AppRegistry ~= nil and AppRegistry.resolve ~= nil then
+        self.startupApp = AppRegistry.resolve(self.startupApp)
     end
 
     -- Ensure startup app is valid
@@ -109,8 +109,8 @@ function Settings:validateSettings()
         local seen, out = {}, {}
         for id in string.gmatch(self.favoriteApps, "([^,]+)") do
             id = id:gsub("^%s+", ""):gsub("%s+$", "")
-            if id == "digging" or id == "bucket_tracker" then
-                id = "excavator"
+            if AppRegistry ~= nil and AppRegistry.resolve ~= nil then
+                id = AppRegistry.resolve(id)
             end
             if id ~= "" and not seen[id] then
                 seen[id] = true

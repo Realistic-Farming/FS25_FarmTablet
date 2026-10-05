@@ -547,7 +547,7 @@
         <text name="ft_auto_area" text="Terület" />
         <text name="ft_auto_area_2" text="Terület: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="Terület: saját földterület összesen hektárban.&#10;" />
-        <text name="ft_auto_at" text=" " />
+        <text name="ft_auto_at" text="a" />
         <text name="ft_auto_attached" text="Csatlakoztatva" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />
