@@ -2374,6 +2374,12 @@ FT.APP = {
     WEATHER      = "weather",
     DIGGING      = "digging",           -- legacy; AppRegistry.resolve -> excavator
     BUCKET       = "bucket_tracker",    -- legacy; AppRegistry.resolve -> excavator
+    -- legacy; AppRegistry.resolve -> irrigation_suite. The tile and the accent colour went with
+    -- Tyson's 2026-09-08 ruling (2c1d30a); the ID has to stay, because a saved startupApp, a
+    -- favourite or a tile still on the rail in a running session is this string, and resolve can
+    -- only redirect an id it can name. Without it the comparison is against nil, so "crop_stress"
+    -- is never redirected and switchApp(nil) resolves to Irrigation Suite instead.
+    CROP_STRESS  = "crop_stress",       -- legacy; AppRegistry.resolve -> irrigation_suite
     EXCAVATOR    = "excavator",
     INCOME       = "income_mod",
     TAX          = "tax_mod",
