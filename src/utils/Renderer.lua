@@ -150,6 +150,33 @@ function FT_Renderer:button(x, y, w, h, label, color, meta, literalText)
     return btn
 end
 
+--- A button on the FIXED HEADER layer.
+---
+--- :button queues into the app layer, which is the SCROLLING body, and flushContent culls that layer
+--- against FT.LAYOUT.bodyClipTop (:313-316). A control drawn above the clip top is therefore not drawn
+--- at all, while hitTest (:367-377) still answers for it, which is an invisible click target. The
+--- header layer has no such cull: flushContent renders _headerLayer and _headerTexts unconditionally.
+---
+--- So this is for chrome that must stay put and stay visible: a Back control, not a content button.
+--- Same signature, same hit region, same _buttons table, so clearing and hit-testing are unchanged.
+function FT_Renderer:headerButton(x, y, w, h, label, color, meta, literalText)
+    local literal = (literalText == true)
+    local ov = self:appHeaderRect(x, y, w, h, color or FT.C.BTN_NEUTRAL)
+    local edge = math.max(FT.py(1), 0.0009)
+    self:appHeaderRect(x, y + h - edge, w, edge, {1, 1, 1, 0.12})
+    self:appHeaderRect(x, y, w, edge, {0, 0, 0, 0.35})
+    local txt = ((not literal) and FT.l10nAuto ~= nil and FT.l10nAuto(label) or tostring(label or ""))
+    local fontSize = FT.FONT.SMALL
+    if string.len(tostring(txt or "")) > 32 then
+        fontSize = FT.FONT.TINY
+    end
+    self:appHeaderText(x + w/2, y + h/2 - FT.py(3), fontSize, txt,
+        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, literal)
+    local btn = { ov=ov, x=x, y=y, w=w, h=h, meta=meta }
+    table.insert(self._buttons, btn)
+    return btn
+end
+
 --- Draws a thin horizontal divider rule.
 --- alpha: opacity of the rule line (default 0.6).
 function FT_Renderer:rule(x, y, w, alpha)

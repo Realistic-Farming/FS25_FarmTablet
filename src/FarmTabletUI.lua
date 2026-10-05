@@ -3131,10 +3131,27 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
+    -- Back used to sit at startY + 2, which is inside the first section band, and ALSO under the body
+    -- clip: drawAppHeader sets FT.LAYOUT.bodyClipTop to startY + py(6) (:3256 against the value it
+    -- returns at :3257), and flushContent culls the app layer above that (Renderer.lua:313-316). On
+    -- development only the 4px between py(2) and py(6) survived and the label was culled outright,
+    -- while hitTest kept answering, which is an invisible click target.
+    --
+    -- So it moves into the header row AND onto the header layer, which flushContent renders with no
+    -- cull at all. drawAppHeader puts its divider 12px BELOW the value it returns (divY - FT.py(12)
+    -- at :3257; the 18px at :3247 is the divider's distance below the TITLE, not above the return).
+    -- The band between the divider and the title row is 18px and this button is 16px, so it fits by
+    -- construction, and the subtitle is drawn on the title line above it (:3243), not beside it.
+    -- Deviation worth naming: the design asked for it left of the "Help" subtitle on the same
+    -- line. That needs the rendered width of the subtitle, and this renderer exposes no text
+    -- measurement, so guessing a clearance would risk overlapping that word at some resolutions.
+    -- Sitting just above the divider is in the same header block, is clear of the subtitle by
+    -- construction rather than by arithmetic, and meets the requirement that the band must not
+    -- cover it.
     local bw = FT.px(52)
-    local bh = FT.py(18)
-    local backBtn = self.r:button(
-        x + w - bw, startY + FT.py(2), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
+    local bh = FT.py(16)
+    local backBtn = self.r:headerButton(
+        x + w - bw, startY + FT.py(13), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
