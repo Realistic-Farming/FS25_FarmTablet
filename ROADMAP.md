@@ -68,3 +68,7 @@
 
 - [x] System Settings (#219, merged at a5199367): an enum setting's live value is painted as the declared option nearest to it, which is the value the player chose, and an enum whose options are all ratios with at least one fraction is painted as the percent it means, so a chosen 0.80 reads 80% and never a long decimal such as 0.800000011920929. A list of plain numbers (0, 1, 2) still shows the number. Module groups start closed and the first tap opens one (the closed start decided by Tyson, 2026-10-05, via Desk); a group you open stays open for the session. Bar `tools/test/settings-enum-value-check.mjs`.
 - The in-game check is TESTING row 460. SettingsHub #23 (MAINTENANCE 217) is the hub-side fix for enum values that cross the network as float32. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-06 (Fred): the tablet shows the build's own version (MAINTENANCE row 236)
+
+- [x] Version label: the Settings page header and its Version row, the welcome header and the welcome notice now show the version from the mod's own modDesc.xml, which the game already reads at load, instead of a hand-kept copy that had drifted (testers on 2.6.0.11 read "FarmTablet v2.6.0.6"). The old constant stays only as a fallback when the game has no record. Bar `tools/test/version-label-check.mjs` (8 cases through the whole tablet's load), battery `tools/test/mutate_version_label.py`. The in-game check is TESTING row 495.

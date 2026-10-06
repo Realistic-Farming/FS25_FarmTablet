@@ -4,7 +4,23 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.6.0.6"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
+FT.VERSION = "2.6.0.6"   -- the fallback only: the tablet shows modDesc.xml's <version>, read just below
+
+-- MAINTENANCE row 236: the version the tablet shows is the mod's own modDesc <version>. The engine reads
+-- it into its mod manager before it sources any of the mod's scripts (mods.lua:430 and :961,
+-- ModManager.lua:16-27), keyed by the mod's name (getModByName, :89-91; the name latched by main.lua
+-- before this file). The hand-kept copy above drifted (2.6.0.6 shown on a 2.6.0.11 build) and stays only
+-- as the fallback when there is no record.
+do
+    local mod = nil
+    if g_modManager ~= nil and type(g_modManager.getModByName) == "function" and FarmTabletModName ~= nil then
+        local ok, found = pcall(g_modManager.getModByName, g_modManager, FarmTabletModName)
+        if ok then mod = found end
+    end
+    if type(mod) == "table" and type(mod.version) == "string" and mod.version ~= "" then
+        FT.VERSION = mod.version
+    end
+end
 
 -- TEMPORARY console command fee until the real repair station ships.
 FT.FORCE_REPAIR_FEE = 3000
