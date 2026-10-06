@@ -22,6 +22,7 @@
 - [x] FT-003 / FT-004 / FT-005: additional FarmTablet bugs fixed in 2026-07-26 bug sweep, merged to main.
 
 ## Features / enhancements
+- [x] System Settings shows an enum's chosen value (a ratio as its percent) and opens a group on the first tap; groups start closed (Wizard, #219, 2026-10-05). In-game check pending (TESTING row 460).
 - [x] The retired Crop Stress app id opens Irrigation Suite instead of nothing (Wizard, #216, 2026-10-05). In-game check pending (TESTING row 442).
 - [x] The App Store keeps a Seasonal Crop Stress row that opens Irrigation Suite (Wizard, #214, 2026-10-05). In-game check pending (TESTING row 441).
 - [x] Help pages draw their Back control on the header layer, so the body clip no longer hides it (Wizard, #215, 2026-10-05). In-game check pending (TESTING row 439).

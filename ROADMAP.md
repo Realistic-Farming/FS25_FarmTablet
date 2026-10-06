@@ -63,3 +63,8 @@
 - [x] App Store (#214, merged at 90ced81): MOD INTEGRATIONS keeps a "Seasonal Crop Stress" row whose OPEN goes to Irrigation Suite, so a player looking for that mod still finds it. This partly reverses the App Store listing removal of #159 under the 2026-09-08 ruling; merged on Tyson's word. Bar `tools/test/appstore-integration-row-check.mjs`.
 - [x] Retired id (#216, merged at 7f91b71): `crop_stress` is back in `FT.APP` as a legacy id beside `DIGGING` and `BUCKET`, and `AppRegistry.resolve` sends it to Irrigation Suite, so a saved startup app, favourite or rail tile holding it opens Irrigation Suite instead of nothing. Bar `tools/test/app-resolve-check.mjs`.
 - The in-game checks are TESTING rows 441 and 442. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-06 (Fred): System Settings shows an enum's chosen value, and a group opens on the first tap (Wizard, #219)
+
+- [x] System Settings (#219, merged at a5199367): an enum setting's live value is painted as the declared option nearest to it, which is the value the player chose, and an enum whose options are all ratios with at least one fraction is painted as the percent it means, so a chosen 0.80 reads 80% and never a long decimal such as 0.800000011920929. A list of plain numbers (0, 1, 2) still shows the number. Module groups start closed and the first tap opens one (the closed start decided by Tyson, 2026-10-05, via Desk); a group you open stays open for the session. Bar `tools/test/settings-enum-value-check.mjs`.
+- The in-game check is TESTING row 460. SettingsHub #23 (MAINTENANCE 217) is the hub-side fix for enum values that cross the network as float32. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
