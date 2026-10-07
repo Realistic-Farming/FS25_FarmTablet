@@ -20,6 +20,21 @@
 -- (Settings:getPayModeName), TaxMod's rate id (settings.taxRate), WorkerCosts' wage level and cost mode
 -- (Settings:getWageLevelName / getCostModeName) and its roster's level and status (getRosterSnapshot).
 -- Each known word reaches the tablet's key here; a word this table does not know keeps the map's pass.
+-- The roster chord is read live from WC_OPEN_ROSTER rather than printed as a
+-- literal. The old "ALT+H" was never a real binding: WorkerCosts shipped that
+-- action with no <binding> at all, so the hint named a key that did nothing in
+-- every language. LiveKeyLabel resolves through g_inputBinding:getActionByName,
+-- and InputAction is one global namespace, so this works cross-mod when
+-- WorkerCosts is loaded and returns the helper's own truthful status text when it
+-- is not. Never hardcode the new default either; the player can rebind it.
+local function _rosterChord()
+    if LiveKeyLabel ~= nil and LiveKeyLabel.get ~= nil then
+        local c = LiveKeyLabel.get("WC_OPEN_ROSTER")
+        if type(c) == "string" and c ~= "" then return c end
+    end
+    return FT.l10n("ft_wrk_roster_key_unknown", "Options > Controls")
+end
+
 local COMPANION_WORD = {
     ["Hourly"]          = function() return FT.l10n("ft_companion_hourly", "Hourly") end,
     ["Daily"]           = function() return FT.l10n("ft_companion_daily", "Daily") end,
@@ -548,12 +563,12 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
           body  = FT.l10n("ft_wrk_help_month_body", "Total wages accumulated this month.\n" ..
                   "Resets after the monthly salary is paid."), literalBody = true },
         { title = "PRO-STAFF ROSTER",
-          body  = FT.l10n("ft_wrk_help_roster_body", "Your hired workers with their level\n" ..
+          body  = FT.l10nFormat("ft_wrk_help_roster_body", "Your hired workers with their level\n" ..
                   "(Novice / Experienced / Master), lifetime hours,\n" ..
                   "jobs completed, and current fatigue bar.\n" ..
                   "This view is read-only - hire, fire, and assign\n" ..
-                  "workers from the in-game roster panel (ALT+H)\n" ..
-                  "or the WorkerCosts console commands."), literalBody = true },
+                  "workers from the in-game roster panel (%s)\n" ..
+                  "or the WorkerCosts console commands.", _rosterChord()), literalBody = true },
     }) then return end
 
     local startY = self:drawAppHeader("Worker Costs", "Integration")
@@ -622,7 +637,9 @@ FarmTabletUI:registerDrawer(FT.APP.WORKER_COSTS, function(self)
             y = y - FT.py(16)
         elseif snap.count == 0 then
             self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
-                "No workers yet. Hire from the roster panel (ALT+H).",
+                FT.l10nFormat("ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h",
+                    "No workers yet. Hire from the roster panel (%s).",
+                    _rosterChord()),
                 RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
             y = y - FT.py(16)
         else

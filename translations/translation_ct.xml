@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="沒有車輛" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="35 公尺內沒有車輛。" />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="尚無工人。請從名冊面板僱用（ALT+H）。" />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="尚無工人。請從名冊面板僱用（%s）。" />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="尚無工人。開啟「雇用」分頁來招募。" />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="此農場沒有工作間  (維修已停用)" />
         <text name="ft_auto_none" text="無" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="工人薪資與成本明細" />
         <text name="ft_auto_workers" text="工人" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="工作中" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="目前工作中" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="設定所僱工人的時薪。&#10;低 / 中 / 高 等級在&#10;Worker Costs 模組設定中調整。" />
         <text name="ft_wrk_help_mode_body" text="控制薪資的計算方式：&#10;每小時 = 每個遊戲小時收取。&#10;每公頃 = 依作業面積計費，於午夜結算。" />
         <text name="ft_wrk_help_month_body" text="本月累計的薪資總額。&#10;支付月薪後重設。" />
-        <text name="ft_wrk_help_roster_body" text="你僱用的工人及其等級&#10;（新手 / 熟練 / 大師）、累計時數、&#10;完成工作數與目前疲勞條。&#10;此畫面為唯讀：僱用、解僱與指派&#10;請使用遊戲內的名冊面板（ALT+H）&#10;或 WorkerCosts 主控台指令。" />
+        <text name="ft_wrk_help_roster_body" text="你僱用的工人及其等級&#10;（新手 / 熟練 / 大師）、累計時數、&#10;完成工作數與目前疲勞條。&#10;此畫面為唯讀：僱用、解僱與指派&#10;請使用遊戲內的名冊面板（%s）&#10;或 WorkerCosts 主控台指令。" />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="名冊由主機管理：即將同步到用戶端。" />
         <text name="ft_wrk_levels_fmt" text="新手 %d / 熟練 %d / 大師 %d" />

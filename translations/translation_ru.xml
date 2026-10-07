@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Нет техники" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Нет техники в радиусе 35 м." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Рабочих пока нет. Нанимайте в панели состава (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Рабочих пока нет. Нанимайте в панели состава (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Работников пока нет. Откройте вкладку НАНЯТЬ, чтобы набрать людей." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="На этой ферме нет мастерской  (ремонт отключён)" />
         <text name="ft_auto_none" text="нет" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Зарплаты рабочих и расходы" />
         <text name="ft_auto_workers" text="Работники" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Работают" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Сейчас работает" />
@@ -3077,7 +3077,7 @@
         <text name="ft_wrk_help_wage_body" text="Задаёт почасовую ставку нанятых рабочих.&#10;Уровни Низкий / Средний / Высокий задаются&#10;в настройках мода Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Определяет расчёт зарплаты:&#10;Почасово = списывается каждый игровой час.&#10;За гектар = по обработанной площади, расчёт в полночь." />
         <text name="ft_wrk_help_month_body" text="Всего начислено зарплаты за месяц.&#10;Обнуляется после выплаты месячной зарплаты." />
-        <text name="ft_wrk_help_roster_body" text="Нанятые рабочие с их уровнем&#10;(Новичок / Опытный / Мастер), общими часами,&#10;выполненными работами и шкалой усталости.&#10;Этот экран только для чтения: нанимайте, увольняйте и назначайте&#10;рабочих в панели состава в игре (ALT+H)&#10;или консольными командами WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Нанятые рабочие с их уровнем&#10;(Новичок / Опытный / Мастер), общими часами,&#10;выполненными работами и шкалой усталости.&#10;Этот экран только для чтения: нанимайте, увольняйте и назначайте&#10;рабочих в панели состава в игре (%s)&#10;или консольными командами WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Составом управляет хост: скоро синхронизируется." />
         <text name="ft_wrk_levels_fmt" text="%dН / %dО / %dМ" />
