@@ -5,6 +5,8 @@
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## Bugs
+- [x] 2026-10-06: **The tablet shows a stale version (MAINTENANCE row 236).** FT.VERSION was a hand-kept copy of modDesc.xml's `<version>` and drifted (2.6.0.6 shown on 2.6.0.11). `src/core/Constants.lua` now takes the version the engine read from modDesc into its mod manager (`g_modManager:getModByName(FarmTabletModName).version`), and keeps the constant as the fallback. Bar `tools/test/version-label-check.mjs`, battery `tools/test/mutate_version_label.py`. In-game check pending (TESTING row 495).
+
 - [x] 2026-08-31: **Weather dial refusal now visible (issue #140).** The World Weather chips called `WeatherGuard:requestWeatherMode` inside a bare `pcall` and discarded the result, so on a dedicated server a refused or errored change looked like "nothing happened" with no message. The chip handler now captures the return, clears any stale notice on success, and on failure draws a notice line above the dial: admin-only wording when the player is not a host or master user, WeatherGuard-refused wording otherwise. In-game verification pending.
 
 - [x] 2026-07-30: `src/apps/ProStaffApp.lua:111` failed to COMPILE - `...` referenced from inside an anonymous function ("cannot use '...' outside of a vararg function"). Lua 5.1 does not let a nested closure see the enclosing function's vararg. The whole file was rejected, so the ProStaff app was dead in every session. `safeGet` now passes the varargs straight to `pcall` (no inner closure) and guards a missing method.
