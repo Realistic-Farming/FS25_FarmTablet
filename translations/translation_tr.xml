@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Araç yok" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="35 m içinde araç yok." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Henüz işçi yok. Kadro panelinden işe al (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Henüz işçi yok. Kadro panelinden işe al (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Henüz işçi yok. İşe almak için İŞE AL sekmesini aç." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Bu çiftlikte atölye yok  (onarım kapalı)" />
         <text name="ft_auto_none" text="yok" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="İşçi ücretleri ve maliyet dökümü" />
         <text name="ft_auto_workers" text="İşçiler" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Çalışıyor" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Şu an çalışıyor" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="İşe alınan işçilerin saatlik ücretini belirler.&#10;Düşük / Orta / Yüksek seviyeleri&#10;Worker Costs mod ayarlarında yapılandırılır." />
         <text name="ft_wrk_help_mode_body" text="Ücretlerin nasıl hesaplandığını belirler:&#10;Saatlik = her oyun saatinde tahsil edilir.&#10;Hektar başına = işlenen alana göre tahsil edilir, gece yarısı kapatılır." />
         <text name="ft_wrk_help_month_body" text="Bu ay biriken toplam ücret.&#10;Aylık maaş ödendikten sonra sıfırlanır." />
-        <text name="ft_wrk_help_roster_body" text="İşe aldığın işçiler, seviyeleriyle&#10;(Acemi / Deneyimli / Usta), toplam saat,&#10;tamamlanan iş ve güncel yorgunluk çubuğuyla.&#10;Bu görünüm salt okunurdur: işe alma, çıkarma ve görevlendirme&#10;oyundaki kadro panelinden (ALT+H)&#10;veya WorkerCosts konsol komutlarıyla yapılır." />
+        <text name="ft_wrk_help_roster_body" text="İşe aldığın işçiler, seviyeleriyle&#10;(Acemi / Deneyimli / Usta), toplam saat,&#10;tamamlanan iş ve güncel yorgunluk çubuğuyla.&#10;Bu görünüm salt okunurdur: işe alma, çıkarma ve görevlendirme&#10;oyundaki kadro panelinden (%s)&#10;veya WorkerCosts konsol komutlarıyla yapılır." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Kadroyu sunucu yönetir: yakında eşitlenir." />
         <text name="ft_wrk_levels_fmt" text="%dA / %dD / %dU" />

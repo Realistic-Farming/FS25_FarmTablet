@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Nincs jármű" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Nincs jármű 35 méteren belül." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Még nincs munkás. Vegyél fel a csapatpanelen (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Még nincs munkás. Vegyél fel a csapatpanelen (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Még nincs dolgozó. Nyisd meg a FELVESZ lapot a toborzáshoz." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Nincs műhely ezen a gazdaságon  (javítás kikapcsolva)" />
         <text name="ft_auto_none" text="nincs" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Munkabérek és költségbontás" />
         <text name="ft_auto_workers" text="Dolgozók" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Dolgozik" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Most dolgozik" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="A felvett munkások órabérét állítja be.&#10;Az Alacsony / Közepes / Magas szint a&#10;Worker Costs mod beállításaiban adható meg." />
         <text name="ft_wrk_help_mode_body" text="Megadja a bérek számítását:&#10;Óránként = minden játékórában terhel.&#10;Hektáronként = a megművelt terület után terhel, éjfélkor elszámolva." />
         <text name="ft_wrk_help_month_body" text="Az e havi összes felhalmozott bér.&#10;A havi fizetés kifizetése után nullázódik." />
-        <text name="ft_wrk_help_roster_body" text="A felvett munkásaid a szintjükkel&#10;(Kezdő / Tapasztalt / Mester), összes órával,&#10;elvégzett munkákkal és aktuális fáradtsággal.&#10;Ez a nézet csak olvasható: felvétel, elbocsátás és beosztás&#10;a játékbeli csapatpanelen (ALT+H)&#10;vagy a WorkerCosts konzolparancsaival." />
+        <text name="ft_wrk_help_roster_body" text="A felvett munkásaid a szintjükkel&#10;(Kezdő / Tapasztalt / Mester), összes órával,&#10;elvégzett munkákkal és aktuális fáradtsággal.&#10;Ez a nézet csak olvasható: felvétel, elbocsátás és beosztás&#10;a játékbeli csapatpanelen (%s)&#10;vagy a WorkerCosts konzolparancsaival." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="A csapatot a gazdagép kezeli: hamarosan szinkronizál." />
         <text name="ft_wrk_levels_fmt" text="%dK / %dT / %dM" />

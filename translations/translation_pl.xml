@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Brak pojazdu" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Brak pojazdów w promieniu 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Brak pracowników. Zatrudnij w panelu zespołu (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Brak pracowników. Zatrudnij w panelu zespołu (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Brak pracowników. Otwórz kartę ZATRUDNIJ, aby rekrutować." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Brak warsztatu w tym gospodarstwie  (naprawy wyłączone)" />
         <text name="ft_auto_none" text="brak" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Płace pracowników i zestawienie kosztów" />
         <text name="ft_auto_workers" text="Pracownicy" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Pracują" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Teraz pracuje" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Ustala stawkę godzinową zatrudnionych pracowników.&#10;Poziomy Niski / Średni / Wysoki ustawia się&#10;w ustawieniach moda Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Określa sposób naliczania płac:&#10;Godzinowo = naliczane co godzinę gry.&#10;Za hektar = naliczane od obrobionej powierzchni, rozliczane o północy." />
         <text name="ft_wrk_help_month_body" text="Łączne płace naliczone w tym miesiącu.&#10;Zerowane po wypłacie miesięcznej pensji." />
-        <text name="ft_wrk_help_roster_body" text="Twoi zatrudnieni pracownicy z poziomem&#10;(Nowicjusz / Doświadczony / Mistrz), łącznymi godzinami,&#10;ukończonymi zleceniami i paskiem zmęczenia.&#10;Ten widok jest tylko do odczytu: zatrudniaj, zwalniaj i przydzielaj&#10;pracowników w panelu zespołu w grze (ALT+H)&#10;lub komendami konsoli WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Twoi zatrudnieni pracownicy z poziomem&#10;(Nowicjusz / Doświadczony / Mistrz), łącznymi godzinami,&#10;ukończonymi zleceniami i paskiem zmęczenia.&#10;Ten widok jest tylko do odczytu: zatrudniaj, zwalniaj i przydzielaj&#10;pracowników w panelu zespołu w grze (%s)&#10;lub komendami konsoli WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Zespołem zarządza host: synchronizacja wkrótce." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dD / %dM" />

@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Nessun veicolo" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Nessun veicolo entro 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ancora nessun lavoratore. Assumi dal pannello dell'organico (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ancora nessun lavoratore. Assumi dal pannello dell'organico (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Ancora nessun lavoratore. Apri la scheda ASSUMI per reclutare." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Nessuna officina in questa fattoria  (riparazioni disattivate)" />
         <text name="ft_auto_none" text="nessuno" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salari dei lavoratori e dettaglio dei costi" />
         <text name="ft_auto_workers" text="Lavoratori" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Al lavoro" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Al lavoro ora" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Imposta la paga oraria dei lavoratori assunti.&#10;I livelli Basso / Medio / Alto si impostano&#10;nelle opzioni della mod Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Stabilisce come si calcolano i salari:&#10;Orario = addebitato a ogni ora di gioco.&#10;Per ettaro = addebitato in base alla superficie lavorata, saldato a mezzanotte." />
         <text name="ft_wrk_help_month_body" text="Salari totali accumulati questo mese.&#10;Si azzera dopo il pagamento dello stipendio mensile." />
-        <text name="ft_wrk_help_roster_body" text="I lavoratori assunti con il loro livello&#10;(Principiante / Esperto / Maestro), ore totali,&#10;lavori completati e barra della fatica attuale.&#10;Questa vista è di sola lettura: assumi, licenzia e assegna&#10;i lavoratori dal pannello dell'organico (ALT+H)&#10;o con i comandi console di WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="I lavoratori assunti con il loro livello&#10;(Principiante / Esperto / Maestro), ore totali,&#10;lavori completati e barra della fatica attuale.&#10;Questa vista è di sola lettura: assumi, licenzia e assegna&#10;i lavoratori dal pannello dell'organico (%s)&#10;o con i comandi console di WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="L'organico è gestito dall'host: si sincronizzerà a breve." />
         <text name="ft_wrk_levels_fmt" text="%dP / %dE / %dM" />

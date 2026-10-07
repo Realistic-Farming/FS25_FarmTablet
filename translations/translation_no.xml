@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Ingen kjøretøy" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Ingen kjøretøy innenfor 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ingen arbeidere ennå. Ansett fra lagpanelet (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ingen arbeidere ennå. Ansett fra lagpanelet (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Ingen arbeidere ennå. Åpne fanen ANSETT for å rekruttere." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Ikke noe verksted på denne gården  (reparasjoner slått av)" />
         <text name="ft_auto_none" text="ingen" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Arbeiderlønn og kostnadsoversikt" />
         <text name="ft_auto_workers" text="Arbeidere" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="I arbeid" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Jobber nå" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Setter timelønnen for ansatte arbeidere.&#10;Nivåene Lav / Middels / Høy stilles inn i&#10;Worker Costs-moddens innstillinger." />
         <text name="ft_wrk_help_mode_body" text="Styrer hvordan lønn beregnes:&#10;Per time = belastes hver spilltime.&#10;Per hektar = belastes etter bearbeidet areal, gjøres opp ved midnatt." />
         <text name="ft_wrk_help_month_body" text="Samlet lønn opparbeidet denne måneden.&#10;Nullstilles når månedslønnen er betalt." />
-        <text name="ft_wrk_help_roster_body" text="De ansatte arbeiderne dine med nivå&#10;(Nybegynner / Erfaren / Mester), timer totalt,&#10;fullførte oppdrag og nåværende tretthetslinje.&#10;Denne visningen er skrivebeskyttet: ansett, si opp og tildel&#10;arbeidere fra lagpanelet i spillet (ALT+H)&#10;eller med WorkerCosts sine konsollkommandoer." />
+        <text name="ft_wrk_help_roster_body" text="De ansatte arbeiderne dine med nivå&#10;(Nybegynner / Erfaren / Mester), timer totalt,&#10;fullførte oppdrag og nåværende tretthetslinje.&#10;Denne visningen er skrivebeskyttet: ansett, si opp og tildel&#10;arbeidere fra lagpanelet i spillet (%s)&#10;eller med WorkerCosts sine konsollkommandoer." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Laget styres av verten: synkroniseres snart." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />

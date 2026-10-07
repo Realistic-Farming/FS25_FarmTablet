@@ -1486,7 +1486,7 @@
         <text name="ft_auto_no_vehicle" text="No vehicle" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="No vehicles within 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="No workers yet. Hire from the roster panel (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="No workers yet. Open the HIRE tab to recruit." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="No workshop found on this farm  (repairs disabled)" />
         <text name="ft_auto_none" text="none" />
@@ -2224,7 +2224,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Worker wages and cost breakdown" />
         <text name="ft_auto_workers" text="Workers" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Working" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Working Now" />
@@ -3023,7 +3023,7 @@
         <text name="ft_wrk_help_wage_body" text="Sets the per-hour wage rate for hired workers.&#10;Low / Medium / High tiers are configured in&#10;the Worker Costs mod settings." />
         <text name="ft_wrk_help_mode_body" text="Controls how wages are calculated:&#10;Hourly = charged every in-game hour.&#10;Per Hectare = billed by area worked, settled at midnight." />
         <text name="ft_wrk_help_month_body" text="Total wages accumulated this month.&#10;Resets after the monthly salary is paid." />
-        <text name="ft_wrk_help_roster_body" text="Your hired workers with their level&#10;(Novice / Experienced / Master), lifetime hours,&#10;jobs completed, and current fatigue bar.&#10;This view is read-only - hire, fire, and assign&#10;workers from the in-game roster panel (ALT+H)&#10;or the WorkerCosts console commands." />
+        <text name="ft_wrk_help_roster_body" text="Your hired workers with their level&#10;(Novice / Experienced / Master), lifetime hours,&#10;jobs completed, and current fatigue bar.&#10;This view is read-only - hire, fire, and assign&#10;workers from the in-game roster panel (%s)&#10;or the WorkerCosts console commands." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Roster is host-managed - syncs to clients soon." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />
