@@ -9,7 +9,7 @@
 --     becomes the full screen in APP state.
 -- =========================================================
 ---@class FarmTabletUI
-FarmTabletUI = {}
+FarmTabletUI = FarmTabletUI or {}
 local FarmTabletUI_mt = Class(FarmTabletUI)
 
 -- ── Frame / layout constants (reference px @ FT.REF_W x FT.REF_H) ──
@@ -50,6 +50,19 @@ end
 -- declared before the dispatch section and would otherwise see a nil global.
 local function hit(b, px, py)
     return b and px >= b.x and px <= b.x + b.w and py >= b.y and py <= b.y + b.h
+end
+
+-- BUILD 15:39 (PB-02). A control marked `enabled = false` is drawn dimmed and is
+-- inert: it is still hit-tested so the click is swallowed rather than falling
+-- through to whatever is behind it, but it fires no action, sound or animation.
+-- Declared after `hit` on purpose: an upvalue has to already exist to be closed
+-- over, and in Lua 5.1 a forward reference here would silently read a nil global.
+local function hitLive(b, px, py)
+    return b ~= nil and b.enabled ~= false and hit(b, px, py)
+end
+
+local function hitInert(b, px, py)
+    return b ~= nil and b.enabled == false and hit(b, px, py)
 end
 
 -- ── Nav-glyph helpers (#90) ──────────────────────────────
@@ -164,6 +177,11 @@ function FarmTabletUI.new(settings, system, modDirectory)
     self._batteryChargeNotifyUsable = false
     self._batteryChargeNotifyFull = false
     self._batteryEmptyOpenBlockedLastMs = nil
+
+    -- Physical charging-station support (see setAtCharger).
+    self._batteryChargeRateMs = 6000   -- ms per 1%: in-tablet self-charge default (station sets 3000)
+    self._atPhysicalCharger   = false  -- true while the local player stands on a charging-station pad
+    self._chargeLightState    = false  -- last honest station-light state sent to the placeable
 
     self._signalBars = 4
     self._signalLabel = "Realistic Farming Mobile"
@@ -352,9 +370,30 @@ function FarmTabletUI:_formatBatteryChargeProgress()
     return string.format("%d%% [%s]", pct, bar)
 end
 
-function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress)
+--- BUILD 15:39 (PB-12). The one place that answers "what key opens the tablet",
+--- read live from the binding rather than from a hardcoded string. Falls back to
+--- the shipped default label, which is the same chord modDesc binds.
+function FarmTabletUI:_keybindLabel()
+    local handler = g_FarmTablet ~= nil and g_FarmTablet.inputHandler or nil
+    if handler ~= nil and handler.getKeybindString ~= nil then
+        local ok, label = pcall(handler.getKeybindString, handler)
+        if ok and type(label) == "string" and label ~= "" then
+            return label
+        end
+    end
+    return (InputHandler ~= nil and InputHandler.DEFAULT_KEY_LABEL) or "Right Ctrl + T"
+end
+
+function FarmTabletUI:_notifyBattery(titleKey, titleFallback, msgKey, msgFallback, withProgress, ...)
     local title = ftUiText(titleKey or "ft_battery_service_title", titleFallback or "Tablet battery")
     local msg = ftUiText(msgKey or "ft_battery_charging_info", msgFallback or "Tablet is charging.")
+    -- Optional format arguments (e.g. the live keybind). string.format is only
+    -- reached when the caller passed some, so existing call sites are untouched
+    -- and a translation without a placeholder still renders verbatim.
+    if select("#", ...) > 0 then
+        local ok, formatted = pcall(string.format, msg, ...)
+        if ok then msg = formatted end
+    end
     if withProgress == true then
         msg = msg .. " " .. self:_formatBatteryChargeProgress()
     end
@@ -520,22 +559,26 @@ function FarmTabletUI:_openTabletBody()
     end
 
     if g_currentMission then
-        -- MasterHUD present -> it draws us through the subscribe claim, so adding a
-        -- second drawable would render the tablet twice. Standalone, the drawable is
-        -- the only path.
-        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
-            g_currentMission:addDrawable(self)
-        end
+        g_currentMission:addDrawable(self)
     end
 
     if g_inputBinding then
         g_inputBinding:setShowMouseCursor(true)
         self._mouseListener = {_ui = self}
-        function self._mouseListener:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
-            if not eventUsed and self._ui:_onMouse(posX, posY, isDown, isUp, button) then
-                return true
-            end
-            return eventUsed
+        -- BUILD 06:33 (Vera 8b FAILFIX). This listener ROUTES the mouse to the
+        -- tablet's hit tests. It does not, and cannot, consume it: BaseMission
+        -- fans mouseEvent out to `g_modEventListeners` and ignores what each
+        -- listener returns, and it passes no `eventUsed` argument, so the
+        -- previous "swallow the leftovers by returning true" was a door that
+        -- never opened - a wallpaper drag still panned the camera behind the
+        -- screen. What actually holds the camera is the FT_TABLET_MODAL input
+        -- context, claimed at the end of this open so the bound look axes are
+        -- already inactive on the first painted frame, with the per-frame
+        -- `setRotation` snap in `update()` as the belt. The return value is kept
+        -- honest for any listener chain that does read it.
+        function self._mouseListener:mouseEvent(posX, posY, isDown, isUp, button)
+            local ui = self._ui
+            return ui:_onMouse(posX, posY, isDown, isUp, button) == true
         end
         addModEventListener(self._mouseListener)
     end
@@ -551,7 +594,26 @@ function FarmTabletUI:_openTabletBody()
     self:_startAnim("wake", 360)
 
     FT_EventBus:emit(FT_EventBus.EVENTS.TABLET_OPENED)
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    -- The tablet opens onto the lock screen, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
+
+    -- BUILD 06:33 (Vera 8b FAILFIX). Claim the world HERE, at the end of a fully
+    -- successful open and before the first paint. The claim used to be taken
+    -- from update() on the frame after `_paintedOnce`, which left a window with
+    -- the tablet on screen and the player's bindings still live: `InputAction.MENU`
+    -- (-> onInputToggleMenu -> g_gui:changeScreen(nil, InGameMenu)) could open
+    -- the pause menu behind the tablet, and the look axes could still be driven.
+    -- `setContext(FT_TABLET_MODAL, true, false)` opens a new non-sub context, so
+    -- both go inactive the moment it lands.
+    --
+    -- The old timing existed to stop a half-finished open from muting the world
+    -- with nothing drawn over it. That is preserved without the window: this is
+    -- the LAST statement of the open body, so the repair and battery gates above
+    -- return before it, and `openTablet` pcalls this body and hands everything
+    -- back through `_releaseClaims` if anything above throws.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.claim(self)
+    end
 end
 
 --- BUILD 10:50, claim discipline.
@@ -567,8 +629,16 @@ end
 --- the claims: on any error everything it may have taken is handed back.
 function FarmTabletUI:_releaseClaims()
     self.isOpen = false
+    self._paintedOnce = false
     if self.system ~= nil then
         self.system.isTabletOpen = false
+    end
+
+    -- BUILD 15:39 (PB-03). The input context and the vanilla HUD are claimed
+    -- together and handed back together. An open that threw must not leave the
+    -- world muted with nothing drawn over it.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.release(false)
     end
 
     if g_currentMission ~= nil then
@@ -610,18 +680,24 @@ function FarmTabletUI:closeTablet()
     end
 
     self.isOpen = false
+    self._paintedOnce = false
     self.system.isTabletOpen = false
     self._anim = nil
     self:_destroy()
+
+    -- Give the world back before anything else: input context and vanilla HUD
+    -- (PB-03 / PB-10). Harmless when the Escape ladder already released with a
+    -- one-frame deferred context revert - that defer is preserved.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.release(false)
+    end
 
     if self.system.onTabletClosed then
         self.system:onTabletClosed()
     end
 
     if g_currentMission then
-        if FTMasterHUDBridge == nil or not FTMasterHUDBridge.active then
-            g_currentMission:removeDrawable(self)
-        end
+        g_currentMission:removeDrawable(self)
         if self._mouseListener then
             removeModEventListener(self._mouseListener)
             self._mouseListener = nil
@@ -669,7 +745,8 @@ function FarmTabletUI:unlock()
     self:_rebuildScreen()
     self:_startAnim("unlock", 300)
     if self.settings.soundOnTabletToggle ~= false then self:playUISound("paging") end
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, self.system.currentApp) end
+    -- Unlock lands on the home grid, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
 end
 
 function FarmTabletUI:lockNow()
@@ -681,20 +758,60 @@ function FarmTabletUI:lockNow()
     self:playUISound("back")
 end
 
+--- Home: go all the way back to the app grid root. From an app this is the zoom
+--- back into the app's own cell. From the grid it is a jump to springboard page
+--- one, with no zoom, because there is no icon to fly back to.
 function FarmTabletUI:goHome()
+    -- BUILD 16:25 (PB-02, 2b): entering the home state drops any live press.
+    -- Both branches below land on the grid, so a press captured before the
+    -- transition must not survive to be dispatched by the matching mouse-up.
+    self._pressedIcon = nil
+    self._pressedRect = nil
+
+    if self.uiState == "home" then
+        -- BUILD 15:39 (PB-02): Home from the grid means "root of the grid".
+        -- Inert at the root itself, so reaching here always changes something.
+        self._homeMode   = "springboard"
+        self._favEditing = false
+        self._page       = 0
+        self:_rebuildScreen()
+        self:playUISound("back")
+        return
+    end
+
     local prev = self.system.currentApp
     self.uiState = "home"
     self:_rebuildScreen()
     local rect = self._appCellRects[prev] or self:_screenCenterSquare()
     self:_startAnim("home", 240, { id = prev, rect = rect })
     self:playUISound("back")
-    if FarmTabletFocus then FarmTabletFocus:setFocus(true, prev) end
+    -- Home shows the app grid, not an app, so no app is focused.
+    if FarmTabletFocus then FarmTabletFocus:setFocus(true, nil) end
 end
 
 --- App-bar Back: step up one level. If the current app registered a back
 --- handler that pops an in-app sub-page (returns true), refresh the content;
 --- otherwise we're at the app root, so fall through to the springboard.
 function FarmTabletUI:goBack()
+    -- BUILD 15:39 (PB-02). On the grid, Back is a real one-level step: the
+    -- favourites page pops to the springboard, and page N pops to page N-1.
+    -- At the springboard root it is never reached, because it is drawn dimmed
+    -- and `_onMouse` refuses to dispatch a disabled control.
+    if self.uiState == "home" then
+        if self._homeMode == "favorites" then
+            self._homeMode   = "springboard"
+            self._favEditing = false
+            self._page       = 0
+            self:_rebuildScreen()
+            self:playUISound("back")
+        elseif (self._page or 0) > 0 then
+            self._page = self._page - 1
+            self:_rebuildScreen()
+            self:playUISound("back")
+        end
+        return
+    end
+
     local appId = self.system and self.system.currentApp
     local fn    = appId and self._appBackHandlers and self._appBackHandlers[appId]
     if fn then
@@ -938,7 +1055,14 @@ function FarmTabletUI:_drawStatusBar()
     local bc  = (lvl > 0.4) and {0.35,0.85,0.45,0.95}
               or (lvl > 0.15) and {1.0,0.72,0.1,0.95}
               or {0.95,0.3,0.3,0.95}
+    if self._batteryCharging then
+        bc = {0.30, 0.80, 1.00, 0.98}   -- charging: cyan overrides the level colour
+    end
     r:rect(batX + FT.px(1.5), batY + FT.py(1.5), (batW - FT.px(3)) * lvl, batH - FT.py(3), bc)
+    if self._batteryCharging then
+        -- charging bolt: a bright centred tick over the cell
+        r:rect(batX + batW*0.5 - FT.px(1), batY + FT.py(1), FT.px(2), batH - FT.py(2), {1,1,1,0.95})
+    end
 
     -- Local mobile signal bars (0-4). Keep enough room for battery percent text.
     local wfX = batX - FT.px(52)
@@ -982,7 +1106,7 @@ function FarmTabletUI:_statusBarText()
     if self._signalOutageActive == true and self._signalFrozenStatusTime ~= nil then
         timeStr = self._signalFrozenStatusTime
     end
-    r:text(sx + FT.px(12), cy, FT.FONT.SMALL, timeStr, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+    r:text(sx + FT.px(12), cy, FT.FONT.SMALL, timeStr, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
 
     -- Centre: farm name (+ day/season)
     local farmId = data and data:getPlayerFarmId()
@@ -1009,8 +1133,8 @@ function FarmTabletUI:_statusBarText()
     -- Statusbar has very little room. Show a clean, readable short provider.
     if string.find(string.lower(provider), "realistic", 1, true) ~= nil then
         provider = "Realistic"
-    elseif string.len(provider) > 9 then
-        provider = string.sub(provider, 1, 9) .. "."
+    elseif FT.utf8Len(provider) > 9 then
+        provider = FT.utf8Sub(provider, 9) .. "."
     end
     -- Status rechts sauber trennen: Netz links, Akku-Prozent rechts daneben.
     -- Kein Trenner direkt vor der Zahl, damit Signal/Batterie sich nicht ueberlappen.
@@ -1020,7 +1144,7 @@ function FarmTabletUI:_statusBarText()
     -- Battery %: left of the signal bars, so it can never overlap the signal icon.
     r:text(sx + sw - FT.px(116), cy, FT.FONT.TINY,
         string.format("%d%%", math.floor(ftClampBattery(self._battery or 80))),
-        RenderText.ALIGN_RIGHT, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_RIGHT, FT.C.TEXT_BRIGHT, true)
 end
 
 function FarmTabletUI:_refreshStatusBar()
@@ -1068,6 +1192,91 @@ function FarmTabletUI:_drawStarMark(x, y, w, h, color)
     drawStar(self.r, x + w / 2, y + h / 2, h * 0.45, h * 0.18, color)
 end
 
+-- BUILD 15:39 (PB-02). Shared disabled-control vocabulary, locked by DESIGN
+-- 15:00 §2: a control that cannot act right now keeps its glyph and its slot and
+-- is dimmed to ~45%. It never vanishes and it never reads as lit-but-dead.
+FarmTabletUI.DISABLED_ALPHA = 0.45
+
+local function dimmed(color, enabled)
+    if enabled then return color end
+    return { color[1], color[2], color[3], (color[4] or 1) * FarmTabletUI.DISABLED_ALPHA }
+end
+
+--- Which nav steps actually exist from where we are standing.
+--- Home = "back to the app grid", Back = "up exactly one level".
+--- On the grid itself both are inert, which is the PB-02 root case: the old code
+--- had no such state and answered a root Back by collapsing the strip and
+--- snapping back, which is a panic on an empty history, not a transition.
+function FarmTabletUI:_navState()
+    if self.uiState == "app" then
+        return true, true
+    end
+    if self.uiState == "home" then
+        local off = (self._homeMode == "favorites") or ((self._page or 0) > 0)
+        return off, off
+    end
+    return false, false
+end
+
+--- Draw the Home / Back / Star cluster. Returns the x just past the cluster so
+--- the caller can lay out whatever follows it.
+--- Buttons are recorded with an `enabled` flag; `_onMouse` skips disabled ones
+--- entirely, so a dimmed control has no hit action, no sound and no animation.
+function FarmTabletUI:_drawNavCluster(sx, barY, barH, accent, starActive)
+    local r = self.r
+    local homeOn, backOn = self:_navState()
+    -- Home / Back / Star are boxed squares in the springboard tile / title-icon
+    -- treatment: charcoal BG_CARD fill with a white hairline. The hit rects on
+    -- _homeBtn / _backBtn / _starBtn, the enabled dimming and the _onMouse skip
+    -- of disabled controls are unchanged.
+    local btnW  = FT.px(24)
+    local btnH  = FT.py(24)
+    local gap   = FT.px(6)
+    local glyph = {0.92, 0.95, 0.99, 0.95}
+    local hbY   = barY + (barH - btnH) / 2
+    local hairH = math.max(FT.py(1), 0.0009)
+    local hairW = math.max(FT.px(1), 0.0006)
+    local function navBox(bx, enabled)
+        r:rect(bx, hbY, btnW, btnH, dimmed(FT.C.BG_CARD, enabled))
+        local line = dimmed({1, 1, 1, 0.22}, enabled)
+        r:rect(bx, hbY + btnH - hairH, btnW, hairH, line)   -- top
+        r:rect(bx, hbY, btnW, hairH, line)                  -- bottom
+        r:rect(bx, hbY, hairW, btnH, line)                  -- left
+        r:rect(bx + btnW - hairW, hbY, hairW, btnH, line)   -- right
+    end
+
+    -- HOME - a little house
+    local hbX = sx + gap
+    navBox(hbX, homeOn)
+    local cx           = hbX + btnW / 2
+    local bodyW, bodyH = FT.px(13), FT.py(7)
+    local roofW, roofH = FT.px(18), FT.py(6)
+    local houseBottom  = hbY + (btnH - (bodyH + roofH)) / 2
+    r:rect(cx - bodyW / 2, houseBottom, bodyW, bodyH, dimmed(glyph, homeOn))                                      -- body
+    r:rect(cx - FT.px(2), houseBottom, FT.px(4), FT.py(4.5),
+           dimmed({accent[1], accent[2], accent[3], 1}, homeOn))                                                  -- door
+    drawTriUp(r, cx, houseBottom + bodyH, roofW, roofH, dimmed(glyph, homeOn))                                    -- roof
+    self._homeBtn = { x = hbX, y = barY, w = btnW, h = barH, enabled = homeOn }
+
+    -- BACK - a left-pointing arrow
+    local bbX = hbX + btnW + gap
+    navBox(bbX, backOn)
+    local acy = hbY + btnH / 2
+    local headW, headH, shaftH = FT.px(7), FT.py(12), FT.py(3)
+    local tipX = bbX + FT.px(5)
+    drawTriLeft(r, tipX, acy, headW, headH, dimmed(glyph, backOn))                          -- arrowhead
+    r:rect(tipX + headW * 0.5, acy - shaftH / 2, FT.px(10), shaftH, dimmed(glyph, backOn))  -- shaft
+    self._backBtn = { x = bbX, y = barY, w = btnW, h = barH, enabled = backOn }
+
+    -- STAR - opens / toggles the favourites page. Always available.
+    local sbX = bbX + btnW + gap
+    navBox(sbX, true)
+    self:_drawStarGlyph(sbX, hbY, btnW, btnH, starActive == true)
+    self._starBtn = { x = sbX, y = barY, w = btnW, h = barH, enabled = true }
+
+    return sbX + btnW
+end
+
 function FarmTabletUI:_drawAppView()
     local L = FT.LAYOUT
     local r = self.r
@@ -1085,44 +1294,13 @@ function FarmTabletUI:_drawAppView()
     -- star (Favourites). Home jumps to the springboard; Back steps up one
     -- level (sub-page → app root → springboard); the star opens the
     -- favourites page. Glyphs are built from rects (no triangle primitive).
-    local btnH  = FT.py(20)
-    local glyph = {0.92, 0.95, 0.99, 0.95}
-
-    -- HOME — a little house
-    local hbW = FT.px(34)
-    local hbX = sx + FT.px(6)
-    local hbY = barY + (appbarH - btnH) / 2
-    r:rect(hbX, hbY, hbW, btnH, {1,1,1,0.08})
-    local cx           = hbX + hbW / 2
-    local bodyW, bodyH = FT.px(13), FT.py(7)
-    local roofW, roofH = FT.px(18), FT.py(6)
-    local houseBottom  = hbY + (btnH - (bodyH + roofH)) / 2
-    r:rect(cx - bodyW / 2, houseBottom, bodyW, bodyH, glyph)                                       -- body
-    r:rect(cx - FT.px(2), houseBottom, FT.px(4), FT.py(4.5), {accent[1], accent[2], accent[3], 1}) -- door
-    drawTriUp(r, cx, houseBottom + bodyH, roofW, roofH, glyph)                                     -- roof
-    self._homeBtn = { x = hbX, y = barY, w = hbW, h = appbarH }
-
-    -- BACK — a left-pointing arrow
-    local bbW = FT.px(30)
-    local bbX = hbX + hbW + FT.px(6)
-    r:rect(bbX, hbY, bbW, btnH, {1,1,1,0.06})
-    local acy = hbY + btnH / 2
-    local headW, headH, shaftH = FT.px(7), FT.py(12), FT.py(3)
-    local tipX = bbX + FT.px(8)
-    drawTriLeft(r, tipX, acy, headW, headH, glyph)                              -- arrowhead
-    r:rect(tipX + headW * 0.5, acy - shaftH / 2, FT.px(10), shaftH, glyph)      -- shaft
-    self._backBtn = { x = bbX, y = barY, w = bbW, h = appbarH }
-
-    -- STAR — opens the favourites page
     local sbW = FT.px(30)
-    local sbX = bbX + bbW + FT.px(6)
-    self:_drawStarGlyph(sbX, hbY, sbW, btnH, false)
-    self._starBtn = { x = sbX, y = barY, w = sbW, h = appbarH }
+    local sbX = self:_drawNavCluster(sx, barY, appbarH, accent, false) - sbW
 
     -- App icon (small) + title (centre-left)
     local app = self.system.registry:get(self.system.currentApp)
     local appName = (app and g_i18n and app.name and g_i18n:hasText(app.name) and g_i18n:getText(app.name))
-                    or (app and app.navLabel) or "App"
+                    or FT.l10nAuto((app and app.navLabel) or "App")
     local titleIconSz = FT.py(20)
     local tiX = sbX + sbW + FT.px(10)
     local tiY = barY + (appbarH - titleIconSz)/2
@@ -1130,7 +1308,7 @@ function FarmTabletUI:_drawAppView()
                                     mono = (app and app.navLabel) or "?" })
     -- App name as a dim right-aligned breadcrumb (apps draw their own bright header)
     r:text(sx + sw - FT.px(12), barY + appbarH/2 - FT.py(5),
-           FT.FONT.SMALL, appName, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+           FT.FONT.SMALL, appName, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
 
     -- Content region = below the app bar, full width.
     L.contentX = sx
@@ -1159,7 +1337,7 @@ function FarmTabletUI:_drawContent()
     local fn = self._appDrawers and self._appDrawers[appId]
     if fn then
         local ok, err = pcall(fn, self)
-        if not ok then self:_drawError(err) end
+        if not ok then self:_drawError(FT.l10nAuto(err)) end
     else
         self:_drawWelcome()
     end
@@ -1184,7 +1362,7 @@ function FarmTabletUI:_drawOfflineDataBannerAt(x, y, w)
         "KEIN NETZ", RenderText.ALIGN_LEFT, {1.00, 0.78, 0.25, 1})
 
     self.r:appText(x + iconW + FT.px(80), y - h/2 + FT.py(1), FT.FONT.SMALL,
-        ftUiFormat("ft_network_data_frozen", "%s - data frozen", ftUiText("ft_network_default_provider", "Realistic Farming Mobile")), RenderText.ALIGN_LEFT, {0.95, 0.95, 0.86, 1})
+        ftUiFormat("ft_network_data_frozen", "%s - data frozen", ftUiText("ft_network_default_provider", "Realistic Farming Mobile")), RenderText.ALIGN_LEFT, {0.95, 0.95, 0.86, 1}, true)
 
     return y - h - FT.py(18)
 end
@@ -1415,6 +1593,12 @@ function FarmTabletUI:draw()
 
     -- 6. Edit-mode chrome
     self:_drawEditOverlay()
+
+    -- BUILD 15:39 (PB-03). A full frame reached the screen, so the tablet is
+    -- genuinely painted and is now allowed to claim input and quieten the HUD.
+    -- update() takes the claim; setting the flag here is what makes "open but
+    -- nothing painted" incapable of muting the world.
+    self._paintedOnce = true
 end
 
 -- ─────────────────────────────────────────────────────────
@@ -1428,8 +1612,8 @@ function FarmTabletUI:_drawProviderSelect()
     local top = L.screenY + L.screenH * 0.78
 
     r:rect(L.screenX, L.screenY, L.screenW, L.screenH, {0.02,0.03,0.04,0.72})
-    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_network_choose_provider", "Choose Network Provider"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-    r:text(cx, top - FT.py(28), FT.FONT.SMALL, ftUiText("ft_network_choose_hint", "Select a provider, then activate it."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_network_choose_provider", "Choose Network Provider"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+    r:text(cx, top - FT.py(28), FT.FONT.SMALL, ftUiText("ft_network_choose_hint", "Select a provider, then activate it."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
 
     local bw = FT.px(280)
     local bh = FT.py(44)
@@ -1448,7 +1632,7 @@ function FarmTabletUI:_drawProviderSelect()
         r:rect(bx, by, bw, bh, selected and {0.10,0.48,0.22,0.94} or {0.08,0.10,0.14,0.94})
         r:text(cx, by + bh/2 + FT.py(5), FT.FONT.BODY, provider.name, RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
         local feeText = ftUiFormat("ft_network_fee_format", "Base fee: %s €/day", tostring(provider.dailyFee or self:_getSignalProviderDailyFee(provider.id)))
-        r:text(cx, by + FT.py(8), FT.FONT.TINY, feeText, RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, by + FT.py(8), FT.FONT.TINY, feeText, RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         table.insert(self._providerBtns, {x=bx, y=by, w=bw, h=bh, provider=provider})
     end
 
@@ -1457,7 +1641,7 @@ function FarmTabletUI:_drawProviderSelect()
     local cbx = cx - cbw / 2
     local cby = L.screenY + L.screenH * 0.18
     r:rect(cbx, cby, cbw, cbh, {0.10,0.55,0.22,0.96})
-    r:text(cx, cby + cbh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_network_activate", "ACTIVATE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    r:text(cx, cby + cbh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_network_activate", "ACTIVATE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     self._providerConfirmBtn = {x=cbx, y=cby, w=cbw, h=cbh}
 end
 
@@ -2001,26 +2185,47 @@ function FarmTabletUI:forceCompleteRepair()
     if self._tabletRepairActive ~= true then
         return false, "Tablet is not in repair, nothing to force"
     end
-    local fee = FT.FORCE_REPAIR_FEE
-    if g_currentMission == nil or g_currentMission.getIsServer == nil or not g_currentMission:getIsServer() then
-        return false, "Money can only be deducted on the server"
+    if g_currentMission == nil or g_currentMission.getIsServer == nil then
+        return false, "Mission not ready"
     end
-    if g_farmManager == nil then
-        return false, "Farm manager not available"
-    end
-    local farmId = self:_getNetworkBillingFarmId()
-    local ok = pcall(function()
-        local farm = g_farmManager:getFarmById(farmId)
-        if farm ~= nil and farm.changeBalance ~= nil then
-            farm:changeBalance(-fee, MoneyType.OTHER)
-            if g_currentMission.addMoneyChange ~= nil then
-                g_currentMission:addMoneyChange(-fee, farmId, MoneyType.OTHER, true)
+    if g_currentMission:getIsServer() then
+        -- Server: charge the fee here and complete the repair locally.
+        local farmId = self:_getNetworkBillingFarmId()
+        local ok = pcall(function()
+            local farm = g_farmManager ~= nil and g_farmManager:getFarmById(farmId) or nil
+            if farm ~= nil and farm.changeBalance ~= nil then
+                farm:changeBalance(-FT.FORCE_REPAIR_FEE, MoneyType.OTHER)
+                if g_currentMission.addMoneyChange ~= nil then
+                    g_currentMission:addMoneyChange(-FT.FORCE_REPAIR_FEE, farmId, MoneyType.OTHER, true)
+                end
             end
+        end)
+        if not ok then
+            return false, "Could not deduct the repair fee"
         end
-    end)
-    if not ok then
-        return false, "Could not deduct the repair fee"
+        self:_completeLocalForceRepair()
+        return true, string.format("Forced repair complete. Repair fee charged: %d.", FT.FORCE_REPAIR_FEE)
     end
+
+    -- Client on a dedicated server: the fee can only be charged by the server.
+    -- Send the request; the server deducts and the broadcast confirm completes
+    -- the local repair (see FarmTabletForceRepairEvent).
+    if g_client ~= nil and g_client.getServerConnection ~= nil then
+        local conn = g_client:getServerConnection()
+        if conn ~= nil and conn.sendEvent ~= nil then
+            conn:sendEvent(FarmTabletForceRepairEvent.new(self:_getNetworkBillingFarmId()))
+            return true, string.format("Repair requested. Repair fee charged: %d.", FT.FORCE_REPAIR_FEE)
+        end
+    end
+    return false, "No server connection available"
+end
+
+-- Local half of a forced repair: clear the broken-display state. Called directly by
+-- the server path and by the receiving client when the fee-charge confirm arrives.
+-- The fee has already been charged wherever money can move.
+function FarmTabletUI:_completeLocalForceRepair()
+    if self._tabletRepairActive ~= true then return end
+    local fee = FT.FORCE_REPAIR_FEE
     self._tabletRepairActive = false
     self._tabletRepairStartMin = nil
     self._tabletRepairEndMin = nil
@@ -2031,7 +2236,6 @@ function FarmTabletUI:forceCompleteRepair()
         self.uiState = (self.settings.lockScreenEnabled ~= false) and "lock" or "home"
     end
     self:_notifyTabletRepair(ftUiFormat("ft_repair_force_done_msg", "Forced repair complete. Repair fee charged: %d.", fee))
-    return true, string.format("Forced repair complete. Repair fee charged: %d.", fee)
 end
 
 function FarmTabletUI:_drawRepairScreen()
@@ -2052,21 +2256,21 @@ function FarmTabletUI:_drawRepairScreen()
     r:rect(cx - FT.px(40), crackY - FT.py(30), FT.px(80), FT.py(1.6), {1.0,0.45,0.30,0.34})
     r:rect(cx - FT.px(16), crackY - FT.py(18), FT.px(2), FT.py(36), {1.0,0.45,0.30,0.34})
 
-    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_repair_title", "DISPLAY DAMAGE"), RenderText.ALIGN_CENTER, {1.0,0.72,0.30,1})
-    r:text(cx, top - FT.py(32), FT.FONT.BODY, ftUiText("ft_repair_subtitle", "Display damage from a drop"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-    r:text(cx, top - FT.py(58), FT.FONT.SMALL, ftUiText("ft_repair_in_progress", "Tablet in repair"), RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL)
-    r:text(cx, top - FT.py(82), FT.FONT.SMALL, ftUiText("ft_repair_notify_done", "We will notify you when the repair is finished."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+    r:text(cx, top, FT.FONT.TITLE, ftUiText("ft_repair_title", "DISPLAY DAMAGE"), RenderText.ALIGN_CENTER, {1.0,0.72,0.30,1}, true)
+    r:text(cx, top - FT.py(32), FT.FONT.BODY, ftUiText("ft_repair_subtitle", "Display damage from a drop"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+    r:text(cx, top - FT.py(58), FT.FONT.SMALL, ftUiText("ft_repair_in_progress", "Tablet in repair"), RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL, true)
+    r:text(cx, top - FT.py(82), FT.FONT.SMALL, ftUiText("ft_repair_notify_done", "We will notify you when the repair is finished."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
 
     local stockText = (self._tabletRepairInStock ~= false)
         and ftUiText("ft_repair_stock_available", "Display in stock - duration: approx. 1 in-game hour")
         or ftUiText("ft_repair_stock_ordered", "Display ordered - duration: approx. 1 in-game day")
-    r:text(cx, sy + sh * 0.30, FT.FONT.SMALL, stockText, RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL)
-    r:text(cx, sy + sh * 0.24, FT.FONT.BODY, ftUiFormat("ft_repair_remaining", "Remaining: %s", self:_formatRepairRemaining()), RenderText.ALIGN_CENTER, {0.80,0.95,1.0,1})
+    r:text(cx, sy + sh * 0.30, FT.FONT.SMALL, stockText, RenderText.ALIGN_CENTER, FT.C.TEXT_NORMAL, true)
+    r:text(cx, sy + sh * 0.24, FT.FONT.BODY, ftUiFormat("ft_repair_remaining", "Remaining: %s", self:_formatRepairRemaining()), RenderText.ALIGN_CENTER, {0.80,0.95,1.0,1}, true)
 
     local bw, bh = FT.px(150), FT.py(34)
     local bx, by = cx - bw/2, sy + sh * 0.12
     r:rect(bx, by, bw, bh, {0.18,0.20,0.24,0.95})
-    r:text(cx, by + bh/2 - FT.py(4), FT.FONT.SMALL, ftUiText("ft_common_close", "CLOSE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+    r:text(cx, by + bh/2 - FT.py(4), FT.FONT.SMALL, ftUiText("ft_common_close", "CLOSE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     self._tabletRepairCloseBtn = {x=bx,y=by,w=bw,h=bh}
 end
 
@@ -2097,17 +2301,17 @@ function FarmTabletUI:_drawBatteryEmpty()
     r:rect(batX + FT.px(3), batY + FT.py(3), math.max(FT.px(2), (batW-FT.px(6))*math.max(0, math.min(1, (self._battery or 0)/100))), batH-FT.py(6), {0.95,0.30,0.30,0.90})
 
     if self._batteryCharging then
-        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_charging", "Tablet charging..."), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, string.format("%d%%", math.floor(self._battery or 0)), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_charging", "Tablet charging..."), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, string.format("%d%%", math.floor(self._battery or 0)), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
     else
-        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_empty", "Tablet battery empty"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
-        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, ftUiText("ft_battery_charge_hint", "Charge briefly to continue."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM)
+        r:text(cx, cy - FT.py(58), FT.FONT.BODY, ftUiText("ft_battery_empty", "Tablet battery empty"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
+        r:text(cx, cy - FT.py(82), FT.FONT.SMALL, ftUiText("ft_battery_charge_hint", "Charge briefly to continue."), RenderText.ALIGN_CENTER, FT.C.TEXT_DIM, true)
         local bw = FT.px(170)
         local bh = FT.py(40)
         local bx = cx - bw / 2
         local by = L.screenY + L.screenH * 0.28
         r:rect(bx, by, bw, bh, {0.10,0.55,0.22,0.95})
-        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_battery_charge", "CHARGE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        r:text(cx, by + bh/2 - FT.py(4), FT.FONT.BODY, ftUiText("ft_battery_charge", "CHARGE"), RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
         self._batteryChargeBtn = {x=bx, y=by, w=bw, h=bh}
     end
 end
@@ -2136,6 +2340,78 @@ function FarmTabletUI:_onMouseBatteryEmpty(px, py, isDown, isUp, btn)
         return true
     end
     return true
+end
+
+--- Physical charging-station hook. A placeable calls this via
+--- g_currentMission.farmTablet:setAtCharger(bool) when the LOCAL on-foot player
+--- steps on / off its pad. It tops up from the CURRENT battery level (no dead-
+--- battery semantics) and only tops up while the tablet is stowed — per design,
+--- an open tablet is "in use" and does not charge. The battery is local flavour,
+--- so this is purely client-side; there is no network event.
+function FarmTabletUI:setAtCharger(isAtCharger)
+    isAtCharger = isAtCharger == true
+    if isAtCharger == self._atPhysicalCharger then return end
+    self._atPhysicalCharger = isAtCharger
+
+    -- One-time heads-up on pad-enter, but only when it will actually charge (stowed,
+    -- not empty-self-charging, below full). If the tablet is open, nothing charges
+    -- until it is stowed, so no toast fires.
+    if isAtCharger and not self._batteryEmpty and (self._battery or 0) < 100 and not self.isOpen then
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charging", "Tablet charging ...", true)
+    end
+
+    self:_evalPhysicalCharge()
+end
+
+--- Start/stop the physical-charger top-up so it runs ONLY while the tablet is stowed
+--- (design: no charge while open) and below 100%. Called on pad enter/leave AND every
+--- update tick, so opening or closing the tablet flips it live. Also drives the world
+--- station light through the bridge, so the light is honest: lit only while genuinely
+--- topping up, never merely because the player is standing on the pad.
+function FarmTabletUI:_evalPhysicalCharge()
+    if self._batteryEmpty then return end   -- the empty-state self-charge owns the state
+
+    -- Effective "at charger": the world trigger flags the pad AND the local player is
+    -- genuinely close. The distance gate makes an oversized EV-style trigger (or a
+    -- missed leave event) safe - without it the tablet would keep topping up and never
+    -- drain while the player is merely somewhere near the station.
+    local atCharger = self._atPhysicalCharger == true
+    if atCharger and FarmTabletFocus and FarmTabletFocus.getChargerDistance then
+        local d = FarmTabletFocus:getChargerDistance()
+        if d ~= nil and d > 4.0 then atCharger = false end
+    end
+
+    if not atCharger and not self._batteryCharging then
+        if self._chargeLightState then
+            self._chargeLightState = false
+            if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then FarmTabletFocus:notifyChargeLight(false) end
+        end
+        return
+    end
+
+    local shouldCharge = atCharger and (not self.isOpen) and (self._battery or 0) < 100
+    if shouldCharge and not self._batteryCharging then
+        self._batteryChargeRateMs       = 3000
+        self._batteryCharging           = true
+        self._batteryChargeTimer        = 0
+        self._batteryChargeLastMs       = self:_getBatteryRealTimeMs()
+        self._batteryChargeStartLevel   = ftClampBattery(self._battery or 0)
+        self._batteryChargeNotifyUsable = true
+        self._batteryChargeNotifyFull   = false
+    elseif (not shouldCharge) and self._batteryCharging then
+        -- Paused (tablet opened), left the pad, or reached 100%: keep the % gained.
+        self._batteryCharging     = false
+        self._batteryChargeRateMs = 6000
+        self:_persistBattery(true)
+    end
+
+    local lightOn = (self._batteryCharging == true) and (atCharger == true)
+    if lightOn ~= self._chargeLightState then
+        self._chargeLightState = lightOn
+        if FarmTabletFocus and FarmTabletFocus.notifyChargeLight then
+            FarmTabletFocus:notifyChargeLight(lightOn)
+        end
+    end
 end
 
 function FarmTabletUI:_getWorldMinuteOfDay()
@@ -2214,10 +2490,10 @@ function FarmTabletUI:_drawSignalToast()
     self:_fxRect(x, y + h - FT.py(2), w, FT.py(2), {0.35,0.90,0.45,0.92})
     local tTitle = tostring(toast.title or ftUiText("ft_network_default_provider", "Realistic Farming Mobile"))
     local tMsg = tostring(toast.msg or "")
-    if string.len(tTitle) > 32 then tTitle = string.sub(tTitle, 1, 31) .. "." end
-    if string.len(tMsg) > 58 then tMsg = string.sub(tMsg, 1, 57) .. "." end
-    r:text(x + FT.px(13), y + h - FT.py(15), titleFont, tTitle, RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1})
-    r:text(x + FT.px(13), y + FT.py(11), msgFont, tMsg, RenderText.ALIGN_LEFT, {0.92,0.95,0.98,1})
+    if FT.utf8Len(tTitle) > 32 then tTitle = FT.utf8Sub(tTitle, 31) .. "." end
+    if FT.utf8Len(tMsg) > 58 then tMsg = FT.utf8Sub(tMsg, 57) .. "." end
+    r:text(x + FT.px(13), y + h - FT.py(15), titleFont, tTitle, RenderText.ALIGN_LEFT, {0.70,1.0,0.72,1}, true)
+    r:text(x + FT.px(13), y + FT.py(11), msgFont, tMsg, RenderText.ALIGN_LEFT, {0.92,0.95,0.98,1}, true)
 end
 
 function FarmTabletUI:_calcLocalSignalBars()
@@ -2377,7 +2653,7 @@ function FarmTabletUI:_updateBatteryCharging(dt)
     -- Ladegerät: 1% alle 6 Sekunden Echtzeit, also ca. 10 Minuten von 0 auf 100.
     local oldPct = math.floor(self._battery or 0)
     local startLevel = tonumber(self._batteryChargeStartLevel) or 0
-    local gained = math.floor((self._batteryChargeTimer or 0) / 6000)
+    local gained = math.floor((self._batteryChargeTimer or 0) / (self._batteryChargeRateMs or 6000))
     self._battery = math.min(100, math.max(oldPct, math.floor(startLevel + gained)))
     local pct = math.floor(self._battery or 0)
 
@@ -2390,7 +2666,12 @@ function FarmTabletUI:_updateBatteryCharging(dt)
     if pct >= self:_getBatteryMinStartLevel() and self._batteryChargeNotifyUsable ~= true then
         self._batteryChargeNotifyUsable = true
         self._batteryEmpty = false
-        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku", "ft_battery_charged_usable", "Tablet ausreichend geladen. Mit T wieder einschalten.", true)
+        -- BUILD 15:39 (PB-12). The key name is no longer baked into the string:
+        -- the l10n value carries a %s and we fill it from the live binding, so
+        -- this line stays true if the player rebinds the action.
+        self:_notifyBattery("ft_battery_service_title", "Tablet-Akku",
+            "ft_battery_charged_usable", "Tablet ausreichend geladen. Mit %s wieder einschalten.",
+            true, self:_keybindLabel())
     end
 
     if pct >= 100 then
@@ -2416,6 +2697,21 @@ function FarmTabletUI:_updateBatteryCharging(dt)
 end
 
 function FarmTabletUI:update(dt)
+    -- BUILD 15:39 (PB-03 / PB-10). Runs before every early return below so the
+    -- claim can never outlive the tablet: this flushes a deferred context revert
+    -- and force-releases if `isOpen` went false down any path.
+    if FarmTabletModal ~= nil then
+        FarmTabletModal.update(self)
+        -- BUILD 06:33. Backstop only. The claim is taken in `_openTabletBody`
+        -- before the first paint; this re-takes it if that call did not land
+        -- (an older save path, or a claim refused while `g_inputBinding` was
+        -- still coming up). The `_paintedOnce` condition is gone on purpose: it
+        -- was the window in which MENU was still live over a painted tablet.
+        if self.isOpen and not FarmTabletModal.isClaimed() then
+            FarmTabletModal.claim(self)
+        end
+    end
+
     -- Das Empfangssystem muss auch laufen, wenn das Tablet weggepackt ist.
     -- So koennen Netzausfaelle per vorhandener Blinkanzeige gemeldet werden.
     local signalChanged = false
@@ -2435,6 +2731,10 @@ function FarmTabletUI:update(dt)
             return
         end
     end
+
+    -- Physical charging-station: (re)evaluate every frame so opening/closing the
+    -- tablet pauses/resumes the top-up and keeps the station light honest.
+    self:_evalPhysicalCharge()
 
     if not self.isOpen then
         if self._batteryCharging then
@@ -2480,8 +2780,13 @@ function FarmTabletUI:update(dt)
     end
 
     if self._batteryCharging then
-        self:_updateBatteryCharging(dt)
-        return
+        -- Empty-state self-charge continues while the tablet is open; a physical
+        -- charging-station top-up pauses here (design: no charge while in use) and
+        -- resumes from the closed-branch tick once the tablet is stowed again.
+        if self._batteryEmpty then
+            self:_updateBatteryCharging(dt)
+            return
+        end
     else
         local batteryChanged = self:_updateBatterySystem(dt)
         if batteryChanged and (self._battery or 0) <= 0 then
@@ -2658,6 +2963,14 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── Springboard icon press / release (tactile launch) ──
     if self.uiState == "home" then
         if isDown and btn == 1 then
+            -- BUILD 15:39 (PB-02). The grid carries the same Home/Back cluster
+            -- as the app bar. At the grid root both are dimmed and inert; off
+            -- root (favourites page, or page 2+) they step exactly one level.
+            if hitInert(self._homeBtn, px, py) or hitInert(self._backBtn, px, py) then
+                return true
+            end
+            if hitLive(self._homeBtn, px, py) then self:goHome(); return true end
+            if hitLive(self._backBtn, px, py) then self:goBack(); return true end
             -- Star toggle: springboard ↔ favourites page
             if hit(self._homeStarBtn, px, py) then
                 self:toggleFavoritesMode(); return true
@@ -2732,9 +3045,14 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── App view ──
     if self.uiState == "app" then
         if isDown and btn == 1 then
-            if hit(self._homeBtn, px, py) then self:goHome(); return true end
-            if hit(self._backBtn, px, py) then self:goBack(); return true end
-            if hit(self._starBtn, px, py) then self:openFavorites(); return true end
+            -- Inert first: a dimmed Home/Back swallows the click and does
+            -- nothing at all (PB-02, no collapse strip, no snap-back).
+            if hitInert(self._homeBtn, px, py) or hitInert(self._backBtn, px, py) then
+                return true
+            end
+            if hitLive(self._homeBtn, px, py) then self:goHome(); return true end
+            if hitLive(self._backBtn, px, py) then self:goBack(); return true end
+            if hitLive(self._starBtn, px, py) then self:openFavorites(); return true end
 
             for _, cb in ipairs(self._contentBtns) do
                 if not cb._isText and hit(cb, px, py) then
@@ -2802,22 +3120,43 @@ function FarmTabletUI:drawInfoIcon(stateKey, accentColor)
     return btn
 end
 
-function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries)
+-- literalHeader, and each entry's literalTitle / literalBody (MAINTENANCE row 154): true when that text is
+-- already localized, so the renderer draws it as handed (see FT_Renderer's literalText). A raw English
+-- title or body leaves its flag out and keeps FT.l10nAuto, line by line for a body.
+function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, entries, literalHeader)
     if not self[stateKey] then return false end
 
     local ac     = accentColor or FT.C.BRAND
-    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"))
+    local startY = self:drawAppHeader(headerTitle, ftUiText("ft_help_common_title", "Help"), literalHeader, true)
     local x, contentY, w, _ = self:contentInner()
     local y = startY
 
+    -- Back used to sit at startY + 2, which is inside the first section band, and ALSO under the body
+    -- clip: drawAppHeader sets FT.LAYOUT.bodyClipTop to startY + py(6) (:3256 against the value it
+    -- returns at :3257), and flushContent culls the app layer above that (Renderer.lua:313-316). On
+    -- development only the 4px between py(2) and py(6) survived and the label was culled outright,
+    -- while hitTest kept answering, which is an invisible click target.
+    --
+    -- So it moves into the header row AND onto the header layer, which flushContent renders with no
+    -- cull at all. drawAppHeader puts its divider 12px BELOW the value it returns (divY - FT.py(12)
+    -- at :3257; the 18px at :3247 is the divider's distance below the TITLE, not above the return).
+    -- The band between the divider and the title row is 18px and this button is 16px, so it fits by
+    -- construction, and the subtitle is drawn on the title line above it (:3243), not beside it.
+    -- Deviation worth naming: the design asked for it left of the "Help" subtitle on the same
+    -- line. That needs the rendered width of the subtitle, and this renderer exposes no text
+    -- measurement, so guessing a clearance would risk overlapping that word at some resolutions.
+    -- Sitting just above the divider is in the same header block, is clear of the subtitle by
+    -- construction rather than by arithmetic, and meets the requirement that the band must not
+    -- cover it.
     local bw = FT.px(52)
-    local bh = FT.py(18)
-    local backBtn = self.r:button(
-        x + w - bw, startY + FT.py(2), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
+    local bh = FT.py(16)
+    local backBtn = self.r:headerButton(
+        x + w - bw, startY + FT.py(13), bw, bh, ftUiText("ft_help_back", "< BACK"), FT.C.BTN_NEUTRAL,
         { onClick = function()
             self[stateKey] = false
             self:switchApp(appId)
-        end }
+        end },
+        true
     )
     table.insert(self._contentBtns, backBtn)
 
@@ -2827,12 +3166,12 @@ function FarmTabletUI:drawHelpPage(stateKey, appId, headerTitle, accentColor, en
         if y < contentY + FT.py(12) then break end
 
         self.r:appRect(x - FT.px(4), y - FT.py(1), w + FT.px(8), FT.py(14), {ac[1], ac[2], ac[3], 0.12})
-        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+        self.r:appText(x, y, FT.FONT.SMALL, entry.title, RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, entry.literalTitle == true)
         y = y - FT.py(16)
 
         for line in ((entry.body or "") .. "\n"):gmatch("([^\n]*)\n") do
             if y < contentY + FT.py(8) then break end
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, line, RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, entry.literalBody == true)
             y = y - FT.py(13)
         end
         y = y - FT.py(5)
@@ -2869,7 +3208,7 @@ function FarmTabletUI:drawScrollBar()
     self.r:appRect(barX, thumbY, barW, thumbH, {FT.C.BRAND[1], FT.C.BRAND[2], FT.C.BRAND[3], 0.80})
 
     self.r:appText(barX + barW + FT.px(4), barY + barH - FT.py(10),
-        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        FT.FONT.TINY, ftUiText("ft_scroll_label", "scroll"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
 end
 
 function FarmTabletUI:content()
@@ -2885,7 +3224,8 @@ function FarmTabletUI:contentInner()
            FT.LAYOUT.contentH - py*2
 end
 
-function FarmTabletUI:drawAppHeader(title, subtitle)
+-- literalTitle / literalSubtitle (MAINTENANCE row 154): true when that text is already localized.
+function FarmTabletUI:drawAppHeader(title, subtitle, literalTitle, literalSubtitle)
     local x, y, w, h = self:contentInner()
     local topY = y + h - FT.py(2)
     local accent = FT.appColor(self.system.currentApp)
@@ -2895,16 +3235,16 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     end
 
     if self.r.appHeaderText then
-        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appHeaderText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     else
-        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appText(x, topY, FT.FONT.TITLE, title, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, literalTitle == true)
     end
 
     if subtitle then
         if self.r.appHeaderText then
-            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appHeaderText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         else
-            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM)
+            self.r:appText(x + w, topY, FT.FONT.SMALL, subtitle, RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, literalSubtitle == true)
         end
     end
 
@@ -2921,15 +3261,17 @@ function FarmTabletUI:drawAppHeader(title, subtitle)
     return divY - FT.py(12)
 end
 
-function FarmTabletUI:drawRow(y, label, value, labelC, valueC)
+-- literalLabel / literalValue, literalText, literalA / literalB (MAINTENANCE row 154): true when that
+-- text is already localized; passed down to the renderer.
+function FarmTabletUI:drawRow(y, label, value, labelC, valueC, literalLabel, literalValue)
     local x, _, w, _ = self:contentInner()
-    self.r:row(x, y, w, label, value, labelC, valueC)
+    self.r:row(x, y, w, label, value, labelC, valueC, literalLabel, literalValue)
     return y - FT.py(FT.SP.ROW)
 end
 
-function FarmTabletUI:drawSection(y, label)
+function FarmTabletUI:drawSection(y, label, literalText)
     local x, _, w, _ = self:contentInner()
-    self.r:sectionHeader(x, y, w, label)
+    self.r:sectionHeader(x, y, w, label, literalText)
     return y - FT.py(18)
 end
 
@@ -2944,25 +3286,25 @@ function FarmTabletUI:drawBar(y, value, maxVal, color)
     return self.r:progressBar(x, y, w, value, maxVal, color)
 end
 
-function FarmTabletUI:drawButton(y, label, color, meta)
+function FarmTabletUI:drawButton(y, label, color, meta, literalText)
     local x, _, w, _ = self:contentInner()
     local txt = tostring(label or "")
     -- Lange deutsche Texte dürfen nicht aus dem Button links/rechts herauslaufen.
     -- Deshalb wird der Button je nach Text automatisch breiter, maximal bis zur Inhaltsbreite.
     local bw = math.min(w, math.max(FT.px(150), string.len(txt) * FT.px(4.8)))
     local bh = FT.py(22)
-    local btn = self.r:button(x, y, bw, bh, label, color, meta)
+    local btn = self.r:button(x, y, bw, bh, label, color, meta, literalText)
     table.insert(self._contentBtns, btn)
     return y - bh - FT.py(4), btn
 end
 
-function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB)
+function FarmTabletUI:drawButtonPair(y, labelA, colorA, metaA, labelB, colorB, metaB, literalA, literalB)
     local x, _, w, _ = self:contentInner()
     local bw = FT.px(100)
     local bh = FT.py(22)
     local gap = FT.px(8)
-    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA)
-    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB)
+    local btnA = self.r:button(x,        y, bw, bh, labelA, colorA, metaA, literalA)
+    local btnB = self.r:button(x+bw+gap, y, bw, bh, labelB, colorB, metaB, literalB)
     table.insert(self._contentBtns, btnA)
     table.insert(self._contentBtns, btnB)
     return y - bh - FT.py(4), btnA, btnB
@@ -2984,9 +3326,9 @@ function FarmTabletUI:_drawWelcome()
 end
 
 function FarmTabletUI:_drawError(msg)
-    local startY = self:drawAppHeader("App Error", "")
+    local startY = self:drawAppHeader("App Error", "", nil, true)
     local x, _, _, _ = self:contentInner()
-    self.r:appText(x, startY - FT.py(8), FT.FONT.SMALL, tostring(msg), RenderText.ALIGN_LEFT, FT.C.NEGATIVE)
+    self.r:appText(x, startY - FT.py(8), FT.FONT.SMALL, tostring(msg), RenderText.ALIGN_LEFT, FT.C.NEGATIVE, true)
 end
 
 -- ─────────────────────────────────────────────────────────

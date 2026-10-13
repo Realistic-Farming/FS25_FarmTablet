@@ -13,102 +13,16 @@ local function playClickSound(settings)
     end
 end
 
-local function ftSettingsIsGerman()
-    local lang = ""
-    if g_languageShort ~= nil then lang = tostring(g_languageShort) end
-    if (lang == "" or lang == "nil") and g_i18n ~= nil then
-        lang = tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or "")
-    end
-    lang = string.lower(lang)
-    return lang == "de" or lang == "ger" or lang == "deutsch" or lang:sub(1,2) == "de"
-end
-
-local FT_SETTINGS_DE = {
-    ft_settings_battery_drain = "Akkuverbrauch",
-    ft_settings_hint_battery_drain = "Legt fest, ob der Tablet-Akku mit der Zeit leer wird.",
-    ft_settings_scroll_help = "Mausrad über diesem Fenster scrollt die Einstellungen.",
-    ft_settings_console_help = "Befehl „tablet“ zeigt Konsolenbefehle.",
-    ft_settings_all_settings = "Alle Einstellungen",
-    ft_settings_default_values = "Standardwerte",
-    ft_settings_hint_reset_all = "Setzt alle Tablet-Einstellungen zurück.",
-    ft_settings_reset_all = "Alles zurücksetzen",
-    ft_settings_apps_loaded = "Apps geladen",
-    ft_settings_open_key = "Öffnen-Taste",
-    ft_common_author = "Autor",
-    ft_common_version = "Version",
-    ft_settings_general = "Allgemein",
-    ft_settings_notifications = "Meldungen",
-    ft_settings_hint_notifications2 = "Tablet-Meldungen beim Laden und bei Ereignissen.",
-    ft_settings_start_app_title = "Start-App",
-    ft_settings_hint_start_app2 = "Diese App öffnet zuerst nach dem Entsperren.",
-    ft_settings_debug_mode = "Debug-Modus",
-    ft_settings_hint_debug2 = "Schreibt zusätzliche Diagnosemeldungen in die Log.",
-    ft_settings_network_repair = "Netzwerk und Reparatur",
-    ft_settings_provider = "Anbieter",
-    ft_settings_daily_fee = "Grundgebühr",
-    ft_settings_reception = "Empfang",
-    ft_settings_network_outages = "Netzstörungen",
-    ft_settings_outage_duration = "Störungsdauer",
-    ft_settings_display_damage = "Displayschaden",
-    ft_settings_provider_selection = "Anbieterauswahl",
-    ft_settings_hint_provider_select = "Öffnet die Anbieterauswahl.",
-    ft_common_toggle = "Umschalten",
-    ft_common_switch = "Wechseln",
-    ft_common_change = "Ändern",
-    ft_common_open = "Öffnen",
-    ft_common_open_list = "Liste öffnen",
-    ft_common_on = "An",
-    ft_common_off = "Aus",
-    ft_common_reset = "Zurücksetzen",
-    ft_common_default = "Standard",
-
-    ft_battery_mode_off = "Aus",
-    ft_battery_mode_open = "Nur geöffnet",
-    ft_battery_mode_standby = "Immer (auch im Standby)",
-    ft_settings_hint_battery_drain_mode = "Legt fest, wann der Tablet-Akku verbraucht wird.",
-    ft_settings_battery_profile = "Akkuprofil",
-    ft_settings_hint_battery_profile = "Niedrig, normal, hoch oder eigene Werte.",
-    ft_battery_profile_low = "Niedrig",
-    ft_battery_profile_normal = "Normal",
-    ft_battery_profile_high = "Hoch",
-    ft_battery_profile_custom = "Benutzerdefiniert",
-    ft_settings_battery_open_rate = "Verbrauch geöffnet",
-    ft_settings_hint_battery_open_rate = "Akkuverbrauch, wenn das Tablet geöffnet ist.",
-    ft_settings_battery_standby_rate = "Verbrauch Standby",
-    ft_settings_hint_battery_standby_rate = "Akkuverbrauch, wenn das Tablet geschlossen ist.",
-    ft_battery_rate_minutes = "1 %% / %d Min.",
-    ft_settings_appearance = "Darstellung",
-    ft_settings_background_color = "Hintergrundfarbe",
-    ft_settings_hint_screen_color2 = "Ändert die Bildschirmfarbe des Tablets.",
-    ft_settings_home_image = "Home-Bild",
-    ft_settings_hint_home_image = "Eigene PNG-Dateien aus dem Ordner FTBackground nutzen.",
-    ft_settings_app_labels = "App-Beschriftungen",
-    ft_settings_hint_app_labels = "Text unter den App-Symbolen anzeigen.",
-    ft_settings_text_size = "Textgröße",
-    ft_settings_hint_text_size = "Größe der App-Beschriftungen.",
-    ft_settings_text_color = "Textfarbe",
-    ft_settings_hint_text_color = "Farbe der App-Beschriftungen.",
-    ft_settings_sound = "Ton",
-    ft_settings_sound_effects = "Töne",
-    ft_settings_hint_sound_effects = "Hauptschalter für alle Tablet-Töne.",
-    ft_settings_app_sound = "App-Ton",
-    ft_settings_hint_app_sound = "Ton beim Wechseln von Apps.",
-    ft_settings_help_sound = "Hilfe-Ton",
-    ft_settings_hint_help_sound = "Ton beim Öffnen und Schließen der Hilfe.",
-    ft_settings_tablet_sound = "Tablet-Ton",
-    ft_settings_hint_tablet_sound = "Ton beim Öffnen und Schließen mit T.",
-}
-
+-- The locale file wins (MAINTENANCE row 136), through the tablet's one lookup, FT.l10n
+-- (Constants.lua). These helpers used to ask the globals ftUiText and ftUiFormat, which never
+-- existed: FarmTabletUI.lua defines both as locals, so every row read its English fallback.
 local function ftSafeText(key, fallback)
-    if ftSettingsIsGerman() and key ~= nil and FT_SETTINGS_DE[tostring(key)] ~= nil then
-        return FT_SETTINGS_DE[tostring(key)]
-    end
-    if ftUiText ~= nil then return ftUiText(key, fallback) end
+    if FT ~= nil and FT.l10n ~= nil then return FT.l10n(key, fallback) end
     return fallback
 end
 
 local function ftSafeFormat(key, fallback, ...)
-    if ftUiFormat ~= nil then return ftUiFormat(key, fallback, ...) end
+    if FT ~= nil and FT.l10nFormat ~= nil then return FT.l10nFormat(key, fallback, ...) end
     return string.format(fallback, ...)
 end
 
@@ -124,24 +38,24 @@ end
 local function short(text, maxLen)
     text = tostring(text or "")
     maxLen = maxLen or 34
-    if string.len(text) <= maxLen then return text end
-    return string.sub(text, 1, maxLen - 1) .. "."
+    if FT.utf8Len(text) <= maxLen then return text end
+    return FT.utf8Sub(text, maxLen - 1) .. "."
 end
 
 FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local AC = FT.appColor(FT.APP.SETTINGS)
 
     if self:drawHelpPage("_settingsHelp", FT.APP.SETTINGS, ftSafeText("ft_auto_settings", "Settings"), AC, {
-        { title = ftSafeText("ft_settings_help_display_title", "DISPLAY"), body = ftSafeText("ft_settings_help_display_body", "Tablet position, size, background and app labels.") },
-        { title = ftSafeText("ft_settings_help_sound_title", "SOUND"), body = ftSafeText("ft_settings_help_sound_body2", "Switch tablet sounds on or off individually or globally.") },
-        { title = ftSafeText("ft_settings_help_network_title", "NETWORK"), body = ftSafeText("ft_settings_help_network_body", "Provider, reception, network outages and display repairs.") },
-        { title = ftSafeText("ft_settings_help_scroll_title", "SCROLL"), body = ftSafeText("ft_settings_help_scroll_body", "Use the mouse wheel over the tablet window to scroll settings.") },
-    }) then return end
+        { title = ftSafeText("ft_settings_help_display_title", "DISPLAY"), body = ftSafeText("ft_settings_help_display_body", "Tablet position, size, background and app labels."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_sound_title", "SOUND"), body = ftSafeText("ft_settings_help_sound_body2", "Switch tablet sounds on or off individually or globally."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_network_title", "NETWORK"), body = ftSafeText("ft_settings_help_network_body", "Provider, reception, network outages and display repairs."), literalTitle = true, literalBody = true },
+        { title = ftSafeText("ft_settings_help_scroll_title", "SCROLL"), body = ftSafeText("ft_settings_help_scroll_body", "Use the mouse wheel over the tablet window to scroll settings."), literalTitle = true, literalBody = true },
+    }, true) then return end
 
     local s = self.settings
     local cx, _, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
-    local afterHeader = self:drawAppHeader(ftSafeText("ft_auto_settings", "Settings"), "FarmTablet v" .. tostring(FT.VERSION or ""))
+    local afterHeader = self:drawAppHeader(ftSafeText("ft_auto_settings", "Settings"), "FarmTablet v" .. tostring(FT.VERSION or ""), true)
     local y = afterHeader + scrollY
 
     local cardPadX = FT.px(10)
@@ -153,14 +67,14 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     local function section(label)
         y = y - FT.py(4)
-        y = self:drawSection(y, label)
+        y = self:drawSection(y, label, true)
         y = y - sectionGap
     end
 
     local function infoRow(label, value)
         self.r:appRect(cx - FT.px(4), y - cardH + FT.py(6), cw + FT.px(8), cardH, {0.10, 0.12, 0.15, 0.70})
-        self.r:appText(cx + cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-        self.r:appText(cx + cw - cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND)
+        self.r:appText(cx + cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+        self.r:appText(cx + cw - cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND, true)
         y = y - cardH - rowGap
     end
 
@@ -175,16 +89,16 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
         local bx = cx + cw - btnW - rightPad
         local textW = math.max(FT.px(260), bx - leftX - FT.px(18))
 
-        self.r:appText(leftX, y - FT.py(7), FT.FONT.BODY, short(tostring(title or ""), 42), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+        self.r:appText(leftX, y - FT.py(7), FT.FONT.BODY, short(tostring(title or ""), 42), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
         if value ~= nil and tostring(value) ~= "" then
-            self.r:appText(leftX, y - FT.py(22), FT.FONT.BODY, short(tostring(value), 44), RenderText.ALIGN_LEFT, FT.C.BRAND)
+            self.r:appText(leftX, y - FT.py(22), FT.FONT.BODY, short(tostring(value), 44), RenderText.ALIGN_LEFT, FT.C.BRAND, true)
         end
         if hint ~= nil and tostring(hint) ~= "" then
-            self.r:appText(leftX, y - FT.py(38), FT.FONT.SMALL, short(tostring(hint), 66), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(leftX, y - FT.py(38), FT.FONT.SMALL, short(tostring(hint), 66), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
         end
         if buttonLabel ~= nil then
             local by = y - FT.py(32)
-            local b = self.r:button(bx, by, btnW, btnH, short(tostring(buttonLabel), 24), color or FT.C.BTN_NEUTRAL, { onClick = onClick })
+            local b = self.r:button(bx, by, btnW, btnH, short(tostring(buttonLabel), 24), color or FT.C.BTN_NEUTRAL, { onClick = onClick }, true)
             table.insert(self._contentBtns, b)
         end
         y = y - h - rowGap
@@ -194,7 +108,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     section(ftSafeText("ft_auto_display", "Display"))
     local posStr = string.format("X %.2f   Y %.2f", s.tabletPosX or 0.5, s.tabletPosY or 0.5)
     local scaleStr = string.format(ftSafeText("ft_settings_scale_format", "%.0f%% / width %.0f%%"), (s.tabletScale or 1.0) * 100, (s.tabletWidthMult or 1.0) * 100)
-    infoRow(ftSafeText("ft_auto_position", "Position"), posStr)
+    infoRow(ftSafeText("ft_auto_position", "Position"), FT.l10nAuto(posStr))
     infoRow(ftSafeText("ft_auto_scale", "Scale"), scaleStr)
 
     local editActive = (g_FarmTablet and g_FarmTablet.ui and g_FarmTablet.ui._editModeActive) or false
@@ -212,7 +126,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     )
     actionRow(ftSafeText("ft_settings_reset_position", "Reset position"), ftSafeText("ft_common_default", "Default"), ftSafeText("ft_settings_hint_reset_position", "Resets position, size and width."), ftSafeText("ft_common_reset", "Reset"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
-        s.tabletPosX = 0.5; s.tabletPosY = 0.5; s.tabletScale = 1.0; s.tabletWidthMult = 1.0
+        s.tabletPosX = 0.503646; s.tabletPosY = 0.519491; s.tabletScale = 1.607672; s.tabletWidthMult = 1.0
         s:save()
         if g_FarmTablet and g_FarmTablet.ui then g_FarmTablet.ui:applyPositionFromSettings() end
         refresh(self)
@@ -241,7 +155,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local bgOptIdx = 1
     for i, o in ipairs(bgOptions) do if o.file == curBg then bgOptIdx = i; break end end
     local curBgOpt = bgOptions[bgOptIdx] or bgOptions[1]
-    actionRow(ftSafeText("ft_settings_home_image_title", "Home image"), ftAuto(tostring(curBgOpt.label or ftSafeText("ft_common_default", "Default"))), ftSafeText("ft_settings_hint_home_image", "Use your own PNG files from the FTBackground folder."), ftSafeText("ft_common_switch", "Switch"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_home_image_title", "Home image"), tostring(curBgOpt.label or ftSafeText("ft_common_default", "Default")), ftSafeText("ft_settings_hint_home_image", "Use your own PNG files from the FTBackground folder."), ftSafeText("ft_common_switch", "Switch"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         local nextIdx = (bgOptIdx % #bgOptions) + 1
         local chosen = bgOptions[nextIdx]
@@ -272,7 +186,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local curFontScale = s.contentFontScale or 1.0
     local fsIdx = 2
     for i, v in ipairs(FONT_SCALES) do if math.abs(v - curFontScale) < 0.01 then fsIdx = i; break end end
-    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger is easier to read on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_content_font_title", "Content text size"), fontScaleNames[fsIdx], ftSafeText("ft_settings_hint_content_font", "Size of the text inside apps. Larger reads better on big screens."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         s.contentFontScale = FONT_SCALES[(fsIdx % #FONT_SCALES) + 1]
         s:save()
@@ -331,7 +245,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     }
     local curProfile = tostring(s.tabletBatteryDrainProfile or "normal")
     if curProfile ~= "low" and curProfile ~= "normal" and curProfile ~= "high" and curProfile ~= "custom" then curProfile = "normal" end
-    actionRow(ftSafeText("ft_settings_battery_profile", "Battery profile"), profileLabels[curProfile] or curProfile, ftSafeText("ft_settings_hint_battery_profile", "Low, normal, high or custom values."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_battery_profile", "Battery profile"), profileLabels[curProfile] or FT.l10nAuto(curProfile), ftSafeText("ft_settings_hint_battery_profile", "Low, normal, high or custom values."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s)
         local idx = 2
         for i, v in ipairs(profileOrder) do if v == curProfile then idx = i; break end end
@@ -392,7 +306,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     if self._signalOutageActive == true then netLabel = ftSafeText("ft_settings_outage", "Outage") end
     local providerName = tostring(self._signalProvider or curProvider.name or "Realistic Farming Mobile")
     if string.find(string.lower(providerName), "realistic", 1, true) ~= nil then providerName = "Realistic Mobile" end
-    infoRow(ftSafeText("ft_settings_provider", "Provider"), short(providerName, 28))
+    infoRow(ftSafeText("ft_settings_provider", "Provider"), FT.l10nAuto(short(providerName, 28)))
     local dailyFee = 0
     if self._getSignalProviderDailyFee ~= nil then dailyFee = tonumber(self:_getSignalProviderDailyFee(curProvider.id)) or 0 else dailyFee = tonumber(curProvider.dailyFee) or 0 end
     infoRow(ftSafeText("ft_settings_daily_fee", "Daily fee"), ftSafeFormat("ft_price_per_day", "%d €/day", math.floor(dailyFee)))
@@ -415,7 +329,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     local outageFreq = (self._getSignalOutageFrequencyLabel ~= nil and self:_getSignalOutageFrequencyLabel()) or ftSafeText("ft_common_off", "Off")
     local outageDuration = tonumber(self._signalOutageDurationHours) or 2
-    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Often"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
+    actionRow(ftSafeText("ft_settings_network_outages", "Network outages"), tostring(outageFreq), ftSafeText("ft_settings_hint_frequency", "Off / Rare / Normal / Frequent"), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
         playClickSound(s); if self._cycleSignalOutageFrequency ~= nil then self:_cycleSignalOutageFrequency() end; refresh(self)
     end)
     actionRow(ftSafeText("ft_settings_outage_duration", "Outage duration"), ftSafeFormat("ft_duration_hours_short", "%d hrs", math.floor(outageDuration)), ftSafeText("ft_settings_hint_outage_duration", "Duration in ingame hours."), ftSafeText("ft_common_change", "Change"), FT.C.BTN_NEUTRAL, function()
@@ -431,16 +345,16 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
 
     -- Info ---------------------------------------------------
     section(ftSafeText("ft_common_info", "Info"))
-    infoRow(ftSafeText("ft_common_version", "Version"), "v" .. tostring(FT.VERSION or ""))
-    infoRow(ftSafeText("ft_common_author", "Author"), "TisonK")
+    infoRow(ftSafeText("ft_common_version", "Version"), FT.l10nAuto("v" .. tostring(FT.VERSION or "")))
+    infoRow(ftSafeText("ft_common_author", "Author"), FT.l10nAuto("TisonK"))
     infoRow(ftSafeText("ft_settings_apps_loaded", "Apps loaded"), tostring(#self.system.registry:getAll()))
-    infoRow(ftSafeText("ft_settings_open_key", "Open key"), g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
-        or InputHandler.DEFAULT_KEY_LABEL)
+    infoRow(ftSafeText("ft_settings_open_key", "Open key"), FT.l10nAuto(g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
+        or InputHandler.DEFAULT_KEY_LABEL))
 
     local hintH = FT.py(44)
     self.r:appRect(cx - FT.px(4), y - hintH + FT.py(6), cw + FT.px(8), hintH, {0.10, 0.12, 0.15, 0.76})
-    self.r:appText(cx + cardPadX, y - FT.py(9), FT.FONT.BODY, ftSafeText("ft_settings_scroll_help", "Mouse wheel over this window scrolls the settings."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-    self.r:appText(cx + cardPadX, y - FT.py(25), FT.FONT.BODY, ftSafeText("ft_settings_console_help", "Command 'tablet' shows console commands."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+    self.r:appText(cx + cardPadX, y - FT.py(9), FT.FONT.BODY, ftSafeText("ft_settings_scroll_help", "Mouse wheel over this window scrolls the settings."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+    self.r:appText(cx + cardPadX, y - FT.py(25), FT.FONT.BODY, ftSafeText("ft_settings_console_help", "Command 'tablet' shows console commands."), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
     y = y - hintH - rowGap
 
     -- Reset --------------------------------------------------

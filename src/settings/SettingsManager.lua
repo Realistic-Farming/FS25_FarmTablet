@@ -4,10 +4,10 @@
 -- per-savegame config file (modName.xml in savegame dir).
 -- =========================================================
 ---@class SettingsManager
-SettingsManager = {}
+SettingsManager = SettingsManager or {}
 local SettingsManager_mt = Class(SettingsManager)
 
-SettingsManager.MOD_NAME = g_currentModName
+SettingsManager.MOD_NAME = (FarmTabletModName or g_currentModName)
 SettingsManager.XMLTAG = "FarmTablet"
 
 SettingsManager.defaultConfig = {
@@ -113,7 +113,12 @@ end
 function SettingsManager:saveSettings(settingsObject)
     local xmlPath = self:getSavegameXmlFilePath()
     if not xmlPath then return end
-    
+
+    local dir = g_currentMission and g_currentMission.missionInfo and g_currentMission.missionInfo.savegameDirectory
+    if dir and createFolder ~= nil then
+        createFolder(dir)
+    end
+
     local xml = XMLFile.create("ft_Config", xmlPath, self.XMLTAG)
     if xml then
         xml:setBool(self.XMLTAG..".enabled",                 settingsObject.enabled)

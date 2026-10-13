@@ -87,7 +87,7 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     y = self:drawRow(y, "Event Frequency", freqLabel)
     if mgr.marketEngine and mgr.marketEngine.volatilityScale then
         y = self:drawRow(y, "Volatility",
-            string.format("%.1fx", mgr.marketEngine.volatilityScale))
+            FT.l10nFormat("ft_md_volatility_fmt", "%.1fx", mgr.marketEngine.volatilityScale), nil, nil, nil, true)
     end
 
     -- Active world events. Synced to MP clients via MDMMarketSyncEvent,
@@ -99,7 +99,7 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     table.sort(activeEvents, function(a, b) return (a.endsAt or 0) < (b.endsAt or 0) end)
 
     y = y - FT.py(4)
-    y = self:drawSection(y, "ACTIVE EVENTS  (" .. #activeEvents .. ")")
+    y = self:drawSection(y, FT.l10nFormat("ft_md_active_events_fmt", "ACTIVE EVENTS  (%d)", #activeEvents), true)
 
     if #activeEvents == 0 then
         self.r:appText(x, y - FT.py(8), FT.FONT.SMALL,
@@ -111,7 +111,7 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
             local intPct = math.floor((evt.intensity or 0) * 100 + 0.5)
             local remMin = math.max(0, math.ceil(((evt.endsAt or now) - now) / 60000))
             y = self:drawRow(y, evt.name or evt.id,
-                string.format("%d%%  |  %dm", intPct, remMin), nil, FT.C.WARNING)
+                FT.l10nFormat("ft_md_event_intensity_fmt", "%d%%  |  %dm", intPct, remMin), nil, FT.C.WARNING, nil, true)
         end
     end
 
@@ -125,7 +125,21 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
                 if math.abs(pct) >= 0.05 then
                     local title = mdmFillTypeTitle(idx)
                     if title then
-                        table.insert(movers, { name = title, price = entry.current, pct = pct })
+                        -- An animal is priced PER HEAD, so the per-1,000 L scaling below must not
+                        -- touch it. Without this an Angus at about twelve thousand a head printed
+                        -- as twelve million.
+                        local perHead = false
+                        local mission = g_currentMission
+                        local animals = mission ~= nil and mission.animalSystem or nil
+                        if animals ~= nil and type(animals.getSubTypeByFillTypeIndex) == "function" then
+                            local okA, sub = pcall(function()
+                                return animals:getSubTypeByFillTypeIndex(idx)
+                            end)
+                            perHead = okA and sub ~= nil
+                        end
+                        table.insert(movers, {
+                            name = title, price = entry.current, pct = pct, perHead = perHead,
+                        })
                     end
                 end
             end
@@ -143,10 +157,18 @@ FarmTabletUI:registerDrawer(FT.APP.MARKET_DYNAMICS, function(self)
     else
         for i = 1, math.min(8, #movers) do
             local m = movers[i]
-            local moneyStr = self.system.data:formatMoney(math.floor(m.price * 1000 + 0.5))
+            -- An animal price is already per head, so it must not take the per-1,000 L
+            -- scaling. The heading above still names only the volume unit; labelling each
+            -- row needs new translated text, which is not in this change.
+            local moneyStr
+            if m.perHead then
+                moneyStr = self.system.data:formatMoney(math.floor(m.price + 0.5))
+            else
+                moneyStr = self.system.data:formatMoney(math.floor(m.price * 1000 + 0.5))
+            end
             y = self:drawRow(y, m.name,
                 string.format("%s  %+.1f%%", moneyStr, m.pct), nil,
-                m.pct >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE)
+                m.pct >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, nil, true)
         end
     end
 

@@ -41,7 +41,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
           body  = "Component wear as a percentage (0% = new, 100% = worn).\n" ..
                   "Green <= 30%  |  Yellow <= 65%  |  Red > 65%.\n" ..
                   "High wear reduces vehicle efficiency and can cause\n" ..
-                  "breakdowns — repair before reaching 80%." },
+                  "breakdowns - repair before reaching 80%." },
         { title = "REPAIR BUTTON",
           body  = "Only shown when a workshop placeable is on your farm\n" ..
                   "and the selected vehicle has more than 2% wear.\n" ..
@@ -70,7 +70,11 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     end
 
     local sel    = self.system.workshopSelectedVehicle
-    local startY = self:drawAppHeader("Workshop", #workshops .. " shops  |  " .. #nearby .. " vehicles nearby")
+    local shopsText = (#workshops == 1) and FT.l10nFormat("ft_workshop_shop_one", "%d shop", #workshops)
+        or FT.l10nFormat("ft_workshop_shops", "%d shops", #workshops)
+    local nearbyText = (#nearby == 1) and FT.l10nFormat("ft_workshop_vehicle_nearby_one", "%d vehicle nearby", #nearby)
+        or FT.l10nFormat("ft_workshop_vehicles_nearby", "%d vehicles nearby", #nearby)
+    local startY = self:drawAppHeader("Workshop", shopsText .. "  |  " .. nearbyText, nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y    = startY + scrollY
@@ -125,7 +129,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
         return
     end
 
-    y = self:drawSection(y, "NEARBY  (" .. #nearby .. ")")
+    y = self:drawSection(y, FT.l10nFormat("ft_workshop_nearby_fmt", "NEARBY  (%d)", #nearby), true)
     local btnW = FT.px(46)
     local btnH = FT.py(18)
 
@@ -137,21 +141,21 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
                 {accent[1]*0.12, accent[2]*0.12, accent[3]*0.12, 0.95})
         end
         local nm = v.name
-        if #nm > 22 then nm = nm:sub(1, 20) .. ">" end
+        if FT.utf8Len(nm) > 22 then nm = FT.utf8Sub(nm, 20) .. ">" end
         -- Same left pad as shop banner / section header text.
         self.r:appText(x + pad, y, FT.FONT.SMALL, nm, RenderText.ALIGN_LEFT,
             isSel and FT.C.TEXT_BRIGHT or FT.C.TEXT_NORMAL)
         local wearColor = v.wearPct <= 30 and FT.C.POSITIVE or v.wearPct <= 65 and FT.C.WARNING or FT.C.NEGATIVE
         self.r:appText(x + cw - btnW - FT.px(62), y, FT.FONT.TINY,
-            v.distance .. "m  " .. v.wearPct .. "%W", RenderText.ALIGN_LEFT,
-            v.wearPct > 65 and wearColor or FT.C.TEXT_DIM)
+            FT.l10nFormat("ft_workshop_near_row_fmt", "%sm  %s%%W", v.distance, v.wearPct), RenderText.ALIGN_LEFT,
+            v.wearPct > 65 and wearColor or FT.C.TEXT_DIM, true)
         local vehicle = v.vehicle
         local btn = self.r:button(x + cw - btnW, y - FT.py(2), btnW, btnH,
-            isSel and "UNPIN" or "SELECT", isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
+            FT.l10nAuto(isSel and "UNPIN" or "SELECT"), isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 self.system.workshopSelectedVehicle = isSel and nil or vehicle
                 self:switchApp(FT.APP.WORKSHOP)
-            end })
+            end }, true)
         table.insert(self._contentBtns, btn)
         y = y - FT.py(24)
     end
@@ -173,19 +177,19 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     y = self:drawSection(y, "DIAGNOSTICS")
 
     local fullName = (sel.getFullName and sel:getFullName()) or selData.name
-    if #fullName > 26 then fullName = fullName:sub(1, 24) .. ">" end
+    if FT.utf8Len(fullName) > 26 then fullName = FT.utf8Sub(fullName, 24) .. ">" end
     y = self:drawRow(y, "Vehicle", fullName)
 
     local fuelPct   = selData.fuelPct
     local fuelColor = fuelPct >= 50 and FT.C.POSITIVE or fuelPct >= 20 and FT.C.WARNING or FT.C.NEGATIVE
     y = self:drawRow(y, "Fuel",
-        string.format("%.0f%%  (%.0fL / %.0fL)", fuelPct, selData.fuel, selData.fuelCap), nil, fuelColor)
+        FT.l10nFormat("ft_workshop_fuel_fmt", "%.0f%%  (%.0fL / %.0fL)", fuelPct, selData.fuel, selData.fuelCap), nil, fuelColor, nil, true)
     y = y + FT.py(FT.SP.ROW) - FT.py(8)
     y = self:drawBar(y, fuelPct, 100, fuelColor)
 
     local wearPct   = selData.wearPct
     local wearColor = wearPct <= 30 and FT.C.POSITIVE or wearPct <= 65 and FT.C.WARNING or FT.C.NEGATIVE
-    y = self:drawRow(y - FT.py(4), "Wear", string.format("%d%%", wearPct), nil, wearColor)
+    y = self:drawRow(y - FT.py(4), "Wear", string.format("%d%%", wearPct), nil, wearColor, nil, true)
     y = y + FT.py(FT.SP.ROW) - FT.py(8)
     y = self:drawBar(y, wearPct, 100, wearColor)
 
@@ -193,7 +197,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
 
     if #workshops > 0 and wearPct > 2 then
         y = y - FT.py(8)
-        local _, repairBtn = self:drawButton(y, "REPAIR VEHICLE", FT.C.BTN_PRIMARY, {
+        local _, repairBtn = self:drawButton(y, FT.l10nAuto("REPAIR VEHICLE"), FT.C.BTN_PRIMARY, {
                 onClick = function()
                     local ws = workshops[1]
                     local repaired = false
@@ -221,7 +225,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
                         self:switchApp(FT.APP.WORKSHOP)
                     end
                 end
-            })
+            }, true)
     end
 
     self:setContentHeight(startY - y + scrollY)

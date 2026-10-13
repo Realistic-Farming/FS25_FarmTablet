@@ -84,7 +84,7 @@ function FarmTabletUI:_lockText()
     local world = data and data:getWorldInfo()
     local timeStr = world and string.format("%02d:%02d", world.hour % 24, world.minute) or "--:--"
     local clockY = L.screenY + L.screenH * 0.50
-    r:appText(cx, clockY, CLOCK_SIZE, timeStr, RenderText.ALIGN_CENTER, {0.98,0.99,1.0,1.0})
+    r:appText(cx, clockY, CLOCK_SIZE, timeStr, RenderText.ALIGN_CENTER, {0.98,0.99,1.0,1.0}, true)
 
     -- date / season line
     if world then
@@ -94,7 +94,7 @@ function FarmTabletUI:_lockText()
         if not ok then
             dateStr = tostring(FT.l10nAuto(seasonStr)) .. "  -  Tag " .. tostring(world.day or 1)
         end
-        r:appText(cx, clockY - FT.py(26), FT.FONT.SMALL, dateStr, RenderText.ALIGN_CENTER, {0.85,0.88,0.92,0.9})
+        r:appText(cx, clockY - FT.py(26), FT.FONT.SMALL, dateStr, RenderText.ALIGN_CENTER, {0.85,0.88,0.92,0.9}, true)
     end
 
     -- farm name
@@ -106,7 +106,7 @@ function FarmTabletUI:_lockText()
     if self._unlockTrack then
         local g = self._unlockTrack
         r:appText(g.trackX + g.trackW/2 + FT.px(14), g.trackY + g.trackH/2 - FT.py(4),
-            FT.FONT.SMALL, ftLockText("ft_lockscreen_slide_to_unlock", "slide to unlock"), RenderText.ALIGN_CENTER, {1,1,1,0.75})
+            FT.FONT.SMALL, ftLockText("ft_lockscreen_slide_to_unlock", "slide to unlock"), RenderText.ALIGN_CENTER, {1,1,1,0.75}, true)
     end
 end
 

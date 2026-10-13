@@ -3,7 +3,7 @@
 -- Central registry for all installed apps
 -- =========================================================
 ---@class AppRegistry
-AppRegistry = {}
+AppRegistry = AppRegistry or {}
 local AppRegistry_mt = Class(AppRegistry)
 
 -- App category display groups
@@ -56,7 +56,7 @@ AppRegistry.BUILTIN_APPS = {
         name = "ft_ui_app_animals",    navLabel = "ANI",
         icon = "animals",           order = 12,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Animal pens — food, water, cleanliness",
+        description = "Animal pens - food, water, cleanliness",
     },
     {
         id = FT.APP.WORKSHOP,   group = "farm",
@@ -107,28 +107,28 @@ AppRegistry.BUILTIN_APPS = {
         name = "ft_ui_app_field_jobs", navLabel = "JOBS",
         icon = "jobs",              order = 21,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Log field work sessions — field, vehicle, task, duration",
+        description = "Log field work sessions - field, vehicle, task, duration",
     },
     {
         id = FT.APP.CONTRACTS,  group = "farm",
         name = "ft_ui_app_contracts",  navLabel = "CON",
         icon = "contracts",         order = 22,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Active contracts — completion, reward, time remaining",
+        description = "Active contracts - completion, reward, time remaining",
     },
     {
         id = FT.APP.FLEET,      group = "farm",
         name = "ft_ui_app_fleet_manager", navLabel = "FLEET",
         icon = "fleet",             order = 23,
         developer = "FarmTablet",   version = "Built-in",
-        description = "All owned vehicles — fuel, wear, operating hours",
+        description = "All owned vehicles - fuel, wear, operating hours",
     },
     {
         id = FT.APP.PRODUCTION, group = "farm",
         name = "ft_ui_app_production_buildings", navLabel = "PROD",
         icon = "production",        order = 24,
         developer = "FarmTablet",   version = "Built-in",
-        description = "Production building chains — inputs, outputs, active status",
+        description = "Production building chains - inputs, outputs, active status",
     },
     {
         id = FT.APP.FARM_STATS, group = "farm",
@@ -204,6 +204,12 @@ end
 function AppRegistry.resolve(id)
     if id == FT.APP.TIME_CONTROLS then
         return FT.APP.FARM_ADMIN
+    end
+    -- The Crop Stress tile is gone; Irrigation Suite covers that mod. switchApp resolves an id
+    -- BEFORE it checks registration, so this is what stops a saved startupApp, a favourite or a
+    -- tile left on the rail in a running session from opening nothing at all.
+    if id == FT.APP.CROP_STRESS then
+        return FT.APP.IRRIGATION_SUITE
     end
     if id == FT.APP.DIGGING or id == FT.APP.BUCKET then
         return FT.APP.EXCAVATOR
@@ -298,19 +304,12 @@ function AppRegistry:autoDetect()
         })
     end
 
-    -- Seasonal Crop Stress
-    -- Bridge: mission.cropStressManager set by SeasonalCropStress in Mission00.load
+    -- Seasonal Crop Stress bridge: mission.cropStressManager set by
+    -- SeasonalCropStress in Mission00.load. The standalone Crop Stress app was
+    -- removed (Tyson ruling 2026-09-08): the Irrigation Suite app below covers
+    -- the same data (moisture, stress, irrigation, schedules, rain keys, water),
+    -- so two apps were redundant surface. SCS engine code is untouched.
     local hasCropStress = (g_currentMission and g_currentMission.cropStressManager ~= nil)
-    if hasCropStress and not self:has(FT.APP.CROP_STRESS) then
-        Logging.info("[FarmTablet] autoDetect: Crop Stress detected")
-        self:register({
-            id = FT.APP.CROP_STRESS, group = "mods",
-            name = "ft_ui_app_crop_stress", navLabel = "CRPS",
-            icon = "crop_stress", order = 23,
-            developer = "TisonK", version = "Integrated",
-            description = "Seasonal crop stress monitor",
-        })
-    end
 
     -- Irrigation Suite (Wizard UI brief) - same SCS mission handle
     if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
@@ -349,7 +348,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_field_sentry", navLabel = "SENTRY",
             icon = "soil", order = 24.5,
             developer = "TisonK", version = "Integrated",
-            description = "FieldSentry — per-field soil-sim status, sleep and meadow toggles",
+            description = "FieldSentry - per-field soil-sim status, sleep and meadow toggles",
         })
     end
 
@@ -475,7 +474,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_used_plus", navLabel = "USED",
             icon = "used_plus", order = 28,
             developer = "TisonK", version = "Integrated",
-            description = "UsedPlus — active sale listings and finance deals",
+            description = "UsedPlus - active sale listings and finance deals",
         })
     end
 
@@ -490,7 +489,7 @@ function AppRegistry:autoDetect()
             name = "ft_ui_app_roleplay_phone", navLabel = "INV",
             icon = "invoice", order = 29,
             developer = "TisonK", version = "Integrated",
-            description = "Invoice tracker — built-in + RoleplayPhone integration",
+            description = "Invoice tracker - built-in + RoleplayPhone integration",
         })
     end
 

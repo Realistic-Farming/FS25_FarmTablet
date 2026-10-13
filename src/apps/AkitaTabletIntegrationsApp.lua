@@ -15,30 +15,37 @@ local function ftAkitaBool(v)
     return v == true and ftAkitaText("ft_common_on", "On") or ftAkitaText("ft_common_off", "Off")
 end
 
-local function ftAkitaCurrentLang()
-    local lang = ""
-    if g_languageShort ~= nil then lang = tostring(g_languageShort) end
-    if (lang == "" or lang == "nil") and g_i18n ~= nil then
-        lang = tostring(g_i18n.languageShort or g_i18n.currentLanguage or g_i18n.language or "")
-    end
-    return string.lower(lang)
+-- AnimalAutoCare writes its log lines in German. Each German word it uses reaches the reader's language through the
+-- tablet's key (every other language used to get the English word; German keeps its own, the key's German value).
+local FT_AKITA_LINE_WORDS = {
+    { de = "Auffüllen ab",  key = "ft_aac_refill_below",     fallback = "Refill below" },
+    { de = "Zielfüllung",   key = "ft_aac_target_fill",      fallback = "Target fill" },
+    { de = "Letzte Aktion", key = "ft_aac_last_action_line", fallback = "Last action" },
+    { de = "Priorität",     key = "ft_aac_priority",         fallback = "Priority" },
+    { de = "Gesamt",        key = "ft_aac_overall",          fallback = "Overall" },
+    { de = "Futter",        key = "ft_aac_food",             fallback = "Food" },
+    { de = "Wasser",        key = "ft_aac_water",            fallback = "Water" },
+    { de = "Stroh",         key = "ft_aac_straw",            fallback = "Straw" },
+}
+
+-- A replacement text for gsub: a "%" in a translation must stay a "%".
+local function ftAkitaRepl(s)
+    return (tostring(s):gsub("%%", "%%%%"))
 end
 
 local function ftAkitaLineText(line)
     local t = tostring(line or "")
-    local lang = ftAkitaCurrentLang()
-    if lang:sub(1,2) ~= "de" then
-        t = t:gsub("Gesamt", "Overall")
-        t = t:gsub("Futter", "Food")
-        t = t:gsub("Wasser", "Water")
-        t = t:gsub("Stroh", "Straw")
-        t = t:gsub("Auffüllen ab", "Refill below")
-        t = t:gsub("Zielfüllung", "Target fill")
-        t = t:gsub("Priorität", "Priority")
-        t = t:gsub("Letzte Aktion", "Last action")
-        t = t:gsub(": An", ": On")
-        t = t:gsub(": Aus", ": Off")
+    for _, w in ipairs(FT_AKITA_LINE_WORDS) do
+        t = t:gsub(w.de, ftAkitaRepl(ftAkitaText(w.key, w.fallback)))
     end
+    -- ": An" and ": Aus" as whole words only (": Anzahl" and ": Anästhesie" stay): at the end of the line, or before a
+    -- byte that is neither a letter nor part of a UTF-8 character (128 to 255). A function's return is used as written,
+    -- so a "%" in the file's word needs no escaping.
+    local on, off = ftAkitaText("ft_common_on", "On"), ftAkitaText("ft_common_off", "Off")
+    t = t:gsub(": An$", function() return ": " .. on end)
+    t = t:gsub(": An([^%a\128-\255])", function(c) return ": " .. on .. c end)
+    t = t:gsub(": Aus$", function() return ": " .. off end)
+    t = t:gsub(": Aus([^%a\128-\255])", function(c) return ": " .. off .. c end)
     return t
 end
 
@@ -66,7 +73,7 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
     local core = g_currentMission and g_currentMission.animalAutoCareCore or nil
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_animal_auto_care", "AnimalAutoCare"),
-        core and ftAkitaText("ft_common_connected", "Connected") or ftAkitaText("ft_common_inactive", "Inactive")
+        core and ftAkitaText("ft_common_connected", "Connected") or ftAkitaText("ft_common_inactive", "Inactive"), true, true
     )
     local x, _, _, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
@@ -74,18 +81,18 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
     if core == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_aac_not_detected", "AnimalAutoCare was not detected."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         return
     end
 
     local data = ftAkitaSafeCall(core, "getMCCData") or {}
-    y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"))
-    y = self:drawRow(y, ftAkitaText("ft_aac_overall", "Overall"), ftAkitaBool(data.isEnabled), nil, data.isEnabled and FT.C.POSITIVE or FT.C.WARNING)
-    y = self:drawRow(y, ftAkitaText("ft_aac_food", "Food"), ftAkitaBool(data.autoFutterEnabled))
-    y = self:drawRow(y, ftAkitaText("ft_aac_water", "Water"), ftAkitaBool(data.autoWasserEnabled))
-    y = self:drawRow(y, ftAkitaText("ft_aac_straw", "Straw"), ftAkitaBool(data.autoStrohEnabled))
-    y = self:drawRow(y, ftAkitaText("ft_aac_purchase_cost", "Purchase Cost"), ftAkitaMoney(data.lastNotKaufCost))
-    y = self:drawRow(y, ftAkitaText("ft_aac_care_cost", "Care Cost"), ftAkitaMoney(data.lastWorkerCost))
+    y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"), true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_overall", "Overall"), ftAkitaBool(data.isEnabled), nil, data.isEnabled and FT.C.POSITIVE or FT.C.WARNING, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_food", "Food"), ftAkitaBool(data.autoFutterEnabled), nil, nil, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_water", "Water"), ftAkitaBool(data.autoWasserEnabled), nil, nil, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_straw", "Straw"), ftAkitaBool(data.autoStrohEnabled), nil, nil, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_purchase_cost", "Purchase Cost"), ftAkitaMoney(data.lastNotKaufCost), nil, nil, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_aac_care_cost", "Care Cost"), ftAkitaMoney(data.lastWorkerCost), nil, nil, true, true)
 
     local farmId = self.system.data:getPlayerFarmId()
     local btn = self.r:button(x, y - FT.py(8), FT.px(170), FT.py(22),
@@ -96,17 +103,17 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
                     c:performDailyPflegeForFarm(farmId, true)
                 end
             end
-        })
+        }, true)
     table.insert(self._contentBtns, btn)
     y = y - FT.py(40)
 
-    y = self:drawSection(y, ftAkitaText("ft_aac_last_action", "LAST ACTION"))
+    y = self:drawSection(y, ftAkitaText("ft_aac_last_action", "LAST ACTION"), true)
     local lines = data.lines or ftAkitaSafeCall(core, "getMCCLines") or {}
     local shown = 0
     for _, line in ipairs(lines) do
         line = tostring(line or "")
         if line ~= "" and not line:find("^Status:") and shown < 10 then
-            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, ftAkitaLineText(line), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+            self.r:appText(x + FT.px(8), y, FT.FONT.TINY, ftAkitaLineText(line), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
             y = y - FT.py(12)
             shown = shown + 1
         end
@@ -114,7 +121,7 @@ FarmTabletUI:registerDrawer(FT.APP.ANIMAL_AUTO_CARE, function(self)
     if shown == 0 then
         self.r:appText(x + FT.px(8), y, FT.FONT.SMALL,
             ftAkitaText("ft_aac_no_action", "No action has been recorded yet."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     end
     self:setContentHeight(startY - y + FT.py(20))
     self:drawScrollBar()
@@ -123,47 +130,63 @@ end)
 FarmTabletUI:registerDrawer(FT.APP.ANIMAL_VET, function(self)
     local AC = FT.appColor(FT.APP.ANIMAL_VET)
     local avs = g_currentMission and (g_currentMission.animalVetSystem or g_currentMission.animalVet) or nil
-    local sick = avs and avs.sickStables or {}
-    local count = avs and (ftAkitaSafeCall(avs, "getActiveIllnessCount") or 0) or 0
+    -- F27 (MAINTENANCE row 156): the page counts what it draws. A case is a table entry of sickStables; the header, the
+    -- Active Illnesses row and the "no sick pens" line all read that one count. getActiveIllnessCount is not read: when
+    -- the method was missing, the page said "none" over the cards it drew.
+    local sick = avs and avs.sickStables or nil
+    if type(sick) ~= "table" then sick = {} end
+    local count = 0
+    for _, d in pairs(sick) do
+        if type(d) == "table" then count = count + 1 end
+    end
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_animal_vet_system", "AnimalVetSystem"),
-        avs and string.format(ftAkitaText("ft_vet_active_cases", "%d active cases"), count) or ftAkitaText("ft_common_inactive", "Inactive")
+        avs and (count == 1 and ftAkitaText("ft_vet_active_cases_one", "1 active case")
+            or string.format(ftAkitaText("ft_vet_active_cases", "%d active cases"), count)) or ftAkitaText("ft_common_inactive", "Inactive"), true, true
     )
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
     if avs == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_vet_not_detected", "AnimalVetSystem was not detected."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         return
     end
 
-    y = self:drawSection(y, ftAkitaText("ft_common_overview", "OVERVIEW"))
-    y = self:drawRow(y, ftAkitaText("ft_vet_active_illnesses", "Active Illnesses"), tostring(count), nil, count > 0 and FT.C.WARNING or FT.C.POSITIVE)
-    y = self:drawRow(y, ftAkitaText("ft_vet_veterinarian", "Veterinarian"), avs.vetBusy == true and ftAkitaText("ft_common_busy", "Busy") or ftAkitaText("ft_common_available", "Available"), nil, avs.vetBusy == true and FT.C.WARNING or FT.C.POSITIVE)
+    y = self:drawSection(y, ftAkitaText("ft_common_overview", "OVERVIEW"), true)
+    y = self:drawRow(y, ftAkitaText("ft_vet_active_illnesses", "Active Illnesses"), tostring(count), nil, count > 0 and FT.C.WARNING or FT.C.POSITIVE, true)
+    y = self:drawRow(y, ftAkitaText("ft_vet_veterinarian", "Veterinarian"), avs.vetBusy == true and ftAkitaText("ft_common_busy", "Busy") or ftAkitaText("ft_common_available", "Available"), nil, avs.vetBusy == true and FT.C.WARNING or FT.C.POSITIVE, true, true)
     if count <= 0 then
         self.r:appText(x + FT.px(8), y - FT.py(12), FT.FONT.SMALL,
             ftAkitaText("ft_vet_no_sick_pens", "No sick animal pens reported."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     else
         y = y - FT.py(6)
-        y = self:drawSection(y, ftAkitaText("ft_vet_cases", "CASES"))
+        y = self:drawSection(y, ftAkitaText("ft_vet_cases", "CASES"), true)
         for stableId, d in pairs(sick) do
-            local name = tostring(d.stableName or d.animalName or stableId or ftAkitaText("ft_vet_pen", "Pen"))
-            local illness = tostring(d.illnessName or ftAkitaText("ft_vet_illness", "Illness"))
-            local rem = math.max(0, math.floor((tonumber(d.remainingMs) or 0) / 60000))
-            local status = d.vetCalled and ftAkitaText("ft_vet_veterinarian", "Veterinarian")
-                or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
-                or tostring(d.treatmentMode or ftAkitaText("ft_vet_self", "Self"))
-            self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
-            self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
-                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-            self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
-                FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
-            self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
-                string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, tonumber(d.animalCount) or 0, rem),
-                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
-            y = y - FT.py(60)
+            if type(d) == "table" then
+                local name = tostring(d.stableName or d.animalName or stableId or ftAkitaText("ft_vet_pen", "Pen"))
+                local illness = tostring(d.illnessName or ftAkitaText("ft_vet_illness", "Illness"))
+                local rem = math.max(0, math.floor((tonumber(d.remainingMs) or 0) / 60000))
+                local animals = tonumber(d.animalCount) or 0
+                local status = d.vetCalled and ftAkitaText("ft_vet_veterinarian", "Veterinarian")
+                    or d.workerTreatment and ftAkitaText("ft_vet_worker", "Worker")
+                    or d.treatmentMode == nil and ftAkitaText("ft_vet_self", "Self")
+                -- The tablet's own word is drawn as the file has it; the mod's treatment mode is the mod's text and keeps
+                -- the renderer's pass.
+                local statusLiteral = status ~= false
+                status = status or tostring(d.treatmentMode)
+                self.r:appRect(x - FT.px(4), y - FT.py(50), cw + FT.px(8), FT.py(54), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
+                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
+                    FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY,
+                    FT_Renderer.truncate(status, 14), RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT, statusLiteral)
+                self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
+                    animals == 1 and string.format(ftAkitaText("ft_vet_case_line_one", "%s - 1 animal - about %d min"), illness, rem)
+                        or string.format(ftAkitaText("ft_vet_case_line", "%s - %d animals - about %d min"), illness, animals, rem),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+                y = y - FT.py(60)
+            end
         end
     end
     self:setContentHeight(startY - y + FT.py(20))
@@ -194,47 +217,51 @@ FarmTabletUI:registerDrawer(FT.APP.FACTORY_WEEK, function(self)
     end
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_factory_week_schedule", "FactoryWeekSchedule"),
-        fwsView and string.format(ftAkitaText("ft_fws_open_count", "%d/%d open"), open, total) or ftAkitaText("ft_common_inactive", "Inactive")
+        fwsView and string.format(ftAkitaText("ft_fws_open_count", "%d/%d open"), open, total) or ftAkitaText("ft_common_inactive", "Inactive"), true, true
     )
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
     if fwsView == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_fws_not_detected", "FactoryWeekSchedule was not detected."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         return
     end
 
-    y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"))
-    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fwsView.hudDayName or "-") .. " " .. (fwsView.hudTimeText or "-")))
-    y = self:drawRow(y, ftAkitaText("ft_fws_factories_open", "Factories Open"), tostring(open) .. " / " .. tostring(total), nil, open > 0 and FT.C.POSITIVE or FT.C.WARNING)
-    y = self:drawRow(y, ftAkitaText("ft_fws_fire_system", "Fire System"), ftAkitaBool(fwsView.fireAutoEnabled == true))
+    y = self:drawSection(y, ftAkitaText("ft_common_status", "STATUS"), true)
+    -- A day and time are drawn as the mod gives them: the renderer's second pass split the time ("Montag 06:00"
+    -- drew as "Montag 06: 00") and never translated the day. With no time the mod's day keeps the pass.
+    y = self:drawRow(y, ftAkitaText("ft_common_time", "Time"), tostring((fwsView.hudDayName or "-") .. " " .. (fwsView.hudTimeText or "-")), nil, nil, true, fwsView.hudTimeText ~= nil)
+    y = self:drawRow(y, ftAkitaText("ft_fws_factories_open", "Factories Open"), tostring(open) .. " / " .. tostring(total), nil, open > 0 and FT.C.POSITIVE or FT.C.WARNING, true)
+    y = self:drawRow(y, ftAkitaText("ft_fws_fire_system", "Fire System"), ftAkitaBool(fwsView.fireAutoEnabled == true), nil, nil, true, true)
     if fwsView.hudEventSummaryText ~= nil and tostring(fwsView.hudEventSummaryText) ~= "" then
-        y = self:drawRow(y, ftAkitaText("ft_common_event", "Event"), tostring(fwsView.hudEventSummaryText), nil, FT.C.WARNING)
+        y = self:drawRow(y, ftAkitaText("ft_common_event", "Event"), tostring(fwsView.hudEventSummaryText), nil, FT.C.WARNING, true)
     end
 
     y = y - FT.py(6)
-    y = self:drawSection(y, ftAkitaText("ft_fws_factories", "FACTORIES"))
+    y = self:drawSection(y, ftAkitaText("ft_fws_factories", "FACTORIES"), true)
     local list = fwsView.factoriesForHud or {}
     if #list == 0 then
         self.r:appText(x + FT.px(8), y - FT.py(12), FT.FONT.SMALL,
             ftAkitaText("ft_fws_no_factories", "No factories are in the FactoryWeekSchedule HUD cache yet."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     end
     for i, fac in ipairs(list) do
         if type(fac) == "table" then
-            local name = tostring(fac.displayName or fac.name or fac.title or (ftAkitaText("ft_fws_factory", "Factory") .. " " .. i))
-            local state = fac.isOpen == true and ftAkitaText("ft_common_open", "Open") or ftAkitaText("ft_common_closed", "Closed")
+            local modName = fac.displayName or fac.name or fac.title
+            local name = modName ~= nil and tostring(modName) or (ftAkitaText("ft_fws_factory", "Factory") .. " " .. i)
+            local state = fac.isOpen == true and ftAkitaText("ft_fws_state_open", "Open") or ftAkitaText("ft_common_closed", "Closed")
             local worker = tostring(fac.workerText or fac.workersText or "")
             local event = tostring(fac.hudEventText or fac.eventText or "")
             self.r:appRect(x - FT.px(4), y - FT.py(48), cw + FT.px(8), FT.py(52), {AC[1]*0.08, AC[2]*0.08, AC[3]*0.08, 0.85})
             self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY,
-                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+                FT_Renderer.truncate(name, 20), RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, modName == nil)
             self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, state,
-                RenderText.ALIGN_RIGHT, fac.isOpen and FT.C.POSITIVE or FT.C.WARNING)
+                RenderText.ALIGN_RIGHT, fac.isOpen and FT.C.POSITIVE or FT.C.WARNING, true)
+            local noLine = worker == "" and event == ""
             local line = worker ~= "" and worker or (event ~= "" and event or ftAkitaText("ft_fws_no_event", "No event"))
             self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
-                FT_Renderer.truncate(line, 40), RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL)
+                FT_Renderer.truncate(line, 40), RenderText.ALIGN_LEFT, event ~= "" and FT.C.WARNING or FT.C.TEXT_NORMAL, noLine)
             y = y - FT.py(58)
         end
     end
@@ -252,14 +279,16 @@ local function ftRDGetDealer()
     return nil
 end
 
+-- A contract's status, and whether it is the tablet's word (true) or the mod's own text (false, which keeps the
+-- renderer's pass).
 local function ftRDStatusText(c)
     local st = tostring((c and (c.statusText or c.enforcementStatus or c.status)) or "")
-    if st == "repossession" or (c and (c.repossession == true or c.repossessionPending == true)) then return ftAkitaText("ft_rd_status_repossession", "Repossession running") end
-    if st == "repossessed" or (c and c.repossessed == true) then return ftAkitaText("ft_rd_status_repossessed", "Repossessed") end
-    if st == "paid" then return ftAkitaText("ft_rd_status_paid", "Paid") end
-    if st == "overdue" or st == "defaulted" then return ftAkitaText("ft_rd_status_overdue", "Overdue") end
-    if st == "active" or st == "none" or st == "" then return ftAkitaText("ft_rd_status_active", "Active") end
-    return st
+    if st == "repossession" or (c and (c.repossession == true or c.repossessionPending == true)) then return ftAkitaText("ft_rd_status_repossession", "Repossession running"), true end
+    if st == "repossessed" or (c and c.repossessed == true) then return ftAkitaText("ft_rd_status_repossessed", "Repossessed"), true end
+    if st == "paid" then return ftAkitaText("ft_rd_status_paid", "Paid"), true end
+    if st == "overdue" or st == "defaulted" then return ftAkitaText("ft_rd_status_overdue", "Overdue"), true end
+    if st == "active" or st == "none" or st == "" then return ftAkitaText("ft_rd_status_active", "Active"), true end
+    return st, false
 end
 
 FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
@@ -269,15 +298,23 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
     local farmId = self.system.data:getPlayerFarmId()
     local startY = self:drawAppHeader(
         ftAkitaText("ft_ui_app_realistic_dealer", "RealisticDealer"),
-        rd and ftAkitaText("ft_common_connected", "Connected") or ftAkitaText("ft_common_inactive", "Inactive")
+        rd and ftAkitaText("ft_common_connected", "Connected") or ftAkitaText("ft_common_inactive", "Inactive"), true, true
     )
     local x, _, cw, _ = self:contentInner()
     local y = startY + self:getContentScrollY()
 
-    if rd == nil or fm == nil then
+    if rd == nil then
         self.r:appText(x, y - FT.py(12), FT.FONT.BODY,
             ftAkitaText("ft_rd_not_detected", "RealisticDealer was not detected."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+        self:setContentHeight(FT.py(80))
+        return
+    end
+    if fm == nil then
+        -- F27: the mod is installed (the header says Connected), but its finance data is not available here.
+        self.r:appText(x, y - FT.py(12), FT.FONT.SMALL,
+            ftAkitaText("ft_rd_no_finance", "RealisticDealer's finance data is not available."),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         self:setContentHeight(FT.py(80))
         return
     end
@@ -291,23 +328,26 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
     local active = tonumber(data.active) or #contracts
     local debt = tonumber(data.debt) or ftAkitaSafeCall(fm, "getActiveDebt", farmId) or 0
     local credit = tonumber(data.creditScore) or ftAkitaSafeCall(fm, "getCreditScore", farmId) or 0
-    local overdue = tonumber(data.overdue) or 0
+    -- F27: Open Notices is the sum of the missed installments the contract cards show as "Notices: N" (UI-3 section 3.4: a
+    -- number presented as a count must be a count). data.overdue is not read: what it counts cannot be verified.
+    local overdue = 0
     local repoCount = 0
     for _, c in ipairs(contracts or {}) do
         if type(c) == "table" and (c.repossession == true or c.repossessionPending == true or tostring(c.enforcementStatus or "") == "repossession") then
             repoCount = repoCount + 1
         end
-        if type(c) == "table" and (tonumber(c.missedInstallments) or 0) > 0 then
-            overdue = math.max(overdue, 1)
+        local missedHere = type(c) == "table" and (tonumber(c.missedInstallments) or 0) or 0
+        if missedHere > 0 then
+            overdue = overdue + missedHere
         end
     end
 
-    y = self:drawSection(y, ftAkitaText("ft_common_overview", "OVERVIEW"))
-    y = self:drawRow(y, ftAkitaText("ft_rd_active_financing", "Active Financing"), tostring(active), nil, active > 0 and FT.C.WARNING or FT.C.POSITIVE)
-    y = self:drawRow(y, ftAkitaText("ft_rd_remaining_debt", "Remaining Debt"), ftAkitaMoney(debt), nil, debt > 0 and FT.C.WARNING or FT.C.POSITIVE)
-    y = self:drawRow(y, ftAkitaText("ft_rd_credit_score", "Credit Score"), tostring(math.floor(credit)) .. "/100", nil, credit >= 60 and FT.C.POSITIVE or FT.C.WARNING)
-    y = self:drawRow(y, ftAkitaText("ft_rd_open_notices", "Open Notices"), tostring(overdue), nil, overdue > 0 and FT.C.WARNING or FT.C.POSITIVE)
-    y = self:drawRow(y, ftAkitaText("ft_rd_repossessions", "Repossessions"), tostring(repoCount), nil, repoCount > 0 and FT.C.NEGATIVE or FT.C.TEXT_NORMAL)
+    y = self:drawSection(y, ftAkitaText("ft_common_overview", "OVERVIEW"), true)
+    y = self:drawRow(y, ftAkitaText("ft_rd_active_financing", "Active Financing"), tostring(active), nil, active > 0 and FT.C.WARNING or FT.C.POSITIVE, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_rd_remaining_debt", "Remaining Debt"), ftAkitaMoney(debt), nil, debt > 0 and FT.C.WARNING or FT.C.POSITIVE, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_rd_credit_score", "Credit Score"), tostring(math.floor(credit)) .. "/100", nil, credit >= 60 and FT.C.POSITIVE or FT.C.WARNING, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_rd_open_notices", "Open Notices"), tostring(overdue), nil, overdue > 0 and FT.C.WARNING or FT.C.POSITIVE, true, true)
+    y = self:drawRow(y, ftAkitaText("ft_rd_repossessions", "Repossessions"), tostring(repoCount), nil, repoCount > 0 and FT.C.NEGATIVE or FT.C.TEXT_NORMAL, true, true)
 
     local btn = self.r:button(x, y - FT.py(8), FT.px(160), FT.py(22),
         ftAkitaText("ft_rd_check_repo", "Check Repo"), AC, {
@@ -318,49 +358,50 @@ FarmTabletUI:registerDrawer(FT.APP.REALISTIC_DEALER, function(self)
                     pcall(f.forceRepoTick, f, 3500)
                 end
             end
-        })
+        }, true)
     table.insert(self._contentBtns, btn)
     y = y - FT.py(42)
 
-    y = self:drawSection(y, ftAkitaText("ft_rd_contracts", "CONTRACTS"))
+    y = self:drawSection(y, ftAkitaText("ft_rd_contracts", "CONTRACTS"), true)
     if #contracts == 0 then
         self.r:appText(x + FT.px(8), y - FT.py(12), FT.FONT.SMALL,
             ftAkitaText("ft_rd_no_contracts", "No active financing contracts."),
-            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(34)
     else
         for _, c in ipairs(contracts) do
             if type(c) == "table" then
-                local name = tostring(c.name or c.vehicleName or c.itemKey or ftAkitaText("ft_rd_vehicle", "Vehicle"))
+                local modName = c.name or c.vehicleName or c.itemKey
+                local name = modName ~= nil and tostring(modName) or ftAkitaText("ft_rd_vehicle", "Vehicle")
                 local remaining = tonumber(c.remainingAmount or c.remainingDebt or c.remaining) or 0
                 local rate = tonumber(c.installmentAmount or c.rateAmount) or 0
                 local paid = tonumber(c.paidInstallments) or 0
                 local total = tonumber(c.totalInstallments or c.selectedInstallments) or 0
                 local missed = tonumber(c.missedInstallments) or 0
-                local status = ftRDStatusText(c)
+                local status, statusLiteral = ftRDStatusText(c)
                 local statusColor = (missed > 0 or c.repossession == true or c.repossessionPending == true) and FT.C.WARNING or FT.C.POSITIVE
                 if c.repossessed == true or tostring(c.status or "") == "repossessed" then statusColor = FT.C.NEGATIVE end
 
                 self.r:appRect(x - FT.px(4), y - FT.py(58), cw + FT.px(8), FT.py(62), {AC[1]*0.10, AC[2]*0.10, AC[3]*0.10, 0.85})
-                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
-                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, status, RenderText.ALIGN_RIGHT, statusColor)
+                self.r:appText(x + FT.px(6), y - FT.py(10), FT.FONT.BODY, name, RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, modName == nil)
+                self.r:appText(x + cw - FT.px(6), y - FT.py(10), FT.FONT.TINY, status, RenderText.ALIGN_RIGHT, statusColor, statusLiteral)
                 self.r:appText(x + FT.px(10), y - FT.py(28), FT.FONT.TINY,
                     string.format(ftAkitaText("ft_rd_money_line", "Remaining: %s | Rate: %s"), ftAkitaMoney(remaining), ftAkitaMoney(rate)),
-                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
                 local inst = string.format(ftAkitaText("ft_rd_installment_line", "Installments: %d/%d"), paid, total)
                 if missed > 0 then
                     inst = inst .. " | " .. string.format(ftAkitaText("ft_rd_notices_line", "Notices: %d"), missed)
                 end
-                self.r:appText(x + FT.px(10), y - FT.py(44), FT.FONT.TINY, inst, RenderText.ALIGN_LEFT, missed > 0 and FT.C.WARNING or FT.C.TEXT_DIM)
+                self.r:appText(x + FT.px(10), y - FT.py(44), FT.FONT.TINY, inst, RenderText.ALIGN_LEFT, missed > 0 and FT.C.WARNING or FT.C.TEXT_DIM, true)
                 y = y - FT.py(68)
             end
         end
     end
 
-    y = self:drawSection(y, ftAkitaText("ft_common_note", "NOTE"))
+    y = self:drawSection(y, ftAkitaText("ft_common_note", "NOTE"), true)
     self.r:appText(x + FT.px(8), y - FT.py(10), FT.FONT.TINY,
         ftAkitaText("ft_rd_server_note", "Vehicle repossessions still run through RealisticDealer server-side."),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     y = y - FT.py(24)
 
     self:setContentHeight(startY - y + FT.py(20))

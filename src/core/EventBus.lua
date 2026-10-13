@@ -5,7 +5,7 @@
 -- table. Listeners registered with :on() persist for the
 -- lifetime of the game session; call :off() to unsubscribe.
 -- =========================================================
-FT_EventBus = {}
+FT_EventBus = FT_EventBus or {}
 FT_EventBus._listeners = {}
 
 function FT_EventBus:on(event, fn)

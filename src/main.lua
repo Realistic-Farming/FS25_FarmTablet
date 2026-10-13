@@ -2,14 +2,24 @@
 -- FS25 Farm Tablet  v2.1.0.0  (complete overhaul)
 -- Author: TisonK
 -- =========================================================
-local modDirectory = g_currentModDirectory
-local modName      = g_currentModName
+-- Hot-reload latch (FuelCosts reference): g_currentModDirectory and
+-- g_currentModName are nil on a live re-source, so they are latched into
+-- module globals on first load, with a g_modsDirectory loose-folder fallback.
+FarmTabletModDirectory = FarmTabletModDirectory
+    or g_currentModDirectory
+    or (g_modsDirectory ~= nil and (g_modsDirectory .. "FS25_FarmTablet/") or nil)
+FarmTabletModName = FarmTabletModName or g_currentModName or "FS25_FarmTablet"
+local modDirectory = FarmTabletModDirectory
+local modName = FarmTabletModName
 
 -- Core
 source(modDirectory .. "src/core/Constants.lua")
 source(modDirectory .. "src/core/EventBus.lua")
 source(modDirectory .. "src/core/FarmTabletFocus.lua")
+source(modDirectory .. "src/core/FarmTabletModal.lua")
 source(modDirectory .. "src/core/AppRegistry.lua")
+source(modDirectory .. "src/events/FarmTabletForceRepairEvent.lua")
+source(modDirectory .. "src/events/FarmAdminActionEvent.lua")
 
 -- Settings
 source(modDirectory .. "src/settings/SettingsManager.lua")
@@ -55,7 +65,6 @@ source(modDirectory .. "src/apps/StorageApp.lua")
 source(modDirectory .. "src/apps/IncomeApp.lua")
 source(modDirectory .. "src/apps/TaxApp.lua")
 source(modDirectory .. "src/apps/NPCFavorApp.lua")
-source(modDirectory .. "src/apps/SeasonalCropStressApp.lua")
 source(modDirectory .. "src/apps/IrrigationSuiteApp.lua")
 source(modDirectory .. "src/apps/SoilNutrientApp.lua")
 source(modDirectory .. "src/apps/SoilFertilizerApp.lua")
@@ -174,10 +183,83 @@ end
 Mission00.load                  = Utils.prependedFunction(Mission00.load, load)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, loadedMission)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, wrapPlayerInput)
+
+-- ---------------------------------------------------------
+-- Realistic Farming Control Center: publish a runnable delegate.
+-- Reached through g_currentMission because that is the only channel that
+-- carries live between mod environments. Registered from
+-- loadMission00Finished, by which point SettingsHub has published the registry
+-- during its own Mission00.load.
+-- ---------------------------------------------------------
+local function registerControlCenterActions()
+    local registry = g_currentMission ~= nil and g_currentMission.rfActionRegistry or nil
+    if registry == nil or farmTabletManager == nil then return end
+
+    registry.registerAction({
+        action = "FT_TOGGLE_TABLET",
+        button = "Open",
+        -- The tablet is a fullscreen surface, so the Control Center steps aside.
+        closeFirst = true,
+        run        = function() farmTabletManager:toggleTablet() end,
+    })
+end
+
+Mission00.loadMission00Finished = Utils.appendedFunction(
+    Mission00.loadMission00Finished, registerControlCenterActions)
 FSBaseMission.delete            = Utils.appendedFunction(FSBaseMission.delete, unload)
 
 FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mission, dt)
     if farmTabletManager then farmTabletManager:update(dt) end
 end)
+
+-- BUILD 15:39 (PB-02) / BUILD 19:05 (PB-03). Escape is a raw key, not a
+-- rebindable action, so it does not arrive through an InputAction and has to be
+-- read here. The signature is the engine's keyEvent contract
+-- (unicode, sym, modifier, isDown).
+--
+-- WHY THIS IS NOT Utils.appendedFunction
+--   A wrapper is the only form that can decide whether the base body sees the
+--   key at all, which is what "the tablet has this press" has to mean. It is the
+--   same form the repo already uses for `g_currentMission.mouseEvent`.
+--
+-- WHAT THIS HOOK IS AND IS NOT FOR (BUILD 06:33, Vera 8b FAILFIX)
+--   It is NOT what keeps the pause menu shut. `FSBaseMission.keyEvent` does not
+--   open the pause menu and, like `mouseEvent`, ignores what its listeners
+--   return; pause is `InputAction.MENU` -> `PlayerInputComponent:onInputToggleMenu`
+--   -> `g_gui:changeScreen(nil, InGameMenu)`. That action is stood down by the
+--   FT_TABLET_MODAL input context, which is now claimed before the tablet's
+--   first paint, plus the one-frame deferred revert in FarmTabletModal.release
+--   so the press that closes the tablet cannot also reach the base menu.
+--
+--   What this hook IS for: Escape is a raw key, not a rebindable action, so a
+--   keyboard press does not arrive as an InputAction at all and the ladder would
+--   otherwise be unreachable without a pad. It runs the ladder and keeps the key
+--   from travelling any further.
+--
+--   The diversion is as narrow as it can be. `FarmTabletModal.onKeyEvent`
+--   returns true only while the tablet holds the input claim AND the key is
+--   Escape; every other key, and every key at all while the tablet is shut,
+--   returns false and reaches the base body untouched. It goes through
+--   `requestStepBack`, so if the MENU_BACK action event has already spent this
+--   press (Wizard's bindings put MENU_BACK on KEY_esc too) the key is still
+--   consumed here but no second ladder step is taken.
+if FSBaseMission.keyEvent ~= nil then
+    local ftPrevKeyEvent = FSBaseMission.keyEvent
+
+    FSBaseMission.keyEvent = function(mission, unicode, sym, modifier, isDown)
+        if FarmTabletModal ~= nil then
+            local ok, consumed = pcall(FarmTabletModal.onKeyEvent, unicode, sym, modifier, isDown)
+            if not ok then
+                -- A throw in the tablet must never cost the player their Escape
+                -- key. Log it and fall through to the base handler.
+                Logging.warning("[FarmTablet v2] key hook failed: %s", tostring(consumed))
+            elseif consumed == true then
+                return true
+            end
+        end
+
+        return ftPrevKeyEvent(mission, unicode, sym, modifier, isDown)
+    end
+end
 
 Logging.info("[FarmTablet v2] Module loaded.")

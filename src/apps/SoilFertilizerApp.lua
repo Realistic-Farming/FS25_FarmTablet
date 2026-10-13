@@ -47,7 +47,7 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
     }) then return end
 
     local FS = g_currentMission and g_currentMission.fieldSentry
-    local startY = self:drawAppHeader("Field Sentry", "")
+    local startY = self:drawAppHeader("Field Sentry", "", nil, true)
     local x, cyBottom, cw, contentH = self:contentInner()
 
     if FS == nil or FS.getUIStatus == nil then
@@ -62,7 +62,9 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
 
     local data   = self.system.data
     local farmId  = data:getPlayerFarmId()
-    local fields  = data:getOwnedFields(farmId)
+    -- BUILD 19:23: FieldSentry stays per farmland id (raw): the sleep / meadow toggles are
+    -- keyed by the real farmland, never by a GPS-outline block.
+    local fields  = data:getOwnedFields(farmId, true)
     local isAdmin = (FS.isPlayerAdmin ~= nil) and (FS.isPlayerAdmin() == true)
 
     -- Summary count (asleep = simulation disabled for any reason).
@@ -77,8 +79,8 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
 
     -- Sub-header line: counts + admin note.
     self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
-        string.format("%d fields  ·  %d asleep", #fields, asleep),
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        FT.l10nFormat("ft_fieldsentry_count", "%d fields  ·  %d asleep", #fields, asleep),
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     self.r:appText(x + cw, y - FT.py(2), FT.FONT.SMALL,
         isAdmin and "Admin" or "View only (admin needed)",
         RenderText.ALIGN_RIGHT, isAdmin and FT.C.TEXT_ACCENT or FT.C.WARNING)
@@ -135,28 +137,28 @@ FarmTabletUI:registerDrawer(FT.APP.FIELD_SENTRY, function(self)
             local reasonMax = math.max(6, math.floor((sleepX - x - FT.px(60)) / FT.px(6.5)))
             local reasonTxt = FT_Renderer.truncate(label, reasonMax)
             if isMeadow then
-                reasonTxt = FT_Renderer.truncate(reasonTxt .. " · meadow", reasonMax)
+                reasonTxt = FT_Renderer.truncate(reasonTxt .. " · " .. FT.l10n("ft_fieldsentry_meadow_tag", "meadow"), reasonMax)
             end
             self.r:appText(x + FT.px(54), y, FT.FONT.SMALL, reasonTxt, RenderText.ALIGN_LEFT, dotCol)
 
             -- Sleep toggle (manual blacklist).
             local sleepCol = isManual and FT.C.WARNING or FT.C.BTN_NEUTRAL
             local sleepBtn = self.r:button(sleepX, y - FT.py(2), btnW, btnH,
-                isManual and "WAKE" or "SLEEP", sleepCol, isAdmin and {
+                FT.l10nAuto(isManual and "WAKE" or "SLEEP"), sleepCol, isAdmin and {
                     onClick = function()
                         if FS.toggleSleep then FS.toggleSleep(field.id, not isManual) end
                     end
-                } or nil)
+                } or nil, true)
             if isAdmin then table.insert(self._contentBtns, sleepBtn) end
 
             -- Meadow toggle.
             local meadowCol = isMeadow and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL
             local meadowBtn = self.r:button(meadowX, y - FT.py(2), btnW, btnH,
-                "MEADOW", meadowCol, isAdmin and {
+                FT.l10nAuto("MEADOW"), meadowCol, isAdmin and {
                     onClick = function()
                         if FS.toggleMeadow then FS.toggleMeadow(field.id, not isMeadow) end
                     end
-                } or nil)
+                } or nil, true)
             if isAdmin then table.insert(self._contentBtns, meadowBtn) end
         end
 

@@ -1,7 +1,9 @@
 import zipfile
 import os
+import subprocess
 import sys
 import shutil
+import filecmp
 from pathlib import Path
 
 # ============================================================
@@ -20,7 +22,43 @@ MODS_DIR = Path.home() / "Documents" / "My Games" / "FarmingSimulator2025" / "mo
 
 EXCLUDE_DIRS = {".git", ".claude", ".github", "__MACOSX", "tools", ".vscode"}
 EXCLUDE_EXTS = {".sh", ".py", ".md", ".DS_Store", ".zip"}
-EXCLUDE_FILES = {".gitignore", "icon_source.png"}
+# ".git" is a FILE, not a directory, in a git worktree (it points at the main
+# clone's git dir), so EXCLUDE_DIRS alone does not keep it out of the zip.
+EXCLUDE_FILES = {".git", ".gitignore", "icon_source.png"}
+
+def lua_files():
+    """Yield every .lua file that will ship in the zip, using the same exclusions
+    as build_zip(). The entry point main.lua lives at the repo root, not under
+    src/, so this walks the whole mod tree rather than a single source dir."""
+    for root, dirs, files in os.walk(MOD_DIR):
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        for fname in files:
+            if fname in EXCLUDE_FILES:
+                continue
+            if any(fname.endswith(ext) for ext in EXCLUDE_EXTS):
+                continue
+            if fname.endswith(".lua"):
+                yield Path(root) / fname
+
+def check_lua_syntax():
+    """Fail the build if any shipping .lua file will not parse under Lua 5.1.
+
+    FS25 runs Lua 5.1. A parse error silently drops the whole file at load, so a
+    bad file would ship as a missing feature with nothing but a compiler line
+    nobody reads. This surfaces the error here, before the zip is built."""
+    files = list(lua_files())
+    if not files:
+        return
+    checker = MOD_DIR / "tools" / "test" / "syntax-check.mjs"
+    if not checker.exists():
+        print("  WARNING: tools/test/syntax-check.mjs not found; skipping Lua 5.1 gate")
+        return
+    node_modules = MOD_DIR / "tools" / "test" / "node_modules"
+    if not node_modules.exists():
+        print("  Installing tools/test dependencies (luaparse)...")
+        subprocess.run(["npm", "install", "--silent"], cwd=checker.parent, check=True)
+    print("  Checking Lua 5.1 syntax...")
+    subprocess.run(["node", str(checker), *[str(p) for p in files]], check=True)
 
 def build_zip():
     print(f"============================================")
@@ -50,18 +88,56 @@ def build_zip():
     print(f"\n  ZIP created: {ZIP_PATH}")
 
 def deploy():
+    """Install the built zip without ever removing the installed one first.
+
+    The zip this run built must open, pass its CRC check and carry modDesc.xml at
+    its root. It is copied beside the installed zip under a temporary name,
+    compared byte for byte, and only then moved over the installed one. Any
+    failure before that move leaves the installed mod exactly as it was."""
     print(f"\n  Deploying to mods folder...")
     if not MODS_DIR.exists():
         print(f"  WARNING: Mods folder not found at: {MODS_DIR}")
         sys.exit(1)
 
     dest = MODS_DIR / f"{MOD_NAME}.zip"
-    if dest.exists():
-        dest.unlink()
-    shutil.copy2(ZIP_PATH, dest)
+    staged = MODS_DIR / f"{MOD_NAME}.zip.deploying"
+
+    def refuse(reason):
+        try:
+            if staged.is_file():
+                staged.unlink()
+        except OSError:
+            pass
+        print(f"  ERROR: {reason}")
+        print("  The installed mod was NOT touched.")
+        sys.exit(1)
+
+    try:
+        with zipfile.ZipFile(ZIP_PATH) as zf:
+            if "modDesc.xml" not in zf.namelist():
+                refuse(f"{ZIP_PATH} has no modDesc.xml at its root")
+            if zf.testzip() is not None:
+                refuse(f"{ZIP_PATH} failed its CRC check")
+    except (OSError, zipfile.BadZipFile) as e:
+        refuse(f"{ZIP_PATH} is not a readable zip ({e})")
+
+    try:
+        if staged.is_file():
+            staged.unlink()
+        shutil.copy2(ZIP_PATH, staged)
+        if not filecmp.cmp(ZIP_PATH, staged, shallow=False):
+            refuse(f"the staged copy at {staged} does not match the built zip")
+    except OSError as e:
+        refuse(f"could not stage a copy at {staged} ({e})")
+
+    try:
+        os.replace(staged, dest)
+    except OSError as e:
+        refuse(f"could not replace {dest} (is the game running?) ({e})")
     print(f"  Deployed: {dest}")
 
 if __name__ == "__main__":
+    check_lua_syntax()
     build_zip()
     if "--deploy" in sys.argv:
         deploy()

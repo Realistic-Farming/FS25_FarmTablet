@@ -4,7 +4,7 @@
 -- Safe to construct on all contexts (pure data, no rendering).
 -- =========================================================
 ---@class FarmTabletSystem
-FarmTabletSystem = {}
+FarmTabletSystem = FarmTabletSystem or {}
 
 local function _ftSystemLang()
     if g_languageShort ~= nil then return string.lower(tostring(g_languageShort)) end

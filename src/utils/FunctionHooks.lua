@@ -6,7 +6,7 @@
 -- and Utils.prependedFunction directly instead.
 -- =========================================================
 
-FunctionHooks = {}
+FunctionHooks = FunctionHooks or {}
 
 --- Prepend a function (new function runs BEFORE original)
 --- @param oldTarget table The table containing the original function

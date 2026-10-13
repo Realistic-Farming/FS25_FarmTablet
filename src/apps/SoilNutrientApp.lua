@@ -5,7 +5,7 @@
 -- (N/P/K/pH/OM/Weed/Pest/Disease) + TREATMENT prescriptions.
 -- Mirrors SoilTreatmentDialog rate/action rules (local copy —
 -- those helpers are file-local in SF and not exportable yet).
--- English body strings; title via ft_ui_app_soil_fertilizer.
+-- Every drawn text goes through a key (MAINTENANCE row 105, batch 9).
 -- =========================================================
 
 local PRESSURE_ACTION_THRESH = 20
@@ -37,7 +37,7 @@ end
 --- Wider chip than Renderer:badge (fixed 36px clips "URGENT").
 local function _chipWidth(label)
     local text = tostring(label or "")
-    return math.max(FT.px(36), FT.px(8) + string.len(text) * FT.px(5.2))
+    return math.max(FT.px(36), FT.px(8) + FT.utf8Len(text) * FT.px(5.2))
 end
 
 local function _chip(self, x, y, label, color)
@@ -46,7 +46,7 @@ local function _chip(self, x, y, label, color)
     local h = FT.py(14)
     self.r:appRect(x, y - FT.py(1), w, h, color or FT.C.BRAND_DIM)
     self.r:appText(x + w * 0.5, y + h * 0.5 - FT.py(3), FT.FONT.TINY, text,
-        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT)
+        RenderText.ALIGN_CENTER, FT.C.TEXT_BRIGHT, true)
     return w
 end
 
@@ -123,9 +123,9 @@ end
 
 local function _urgencyLabel(u)
     u = tonumber(u) or 0
-    if u >= 0.55 then return "URGENT" end
-    if u >= 0.30 then return "WATCH" end
-    return "OK"
+    if u >= 0.55 then return FT.l10n("ft_soilnut_urgent", "URGENT") end
+    if u >= 0.30 then return FT.l10n("ft_soilnut_watch", "WATCH") end
+    return FT.l10n("ft_soilnut_ok", "OK")
 end
 
 --- "PRODUCT 220 kg/ha (1056 kg)" — mirrors SoilTreatmentDialog._rateString
@@ -169,7 +169,7 @@ local function _nutrientActionText(SC, currentVal, targetVal, rrMult, fieldArea,
     local parts = {}
     for _, prod in ipairs(products) do
         local s = _rateString(SC, prod[1], prod[2], deficit, rrMult, fieldArea)
-        if s then parts[#parts + 1] = s end
+        if s then parts[#parts + 1] = FT.l10nAuto(s) end
     end
     if #parts == 0 then return staticFallback end
     return table.concat(parts, "  ·  ")
@@ -181,7 +181,7 @@ end
 local function _buildTreatments(info, SC, settings)
     local rows = {}
     if info == nil then
-        return { { label = "—", text = "No soil data", color = FT.C.MUTED } }
+        return { { label = "-", text = FT.l10n("ft_soilnut_tr_no_data", "No soil data"), color = FT.C.MUTED } }
     end
 
     local thresh = (SC and SC.STATUS_THRESHOLDS) or {}
@@ -205,67 +205,67 @@ local function _buildTreatments(info, SC, settings)
 
     local ph = math.floor(((info.pH or 7.0) * 10) + 0.5) / 10
     if ph < 6.5 then
-        add("pH", "Apply LIME or LIQUID LIME to raise pH.", FT.C.NEGATIVE)
+        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_lime", "Apply LIME or LIQUID LIME to raise pH."), FT.C.NEGATIVE)
     elseif ph > 7.5 then
-        add("pH", "Apply GYPSUM to lower pH / improve structure.", FT.C.WARNING)
+        add(FT.l10nAuto("pH"), FT.l10n("ft_soilnut_tr_gypsum", "Apply GYPSUM to lower pH / improve structure."), FT.C.WARNING)
     end
 
     local om = info.organicMatter or 3.5
     if om < 3.0 then
-        add("OM", "Plow in MANURE, COMPOST, or chop straw.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_om", "OM"), FT.l10n("ft_soilnut_tr_om_low", "Plow in MANURE, COMPOST, or chop straw."), FT.C.NEGATIVE)
     elseif om < 4.0 then
-        add("OM", "Monitor. Maintain organic inputs.", FT.C.WARNING)
+        add(FT.l10n("ft_soilnut_om", "OM"), FT.l10n("ft_soilnut_tr_om_monitor", "Monitor. Maintain organic inputs."), FT.C.WARNING)
     end
 
     -- Match the bars above: treat against crop target (fallback = fair threshold).
     local nVal = info.nitrogen and info.nitrogen.value or 0
     local nNeed = targetN or (nT.fair or 50)
     if nVal < nNeed * 0.60 then
-        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
-            { { "UREA", "N" }, { "UAN32", "N" } }, "Apply UREA or UAN32"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("N"), _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
+            { { "UREA", "N" }, { "UAN32", "N" } }, FT.l10n("ft_soilnut_tr_urea", "Apply UREA or UAN32")), FT.C.NEGATIVE)
     elseif nVal < nNeed then
-        add("N", _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
-            { { "AMS", "N" }, { "AN", "N" } }, "Apply AMS or AN"), FT.C.WARNING)
+        add(FT.l10nAuto("N"), _nutrientActionText(SC, nVal, nNeed, rrMult, fieldArea,
+            { { "AMS", "N" }, { "AN", "N" } }, FT.l10n("ft_soilnut_tr_ams", "Apply AMS or AN")), FT.C.WARNING)
     end
 
     local pVal = info.phosphorus and info.phosphorus.value or 0
     local pNeed = targetP or (pT.fair or 40)
     if pVal < pNeed * 0.60 then
-        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
-            { { "MAP", "P" }, { "DAP", "P" } }, "Apply MAP or DAP"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("P"), _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
+            { { "MAP", "P" }, { "DAP", "P" } }, FT.l10n("ft_soilnut_tr_map", "Apply MAP or DAP")), FT.C.NEGATIVE)
     elseif pVal < pNeed then
-        add("P", _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
-            { { "LIQUID_MAP", "P" }, { "LIQUID_DAP", "P" } }, "Top-up with Liquid MAP / DAP"), FT.C.WARNING)
+        add(FT.l10nAuto("P"), _nutrientActionText(SC, pVal, pNeed, rrMult, fieldArea,
+            { { "LIQUID_MAP", "P" }, { "LIQUID_DAP", "P" } }, FT.l10n("ft_soilnut_tr_liquid_map", "Top-up with Liquid MAP / DAP")), FT.C.WARNING)
     elseif pVal > pNeed * 1.15 then
-        add("P", "Above target - skip P product this pass.", FT.C.WARNING)
+        add(FT.l10nAuto("P"), FT.l10n("ft_soilnut_tr_p_above", "Above target - skip P product this pass."), FT.C.WARNING)
     end
 
     local kVal = info.potassium and info.potassium.value or 0
     local kNeed = targetK or (kT.fair or 40)
     if kVal < kNeed * 0.60 then
-        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
-            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Apply POTASH"), FT.C.NEGATIVE)
+        add(FT.l10nAuto("K"), _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
+            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, FT.l10n("ft_soilnut_tr_potash", "Apply POTASH")), FT.C.NEGATIVE)
     elseif kVal < kNeed then
-        add("K", _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
-            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, "Top-up with POTASH"), FT.C.WARNING)
+        add(FT.l10nAuto("K"), _nutrientActionText(SC, kVal, kNeed, rrMult, fieldArea,
+            { { "POTASH", "K" }, { "LIQUID_POTASH", "K" } }, FT.l10n("ft_soilnut_tr_potash_topup", "Top-up with POTASH")), FT.C.WARNING)
     end
 
     if (info.weedPressure or 0) >= PRESSURE_ACTION_THRESH then
-        add("Weed", "Apply HERBICIDE or use WEEDER/HOE.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_weed", "Weed"), FT.l10n("ft_soilnut_tr_herbicide", "Apply HERBICIDE or use WEEDER/HOE."), FT.C.NEGATIVE)
     end
     if (info.pestPressure or 0) >= PRESSURE_ACTION_THRESH then
-        add("Pest", "Apply INSECTICIDE immediately.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_pest", "Pest"), FT.l10n("ft_soilnut_tr_insecticide", "Apply INSECTICIDE immediately."), FT.C.NEGATIVE)
     end
 
     local shownD = info.shownDiseasePressure
     if shownD == nil then
-        add("Disease", "Unscouted — scout before treating.", FT.C.MUTED)
+        add(FT.l10n("ft_soilnut_disease", "Disease"), FT.l10n("ft_soilnut_tr_unscouted", "Unscouted - scout before treating."), FT.C.MUTED)
     elseif shownD >= PRESSURE_ACTION_THRESH then
-        add("Disease", "Apply FUNGICIDE immediately.", FT.C.NEGATIVE)
+        add(FT.l10n("ft_soilnut_disease", "Disease"), FT.l10n("ft_soilnut_tr_fungicide", "Apply FUNGICIDE immediately."), FT.C.NEGATIVE)
     end
 
     if #rows == 0 then
-        add("—", "All clear — no treatment needed.", FT.C.POSITIVE)
+        add("-", FT.l10n("ft_soilnut_tr_all_clear", "All clear - no treatment needed."), FT.C.POSITIVE)
     end
     return rows
 end
@@ -274,9 +274,9 @@ end
 local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     local rowTop = y
     self.r:appText(x + FT.px(6), rowTop, FT.FONT.SMALL, label,
-        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+        RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
     self.r:appText(x + cw - FT.px(6), rowTop, FT.FONT.SMALL, valueText,
-        RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL)
+        RenderText.ALIGN_RIGHT, FT.C.TEXT_NORMAL, true)
     -- Drop clearly below the label before painting the track (avoids overlap).
     local barY = rowTop - FT.py(14)
     local barW = cw - FT.px(12)
@@ -286,10 +286,266 @@ local function _drawMetricBar(self, x, y, cw, label, valueText, ratio, color)
     return barY - FT.py(10)
 end
 
+--- [FT-LB] Live chord for a Soil action (BUILD 22:36 hint sweep). Prefers
+--- SettingsHub's shared RfLiveBinding; falls back to the proven engine call so
+--- a SettingsHub-less install behaves identically; falls back to the default
+--- string when the action carries no binding. The help table below is rebuilt
+--- per draw, so a rebind shows the next time the page renders.
+local function _liveChord(actionName, default)
+    if RfLiveBinding ~= nil and RfLiveBinding.getChord ~= nil then
+        local c = RfLiveBinding.getChord(actionName)
+        if c then return c end
+    end
+    if g_inputDisplayManager ~= nil and InputAction ~= nil and InputAction[actionName] ~= nil then
+        local ok, help = pcall(function()
+            return g_inputDisplayManager:getControllerSymbolOverlays(InputAction[actionName], "", "", false)
+        end)
+        if ok and help and help.keys and #help.keys > 0 then
+            local parts = {}
+            for _, k in ipairs(help.keys) do parts[#parts + 1] = tostring(k) end
+            return table.concat(parts, "+")
+        end
+    end
+    return default
+end
+
 local function _truncate(str, maxLen)
     str = tostring(str or "")
-    if #str <= maxLen then return str end
-    return str:sub(1, math.max(1, maxLen - 1)) .. "…"
+    if FT.utf8Len(str) <= maxLen then return str end
+    return FT.utf8Sub(str, math.max(1, maxLen - 1)) .. "…"
+end
+
+-- ── SF-73 section 7, W1c: the card's AUTO target block ─────────────────────
+-- Optional depth over Soil's own host reads (SoilFertilitySystem): the crop window as a field
+-- report, the reading where the player stands with its soil cell size, the field's last
+-- confirmed AUTO target pass, and a pause one of the farm's machines is in right now. Each
+-- read is guarded and protected, and Soil answers nil while SF-73 is locked; an older Soil
+-- lacks the method. Either way the card is today's card. The wording is the host's (Soil's
+-- HUD and PDA card), in FarmTablet's own keys. Read only: nothing here writes to Soil, toggles
+-- AUTO or changes another app's field status.
+
+local function _tgtText(key, fallback) return FT.l10n(key, fallback) end
+
+-- The crop window's relationship words (Soil's PDA card words).
+local TGT_REL = {
+    BELOW        = { key = "ft_soiltgt_rel_below", fallback = "low" },
+    APPROACHING  = { key = "ft_soiltgt_rel_near",  fallback = "near" },
+    IDEAL        = { key = "ft_soiltgt_rel_ok",    fallback = "ok" },
+    ABOVE        = { key = "ft_soiltgt_rel_high",  fallback = "high" },
+    UNDETERMINED = { key = "ft_soiltgt_rel_unknown", fallback = "?" },
+}
+-- One line per confirmed footprint outcome, then its note (the host's kinds; never a field claim).
+local TGT_STATE = {
+    REACHED            = { key = "ft_soiltgt_state_reached",   fallback = "Last pass: target reached" },
+    SHORT_BINDING      = { key = "ft_soiltgt_state_binding",   fallback = "Last pass: short, blend limit" },
+    SHORT_HARDWARE     = { key = "ft_soiltgt_state_hardware",  fallback = "Last pass: short, machine limit" },
+    SHORT_SUPPLY       = { key = "ft_soiltgt_state_supply",    fallback = "Last pass: short, ran out" },
+    SHORT_QUANTIZED    = { key = "ft_soiltgt_state_quantized", fallback = "Last pass: short, under a map step" },
+    APPLICATION_FAILED = { key = "ft_soiltgt_state_failed",    fallback = "Last pass: product spent" },
+}
+local TGT_NOTE = {
+    scope   = { key = "ft_soiltgt_scope",   fallback = "One footprint, not the whole field" },
+    binding = { key = "ft_soiltgt_binding", fallback = "More would overshoot %s" },
+    failed  = { key = "ft_soiltgt_failed",  fallback = "Local N/P/K is not confirmed." },
+}
+-- A machine's pause, by the reason Soil's surfaces name (the host's own words for each).
+local TGT_REASON = {
+    UNSUPPORTED_CROP            = { key = "ft_soiltgt_r_unsupported_crop", fallback = "AUTO paused: no growing crop" },
+    UNKNOWN_GROUND              = { key = "ft_soiltgt_r_unavailable",      fallback = "AUTO paused: target unavailable" },
+    OUTSIDE_MAP                 = { key = "ft_soiltgt_r_unavailable",      fallback = "AUTO paused: target unavailable" },
+    MIXED_CROP                  = { key = "ft_soiltgt_r_mixed_crop",       fallback = "AUTO paused: crop boundary" },
+    MIXED_FIELD                 = { key = "ft_soiltgt_r_mixed_field",      fallback = "AUTO paused: field boundary" },
+    FARM_ACCESS                 = { key = "ft_soiltgt_r_farm_access",      fallback = "AUTO paused: no access to this land" },
+    UNKNOWN_PRODUCT             = { key = "ft_soiltgt_r_unknown_product",  fallback = "AUTO paused: invalid product" },
+    SOWABILITY_UNKNOWN          = { key = "ft_soiltgt_r_sowability",       fallback = "AUTO paused: sowing without target fertilizer" },
+    NOZZLE_PARTIAL              = { key = "ft_soiltgt_r_nozzle_partial",   fallback = "AUTO paused: not all boom sections on" },
+    CELL_OVERLAP                = { key = "ft_soiltgt_r_cell_overlap",     fallback = "AUTO paused: work areas overlap" },
+    CULTIVATION_NO_TARGET       = { key = "ft_soiltgt_r_cultivation",      fallback = "AUTO paused: no target on a cultivator" },
+    SOURCE_CONTRACT_UNAVAILABLE = { key = "ft_soiltgt_r_source_contract",  fallback = "AUTO paused: supply route not supported" },
+    DOUBLED_AMOUNT_ACTIVE       = { key = "ft_soiltgt_r_doubled",          fallback = "AUTO paused: double rate is on" },
+    FOOTPRINT_PRIMING           = { key = "ft_soiltgt_r_priming",          fallback = "AUTO: preparing the footprint" },
+}
+-- The field's last no-crop pause, the PDA card's own words (Soil's sf_tgt_pda_state_paused and
+-- sf_tgt_pda_pause_hint): a pause, never a pass, with the manual hint and no litres.
+local TGT_PAUSE = {
+    line = { key = "ft_soiltgt_state_paused", fallback = "Last pause: no growing crop" },
+    note = { key = "ft_soiltgt_pause_hint",   fallback = "Turn AUTO off to apply manually" },
+}
+
+--- One guarded, protected read from Soil: nil when the method is absent (an older Soil) or fails.
+local function _soilRead(soilSys, name, ...)
+    local fn = soilSys and soilSys[name]
+    if type(fn) ~= "function" then return nil end
+    local ok, r = pcall(fn, soilSys, ...)
+    if ok then return r end
+    return nil
+end
+
+--- Two machines pausing on one field: Soil itself names the reason its own surfaces put first
+--- (its published read over both reasons), so the choice never rests on the order the vehicle
+--- list is walked in, and no copy of Soil's order lives here.
+local function _firstReason(soilSys, a, b)
+    if a == nil then return b end
+    if b == nil or a == b then return a end
+    local pick = _soilRead(soilSys, "getTargetPrimaryReason", { reasons = { a, b } })
+    if pick == a or pick == b then return pick end
+    return (a < b) and a or b
+end
+
+--- The farmland under the local player (the vehicle's position while driving), or nil.
+local function _playerFarmland()
+    if g_localPlayer == nil or type(g_localPlayer.getPosition) ~= "function" or g_farmlandManager == nil then return nil end
+    local ok, px, _, pz = pcall(g_localPlayer.getPosition, g_localPlayer)
+    if not ok or type(px) ~= "number" or type(pz) ~= "number" then return nil end
+    local okF, id = pcall(g_farmlandManager.getFarmlandIdAtWorldPosition, g_farmlandManager, px, pz)
+    if not okF or type(id) ~= "number" or id <= 0 then return nil end
+    return { id = id, x = px, z = pz }
+end
+
+--- The pauses the farm's own machines are in right now, by the field each result names. Only a
+--- current result counts (active): a parked machine's last result is not a field's state.
+local function _livePauses(soilSys, farmId)
+    local out = {}
+    if type(soilSys.getApplicationTargetResult) ~= "function" or type(soilSys.getTargetPrimaryReason) ~= "function" then
+        return out
+    end
+    local vehicles = g_currentMission and g_currentMission.vehicleSystem and g_currentMission.vehicleSystem.vehicles
+    if type(vehicles) ~= "table" then return out end
+    for _, v in pairs(vehicles) do
+        local okO, owner = pcall(function() return v:getOwnerFarmId() end)
+        if okO and owner == farmId then
+            local r = _soilRead(soilSys, "getApplicationTargetResult", v)
+            if type(r) == "table" and r.active == true and type(r.fieldId) == "number" then
+                local reason = _soilRead(soilSys, "getTargetPrimaryReason", r)
+                if reason ~= nil and TGT_REASON[reason] ~= nil then
+                    out[r.fieldId] = _firstReason(soilSys, out[r.fieldId], reason)
+                end
+            end
+        end
+    end
+    return out
+end
+
+local function _relWords(rel)
+    local words = {}
+    for _, n in ipairs({ "N", "P", "K" }) do
+        local x = type(rel.nutrients) == "table" and rel.nutrients[n] or nil
+        local e = TGT_REL[x and x.relationship or "UNDETERMINED"] or TGT_REL.UNDETERMINED
+        words[#words + 1] = _tgtText(e.key, e.fallback)
+    end
+    return words
+end
+
+local function _litres(x)
+    if type(x) ~= "number" or x ~= x or x == math.huge or x == -math.huge then return "?" end
+    return string.format(math.abs(x) < 10 and "%.2f" or "%.1f", x)
+end
+
+--- The card's target block, or nil when Soil does not answer (locked, an older Soil, no record).
+--- lines: { text, color }; hasPass: the card shows a confirmed dose, so the plan below is labelled
+--- an estimate (never placed beside it as if they agreed).
+local function _targetBlock(soilSys, card, here, live)
+    local rel = _soilRead(soilSys, "getCropNutrientRelationship", card.id)
+    if type(rel) ~= "table" then return nil end
+    local lines = {}
+    local function add(text, color) lines[#lines + 1] = { text = text, color = color } end
+    if rel.cropKey ~= nil and type(rel.nutrients) == "table" then
+        local w = _relWords(rel)
+        add(FT.l10nFormat("ft_soiltgt_window", "Field report: N %s, P %s, K %s", w[1], w[2], w[3]), FT.C.TEXT_NORMAL)
+    else
+        add(FT.l10n("ft_soiltgt_window_none", "Field report: crop window unavailable"), FT.C.MUTED)
+    end
+    local members = card.memberIds or { card.id }
+    local isMember = {}
+    for _, id in ipairs(members) do isMember[id] = true end
+    -- Where the player stands: Soil's LOCAL map reading at its soil cell size.
+    if here ~= nil and isMember[here.id] then
+        local loc = _soilRead(soilSys, "getCropNutrientRelationship", here.id, here.x, here.z)
+        local grain = nil
+        if type(loc) == "table" and type(loc.nutrients) == "table" then
+            for _, n in ipairs({ "N", "P", "K" }) do
+                local x = loc.nutrients[n]
+                if x and x.knowledgeState == "KNOWN" and type(x.grainMetres) == "number" and x.grainMetres > 0 then
+                    grain = grain or x.grainMetres
+                end
+            end
+        end
+        if grain ~= nil then
+            local w = _relWords(loc)
+            add(FT.l10nFormat("ft_soiltgt_local", "Here, %s m cells: N %s, P %s, K %s",
+                string.format("%.1f", grain), w[1], w[2], w[3]), FT.C.TEXT_NORMAL)
+        else
+            add(FT.l10n("ft_soiltgt_local_none", "Here: no soil reading"), FT.C.MUTED)
+        end
+    end
+    -- The field's last confirmed pass, for its current crop only (the newest over the field's
+    -- farmlands); drawn only when this Soil keeps one.
+    local hasPass = false
+    local passRead = type(soilSys.getLastTargetPassForField) == "function"
+    local pass = nil
+    if passRead then
+        for _, id in ipairs(members) do
+            local p = _soilRead(soilSys, "getLastTargetPassForField", id)
+            if type(p) == "table" and TGT_STATE[p.doseState] ~= nil and p.cropKey ~= nil and p.cropKey == rel.cropKey
+               and (pass == nil or (tonumber(p.notedAt) or 0) > (tonumber(pass.notedAt) or 0)) then
+                pass = p
+            end
+        end
+    end
+    -- The field's last no-crop pause, under the PDA card's rules (Soil #1090): its stamp is the field
+    -- report's crop when it was noted, it shows only when newer than the pass (a tie goes to the
+    -- pass), and a pause naming denied access is never this farm's (Soil records none; this is the
+    -- farm-scope rule kept on our side too). Read only when this Soil keeps pauses.
+    local pause = nil
+    if type(soilSys.getLastTargetPauseForField) == "function" then
+        for _, id in ipairs(members) do
+            local q = _soilRead(soilSys, "getLastTargetPauseForField", id)
+            local denied = false
+            for _, x in ipairs(type(q) == "table" and type(q.reasons) == "table" and q.reasons or {}) do
+                if x == "FARM_ACCESS" then denied = true end
+            end
+            if type(q) == "table" and not denied and q.fieldCrop ~= nil and q.fieldCrop == rel.cropKey
+               and (pause == nil or (tonumber(q.notedAt) or 0) > (tonumber(pause.notedAt) or 0)) then
+                pause = q
+            end
+        end
+        if pause ~= nil and pass ~= nil and not ((tonumber(pause.notedAt) or 0) > (tonumber(pass.notedAt) or 0)) then
+            pause = nil
+        end
+    end
+    if pause ~= nil then
+        add(_tgtText(TGT_PAUSE.line.key, TGT_PAUSE.line.fallback), FT.C.WARNING)
+        add(_tgtText(TGT_PAUSE.note.key, TGT_PAUSE.note.fallback), FT.C.TEXT_DIM)
+    elseif passRead then
+        if pass ~= nil then
+            hasPass = true
+            local s = TGT_STATE[pass.doseState]
+            local color = (pass.doseState == "REACHED" and FT.C.POSITIVE)
+                or (pass.doseState == "APPLICATION_FAILED" and FT.C.NEGATIVE) or FT.C.WARNING
+            add(_tgtText(s.key, s.fallback), color)
+            local note
+            if pass.doseState == "SHORT_BINDING" then
+                note = string.format(_tgtText(TGT_NOTE.binding.key, TGT_NOTE.binding.fallback), tostring(pass.binding or "?"))
+            elseif pass.doseState == "APPLICATION_FAILED" then
+                note = _tgtText(TGT_NOTE.failed.key, TGT_NOTE.failed.fallback)
+            else
+                note = _tgtText(TGT_NOTE.scope.key, TGT_NOTE.scope.fallback)
+            end
+            add(note, FT.C.TEXT_DIM)
+            add(FT.l10nFormat("ft_soiltgt_litres", "Planned %s L, applied %s L",
+                _litres(pass.plannedLitres), _litres(pass.physicalLitres)), FT.C.TEXT_DIM)
+        else
+            add(FT.l10n("ft_soiltgt_state_none", "Last pass: none on this crop"), FT.C.MUTED)
+        end
+    end
+    -- A pause one of the farm's machines is in now, on this field.
+    local reason = nil
+    for _, id in ipairs(members) do reason = _firstReason(soilSys, reason, live[id]) end
+    if reason ~= nil then
+        local e = TGT_REASON[reason]
+        add(_tgtText(e.key, e.fallback), reason == "FOOTPRINT_PRIMING" and FT.C.TEXT_DIM or FT.C.WARNING)
+    end
+    return { lines = lines, hasPass = hasPass }
 end
 
 FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
@@ -297,28 +553,30 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
 
     if self:drawHelpPage("_soilHelp", FT.APP.SOIL_FERT, "Soil Fertilizer", AC, {
         { title = "WHAT THIS APP SHOWS",
-          body  = "One card per owned field: N / P / K / pH / OM /\n" ..
+          body  = FT.l10n("ft_soilnut_help_what_body", "One card per owned field: N / P / K / pH / OM /\n" ..
                   "Weed / Pest / Disease as current vs expected bars,\n" ..
                   "plus a TREATMENT plan with rates when a nutrient\n" ..
-                  "or pressure needs work." },
-        { title = "URGENCY ORDER",
-          body  = "Cards are sorted by SoilFertilizer urgency so the\n" ..
+                  "or pressure needs work."), literalBody = true },
+        { title = FT.l10n("ft_soilnut_help_urgency_title", "URGENCY ORDER"),
+          body  = FT.l10n("ft_soilnut_help_urgency_body", "Cards are sorted by SoilFertilizer urgency so the\n" ..
                   "fields that need attention first rise to the top.\n" ..
-                  "Left tick: green OK · yellow WATCH · red URGENT." },
-        { title = "TREATMENT",
-          body  = "Prescriptions mirror the Shift+T Soil Treatment\n" ..
+                  "Left tick: green OK · yellow WATCH · red URGENT."), literalTitle = true, literalBody = true },
+        { title = FT.l10n("ft_soilnut_treatment", "TREATMENT"),
+          -- [FT-LB] live SF_TREATMENT chord, not a hardcoded default.
+          body  = FT.l10nFormat("ft_soilnut_help_treatment_body", "Prescriptions mirror the %s Soil Treatment\n" ..
                   "dialog (product rates + protection actions).\n" ..
-                  "Disease stays Unscouted until you scout the field." },
+                  "Disease stays Unscouted until you scout the field.", _liveChord("SF_TREATMENT", "Right Shift+T")),
+          literalTitle = true, literalBody = true },
         { title = "NUTRIENT COLOURS",
-          body  = "Green = on target  |  Yellow = fair  |  Red = poor.\n" ..
-                  "Bars show current / expected (ppm for N/P/K)." },
-        { title = "pH + ORGANIC MATTER",
-          body  = "Optimal pH is 6.5 (band ~6.0–7.5).\n" ..
+          body  = FT.l10n("ft_soilnut_help_colours_body", "Green = on target  |  Yellow = fair  |  Red = poor.\n" ..
+                  "Bars show current / expected (ppm for N/P/K)."), literalBody = true },
+        { title = FT.l10n("ft_soilnut_help_ph_title", "pH + ORGANIC MATTER"),
+          body  = FT.l10n("ft_soilnut_help_ph_body", "Optimal pH is 6.5 (band ~6.0–7.5).\n" ..
                   "OM is a 0–10 soil scale (not a percent).\n" ..
-                  "Healthy band sits around 3.5–5.0." },
+                  "Healthy band sits around 3.5–5.0."), literalTitle = true, literalBody = true },
     }) then return end
 
-    local startY = self:drawAppHeader("Soil Fertilizer", "")
+    local startY = self:drawAppHeader("Soil Fertilizer", "", nil, true)
     local x, contentY, cw, _ = self:contentInner()
     local scrollY = self:getContentScrollY()
     local y = startY + scrollY
@@ -384,19 +642,29 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         or (cache.at ~= nil and (now - cache.at) > 2000)
     if stale then
         local cards = {}
+        -- SF-73 (W1c): read once per refresh, for every card.
+        local here = _playerFarmland()
+        local live = _livePauses(soilSys, farmId)
         for _, f in ipairs(ownedFields) do
             local info = _pcall(function() return soilSys:getFieldInfo(f.id) end)
             local urgency = 0
             if type(soilSys.getFieldUrgency) == "function" then
                 urgency = _pcall(function() return soilSys:getFieldUrgency(f.id) end) or 0
             end
-            cards[#cards + 1] = {
+            local card = {
                 id = f.id,
+                memberIds = f.memberIds,
                 area = f.area or (info and info.fieldArea) or 0,
-                crop = (info and info.lastCrop) or f.cropName or "Empty",
+                crop = (info and info.lastCrop and FT.l10nAuto(info.lastCrop)) or f.cropName or FT.l10n("ft_auto_empty_3", "Empty"),
                 info = info,
                 urgency = tonumber(urgency) or 0,
             }
+            -- Optional depth: a fault here never takes the card down (it draws as today).
+            if info ~= nil then
+                local okT, tgt = pcall(_targetBlock, soilSys, card, here, live)
+                if okT then card.tgt = tgt end
+            end
+            cards[#cards + 1] = card
         end
         table.sort(cards, function(a, b)
             if a.urgency == b.urgency then return a.id < b.id end
@@ -406,7 +674,7 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         self.system._soilCardCache = cache
     end
 
-    y = self:drawSection(y, string.format("FIELDS  (%d)", #cache.cards))
+    y = self:drawSection(y, FT.l10nFormat("ft_soilnut_fields_fmt", "FIELDS  (%d)", #cache.cards), true)
 
     for _, card in ipairs(cache.cards) do
         local info = card.info
@@ -427,7 +695,10 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         else
             treatH = FT.py(20)
         end
-        local cardH = headerH + metricH + treatH + FT.py(14)
+        -- SF-73 (W1c): the target block's title and lines, only when Soil answered.
+        local tgt = card.tgt
+        local tgtH = (tgt ~= nil) and (FT.py(4) + (1 + #tgt.lines) * treatLineH) or 0
+        local cardH = headerH + metricH + tgtH + treatH + FT.py(14)
         local cardBottom = y - cardH
 
         self.r:appRect(x - FT.px(2), cardBottom, cw + FT.px(4), cardH, FT.C.BG_CARD)
@@ -436,10 +707,11 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
         -- Header band: Field # left, URGENT/FERT chips right (no second overlapping line).
         local urgencyTxt = _urgencyLabel(card.urgency)
         local showFert = info ~= nil and info.needsFertilization
+        local fertTxt = FT.l10n("ft_soilnut_fert", "FERT")
         local chipGap = FT.px(5)
         local chipsW = _chipWidth(urgencyTxt)
         if showFert then
-            chipsW = chipsW + chipGap + _chipWidth("FERT")
+            chipsW = chipsW + chipGap + _chipWidth(fertTxt)
         end
         local rightEdge = x + cw - FT.px(6)
         local chipsLeft = rightEdge - chipsW
@@ -449,32 +721,32 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             titleMaxChars = math.max(10, math.floor(titleBudget / FT.px(6.5)))
         end
         local crop = _truncate(card.crop, math.max(6, titleMaxChars - 10))
-        local title = string.format("Field #%s  ·  %s", tostring(card.id), crop)
+        local title = FT.l10nFormat("ft_soilnut_field_title_fmt", "Field #%s  ·  %s", tostring(card.id), crop)
         self.r:appText(innerX, y - FT.py(2), FT.FONT.BODY, title,
-            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT)
+            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
 
         local chipY = y - FT.py(4)
         local cx = rightEdge
         if showFert then
-            local fw = _chipWidth("FERT")
+            local fw = _chipWidth(fertTxt)
             cx = cx - fw
-            _chip(self, cx, chipY, "FERT", FT.C.WARNING)
+            _chip(self, cx, chipY, fertTxt, FT.C.WARNING)
             cx = cx - chipGap
         end
         local uw = _chipWidth(urgencyTxt)
         cx = cx - uw
         _chip(self, cx, chipY, urgencyTxt, uCol)
 
-        local haTxt = (card.area and card.area > 0) and string.format("%.1f ha", card.area) or ""
+        local haTxt = (card.area and card.area > 0) and FT.l10nFormat("ft_auto_1f_ha", "%.1f ha", card.area) or ""
         if haTxt ~= "" then
             self.r:appText(innerX, y - FT.py(18), FT.FONT.SMALL, haTxt,
-                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         end
         y = y - headerH
 
         if info == nil then
-            self.r:appText(innerX, y, FT.FONT.SMALL, "No soil data for this field.",
-                RenderText.ALIGN_LEFT, FT.C.MUTED)
+            self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soilnut_no_soil_data_field", "No soil data for this field."),
+                RenderText.ALIGN_LEFT, FT.C.MUTED, true)
             y = y - FT.py(16)
         else
             local ct = info.cropTargets
@@ -490,67 +762,83 @@ FarmTabletUI:registerDrawer(FT.APP.SOIL_FERT, function(self)
             local nVal = info.nitrogen and info.nitrogen.value or 0
             local pVal = info.phosphorus and info.phosphorus.value or 0
             local kVal = info.potassium and info.potassium.value or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "N",
-                string.format("%d / %d ppm", ppmVal(nVal, ppm.N), ppmVal(tN, ppm.N)),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("N"),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(nVal, ppm.N), ppmVal(tN, ppm.N)),
                 nVal / math.max(tN, 1), _statusColor(info.nitrogen and info.nitrogen.status))
-            y = _drawMetricBar(self, innerX, y, innerW, "P",
-                string.format("%d / %d ppm", ppmVal(pVal, ppm.P), ppmVal(tP, ppm.P)),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("P"),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(pVal, ppm.P), ppmVal(tP, ppm.P)),
                 pVal / math.max(tP, 1), _statusColor(info.phosphorus and info.phosphorus.status))
-            y = _drawMetricBar(self, innerX, y, innerW, "K",
-                string.format("%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("K"),
+                FT.l10nFormat("ft_soil_ppm_pair", "%d / %d ppm", ppmVal(kVal, ppm.K), ppmVal(tK, ppm.K)),
                 kVal / math.max(tK, 1), _statusColor(info.potassium and info.potassium.status))
 
             local ph = info.pH or 7.0
             local phRatio = 1.0 - math.min(1.0, math.abs(ph - phOpt) / 2.0)
             local phCol = (ph >= 6.0 and ph <= 7.5) and FT.C.POSITIVE
                 or ((ph >= 5.5 and ph <= 8.0) and FT.C.WARNING or FT.C.NEGATIVE)
-            y = _drawMetricBar(self, innerX, y, innerW, "pH",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10nAuto("pH"),
                 string.format("%.1f / %.1f", ph, phOpt), phRatio, phCol)
 
             local om = info.organicMatter or 0
             local omCol = (om >= 3.5) and FT.C.POSITIVE or ((om >= 3.0) and FT.C.WARNING or FT.C.NEGATIVE)
-            y = _drawMetricBar(self, innerX, y, innerW, "OM",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_om", "OM"),
                 string.format("%.1f / %.1f", om, OM_TARGET), om / OM_MAX, omCol)
 
             local weed = info.weedPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "Weed",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_weed", "Weed"),
                 string.format("%.0f / <%d", weed, PRESSURE_ACTION_THRESH),
                 weed / 100, _barColor(weed / 100, true))
 
             local pest = info.pestPressure or 0
-            y = _drawMetricBar(self, innerX, y, innerW, "Pest",
+            y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_pest", "Pest"),
                 string.format("%.0f / <%d", pest, PRESSURE_ACTION_THRESH),
                 pest / 100, _barColor(pest / 100, true))
 
             local shownD = info.shownDiseasePressure
             if shownD == nil then
-                y = _drawMetricBar(self, innerX, y, innerW, "Disease",
-                    "Unscouted", 0, FT.C.MUTED)
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_disease", "Disease"),
+                    FT.l10n("ft_soilnut_unscouted", "Unscouted"), 0, FT.C.MUTED)
             else
-                y = _drawMetricBar(self, innerX, y, innerW, "Disease",
+                y = _drawMetricBar(self, innerX, y, innerW, FT.l10n("ft_soilnut_disease", "Disease"),
                     string.format("%.0f / <%d", shownD, PRESSURE_ACTION_THRESH),
                     shownD / 100, _barColor(shownD / 100, true))
             end
 
+            if tgt ~= nil then
+                y = y - FT.py(4)
+                self.r:appText(innerX, y, FT.FONT.SMALL, FT.l10n("ft_soiltgt_title", "AUTO target"),
+                    RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
+                y = y - treatLineH
+                for _, line in ipairs(tgt.lines) do
+                    self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, line.text,
+                        RenderText.ALIGN_LEFT, line.color or FT.C.TEXT_NORMAL, true)
+                    y = y - treatLineH
+                end
+            end
+
             y = y - FT.py(4)
-            self.r:appText(innerX, y, FT.FONT.SMALL, "TREATMENT PLAN",
-                RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT)
+            -- Beside a confirmed AUTO dose, the plan's rates are labelled the estimate they are.
+            local planTitle = (tgt ~= nil and tgt.hasPass)
+                and FT.l10n("ft_soilnut_treatment_plan_estimate", "TREATMENT PLAN (estimate)")
+                or FT.l10n("ft_soilnut_treatment_plan", "TREATMENT PLAN")
+            self.r:appText(innerX, y, FT.FONT.SMALL, planTitle,
+                RenderText.ALIGN_LEFT, FT.C.TEXT_ACCENT, true)
             y = y - treatLineH
             if #treats == 0 then
                 self.r:appText(innerX, y, FT.FONT.SMALL,
-                    "No actions — levels look fine.",
-                    RenderText.ALIGN_LEFT, FT.C.POSITIVE)
+                    FT.l10n("ft_soilnut_no_actions", "No actions - levels look fine."),
+                    RenderText.ALIGN_LEFT, FT.C.POSITIVE, true)
                 y = y - treatLineH
             else
                 for _, row in ipairs(treats) do
                     self.r:appText(innerX, y, FT.FONT.SMALL, row.label,
-                        RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM)
+                        RenderText.ALIGN_LEFT, row.color or FT.C.TEXT_DIM, true)
                     y = y - treatLineH
                     local products = _splitProducts(row.text)
                     for _, part in ipairs(products) do
                         -- Full rate strings (no 42-char truncate) — one product per line.
                         self.r:appText(innerX + FT.px(12), y, FT.FONT.SMALL, part,
-                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL)
+                            RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
                         y = y - treatLineH
                     end
                 end
