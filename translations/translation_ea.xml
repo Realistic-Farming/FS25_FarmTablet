@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Sin vehículo" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="No hay vehículos a menos de 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Aún no hay trabajadores. Contrata desde el panel de plantilla (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Aún no hay trabajadores. Contrata desde el panel de plantilla (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Aún no hay trabajadores. Abre la pestaña CONTRATAR para reclutar." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="No hay taller en esta granja  (reparaciones desactivadas)" />
         <text name="ft_auto_none" text="ninguno" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salarios de los trabajadores y desglose de costos" />
         <text name="ft_auto_workers" text="Trabajadores" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Trabajando" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Trabajando ahora" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Fija el salario por hora de los trabajadores contratados.&#10;Los niveles Bajo / Medio / Alto se ajustan en&#10;los ajustes del mod Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Controla cómo se calculan los salarios:&#10;Por hora = se cobra cada hora de juego.&#10;Por hectárea = se cobra por la superficie trabajada y se liquida a medianoche." />
         <text name="ft_wrk_help_month_body" text="Total de salarios acumulados este mes.&#10;Se reinicia tras pagar el salario mensual." />
-        <text name="ft_wrk_help_roster_body" text="Tus trabajadores contratados con su nivel&#10;(Novato / Experimentado / Maestro), horas totales,&#10;trabajos completados y barra de fatiga actual.&#10;Esta vista es de solo lectura: contrata, despide y asigna&#10;trabajadores desde el panel de plantilla (ALT+H)&#10;o con los comandos de consola de WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Tus trabajadores contratados con su nivel&#10;(Novato / Experimentado / Maestro), horas totales,&#10;trabajos completados y barra de fatiga actual.&#10;Esta vista es de solo lectura: contrata, despide y asigna&#10;trabajadores desde el panel de plantilla (%s)&#10;o con los comandos de consola de WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="La plantilla la gestiona el anfitrión: se sincronizará pronto." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />

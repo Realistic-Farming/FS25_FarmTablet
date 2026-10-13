@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Ei ajoneuvoa" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Ei ajoneuvoja 35 metrin sisällä." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ei vielä työntekijöitä. Palkkaa miehistöpaneelista (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Ei vielä työntekijöitä. Palkkaa miehistöpaneelista (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Ei vielä työntekijöitä. Avaa PALKKAA-välilehti rekrytoidaksesi." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Tilalla ei ole korjaamoa  (korjaukset pois käytöstä)" />
         <text name="ft_auto_none" text="ei yhtään" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Työntekijöiden palkat ja kulujen erittely" />
         <text name="ft_auto_workers" text="Työntekijät" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Töissä" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Töissä nyt" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Asettaa palkattujen työntekijöiden tuntipalkan.&#10;Tasot Matala / Keskitaso / Korkea säädetään&#10;Worker Costs -modin asetuksissa." />
         <text name="ft_wrk_help_mode_body" text="Määrittää, miten palkat lasketaan:&#10;Tunneittain = veloitetaan joka pelitunti.&#10;Hehtaarilta = veloitetaan työstetyn pinta-alan mukaan, tilitetään keskiyöllä." />
         <text name="ft_wrk_help_month_body" text="Tässä kuussa kertyneet palkat yhteensä.&#10;Nollautuu, kun kuukausipalkka on maksettu." />
-        <text name="ft_wrk_help_roster_body" text="Palkatut työntekijäsi ja heidän tasonsa&#10;(Aloittelija / Kokenut / Mestari), tunnit yhteensä,&#10;valmiit työt ja nykyinen väsymyspalkki.&#10;Näkymä on vain luku: palkkaa, irtisano ja määrää&#10;työntekijöitä pelin miehistöpaneelista (ALT+H)&#10;tai WorkerCostsin konsolikomennoilla." />
+        <text name="ft_wrk_help_roster_body" text="Palkatut työntekijäsi ja heidän tasonsa&#10;(Aloittelija / Kokenut / Mestari), tunnit yhteensä,&#10;valmiit työt ja nykyinen väsymyspalkki.&#10;Näkymä on vain luku: palkkaa, irtisano ja määrää&#10;työntekijöitä pelin miehistöpaneelista (%s)&#10;tai WorkerCostsin konsolikomennoilla." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Miehistöä hallitsee isäntä: synkronoituu pian." />
         <text name="ft_wrk_levels_fmt" text="%dA / %dK / %dM" />

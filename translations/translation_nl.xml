@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Geen voertuig" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Geen voertuigen binnen 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Nog geen arbeiders. Huur in via het teampaneel (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Nog geen arbeiders. Huur in via het teampaneel (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Nog geen arbeiders. Open het tabblad AANNEMEN om te werven." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Geen werkplaats op deze boerderij  (reparaties uitgeschakeld)" />
         <text name="ft_auto_none" text="geen" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Lonen van arbeiders en kostenoverzicht" />
         <text name="ft_auto_workers" text="Arbeiders" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Aan het werk" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Nu aan het werk" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Stelt het uurloon voor ingehuurde arbeiders in.&#10;De niveaus Laag / Gemiddeld / Hoog stel je in&#10;de instellingen van de Worker Costs-mod in." />
         <text name="ft_wrk_help_mode_body" text="Bepaalt hoe lonen worden berekend:&#10;Per uur = elk speluur afgerekend.&#10;Per hectare = afgerekend naar bewerkte oppervlakte, om middernacht verrekend." />
         <text name="ft_wrk_help_month_body" text="Totaal opgebouwde lonen deze maand.&#10;Wordt gereset nadat het maandloon is betaald." />
-        <text name="ft_wrk_help_roster_body" text="Je ingehuurde arbeiders met hun niveau&#10;(Beginner / Ervaren / Meester), totale uren,&#10;voltooide klussen en de huidige vermoeidheidsbalk.&#10;Dit overzicht is alleen-lezen: inhuren, ontslaan en toewijzen&#10;doe je via het teampaneel in het spel (ALT+H)&#10;of de consolecommando's van WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Je ingehuurde arbeiders met hun niveau&#10;(Beginner / Ervaren / Meester), totale uren,&#10;voltooide klussen en de huidige vermoeidheidsbalk.&#10;Dit overzicht is alleen-lezen: inhuren, ontslaan en toewijzen&#10;doe je via het teampaneel in het spel (%s)&#10;of de consolecommando's van WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Het team wordt door de host beheerd: synchroniseert binnenkort." />
         <text name="ft_wrk_levels_fmt" text="%dB / %dE / %dM" />

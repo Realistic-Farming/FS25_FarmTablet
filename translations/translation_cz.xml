@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Bez vozidla" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Žádná vozidla do 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Zatím žádní pracovníci. Najímejte v týmovém panelu (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Zatím žádní pracovníci. Najímejte v týmovém panelu (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Zatím žádní pracovníci. Otevři kartu NAJMOUT a naber je." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Na této farmě není dílna  (opravy vypnuty)" />
         <text name="ft_auto_none" text="žádné" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Mzdy pracovníků a rozpis nákladů" />
         <text name="ft_auto_workers" text="Pracovníci" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Pracují" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Právě pracuje" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Nastavuje hodinovou mzdu najatých pracovníků.&#10;Úrovně Nízká / Střední / Vysoká se nastavují&#10;v nastavení modu Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Určuje, jak se počítají mzdy:&#10;Hodinově = účtováno každou herní hodinu.&#10;Za hektar = účtováno podle obdělané plochy, vyúčtováno o půlnoci." />
         <text name="ft_wrk_help_month_body" text="Celkové mzdy za tento měsíc.&#10;Vynuluje se po vyplacení měsíční mzdy." />
-        <text name="ft_wrk_help_roster_body" text="Vaši najatí pracovníci s jejich úrovní&#10;(Nováček / Zkušený / Mistr), celkovými hodinami,&#10;dokončenými zakázkami a aktuální únavou.&#10;Tento přehled je jen pro čtení: najímejte, propouštějte a přidělujte&#10;pracovníky v týmovém panelu ve hře (ALT+H)&#10;nebo konzolovými příkazy WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Vaši najatí pracovníci s jejich úrovní&#10;(Nováček / Zkušený / Mistr), celkovými hodinami,&#10;dokončenými zakázkami a aktuální únavou.&#10;Tento přehled je jen pro čtení: najímejte, propouštějte a přidělujte&#10;pracovníky v týmovém panelu ve hře (%s)&#10;nebo konzolovými příkazy WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Tým spravuje hostitel: brzy se synchronizuje." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dZ / %dM" />

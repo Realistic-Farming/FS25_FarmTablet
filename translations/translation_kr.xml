@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="차량 없음" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="35m 안에 차량이 없습니다." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="아직 작업자가 없습니다. 명단 패널에서 고용하세요(ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="아직 작업자가 없습니다. 명단 패널에서 고용하세요(%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="아직 작업자가 없습니다. 고용 탭을 열어 채용하세요." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="이 농장에 정비소가 없습니다  (수리 꺼짐)" />
         <text name="ft_auto_none" text="없음" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="작업자 임금과 비용 내역" />
         <text name="ft_auto_workers" text="작업자" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="작업 중" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="지금 작업 중" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="고용한 작업자의 시급을 정합니다.&#10;낮음 / 보통 / 높음 단계는&#10;Worker Costs 모드 설정에서 정합니다." />
         <text name="ft_wrk_help_mode_body" text="임금 계산 방식을 정합니다:&#10;시간당 = 게임 시간 1시간마다 청구.&#10;헥타르당 = 작업한 면적에 따라 청구, 자정에 정산." />
         <text name="ft_wrk_help_month_body" text="이번 달 누적 임금 합계입니다.&#10;월급을 지급하면 초기화됩니다." />
-        <text name="ft_wrk_help_roster_body" text="고용한 작업자와 등급&#10;(초보 / 숙련 / 마스터), 누적 시간,&#10;완료한 작업, 현재 피로도 막대.&#10;이 화면은 읽기 전용입니다: 고용, 해고, 배정은&#10;게임 속 명단 패널(ALT+H)이나&#10;WorkerCosts 콘솔 명령으로 하세요." />
+        <text name="ft_wrk_help_roster_body" text="고용한 작업자와 등급&#10;(초보 / 숙련 / 마스터), 누적 시간,&#10;완료한 작업, 현재 피로도 막대.&#10;이 화면은 읽기 전용입니다: 고용, 해고, 배정은&#10;게임 속 명단 패널(%s)이나&#10;WorkerCosts 콘솔 명령으로 하세요." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="명단은 호스트가 관리합니다: 곧 동기화됩니다." />
         <text name="ft_wrk_levels_fmt" text="초보 %d / 숙련 %d / 마스터 %d" />

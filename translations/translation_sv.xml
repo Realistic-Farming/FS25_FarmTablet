@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Inget fordon" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Inga fordon inom 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Inga arbetare än. Anställ från lagpanelen (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Inga arbetare än. Anställ från lagpanelen (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Inga arbetare än. Öppna fliken ANSTÄLL för att rekrytera." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Ingen verkstad på den här gården  (reparationer avstängda)" />
         <text name="ft_auto_none" text="inga" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Arbetarlöner och kostnadsuppdelning" />
         <text name="ft_auto_workers" text="Arbetare" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Arbetar" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Arbetar nu" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Anger timlönen för anställda arbetare.&#10;Nivåerna Låg / Medel / Hög ställs in i&#10;Worker Costs-moddens inställningar." />
         <text name="ft_wrk_help_mode_body" text="Styr hur löner beräknas:&#10;Per timme = debiteras varje speltimme.&#10;Per hektar = debiteras efter bearbetad yta, regleras vid midnatt." />
         <text name="ft_wrk_help_month_body" text="Sammanlagda löner upparbetade denna månad.&#10;Nollställs när månadslönen har betalats." />
-        <text name="ft_wrk_help_roster_body" text="Dina anställda arbetare med sin nivå&#10;(Nybörjare / Erfaren / Mästare), totala timmar,&#10;slutförda uppdrag och aktuell trötthetsstapel.&#10;Vyn är skrivskyddad: anställ, avskeda och tilldela&#10;arbetare från lagpanelen i spelet (ALT+H)&#10;eller med WorkerCosts konsolkommandon." />
+        <text name="ft_wrk_help_roster_body" text="Dina anställda arbetare med sin nivå&#10;(Nybörjare / Erfaren / Mästare), totala timmar,&#10;slutförda uppdrag och aktuell trötthetsstapel.&#10;Vyn är skrivskyddad: anställ, avskeda och tilldela&#10;arbetare från lagpanelen i spelet (%s)&#10;eller med WorkerCosts konsolkommandon." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Laget hanteras av värden: synkas snart." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />

@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Tidak ada kendaraan" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Tidak ada kendaraan dalam 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Belum ada pekerja. Rekrut dari panel tim (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Belum ada pekerja. Rekrut dari panel tim (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Belum ada pekerja. Buka tab REKRUT untuk merekrut." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Tidak ada bengkel di pertanian ini  (perbaikan nonaktif)" />
         <text name="ft_auto_none" text="tidak ada" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Upah pekerja dan rincian biaya" />
         <text name="ft_auto_workers" text="Pekerja" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Bekerja" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Sedang bekerja" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Mengatur upah per jam pekerja yang direkrut.&#10;Tingkat Rendah / Sedang / Tinggi diatur di&#10;pengaturan mod Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Mengatur cara upah dihitung:&#10;Per jam = ditagih setiap jam permainan.&#10;Per hektar = ditagih menurut luas lahan yang dikerjakan, diselesaikan tengah malam." />
         <text name="ft_wrk_help_month_body" text="Total upah yang terkumpul bulan ini.&#10;Direset setelah gaji bulanan dibayar." />
-        <text name="ft_wrk_help_roster_body" text="Pekerjamu yang direkrut beserta tingkatnya&#10;(Pemula / Berpengalaman / Ahli), total jam,&#10;pekerjaan selesai, dan bilah kelelahan saat ini.&#10;Tampilan ini hanya-baca: rekrut, pecat, dan tugaskan&#10;pekerja dari panel tim dalam game (ALT+H)&#10;atau perintah konsol WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Pekerjamu yang direkrut beserta tingkatnya&#10;(Pemula / Berpengalaman / Ahli), total jam,&#10;pekerjaan selesai, dan bilah kelelahan saat ini.&#10;Tampilan ini hanya-baca: rekrut, pecat, dan tugaskan&#10;pekerja dari panel tim dalam game (%s)&#10;atau perintah konsol WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Tim dikelola oleh host: segera disinkronkan." />
         <text name="ft_wrk_levels_fmt" text="%dP / %dB / %dA" />

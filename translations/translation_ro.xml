@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Niciun vehicul" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Niciun vehicul la mai puțin de 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Niciun muncitor încă. Angajează din panoul echipei (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Niciun muncitor încă. Angajează din panoul echipei (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Încă nu ai muncitori. Deschide fila ANGAJEAZĂ ca să recrutezi." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Niciun atelier în această fermă  (reparații dezactivate)" />
         <text name="ft_auto_none" text="niciunul" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salariile muncitorilor și defalcarea costurilor" />
         <text name="ft_auto_workers" text="Muncitori" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="La lucru" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Lucrează acum" />
@@ -3035,7 +3035,7 @@
         <text name="ft_wrk_help_wage_body" text="Stabilește salariul pe oră al muncitorilor angajați.&#10;Nivelurile Scăzut / Mediu / Ridicat se setează&#10;în opțiunile modului Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Stabilește cum se calculează salariile:&#10;Pe oră = taxat la fiecare oră de joc.&#10;Pe hectar = taxat după suprafața lucrată, decontat la miezul nopții." />
         <text name="ft_wrk_help_month_body" text="Totalul salariilor acumulate luna aceasta.&#10;Se resetează după plata salariului lunar." />
-        <text name="ft_wrk_help_roster_body" text="Muncitorii tăi angajați cu nivelul lor&#10;(Începător / Experimentat / Maestru), ore totale,&#10;lucrări finalizate și bara de oboseală actuală.&#10;Această vedere e doar pentru citire: angajează, concediază și repartizează&#10;muncitori din panoul echipei din joc (ALT+H)&#10;sau cu comenzile de consolă WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Muncitorii tăi angajați cu nivelul lor&#10;(Începător / Experimentat / Maestru), ore totale,&#10;lucrări finalizate și bara de oboseală actuală.&#10;Această vedere e doar pentru citire: angajează, concediază și repartizează&#10;muncitori din panoul echipei din joc (%s)&#10;sau cu comenzile de consolă WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Echipa e gestionată de gazdă: se sincronizează în curând." />
         <text name="ft_wrk_levels_fmt" text="%dÎ / %dE / %dM" />
