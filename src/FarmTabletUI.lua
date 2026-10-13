@@ -1331,6 +1331,8 @@ end
 
 function FarmTabletUI:_drawContent()
     if FT and FT.LAYOUT then FT.LAYOUT.bodyClipTop = nil end
+    -- [#212] Any full draw shows the current scroll position, so a pending wheel redraw is met.
+    self._contentScrollDirty = false
     self.r:clearAppLayer()
     self._contentBtns = {}
     local appId = self.system.currentApp
@@ -2798,6 +2800,7 @@ function FarmTabletUI:update(dt)
     if self.uiState == "app" then
         self:_pollContentScroll()
         self:_updateContentScrollSmooth(dt)
+        self:_flushContentScroll()
         if self.system.currentApp == FT.APP.EXCAVATOR and self.updateExcavatorApp then
             self:updateExcavatorApp(dt)
         end
@@ -2868,9 +2871,21 @@ end
 
 function FarmTabletUI:_redrawScrolledContent()
     if not self.r then return end
-    self.r:clearAppLayer()
-    self._contentBtns = {}
+    -- [#212] _drawContent clears the app layer and the content buttons itself; clearing them
+    -- here as well rebuilt the page's layer twice per redraw.
     self:_drawContent()
+end
+
+--- [#212] Redraw the content after the wheel moved it: once per frame however many notches
+--- arrived since the last one, and before a click, so the buttons sit where the content now is.
+--- Each notch used to clear and rebuild the whole page at once, so fast scrolling rebuilt it
+--- many times in one frame (MarkusVII's report).
+function FarmTabletUI:_flushContentScroll()
+    if not self._contentScrollDirty then return false end
+    self._contentScrollDirty = false
+    if not self.isOpen or self.uiState ~= "app" then return false end
+    self:_redrawScrolledContent()
+    return true
 end
 
 function FarmTabletUI:_applyContentScroll(dir, fast)
@@ -2880,7 +2895,8 @@ function FarmTabletUI:_applyContentScroll(dir, fast)
     -- The previous eased/animated scroll rebuilt the app layer over several
     -- frames. On larger app lists this felt jerky and sometimes continued
     -- farther than expected. Keep it simple and LS-like: one wheel notch moves
-    -- a calm, fixed distance and redraws exactly once.
+    -- a calm, fixed distance. [#212] The redraw waits for the frame
+    -- (_flushContentScroll), so a burst of notches redraws once.
     local step = self._contentScrollStep or FT.py(46)
     if fast then step = step * 1.25 end
 
@@ -2892,7 +2908,7 @@ function FarmTabletUI:_applyContentScroll(dir, fast)
     self._contentScrollY = newY
     self._contentScrollTarget = newY
     self._contentScrollMoving = false
-    self:_redrawScrolledContent()
+    self._contentScrollDirty = true
     return true
 end
 
@@ -3045,6 +3061,9 @@ function FarmTabletUI:_onMouse(px, py, isDown, isUp, btn)
     -- ── App view ──
     if self.uiState == "app" then
         if isDown and btn == 1 then
+            -- [#212] A wheel scroll not yet drawn is drawn first, so the click
+            -- hits the buttons where the content now is.
+            self:_flushContentScroll()
             -- Inert first: a dimmed Home/Back swallows the click and does
             -- nothing at all (PB-02, no collapse strip, no snap-back).
             if hitInert(self._homeBtn, px, py) or hitInert(self._backBtn, px, py) then

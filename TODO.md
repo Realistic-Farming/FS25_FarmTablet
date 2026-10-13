@@ -5,6 +5,7 @@
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## Bugs
+- [x] 2026-10-13: **Fast wheel scrolling stuttered (#212).** Each notch rebuilt the whole app page, clearing the layer twice; now the frame redraws once per burst (`FarmTabletUI:_flushContentScroll`), a click draws a pending scroll first, and one redraw clears once. Bar `FT-212-scroll_coalesce_spec_test.lua`, battery `mutate_ft212_scroll.py`. In game: TESTING row 553.
 - [x] 2026-10-06: **The tablet shows a stale version (MAINTENANCE row 236).** FT.VERSION was a hand-kept copy of modDesc.xml's `<version>` and drifted (2.6.0.6 shown on 2.6.0.11). `src/core/Constants.lua` now takes the version the engine read from modDesc into its mod manager (`g_modManager:getModByName(FarmTabletModName).version`), and keeps the constant as the fallback. Bar `tools/test/version-label-check.mjs`, battery `tools/test/mutate_version_label.py`. In-game check pending (TESTING row 495).
 
 - [x] 2026-08-31: **Weather dial refusal now visible (issue #140).** The World Weather chips called `WeatherGuard:requestWeatherMode` inside a bare `pcall` and discarded the result, so on a dedicated server a refused or errored change looked like "nothing happened" with no message. The chip handler now captures the return, clears any stale notice on success, and on failure draws a notice line above the dial: admin-only wording when the player is not a host or master user, WeatherGuard-refused wording otherwise. In-game verification pending.

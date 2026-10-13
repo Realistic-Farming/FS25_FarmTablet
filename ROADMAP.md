@@ -72,3 +72,8 @@
 ## 2026-10-06 (Fred): the tablet shows the build's own version (MAINTENANCE row 236)
 
 - [x] Version label: the Settings page header and its Version row, the welcome header and the welcome notice now show the version from the mod's own modDesc.xml, which the game already reads at load, instead of a hand-kept copy that had drifted (testers on 2.6.0.11 read "FarmTablet v2.6.0.6"). The old constant stays only as a fallback when the game has no record. Bar `tools/test/version-label-check.mjs` (8 cases through the whole tablet's load), battery `tools/test/mutate_version_label.py`. The in-game check is TESTING row 495.
+
+## 2026-10-13 (Fred (via Desk)): fast wheel scrolling no longer rebuilds the page on every notch (#212)
+
+- [x] Scrolling an app page (Settings most of all) with the mouse wheel used to clear and rebuild the whole page on every notch, twice over, so a fast burst rebuilt it many times before a frame was drawn and the game stuttered (MarkusVII's report and diagnosis). A notch now only moves the page; the frame redraws it once, however many notches came, and a click draws a pending scroll first so the buttons are where the page now is. One redraw clears the layer once. Bar `tools/test/lua/FT-212-scroll_coalesce_spec_test.lua` from the real `_onMouse` and `update`, battery `tools/test/mutate_ft212_scroll.py`, 5 of 5. Design origin none.
+- The in-game check is TESTING row 553.
