@@ -77,3 +77,8 @@
 
 - [x] Scrolling an app page (Settings most of all) with the mouse wheel used to clear and rebuild the whole page on every notch, twice over, so a fast burst rebuilt it many times before a frame was drawn and the game stuttered (MarkusVII's report and diagnosis). A notch now only moves the page; the frame redraws it once, however many notches came, and a click draws a pending scroll first so the buttons are where the page now is. One redraw clears the layer once. Bar `tools/test/lua/FT-212-scroll_coalesce_spec_test.lua` from the real `_onMouse` and `update`, battery `tools/test/mutate_ft212_scroll.py`, 5 of 5. Design origin none.
 - The in-game check is TESTING row 553.
+
+## 2026-10-14 (Fred (via Desk)): keyboard defaults (Wizard, #226)
+
+- [x] The Worker Costs app's two roster hints read the live Open Worker Roster key instead of 'ALT+H', which was never bound. The three strings become %s templates through FT.l10nFormat in all 26 languages, and `src/utils/LiveKeyLabel.lua` is added. No default key changes in this mod. (Wizard's #226, merged at 02810128 on 2026-10-13, one PR of his keyboard-defaults wave.)
+- The in-game check is TESTING row 532. Docs by Fred's catch-up (R-51), on Tyson's word of 2026-10-14.
