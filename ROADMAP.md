@@ -82,3 +82,8 @@
 
 - [x] The Worker Costs app's two roster hints read the live Open Worker Roster key instead of 'ALT+H', which was never bound. The three strings become %s templates through FT.l10nFormat in all 26 languages, and `src/utils/LiveKeyLabel.lua` is added. No default key changes in this mod. (Wizard's #226, merged at 02810128 on 2026-10-13, one PR of his keyboard-defaults wave.)
 - The in-game check is TESTING row 532. Docs by Fred's catch-up (R-51), on Tyson's word of 2026-10-14.
+
+## 2026-10-14 (Fred (via Desk)): the build script packs only the mod (MAINTENANCE row 315)
+
+- [x] `build.py` finds npm on Windows (`shutil.which`). It called npm by its bare name, which Python cannot launch on Windows (npm is `npm.cmd`), so a build without `tools/test/node_modules` stopped with WinError 2 before writing the zip. It also keeps `docs/` out of the zip: its Markdown was already excluded, but `docs/kingmods-description.txt` shipped, and nothing in the mod loads it.
+- Build tooling only, no in-game check (TESTING row 577). Found by a fleet sweep that built every mod once from development in a throwaway worktree, on Tyson's word of 2026-10-14.

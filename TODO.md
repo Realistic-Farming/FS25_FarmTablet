@@ -5,6 +5,7 @@
 > Convention: `[ ]` open · `[~]` in progress · `[x]` done · `[!]` blocked. Newest at the top of each section.
 
 ## Bugs
+- [x] 2026-10-14: **The build stopped at npm on Windows (MAINTENANCE row 315).** `build.py` now resolves npm with `shutil.which`. From a fresh worktree, development's build stops at npm with WinError 2 and writes no zip; this branch's build runs npm install and writes the zip. Against development built with `tools/test/node_modules` linked in, so it gets past npm: 148 entries, one of them `docs/kingmods-description.txt`; this branch's has 147, with exactly that file removed, every other entry byte-identical (CRC), nothing added. Build tooling only (TESTING row 577).
 - [x] 2026-10-13: **Fast wheel scrolling stuttered (#212).** Each notch rebuilt the whole app page, clearing the layer twice; now the frame redraws once per burst (`FarmTabletUI:_flushContentScroll`), a click draws a pending scroll first, and one redraw clears once. Bar `FT-212-scroll_coalesce_spec_test.lua`, battery `mutate_ft212_scroll.py`. In game: TESTING row 553.
 - [x] 2026-10-06: **The tablet shows a stale version (MAINTENANCE row 236).** FT.VERSION was a hand-kept copy of modDesc.xml's `<version>` and drifted (2.6.0.6 shown on 2.6.0.11). `src/core/Constants.lua` now takes the version the engine read from modDesc into its mod manager (`g_modManager:getModByName(FarmTabletModName).version`), and keeps the constant as the fallback. Bar `tools/test/version-label-check.mjs`, battery `tools/test/mutate_version_label.py`. In-game check pending (TESTING row 495).
 
