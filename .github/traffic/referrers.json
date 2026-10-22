@@ -5767,5 +5767,37 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-10-22": [
+    {
+      "referrer": "github.com",
+      "count": 61,
+      "uniques": 50
+    },
+    {
+      "referrer": "Google",
+      "count": 46,
+      "uniques": 43
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 22,
+      "uniques": 20
+    },
+    {
+      "referrer": "Bing",
+      "count": 14,
+      "uniques": 8
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 10,
+      "uniques": 9
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
