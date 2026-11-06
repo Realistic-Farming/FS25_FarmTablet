@@ -57,7 +57,7 @@ local _jobHistory  = {}    -- array of completed job records
 local _view        = "home"  -- "home" | "start" | "history"
 
 -- App-bar Back: return to the app's home view from a sub-view first.
-FarmTabletUI:registerBackHandler("field_jobs", function()
+FarmTabletUI:registerBackHandler(FT.APP.FIELD_JOBS, function()
     if _view ~= "home" then
         _view = "home"
         return true
@@ -298,7 +298,7 @@ end
 
 local AC = FT.APP_COLOR["field_jobs"] or {0.30, 0.75, 1.00, 1.00}
 
-FarmTabletUI:registerDrawer("field_jobs", function(self)
+FarmTabletUI:registerDrawer(FT.APP.FIELD_JOBS, function(self)
     AC = FT.appColor("field_jobs")
 
     -- ── Help page ───────────────────────────────────────
@@ -306,7 +306,7 @@ FarmTabletUI:registerDrawer("field_jobs", function(self)
     -- every button name is resolved through the key that owns it rather than
     -- retyped. A second English copy of a label drifts the first time the label
     -- changes, and then help confidently points at a control that is not there.
-    if self:drawHelpPage("_fieldJobsHelp", "field_jobs", "Field Jobs", AC, {
+    if self:drawHelpPage("_fieldJobsHelp", FT.APP.FIELD_JOBS, "Field Jobs", AC, {
         { title = FJText("ft_fieldjobs_help_start_title", "STARTING A JOB"),
           body  = FJLines("ft_fieldjobs_help_start_body",
                     "Home screen: tap %s.\n"..

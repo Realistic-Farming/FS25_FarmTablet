@@ -147,19 +147,19 @@ FarmTabletUI:registerDrawer(FT.APP.STORAGE, function(self)
             self.r:appText(x + cw - FT.px(14), y, FT.FONT.BODY,
                 data:formatMoney(pd.bestPrice),
                 RenderText.ALIGN_RIGHT, FT.C.POSITIVE, true)
-            y = y - FT.py(FT.SP.ROW)
-
-            -- Peak sub-row
+            -- Peak sub-row. It describes the row ABOVE it, so it sits close under that
+            -- row and the larger gap falls after it, before the next crop.
             local pk = _peakPrices[crop.fillTypeIndex]
             if pk and pk.price > 0 then
+                y = y - FT.py(13)
                 local isAtPeak = pd.bestPrice >= pk.price
                 local pkColor  = isAtPeak and FT.C.POSITIVE or FT.C.WARNING
                 local pkText   = "  " .. FT.l10nFormat("ft_storage_peak_fmt", "Peak: %s  (day %d)",
                     data:formatMoney(pk.price), pk.day)
                 self.r:appText(x + FT.px(14), y, FT.FONT.TINY, pkText,
                     RenderText.ALIGN_LEFT, pkColor, true)
-                y = y - FT.py(13)
             end
+            y = y - FT.py(FT.SP.ROW)
         end
     end
 

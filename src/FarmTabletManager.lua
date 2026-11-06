@@ -134,10 +134,17 @@ function FarmTabletManager:onMissionLoaded()
     -- Welcome notification: client-only (HUD does not exist on server peers)
     if self.mission:getIsClient() and self.settings.enabled and self.settings.showTabletNotifications then
         local title = string.format("Farm Tablet %s", FT.VERSION or "v2")
+        local liveKey = nil
+        if self.inputHandler ~= nil and self.inputHandler.getKeybindString ~= nil then
+            liveKey = self.inputHandler:getKeybindString()
+        elseif LiveKeyLabel ~= nil then
+            liveKey = LiveKeyLabel.get(InputHandler.ACTION_NAME)
+        else
+            liveKey = "unavailable"
+        end
         local msg   = string.format(
             (g_i18n and g_i18n:getText("ft_ui_welcome_message")) or "Press %s to open",
-            self.inputHandler and self.inputHandler:getKeybindString()
-                or InputHandler.DEFAULT_KEY_LABEL
+            liveKey
         )
         self:showNotification(title, msg)
     end
@@ -249,6 +256,14 @@ function FarmTabletManager:delete()
     if self._origCameraZoom then
         Enterable.actionEventCameraZoomInOut = self._origCameraZoom
         self._origCameraZoom = nil
+    end
+    -- Idempotent: InputHandler.delete unsubscribes INPUT_BINDINGS_CHANGED so a
+    -- new mission's handler is not left listening beside a dead one.
+    if self.inputHandler ~= nil then
+        if type(self.inputHandler.delete) == "function" then
+            self.inputHandler:delete()
+        end
+        self.inputHandler = nil
     end
     if self.invoiceManager then self.invoiceManager:save() end
     if self.settings then self.settings:save(true) end

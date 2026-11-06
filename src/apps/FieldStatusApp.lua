@@ -72,12 +72,13 @@ FarmTabletUI:registerDrawer(FT.APP.FIELDS, function(self)
 
     local rowH  = FT.py(19)
     local altBg = {0.09, 0.11, 0.16, 0.50}
+    local swOff = (FT.FONT.SMALL * ((FT.LAYOUT and FT.LAYOUT.fontScale) or 1) - FT.py(6)) * 0.5
 
     for i, field in ipairs(fields) do
         if i % 2 == 0 then
             self.r:appRect(x - FT.px(4), y - FT.py(4), cw + FT.px(8), rowH, altBg)
         end
-        self.r:appRect(x + FT.px(2), y + FT.py(4), FT.px(6), FT.py(6), field.stateColor or FT.C.MUTED)
+        self.r:appRect(x + FT.px(2), y + swOff, FT.px(6), FT.py(6), field.stateColor or FT.C.MUTED)
         self.r:appText(x + FT.px(12), y, FT.FONT.SMALL, tostring(field.id), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM)
         local cropDisp = field.cropName
         if FT.utf8Len(cropDisp) > 12 then cropDisp = FT.utf8Sub(cropDisp, 10) .. ".." end

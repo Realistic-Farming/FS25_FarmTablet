@@ -34,10 +34,10 @@ local function fmtValue(setting, live)
     if setting.type == "float" and type(v) == "number" then
         return string.format("%.2f", v)
     end
-    -- An enum's LIVE value comes back from the hub as float32, so the 0.80 the schema declares
-    -- arrives as 0.800000011920929 and fell straight through to tostring. Snap to the nearest
-    -- declared option, which is the value the player actually chose, and when every option is
-    -- a ratio paint it as the percent it means.
+    -- BUILD 17:48 (George CLOSED DESIGN 17:40 item 4): an enum's LIVE value comes back from the hub
+    -- as float32, so the 0.80 the schema declares arrives as 0.800000011920929 and fell straight
+    -- through to tostring. Snap to the nearest declared option, which is the value the player
+    -- actually chose, and when every option is a ratio paint it as the percent it means.
     if setting.type == "enum" and type(setting.values) == "table" and type(v) == "number" then
         local best, bestDiff, allRatios, anyFraction = nil, nil, true, false
         for _, option in ipairs(setting.values) do
@@ -233,11 +233,11 @@ FarmTabletUI:registerDrawer(FT.APP.SYSTEM_SETTINGS, function(self)
     for _, mod in ipairs(modules) do
         local modId    = tostring(mod.modId)
         local settings = mod.settings or {}
-        -- Groups start CLOSED. An unseen mod is nil here and nil ~= false, so it reads as
-        -- collapsed. The seed is what makes the first tap work: the toggle below is
-        -- `collapsed[modId] = not collapsed[modId]`, and `not nil` is true, so without it the
-        -- first tap on a never-opened group would set collapsed to true and leave it shut.
-        -- Session memory is unchanged; a group you open stays open until you close it.
+        -- BUILD 17:48 (item 2): groups start CLOSED. An unseen mod is nil here and nil ~= false,
+        -- so it reads as collapsed. The seed is what makes the first tap work: the toggle below is
+        -- `collapsed[modId] = not collapsed[modId]`, and `not nil` is true, so without it the first
+        -- tap on a never-opened group would set collapsed to true and leave it shut. Session
+        -- memory is unchanged; a group you open stays open until you close it.
         if collapsed[modId] == nil then
             collapsed[modId] = true
         end

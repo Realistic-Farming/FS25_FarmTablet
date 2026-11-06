@@ -177,11 +177,13 @@ FarmTabletUI:registerDrawer(FT.APP.UPDATES, function(self)
         counts = counts + ((entry.neu and #entry.neu or 0) + (entry.verbessert and #entry.verbessert or 0) + (entry.behoben and #entry.behoben or 0))
         local cardH = py(42 + counts * 15 + 28)
         self.r:appRect(x - px(4), y - cardH + py(6), cw + px(8), cardH, {0.11, 0.13, 0.16, 0.82})
-        self.r:appRect(x - px(4), y - py(2), cw + px(8), py(2), {AC[1], AC[2], AC[3], 0.85})
+        local fsz    = (FT.LAYOUT and FT.LAYOUT.fontScale) or 1
+        local titleY = y - py(2) - FT.FONT.TITLE * fsz
+        self.r:appRect(x - px(4), y + py(4), cw + px(8), py(2), {AC[1], AC[2], AC[3], 0.85})
 
-        self.r:appText(x + px(8), y - py(14), FT.FONT.TITLE, ftSafeText("ft_updates_version", "Version") .. " " .. tostring(entry.version), RenderText.ALIGN_LEFT, col(FT.C.TEXT_BRIGHT, {1,1,1,1}), true)
-        self.r:appText(x + cw - px(8), y - py(14), FT.FONT.SMALL, tostring(entry.date or ""), RenderText.ALIGN_RIGHT, col(FT.C.TEXT_DIM, {0.75,0.75,0.75,1}), true)
-        y = y - py(34)
+        self.r:appText(x + px(8), titleY, FT.FONT.TITLE, ftSafeText("ft_updates_version", "Version") .. " " .. tostring(entry.version), RenderText.ALIGN_LEFT, col(FT.C.TEXT_BRIGHT, {1,1,1,1}), true)
+        self.r:appText(x + cw - px(8), titleY, FT.FONT.SMALL, tostring(entry.date or ""), RenderText.ALIGN_RIGHT, col(FT.C.TEXT_DIM, {0.75,0.75,0.75,1}), true)
+        y = titleY - FT.FONT.SMALL * fsz - py(4)
 
         y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_new", "New"), entry.neu, col(FT.C.BRAND, FT.C.TEXT_ACCENT))
         y = drawChangeGroup(self, x + px(14), y, cw - px(28), ftSafeText("ft_updates_improved", "Improved"), entry.verbessert, col(FT.C.POSITIVE, FT.C.TEXT_ACCENT))

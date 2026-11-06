@@ -107,6 +107,173 @@ local function _nowMs()
     return (g_currentMission and g_currentMission.time) or 0
 end
 
+local function _finiteNumber(v)
+    local n = tonumber(v)
+    if n == nil or n ~= n then return nil end
+    if n == math.huge or n == -math.huge then return nil end
+    return n
+end
+
+local function _farmExcluded(id)
+    return id == 0 or id == 14 or id == 15
+end
+
+local function _historyFarmId(row)
+    if type(row) ~= "table" then return nil end
+    return _finiteNumber(row.farmId)
+end
+
+-- Same live farm object only. Never invent farm 1.
+local function _playerFarmIds()
+    local mgr = g_farmManager
+    if mgr == nil or type(mgr.getFarms) ~= "function" or type(mgr.getFarmById) ~= "function" then
+        return nil
+    end
+    local farms = mgr:getFarms()
+    if type(farms) ~= "table" then return nil end
+    local ids = {}
+    for _, farm in ipairs(farms) do
+        if type(farm) == "table" then
+            local id = _finiteNumber(farm.farmId)
+            if id ~= nil and not _farmExcluded(id) and mgr:getFarmById(id) == farm then
+                ids[#ids + 1] = id
+            end
+        end
+    end
+    return ids
+end
+
+-- Client wire cash/outstanding/offer are 0-coerced. Outstanding is trusted on the
+-- server when finite (including explicit 0). Otherwise only principal+accruedInterest
+-- when both are finite. A lone 0 outstanding on a client is not debt-free.
+local function _trustedOutstanding(view)
+    if type(view) ~= "table" then return nil end
+    if _isServer() then
+        local outstanding = _finiteNumber(view.outstanding)
+        if outstanding ~= nil then return outstanding end
+    end
+    local principal = _finiteNumber(view.principal)
+    local interest = _finiteNumber(view.accruedInterest)
+    if principal ~= nil and interest ~= nil then
+        return principal + interest
+    end
+    return nil
+end
+
+
+-- Debt is COMPLETE only for version 1, a real farm id, and readiness READY.
+-- Nil version, nil farm, or an unknown readiness such as FUTURE_STATE stays incomplete.
+local function _ownerDebtReady(view, farmId)
+    if type(view) ~= "table" then return false end
+    if tonumber(view.version) ~= 1 then return false end
+    local viewFarm = _finiteNumber(view.farmId)
+    if viewFarm == nil then return false end
+    if farmId ~= nil and viewFarm ~= _finiteNumber(farmId) then return false end
+    return view.readiness == "READY"
+end
+
+
+local function _costRows(list)
+    local out = {}
+    if type(list) ~= "table" then return out end
+    for _, item in ipairs(list) do
+        if type(item) == "table" then
+            out[#out + 1] = {
+                sourceId = type(item.sourceId) == "string" and item.sourceId or nil,
+                amount = _finiteNumber(item.amount),
+                basis = type(item.basis) == "string" and item.basis or nil,
+                dueDay = _finiteNumber(item.dueDay),
+                dueTimeMs = _finiteNumber(item.dueTimeMs),
+            }
+        end
+    end
+    return out
+end
+
+local function _missingCodes(list)
+    local out = {}
+    if type(list) ~= "table" then return out end
+    for _, code in ipairs(list) do
+        if type(code) == "string" then
+            out[#out + 1] = code
+        end
+    end
+    return out
+end
+
+local function _outlookFrom(view)
+    if type(view) ~= "table" then
+        return { status = "UNAVAILABLE", knownCosts = {}, estimatedCosts = {}, missing = {} }
+    end
+    local status = view.forecastStatus
+    if status ~= "OK" and status ~= "PARTIAL" and status ~= "UNAVAILABLE" then
+        status = "UNAVAILABLE"
+    end
+    local basis = view.workingCashBasis
+    if basis ~= "HALF_PERIOD_GROSS" and basis ~= "FALLBACK_10000" then
+        basis = nil
+    end
+    return {
+        status = status,
+        minimum = _finiteNumber(view.minimumBalance),
+        shortfall = _finiteNumber(view.shortfall),
+        gross = _finiteNumber(view.expectedGrossIncome),
+        net = _finiteNumber(view.expectedNetIncome),
+        workingCash = _finiteNumber(view.workingCashAmount),
+        basis = basis,
+        horizon = type(view.horizonEnd) == "table",
+        knownCosts = _costRows(view.knownCosts),
+        estimatedCosts = _costRows(view.estimatedCosts),
+        missing = _missingCodes(view.missingInputs),
+    }
+end
+
+local function _ownFarmMonthly(farmId)
+    local id = _finiteNumber(farmId)
+    if id == nil or _farmExcluded(id) then return {} end
+    local out = {}
+    for _, row in ipairs(_hist.monthly) do
+        if _historyFarmId(row) == id then
+            out[#out + 1] = row
+        end
+    end
+    return out
+end
+
+local function _ownFarmYearly(farmId)
+    local id = _finiteNumber(farmId)
+    if id == nil or _farmExcluded(id) then return {} end
+    local out = {}
+    for _, row in ipairs(_hist.yearly) do
+        if _historyFarmId(row) == id then
+            out[#out + 1] = row
+        end
+    end
+    return out
+end
+
+local function _rowNetWorth(row)
+    if type(row) ~= "table" then return nil end
+    local bal = _finiteNumber(row.closingBalance)
+    if bal == nil then return nil end
+    local basis = row.debtBasis
+    local debt = nil
+    if basis == "COMPLETE" then
+        debt = _finiteNumber(row.totalDebt)
+    elseif basis == "NATIVE_ONLY" then
+        debt = _finiteNumber(row.loan)
+        if debt == nil then debt = _finiteNumber(row.nativeLoan) end
+    end
+    if debt == nil then return nil end
+    return bal - debt
+end
+
+local function _moneyKnown(data, n)
+    if _finiteNumber(n) == nil then return nil end
+    return _money(data, n)
+end
+
+
 local function _bandColor(band)
     if band == "green" then return FT.C.POSITIVE end
     if band == "amber" then return FT.C.WARNING end
@@ -299,13 +466,16 @@ local function _upsertMonth(row)
     if y == nil or m == nil then return end
     row.year = y
     row.monthIndex = m
-    row.closingBalance = tonumber(row.closingBalance) or 0
-    row.loan = tonumber(row.loan) or 0
+    row.closingBalance = _finiteNumber(row.closingBalance)
+    row.loan = _finiteNumber(row.loan)
+    row.farmId = _historyFarmId(row)
     row.perSourceFlowTotals = type(row.perSourceFlowTotals) == "table" and row.perSourceFlowTotals or {}
 
     local replaced = false
+    local newFarm = _historyFarmId(row)
     for i, existing in ipairs(_hist.monthly) do
-        if existing.year == y and existing.monthIndex == m then
+        -- Untagged legacy rows do not match a farm-tagged row.
+        if existing.year == y and existing.monthIndex == m and _historyFarmId(existing) == newFarm then
             _hist.monthly[i] = row
             replaced = true
             break
@@ -324,20 +494,26 @@ function FinancialCockpit._rollupIfNeeded()
         table.remove(_hist.monthly, 1)
         local year = oldest.year
         local yr = nil
+        local fid = _historyFarmId(oldest)
         for _, yrow in ipairs(_hist.yearly) do
-            if yrow.year == year then yr = yrow; break end
+            if yrow.year == year and _historyFarmId(yrow) == fid then yr = yrow; break end
         end
         if yr == nil then
             yr = {
                 year = year,
+                farmId = oldest.farmId,
+                debtBasis = oldest.debtBasis,
                 yearEndBalance = oldest.closingBalance,
                 yearEndLoan = oldest.loan,
+                yearEndDebt = oldest.totalDebt,
                 perSourceFlowSums = {},
             }
             _hist.yearly[#_hist.yearly + 1] = yr
         end
         yr.yearEndBalance = oldest.closingBalance
         yr.yearEndLoan = oldest.loan
+        yr.yearEndDebt = oldest.totalDebt
+        yr.debtBasis = oldest.debtBasis
         local sums = yr.perSourceFlowSums
         for k, v in pairs(oldest.perSourceFlowTotals or {}) do
             sums[k] = (tonumber(sums[k]) or 0) + (tonumber(v) or 0)
@@ -361,30 +537,125 @@ local function _deserializeHistory(data)
     if type(data.monthly) == "table" then
         for _, row in ipairs(data.monthly) do
             if type(row) == "table" then
-                _hist.monthly[#_hist.monthly + 1] = {
-                    year = tonumber(row.year) or 0,
-                    monthIndex = tonumber(row.monthIndex) or 0,
-                    closingBalance = tonumber(row.closingBalance) or 0,
-                    loan = tonumber(row.loan) or 0,
-                    perSourceFlowTotals = type(row.perSourceFlowTotals) == "table" and row.perSourceFlowTotals or {},
-                }
+                local y = _finiteNumber(row.year)
+                local m = _finiteNumber(row.monthIndex)
+                if y ~= nil and m ~= nil then
+                    local farmId = _historyFarmId(row)
+                    local basis = type(row.debtBasis) == "string" and row.debtBasis or nil
+                    -- Old rows have no farm tag and no basis. Keep them unattributed.
+                    if farmId == nil and basis == nil then
+                        basis = "LEGACY_NATIVE_ONLY"
+                    end
+                    _hist.monthly[#_hist.monthly + 1] = {
+                        year = y,
+                        monthIndex = m,
+                        farmId = farmId,
+                        closingBalance = _finiteNumber(row.closingBalance),
+                        loan = _finiteNumber(row.loan),
+                        nativeLoan = _finiteNumber(row.nativeLoan),
+                        emergencyDebt = _finiteNumber(row.emergencyDebt),
+                        totalDebt = _finiteNumber(row.totalDebt),
+                        debtBasis = basis,
+                        flowBasis = type(row.flowBasis) == "string" and row.flowBasis or nil,
+                        perSourceFlowTotals = type(row.perSourceFlowTotals) == "table" and row.perSourceFlowTotals or {},
+                    }
+                end
             end
         end
     end
     if type(data.yearly) == "table" then
         for _, row in ipairs(data.yearly) do
             if type(row) == "table" then
-                _hist.yearly[#_hist.yearly + 1] = {
-                    year = tonumber(row.year) or 0,
-                    yearEndBalance = tonumber(row.yearEndBalance) or 0,
-                    yearEndLoan = tonumber(row.yearEndLoan) or 0,
-                    perSourceFlowSums = type(row.perSourceFlowSums) == "table" and row.perSourceFlowSums or {},
-                }
+                local y = _finiteNumber(row.year)
+                if y ~= nil then
+                    local yFarm = _historyFarmId(row)
+                    local yBasis = type(row.debtBasis) == "string" and row.debtBasis or nil
+                    if yFarm == nil and yBasis == nil then
+                        yBasis = "LEGACY_NATIVE_ONLY"
+                    end
+                    _hist.yearly[#_hist.yearly + 1] = {
+                        year = y,
+                        farmId = yFarm,
+                        debtBasis = yBasis,
+                        yearEndBalance = _finiteNumber(row.yearEndBalance),
+                        yearEndLoan = _finiteNumber(row.yearEndLoan),
+                        yearEndDebt = _finiteNumber(row.yearEndDebt),
+                        perSourceFlowSums = type(row.perSourceFlowSums) == "table" and row.perSourceFlowSums or {},
+                    }
+                end
             end
         end
     end
     _sortMonthly()
     FinancialCockpit._rollupIfNeeded()
+end
+
+local function _sampleOneFarm(ctx, farmId, dataProvider, mgr)
+    local providerBalance = nil
+    if dataProvider and dataProvider.getBalance then
+        providerBalance = _finiteNumber(_pcall(function() return dataProvider:getBalance(farmId) end))
+    end
+    local providerLoan = nil
+    if dataProvider and dataProvider.getLoan then
+        providerLoan = _finiteNumber(_pcall(function() return dataProvider:getLoan(farmId) end))
+    end
+
+    local year = _finiteNumber(ctx and ctx.year)
+    local period = _finiteNumber(ctx and ctx.period)
+    if year == nil or period == nil then return end
+    local closedMonth = period - 1
+    local closedYear = year
+    if closedMonth < 1 then
+        closedMonth = 12
+        closedYear = year - 1
+    end
+    if closedYear == nil then return end
+
+    local debtBasis = "INCOMPLETE"
+    local nativeLoan, emergencyDebt, totalDebt = nil, nil, nil
+    local balance = nil
+    local view = nil
+    if mgr ~= nil and type(mgr.getEmergencyLoanView) == "function" then
+        view = _pcall(function() return mgr:getEmergencyLoanView(farmId) end)
+        if not _ownerDebtReady(view, farmId) then
+            view = nil
+        end
+        if view ~= nil then
+            -- Keep the owner fraction. A missing cash figure is not the rounded cache.
+            balance = _finiteNumber(view.cash)
+        end
+        local nLoan, outstanding = nil, nil
+        if view ~= nil then
+            nLoan = _finiteNumber(view.nativeLoan)
+            outstanding = _trustedOutstanding(view)
+        end
+        if nLoan ~= nil and outstanding ~= nil then
+            debtBasis = "COMPLETE"
+            nativeLoan = nLoan
+            emergencyDebt = outstanding
+            totalDebt = nLoan + outstanding
+        end
+    elseif providerLoan ~= nil then
+        debtBasis = "NATIVE_ONLY"
+        balance = providerBalance
+        nativeLoan = providerLoan
+        totalDebt = providerLoan
+    end
+
+    -- Accrual pulses and the forecast are not this period's cash-flow totals.
+    _upsertMonth({
+        year = closedYear,
+        monthIndex = closedMonth,
+        farmId = farmId,
+        closingBalance = balance,
+        loan = nativeLoan,
+        nativeLoan = nativeLoan,
+        emergencyDebt = emergencyDebt,
+        totalDebt = totalDebt,
+        debtBasis = debtBasis,
+        perSourceFlowTotals = {},
+        flowBasis = "UNAVAILABLE",
+    })
 end
 
 local function _sampleClosedMonth(ctx)
@@ -394,44 +665,12 @@ local function _sampleClosedMonth(ctx)
     if ft and ft.system and ft.system.data then
         dataProvider = ft.system.data
     end
-    local farmId = 1
-    if dataProvider and dataProvider.getPlayerFarmId then
-        farmId = dataProvider:getPlayerFarmId()
-    elseif g_localPlayer then
-        farmId = (g_localPlayer.getFarmId and g_localPlayer:getFarmId()) or g_localPlayer.farmId or 1
+    local ids = _playerFarmIds()
+    if ids == nil then return end
+    local mgr = g_currentMission and g_currentMission.incomeManager or nil
+    for _, farmId in ipairs(ids) do
+        _sampleOneFarm(ctx, farmId, dataProvider, mgr)
     end
-
-    local balance, loan = 0, 0
-    if dataProvider then
-        balance = tonumber(dataProvider:getBalance(farmId)) or 0
-        loan = tonumber(dataProvider:getLoan(farmId)) or 0
-    end
-
-    -- Settle fires on the NEW period; the closed month is the previous one.
-    local year = tonumber(ctx and ctx.year) or 0
-    local period = tonumber(ctx and ctx.period) or 1
-    local closedMonth = period - 1
-    local closedYear = year
-    if closedMonth < 1 then
-        closedMonth = 12
-        closedYear = year - 1
-    end
-
-    local income = _readIncomeFlow()
-    local tax = _readTaxFlow()
-    local wages = _readWageFlow()
-    local flows = {}
-    if wages and wages.monthAccrued ~= nil then flows.wages = wages.monthAccrued end
-    if tax and tax.taxesAccumulatedAnnual ~= nil then flows.taxAnnualAnchor = tax.taxesAccumulatedAnnual end
-    if income and income.amount ~= nil then flows.incomeRate = income.amount end
-
-    _upsertMonth({
-        year = closedYear,
-        monthIndex = closedMonth,
-        closingBalance = balance,
-        loan = loan,
-        perSourceFlowTotals = flows,
-    })
 end
 
 function FinancialCockpit.bind()
@@ -488,25 +727,22 @@ end
 --   { available=false }-> owner present but the view is unavailable/unready (combined
 --                         debt-dependent vitals are UNAVAILABLE, never native-only healthy)
 --   { available=true, outstanding=, nativeLoan=, readiness= }
-local function _readEmergencyLoanView()
+local function _readEmergencyLoanView(farmId)
     local mgr = g_currentMission and g_currentMission.incomeManager
     if mgr == nil or type(mgr.getEmergencyLoanView) ~= "function" then
         return nil
     end
-    local view = _pcall(function() return mgr:getEmergencyLoanView(nil) end)
-    if type(view) ~= "table" then return { available = false } end
-    local ready = view.readiness
-    local outstanding = tonumber(view.outstanding)
-    -- READY (or an un-flagged compact reply) with a numeric outstanding (incl. explicit 0)
-    -- is usable; LOADING/UNAVAILABLE or a nil outstanding is present-but-unavailable.
-    if (ready == nil or ready == "READY") and outstanding ~= nil then
-        return { available = true, outstanding = outstanding,
-                 nativeLoan = tonumber(view.nativeLoan), readiness = ready or "READY" }
+    local view = _pcall(function() return mgr:getEmergencyLoanView(farmId) end)
+    if type(view) ~= "table" then return { rejected = true } end
+    if tonumber(view.version) ~= 1 or _finiteNumber(view.farmId) == nil then
+        return { rejected = true }
     end
-    return { available = false, readiness = ready }
+    if farmId ~= nil and _finiteNumber(view.farmId) ~= _finiteNumber(farmId) then
+        return { rejected = true }
+    end
+    -- cash, outstanding and offer are not copied. The client wire forces those to 0.
+    return { view = view }
 end
-
--- ── Snapshot gather (throttled) ───────────────────────────
 
 local function _netWorth(balance, loan)
     return (tonumber(balance) or 0) - (tonumber(loan) or 0)
@@ -521,6 +757,44 @@ local function _leverageRatio(balance, loan)
         return 0
     end
     return loan / denom
+end
+
+
+local function _outlookPresentation(snap)
+    local o = snap.outlook or { status = "UNAVAILABLE" }
+    local sleep = _T("ft_fc_outlook_sleep",
+        "Scheduled payments skipped while sleeping are not guaranteed receipts.")
+    local unavailable = _T("ft_fc_outlook_unavailable", "Outlook unavailable")
+    local partialText = _T("ft_fc_outlook_partial", "Partial outlook")
+    if o.status ~= "OK" and o.status ~= "PARTIAL" then
+        return unavailable, "neutral", unavailable
+    end
+    local partial = o.status == "PARTIAL"
+    if o.shortfall ~= nil and o.shortfall > 0 then
+        local shown = _moneyKnown(snap.data, o.shortfall)
+        if shown == nil then
+            if partial then return partialText, "partial", sleep end
+            return unavailable, "neutral", sleep
+        end
+        return FT.l10nFormat("ft_fc_outlook_shortfall", "Shortage %s", shown),
+            partial and "partial" or "red", sleep
+    end
+    if o.minimum ~= nil and o.minimum < 0 then
+        local shown = _moneyKnown(snap.data, o.minimum)
+        if shown == nil then
+            if partial then return partialText, "partial", sleep end
+            return unavailable, "neutral", sleep
+        end
+        return FT.l10nFormat("ft_fc_outlook_minimum", "Lowest cash %s", shown),
+            partial and "partial" or "red", sleep
+    end
+    if partial then
+        return partialText, "partial", sleep
+    end
+    if o.minimum == nil then
+        return unavailable, "neutral", sleep
+    end
+    return _T("ft_fc_outlook_no_shortage", "No shortage predicted this period"), "neutral", sleep
 end
 
 local function _buildVitals(snap)
@@ -547,31 +821,73 @@ local function _buildVitals(snap)
     }
 
     -- Leverage + whole-farm debt (RSF-F130: native bank loan + emergency outstanding).
-    if snap.debtBasis == "INCOMPLETE" then
-        -- Owner present but its view is unavailable: the combined figure is unknown. It
-        -- must NOT fall back to a native-only "healthy" reading.
+    local levCash, levDebt = nil, nil
+    if snap.debtBasis == "NATIVE_ONLY" then
+        levCash, levDebt = snap.balance, snap.loan
+    elseif snap.debtBasis == "COMPLETE" and snap.ownerCash ~= nil and snap.totalDebt ~= nil then
+        levCash, levDebt = snap.ownerCash, snap.totalDebt
+    end
+    if levCash == nil then
+        -- Owner present but cash or debt is missing. Not a native-only healthy reading.
+        -- The two causes read differently to the player: an INCOMPLETE debt basis means the
+        -- emergency-loan debt cannot be read, a nil cash figure means the owner's cash cannot.
+        -- NOTE: ft_fc_leverage_cash is absent from all 26 locale files, so the cash branch still
+        -- renders its English fallback until a translator adds it.
+        local levDetail
+        if snap.debtBasis == "INCOMPLETE" then
+            levDetail = _T("ft_fc_vital_leverage_unavailable",
+                "Emergency-loan debt is unavailable, so combined leverage can't be shown yet.")
+        else
+            levDetail = _T("ft_fc_leverage_cash",
+                "Owner cash is unavailable, so leverage can't be shown.")
+        end
+        -- [RSF-F130 :33, :74] Name the three figures here too, and name them FIRST. The
+        -- breakdown is what the brief requires the cockpit to display, and an unknown one
+        -- reads Unavailable (:45, :74, :91) rather than 0 or a native-only healthy number.
+        -- The reason follows the breakdown so the player still gets both. Order within the
+        -- row is layout, which ":4 what is left to Wizard" leaves here.
+        do
+            local function owed(v)
+                return _moneyKnown(snap.data, v) or _T("ft_fc_unavailable", "Unavailable")
+            end
+            levDetail = string.format("%s %s  .  %s %s  .  %s %s  .  %s",
+                _T("ft_fc_debt_native", "Bank loan"), owed(snap.nativeLoan),
+                _T("ft_fc_debt_emergency", "Emergency"), owed(snap.emergencyOutstanding),
+                _T("ft_fc_debt_total", "Total debt"), owed(snap.totalDebt),
+                levDetail)
+        end
         vitals[#vitals + 1] = {
             id = "leverage",
             label = _T("ft_fc_vital_leverage", "Leverage"),
             band = "partial",
             valueText = _T("ft_fc_partial", "PARTIAL"),
-            detail = _T("ft_fc_vital_leverage_unavailable",
-                "Emergency-loan debt is unavailable, so combined leverage can't be shown yet."),
+            detail = levDetail,
         }
     else
-        local totalDebt = snap.totalDebt or loan
-        local lev = _leverageRatio(balance, totalDebt)
+        local totalDebt = levDebt
+        local lev = _leverageRatio(levCash, totalDebt)
         local levBand
         if lev <= THRESH.leverageGreen then levBand = "green"
         elseif lev <= THRESH.leverageAmber then levBand = "amber"
         else levBand = "red" end
         local detail
-        if (snap.emergencyOutstanding or 0) > 0 then
-            -- Present native / emergency / total separately (emergency debt is not the bank loan).
-            detail = string.format("%s %s  ·  %s %s  ·  %s %s",
-                _T("ft_fc_debt_native", "Bank loan"), _money(snap.data, snap.nativeLoan or 0),
-                _T("ft_fc_debt_emergency", "Emergency"), _money(snap.data, snap.emergencyOutstanding or 0),
-                _T("ft_fc_debt_total", "Total debt"), _money(snap.data, totalDebt))
+        -- [RSF-F130 :33, :74] With a current matching owner view the cockpit displays
+        -- Native bank loan, Emergency loan and Total debt SEPARATELY. Keyed on the view
+        -- being READY (debtBasis COMPLETE, which _ownerDebtReady grants only for version 1,
+        -- a real farm id and readiness READY), NOT on the emergency balance happening to be
+        -- positive: a READY view with nothing outstanding still owes the player the
+        -- breakdown, and collapsing to the combined line hides the three figures the brief
+        -- requires. Each one goes through _moneyKnown, so an unknown input reads Unavailable
+        -- (:45, :74, :91) rather than 0 or a native-only healthy reading. NATIVE_ONLY keeps
+        -- the single line, because with the owner absent the cockpit stays native-only.
+        if snap.debtBasis == "COMPLETE" then
+            local function owed(v)
+                return _moneyKnown(snap.data, v) or _T("ft_fc_unavailable", "Unavailable")
+            end
+            detail = string.format("%s %s  .  %s %s  .  %s %s",
+                _T("ft_fc_debt_native", "Bank loan"), owed(snap.nativeLoan),
+                _T("ft_fc_debt_emergency", "Emergency"), owed(snap.emergencyOutstanding),
+                _T("ft_fc_debt_total", "Total debt"), owed(totalDebt))
         else
             detail = string.format("%s %s",
                 _T("ft_fc_vital_leverage_detail", "Loan share of balance plus loan."),
@@ -586,34 +902,15 @@ local function _buildVitals(snap)
         }
     end
 
-    -- Runway: PARTIAL while any dollar-flow gap remains (fuel / dairy / RWE maturity asks
-    -- keep this honest in v1 even when wages are readable).
-    if hasFlowGap then
-        vitals[#vitals + 1] = {
-            id = "runway",
-            label = _T("ft_fc_vital_runway", "Cash runway"),
-            band = "partial",
-            valueText = _T("ft_fc_partial", "PARTIAL"),
-            detail = _T("ft_fc_vital_runway_partial", "Needs a fuller cost picture before runway is confident."),
-        }
-    else
-        local burn = 0
-        if snap.wages then
-            burn = tonumber(snap.wages.estIntervalCost) or tonumber(snap.wages.monthAccrued) or 0
-        end
-        local months = (burn > 0) and (balance / burn) or 99
-        local runBand
-        if months >= THRESH.runwayGreen then runBand = "green"
-        elseif months >= THRESH.runwayAmber then runBand = "amber"
-        else runBand = "red" end
-        vitals[#vitals + 1] = {
-            id = "runway",
-            label = _T("ft_fc_vital_runway", "Cash runway"),
-            band = runBand,
-            valueText = string.format("%.1f %s", months, _T("ft_fc_months", "months")),
-            detail = _T("ft_fc_vital_runway_detail", "Balance divided by known operating burn."),
-        }
-    end
+    -- One-period owner outlook. Never a wage-interval runway and never 99 months.
+    local oText, oBand, oDetail = _outlookPresentation(snap)
+    vitals[#vitals + 1] = {
+        id = "runway",
+        label = _T("ft_fc_outlook", "One-period outlook"),
+        band = oBand,
+        valueText = oText,
+        detail = oDetail,
+    }
 
     -- History-derived vitals
     if histMode == "no_clock" then
@@ -656,7 +953,35 @@ local function _buildVitals(snap)
             }
         end
     else
-        -- Direction from last two net-worth closes
+        -- Own-farm tagged rows only. Legacy untagged rows are not this farm's book.
+        local monthly = _ownFarmMonthly(snap.farmId)
+        if #monthly == 0 then
+            local missing = _T("ft_fc_history_own_unavailable", "History unavailable")
+            local missingDetail = _T("ft_fc_history_own_detail", "No trusted history for this farm.")
+            for _, idLabel in ipairs({
+                { "direction", _T("ft_fc_vital_direction", "Profit direction") },
+                { "margin", _T("ft_fc_vital_margin", "Margin") },
+                { "trajectory", _T("ft_fc_vital_trajectory", "Net-worth trajectory") },
+            }) do
+                vitals[#vitals + 1] = {
+                    id = idLabel[1],
+                    label = idLabel[2],
+                    band = "neutral",
+                    valueText = missing,
+                    detail = missingDetail,
+                }
+            end
+        else
+        -- Direction from last two comparable own-farm closes
+        local prevNw, lastNw = nil, nil
+        if #monthly >= 2 then
+            local aRow, bRow = monthly[#monthly - 1], monthly[#monthly]
+            if aRow.debtBasis ~= nil and aRow.debtBasis == bRow.debtBasis
+                and aRow.debtBasis ~= "INCOMPLETE" then
+                prevNw = _rowNetWorth(aRow)
+                lastNw = _rowNetWorth(bRow)
+            end
+        end
         if #monthly < 2 then
             vitals[#vitals + 1] = {
                 id = "direction",
@@ -666,9 +991,19 @@ local function _buildVitals(snap)
                 detail = _T("ft_fc_vital_direction_wait", "Needs at least two monthly samples."),
             }
         else
-            local a = monthly[#monthly - 1]
-            local b = monthly[#monthly]
-            local d = _netWorth(b.closingBalance, b.loan) - _netWorth(a.closingBalance, a.loan)
+            local d = nil
+            if prevNw ~= nil and lastNw ~= nil then
+                d = lastNw - prevNw
+            end
+            if d == nil then
+                vitals[#vitals + 1] = {
+                    id = "direction",
+                    label = _T("ft_fc_vital_direction", "Profit direction"),
+                    band = "neutral",
+                    valueText = _T("ft_fc_history_basis", "Not compared. Debt records do not match."),
+                    detail = _T("ft_fc_history_basis", "Not compared. Debt records do not match."),
+                }
+            else
             local dBand
             if d > THRESH.directionEps then dBand = "green"
             elseif d < -THRESH.directionEps then dBand = "red"
@@ -680,6 +1015,7 @@ local function _buildVitals(snap)
                 valueText = _money(snap.data, d),
                 detail = _T("ft_fc_vital_direction_detail", "Change in net worth across the last two closed months."),
             }
+            end
         end
 
         -- Margin
@@ -719,9 +1055,34 @@ local function _buildVitals(snap)
                 detail = _T("ft_fc_vital_trajectory_wait", "Needs at least two monthly samples."),
             }
         else
-            local first = monthly[math.max(1, #monthly - 5)]
             local last = monthly[#monthly]
-            local d = _netWorth(last.closingBalance, last.loan) - _netWorth(first.closingBalance, first.loan)
+            local first = last
+            local count = 1
+            local i = #monthly - 1
+            while i >= 1 and count < 6 do
+                local row = monthly[i]
+                if last.debtBasis == nil or last.debtBasis == "INCOMPLETE" or row.debtBasis ~= last.debtBasis then
+                    break
+                end
+                if _rowNetWorth(row) == nil or _rowNetWorth(last) == nil then break end
+                first = row
+                count = count + 1
+                i = i - 1
+            end
+            local d = nil
+            if count >= 2 then
+                local fnw, lnw = _rowNetWorth(first), _rowNetWorth(last)
+                if fnw ~= nil and lnw ~= nil then d = lnw - fnw end
+            end
+            if d == nil then
+                vitals[#vitals + 1] = {
+                    id = "trajectory",
+                    label = _T("ft_fc_vital_trajectory", "Net-worth trajectory"),
+                    band = "neutral",
+                    valueText = _T("ft_fc_history_basis", "Not compared. Debt records do not match."),
+                    detail = _T("ft_fc_history_basis", "Not compared. Debt records do not match."),
+                }
+            else
             local tBand
             if d > THRESH.trajectoryEps then tBand = "green"
             elseif d < -THRESH.trajectoryEps then tBand = "red"
@@ -733,6 +1094,8 @@ local function _buildVitals(snap)
                 valueText = _money(snap.data, d),
                 detail = _T("ft_fc_vital_trajectory_detail", "Net worth change over the recent recorded window."),
             }
+            end
+        end
         end
     end
 
@@ -753,32 +1116,41 @@ local function _worstVital(vitals)
     return worstBand or "neutral", worstId
 end
 
-local function _buildForecast(snap)
-    local tg = snap.tgCtx
-    local gaps = snap.flowGaps
-    local partial = #gaps > 0
-    local remaining = nil
-    if tg and snap.tgSynced and snap.timeGuard and type(snap.timeGuard.getPeriodRemainingFraction) == "function" then
-        remaining = _pcall(function() return snap.timeGuard:getPeriodRemainingFraction("month") end)
-    end
+local function _addAmount(lines, data, label, amount, note)
+    local shown = _moneyKnown(data, amount)
+    if shown == nil then return end
+    lines[#lines + 1] = { label = label, value = shown, note = note }
+end
 
+local function _buildForecast(snap)
+    local o = snap.outlook or { status = "UNAVAILABLE" }
+    local oText, oBand, oDetail = _outlookPresentation(snap)
     local lines = {}
     lines[#lines + 1] = {
-        label = _T("ft_fc_forecast_label", "Projection"),
-        value = _T("ft_fc_forecast_month_end", "Month-end outlook"),
-        note = partial and _T("ft_fc_partial", "PARTIAL") or _T("ft_fc_forecast_limited", "Limited to readable flows"),
+        label = _T("ft_fc_outlook", "One-period outlook"),
+        value = oText,
+        note = oDetail,
     }
-
-    if remaining ~= nil then
+    if o.horizon then
         lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_remaining", "Period remaining"),
-            value = string.format("%.0f%%", remaining * 100),
+            label = _T("ft_fc_horizon_period", "This period only"),
+            value = _T("ft_fc_horizon_period", "This period only"),
         }
-    elseif not snap.tgSynced then
-        lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_remaining", "Period remaining"),
-            value = _T("ft_fc_syncing", "Syncing"),
-        }
+    end
+    _addAmount(lines, snap.data, _T("ft_fc_outlook_minimum_label", "Lowest cash"), o.minimum, nil)
+    if o.shortfall ~= nil and o.shortfall > 0 then
+        _addAmount(lines, snap.data, _T("ft_fc_outlook_shortfall_label", "Shortage"), o.shortfall, nil)
+    end
+    _addAmount(lines, snap.data, _T("ft_fc_expected_gross", "Expected gross"), o.gross, nil)
+    _addAmount(lines, snap.data, _T("ft_fc_expected_net", "Expected net"), o.net, nil)
+    if o.workingCash ~= nil then
+        local note = nil
+        if o.basis == "HALF_PERIOD_GROSS" then
+            note = _T("ft_fc_basis_half", "Half the period gross")
+        elseif o.basis == "FALLBACK_10000" then
+            note = _T("ft_fc_basis_fallback", "Fallback figure")
+        end
+        _addAmount(lines, snap.data, _T("ft_fc_working_cash", "Working cash"), o.workingCash, note)
     end
 
     if snap.income and snap.income.amount ~= nil then
@@ -796,66 +1168,136 @@ local function _buildForecast(snap)
         }
     end
 
-    if snap.tax and snap.tax.taxesAccumulatedAnnual ~= nil then
-        lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_tax", "Tax accumulated (annual)"),
-            value = _money(snap.data, snap.tax.taxesAccumulatedAnnual),
-            note = partial and _T("ft_fc_partial", "PARTIAL") or nil,
-        }
-    else
-        lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_tax", "Tax accumulated (annual)"),
-            value = _T("ft_fc_not_tracked", "Not yet tracked"),
-        }
+    local function basisWords(code)
+        if code == "CURRENT_ACCRUAL" then return _T("ft_fc_cost_basis_current", "Current accrual") end
+        if code == "HISTORY" then return _T("ft_fc_cost_basis_history", "History") end
+        if code == "PAYROLL" then return _T("ft_fc_cost_basis_payroll", "Payroll") end
+        if code == "TAX" then return _T("ft_fc_cost_basis_tax", "Tax") end
+        if code == "LAST_PERIOD_OPERATING" then return _T("ft_fc_cost_basis_last", "Last period operating") end
+        return code
     end
-
-    if snap.wages and (snap.wages.estIntervalCost ~= nil or snap.wages.monthAccrued ~= nil) then
-        local w = snap.wages.estIntervalCost or snap.wages.monthAccrued
-        lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_wages", "Wage burn (known)"),
-            value = _money(snap.data, w),
-            note = partial and _T("ft_fc_partial", "PARTIAL") or nil,
-        }
-    else
-        lines[#lines + 1] = {
-            label = _T("ft_fc_forecast_wages", "Wage burn (known)"),
-            value = _T("ft_fc_not_tracked", "Not yet tracked"),
-        }
+    local function sourceWords(id)
+        if id == "tax" then return _T("ft_fc_cost_basis_tax", "Tax") end
+        if id == "payroll" then return _T("ft_fc_cost_basis_payroll", "Payroll") end
+        if id == "operating" then return _T("ft_fc_cost_source_operating", "Operating") end
+        return id
     end
-
-    -- Never project fuel / dairy contract / RWE money until those accumulators exist.
-    lines[#lines + 1] = {
-        label = _T("ft_fc_forecast_fuel", "Fuel spend"),
-        value = _T("ft_fc_not_tracked", "Not yet tracked"),
+    local function dueClock(ms)
+        if type(ms) ~= "number" or ms ~= ms or ms == math.huge or ms == -math.huge then
+            return nil
+        end
+        if ms < 0 or ms >= 86400000 then return nil end
+        local minutes = math.floor(ms / 60000)
+        local hh = math.floor(minutes / 60)
+        local mm = minutes % 60
+        return string.format("%02d:%02d", hh, mm)
+    end
+    local function costNote(item)
+        local parts = {}
+        if type(item.sourceId) == "string" then
+            parts[#parts + 1] = _T("ft_fc_cost_source", "Source") .. " " .. sourceWords(item.sourceId)
+        end
+        if type(item.basis) == "string" then
+            parts[#parts + 1] = _T("ft_fc_cost_basis", "Basis") .. " " .. basisWords(item.basis)
+        end
+        if item.dueDay ~= nil then
+            parts[#parts + 1] = _T("ft_fc_cost_due_day", "Due day") .. " " .. tostring(item.dueDay)
+        end
+        local clock = dueClock(item.dueTimeMs)
+        if clock ~= nil then
+            parts[#parts + 1] = _T("ft_fc_cost_due_time", "Due time") .. " " .. clock
+        end
+        if #parts == 0 then return nil end
+        return table.concat(parts, ". ")
+    end
+    local function addListed(items, key, fallback)
+        local label = _T(key, fallback)
+        for _, item in ipairs(items or {}) do
+            local shown = _moneyKnown(snap.data, item.amount)
+            if shown == nil then
+                shown = _T("ft_fc_unavailable", "Unavailable")
+            end
+            lines[#lines + 1] = { label = label, value = shown, note = costNote(item) }
+        end
+    end
+    addListed(o.knownCosts, "ft_fc_known_bill", "Known bill")
+    addListed(o.estimatedCosts, "ft_fc_estimate", "Estimate")
+    local missText = {
+        INVALID_CLOCK = { "ft_fc_miss_clock", "The clock cannot be read, so this period is not projected." },
+        NO_BALANCE = { "ft_fc_miss_balance", "Farm balance could not be read." },
+        PAYROLL_ABSENT = { "ft_fc_miss_payroll_absent", "Payroll is not available." },
+        PAYROLL_UNAVAILABLE = { "ft_fc_miss_payroll_unavailable", "Payroll could not be read." },
+        PAYROLL_PARTIAL = { "ft_fc_miss_payroll_partial", "Payroll is only partly known." },
+        TAX_ABSENT = { "ft_fc_miss_tax_absent", "Tax is not available." },
+        TAX_UNAVAILABLE = { "ft_fc_miss_tax_unavailable", "Tax could not be read." },
+        TAX_PARTIAL = { "ft_fc_miss_tax_partial", "Tax is only partly known." },
+        NO_OPERATING_HISTORY = { "ft_fc_miss_operating", "No operating history for this estimate." },
+        SLEEP_SKIPS_REGULAR_PAYMENTS = { "ft_fc_miss_sleep", "Scheduled payments skipped while sleeping are not guaranteed receipts." },
+        INCOME_DISABLED = { "ft_fc_miss_income_off", "Regular income is turned off." },
+        INCOME_UNRELIABLE = { "ft_fc_miss_income_unreliable", "Regular income is not a reliable receipt." },
     }
+    local firstReason = nil
+    for _, code in ipairs(o.missing or {}) do
+        local spec = missText[code]
+        if spec ~= nil then
+            local shown = _T(spec[1], spec[2])
+            if firstReason == nil then firstReason = shown end
+            -- Label only: label and value were the SAME sentence, printed twice on one row.
+            lines[#lines + 1] = { label = shown }
+        else
+            lines[#lines + 1] = {
+                label = _T("ft_fc_miss_unknown", "Missing coverage"),
+                value = tostring(code),
+            }
+        end
+    end
 
-    local monthEndNote
-    if remaining ~= nil and snap.wages and snap.wages.estIntervalCost then
-        local burnLeft = (tonumber(snap.wages.estIntervalCost) or 0) * remaining
-        local incomePulse = (snap.income and tonumber(snap.income.amount)) or 0
-        local projected = snap.balance - burnLeft + incomePulse * remaining
-        monthEndNote = _money(snap.data, projected)
-        partial = true -- wage+income only
+    if o.status == "OK" or o.status == "PARTIAL" then
+        lines[#lines + 1] = {
+            label = _T("ft_fc_outlook_sleep",
+                "Scheduled payments skipped while sleeping are not guaranteed receipts."),
+        }
     end
 
     return {
-        partial = partial,
-        remaining = remaining,
+        reason = firstReason,
+        partial = o.status == "PARTIAL",
+        status = o.status or "UNAVAILABLE",
+        headline = oText,
+        band = oBand,
         lines = lines,
-        monthEndProjected = monthEndNote,
+        monthEndProjected = nil,
     }
 end
 
+
+local function _strictFarmId(data)
+    if data == nil or type(data.getPlayerFarmIdStrict) ~= "function" then
+        return nil
+    end
+    local id = _finiteNumber(_pcall(function() return data:getPlayerFarmIdStrict() end))
+    if id == nil or id <= 0 then return nil end
+    return id
+end
+
 local function _gather(self)
+    local data = self.system.data
+    local farmId = _strictFarmId(data)
     local now = _nowMs()
-    if _cache.snap ~= nil and (now - _cache.t) < REFRESH_MS then
+    if _cache.snap ~= nil and _cache.farmId == farmId and (now - _cache.t) < REFRESH_MS then
         return _cache.snap
     end
 
     FinancialCockpit.bind()
 
-    local data = self.system.data
-    local farmId = data:getPlayerFarmId()
+    if farmId == nil then
+        local snap = { data = data, farmId = nil, noFarm = true }
+        _cache.t = now
+        _cache.farmId = nil
+        _cache.snap = snap
+        return snap
+    end
+
     local balance = tonumber(data:getBalance(farmId)) or 0
     local loan = tonumber(data:getLoan(farmId)) or 0  -- native bank loan (DataProvider stays native-only)
 
@@ -863,18 +1305,45 @@ local function _gather(self)
     -- native loan + emergency outstanding; leverage/net worth use the total with the
     -- coherent owner cash snapshot. Owner absent => explicit native-only; owner present but
     -- view unavailable => combined debt-dependent vitals unavailable (not native-only healthy).
-    local elv = _readEmergencyLoanView()
+    local elv = _readEmergencyLoanView(farmId)
     local nativeLoan = loan
-    local emergencyOutstanding, totalDebt, debtBasis
-    if elv == nil then
-        debtBasis, totalDebt = "NATIVE_ONLY", nativeLoan
-    elseif elv.available then
-        emergencyOutstanding = elv.outstanding or 0
-        debtBasis, totalDebt = "COMPLETE", nativeLoan + emergencyOutstanding
-    else
-        debtBasis, totalDebt = "INCOMPLETE", nil  -- combined debt unknown
+    local bankLoanKnown = true
+    local emergencyOutstanding = nil
+    local totalDebt = nativeLoan
+    local debtBasis = "NATIVE_ONLY"
+    local ownerCash = nil
+    local outlook = { status = "UNAVAILABLE" }
+    if elv ~= nil then
+        bankLoanKnown = false
+        nativeLoan = nil
+        totalDebt = nil
+        debtBasis = "INCOMPLETE"
+        local view = (not elv.rejected) and elv.view or nil
+        outlook = _outlookFrom(view)
+        if type(view) == "table" then
+            local nLoan, outstanding = nil, nil
+            if _ownerDebtReady(view, farmId) then
+                nLoan = _finiteNumber(view.nativeLoan)
+                outstanding = _trustedOutstanding(view)
+            end
+            if nLoan ~= nil and outstanding ~= nil then
+                debtBasis = "COMPLETE"
+                nativeLoan = nLoan
+                bankLoanKnown = true
+                emergencyOutstanding = outstanding
+                totalDebt = nLoan + outstanding
+            end
+            if _isServer() then
+                ownerCash = _finiteNumber(view.cash)
+            end
+        end
     end
-    local netWorth = (totalDebt ~= nil) and _netWorth(balance, totalDebt) or nil
+    local netWorth = nil
+    if debtBasis == "NATIVE_ONLY" then
+        netWorth = _netWorth(balance, loan)
+    elseif ownerCash ~= nil and totalDebt ~= nil then
+        netWorth = ownerCash - totalDebt
+    end
 
     local tg = _timeGuard()
     local tgCtx = nil
@@ -895,12 +1364,15 @@ local function _gather(self)
         farmId = farmId,
         farmName = data:getFarmName(farmId) or ("Farm " .. tostring(farmId)),
         balance = balance,
-        loan = nativeLoan,                       -- native bank loan (history/display compat)
+        loan = (bankLoanKnown and nativeLoan ~= nil) and nativeLoan or 0,
+        bankLoanKnown = bankLoanKnown,
         nativeLoan = nativeLoan,
         emergencyOutstanding = emergencyOutstanding,
-        totalDebt = totalDebt,                   -- native + emergency, or nil when INCOMPLETE
-        debtBasis = debtBasis,                   -- NATIVE_ONLY / COMPLETE / INCOMPLETE
-        netWorth = netWorth,                     -- total-debt net worth, or nil when INCOMPLETE
+        totalDebt = totalDebt,
+        debtBasis = debtBasis,
+        ownerCash = ownerCash,
+        outlook = outlook,
+        netWorth = netWorth,
         timeGuard = tg,
         tgCtx = tgCtx,
         tgSynced = tgSynced,
@@ -914,7 +1386,7 @@ local function _gather(self)
         flowGaps = gaps,
         historyMode = _historyMode(),
         ledgerPresent = _stateLedger() ~= nil,
-        monthlyCount = #_hist.monthly,
+        monthlyCount = #_ownFarmMonthly(farmId),
         yearlyCount = #_hist.yearly,
     }
     snap.vitals = _buildVitals(snap)
@@ -922,6 +1394,7 @@ local function _gather(self)
     snap.forecast = _buildForecast(snap)
 
     _cache.t = now
+    _cache.farmId = farmId
     _cache.snap = snap
     return snap
 end
@@ -937,14 +1410,21 @@ end
 local function _drawHeart(self, x, y, w, snap, AC)
     local band = snap.heartBand
     local col = _bandColor(band)
-    local h = FT.py(54)
+    local fsz   = (FT.LAYOUT and FT.LAYOUT.fontScale) or 1
+    local capH  = FT.FONT.TINY * fsz
+    local bandH = FT.FONT.TITLE * fsz
+    local capY  = y - FT.py(5) - capH
+    local bandY = capY - FT.py(3) - bandH
+    local h     = (y - bandY) + FT.py(6)
     self.r:appRect(x, y - h, w, h, FT.C.BG_CARD)
-    -- Heart color chip
-    local chip = FT.px(22)
-    self.r:appRect(x + FT.px(10), y - h + FT.py(16), chip, chip, col)
-    self.r:appText(x + FT.px(40), y - FT.py(10), FT.FONT.TINY,
+    -- Heart color chip. px for width and py for height: both are n physical pixels on their
+    -- own axis, so that pair is the square, and px twice is a squashed bar.
+    local chip  = FT.px(22)
+    local chipH = FT.py(22)
+    self.r:appRect(x + FT.px(10), (bandY + capY + capH) * 0.5 - chipH * 0.5, chip, chipH, col)
+    self.r:appText(x + FT.px(40), capY, FT.FONT.TINY,
         _T("ft_fc_health", "FARM HEALTH"), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
-    self.r:appText(x + FT.px(40), y - FT.py(28), FT.FONT.TITLE,
+    self.r:appText(x + FT.px(40), bandY, FT.FONT.TITLE,
         _bandLabel(band), RenderText.ALIGN_LEFT, col, true)
 
     local worstLabel = ""
@@ -958,7 +1438,7 @@ local function _drawHeart(self, x, y, w, snap, AC)
     end
     if worstLabel ~= "" then
         -- The vital's label is already the file's text (_T): drawn as it is (RSF-F166's flag).
-        self.r:appText(x + w - FT.px(10), y - FT.py(18), FT.FONT.TINY,
+        self.r:appText(x + w - FT.px(10), capY, FT.FONT.TINY,
             FT_Renderer.truncate(worstLabel, 18), RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     end
 
@@ -984,7 +1464,10 @@ local function _drawHome(self, snap, AC)
     local balC = snap.balance >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE
     y = self:drawRow(y, _T("ft_fc_balance", "Balance"), _money(snap.data, snap.balance), nil, balC, true, true)
     -- Native bank loan (RSF-F130: labelled distinctly from emergency debt).
-    if snap.loan > 0 then
+    if snap.bankLoanKnown == false then
+        y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"),
+            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED, true, true)
+    elseif snap.loan > 0 then
         y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, snap.loan), nil, FT.C.WARNING, true, true)
     else
         y = self:drawRow(y, _T("ft_fc_loan", "Bank loan"), _money(snap.data, 0), nil, FT.C.TEXT_DIM, true, true)
@@ -997,6 +1480,8 @@ local function _drawHome(self, snap, AC)
             _money(snap.data, snap.totalDebt), nil, FT.C.WARNING, true, true)
     elseif snap.debtBasis == "INCOMPLETE" then
         y = self:drawRow(y, _T("ft_fc_emergency_loan", "Emergency loan"),
+            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED, true, true)
+        y = self:drawRow(y, _T("ft_fc_total_debt", "Total debt"),
             _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED, true, true)
     end
     -- Net worth (total-debt based); unavailable when the combined debt is unknown.
@@ -1047,13 +1532,12 @@ local function _drawHome(self, snap, AC)
     -- Forecast teaser
     y = self:drawSection(y, _T("ft_fc_section_forecast", "FORECAST"), true)
     local fc = snap.forecast
-    local fcNote = fc.partial and _T("ft_fc_partial", "PARTIAL") or _T("ft_fc_forecast_label", "Projection")
-    y = self:drawRow(y, _T("ft_fc_forecast_label", "Projection"), fcNote, nil,
-        fc.partial and FT.C.WARNING or FT.C.INFO, true, true)
-    if fc.monthEndProjected then
-        y = self:drawRow(y, _T("ft_fc_forecast_month_end", "Month-end outlook"),
-            fc.monthEndProjected, nil, FT.C.TEXT_NORMAL, true)
-    end
+    local fcColor = FT.C.MUTED
+    if fc.band == "red" then fcColor = FT.C.NEGATIVE
+    elseif fc.band == "partial" then fcColor = FT.C.WARNING
+    elseif fc.band == "amber" then fcColor = FT.C.WARNING end
+    y = self:drawRow(y, _T("ft_fc_outlook", "One-period outlook"),
+        fc.headline or _T("ft_fc_outlook_unavailable", "Outlook unavailable"), nil, fcColor, true, true)
     -- OPEN on its own row so it cannot cover the forecast values above.
     local fcBtnW = FT.px(72)
     _pocketBtn(self, x + cw - fcBtnW, y - FT.py(2), fcBtnW, FT.py(16),
@@ -1076,9 +1560,14 @@ local function _drawHome(self, snap, AC)
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
             _T("ft_fc_history_host_only", "Host-only in v1"), nil, FT.C.MUTED, true, true)
     else
-        y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            string.format("%d %s", snap.monthlyCount, _T("ft_fc_months", "months")),
-            nil, FT.C.TEXT_NORMAL, true, true)
+        if snap.monthlyCount == 0 then
+            y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
+                _T("ft_fc_history_own_unavailable", "History unavailable"), nil, FT.C.MUTED, true, true)
+        else
+            y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
+                string.format("%d %s", snap.monthlyCount, _T("ft_fc_months", "months")),
+                nil, FT.C.TEXT_NORMAL, true, true)
+        end
     end
     local hBtnW = FT.px(72)
     _pocketBtn(self, x + cw - hBtnW, y - FT.py(2), hBtnW, FT.py(16),
@@ -1142,7 +1631,11 @@ local function _drawVitalPocket(self, snap, AC)
         local label = focus and ("> " .. v.label) or v.label
         -- A vital's label, value and detail are already the file's text (_T) or a figure: drawn as they are.
         y = self:drawRow(y, label, v.valueText, nil, _bandColor(v.band), true, true)
-        if focus or v.band == snap.heartBand then
+        -- [RSF-F130 :4] A partial vital still owes the player a readable explanation, and
+        -- "PARTIAL" alone is a status code. Its detail is drawn as well as the focused and
+        -- heart-band ones. This changes no band and no heart colour: a partial still does
+        -- not count as healthy for _heartBand.
+        if focus or v.band == snap.heartBand or v.band == "partial" then
             self.r:appText(x + FT.px(8), y + FT.py(2), FT.FONT.TINY,
                 v.detail or "", RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
             y = y - FT.py(14)
@@ -1186,34 +1679,50 @@ local function _drawHistoryPocket(self, snap, AC)
     elseif not snap.ledgerPresent then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
             _T("ft_fc_history_no_ledger", "No StateLedger (live vitals only)"), nil, FT.C.MUTED, true, true)
-    elseif #_hist.monthly == 0 then
+    elseif #_ownFarmMonthly(snap.farmId) == 0 then
         y = self:drawRow(y, _T("ft_fc_history", "Monthly record"),
-            _T("ft_fc_no_history_yet", "No history yet"), nil, FT.C.MUTED, true, true)
+            _T("ft_fc_history_own_unavailable", "History unavailable"), nil, FT.C.MUTED, true, true)
         self.r:appText(x, y, FT.FONT.TINY,
-            _T("ft_fc_history_wait_detail", "A compact row is written each closed in-game month."),
+            _T("ft_fc_history_own_detail", "No trusted history for this farm."),
             RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
         y = y - FT.py(18)
     else
         y = self:drawSection(y, _T("ft_fc_recent_months", "RECENT MONTHS"), true)
-        local startIdx = math.max(1, #_hist.monthly - 11)
-        -- Walk newest to oldest. A missing month between keys is left as a visual
-        -- gap (separate rows only; never interpolate a false continuous trend).
-        for i = #_hist.monthly, startIdx, -1 do
-            local row = _hist.monthly[i]
-            local nw = _netWorth(row.closingBalance, row.loan)
-            y = self:drawRow(y,
-                string.format("%d / %02d", row.year, row.monthIndex),
-                _money(snap.data, nw),
-                nil, nw >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, true, true)
+        local own = _ownFarmMonthly(snap.farmId)
+        local startIdx = math.max(1, #own - 11)
+        for i = #own, startIdx, -1 do
+            local row = own[i]
+            local nw = _rowNetWorth(row)
+            local shown = _moneyKnown(snap.data, nw)
+            if shown == nil then
+                y = self:drawRow(y,
+                    string.format("%d / %02d", row.year, row.monthIndex),
+                    _T("ft_fc_unavailable", "Unavailable"),
+                    nil, FT.C.MUTED, true, true)
+            else
+                y = self:drawRow(y,
+                    string.format("%d / %02d", row.year, row.monthIndex),
+                    shown,
+                    nil, nw >= 0 and FT.C.POSITIVE or FT.C.NEGATIVE, true, true)
+            end
         end
-        if #_hist.yearly > 0 then
+        if #_ownFarmYearly(snap.farmId) > 0 then
             y = y - FT.py(4)
             y = self:drawRule(y, 0.25)
             y = self:drawSection(y, _T("ft_fc_yearly_rollup", "YEARLY ROLLUP"), true)
-            for i = #_hist.yearly, 1, -1 do
-                local yr = _hist.yearly[i]
-                local nw = _netWorth(yr.yearEndBalance, yr.yearEndLoan)
-                y = self:drawRow(y, tostring(yr.year), _money(snap.data, nw), nil, FT.C.TEXT_NORMAL, nil, true)
+            local years = _ownFarmYearly(snap.farmId)
+            for i = #years, 1, -1 do
+                local yr = years[i]
+                local debt = _finiteNumber(yr.yearEndDebt)
+                if debt == nil and yr.debtBasis == "NATIVE_ONLY" then
+                    debt = _finiteNumber(yr.yearEndLoan)
+                end
+                local bal = _finiteNumber(yr.yearEndBalance)
+                local nw = (bal ~= nil and debt ~= nil) and (bal - debt) or nil
+                local shown = _moneyKnown(snap.data, nw)
+                y = self:drawRow(y, tostring(yr.year),
+                    shown or _T("ft_fc_unavailable", "Unavailable"),
+                    nil, shown == nil and FT.C.MUTED or FT.C.TEXT_NORMAL, true, true)
             end
         end
     end
@@ -1233,6 +1742,13 @@ local function _drawForecastPocket(self, snap, AC)
     if fc.partial then
         y = self:drawRow(y, _T("ft_fc_honesty", "Honesty"),
             _T("ft_fc_partial", "PARTIAL"), nil, FT.C.WARNING, true, true)
+        -- RSF-F130 ":4": never leave a status word standing on its own. The cause comes from
+        -- the outlook's own missing-input codes, drawn the same way as a forecast line's note.
+        if fc.reason then
+            self.r:appText(x + FT.px(8), y + FT.py(2), FT.FONT.TINY,
+                tostring(fc.reason), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+            y = y - FT.py(12)
+        end
     end
     for _, line in ipairs(fc.lines) do
         -- The forecast lines are the file's text (_T), money, or IncomeMod's own note: drawn as they are.
@@ -1367,6 +1883,14 @@ FarmTabletUI:registerDrawer(FT.APP.FINANCIAL_COCKPIT, function(self)
     }, true) then return end
 
     local snap = _gather(self)
+    if snap.noFarm then
+        local y = self:drawAppHeader(
+            _T("ft_ui_app_financial_cockpit", "Financial Cockpit"),
+            _T("ft_fc_no_farm", "No farm selected"))
+        self:drawRow(y, _T("ft_fc_no_farm", "No farm selected"),
+            _T("ft_fc_unavailable", "Unavailable"), nil, FT.C.MUTED)
+        return
+    end
     if _view == "vital" then
         _drawVitalPocket(self, snap, AC)
     elseif _view == "history" then

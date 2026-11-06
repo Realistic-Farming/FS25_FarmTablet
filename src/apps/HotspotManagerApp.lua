@@ -263,6 +263,11 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
         local catW   = FT.px(58)
         local nameW  = cw - checkW - catW - FT.px(8)
         local rowH   = FT.py(20)
+        -- Row text centred on the checkbox rather than pinned to a constant: the button is
+        -- FT.py and the text is FT.FONT.* scaled by fontScale, so the two only line up at
+        -- the default font setting unless the offset is computed.
+        local txtOff = FT.py(9) + FT.FONT.SMALL * ((FT.LAYOUT and FT.LAYOUT.fontScale) or 1) * 0.5
+        local listTop = y
 
         for i, hs in ipairs(hotspots) do
             if y < cy + bottomPad then break end
@@ -289,14 +294,18 @@ FarmTabletUI:registerDrawer(FT.APP.HOTSPOT_MGR, function(self)
             }, true)
             table.insert(self._contentBtns, btnChk)
 
-            self.r:appText(x + checkW + FT.px(4), y - FT.py(5), FT.FONT.TINY,
+            self.r:appText(x + checkW + FT.px(4), y - txtOff, FT.FONT.TINY,
                 catLabel, RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
-            self.r:appText(x + checkW + catW, y - FT.py(5), FT.FONT.SMALL,
+            self.r:appText(x + checkW + catW, y - txtOff, FT.FONT.SMALL,
                 nameLabel, RenderText.ALIGN_LEFT,
                 checked and FT.C.TEXT_BRIGHT or FT.C.TEXT_NORMAL)
 
             y = y - rowH - GAP
         end
+        -- y now describes what was DRAWN, not the list, because the loop broke early. The
+        -- scroll range has to come from the whole list or nothing past the first screenful
+        -- is ever reachable.
+        y = listTop - #hotspots * (rowH + GAP)
     end
 
     self:setContentHeight(startY - y + scrollY + bottomPad)

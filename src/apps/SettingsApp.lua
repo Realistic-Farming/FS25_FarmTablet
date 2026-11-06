@@ -59,7 +59,7 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     local y = afterHeader + scrollY
 
     local cardPadX = FT.px(10)
-    local cardH = FT.py(40)
+    local cardH = FT.py(24)
     local rowGap = FT.py(7)
     local sectionGap = FT.py(8)
     local btnW = math.min(FT.px(210), cw * 0.36)
@@ -72,9 +72,10 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     end
 
     local function infoRow(label, value)
+        local ity = y - FT.py(6) - FT.FONT.BODY * ((FT.LAYOUT and FT.LAYOUT.fontScale) or 1) * 0.5
         self.r:appRect(cx - FT.px(4), y - cardH + FT.py(6), cw + FT.px(8), cardH, {0.10, 0.12, 0.15, 0.70})
-        self.r:appText(cx + cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
-        self.r:appText(cx + cw - cardPadX, y - FT.py(8), FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND, true)
+        self.r:appText(cx + cardPadX, ity, FT.FONT.BODY, tostring(label or ""), RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+        self.r:appText(cx + cw - cardPadX, ity, FT.FONT.BODY, tostring(value or ""), RenderText.ALIGN_RIGHT, FT.C.BRAND, true)
         y = y - cardH - rowGap
     end
 
@@ -348,8 +349,14 @@ FarmTabletUI:registerDrawer(FT.APP.SETTINGS, function(self)
     infoRow(ftSafeText("ft_common_version", "Version"), FT.l10nAuto("v" .. tostring(FT.VERSION or "")))
     infoRow(ftSafeText("ft_common_author", "Author"), FT.l10nAuto("TisonK"))
     infoRow(ftSafeText("ft_settings_apps_loaded", "Apps loaded"), tostring(#self.system.registry:getAll()))
-    infoRow(ftSafeText("ft_settings_open_key", "Open key"), FT.l10nAuto(g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler:getKeybindString()
-        or InputHandler.DEFAULT_KEY_LABEL))
+    local openKey = "unavailable"
+    if g_FarmTablet and g_FarmTablet.inputHandler and g_FarmTablet.inputHandler.getKeybindString then
+        openKey = g_FarmTablet.inputHandler:getKeybindString()
+    elseif LiveKeyLabel ~= nil then
+        openKey = LiveKeyLabel.get(InputHandler.ACTION_NAME)
+    end
+    infoRow(ftSafeText("ft_settings_open_key", "Open key"), openKey)
+    infoRow(ftSafeText("ft_settings_factory_open_key", "Factory open key"), InputHandler.FACTORY_KEY_LABEL or InputHandler.DEFAULT_KEY_LABEL)
 
     local hintH = FT.py(44)
     self.r:appRect(cx - FT.px(4), y - hintH + FT.py(6), cw + FT.px(8), hintH, {0.10, 0.12, 0.15, 0.76})

@@ -4,7 +4,7 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.6.0.6"   -- the fallback only: the tablet shows modDesc.xml's <version>, read just below
+FT.VERSION = "2.7.0.0"   -- the fallback only: the tablet shows modDesc.xml's <version>, read just below
 
 -- MAINTENANCE row 236: the version the tablet shows is the mod's own modDesc <version>. The engine reads
 -- it into its mod manager before it sources any of the mod's scripts (mods.lua:430 and :961,
@@ -201,6 +201,14 @@ end
 
 -- Auto-generated fallback map for hardcoded UI text -> l10n keys
 FT.AUTO_L10N = FT.AUTO_L10N or {
+    -- BOB-JOB-161: two literals drew unmapped and so read English in every locale.
+    -- "MARKET MOVERS" is the heading BUILD 17:48 shortened; ft_auto_market_movers is derived per
+    -- locale from the translator's own words in ft_auto_market_movers_per_1_000_l.
+    ["MARKET MOVERS"] = "ft_auto_market_movers",
+    -- AppRegistry's StockGuard description literal is the fallback behind descriptionKey
+    -- ft_auto_stock_guard, which all 26 locales already carry, so it reuses that key rather than
+    -- adding one. The key's wording is the shipped text; the literal is only a fallback.
+    ["Read-only Stock Guard client view (Esc remains command surface)."] = "ft_auto_stock_guard",
     -- RSF-F357 (#168): the NPC Favor drawer's page and roster literals.
     ["Work"] = "ft_auto_work",
     ["Open Offers"] = "ft_auto_open_offers",
@@ -2414,6 +2422,7 @@ FT.APP = {
     USED_PLUS        = "used_plus",
     ROLEPLAY_PHONE   = "roleplay_phone",
     STORAGE          = "storage",
+    STOCK_GUARD     = "stock_guard",
     TIME_CONTROLS    = "time_controls",
     HOTSPOT_MGR      = "hotspot_manager",
     NOTES            = "notes",

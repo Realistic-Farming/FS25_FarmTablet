@@ -77,7 +77,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             FT.l10nFormat("ft_weather_forecast_days_fmt", "~%.0f day forecast", w.forecastHorizonDays),
             RenderText.ALIGN_RIGHT, FT.C.TEXT_DIM, true)
     end
-    y = y - FT.py(24)
+    y = y - FT.py(36)
 
     -- Weather-mode change feedback (#140). Shown when the last chip press was
     -- refused (non-admin on a dedicated server, or WeatherGuard refused/errored)
@@ -87,7 +87,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             { 0.55, 0.20, 0.14, 0.90 })
         self.r:appText(x, y - FT.py(14), FT.FONT.SMALL,
             self._weatherModeNotice, RenderText.ALIGN_LEFT, FT.C.NEGATIVE)
-        y = y - FT.py(24)
+        y = y - FT.py(36)
     end
 
     -- World Weather dial (WeatherGuard only)
@@ -215,7 +215,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
     if w.isStorming then
         y = self:drawRow(y, "Precipitation", "Heavy Storm", nil, FT.C.WEATHER_STORM)
         if w.rainScale then
-            y = y + FT.py(FT.SP.ROW) - FT.py(8)
+            y = y + FT.py(FT.SP.ROW) - FT.py(16)
             y = self:drawBar(y, math.floor(w.rainScale * 100), 100, FT.C.WEATHER_STORM)
         end
     elseif w.isRaining then
@@ -223,7 +223,7 @@ FarmTabletUI:registerDrawer(FT.APP.WEATHER, function(self)
             or FT.l10n("ft_weather_rain_light", "Light Rain")
         y = self:drawRow(y, "Precipitation", rainText, nil, FT.C.WEATHER_RAIN, nil, true)
         if w.rainScale then
-            y = y + FT.py(FT.SP.ROW) - FT.py(8)
+            y = y + FT.py(FT.SP.ROW) - FT.py(16)
             y = self:drawBar(y, math.floor(w.rainScale * 100), 100, FT.C.WEATHER_RAIN)
         end
     end

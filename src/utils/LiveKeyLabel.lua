@@ -30,9 +30,20 @@ local function localize(key, fallback)
                 end
             end
         end
+        -- This second attempt exists for an engine with no hasText. It must still reject the
+        -- engine's own miss: getText on an unknown key does NOT fail and does NOT return the
+        -- key - FS25 returns the string "Missing '<key>' in l10n". That is non-empty and is not
+        -- equal to the key, so it satisfies the tests below and gets returned as if it were a
+        -- translation, which makes `return fallback` unreachable whenever getText exists.
+        --
+        -- All three keys in this file (rf_live_key_unbound, rf_live_key_keyboard_unbound,
+        -- rf_live_key_unavailable) are in no translation file yet, not even English, so every
+        -- one of them drew as "Missing '...' in l10n" in the tablet and the English fallbacks
+        -- below were dead code. renderer-parity caught it.
         if type(g_i18n.getText) == "function" then
             local ok, text = pcall(g_i18n.getText, g_i18n, key)
-            if ok and type(text) == "string" and text ~= "" and text ~= key then
+            if ok and type(text) == "string" and text ~= "" and text ~= key
+                    and text:find("Missing '", 1, true) == nil then
                 return text
             end
         end

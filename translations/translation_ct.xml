@@ -547,7 +547,7 @@
         <text name="ft_auto_area" text="面積" />
         <text name="ft_auto_area_2" text="面積: " />
         <text name="ft_auto_area_total_farmland_owned_in_hectares" text="面積：擁有的農地總面積（公頃）。&#10;" />
-        <text name="ft_auto_at" text=" " />
+        <text name="ft_auto_at" text=" 在" />
         <text name="ft_auto_attached" text="已連接" />
         <text name="ft_auto_attached_implements_are_listed_below_the_speed" text="Attached implements are listed below the speed." />
         <text name="ft_auto_author" text="Author" />

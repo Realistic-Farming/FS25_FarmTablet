@@ -1,5 +1,5 @@
 -- =========================================================
--- FarmTablet v2 – AppRegistry
+-- FarmTablet v2  -  AppRegistry
 -- Central registry for all installed apps
 -- =========================================================
 ---@class AppRegistry
@@ -7,11 +7,43 @@ AppRegistry = AppRegistry or {}
 local AppRegistry_mt = Class(AppRegistry)
 
 -- App category display groups
+-- Seven domains, in springboard and App Store order.
+-- Companion mods do not supply a group. register() drops any group that is not in this table.
 AppRegistry.GROUPS = {
-    { id = "core",      label = "CORE",     icon = "CORE" },
-    { id = "farm",      label = "FARM",     icon = "FARM" },
-    { id = "finance",   label = "FINANCE",  icon = "FIN" },
-    { id = "mods",      label = "MODS",     icon = "MODS" },
+    { id = "core",      labelKey = "ft_domain_core",      label = "Core" },
+    { id = "finance",   labelKey = "ft_domain_finance",   label = "Finance" },
+    { id = "fields",    labelKey = "ft_domain_fields",    label = "Fields and Soil" },
+    { id = "world",     labelKey = "ft_domain_world",     label = "Social and World" },
+    { id = "equipment", labelKey = "ft_domain_equipment", label = "Equipment and Yard" },
+    { id = "livestock", labelKey = "ft_domain_livestock", label = "Livestock" },
+    { id = "labor",     labelKey = "ft_domain_labor",     label = "Labor" },
+}
+
+-- Supported companions that autoDetect can add. The App Store lists each one
+-- once when it is not registered. Irrigation Suite is SeasonalCropStress.
+-- Rotation Planner, Organic, and Field Sentry are SoilFertilizer.
+AppRegistry.KNOWN_COMPANIONS = {
+    { appId = FT.APP.SYSTEM_SETTINGS, name = "ft_ui_app_system_settings", navLabel = "SYS", mod = "FS25_SettingsHub" },
+    { appId = FT.APP.INCOME, label = "Income Mod", name = "ft_ui_app_income_mod", navLabel = "INC", mod = "FS25_IncomeMod" },
+    { appId = FT.APP.STOCK_GUARD, name = "ft_ui_app_stock_guard", navLabel = "STOCK", mod = "FS25_StockGuard" },
+    { appId = FT.APP.TAX, label = "Tax Mod", name = "ft_ui_app_tax_mod", navLabel = "TAX", mod = "FS25_TaxMod" },
+    { appId = FT.APP.NPC_FAVOR, label = "NPC Favor", name = "ft_ui_app_npc_favor", navLabel = "NPC", mod = "FS25_NPCFavor" },
+    { appId = FT.APP.IRRIGATION_SUITE, label = "Seasonal Crop Stress", name = "ft_ui_app_irrigation_suite", navLabel = "IRRI", mod = "FS25_SeasonalCropStress" },
+    { appId = FT.APP.SOIL_FERT, label = "Soil Fertilizer", name = "ft_ui_app_soil_fertilizer", navLabel = "SOIL", mod = "FS25_SoilFertilizer" },
+    { appId = FT.APP.FIELD_SENTRY, name = "ft_ui_app_field_sentry", navLabel = "SENTRY", mod = "FS25_SoilFertilizer" },
+    { appId = FT.APP.ROTATION_PLANNER, name = "ft_ui_app_rotation_planner", navLabel = "ROTATE", mod = "FS25_SoilFertilizer" },
+    { appId = FT.APP.ORGANIC, name = "ft_ui_app_organic", navLabel = "ORG", mod = "FS25_SoilFertilizer" },
+    { appId = FT.APP.MARKET_DYNAMICS, label = "Market Dynamics", name = "ft_ui_app_market_dynamics", navLabel = "MKT", mod = "FS25_MarketDynamics" },
+    { appId = FT.APP.WORKER_COSTS, label = "Worker Costs", name = "ft_ui_app_worker_costs", navLabel = "WRK", mod = "FS25_WorkerCosts" },
+    { appId = FT.APP.PERSONNEL, name = "ft_ui_app_personnel", navLabel = "STAFF", mod = "FS25_WorkerCosts" },
+    { appId = FT.APP.PROSTAFF, name = "ft_ui_app_prostaff", navLabel = "COOP", mod = "FS25_ProStaffCoOp" },
+    { appId = FT.APP.RANDOM_EVENTS, label = "Random World Events", name = "ft_ui_app_random_world_events", navLabel = "RWE", mod = "FS25_RandomWorldEvents" },
+    { appId = FT.APP.USED_PLUS, label = "UsedPlus", name = "ft_ui_app_used_plus", navLabel = "USED", mod = "FS25_UsedPlus" },
+    { appId = FT.APP.DAIRY, label = "Dairy", name = "ft_ui_app_dairy", navLabel = "DAIRY", mod = "FS25_DairyCore" },
+    { appId = FT.APP.ANIMAL_AUTO_CARE, label = "AnimalAutoCare", name = "ft_ui_app_animal_auto_care", navLabel = "AAC", mod = "FS25_AnimalAutoCare" },
+    { appId = FT.APP.ANIMAL_VET, label = "AnimalVetSystem", name = "ft_ui_app_animal_vet_system", navLabel = "VET", mod = "FS25_AnimalVetSystem" },
+    { appId = FT.APP.FACTORY_WEEK, label = "FactoryWeekSchedule", name = "ft_ui_app_factory_week_schedule", navLabel = "FWS", mod = "FS25_FactoryWeekSchedule" },
+    { appId = FT.APP.REALISTIC_DEALER, label = "RealisticDealer", name = "ft_ui_app_realistic_dealer", navLabel = "DEAL", mod = "FS25_RealisticDealer" },
 }
 
 -- Built-in app definitions (always present)
@@ -19,121 +51,126 @@ AppRegistry.BUILTIN_APPS = {
     {
         id = FT.APP.DASHBOARD,  group = "core",
         name = "ft_ui_app_dashboard",  navLabel = "DASH",
-        icon = "dashboard",         order = 1,
+        icon = "dashboard",         order = 10,
         developer = "FarmTablet",   version = "Built-in",
         description = "Farm overview: balance, fields, vehicles, world state",
     },
     {
         id = FT.APP.APP_STORE,  group = "core",
         name = "ft_ui_app_store",      navLabel = "APPS",
-        icon = "store",             order = 2,
+        icon = "store",             order = 20,
         developer = "FarmTablet",   version = "Built-in",
         description = "Browse and manage installed apps",
     },
     {
         id = FT.APP.SETTINGS,   group = "core",
         name = "ft_ui_app_settings",   navLabel = "SET",
-        icon = "settings",          order = 3,
+        icon = "settings",          order = 30,
         developer = "FarmTablet",   version = "Built-in",
         description = "Tablet configuration",
     },
     {
-        id = FT.APP.WEATHER,    group = "farm",
+        id = FT.APP.WEATHER,    group = "world",
         name = "ft_ui_app_weather",    navLabel = "WTH",
         icon = "weather",           order = 10,
         developer = "FarmTablet",   version = "Built-in",
         description = "Current conditions and forecast",
     },
     {
-        id = FT.APP.FIELDS,     group = "farm",
+        id = FT.APP.FIELDS,     group = "fields",
         name = "ft_ui_app_field_status", navLabel = "FLD",
-        icon = "fields",            order = 11,
+        icon = "fields",            order = 10,
         developer = "FarmTablet",   version = "Built-in",
         description = "All owned fields with crop and growth state",
     },
     {
-        id = FT.APP.ANIMALS,    group = "farm",
+        id = FT.APP.ANIMALS,    group = "livestock",
         name = "ft_ui_app_animals",    navLabel = "ANI",
-        icon = "animals",           order = 12,
+        icon = "animals",           order = 10,
         developer = "FarmTablet",   version = "Built-in",
         description = "Animal pens - food, water, cleanliness",
+        descriptionKey = "ft_auto_animal_pens_food_water_cleanliness",
     },
     {
-        id = FT.APP.WORKSHOP,   group = "farm",
+        id = FT.APP.WORKSHOP,   group = "equipment",
         name = "ft_ui_app_workshop",   navLabel = "WRK",
-        icon = "workshop",          order = 13,
+        icon = "workshop",          order = 10,
         developer = "FarmTablet",   version = "Built-in",
         description = "Nearby vehicle diagnostics",
     },
     {
-        id = FT.APP.EXCAVATOR,  group = "farm",
+        id = FT.APP.EXCAVATOR,  group = "equipment",
         name = "ft_ui_app_excavator",  navLabel = "EXC",
-        icon = "digging",           order = 14,
+        icon = "digging",           order = 40,
         developer = "FarmTablet",   version = "Built-in",
         description = "Terrain depth readout and bucket load counter",
     },
     {
-        id = FT.APP.STORAGE,    group = "farm",
+        id = FT.APP.STORAGE,    group = "equipment",
         name = "ft_ui_app_storage",    navLabel = "STR",
-        icon = "storage",           order = 16,
+        icon = "storage",           order = 30,
         developer = "FarmTablet",   version = "Built-in",
         description = "Silo inventory and current sell prices",
     },
     -- TIME_CONTROLS retired from the hub (IA): lives inside Farm Admin.
     -- AppRegistry.resolve redirects the old id so saves/favourites keep working.
     {
-        id = FT.APP.HOTSPOT_MGR, group = "farm",
+        id = FT.APP.HOTSPOT_MGR, group = "world",
         name = "ft_ui_app_hotspot_manager", navLabel = "PINS",
-        icon = "hotspot",           order = 18,
+        icon = "hotspot",           order = 60,
         developer = "FarmTablet",   version = "Built-in",
         description = "View and remove map hotspots",
     },
     {
-        id = FT.APP.NOTES,      group = "farm",
+        id = FT.APP.NOTES,      group = "world",
         name = "ft_ui_app_notes",      navLabel = "NOTE",
-        icon = "notes",             order = 19,
+        icon = "notes",             order = 70,
         developer = "FarmTablet",   version = "Built-in",
         description = "Checkbox-style farm todo list",
     },
     {
-        id = FT.APP.FARM_ADMIN, group = "farm",
+        id = FT.APP.FARM_ADMIN, group = "core",
         name = "ft_ui_app_farm_admin", navLabel = "ADM",
-        icon = "admin",             order = 20,
+        icon = "admin",             order = 70,
         developer = "FarmTablet",   version = "Built-in",
         description = "Admin controls: money, time scale, skip time, repair/fuel",
     },
     {
-        id = FT.APP.FIELD_JOBS, group = "farm",
+        id = FT.APP.FIELD_JOBS, group = "fields",
         name = "ft_ui_app_field_jobs", navLabel = "JOBS",
-        icon = "jobs",              order = 21,
+        icon = "jobs",              order = 20,
         developer = "FarmTablet",   version = "Built-in",
         description = "Log field work sessions - field, vehicle, task, duration",
+        descriptionKey = "ft_auto_log_field_work_sessions_field_vehicle_task_duration",
     },
     {
-        id = FT.APP.CONTRACTS,  group = "farm",
+        id = FT.APP.CONTRACTS,  group = "finance",
         name = "ft_ui_app_contracts",  navLabel = "CON",
-        icon = "contracts",         order = 22,
+        icon = "contracts",         order = 50,
         developer = "FarmTablet",   version = "Built-in",
         description = "Active contracts - completion, reward, time remaining",
+        descriptionKey = "ft_auto_active_contracts_completion_reward_time_remaining",
     },
     {
-        id = FT.APP.FLEET,      group = "farm",
+        id = FT.APP.FLEET,      group = "equipment",
         name = "ft_ui_app_fleet_manager", navLabel = "FLEET",
-        icon = "fleet",             order = 23,
+        icon = "fleet",             order = 20,
         developer = "FarmTablet",   version = "Built-in",
         description = "All owned vehicles - fuel, wear, operating hours",
+        descriptionKey = "ft_auto_all_owned_vehicles_fuel_wear_operating_hours",
     },
     {
-        id = FT.APP.PRODUCTION, group = "farm",
+        id = FT.APP.PRODUCTION, group = "fields",
         name = "ft_ui_app_production_buildings", navLabel = "PROD",
-        icon = "production",        order = 24,
+        icon = "production",        order = 80,
         developer = "FarmTablet",   version = "Built-in",
         description = "Production building chains - inputs, outputs, active status",
+        descriptionKey = "ft_auto_production_building_chains_inputs_outputs_active_status",
     },
     {
-        id = FT.APP.FARM_STATS, group = "farm",
+        id = FT.APP.FARM_STATS, group = "core",
         name = "ft_ui_app_farm_stats", navLabel = "STAT",
-        icon = "stats",             order = 25,
+        icon = "stats",             order = 40,
         developer = "FarmTablet",   version = "Built-in",
         description = "Comprehensive farm statistics snapshot",
     },
@@ -144,7 +181,7 @@ AppRegistry.BUILTIN_APPS = {
     {
         id = FT.APP.UPDATES,    group = "core",
         name = "ft_ui_app_updates",    navLabel = "UPD",
-        icon = "updates",           order = 100,
+        icon = "updates",           order = 60,
         developer = "FarmTablet",   version = "Built-in",
         description = "Changelog and update history",
     },
@@ -165,6 +202,28 @@ end
 
 function AppRegistry:register(def)
     if self._apps[def.id] then return end -- already registered
+    -- A companion cannot choose a domain. Unknown groups land in Core, logged once.
+    local groupOk = false
+    local rawGroup = def.group
+    if AppRegistry.GROUPS ~= nil then
+        for _, g in ipairs(AppRegistry.GROUPS) do
+            if g.id == rawGroup then
+                groupOk = true
+                break
+            end
+        end
+    end
+    if not groupOk then
+        AppRegistry._unknownGroupLog = AppRegistry._unknownGroupLog or {}
+        local key = tostring(rawGroup)
+        if not AppRegistry._unknownGroupLog[key] then
+            AppRegistry._unknownGroupLog[key] = true
+            if Logging ~= nil and Logging.warning ~= nil then
+                Logging.warning("[FarmTablet] app '%s' group '%s' is not a domain; using Core", tostring(def.id), key)
+            end
+        end
+        def.group = "core"
+    end
     def.enabled = (def.enabled ~= false)
     self._apps[def.id] = def
 
@@ -236,7 +295,7 @@ function AppRegistry:autoDetect()
             self:register({
                 id = FT.APP.SYSTEM_SETTINGS, group = "core",
                 name = "ft_ui_app_system_settings", navLabel = "SYS",
-                icon = "settings", order = 101,
+                icon = "settings", order = 50,
                 developer = "TisonK", version = "Integrated",
                 description = "Overview of every ecosystem setting registered with the Settings Hub",
             })
@@ -252,7 +311,7 @@ function AppRegistry:autoDetect()
         self:register({
             id = FT.APP.FINANCIAL_COCKPIT, group = "finance",
             name = "ft_ui_app_financial_cockpit", navLabel = "COCK",
-            icon = "financial_cockpit", order = 5,
+            icon = "financial_cockpit", order = 10,
             developer = "Realistic Farming", version = "Integrated",
             description = "Whole-farm financial health, instruments, history and projection",
         })
@@ -266,7 +325,7 @@ function AppRegistry:autoDetect()
         if not self:has(FT.APP.INCOME) then
             Logging.info("[FarmTablet] autoDetect: Income Mod detected")
             self:register({
-                id = FT.APP.INCOME, group = "mods",
+                id = FT.APP.INCOME, group = "finance",
                 name = "ft_ui_app_income_mod", navLabel = "INC",
                 icon = "income", order = 20,
                 developer = "TisonK", version = "Integrated",
@@ -281,9 +340,9 @@ function AppRegistry:autoDetect()
         if not self:has(FT.APP.TAX) then
             Logging.info("[FarmTablet] autoDetect: Tax Mod detected")
             self:register({
-                id = FT.APP.TAX, group = "mods",
+                id = FT.APP.TAX, group = "finance",
                 name = "ft_ui_app_tax_mod", navLabel = "TAX",
-                icon = "tax", order = 21,
+                icon = "tax", order = 30,
                 developer = "TisonK", version = "Integrated",
                 description = "Tax Mod status and toggle",
             })
@@ -296,9 +355,9 @@ function AppRegistry:autoDetect()
     if hasNPC and not self:has(FT.APP.NPC_FAVOR) then
         Logging.info("[FarmTablet] autoDetect: NPC Favor detected")
         self:register({
-            id = FT.APP.NPC_FAVOR, group = "mods",
+            id = FT.APP.NPC_FAVOR, group = "world",
             name = "ft_ui_app_npc_favor", navLabel = "NPC",
-            icon = "npc", order = 22,
+            icon = "npc", order = 20,
             developer = "TisonK", version = "Integrated",
             description = "NPC favor tracker",
         })
@@ -315,9 +374,9 @@ function AppRegistry:autoDetect()
     if hasCropStress and not self:has(FT.APP.IRRIGATION_SUITE) then
         Logging.info("[FarmTablet] autoDetect: Irrigation Suite (Seasonal Crop Stress)")
         self:register({
-            id = FT.APP.IRRIGATION_SUITE, group = "mods",
+            id = FT.APP.IRRIGATION_SUITE, group = "fields",
             name = "ft_ui_app_irrigation_suite", navLabel = "IRRI",
-            icon = "crop_stress", order = 23.5,
+            icon = "crop_stress", order = 40,
             developer = "WizardlyPayload", version = "Integrated",
             description = "Farm-wide irrigation operations, trend, and usage",
         })
@@ -329,48 +388,49 @@ function AppRegistry:autoDetect()
     if hasSoil and not self:has(FT.APP.SOIL_FERT) then
         Logging.info("[FarmTablet] autoDetect: Soil Fertilizer detected")
         self:register({
-            id = FT.APP.SOIL_FERT, group = "mods",
+            id = FT.APP.SOIL_FERT, group = "fields",
             name = "ft_ui_app_soil_fertilizer", navLabel = "SOIL",
-            icon = "soil", order = 24,
+            icon = "soil", order = 30,
             developer = "TisonK", version = "Integrated",
             description = "Soil fertilizer status",
         })
     end
 
-    -- FieldSentry — per-field soil-sim status + sleep/meadow toggles (#83).
+    -- FieldSentry  -  per-field soil-sim status + sleep/meadow toggles (#83).
     -- Detect via the cross-mod bridge S&F publishes on g_currentMission.fieldSentry
     -- (the plain FieldSentry_API global is per-mod scoped and invisible here). The
     -- app only appears on an S&F build new enough to ship that bridge.
     if hasSoil and g_currentMission.fieldSentry ~= nil and not self:has(FT.APP.FIELD_SENTRY) then
         Logging.info("[FarmTablet] autoDetect: FieldSentry detected")
         self:register({
-            id = FT.APP.FIELD_SENTRY, group = "mods",
+            id = FT.APP.FIELD_SENTRY, group = "fields",
             name = "ft_ui_app_field_sentry", navLabel = "SENTRY",
-            icon = "soil", order = 24.5,
+            icon = "soil", order = 50,
             developer = "TisonK", version = "Integrated",
             description = "FieldSentry - per-field soil-sim status, sleep and meadow toggles",
+            descriptionKey = "ft_auto_fieldsentry_per_field_soil_sim_status_sleep_and_meadow",
         })
     end
 
-    -- Crop Rotation Planner (Wizard UI brief #739) — SF mission handle only
+    -- Crop Rotation Planner (Wizard UI brief #739)  -  SF mission handle only
     if hasSoil and not self:has(FT.APP.ROTATION_PLANNER) then
         Logging.info("[FarmTablet] autoDetect: Rotation Planner (Soil Fertilizer)")
         self:register({
-            id = FT.APP.ROTATION_PLANNER, group = "mods",
+            id = FT.APP.ROTATION_PLANNER, group = "fields",
             name = "ft_ui_app_rotation_planner", navLabel = "ROTATE",
-            icon = "soil", order = 24.6,
+            icon = "soil", order = 60,
             developer = "WizardlyPayload", version = "Integrated",
             description = "Farm-wide crop rotation standing and next-crop compare",
         })
     end
 
-    -- Organic Management (Arissani brief) — SF organic cert + practices
+    -- Organic Management (Arissani brief)  -  SF organic cert + practices
     if hasSoil and not self:has(FT.APP.ORGANIC) then
         Logging.info("[FarmTablet] autoDetect: Organic Management (Soil Fertilizer)")
         self:register({
-            id = FT.APP.ORGANIC, group = "mods",
+            id = FT.APP.ORGANIC, group = "fields",
             name = "ft_ui_app_organic", navLabel = "ORG",
-            icon = "soil", order = 24.7,
+            icon = "soil", order = 70,
             developer = "WizardlyPayload", version = "Integrated",
             description = "Organic certification and practice advice",
         })
@@ -382,9 +442,9 @@ function AppRegistry:autoDetect()
         if not self:has(FT.APP.MARKET_DYNAMICS) then
             Logging.info("[FarmTablet] autoDetect: Market Dynamics detected")
             self:register({
-                id = FT.APP.MARKET_DYNAMICS, group = "mods",
+                id = FT.APP.MARKET_DYNAMICS, group = "finance",
                 name = "ft_ui_app_market_dynamics", navLabel = "MKT",
-                icon = "market", order = 25,
+                icon = "market", order = 40,
                 developer = "TisonK", version = "Integrated",
                 description = "Market prices and dynamic events",
             })
@@ -397,20 +457,20 @@ function AppRegistry:autoDetect()
         if not self:has(FT.APP.WORKER_COSTS) then
             Logging.info("[FarmTablet] autoDetect: Worker Costs detected")
             self:register({
-                id = FT.APP.WORKER_COSTS, group = "mods",
+                id = FT.APP.WORKER_COSTS, group = "labor",
                 name = "ft_ui_app_worker_costs", navLabel = "WRK",
-                icon = "worker", order = 26,
+                icon = "worker", order = 20,
                 developer = "TisonK", version = "Integrated",
                 description = "Worker wages and cost breakdown",
             })
         end
-        -- Personnel — WorkerCosts HR (hire/fire/payroll). Not the Co-Op ladder.
+        -- Personnel  -  WorkerCosts HR (hire/fire/payroll). Not the Co-Op ladder.
         if not self:has(FT.APP.PERSONNEL) then
             Logging.info("[FarmTablet] autoDetect: Personnel (WorkerCosts) app enabled")
             self:register({
-                id = FT.APP.PERSONNEL, group = "mods",
+                id = FT.APP.PERSONNEL, group = "labor",
                 name = "ft_ui_app_personnel", navLabel = "STAFF",
-                icon = "personnel", order = 27,
+                icon = "personnel", order = 10,
                 developer = "TisonK", version = "Integrated",
                 description = "WorkerCosts personnel - hire, fire, assign, payroll",
             })
@@ -424,26 +484,11 @@ function AppRegistry:autoDetect()
         if ps ~= nil and not self:has(FT.APP.PROSTAFF) then
             Logging.info("[FarmTablet] autoDetect: Pro-Staff Co-Op detected")
             self:register({
-                id = FT.APP.PROSTAFF, group = "mods",
+                id = FT.APP.PROSTAFF, group = "world",
                 name = "ft_ui_app_prostaff", navLabel = "COOP",
-                icon = "personnel", order = 27.5,
+                icon = "personnel", order = 30,
                 developer = "WizardlyPayload", version = "Integrated",
                 description = "Pro-Staff Co-Op membership level and investment",
-            })
-        end
-    end
-
-    -- ProStaff Co-Op
-    -- Bridge: mission.proStaffManager set by ProStaffCoOp in Mission00.load
-    if g_currentMission and g_currentMission.proStaffManager then
-        if not self:has(FT.APP.PROSTAFF) then
-            Logging.info("[FarmTablet] autoDetect: ProStaff Co-Op detected")
-            self:register({
-                id = FT.APP.PROSTAFF, group = "mods",
-                name = "ft_ui_app_prostaff", navLabel = "COOP",
-                icon = "prostaff", order = 27.5,
-                developer = "TisonK", version = "Integrated",
-                description = "Co-Op progression -- level, benefits, and investment status",
             })
         end
     end
@@ -454,9 +499,9 @@ function AppRegistry:autoDetect()
         if not self:has(FT.APP.RANDOM_EVENTS) then
             Logging.info("[FarmTablet] autoDetect: Random World Events detected")
             self:register({
-                id = FT.APP.RANDOM_EVENTS, group = "mods",
+                id = FT.APP.RANDOM_EVENTS, group = "world",
                 name = "ft_ui_app_random_world_events", navLabel = "RWE",
-                icon = "events", order = 27,
+                icon = "events", order = 40,
                 developer = "TisonK", version = "Integrated",
                 description = "Random world events tracker",
             })
@@ -470,26 +515,28 @@ function AppRegistry:autoDetect()
     if hasUsedPlus and not self:has(FT.APP.USED_PLUS) then
         Logging.info("[FarmTablet] autoDetect: UsedPlus detected")
         self:register({
-            id = FT.APP.USED_PLUS, group = "mods",
+            id = FT.APP.USED_PLUS, group = "finance",
             name = "ft_ui_app_used_plus", navLabel = "USED",
-            icon = "used_plus", order = 28,
+            icon = "used_plus", order = 70,
             developer = "TisonK", version = "Integrated",
             description = "UsedPlus - active sale listings and finance deals",
+            descriptionKey = "ft_auto_usedplus_active_sale_listings_and_finance_deals",
         })
     end
 
     -- RoleplayPhone / Built-in Invoices
-    -- Always registered — built-in FT_InvoiceManager provides fallback data even
+    -- Always registered  -  built-in FT_InvoiceManager provides fallback data even
     -- without FS25_RoleplayPhone. If the phone mod is present, RoleplayPhoneApp.lua
     -- detects it at draw time via getfenv(0)["RoleplayPhone_checkInstalled"].
     if not self:has(FT.APP.ROLEPLAY_PHONE) then
         Logging.info("[FarmTablet] autoDetect: Registering Invoices app (built-in + RoleplayPhone integration)")
         self:register({
-            id = FT.APP.ROLEPLAY_PHONE, group = "mods",
+            id = FT.APP.ROLEPLAY_PHONE, group = "finance",
             name = "ft_ui_app_roleplay_phone", navLabel = "INV",
-            icon = "invoice", order = 29,
+            icon = "invoice", order = 60,
             developer = "TisonK", version = "Integrated",
             description = "Invoice tracker - built-in + RoleplayPhone integration",
+            descriptionKey = "ft_auto_invoice_tracker_built_in_roleplayphone_integration",
         })
     end
 
@@ -500,11 +547,25 @@ function AppRegistry:autoDetect()
     if dairyMgr ~= nil and not self:has(FT.APP.DAIRY) then
         Logging.info("[FarmTablet] autoDetect: DairyCore detected")
         self:register({
-            id = FT.APP.DAIRY, group = "mods",
+            id = FT.APP.DAIRY, group = "livestock",
             name = "ft_ui_app_dairy", navLabel = "DAIRY",
-            icon = "dairy", order = 29,
+            icon = "dairy", order = 20,
             developer = "TisonK", version = "Integrated",
             description = "DairyCore per-barn herd health, quality, and spoilage",
+        })
+    end
+
+    -- StockGuard (SG5) optional read-only glance — UI3 equipment domain
+    local stockGuard = (g_currentMission and g_currentMission.stockGuard) or nil
+    if stockGuard ~= nil and not self:has(FT.APP.STOCK_GUARD) then
+        Logging.info("[FarmTablet] autoDetect: StockGuard detected")
+        self:register({
+            id = FT.APP.STOCK_GUARD, group = "equipment",
+            name = "ft_ui_app_stock_guard", navLabel = "STOCK",
+            icon = "storage", order = 24,
+            developer = "Realistic Farming", version = "Integrated",
+            description = "Read-only Stock Guard client view (Esc remains command surface).",
+            descriptionKey = "ft_auto_stock_guard",
         })
     end
 
@@ -512,7 +573,7 @@ function AppRegistry:autoDetect()
     if g_currentMission and g_currentMission.animalAutoCareCore and not self:has(FT.APP.ANIMAL_AUTO_CARE) then
         Logging.info("[FarmTablet] autoDetect: AnimalAutoCare detected")
         self:register({
-            id = FT.APP.ANIMAL_AUTO_CARE, group = "mods",
+            id = FT.APP.ANIMAL_AUTO_CARE, group = "livestock",
             name = "ft_ui_app_animal_auto_care", navLabel = "AAC",
             icon = "animal_auto_care", order = 30,
             developer = "Akita83", version = "Integrated",
@@ -525,9 +586,9 @@ function AppRegistry:autoDetect()
     if g_currentMission and (g_currentMission.animalVetSystem or g_currentMission.animalVet) and not self:has(FT.APP.ANIMAL_VET) then
         Logging.info("[FarmTablet] autoDetect: AnimalVetSystem detected")
         self:register({
-            id = FT.APP.ANIMAL_VET, group = "mods",
+            id = FT.APP.ANIMAL_VET, group = "livestock",
             name = "ft_ui_app_animal_vet_system", navLabel = "VET",
-            icon = "animal_vet_system", order = 31,
+            icon = "animal_vet_system", order = 40,
             developer = "Akita83", version = "Integrated",
             description = "AnimalVetSystem illness and treatment monitor",
             descriptionKey = "ft_desc_app_animal_vet_system",
@@ -538,9 +599,9 @@ function AppRegistry:autoDetect()
     if g_currentMission and g_currentMission.fws_weekSchedule and not self:has(FT.APP.FACTORY_WEEK) then
         Logging.info("[FarmTablet] autoDetect: FactoryWeekSchedule detected")
         self:register({
-            id = FT.APP.FACTORY_WEEK, group = "mods",
+            id = FT.APP.FACTORY_WEEK, group = "world",
             name = "ft_ui_app_factory_week_schedule", navLabel = "FWS",
-            icon = "factory_week_schedule", order = 32,
+            icon = "factory_week_schedule", order = 50,
             developer = "Akita83", version = "Integrated",
             description = "FactoryWeekSchedule overview with workers, events and fire state",
             descriptionKey = "ft_desc_app_factory_week_schedule",
@@ -554,14 +615,14 @@ function AppRegistry:autoDetect()
     if rd ~= nil and not self:has(FT.APP.REALISTIC_DEALER) then
         Logging.info("[FarmTablet] autoDetect: RealisticDealer detected")
         self:register({
-            id = FT.APP.REALISTIC_DEALER, group = "mods",
+            id = FT.APP.REALISTIC_DEALER, group = "finance",
             name = "ft_ui_app_realistic_dealer", navLabel = "DEAL",
-            icon = "realistic_dealer", order = 33,
+            icon = "realistic_dealer", order = 80,
             developer = "Akita83", version = "Integrated",
             description = "RealisticDealer financing, installments and repossession status",
             descriptionKey = "ft_desc_app_realistic_dealer",
         })
     end
 
-    Logging.info("[FarmTablet] autoDetect complete — %d apps registered", #self:getAll())
+    Logging.info("[FarmTablet] autoDetect complete  -  %d apps registered", #self:getAll())
 end

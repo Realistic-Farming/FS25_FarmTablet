@@ -94,7 +94,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
         local bannerBottom = y - bannerH
         self.r:appRect(x - FT.px(4), bannerBottom, cw + FT.px(8), bannerH,
             {accent[1]*0.12, accent[2]*0.12, accent[3]*0.12, 0.95})
-        self.r:appText(x + pad, y - FT.py(5), FT.FONT.SMALL,
+        self.r:appText(x + pad, y - FT.py(12), FT.FONT.SMALL,
             "No workshop found on this farm  (repairs disabled)",
             RenderText.ALIGN_LEFT, FT.C.WARNING)
         -- Extra air so the next section header cannot sit inside this bar.
@@ -113,9 +113,9 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
         local bannerBottom = y - bannerH
         self.r:appRect(x - FT.px(4), bannerBottom, cw + FT.px(8), bannerH,
             {accent[1]*0.10, accent[2]*0.10, accent[3]*0.10, 0.95})
-        self.r:appText(x + pad, y - FT.py(5), FT.FONT.SMALL, wsName,
+        self.r:appText(x + pad, y - FT.py(12), FT.FONT.SMALL, wsName,
             RenderText.ALIGN_LEFT, FT.C.POSITIVE)
-        self.r:appText(x + cw - pad, y - FT.py(5), FT.FONT.TINY, "REPAIRS AVAILABLE",
+        self.r:appText(x + cw - pad, y - FT.py(12), FT.FONT.TINY, "REPAIRS AVAILABLE",
             RenderText.ALIGN_RIGHT, FT.C.TEXT_ACCENT)
         y = bannerBottom - FT.py(14)
     end
@@ -150,7 +150,7 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
             FT.l10nFormat("ft_workshop_near_row_fmt", "%sm  %s%%W", v.distance, v.wearPct), RenderText.ALIGN_LEFT,
             v.wearPct > 65 and wearColor or FT.C.TEXT_DIM, true)
         local vehicle = v.vehicle
-        local btn = self.r:button(x + cw - btnW, y - FT.py(2), btnW, btnH,
+        local btn = self.r:button(x + cw - btnW, y - FT.py(5), btnW, btnH,
             FT.l10nAuto(isSel and "UNPIN" or "SELECT"), isSel and FT.C.BTN_ACTIVE or FT.C.BTN_NEUTRAL,
             { onClick = function()
                 self.system.workshopSelectedVehicle = isSel and nil or vehicle
@@ -184,13 +184,13 @@ FarmTabletUI:registerDrawer(FT.APP.WORKSHOP, function(self)
     local fuelColor = fuelPct >= 50 and FT.C.POSITIVE or fuelPct >= 20 and FT.C.WARNING or FT.C.NEGATIVE
     y = self:drawRow(y, "Fuel",
         FT.l10nFormat("ft_workshop_fuel_fmt", "%.0f%%  (%.0fL / %.0fL)", fuelPct, selData.fuel, selData.fuelCap), nil, fuelColor, nil, true)
-    y = y + FT.py(FT.SP.ROW) - FT.py(8)
+    y = y + FT.py(FT.SP.ROW) - FT.py(16)
     y = self:drawBar(y, fuelPct, 100, fuelColor)
 
     local wearPct   = selData.wearPct
     local wearColor = wearPct <= 30 and FT.C.POSITIVE or wearPct <= 65 and FT.C.WARNING or FT.C.NEGATIVE
     y = self:drawRow(y - FT.py(4), "Wear", string.format("%d%%", wearPct), nil, wearColor, nil, true)
-    y = y + FT.py(FT.SP.ROW) - FT.py(8)
+    y = y + FT.py(FT.SP.ROW) - FT.py(16)
     y = self:drawBar(y, wearPct, 100, wearColor)
 
     y = self:drawRow(y - FT.py(4), "Operating Hours", selData.opHours .. " h")
