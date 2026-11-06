@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="État par champ : conventionnel, en conversion ou&#10;certifié, plus le compte à rebours de conversion. ADHÉRER /&#10;SE RETIRER passe par Soil Fertilizer (réservé aux admins là-bas)." />
         <text name="ft_organic_practices" text="PRATIQUES" />
         <text name="ft_organic_help_practices_body" text="Conseils de couverts et de rotation pensés pour le bio,&#10;à partir des mêmes données de sol que l'appli Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDIT" />
+        <text name="ft_organic_help_audit_body" text="Vue d'ensemble de la ferme : état, jours avant&#10;certification et infractions à vie pour chaque&#10;champ possédé. Lecture seule ; aucune nouvelle donnée." />
         <text name="ft_organic_help_later_title" text="BIENTÔT" />
         <text name="ft_organic_help_later_body" text="Les sections compost, alimentation bio et prime de marché&#10;restent vides tant que ces simulations n'offrent pas de lecture." />
         <text name="ft_organic_subtitle" text="Gestion" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Aucun champ possédé." />
         <text name="ft_organic_storage_fraction" text="Part bio du stockage" />
         <text name="ft_organic_sale_premium" text="Prime de vente : contrat MDM en attente" />
+        <text name="ft_organic_audit_na" text="Audit bio indisponible sur cette version de Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d champs bio certifiés sur %d actuellement, %d infractions à vie pour toute la ferme" />
+        <text name="ft_organic_audit_certified_detail" text="Entièrement certifié" />
         <text name="ft_organic_market" text="MARCHÉ" />
         <text name="ft_organic_market_na" text="indisponible - en attente de la prime bio / du contrat MDM" />
         <text name="ft_soilnut_urgent" text="URGENT" />

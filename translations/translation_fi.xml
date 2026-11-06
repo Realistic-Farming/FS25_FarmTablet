@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Tila pelloittain: tavanomainen, siirtymävaiheessa tai&#10;sertifioitu, sekä siirtymän lähtölaskenta. LIITY /&#10;ERO pyytää Soil Fertilizeria (siellä vain ylläpitäjille)." />
         <text name="ft_organic_practices" text="VILJELYKÄYTÄNNÖT" />
         <text name="ft_organic_help_practices_body" text="Luomuun sovitettuja kerääjäkasvi- ja viljelykiertovinkkejä&#10;samoista maaperätiedoista kuin Soil Fertilizer -sovellus." />
+        <text name="ft_organic_audit" text="TARKASTUS" />
+        <text name="ft_organic_help_audit_body" text="Koko tilan yhteenveto: tila, päivät sertifiointiin&#10;ja elinikiäiset rikkeet kullekin omalle pellolle.&#10;Vain luku; ei uutta dataa." />
         <text name="ft_organic_help_later_title" text="TULOSSA MYÖHEMMIN" />
         <text name="ft_organic_help_later_body" text="Komposti-, luomurehu- ja markkinapreemio-osiot pysyvät&#10;varaosioina, kunnes niiden simulaatiot tarjoavat lukurajapinnan." />
         <text name="ft_organic_subtitle" text="Hallinta" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Ei omia peltoja." />
         <text name="ft_organic_storage_fraction" text="Luomuosuus varastossa" />
         <text name="ft_organic_sale_premium" text="Myyntipreemio: MDM-sopimus odottaa" />
+        <text name="ft_organic_audit_na" text="Luomutarkastus ei ole käytettävissä tässä Soil-versiossa." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d/%d luomupeltoa on nyt sertifioitu, yhteensä %d riketä koko tilalla" />
+        <text name="ft_organic_audit_certified_detail" text="Täysin sertifioitu" />
         <text name="ft_organic_market" text="MARKKINAT" />
         <text name="ft_organic_market_na" text="ei käytettävissä - odottaa luomupreemiota / MDM-sopimusta" />
         <text name="ft_soilnut_urgent" text="KIIREELLINEN" />

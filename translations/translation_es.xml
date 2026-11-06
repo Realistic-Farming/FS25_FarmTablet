@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Estado por campo: convencional, en transición o&#10;certificado, más la cuenta atrás de la transición. ADHERIRSE /&#10;SALIR lo pide a Soil Fertilizer (allí solo admins)." />
         <text name="ft_organic_practices" text="PRÁCTICAS" />
         <text name="ft_organic_help_practices_body" text="Consejos de cultivos de cobertura y rotación para ecológico,&#10;con los mismos datos de suelo que la app Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDITORÍA" />
+        <text name="ft_organic_help_audit_body" text="Resumen de toda la granja: estado, días hasta la&#10;certificación e infracciones de por vida de cada&#10;campo propio. Solo lectura; sin datos nuevos." />
         <text name="ft_organic_help_later_title" text="PRÓXIMAMENTE" />
         <text name="ft_organic_help_later_body" text="Las secciones de compost, pienso ecológico y prima de mercado&#10;siguen vacías hasta que esos sistemas ofrezcan lectura." />
         <text name="ft_organic_subtitle" text="Gestión" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="No tienes campos." />
         <text name="ft_organic_storage_fraction" text="Fracción ecológica del almacén" />
         <text name="ft_organic_sale_premium" text="Prima de venta: contrato MDM pendiente" />
+        <text name="ft_organic_audit_na" text="La auditoría ecológica no está disponible en esta versión de Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d de %d campos ecológicos certificados actualmente, %d infracciones de por vida en toda la granja" />
+        <text name="ft_organic_audit_certified_detail" text="Totalmente certificado" />
         <text name="ft_organic_market" text="MERCADO" />
         <text name="ft_organic_market_na" text="no disponible - a la espera de la prima ecológica / contrato MDM" />
         <text name="ft_soilnut_urgent" text="URGENTE" />

@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="每塊田地的狀態：慣行、轉型中或&#10;已認證，並顯示轉型倒數。「加入」/&#10;「退出」會向 Soil Fertilizer 提出要求（該處僅限管理員）。" />
         <text name="ft_organic_practices" text="耕作方式" />
         <text name="ft_organic_help_practices_body" text="為有機耕作量身打造的覆蓋作物與輪作建議，&#10;資料與 Soil Fertilizer 應用程式相同。" />
+        <text name="ft_organic_audit" text="稽核" />
+        <text name="ft_organic_help_audit_body" text="全農場總覽:每塊自有田地的狀態、距離認證的&#10;天數,以及累計違規次數。&#10;僅供檢視,不新增任何資料。" />
         <text name="ft_organic_help_later_title" text="即將推出" />
         <text name="ft_organic_help_later_body" text="堆肥、有機飼料與市場溢價區塊&#10;在那些模擬提供讀取介面前會維持空白。" />
         <text name="ft_organic_subtitle" text="管理" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="沒有擁有的田地。" />
         <text name="ft_organic_storage_fraction" text="倉儲中的有機比例" />
         <text name="ft_organic_sale_premium" text="銷售溢價：等待 MDM 合約" />
+        <text name="ft_organic_audit_na" text="此版本的 Soil 不提供有機稽核。" />
+        <text name="ft_organic_audit_rollup_fmt" text="有機田地 %d / %d 塊目前已認證,全農場累計違規 %d 次" />
+        <text name="ft_organic_audit_certified_detail" text="已完全認證" />
         <text name="ft_organic_market" text="市場" />
         <text name="ft_organic_market_na" text="無法使用 - 等待有機溢價 / MDM 合約" />
         <text name="ft_soilnut_urgent" text="緊急" />

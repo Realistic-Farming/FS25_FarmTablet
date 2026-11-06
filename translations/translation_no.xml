@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Status per jorde: konvensjonell, under omlegging eller&#10;sertifisert, pluss nedtellingen for omleggingen. MELD PÅ /&#10;MELD AV spør Soil Fertilizer (der bare for admins)." />
         <text name="ft_organic_practices" text="DYRKINGSPRAKSIS" />
         <text name="ft_organic_help_practices_body" text="Råd om fangvekster og vekstskifte for økologisk drift,&#10;fra de samme jorddataene som Soil Fertilizer-appen." />
+        <text name="ft_organic_audit" text="REVISJON" />
+        <text name="ft_organic_help_audit_body" text="Oversikt for hele gården: status, dager til&#10;sertifisering og brudd for hele tiden, for hvert&#10;eget jorde. Kun visning; ingen nye data." />
         <text name="ft_organic_help_later_title" text="KOMMER SENERE" />
         <text name="ft_organic_help_later_body" text="Kompost, økologisk fôr og markedspremie forblir&#10;plassholdere til de simuleringene tilbyr lesing." />
         <text name="ft_organic_subtitle" text="Forvaltning" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Ingen egne jorder." />
         <text name="ft_organic_storage_fraction" text="Økologisk andel på lager" />
         <text name="ft_organic_sale_premium" text="Salgspremie: MDM-avtale venter" />
+        <text name="ft_organic_audit_na" text="Økologisk revisjon er ikke tilgjengelig i denne Soil-versjonen." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d av %d økologiske jorder er nå sertifisert, %d brudd totalt på gården" />
+        <text name="ft_organic_audit_certified_detail" text="Fullt sertifisert" />
         <text name="ft_organic_market" text="MARKED" />
         <text name="ft_organic_market_na" text="ikke tilgjengelig - venter på økopremie / MDM-avtale" />
         <text name="ft_soilnut_urgent" text="HASTER" />
