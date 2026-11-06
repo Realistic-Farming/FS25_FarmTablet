@@ -20,7 +20,8 @@ ZIP_PATH = MOD_DIR / f"{MOD_NAME}.zip"
 # Windows default mods path
 MODS_DIR = Path.home() / "Documents" / "My Games" / "FarmingSimulator2025" / "mods"
 
-EXCLUDE_DIRS = {".git", ".claude", ".github", "__MACOSX", "tools", ".vscode"}
+# docs/ is developer and store copy (kingmods-description.txt); nothing in the mod loads it.
+EXCLUDE_DIRS = {".git", ".claude", ".github", "__MACOSX", "tools", ".vscode", "docs"}
 EXCLUDE_EXTS = {".sh", ".py", ".md", ".DS_Store", ".zip"}
 # ".git" is a FILE, not a directory, in a git worktree (it points at the main
 # clone's git dir), so EXCLUDE_DIRS alone does not keep it out of the zip.
@@ -56,7 +57,9 @@ def check_lua_syntax():
     node_modules = MOD_DIR / "tools" / "test" / "node_modules"
     if not node_modules.exists():
         print("  Installing tools/test dependencies (luaparse)...")
-        subprocess.run(["npm", "install", "--silent"], cwd=checker.parent, check=True)
+        # On Windows npm is npm.cmd, which subprocess cannot find by the bare name.
+        npm = shutil.which("npm") or "npm"
+        subprocess.run([npm, "install", "--silent"], cwd=checker.parent, check=True)
     print("  Checking Lua 5.1 syntax...")
     subprocess.run(["node", str(checker), *[str(p) for p in files]], check=True)
 

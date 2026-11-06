@@ -57,3 +57,33 @@
 
 - [x] Help pages (#215, merged at 33937f2): the Back control is drawn on the fixed header layer, just above the accent divider at the right, so the body clip no longer hides it. Before, it sat under the clip: a culled sliver with no label that still answered clicks. New renderer call `headerButton`, the header-layer twin of `button`; bar `tools/test/help-back-visible-check.mjs`.
 - The control sits above the divider rather than beside the "Help" subtitle as first asked, because the renderer has no text measurement (declared in #215). The in-game check is TESTING row 439. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-05 (Fred via Desk): the App Store keeps a Seasonal Crop Stress row, and the retired Crop Stress id opens Irrigation Suite (Wizard, #214 and #216)
+
+- [x] App Store (#214, merged at 90ced81): MOD INTEGRATIONS keeps a "Seasonal Crop Stress" row whose OPEN goes to Irrigation Suite, so a player looking for that mod still finds it. This partly reverses the App Store listing removal of #159 under the 2026-09-08 ruling; merged on Tyson's word. Bar `tools/test/appstore-integration-row-check.mjs`.
+- [x] Retired id (#216, merged at 7f91b71): `crop_stress` is back in `FT.APP` as a legacy id beside `DIGGING` and `BUCKET`, and `AppRegistry.resolve` sends it to Irrigation Suite, so a saved startup app, favourite or rail tile holding it opens Irrigation Suite instead of nothing. Bar `tools/test/app-resolve-check.mjs`.
+- The in-game checks are TESTING rows 441 and 442. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-06 (Fred): System Settings shows an enum's chosen value, and a group opens on the first tap (Wizard, #219)
+
+- [x] System Settings (#219, merged at a5199367): an enum setting's live value is painted as the declared option nearest to it, which is the value the player chose, and an enum whose options are all ratios with at least one fraction is painted as the percent it means, so a chosen 0.80 reads 80% and never a long decimal such as 0.800000011920929. A list of plain numbers (0, 1, 2) still shows the number. Module groups start closed and the first tap opens one (the closed start decided by Tyson, 2026-10-05, via Desk); a group you open stays open for the session. Bar `tools/test/settings-enum-value-check.mjs`.
+- The in-game check is TESTING row 460. SettingsHub #23 (MAINTENANCE 217) is the hub-side fix for enum values that cross the network as float32. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-06 (Fred): the tablet shows the build's own version (MAINTENANCE row 236)
+
+- [x] Version label: the Settings page header and its Version row, the welcome header and the welcome notice now show the version from the mod's own modDesc.xml, which the game already reads at load, instead of a hand-kept copy that had drifted (testers on 2.6.0.11 read "FarmTablet v2.6.0.6"). The old constant stays only as a fallback when the game has no record. Bar `tools/test/version-label-check.mjs` (8 cases through the whole tablet's load), battery `tools/test/mutate_version_label.py`. The in-game check is TESTING row 495.
+
+## 2026-10-13 (Fred (via Desk)): fast wheel scrolling no longer rebuilds the page on every notch (#212)
+
+- [x] Scrolling an app page (Settings most of all) with the mouse wheel used to clear and rebuild the whole page on every notch, twice over, so a fast burst rebuilt it many times before a frame was drawn and the game stuttered (MarkusVII's report and diagnosis). A notch now only moves the page; the frame redraws it once, however many notches came, and a click draws a pending scroll first so the buttons are where the page now is. One redraw clears the layer once. Bar `tools/test/lua/FT-212-scroll_coalesce_spec_test.lua` from the real `_onMouse` and `update`, battery `tools/test/mutate_ft212_scroll.py`, 5 of 5. Design origin none.
+- The in-game check is TESTING row 553.
+
+## 2026-10-14 (Fred (via Desk)): keyboard defaults (Wizard, #226)
+
+- [x] The Worker Costs app's two roster hints read the live Open Worker Roster key instead of 'ALT+H', which was never bound. The three strings become %s templates through FT.l10nFormat in all 26 languages, and `src/utils/LiveKeyLabel.lua` is added. No default key changes in this mod. (Wizard's #226, merged at 02810128 on 2026-10-13, one PR of his keyboard-defaults wave.)
+- The in-game check is TESTING row 532. Docs by Fred's catch-up (R-51), on Tyson's word of 2026-10-14.
+
+## 2026-10-14 (Fred (via Desk)): the build script packs only the mod (MAINTENANCE row 315)
+
+- [x] `build.py` finds npm on Windows (`shutil.which`). It called npm by its bare name, which Python cannot launch on Windows (npm is `npm.cmd`), so a build without `tools/test/node_modules` stopped with WinError 2 before writing the zip. It also keeps `docs/` out of the zip: its Markdown was already excluded, but `docs/kingmods-description.txt` shipped, and nothing in the mod loads it.
+- Build tooling only, no in-game check (TESTING row 577). Found by a fleet sweep that built every mod once from development in a throwaway worktree, on Tyson's word of 2026-10-14.

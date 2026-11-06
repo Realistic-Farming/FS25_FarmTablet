@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Sem veículo" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Nenhum veículo a até 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Nenhum trabalhador ainda. Contrate pelo painel da equipe (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Nenhum trabalhador ainda. Contrate pelo painel da equipe (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Nenhum trabalhador ainda. Abra a aba CONTRATAR para recrutar." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Nenhuma oficina nesta fazenda  (consertos desativados)" />
         <text name="ft_auto_none" text="nenhum" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Salários dos trabalhadores e detalhamento de custos" />
         <text name="ft_auto_workers" text="Trabalhadores" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Trabalhando" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Trabalhando agora" />
@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Estado por campo: convencional, em transição ou&#10;certificado, mais a contagem da transição. ADERIR /&#10;SAIR pede ao Soil Fertilizer (lá só para admins)." />
         <text name="ft_organic_practices" text="PRÁTICAS" />
         <text name="ft_organic_help_practices_body" text="Dicas de cobertura e rotação pensadas para o orgânico,&#10;com os mesmos dados de solo do app Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDITORIA" />
+        <text name="ft_organic_help_audit_body" text="Resumo de toda a fazenda: estado, dias até a&#10;certificação e infrações vitalícias de cada campo&#10;próprio. Somente leitura; sem novos dados." />
         <text name="ft_organic_help_later_title" text="EM BREVE" />
         <text name="ft_organic_help_later_body" text="As seções de composto, ração orgânica e prêmio de mercado&#10;ficam vazias até esses sistemas oferecerem leitura." />
         <text name="ft_organic_subtitle" text="Gestão" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Nenhum campo próprio." />
         <text name="ft_organic_storage_fraction" text="Fração orgânica no armazém" />
         <text name="ft_organic_sale_premium" text="Prêmio de venda: contrato MDM pendente" />
+        <text name="ft_organic_audit_na" text="Auditoria orgânica indisponível nesta versão do Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d de %d campos orgânicos certificados atualmente, %d infrações vitalícias em toda a fazenda" />
+        <text name="ft_organic_audit_certified_detail" text="Totalmente certificado" />
         <text name="ft_organic_market" text="MERCADO" />
         <text name="ft_organic_market_na" text="indisponível - aguardando o prêmio orgânico / contrato MDM" />
         <text name="ft_soilnut_urgent" text="URGENTE" />
@@ -3035,7 +3040,7 @@
         <text name="ft_wrk_help_wage_body" text="Define o salário por hora dos trabalhadores contratados.&#10;Os níveis Baixo / Médio / Alto são definidos&#10;nas opções do mod Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Controla como os salários são calculados:&#10;Por hora = cobrado a cada hora de jogo.&#10;Por hectare = cobrado pela área trabalhada, acertado à meia-noite." />
         <text name="ft_wrk_help_month_body" text="Total de salários acumulados neste mês.&#10;Zera depois que o salário mensal é pago." />
-        <text name="ft_wrk_help_roster_body" text="Seus trabalhadores contratados com o nível&#10;(Novato / Experiente / Mestre), horas totais,&#10;trabalhos concluídos e barra de cansaço atual.&#10;Esta tela é só de leitura: contrate, demita e designe&#10;trabalhadores pelo painel da equipe (ALT+H)&#10;ou pelos comandos de console do WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Seus trabalhadores contratados com o nível&#10;(Novato / Experiente / Mestre), horas totais,&#10;trabalhos concluídos e barra de cansaço atual.&#10;Esta tela é só de leitura: contrate, demita e designe&#10;trabalhadores pelo painel da equipe (%s)&#10;ou pelos comandos de console do WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="A equipe é gerenciada pelo host: sincroniza em breve." />
         <text name="ft_wrk_levels_fmt" text="%dN / %dE / %dM" />

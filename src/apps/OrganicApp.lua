@@ -124,6 +124,8 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
           body  = FT.l10n("ft_organic_help_cert_body", "Per-field state: Conventional, In transition, or\nCertified, plus the transition countdown. OPT IN /\nOPT OUT asks Soil Fertilizer (admin-gated there)."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_organic_practices", "PRACTICES"),
           body  = FT.l10n("ft_organic_help_practices_body", "Cover-crop and rotation tips framed for organic,\nfrom the same soil data as the Soil Fertilizer app."), literalTitle = true, literalBody = true },
+        { title = FT.l10n("ft_organic_audit", "AUDIT"),
+          body  = FT.l10n("ft_organic_help_audit_body", "Farm-wide rollup: every owned field's organic\nstate, days toward certification, and lifetime\nbreach count. Read-only; adds no new tracking."), literalTitle = true, literalBody = true },
         { title = FT.l10n("ft_organic_help_later_title", "COMING LATER"),
           body  = FT.l10n("ft_organic_help_later_body", "Compost, livestock feed, and market premium sections\nstay stubs until those sims expose read APIs."), literalTitle = true, literalBody = true },
     }, true) then return end
@@ -474,6 +476,78 @@ FarmTabletUI:registerDrawer(FT.APP.ORGANIC, function(self)
             FT.l10n("ft_organic_sale_premium", "Sale premium: pending MDM contract"),
             RenderText.ALIGN_LEFT, FT.C.MUTED, true)
         y = y - FT.py(22)
+    end
+
+    ------------------------------------------------------------------
+    -- AUDIT (farm-wide rollup: every field's state, progress, lifetime breaches)
+    ------------------------------------------------------------------
+    y = self:drawRule(y, 0.3)
+    y = self:drawSection(y, FT.l10n("ft_organic_audit", "AUDIT"), true)
+    if organic == nil or type(organic.getFieldOrganicState) ~= "function" then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            FT.l10n("ft_organic_audit_na", "Organic audit not available on this Soil build."),
+            RenderText.ALIGN_LEFT, FT.C.MUTED, true)
+        y = y - FT.py(22)
+    elseif #fields == 0 then
+        self.r:appText(x, y - FT.py(4), FT.FONT.SMALL,
+            FT.l10n("ft_organic_no_fields", "No owned fields."), RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+        y = y - FT.py(22)
+    else
+        -- Pure aggregation over the same per-field reads CERTIFICATION/TRACEABILITY already
+        -- do; no new data, no new persisted state (OM-210).
+        local certifiedCount, involvedCount, totalBreaches = 0, 0, 0
+        for _, field in ipairs(fields) do
+            local st = _pcall(function() return organic:getFieldOrganicState(field.id) end)
+            local key = _stateKey(st)
+            local breaches = (st and tonumber(st.breaches)) or 0
+            if key == "certified" then certifiedCount = certifiedCount + 1 end
+            if key ~= "conventional" or breaches > 0 then involvedCount = involvedCount + 1 end
+            totalBreaches = totalBreaches + breaches
+        end
+
+        self.r:appText(x, y - FT.py(2), FT.FONT.SMALL,
+            FT.l10nFormat("ft_organic_audit_rollup_fmt",
+                "%d of %d organic fields currently certified, %d lifetime breaches across the farm",
+                certifiedCount, involvedCount, totalBreaches),
+            RenderText.ALIGN_LEFT, FT.C.TEXT_BRIGHT, true)
+        y = y - FT.py(18)
+
+        -- Every farm-owned field, including conventional ones with no organic history,
+        -- matching the enumeration CERTIFICATION and TRACEABILITY already use above.
+        for _, field in ipairs(fields) do
+            local st = _pcall(function() return organic:getFieldOrganicState(field.id) end)
+            local key = _stateKey(st)
+            local label = STATE_LABEL[key] or "Unknown"
+            local col = STATE_COLOR[key] or FT.C.MUTED
+            local breaches = (st and tonumber(st.breaches)) or 0
+
+            self.r:appText(x, y - FT.py(1), FT.FONT.TINY,
+                FT.l10nFormat("ft_organic_field_fmt", "Field #%s", tostring(field.id)),
+                RenderText.ALIGN_LEFT, FT.C.TEXT_NORMAL, true)
+            self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                label, RenderText.ALIGN_RIGHT, col)
+            y = y - FT.py(12)
+
+            local detail
+            if key == "in_transition" and st ~= nil then
+                local accrued = tonumber(st.daysAccrued) or 0
+                local need = tonumber(st.transitionDaysNeeded) or 0
+                local left = math.max(0, need - accrued)
+                detail = FT.l10nFormat("ft_organic_countdown_fmt", "%d / %d days  (%d left)",
+                    math.floor(accrued + 0.5), math.floor(need + 0.5), math.floor(left + 0.5))
+            elseif key == "certified" then
+                detail = FT.l10n("ft_organic_audit_certified_detail", "Fully certified")
+            else
+                detail = FT.l10n("ft_organic_not_in_programme", "Not in the organic programme")
+            end
+            self.r:appText(x, y - FT.py(1), FT.FONT.TINY, detail,
+                RenderText.ALIGN_LEFT, FT.C.TEXT_DIM, true)
+            self.r:appText(x + cw, y - FT.py(1), FT.FONT.TINY,
+                FT.l10nFormat("ft_organic_breaches_fmt", "Breaches: %d", breaches),
+                RenderText.ALIGN_RIGHT, breaches > 0 and FT.C.NEGATIVE or FT.C.TEXT_DIM, true)
+            y = y - FT.py(12)
+        end
+        y = y - FT.py(4)
     end
 
     y = self:drawSection(y, FT.l10n("ft_organic_market", "MARKET"), true)

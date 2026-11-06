@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Không có xe" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Không có xe trong phạm vi 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Chưa có công nhân. Hãy thuê từ bảng đội (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Chưa có công nhân. Hãy thuê từ bảng đội (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Chưa có công nhân. Mở thẻ THUÊ để tuyển người." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Không có xưởng ở trang trại này  (tắt sửa chữa)" />
         <text name="ft_auto_none" text="không có" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Lương nhân công và chi tiết chi phí" />
         <text name="ft_auto_workers" text="Công nhân" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Đang làm" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Đang làm việc" />
@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Trạng thái từng cánh đồng: thông thường, đang chuyển đổi hoặc&#10;đã chứng nhận, cùng đếm ngược chuyển đổi. THAM GIA /&#10;RÚT RA sẽ gửi yêu cầu tới Soil Fertilizer (ở đó chỉ admin)." />
         <text name="ft_organic_practices" text="CANH TÁC" />
         <text name="ft_organic_help_practices_body" text="Mẹo cây che phủ và luân canh dành cho hữu cơ,&#10;từ cùng dữ liệu đất với ứng dụng Soil Fertilizer." />
+        <text name="ft_organic_audit" text="KIỂM TRA" />
+        <text name="ft_organic_help_audit_body" text="Tổng quan toàn trang trại: trạng thái, số ngày còn&#10;lại để được chứng nhận và số lần vi phạm trọn đời&#10;của từng cánh đồng sở hữu. Chỉ xem; không có dỷ liệu mới." />
         <text name="ft_organic_help_later_title" text="SẮP CÓ" />
         <text name="ft_organic_help_later_body" text="Các mục phân ủ, thức ăn hữu cơ và phụ phí thị trường&#10;vẫn để trống đến khi các mô phỏng đó cho phép đọc." />
         <text name="ft_organic_subtitle" text="Quản lý" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Không có cánh đồng nào." />
         <text name="ft_organic_storage_fraction" text="Tỉ lệ hữu cơ trong kho" />
         <text name="ft_organic_sale_premium" text="Phụ phí bán: đang chờ hợp đồng MDM" />
+        <text name="ft_organic_audit_na" text="Phiên bản Soil này không có kiểm tra hữu cơ." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d trong số %d cánh đồng hữu cơ hiện đã được chứng nhận, %d lần vi phạm trọn đời trên toàn trang trại" />
+        <text name="ft_organic_audit_certified_detail" text="Đã được chứng nhận đầy đủ" />
         <text name="ft_organic_market" text="THỊ TRƯỜNG" />
         <text name="ft_organic_market_na" text="không có - đang chờ phụ phí hữu cơ / hợp đồng MDM" />
         <text name="ft_soilnut_urgent" text="KHẨN CẤP" />
@@ -3035,7 +3040,7 @@
         <text name="ft_wrk_help_wage_body" text="Đặt mức lương theo giờ cho công nhân đã thuê.&#10;Các mức Thấp / Trung bình / Cao được đặt trong&#10;tùy chọn của mod Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Quy định cách tính lương:&#10;Theo giờ = tính mỗi giờ trong game.&#10;Theo hecta = tính theo diện tích đã làm, quyết toán lúc nửa đêm." />
         <text name="ft_wrk_help_month_body" text="Tổng lương cộng dồn trong tháng này.&#10;Đặt lại sau khi trả lương tháng." />
-        <text name="ft_wrk_help_roster_body" text="Công nhân đã thuê cùng cấp bậc&#10;(Tập sự / Có kinh nghiệm / Bậc thầy), tổng giờ,&#10;số việc đã xong và thanh mệt mỏi hiện tại.&#10;Chế độ xem này chỉ đọc: thuê, sa thải và phân công&#10;công nhân từ bảng đội trong game (ALT+H)&#10;hoặc lệnh console của WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Công nhân đã thuê cùng cấp bậc&#10;(Tập sự / Có kinh nghiệm / Bậc thầy), tổng giờ,&#10;số việc đã xong và thanh mệt mỏi hiện tại.&#10;Chế độ xem này chỉ đọc: thuê, sa thải và phân công&#10;công nhân từ bảng đội trong game (%s)&#10;hoặc lệnh console của WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Đội do máy chủ quản lý: sẽ sớm đồng bộ." />
         <text name="ft_wrk_levels_fmt" text="%d TS / %d KN / %d BT" />

@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Нет техники" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Нет техники в радиусе 35 м." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Рабочих пока нет. Нанимайте в панели состава (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Рабочих пока нет. Нанимайте в панели состава (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Работников пока нет. Откройте вкладку НАНЯТЬ, чтобы набрать людей." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="На этой ферме нет мастерской  (ремонт отключён)" />
         <text name="ft_auto_none" text="нет" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Зарплаты рабочих и расходы" />
         <text name="ft_auto_workers" text="Работники" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="Работают" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="Сейчас работает" />
@@ -2917,6 +2917,8 @@
         <text name="ft_organic_help_cert_body" text="Статус каждого поля: традиционное, на переходе или&#10;сертифицировано, плюс отсчёт перехода. ВСТУПИТЬ /&#10;ВЫЙТИ отправляет запрос в Soil Fertilizer (там только для админов)." />
         <text name="ft_organic_practices" text="ПРАКТИКИ" />
         <text name="ft_organic_help_practices_body" text="Советы по покровным культурам и севообороту для органики,&#10;из тех же данных о почве, что и приложение Soil Fertilizer." />
+        <text name="ft_organic_audit" text="АУДИТ" />
+        <text name="ft_organic_help_audit_body" text="Сводка по всей ферме: состояние, дни до&#10;сертификации и нарушения за всё время для&#10;каждого своего поля. Только просмотр; новых данных нет." />
         <text name="ft_organic_help_later_title" text="ПОЗЖЕ" />
         <text name="ft_organic_help_later_body" text="Разделы компоста, органического корма и рыночной премии&#10;остаются заглушками, пока эти симуляции не дадут чтение." />
         <text name="ft_organic_subtitle" text="Управление" />
@@ -2956,6 +2958,9 @@
         <text name="ft_organic_no_fields" text="Своих полей нет." />
         <text name="ft_organic_storage_fraction" text="Органическая доля на складе" />
         <text name="ft_organic_sale_premium" text="Премия за продажу: ждёт контракта MDM" />
+        <text name="ft_organic_audit_na" text="Органический аудит недоступен в этой версии Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d из %d органических полей сейчас сертифицировано, %d нарушений за всё время по всей ферме" />
+        <text name="ft_organic_audit_certified_detail" text="Полностью сертифицировано" />
         <text name="ft_organic_market" text="РЫНОК" />
         <text name="ft_organic_market_na" text="недоступно - ждёт органической премии / контракта MDM" />
         <text name="ft_soilnut_urgent" text="СРОЧНО" />
@@ -3077,7 +3082,7 @@
         <text name="ft_wrk_help_wage_body" text="Задаёт почасовую ставку нанятых рабочих.&#10;Уровни Низкий / Средний / Высокий задаются&#10;в настройках мода Worker Costs." />
         <text name="ft_wrk_help_mode_body" text="Определяет расчёт зарплаты:&#10;Почасово = списывается каждый игровой час.&#10;За гектар = по обработанной площади, расчёт в полночь." />
         <text name="ft_wrk_help_month_body" text="Всего начислено зарплаты за месяц.&#10;Обнуляется после выплаты месячной зарплаты." />
-        <text name="ft_wrk_help_roster_body" text="Нанятые рабочие с их уровнем&#10;(Новичок / Опытный / Мастер), общими часами,&#10;выполненными работами и шкалой усталости.&#10;Этот экран только для чтения: нанимайте, увольняйте и назначайте&#10;рабочих в панели состава в игре (ALT+H)&#10;или консольными командами WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Нанятые рабочие с их уровнем&#10;(Новичок / Опытный / Мастер), общими часами,&#10;выполненными работами и шкалой усталости.&#10;Этот экран только для чтения: нанимайте, увольняйте и назначайте&#10;рабочих в панели состава в игре (%s)&#10;или консольными командами WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Составом управляет хост: скоро синхронизируется." />
         <text name="ft_wrk_levels_fmt" text="%dН / %dО / %dМ" />

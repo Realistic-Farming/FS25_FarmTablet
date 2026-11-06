@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="車両なし" />
         <text name="ft_auto_no_vehicles_owned" text="No vehicles owned." />
         <text name="ft_auto_no_vehicles_within_35_m" text="35m以内に車両がありません。" />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="作業員はまだいません。名簿パネルから雇用してください（ALT+H）。" />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="作業員はまだいません。名簿パネルから雇用してください（%s）。" />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="作業員がいません。「雇用」タブで採用してください。" />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="この農場には作業場がありません  (修理は無効)" />
         <text name="ft_auto_none" text="なし" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="作業員の賃金とコスト内訳" />
         <text name="ft_auto_workers" text="作業員" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="workers, and month-to-date costs.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="workers from the in-game roster panel (%s)&#10;" />
         <text name="ft_auto_working" text="作業中" />
         <text name="ft_auto_working_2" text="working" />
         <text name="ft_auto_working_now" text="現在作業中" />
@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="畑ごとの状態：慣行、転換中、認証済み、&#10;と転換のカウントダウン。「参加」/&#10;「離脱」はSoil Fertilizerに依頼します（そちらでは管理者のみ）。" />
         <text name="ft_organic_practices" text="栽培方法" />
         <text name="ft_organic_help_practices_body" text="有機向けのカバークロップと輪作のヒントです。&#10;Soil Fertilizerアプリと同じ土壌データを使います。" />
+        <text name="ft_organic_audit" text="監査" />
+        <text name="ft_organic_help_audit_body" text="農場全体の概要:所有する各畑の状態、認証までの&#10;日数、累計違反件数を表示します。表示のみで、&#10;新しいデータは追加しません。" />
         <text name="ft_organic_help_later_title" text="今後追加" />
         <text name="ft_organic_help_later_body" text="堆肥、有機飼料、市場プレミアムの項目は、&#10;それらのシミュレーションが読み取りを提供するまで空欄です。" />
         <text name="ft_organic_subtitle" text="管理" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="所有している畑がありません。" />
         <text name="ft_organic_storage_fraction" text="倉庫の有機の割合" />
         <text name="ft_organic_sale_premium" text="販売プレミアム：MDM契約待ち" />
+        <text name="ft_organic_audit_na" text="このバージョンのSoilでは有機監査を利用できません。" />
+        <text name="ft_organic_audit_rollup_fmt" text="有機畑 %d / %d 件が現在認証済み、農場全体の累計違反 %d 件" />
+        <text name="ft_organic_audit_certified_detail" text="完全に認証済み" />
         <text name="ft_organic_market" text="市場" />
         <text name="ft_organic_market_na" text="利用不可 - 有機プレミアム / MDM契約待ち" />
         <text name="ft_soilnut_urgent" text="緊急" />
@@ -3035,7 +3040,7 @@
         <text name="ft_wrk_help_wage_body" text="雇った作業員の時給を設定します。&#10;低 / 中 / 高 の段階は&#10;Worker Costs MOD の設定で決めます。" />
         <text name="ft_wrk_help_mode_body" text="賃金の計算方法を決めます：&#10;1時間ごと = ゲーム内の毎時に請求。&#10;ヘクタールごと = 作業した面積に応じて請求し、深夜0時に精算。" />
         <text name="ft_wrk_help_month_body" text="今月に累計された賃金の合計。&#10;月給の支払い後にリセットされます。" />
-        <text name="ft_wrk_help_roster_body" text="雇った作業員とそのレベル&#10;（初心者 / 経験者 / 達人）、累計時間、&#10;完了した作業、現在の疲労バー。&#10;この画面は閲覧専用です：雇用・解雇・割り当ては&#10;ゲーム内の名簿パネル（ALT+H）&#10;または WorkerCosts のコンソールコマンドで行います。" />
+        <text name="ft_wrk_help_roster_body" text="雇った作業員とそのレベル&#10;（初心者 / 経験者 / 達人）、累計時間、&#10;完了した作業、現在の疲労バー。&#10;この画面は閲覧専用です：雇用・解雇・割り当ては&#10;ゲーム内の名簿パネル（%s）&#10;または WorkerCosts のコンソールコマンドで行います。" />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="名簿はホストが管理しています：まもなく同期されます。" />
         <text name="ft_wrk_levels_fmt" text="初心者 %d / 経験者 %d / 達人 %d" />

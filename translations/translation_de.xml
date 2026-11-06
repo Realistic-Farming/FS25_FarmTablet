@@ -1485,7 +1485,7 @@
         <text name="ft_auto_no_vehicle" text="Kein Fahrzeug" />
         <text name="ft_auto_no_vehicles_owned" text="Kein Fahrzeuge im Besitz." />
         <text name="ft_auto_no_vehicles_within_35_m" text="Keine Fahrzeuge innerhalb von 35 m." />
-        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Noch keine Mitarbeiter. Stelle Mitarbeiter über das Bewerberportal ein (ALT+H)." />
+        <text name="ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h" text="Noch keine Mitarbeiter. Stelle Mitarbeiter über das Bewerberportal ein (%s)." />
         <text name="ft_auto_no_workers_yet_open_the_hire_tab_to_recruit" text="Noch keine Mitarbeiter. Öffne das Bewerberportal um Mitarbeiter einzustellen." />
         <text name="ft_auto_no_workshop_found_on_this_farm_repairs_disabled" text="Keine Werkstatt auf deinem Hof gefunden. Reperaturen wurden deaktiviert." />
         <text name="ft_auto_none" text="keine" />
@@ -2223,7 +2223,7 @@
         <text name="ft_auto_worker_wages_and_cost_breakdown" text="Löhne und Kostenaufstellung der Arbeiter" />
         <text name="ft_auto_workers" text="Arbeiter" />
         <text name="ft_auto_workers_and_month_to_date_costs" text="Arbeiter und bisherige Monatskosten.&#10;" />
-        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="Arbeiter aus der Ingame-Personalübersicht (ALT+H)&#10;" />
+        <text name="ft_auto_workers_from_the_in_game_roster_panel_alt_h" text="Arbeiter aus der Ingame-Personalübersicht (%s)&#10;" />
         <text name="ft_auto_working" text="Arbeitet" />
         <text name="ft_auto_working_2" text="arbeitet" />
         <text name="ft_auto_working_now" text="Aktuell aktiv" />
@@ -2876,6 +2876,8 @@
         <text name="ft_organic_help_cert_body" text="Status je Feld: Konventionell, In Umstellung oder&#10;Zertifiziert, dazu der Umstellungs-Countdown. TEILNEHMEN /&#10;AUSSTEIGEN fragt bei Soil Fertilizer an (dort nur für Admins)." />
         <text name="ft_organic_practices" text="ANBAUPRAXIS" />
         <text name="ft_organic_help_practices_body" text="Zwischenfrucht- und Fruchtfolge-Tipps für den Bio-Anbau,&#10;aus denselben Bodendaten wie die Soil-Fertilizer-App." />
+        <text name="ft_organic_audit" text="AUDIT" />
+        <text name="ft_organic_help_audit_body" text="Betriebsweiter Überblick: Zustand, Tage bis zur&#10;Zertifizierung und Verstöße auf Lebenszeit für&#10;jedes eigene Feld. Nur Anzeige; keine neuen Daten." />
         <text name="ft_organic_help_later_title" text="KOMMT SPÄTER" />
         <text name="ft_organic_help_later_body" text="Kompost, Bio-Futter und Marktprämie bleiben Platzhalter,&#10;bis diese Simulationen Lese-Schnittstellen bieten." />
         <text name="ft_organic_subtitle" text="Verwaltung" />
@@ -2915,6 +2917,9 @@
         <text name="ft_organic_no_fields" text="Keine eigenen Felder." />
         <text name="ft_organic_storage_fraction" text="Bio-Anteil im Lager" />
         <text name="ft_organic_sale_premium" text="Verkaufsprämie: MDM-Vertrag ausstehend" />
+        <text name="ft_organic_audit_na" text="Bio-Audit ist in dieser Soil-Version nicht verfügbar." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d von %d Bio-Feldern derzeit zertifiziert, %d Verstöße auf Lebenszeit im gesamten Hof" />
+        <text name="ft_organic_audit_certified_detail" text="Vollständig zertifiziert" />
         <text name="ft_organic_market" text="MARKT" />
         <text name="ft_organic_market_na" text="nicht verfügbar - wartet auf Bio-Prämie / MDM-Vertrag" />
         <text name="ft_soilnut_urgent" text="DRINGEND" />
@@ -3036,7 +3041,7 @@
         <text name="ft_wrk_help_wage_body" text="Legt den Stundenlohn für angestellte Mitarbeiter fest.&#10;Die Stufen Niedrig / Mittel / Hoch stellst du in&#10;den Optionen der Worker-Costs-Mod ein." />
         <text name="ft_wrk_help_mode_body" text="Legt fest, wie Löhne berechnet werden:&#10;Stündlich = jede Spielstunde abgerechnet.&#10;Pro Hektar = nach bearbeiteter Fläche, um Mitternacht abgerechnet." />
         <text name="ft_wrk_help_month_body" text="Die in diesem Monat aufgelaufenen Löhne.&#10;Wird nach der Monatslohnzahlung zurückgesetzt." />
-        <text name="ft_wrk_help_roster_body" text="Deine angestellten Mitarbeiter mit ihrer Stufe&#10;(Anfänger / Erfahren / Meister), Gesamtstunden,&#10;erledigten Aufträgen und aktueller Erschöpfung.&#10;Diese Ansicht ist schreibgeschützt: Einstellen, Entlassen und Zuweisen&#10;über das Bewerberportal im Spiel (ALT+H)&#10;oder die Konsolenbefehle von WorkerCosts." />
+        <text name="ft_wrk_help_roster_body" text="Deine angestellten Mitarbeiter mit ihrer Stufe&#10;(Anfänger / Erfahren / Meister), Gesamtstunden,&#10;erledigten Aufträgen und aktueller Erschöpfung.&#10;Diese Ansicht ist schreibgeschützt: Einstellen, Entlassen und Zuweisen&#10;über das Bewerberportal im Spiel (%s)&#10;oder die Konsolenbefehle von WorkerCosts." />
         <text name="ft_wrk_prostaff_fmt" text="PRO-STAFF  (%d)" />
         <text name="ft_wrk_roster_host" text="Das Team verwaltet der Host: wird bald synchronisiert." />
         <text name="ft_wrk_levels_fmt" text="%dA / %dE / %dM" />

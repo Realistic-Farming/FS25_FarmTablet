@@ -59,12 +59,13 @@ const DIR = join(ROOT, "translations");
 const KEYS = [
   "ft_auto_certified", "ft_auto_conventional", "ft_auto_crop", "ft_auto_in_transition",
   "ft_auto_install_fs25_soilfertilizer_to_use_this_app", "ft_organic_already_opted_in",
+  "ft_organic_audit", "ft_organic_audit_certified_detail", "ft_organic_audit_na", "ft_organic_audit_rollup_fmt",
   "ft_organic_barn_fmt", "ft_organic_batch_day_left_fmt", "ft_organic_batch_days_left_fmt",
   "ft_organic_batch_fmt", "ft_organic_batch_ready_fmt", "ft_organic_batch_safe", "ft_organic_batch_unsafe",
   "ft_organic_breaches_fmt", "ft_organic_cert_unavailable", "ft_organic_certification", "ft_organic_compost",
   "ft_organic_compost_na", "ft_organic_compost_none", "ft_organic_countdown_fmt", "ft_organic_elevated_risk",
   "ft_organic_feed_disease", "ft_organic_feed_share", "ft_organic_feed_tip", "ft_organic_field_fmt",
-  "ft_organic_help_cert_body", "ft_organic_help_later_body", "ft_organic_help_later_title",
+  "ft_organic_help_audit_body", "ft_organic_help_cert_body", "ft_organic_help_later_body", "ft_organic_help_later_title",
   "ft_organic_help_practices_body", "ft_organic_help_what_body", "ft_organic_herd_health",
   "ft_organic_livestock", "ft_organic_livestock_na", "ft_organic_market", "ft_organic_market_na",
   "ft_organic_mycotoxin", "ft_organic_no_barns", "ft_organic_no_fields", "ft_organic_no_fields_yet",
@@ -83,15 +84,22 @@ const ALLOW_ALL = {
 };
 // (locale, key) pairs whose text legitimately equals English, each with its reason.
 const ALLOW = {
+  "cz:ft_organic_audit": "AUDIT is the Czech word",
+  "de:ft_organic_audit": "AUDIT is the German word",
   "ea:ft_organic_compost": "COMPOST is the Spanish word",
   "es:ft_organic_compost": "COMPOST is the Spanish word",
   "fc:ft_organic_certification": "CERTIFICATION is the French word",
   "fc:ft_organic_compost": "COMPOST is the French word",
+  "fr:ft_organic_audit": "AUDIT is the French word",
   "fr:ft_organic_certification": "CERTIFICATION is the French word",
   "fr:ft_organic_compost": "COMPOST is the French word",
+  "id:ft_organic_audit": "AUDIT is the Indonesian word",
   "id:ft_organic_batch_fmt": "Batch is the Indonesian word",
+  "it:ft_organic_audit": "AUDIT is the Italian word",
   "it:ft_organic_compost": "COMPOST is the Italian word",
+  "nl:ft_organic_audit": "AUDIT is the Dutch word",
   "nl:ft_organic_compost": "COMPOST is the Dutch word",
+  "ro:ft_organic_audit": "AUDIT is the Romanian word",
   "ro:ft_organic_compost": "COMPOST is the Romanian word",
 };
 // (locale, key) pairs in a script locale whose text is written in Latin letters and differs from

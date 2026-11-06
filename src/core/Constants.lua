@@ -4,7 +4,23 @@
 -- =========================================================
 FT = FT or {}
 
-FT.VERSION = "2.6.0.24"   -- keep in sync with modDesc.xml <version>; shown in the tablet UI
+FT.VERSION = "2.7.0.0"   -- the fallback only: the tablet shows modDesc.xml's <version>, read just below
+
+-- MAINTENANCE row 236: the version the tablet shows is the mod's own modDesc <version>. The engine reads
+-- it into its mod manager before it sources any of the mod's scripts (mods.lua:430 and :961,
+-- ModManager.lua:16-27), keyed by the mod's name (getModByName, :89-91; the name latched by main.lua
+-- before this file). The hand-kept copy above drifted (2.6.0.6 shown on a 2.6.0.11 build) and stays only
+-- as the fallback when there is no record.
+do
+    local mod = nil
+    if g_modManager ~= nil and type(g_modManager.getModByName) == "function" and FarmTabletModName ~= nil then
+        local ok, found = pcall(g_modManager.getModByName, g_modManager, FarmTabletModName)
+        if ok then mod = found end
+    end
+    if type(mod) == "table" and type(mod.version) == "string" and mod.version ~= "" then
+        FT.VERSION = mod.version
+    end
+end
 
 -- TEMPORARY console command fee until the real repair station ships.
 FT.FORCE_REPAIR_FEE = 3000
@@ -1315,7 +1331,7 @@ FT.AUTO_L10N = FT.AUTO_L10N or {
     ["No vehicle"] = "ft_auto_no_vehicle",
     ["No vehicles owned."] = "ft_auto_no_vehicles_owned",
     ["No vehicles within 35 m."] = "ft_auto_no_vehicles_within_35_m",
-    ["No workers yet. Hire from the roster panel (ALT+H)."] = "ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h",
+    ["No workers yet. Hire from the roster panel (%s)."] = "ft_auto_no_workers_yet_hire_from_the_roster_panel_alt_h",
     ["No workers yet. Open the HIRE tab to recruit."] = "ft_auto_no_workers_yet_open_the_hire_tab_to_recruit",
     ["No workshop found on this farm  (repairs disabled)"] = "ft_auto_no_workshop_found_on_this_farm_repairs_disabled",
     ["none"] = "ft_auto_none",
@@ -2050,7 +2066,7 @@ FT.AUTO_L10N = FT.AUTO_L10N or {
     ["Worker wages and cost breakdown"] = "ft_auto_worker_wages_and_cost_breakdown",
     ["Workers"] = "ft_auto_workers",
     ["workers, and month-to-date costs.\n"] = "ft_auto_workers_and_month_to_date_costs",
-    ["workers from the in-game roster panel (ALT+H)\n"] = "ft_auto_workers_from_the_in_game_roster_panel_alt_h",
+    ["workers from the in-game roster panel (%s)\n"] = "ft_auto_workers_from_the_in_game_roster_panel_alt_h",
     ["Working"] = "ft_auto_working",
     ["working"] = "ft_auto_working_2",
     ["Working Now"] = "ft_auto_working_now",

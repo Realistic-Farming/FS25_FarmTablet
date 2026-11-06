@@ -13,6 +13,7 @@ local modDirectory = FarmTabletModDirectory
 local modName = FarmTabletModName
 
 -- Core
+source(modDirectory .. "src/utils/LiveKeyLabel.lua")
 source(modDirectory .. "src/core/Constants.lua")
 source(modDirectory .. "src/core/EventBus.lua")
 source(modDirectory .. "src/core/FarmTabletFocus.lua")
