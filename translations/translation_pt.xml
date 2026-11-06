@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Estado por campo: convencional, em conversão ou&#10;certificado, mais a contagem da conversão. ADERIR /&#10;SAIR pede ao Soil Fertilizer (lá só para admins)." />
         <text name="ft_organic_practices" text="PRÁTICAS" />
         <text name="ft_organic_help_practices_body" text="Conselhos de cobertura e rotação pensados para o biológico,&#10;com os mesmos dados de solo da aplicação Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDITORIA" />
+        <text name="ft_organic_help_audit_body" text="Resumo de toda a exploração: estado, dias até à&#10;certificação e infrações vitalícias de cada campo&#10;próprio. Apenas leitura; sem novos dados." />
         <text name="ft_organic_help_later_title" text="EM BREVE" />
         <text name="ft_organic_help_later_body" text="As secções de composto, ração biológica e prémio de mercado&#10;ficam vazias até esses sistemas disponibilizarem leitura." />
         <text name="ft_organic_subtitle" text="Gestão" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Sem campos próprios." />
         <text name="ft_organic_storage_fraction" text="Fração biológica no armazém" />
         <text name="ft_organic_sale_premium" text="Prémio de venda: contrato MDM pendente" />
+        <text name="ft_organic_audit_na" text="Auditoria biológica indisponível nesta versão do Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d de %d campos biológicos certificados atualmente, %d infrações vitalícias em toda a quinta" />
+        <text name="ft_organic_audit_certified_detail" text="Totalmente certificado" />
         <text name="ft_organic_market" text="MERCADO" />
         <text name="ft_organic_market_na" text="indisponível - à espera do prémio biológico / contrato MDM" />
         <text name="ft_soilnut_urgent" text="URGENTE" />

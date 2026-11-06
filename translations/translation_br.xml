@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Estado por campo: convencional, em transição ou&#10;certificado, mais a contagem da transição. ADERIR /&#10;SAIR pede ao Soil Fertilizer (lá só para admins)." />
         <text name="ft_organic_practices" text="PRÁTICAS" />
         <text name="ft_organic_help_practices_body" text="Dicas de cobertura e rotação pensadas para o orgânico,&#10;com os mesmos dados de solo do app Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDITORIA" />
+        <text name="ft_organic_help_audit_body" text="Resumo de toda a fazenda: estado, dias até a&#10;certificação e infrações vitalícias de cada campo&#10;próprio. Somente leitura; sem novos dados." />
         <text name="ft_organic_help_later_title" text="EM BREVE" />
         <text name="ft_organic_help_later_body" text="As seções de composto, ração orgânica e prêmio de mercado&#10;ficam vazias até esses sistemas oferecerem leitura." />
         <text name="ft_organic_subtitle" text="Gestão" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Nenhum campo próprio." />
         <text name="ft_organic_storage_fraction" text="Fração orgânica no armazém" />
         <text name="ft_organic_sale_premium" text="Prêmio de venda: contrato MDM pendente" />
+        <text name="ft_organic_audit_na" text="Auditoria orgânica indisponível nesta versão do Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d de %d campos orgânicos certificados atualmente, %d infrações vitalícias em toda a fazenda" />
+        <text name="ft_organic_audit_certified_detail" text="Totalmente certificado" />
         <text name="ft_organic_market" text="MERCADO" />
         <text name="ft_organic_market_na" text="indisponível - aguardando o prêmio orgânico / contrato MDM" />
         <text name="ft_soilnut_urgent" text="URGENTE" />

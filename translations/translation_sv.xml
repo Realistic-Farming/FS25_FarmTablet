@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Status per fält: konventionell, under omställning eller&#10;certifierad, plus nedräkningen för omställningen. ANSLUT /&#10;GÅ UR frågar Soil Fertilizer (där bara för admins)." />
         <text name="ft_organic_practices" text="ODLINGSPRAXIS" />
         <text name="ft_organic_help_practices_body" text="Råd om fånggrödor och växtföljd för ekologisk odling,&#10;från samma markdata som Soil Fertilizer-appen." />
+        <text name="ft_organic_audit" text="REVISION" />
+        <text name="ft_organic_help_audit_body" text="Översikt för hela gården: status, dagar till&#10;certifiering och överträdelser under hela tiden&#10;för varje eget fält. Endast visning; inga nya data." />
         <text name="ft_organic_help_later_title" text="KOMMER SENARE" />
         <text name="ft_organic_help_later_body" text="Kompost, ekologiskt foder och marknadspremie förblir&#10;platshållare tills de simuleringarna erbjuder läsning." />
         <text name="ft_organic_subtitle" text="Förvaltning" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Inga egna fält." />
         <text name="ft_organic_storage_fraction" text="Ekologisk andel i lagret" />
         <text name="ft_organic_sale_premium" text="Försäljningspremie: MDM-avtal väntar" />
+        <text name="ft_organic_audit_na" text="Ekologisk revision finns inte i den här Soil-versionen." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d av %d ekologiska fält är nu certifierade, %d överträdelser totalt på gården" />
+        <text name="ft_organic_audit_certified_detail" text="Fullt certifierad" />
         <text name="ft_organic_market" text="MARKNAD" />
         <text name="ft_organic_market_na" text="inte tillgängligt - väntar på ekopremie / MDM-avtal" />
         <text name="ft_soilnut_urgent" text="BRÅDSKANDE" />

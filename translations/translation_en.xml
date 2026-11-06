@@ -2863,6 +2863,8 @@
         <text name="ft_organic_help_cert_body" text="Per-field state: Conventional, In transition, or&#10;Certified, plus the transition countdown. OPT IN /&#10;OPT OUT asks Soil Fertilizer (admin-gated there)." />
         <text name="ft_organic_practices" text="PRACTICES" />
         <text name="ft_organic_help_practices_body" text="Cover-crop and rotation tips framed for organic,&#10;from the same soil data as the Soil Fertilizer app." />
+        <text name="ft_organic_audit" text="AUDIT" />
+        <text name="ft_organic_help_audit_body" text="Farm-wide rollup: every owned field's organic&#10;state, days toward certification, and lifetime&#10;breach count. Read-only; adds no new tracking." />
         <text name="ft_organic_help_later_title" text="COMING LATER" />
         <text name="ft_organic_help_later_body" text="Compost, livestock feed, and market premium sections&#10;stay stubs until those sims expose read APIs." />
         <text name="ft_organic_subtitle" text="Management" />
@@ -2902,6 +2904,9 @@
         <text name="ft_organic_no_fields" text="No owned fields." />
         <text name="ft_organic_storage_fraction" text="Storage organic fraction" />
         <text name="ft_organic_sale_premium" text="Sale premium: pending MDM contract" />
+        <text name="ft_organic_audit_na" text="Organic audit not available on this Soil build." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d of %d organic fields currently certified, %d lifetime breaches across the farm" />
+        <text name="ft_organic_audit_certified_detail" text="Fully certified" />
         <text name="ft_organic_market" text="MARKET" />
         <text name="ft_organic_market_na" text="not available - waiting on organic premium / MDM contract" />
         <text name="ft_soilnut_urgent" text="URGENT" />

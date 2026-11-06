@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Stan każdego pola: konwencjonalne, w konwersji lub&#10;certyfikowane, plus odliczanie konwersji. DOŁĄCZ /&#10;WYSTĄP prosi Soil Fertilizer (tam tylko dla adminów)." />
         <text name="ft_organic_practices" text="PRAKTYKI" />
         <text name="ft_organic_help_practices_body" text="Porady o międzyplonach i płodozmianie dla upraw ekologicznych,&#10;z tych samych danych o glebie co aplikacja Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDYT" />
+        <text name="ft_organic_help_audit_body" text="Przegląd całego gospodarstwa: stan, dni do&#10;certyfikacji i naruszenia w całej historii dla&#10;każdego własnego pola. Tylko podgląd; brak nowych danych." />
         <text name="ft_organic_help_later_title" text="WKRÓTCE" />
         <text name="ft_organic_help_later_body" text="Sekcje kompostu, paszy ekologicznej i premii rynkowej pozostają&#10;puste, dopóki te symulacje nie udostępnią odczytu." />
         <text name="ft_organic_subtitle" text="Zarządzanie" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Brak własnych pól." />
         <text name="ft_organic_storage_fraction" text="Udział ekologiczny w magazynie" />
         <text name="ft_organic_sale_premium" text="Premia za sprzedaż: umowa MDM w toku" />
+        <text name="ft_organic_audit_na" text="Audyt ekologiczny jest niedostępny w tej wersji Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d z %d pól ekologicznych obecnie certyfikowanych, %d naruszeń w całej historii gospodarstwa" />
+        <text name="ft_organic_audit_certified_detail" text="W pełni certyfikowane" />
         <text name="ft_organic_market" text="RYNEK" />
         <text name="ft_organic_market_na" text="niedostępne - czeka na premię ekologiczną / umowę MDM" />
         <text name="ft_soilnut_urgent" text="PILNE" />

@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Tarla başına durum: geleneksel, geçiş sürecinde ya da&#10;sertifikalı, artı geçiş geri sayımı. KATIL /&#10;AYRIL, Soil Fertilizer'a sorar (orada yalnızca yöneticiler)." />
         <text name="ft_organic_practices" text="UYGULAMALAR" />
         <text name="ft_organic_help_practices_body" text="Organiğe göre örtü bitkisi ve münavebe ipuçları,&#10;Soil Fertilizer uygulamasıyla aynı toprak verisinden." />
+        <text name="ft_organic_audit" text="DENETİM" />
+        <text name="ft_organic_help_audit_body" text="Tüm çiftlik için genel bakış: her kendi tarlanın&#10;durumu, sertifikaya kalan gün sayısı ve kalıcı&#10;ihlal sayısı. Salt okunur; yeni veri eklenmez." />
         <text name="ft_organic_help_later_title" text="YAKINDA" />
         <text name="ft_organic_help_later_body" text="Kompost, organik yem ve pazar primi bölümleri&#10;o simülasyonlar okuma sunana kadar boş kalır." />
         <text name="ft_organic_subtitle" text="Yönetim" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Sahip olunan tarla yok." />
         <text name="ft_organic_storage_fraction" text="Depodaki organik pay" />
         <text name="ft_organic_sale_premium" text="Satış primi: MDM sözleşmesi bekleniyor" />
+        <text name="ft_organic_audit_na" text="Bu Soil sürümünde organik denetim yok." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d / %d organik tarla şu anda sertifikalı, çiftlik genelinde toplam %d ihlal" />
+        <text name="ft_organic_audit_certified_detail" text="Tamamen sertifikalı" />
         <text name="ft_organic_market" text="PAZAR" />
         <text name="ft_organic_market_na" text="yok - organik prim / MDM sözleşmesi bekleniyor" />
         <text name="ft_soilnut_urgent" text="ACİL" />

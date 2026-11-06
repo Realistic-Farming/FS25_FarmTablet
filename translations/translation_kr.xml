@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="밭별 상태: 관행, 전환 중, 인증됨,&#10;그리고 전환 카운트다운. 참여 /&#10;탈퇴는 Soil Fertilizer에 요청합니다(그곳에서는 관리자 전용)." />
         <text name="ft_organic_practices" text="재배 방식" />
         <text name="ft_organic_help_practices_body" text="유기 재배에 맞춘 피복 작물과 윤작 팁입니다.&#10;Soil Fertilizer 앱과 같은 토양 데이터를 씁니다." />
+        <text name="ft_organic_audit" text="감사" />
+        <text name="ft_organic_help_audit_body" text="농장 전체 요약: 소유한 각 밭의 상태, 인증까지&#10;남은 일수, 누적 위반 횟수를 보여줍니다.&#10;읽기 전용이며 새로운 데이터는 추가되지 않습니다." />
         <text name="ft_organic_help_later_title" text="추후 추가" />
         <text name="ft_organic_help_later_body" text="퇴비, 유기 사료, 시장 프리미엄 항목은&#10;해당 시뮬레이션이 읽기를 제공할 때까지 비어 있습니다." />
         <text name="ft_organic_subtitle" text="관리" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="소유한 밭이 없습니다." />
         <text name="ft_organic_storage_fraction" text="창고의 유기 비율" />
         <text name="ft_organic_sale_premium" text="판매 프리미엄: MDM 계약 대기 중" />
+        <text name="ft_organic_audit_na" text="이 버전의 Soil에서는 유기농 감사 기능을 사용할 수 없습니다." />
+        <text name="ft_organic_audit_rollup_fmt" text="유기농 밭 %d/%d개 현재 인증됨, 농장 전체 누적 위반 %d회" />
+        <text name="ft_organic_audit_certified_detail" text="완전 인증됨" />
         <text name="ft_organic_market" text="시장" />
         <text name="ft_organic_market_na" text="사용 불가 - 유기 프리미엄 / MDM 계약 대기 중" />
         <text name="ft_soilnut_urgent" text="긴급" />

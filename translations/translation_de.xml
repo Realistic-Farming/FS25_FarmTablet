@@ -2876,6 +2876,8 @@
         <text name="ft_organic_help_cert_body" text="Status je Feld: Konventionell, In Umstellung oder&#10;Zertifiziert, dazu der Umstellungs-Countdown. TEILNEHMEN /&#10;AUSSTEIGEN fragt bei Soil Fertilizer an (dort nur für Admins)." />
         <text name="ft_organic_practices" text="ANBAUPRAXIS" />
         <text name="ft_organic_help_practices_body" text="Zwischenfrucht- und Fruchtfolge-Tipps für den Bio-Anbau,&#10;aus denselben Bodendaten wie die Soil-Fertilizer-App." />
+        <text name="ft_organic_audit" text="AUDIT" />
+        <text name="ft_organic_help_audit_body" text="Betriebsweiter Überblick: Zustand, Tage bis zur&#10;Zertifizierung und Verstöße auf Lebenszeit für&#10;jedes eigene Feld. Nur Anzeige; keine neuen Daten." />
         <text name="ft_organic_help_later_title" text="KOMMT SPÄTER" />
         <text name="ft_organic_help_later_body" text="Kompost, Bio-Futter und Marktprämie bleiben Platzhalter,&#10;bis diese Simulationen Lese-Schnittstellen bieten." />
         <text name="ft_organic_subtitle" text="Verwaltung" />
@@ -2915,6 +2917,9 @@
         <text name="ft_organic_no_fields" text="Keine eigenen Felder." />
         <text name="ft_organic_storage_fraction" text="Bio-Anteil im Lager" />
         <text name="ft_organic_sale_premium" text="Verkaufsprämie: MDM-Vertrag ausstehend" />
+        <text name="ft_organic_audit_na" text="Bio-Audit ist in dieser Soil-Version nicht verfügbar." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d von %d Bio-Feldern derzeit zertifiziert, %d Verstöße auf Lebenszeit im gesamten Hof" />
+        <text name="ft_organic_audit_certified_detail" text="Vollständig zertifiziert" />
         <text name="ft_organic_market" text="MARKT" />
         <text name="ft_organic_market_na" text="nicht verfügbar - wartet auf Bio-Prämie / MDM-Vertrag" />
         <text name="ft_soilnut_urgent" text="DRINGEND" />

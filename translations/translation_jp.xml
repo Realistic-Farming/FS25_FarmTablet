@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="畑ごとの状態：慣行、転換中、認証済み、&#10;と転換のカウントダウン。「参加」/&#10;「離脱」はSoil Fertilizerに依頼します（そちらでは管理者のみ）。" />
         <text name="ft_organic_practices" text="栽培方法" />
         <text name="ft_organic_help_practices_body" text="有機向けのカバークロップと輪作のヒントです。&#10;Soil Fertilizerアプリと同じ土壌データを使います。" />
+        <text name="ft_organic_audit" text="監査" />
+        <text name="ft_organic_help_audit_body" text="農場全体の概要:所有する各畑の状態、認証までの&#10;日数、累計違反件数を表示します。表示のみで、&#10;新しいデータは追加しません。" />
         <text name="ft_organic_help_later_title" text="今後追加" />
         <text name="ft_organic_help_later_body" text="堆肥、有機飼料、市場プレミアムの項目は、&#10;それらのシミュレーションが読み取りを提供するまで空欄です。" />
         <text name="ft_organic_subtitle" text="管理" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="所有している畑がありません。" />
         <text name="ft_organic_storage_fraction" text="倉庫の有機の割合" />
         <text name="ft_organic_sale_premium" text="販売プレミアム：MDM契約待ち" />
+        <text name="ft_organic_audit_na" text="このバージョンのSoilでは有機監査を利用できません。" />
+        <text name="ft_organic_audit_rollup_fmt" text="有機畑 %d / %d 件が現在認証済み、農場全体の累計違反 %d 件" />
+        <text name="ft_organic_audit_certified_detail" text="完全に認証済み" />
         <text name="ft_organic_market" text="市場" />
         <text name="ft_organic_market_na" text="利用不可 - 有機プレミアム / MDM契約待ち" />
         <text name="ft_soilnut_urgent" text="緊急" />

@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="État par champ : conventionnel, en conversion ou&#10;certifié, plus le compte à rebours de conversion. ADHÉRER /&#10;SE RETIRER passe par Soil Fertilizer (réservé aux admins là-bas)." />
         <text name="ft_organic_practices" text="PRATIQUES" />
         <text name="ft_organic_help_practices_body" text="Conseils de couverts et de rotation pensés pour le bio,&#10;à partir des mêmes données de sol que l'appli Soil Fertilizer." />
+        <text name="ft_organic_audit" text="审计" />
+        <text name="ft_organic_help_audit_body" text="全农场总览:每块自有田地的状态、距离认证的&#10;天数,以及累计违规次数。&#10;仅供查看,不新增任何数据。" />
         <text name="ft_organic_help_later_title" text="BIENTÔT" />
         <text name="ft_organic_help_later_body" text="Les sections compost, alimentation bio et prime de marché&#10;restent vides tant que ces simulations n'offrent pas de lecture." />
         <text name="ft_organic_subtitle" text="Gestion" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Aucun champ possédé." />
         <text name="ft_organic_storage_fraction" text="Part bio du stockage" />
         <text name="ft_organic_sale_premium" text="Prime de vente : contrat MDM en attente" />
+        <text name="ft_organic_audit_na" text="此版本的 Soil 不提供有机审计。" />
+        <text name="ft_organic_audit_rollup_fmt" text="有机田地 %d / %d 块目前已认证,全农场累计违规 %d 次" />
+        <text name="ft_organic_audit_certified_detail" text="已完全认证" />
         <text name="ft_organic_market" text="MARCHÉ" />
         <text name="ft_organic_market_na" text="indisponible - en attente de la prime bio / du contrat MDM" />
         <text name="ft_soilnut_urgent" text="URGENT" />

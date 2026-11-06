@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Trạng thái từng cánh đồng: thông thường, đang chuyển đổi hoặc&#10;đã chứng nhận, cùng đếm ngược chuyển đổi. THAM GIA /&#10;RÚT RA sẽ gửi yêu cầu tới Soil Fertilizer (ở đó chỉ admin)." />
         <text name="ft_organic_practices" text="CANH TÁC" />
         <text name="ft_organic_help_practices_body" text="Mẹo cây che phủ và luân canh dành cho hữu cơ,&#10;từ cùng dữ liệu đất với ứng dụng Soil Fertilizer." />
+        <text name="ft_organic_audit" text="KIỂM TRA" />
+        <text name="ft_organic_help_audit_body" text="Tổng quan toàn trang trại: trạng thái, số ngày còn&#10;lại để được chứng nhận và số lần vi phạm trọn đời&#10;của từng cánh đồng sở hữu. Chỉ xem; không có dỷ liệu mới." />
         <text name="ft_organic_help_later_title" text="SẮP CÓ" />
         <text name="ft_organic_help_later_body" text="Các mục phân ủ, thức ăn hữu cơ và phụ phí thị trường&#10;vẫn để trống đến khi các mô phỏng đó cho phép đọc." />
         <text name="ft_organic_subtitle" text="Quản lý" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Không có cánh đồng nào." />
         <text name="ft_organic_storage_fraction" text="Tỉ lệ hữu cơ trong kho" />
         <text name="ft_organic_sale_premium" text="Phụ phí bán: đang chờ hợp đồng MDM" />
+        <text name="ft_organic_audit_na" text="Phiên bản Soil này không có kiểm tra hữu cơ." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d trong số %d cánh đồng hữu cơ hiện đã được chứng nhận, %d lần vi phạm trọn đời trên toàn trang trại" />
+        <text name="ft_organic_audit_certified_detail" text="Đã được chứng nhận đầy đủ" />
         <text name="ft_organic_market" text="THỊ TRƯỜNG" />
         <text name="ft_organic_market_na" text="không có - đang chờ phụ phí hữu cơ / hợp đồng MDM" />
         <text name="ft_soilnut_urgent" text="KHẨN CẤP" />

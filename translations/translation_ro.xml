@@ -2875,6 +2875,8 @@
         <text name="ft_organic_help_cert_body" text="Starea fiecărui câmp: convențional, în conversie sau&#10;certificat, plus numărătoarea conversiei. ÎNSCRIE /&#10;RETRAGE cere la Soil Fertilizer (acolo doar pentru admini)." />
         <text name="ft_organic_practices" text="PRACTICI" />
         <text name="ft_organic_help_practices_body" text="Sfaturi de culturi de acoperire și rotație pentru ecologic,&#10;din aceleași date de sol ca aplicația Soil Fertilizer." />
+        <text name="ft_organic_audit" text="AUDIT" />
+        <text name="ft_organic_help_audit_body" text="Imagine de ansamblu pentru întreaga fermă: stare,&#10;zile până la certificare și încălcări pe durata de&#10;viață pentru fiecare câmp propriu. Doar vizualizare." />
         <text name="ft_organic_help_later_title" text="ÎN CURÂND" />
         <text name="ft_organic_help_later_body" text="Secțiunile de compost, furaj ecologic și primă de piață rămân&#10;goale până când acele simulări oferă citire." />
         <text name="ft_organic_subtitle" text="Administrare" />
@@ -2914,6 +2916,9 @@
         <text name="ft_organic_no_fields" text="Nu deții câmpuri." />
         <text name="ft_organic_storage_fraction" text="Fracția ecologică din depozit" />
         <text name="ft_organic_sale_premium" text="Primă de vânzare: contract MDM în așteptare" />
+        <text name="ft_organic_audit_na" text="Auditul ecologic nu e disponibil în această versiune Soil." />
+        <text name="ft_organic_audit_rollup_fmt" text="%d din %d câmpuri ecologice certificate în prezent, %d încălcări pe durata de viață pe toată ferma" />
+        <text name="ft_organic_audit_certified_detail" text="Complet certificat" />
         <text name="ft_organic_market" text="PIAȚĂ" />
         <text name="ft_organic_market_na" text="indisponibil - se așteaptă prima ecologică / contractul MDM" />
         <text name="ft_soilnut_urgent" text="URGENT" />
