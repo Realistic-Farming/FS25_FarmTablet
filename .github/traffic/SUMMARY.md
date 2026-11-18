@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-11-17T18:14:42Z
-**Days tracked:** 169 | **Download snapshots:** 1030 (hourly)
+**Last updated:** 2026-11-18T18:41:36Z
+**Days tracked:** 170 | **Download snapshots:** 1031 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 454 | 242 |
-| Git Clones | 342 | 138 |
+| Page Views | 428 | 227 |
+| Git Clones | 343 | 143 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 1805 of 242 visitors cloned or downloaded (**745.8%**)
+> **14-day conversion:** 1813 of 227 visitors cloned or downloaded (**798.6%**)
 >
-> Unique cloners: 138 | Release downloads: 1667
+> Unique cloners: 143 | Release downloads: 1670
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 1667 |
-| Git Clones (14-day) | 342 |
-| **Total Acquisitions** | **2009** |
+| Zip Downloads | 1670 |
+| Git Clones (14-day) | 343 |
+| **Total Acquisitions** | **2013** |
 
 ---
 
@@ -54,11 +54,11 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 78 | 56 |
+| github.com | 78 | 55 |
 | aocr.org | 69 | 69 |
-| Google | 46 | 39 |
-| realisticfarming.com | 12 | 11 |
-| Bing | 5 | 5 |
+| Google | 45 | 38 |
+| realisticfarming.com | 11 | 10 |
+| Bing | 4 | 4 |
 | DuckDuckGo | 3 | 2 |
 | search.brave.com | 2 | 1 |
 | Yahoo | 1 | 1 |
@@ -83,11 +83,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_FarmTablet` | 208 | 113 |
-| `/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.7.0.0` | 40 | 35 |
-| `/Realistic-Farming/FS25_FarmTablet/releases` | 32 | 30 |
-| `/Realistic-Farming/FS25_FarmTablet/issues` | 15 | 15 |
+| `/Realistic-Farming/FS25_FarmTablet` | 202 | 110 |
+| `/Realistic-Farming/FS25_FarmTablet/releases/tag/v2.7.0.0` | 37 | 34 |
+| `/Realistic-Farming/FS25_FarmTablet/releases` | 31 | 30 |
 | `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-home.png` | 14 | 12 |
+| `/Realistic-Farming/FS25_FarmTablet/issues` | 13 | 13 |
 | `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-lockscreen.png` | 11 | 9 |
 | `/Realistic-Farming/FS25_FarmTablet/issues/35` | 10 | 10 |
 | `/Realistic-Farming/FS25_FarmTablet/blob/main/.github/images/ft-dashboard.png` | 10 | 9 |
